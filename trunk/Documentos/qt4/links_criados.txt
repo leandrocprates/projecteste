@@ -1,0 +1,23 @@
+
+cd usr/lib : 
+
+comandos : 
+
+sudo ln -s  libgobject-2.0.so.0   libgobject-2.0.so 
+
+sudo ln -s  libSM.so.6  libSM.so
+
+sudo ln -s  libICE.so.6 libICE.so
+
+sudo ln -s  libXrender.so.1 libXrender.so
+
+sudo ln -s  libfontconfig.so.1  libfontconfig.so
+
+sudo ln -s  libXext.so.6  libXext.so
+
+sudo ln -s  libX11.so.6  libX11.so
+
+sudo ln -s  libgthread-2.0.so.0  libgthread-2.0.so
+
+sudo ln -s   libglib-2.0.so.0  libglib-2.0.so
+

@@ -1,0 +1,738 @@
+/* General */
+
+html,body {
+background-color: #fff;
+}
+
+body #header-09 *, body #header-09 #nav *, body #header-09 #header *, body #header-09 #subnav *, body #header-09 #search-box *, body #footer-09 * {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+font-family: inherit;
+vertical-align: baseline;
+vertical-align: baseline;
+background: transparent;
+text-decoration: none;
+font-family: Verdana, Helvetica, sans-serif;
+height: auto;
+width: auto;
+}
+
+a {
+color: #1010DD;
+text-decoration: none;
+}
+
+a:visited {
+color: #551A8B;
+}
+
+p strong {
+font-weight: bold;
+}
+
+body #page {
+width: 990px;
+margin: 10px auto;
+border: none;
+}
+
+
+/* Navs and Header */
+
+#header-09 {
+margin-top: 10px;
+}
+
+#header-09 .accessibility-links {
+display: none;
+}
+
+#header-09 #navbar {
+font-size: 11px;
+background-color: #fff;
+width: 992px;
+background-image: url(http://oreilly.com/images/oreilly/888-line.gif); 
+background-repeat: repeat-x;
+background-position: bottom right;
+float: left;
+}
+
+#header-09 #navbar a {
+color: #333;
+display: block;
+padding: 3px 5px;
+}
+
+#header-09 #navbar a:hover {
+text-decoration: none;
+}
+
+#header-09 #navbar a:visited, #header-09 #subnav a:visited {
+color: #333;
+}
+
+#header-09 #nav ul li a {
+border: none;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+float:none;
+}
+
+#header-09 #nav li {
+background-color: #eee;
+border: 1px solid #888;
+border-left: none;
+float: left;
+list-style: none;
+position: relative;
+line-height: 15px;
+}
+
+#header-09 #nav li ul {
+position: absolute; 
+top: 10px;
+display: none;
+border-bottom: 1px solid #888;
+border-right: 1px solid #888;
+z-index: 10;
+}
+
+#header-09 #nav li > ul {
+top: auto;
+}
+
+#header-09 #nav li:hover ul, #header-09 #nav li.over ul {
+display: block;
+}
+
+#header-09 #nav li ul li {
+width: 156px;
+border: 1px solid #888;
+border-bottom: none;
+border-right: none;
+z-index: 10;
+position: relative;
+}
+
+#header-09 #nav li ul > li {
+width: 100%;
+}
+
+#header-09 #navbar li a:hover {
+text-decoration: none;
+}
+
+#header-09 #nav ul li a:hover {
+text-decoration: none;
+background-color: #fff;
+z-index: 10;
+position: relative;
+}
+
+#header-09 #nav li:hover ul, #header-09 #nav li.over ul{ 
+display: block; 
+left: -1px;
+}
+
+#header-09 #nav li.selected {
+background-color: #fff;
+border-bottom: 1px solid #fff;
+}
+
+/*#header-09 #nav li.selected:hover ul, #header-09 #nav li.selected.over ul{
+display: none;
+}*/
+
+#header-09 #nav li#home {
+border-left: 1px solid #888;
+}
+
+#header-09 #navbar #account-actions {
+float: right;
+list-style: none;
+height: 17px;
+}
+
+#header-09 #navbar #account-actions a {
+padding: 0;
+}
+
+#header-09 #navbar ul#account-actions li {
+float:left;
+font-size:0;
+text-indent:-9999px;
+display: block;
+height: 17px;
+}
+
+#header-09 #navbar a.sign {
+width:54px;
+height: 17px;
+background:url(http://oreilly.com/images/oreilly/button_sign.gif) no-repeat 0 0;
+}
+
+#header-09 #navbar a.signout {
+width:65px;
+height: 17px;
+background:url(http://oreilly.com/images/oreilly/button_signout.gif) no-repeat 0 0;
+}
+
+#header-09 #navbar a.acct {
+width:86px;
+height: 17px;
+background:url(http://oreilly.com/images/oreilly/button_acct.gif) no-repeat 0 0;
+}
+
+#header-09 #navbar a.cart {
+width: 100px;
+height: 17px;
+background:url(http://oreilly.com/images/oreilly/button_cart.gif) no-repeat 0 0;
+}
+
+#header-09 #navbar a.sign:hover, #header-09 #navbar a.acct:hover, #header-09 #navbar a.cart:hover, #header-09 #navbar a.help:hover {
+background-position: 0 -22px;
+}
+
+#header-09 #header {
+border-left: 1px solid #888;
+border-right: 1px solid #888;
+font-size: 10px;
+clear: left;
+height: 80px;
+position: relative;
+width: 990px;
+}
+
+#home #header-09 #header {
+height: 88px;
+}
+
+#header-09 #header #animal {
+background:transparent url(http://oreilly.com/images/oreilly/tarsier.gif) no-repeat scroll 0 0;
+float: left;
+font-size:0;
+height: 88px;
+width: 111px;
+z-index: 0;
+left: 20px;
+margin: 0;
+padding: 0;
+position: absolute;
+text-indent: -9999px;
+}
+
+#community #header-09 #header, #store #header-09 #header, #answers #header-09 #header, #events #header-09 #header, #webcasts #header-09 #header, #authors #header-09 #header, #ug #header-09 #header, #news #header-09 #header, #conferences #header-09 #header, #search #header-09 #header, #about #header-09 #header, #training #header-09 #header, #pt-actionscript #header-09 #header, #pt-ajax #header-09 #header, #pt-apache #header-09 #header, #pt-csharp #header-09 #header, #pt-css #header-09 #header, #pt-flex #header-09 #header, #pt-iphone #header-09 #header, #pt-java #header-09 #header, #pt-javascript #header-09 #header, #pt-linux #header-09 #header, #pt-mysql #header-09 #header, #pt-opensource #header-09 #header, #pt-perl #header-09 #header, #pt-php #header-09 #header, #pt-photoshop #header-09 #header, #pt-python #header-09 #header, #pt-ruby #header-09 #header, #pt-web2 #header-09 #header, #pt-windows #header-09 #header, #pt-xml #header-09 #header, #labs #header-09 #header, #expertnetwork #header-09 #header {
+height: 80px;
+}
+#macdev #header-09 #header {
+height:88px;
+}
+
+#header-09 #header #main-logo {
+background: transparent url(http://oreilly.com/images/oreilly/front-logo.gif) no-repeat scroll center center;
+float: left;
+font-size: 0;
+padding: 0;
+width: 262px;
+height: 88px;
+position: absolute;
+left: 300px;
+text-indent: -9999px;
+z-index: 0;
+}
+
+#header-09 #header #logo {
+background: transparent url(http://oreilly.com/images/oreilly/oreilly.gif) no-repeat scroll center center;
+float: left;
+font-size: 0;
+padding: 0;
+width: 228px;
+height: 67px;
+position: absolute;
+left: 10px;
+top:4px;
+text-indent: -9999px;
+z-index: 0;
+}
+
+#account #header-09 h1 {
+background: transparent url(http://oreilly.com/images/oreilly/oreilly-myaccount-header.png) no-repeat scroll 0 0;
+width: 370px;
+height:80px;
+}
+
+#header-09 #header #tagline {
+   bottom:16px;
+   color:#888888;
+   font-size:12px;
+   left:270px;
+   position:absolute;
+   width:390px;
+}
+
+#store #header-09 #tagline, #ug #header-09 #tagline, #about #header-09 #tagline, #pt-actionscript #header-09 #tagline, #pt-css #header-09 #tagline, #pt-opensource #header-09 #tagline, #pt-photoshop #header-09 #tagline {
+   left:370px;
+   font-size:12px;
+}
+
+#events #header-09 #tagline {
+   left:240px;
+   font-size:12px;
+}
+
+#pt-javascript #header-09 #tagline {
+   left:300px;
+   font-size:12px;
+}
+
+#header-09 h1 {
+   float: left;
+   font-size: 0;
+   margin: 0;
+   padding: 0;
+   position: absolute;
+   left: 0;
+   top: 0;
+   text-indent: -9999px;
+   z-index: 0;
+}
+
+#answers #header-09 h1 {
+   background: transparent url(http://cdn.oreilly.com/images/oreilly/answers_logo_beta.gif) no-repeat scroll 0 0;
+   width: 237px;
+   height: 70px;
+   top: 10px;
+}
+
+#conferences #header-09 h1 {
+background:transparent url(http://cdn.oreilly.com/images/oreilly/oreilly-conferences-header.png) no-repeat scroll 0 0;
+height:80px;
+width:370px;
+}
+
+#store #header-09 h1 {
+   background: transparent url(http://cdn.oreilly.com/images/oreilly/oreilly-books-videos-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#community #header-09 h1, #authors #header-09 h1, #expertnetwork #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-community-header.png) no-repeat scroll 0 0;
+   width: 504px;
+   height:80px;
+}
+
+#events #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-events2-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#webcasts #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-webcasts-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#ug #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-ug-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#news #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-news-header.png) no-repeat scroll 0 0;
+   width: 468px;
+   height:80px;
+}
+
+#training #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-training-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#about #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-about-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#search #header-09 #animal {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-search-coati.png) no-repeat scroll 0 0;
+   width: 151px;
+   left: 590px;
+   height: 80px;
+}
+
+#pt-actionscript #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-actionscript-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#pt-apache #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-apache-header.png) no-repeat scroll 0 0;
+   width: 248px;
+   height:80px;
+}
+
+#pt-ajax #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-ajax-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-csharp #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-csharp-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-css #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-css-header.png) no-repeat scroll 0 0;
+   width: 317px;
+   height:80px;
+}
+
+#pt-flex #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-flex-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-iphone #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-iphone-header.png) no-repeat scroll 0 0;
+   width: 307px;
+   height:80px;
+}
+
+#pt-java #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-java-header.png) no-repeat scroll 0 0;
+   width: 177px;
+   height:80px;
+}
+
+#pt-javascript #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-javascript-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#pt-linux #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-linux-header.png) no-repeat scroll 0 0;
+   width: 203px;
+   height:80px;
+}
+
+#pt-mysql #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-mysql-header.png) no-repeat scroll 0 0;
+   width: 223px;
+   height:80px;
+}
+
+#pt-opensource #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-opensource-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#pt-perl #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-perl-header.png) no-repeat scroll 0 0;
+   width: 170px;
+   height:80px;
+}
+
+#pt-php #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-php-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-photoshop #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-photoshop-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#pt-python #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-python-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-ruby #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-ruby-header.png) no-repeat scroll 0 0;
+   width: 370px;
+   height:80px;
+}
+
+#pt-web2 #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-web2-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#pt-windows #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-windows-header.png) no-repeat scroll 0 0;
+   width: 261px;
+   height:80px;
+}
+
+#pt-xml #header-09 h1 {
+   background: transparent url(http://oreilly.com/images/oreilly/oreilly-xml-header.png) no-repeat scroll 0 0;
+   width: 308px;
+   height:80px;
+}
+
+#w-h #header-09 h1 {
+background: transparent url(http://cdn.oreilly.com/images/oreilly/oreilly-the-watering-hole-header.png) no-repeat scroll 0 0;
+width: 415px;
+height:80px;
+}
+
+#labs #header-09 h1 {
+background: transparent url(http://cdn.oreilly.com/images/oreilly/oreilly-labs-header.png) no-repeat scroll 0 0;
+width: 308px;
+height:80px;
+}
+
+#school #header-09 h1 {
+background: transparent url(http://cdn.oreilly.com/images/oreilly/oreilly-school-header.gif) no-repeat scroll 0 0;
+width: 409px;
+height: 80px;
+}
+#macdev #header-09 h1 {
+background: transparent url(http://macdevcenter.com/mac/graphics/macdevcenter_logo.gif) no-repeat scroll 0 0;
+width:202px;
+height:88px;
+}
+
+#header-09 div#search-box {
+border: 1px solid #888;
+width: 213px;
+float: left;
+position: absolute;
+/*top: 32px;*/
+bottom: 17px;
+right: 18px;
+padding: 3px;
+}
+
+#header-09 div#search-box #search-form {
+width: auto;
+}
+
+#header-09 #search-box #search-field {
+border: 1px solid #ccc;
+border-top: 1px solid #888;
+}
+
+#header-09 #search-box fieldset, #header-09 #header-09 #search-box form, #header-09 #search-box input {
+margin: 0;
+padding: 0;
+}
+
+#header-09 #search-box input.button {
+background:#990000 none repeat scroll 0 0;
+border:medium none;
+color:#FFFFFF;
+font-family:Helvetica;
+font-size:10px;
+line-height:100%;
+letter-spacing:0.25px;
+padding: 3px 3px 2px;
+height: 20px;
+width: 55px;
+margin: 1px 0 0 3px;
+cursor: pointer;
+}
+
+#header-09 #search-box input#q {
+/* height:13px; */
+padding:4px;
+width:140px;
+}
+
+#header-09 #search-field {
+float: left;
+position: relative;
+left: 0;
+top: 0;
+}
+
+#header-09 #search-button {
+float: left;
+position: relative;
+top: 0;
+margin: 0 0 0 2px;
+}
+
+#header-09 #search-box #autocomplete {
+clear: both;
+left:0;
+position:relative;
+text-align:left;
+top:0;
+width:200px;
+}
+
+#header-09 #search-box #autocomplete li {
+background: #FFFFFF none repeat scroll 0 0;
+cursor: default;
+margin: 0;
+padding: 3px;
+white-space: nowrap;
+float:none;
+text-indent:0;
+font-size:100%;
+line-height:100%;
+display:block;
+width:200px;
+}
+
+#header-09 #search-box #autocomplete li.yui-ac-highlight {
+background:#BBBBBB none repeat scroll 0 0;
+}
+
+#header-09 #search-box #autocomplete .yui-ac-content {
+background:#FFFFFF none repeat scroll 0 0;
+border:1px solid gray;
+}
+
+/* styles for search autocomplete */
+.yui-skin-sam .yui-ac {
+    position:relative;font-family:arial;font-size:100%;
+}
+.yui-skin-sam .yui-ac-input {
+    width:20em;
+}
+.yui-skin-sam .yui-ac-container {
+    top:1.6em;width:20em;
+}
+.yui-skin-sam .yui-ac-content {
+    position:absolute;width:20em;border:1px solid #808080;background-color:#fff;overflow:hidden;z-index:9050;
+}
+.yui-skin-sam .yui-ac-shadow {
+    position:absolute;margin:.3em;width:100%;background:#000;-moz-opacity: 0.10;opacity:.10;filter:alpha(opacity=10);z-index:9049;
+}
+.yui-skin-sam .yui-ac-content ul{
+    margin:0;padding:0;width:20em;
+}
+.yui-skin-sam .yui-ac-content li {
+    margin:0;padding:2px 5px;cursor:default;white-space:nowrap;
+}
+.yui-skin-sam .yui-ac-content li.yui-ac-prehighlight {
+    background:#B3D4FF;
+}
+.yui-skin-sam .yui-ac-content li.yui-ac-highlight {
+    background:#0000FF;color:#FFF;
+}
+
+#header-09 .clear {
+clear:left;
+}
+
+#header-09 #subnav {
+background-color: #fff;
+border: 1px solid #888;
+border-bottom: none;
+clear: left;
+color: #888;
+font-size: 11px;
+height:21px;
+line-height:21px;
+width: 990px;
+}
+
+#header-09 .main #subnav {
+}
+
+#header-09 #subnav li a {
+color: #333;
+display: block;
+padding: 0 7px;
+}
+
+#header-09 #subnav .right {
+float:right;
+padding-right:7px;
+}
+
+#subnav ul li + li a {
+border-left: none;
+}
+
+#header-09 #subnav li {
+list-style: none;
+float: left;
+border-right: 1px solid #888;
+}
+
+#header-09 #subnav li a:hover {
+background-color: #eee;
+text-decoration: none;
+}
+
+#answers #header-09 #subnav li a:hover {
+background-color: #fff;
+text-decoration: underline;
+}
+
+#header-09 #subnav a.selected {
+background-color: #eee;
+}
+
+#header-09 #subnav ul {
+float: left;
+display: inline;
+clear: none;
+}
+
+#header-09 #subnav .make-sites {
+float: right;
+padding-right: 10px;
+}
+
+#header-09 #subnav .make-sites li {
+background-color: #fff;
+border: none;
+}
+
+#header-09 #subnav .make-sites a {
+padding: 0 2px;
+}
+
+#header-09 #subnav .make-sites a:hover {
+background-color: #fff;
+text-decoration: none;
+}
+
+/* Content */
+
+#content-09 {
+border: 1px solid #888;
+border-bottom: none;
+clear: both;
+float: left;
+width: 990px;
+} 
+
+/* New Footer */
+
+#footer-09 {
+border: 1px solid #888;
+clear:both;
+float:left;
+margin-bottom:10px;
+padding:11px 0 22px;
+width:990px;
+}
+
+#footer-09 table td {
+vertical-align: top;
+}

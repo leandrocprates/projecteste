@@ -1,0 +1,397 @@
+/*
+  * MediaWiki:Monobook.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Cologneblue.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Monobook.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Myskin.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Nostalgia.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Standard.css
+  * http://pt.wikipedia.org/wiki/MediaWiki:Common.css
+  */
+
+/* <pre><nowiki> */
+
+ @import "/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=2678400";
+
+ #siteNotice { padding-left: 4px; } /* MW:Sitenotice */
+ #fundraising { font-style: italic; } /* MW:Sitenotice (manual) */
+
+ #siteSub {
+    display: inline;
+    font-size: 90%;
+    font-weight: normal;
+ }
+ #bodyContent #siteSub a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    padding-right: 0;
+ }
+
+ /* lista de caracteres especiais funciona melhor sem sublinhado */
+ #editpage-specialchars a { text-decoration: none; }
+ #editpage-specialchars a:hover { text-decoration: underline; }
+
+ /* Icon no link "minha discussão" */
+ li#pt-mytalk {
+    background: url('/skins/monobook/discussionitem_icon.gif') top left no-repeat;
+    padding-left: 20px;
+ }
+ #pt-login {
+   font-weight: bold;
+   font-size: 110%;
+ }
+
+  /* Remover padding de plainlinks (mb main) */
+ #bodyContent .plainlinks a {
+   padding: 0 !important
+ }
+
+
+li.FA {
+  list-style-image: url("http://upload.wikimedia.org/wikipedia/en/d/d4/Monobook-bullet-star.png");
+}
+
+ /*
+== Cor de fundo das páginas ==
+ */
+/* Make all non-namespace pages have a light blue content area. This is done by
+        setting the background color for all #content areas to light blue and then
+        overriding it for any #content enclosed in a .ns-0 (main namespace). I then
+        do the same for the "tab" background colors. --Lupo */
+
+#content,
+#mytabs li.selected a,
+#p-cactions li.selected a,
+#mytabs li a,
+#p-cactions li a,
+#p-cactions li a:hover {
+  background-color: #F8FCFF; /* alternativa: #F3F3FF */
+}
+.ns-0 #content,
+.ns-0 #mytabs li.selected a,
+.ns-0 #p-cactions li.selected a,
+.ns-0 #mytabs li a,
+.ns-0 #p-cactions li a,
+.ns-0 #p-cactions li a:hover {
+  background-color: white;
+}
+.ns-102 * #content,
+.ns-102 * #p-cactions li,
+.ns-102 * #p-cactions li a { background:#FFF }
+.ns--1 table,
+.ns-2 table,
+.ns-3 table,
+.ns-4 table,
+.ns-6 table,
+.ns--1 form {
+  background: inherit;
+}
+ /*
+== Diffs ==
+ */
+/* Accessibility: make diff changes not just colour-based */ 
+.diffchange {
+    font-weight: bold;
+    background-color: inherit;
+}
+td.diff-addedline, td.diff-deletedline, td.diff-context {
+    font-size: 85%;
+    color: inherit;
+}
+ /*
+== Diff inserção de caracteres ==
+ */
+.mw-plusminus-pos {
+  color:darkgreen;
+}
+
+.mw-plusminus-neg {
+  color:darkred;
+}
+ /*
+== Refs ==
+ */
+span.need_ref {
+   border-bottom: 1px solid #aaaaaa;
+}
+div.need_ref {
+   border: 1px solid #aaaaaa;
+   padding: 0.5em;
+}
+
+span.ref:hover {
+   border-bottom: 1px solid #aaaaaa;
+}
+
+ /*
+== Ícones posicionado no canto superior ==
+ */
+
+
+ /*
+ ** Geocoordenadas
+ */
+#coordinates {  
+    position: absolute;
+    z-index: 1;
+    border: none;
+    background: none;
+    right: 30px;
+    top: 4.8em;
+    float: right;
+    margin: 0.0em;
+    padding: 0.0em;
+    line-height: 1.5em;
+    text-align: right;
+    text-indent: 0;
+    font-size: 85%;
+    text-transform: none;
+    white-space: nowrap;
+}
+ 
+#coordinates a[href ^="http://"] {
+  background: url(http://upload.wikimedia.org/wikipedia/de/d/d4/Gnome-globe.png) center right no-repeat !important;
+  padding-right: 18px !important;
+}
+
+
+
+ /*
+ ** Artigos protegidos
+ */
+#protegida{position:absolute;z-index:100;right:10px;top:50px;}
+
+
+
+ /*
+ ** FIST
+ */
+#FIST1 {position:absolute; z-index:100; right:10px; top:10px;}
+#FIST2 {position:relative; width:22px; height:20px; overflow:hidden;}
+#FIST3 {position:absolute; font-size:20px; overflow:hidden; line-height:20px; letter-spacing:20px;}
+
+
+
+
+ /*
+ ** Artigo Destacado
+ */
+#destaques1 {position: absolute;z-index: 1;border: none;right: 10px;top:15px;margin: 0.0em;padding: 0.0em;}
+#destaques2 {position: relative; width: 14px; height: 14px; overflow: hidden;}
+#destaques3 {position: absolute; top: 0px; left: 0px; font-size: 100px; overflow: hidden; line-height: 100px; z-index: 3;}
+#destaques4 {position: absolute; top: 0px; left: 0px; z-index: 2;}
+
+
+
+ /*
+ ** atalho
+ */
+#atalho {
+  position: absolute;
+  z-index: 1;
+  border:1px solid #999;
+  background:#fff;
+  right: 15px; 
+  top: 15px;
+  width: 95px;
+  margin:0 0 .5em 1em;
+  padding: 0.0em;
+  line-height: 1.5em;
+  text-align: center;
+  text-indent: 0;
+  font-size: 85%;
+  text-transform: none;
+  white-space: normal;
+}
+
+
+
+
+ /* try adding here, this had no effect in [[MediaWiki:Common.css]] */
+ .plainlinksneverexpand a.external.text:after {
+  display: none !important
+ }
+
+ /*
+== Barra de navegação ==
+ */
+div.Boxmerge,
+div.NavFrame {
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid #aaaaaa;
+        text-align: center;
+        border-collapse: collapse;
+        font-size: 95%;
+}
+div.Boxmerge div.NavFrame {
+        border-style: none;
+        border-style: hidden;
+}
+div.NavFrame + div.NavFrame {
+        border-top-style: none;
+        border-top-style: hidden;
+}
+div.NavPic {
+        background-color: #ffffff;
+        margin: 0px;
+        padding: 2px;
+        float: left;
+}
+div.NavFrame div.NavHead {
+        height: 1.6em;
+        font-weight: bold;
+        font-size: 100%;
+        background-color: #efefef;
+        position:relative;
+}
+div.NavFrame p {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent p {
+        font-size: 100%;
+}
+div.NavEnd {
+        margin: 0px;
+        padding: 0px;
+        line-height: 1px;
+        clear: both;
+}
+a.NavToggle {
+        position:absolute;
+        top:0px;
+        right:3px;
+        font-weight:normal;
+        font-size:smaller;
+}
+
+
+/* Do not print navigation bar elements. They should not appear on paper */
+@media print{
+        .NavFrame {
+                display: none;
+        }
+        .BoxenVerschmelzen {
+                display: none;
+        }
+}
+ /*
+== Pequenos ajustes ==
+ */
+/*
+** Fundo dos elementos na página principal
+** (a utilizar esta class, claro)
+*/
+.MainPageBG {
+  background-color: transparent;
+}
+/* Mudanças recentes (RC), link de edição */
+#rc-elnk {
+  font-size: 94%;
+  background-color: #fcfcfc;
+  border: 1px dotted #006699;
+  padding: 0.1em 0.3em;
+  position: absolute;
+  float: right;
+  top: 0.4em;
+  right: 0.4em;
+  left: auto;
+  text-transform: none;
+}
+html>body #rc-elnk {
+  border: thin dotted #006699;
+}
+#rc-elnk .rc-esc {
+  display: none;
+}
+
+/*
+ * Em especial para a [[Predefinição:Ref]]
+ */
+.plainlinksneverexpand {
+  background: none !important;
+  padding: 0 !important;
+}
+
+.plainlinksneverexpand .urlexpansion {
+  display: none !important;
+}
+
+/* Make sure that ext links displayed within "plainlinksneverexpand" don't get
+   the arrow...
+*/
+#bodyContent .plainlinksneverexpand a {
+   background: none !important;
+   padding: 0 !important
+}
+
+/* futuras mensagens inter-projecto */
+div.interbox {
+        clear: both;
+        margin: 0px;
+        border: 1px solid #c0c0c0;
+}
+div.interbox + div.interbox {
+        border-top-style: hidden;
+}
+
+/* Wikipedia:Cartografia dos Wikipedistas */
+div.PontoMapa
+{
+ position:absolute;
+ width:1px;
+ height:1px;
+ background:#000000;
+ border: 1px solid #FFFFFF;    
+}
+
+
+ /*
+== media: print ==
+ */
+@media print {
+  /* Do not print edit link in templates using Template:Ed
+     Do not print certain classes that shouldn't appear on paper */
+  .editlink, .noprint, .metadata, .dablink { display: none }
+
+  #bodyContent a[href ^="http://"] {
+      background: none;
+      padding-right: 0;
+  }
+}
+
+@media screen, handheld, projection {
+    cite *.printonly {
+        display: none;
+    }
+}
+
+.page-Especial_Recentchanges ul.special li { white-space: nowrap; } 
+
+
+ /*
+== MediaWiki:Edittools ==
+ */
+/* extra buttons for edit dialog (from tr:) */
+.my-buttons {
+   padding: .5em;
+}
+.my-buttons a {
+   color: black;
+   background-color: #cde !important;
+   font-weight: bold;
+   font-size: .9em;
+   text-decoration: none;
+   border: thin #069 outset;
+   padding: 0 .1em .1em;
+}
+.my-buttons a:hover, .my-buttons a:active {
+   background-color: #bcd;
+   border-style: inset;
+}
+
+/* </nowiki></pre> */

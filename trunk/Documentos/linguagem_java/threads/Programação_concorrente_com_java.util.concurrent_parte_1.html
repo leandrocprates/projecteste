@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0100)http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/ -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="pt-br"><HEAD profile="http://gmpg.org/xfn/11"><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<TITLE>Programação concorrente com java.util.concurrent (parte 1) « Victor V. Serta’s Tech Blog</TITLE>
+	<META name="template" content="K2 ">
+	<STYLE type="text/css" media="screen">
+		@import url( http://s2.wordpress.com/wp-content/themes/pub/k2/style.css?m=1262645504g );
+	</STYLE>
+	<LINK rel="stylesheet" type="text/css" media="print" href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/print.css">
+	<LINK rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://victorvserta.wordpress.com/feed/">
+	<LINK rel="pingback" href="http://victorvserta.wordpress.com/xmlrpc.php">
+	<META name="google-site-verification" content="vd72ztJdruhPaGAVngWDgd8O4me8F-vqv68yJptTzcE">
+<LINK rel="alternate" type="application/rss+xml" title="Victor V. Serta&#39;s Tech Blog &raquo; Programa&ccedil;&atilde;o concorrente com java.util.concurrent (parte&nbsp;1)  Feed de coment&aacute;rios" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/feed/">
+<SCRIPT type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</SCRIPT>
+<LINK rel="stylesheet" href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/global.css" type="text/css">
+<SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/comment-reply.js"></SCRIPT>
+<LINK rel="EditURI" type="application/rsd+xml" title="RSD" href="http://victorvserta.wordpress.com/xmlrpc.php?rsd">
+<LINK rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://victorvserta.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<LINK rel="index" title="Victor V. Serta&#39;s Tech Blog" href="http://victorvserta.wordpress.com/">
+<LINK rel="start" title="SVN + Eclipse 3.4 + Ubuntu&nbsp;8.04" href="http://victorvserta.wordpress.com/2008/10/04/svn-eclipse-34-ubuntu-804/">
+<LINK rel="prev" title="@Enumerated da&nbsp;JPA" href="http://victorvserta.wordpress.com/2008/11/13/enumerated-da-jpa/">
+<LINK rel="next" title="&ldquo;Resum&atilde;o&rdquo; JBoss&nbsp;Seam" href="http://victorvserta.wordpress.com/2008/12/15/resumao-jboss-seam/">
+<META name="generator" content="WordPress.com">
+<LINK rel="canonical" href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/Programação_concorrente_com_java.util.concurrent_parte_1.html">
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/a4926223b294e63587705802bb68bbcf?s=16&d=http://s.wordpress.com/favicon.ico">
+<LINK rel="icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/a4926223b294e63587705802bb68bbcf?s=16&d=http://s.wordpress.com/favicon.ico">
+<LINK rel="apple-touch-icon" href="http://www.gravatar.com/blavatar/ca726e1217bed49a7b18a8e20ad63280?s=158&d=http://s.wordpress.com/wp-content/themes/h4/i/webclip.png">
+<LINK rel="openid.server" href="http://victorvserta.wordpress.com/?openidserver=1">
+<LINK rel="openid.delegate" href="http://victorvserta.wordpress.com/">
+<LINK rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+<LINK rel="search" type="application/opensearchdescription+xml" href="http://victorvserta.wordpress.com/osd.xml" title="Victor V. Serta&rsquo;s Tech Blog">
+<LINK rel="shortlink" href="http://wp.me/plfW5-20"><STYLE type="text/css">
+#header {
+	background:#3371a3 url(http://victorvserta.files.wordpress.com/2008/11/cabecalho.png) center repeat-y;
+}
+#header h1 a, #header h1 a:hover, #header .description {
+	color: #ffffff;
+}	
+</STYLE>
+<SCRIPT charset="utf-8" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/rate.php"></SCRIPT><LINK rel="stylesheet" type="text/css" href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/shThemeDefault.css"></HEAD><BODY>
+<DIV id="page">
+	<DIV id="header">
+		<H1><A href="http://victorvserta.wordpress.com/">Victor V. Serta’s Tech Blog</A></H1>
+		<P class="description">java, web 2.0 e outras tecnologias</P>
+
+		<UL class="menu">
+			<LI class="current_page_item"><A href="http://victorvserta.wordpress.com/">Blog</A></LI>
+			<LI class="page_item page-item-2"><A href="http://victorvserta.wordpress.com/about/" title="Sobre&nbsp;mim">Sobre&nbsp;mim</A></LI>
+		</UL>
+	</DIV>
+		<HR>
+
+<DIV class="content">
+	
+	<DIV id="primary">
+		<DIV id="current-content">
+			<DIV id="primarycontent" class="hfeed">
+
+				
+	
+	 
+
+		
+	
+		
+	<HR>
+
+	
+	<DIV class="navigation">
+		<DIV class="left"><SPAN>«</SPAN> <A href="http://victorvserta.wordpress.com/2008/11/13/enumerated-da-jpa/">@Enumerated da&nbsp;JPA</A></DIV>		<DIV class="right"><A href="http://victorvserta.wordpress.com/2008/12/15/resumao-jboss-seam/">“Resumão” JBoss&nbsp;Seam</A> <SPAN>»</SPAN></DIV>		<DIV class="clear"></DIV>
+	</DIV>
+
+	
+	<HR>
+
+	
+		<DIV id="post-124" class="post-124 post hentry category-java tag-java">
+			<DIV class="entry-head">
+				<H3 class="entry-title"><A href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/Programação_concorrente_com_java.util.concurrent_parte_1.html" rel="bookmark" title="Link Permanente para &quot;Programa&ccedil;&atilde;o concorrente com java.util.concurrent (parte&nbsp;1)&quot;">Programação concorrente com java.util.concurrent (parte&nbsp;1)</A></H3>
+
+				<SMALL class="entry-meta">
+					<SPAN class="chronodata">
+						Publicado  <ABBR class="published" title="2008-12-11T23:42:38+0000">Dezembro 11, 2008</ABBR> r					</SPAN>
+
+					<SPAN class="entry-category"> <A href="http://pt-br.wordpress.com/tag/java/" title="Ver todos os posts em Java" rel="category tag">Java</A></SPAN>
+
+					<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comments" class="commentslink" title="Coment&aacute;rio para Programa&ccedil;&atilde;o concorrente com java.util.concurrent (parte&nbsp;1)">8&nbsp;<SPAN>Comentários</SPAN></A>				
+					
+					<BR>Tags: <A href="http://pt-br.wordpress.com/tag/java/" rel="tag">Java</A><BR>				
+				</SMALL> <!-- .entry-meta -->
+			</DIV> <!-- .entry-head -->
+
+			<DIV class="entry-content">
+				<DIV class="snap_preview"><P>Atualmente para tirar um melhor proveito dos processadores com múltiplos núcleos, é necessário que os desenvolvedores se preocupem com a execução de tarefas em paralelo. Para facilitar nisso, foi adicionado o pacote chamado <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/package-summary.html" target="_blank">java.util.concurrent</A> no Java 5. Neste post vou apresentar através de alguns exemplos algumas facilidades que as classes deste pacote provêem.</P>
+<P><IMG class="size-medium wp-image-149 alignleft" title="intel-dual-core" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/intel-dual-core.jpg" alt="intel-dual-core" width="248" height="186"><IMG class="size-medium wp-image-150 aligncenter" title="amd-quad-core" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/amd-quad-core.jpg" alt="amd-quad-core" width="186" height="192"></P>
+<P><SPAN id="more-124"></SPAN></P>
+<H4>Exemplo 1: Execução assíncrona</H4>
+<P><A href="http://dl.getdropbox.com/u/193282/blog/concurrent/CalculoPI.zip">Download do Exemplo</A></P>
+<P>Este primeiro exemplo, baseado <A href="http://www.ppgia.pucpr.br/~maziero/doku.php/so:calculo_de_pi_com_threads" target="_blank">neste exercício</A>, consiste no cálculo do valor do PI otimizado para rodar em vários núcleos separando-o em várias tarefas. Este valor pode ser calculado aproximadamente pela <A href="http://mathworld.wolfram.com/GregorySeries.html" target="_blank">série de Gregory </A>utilizando a seguinte fórmula:</P>
+<P><A href="http://victorvserta.files.wordpress.com/2008/11/calculo_pi.png"><IMG class="size-full wp-image-125 aligncenter" title="F&oacute;rmula para c&aacute;lculo PI" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/calculo_pi.png" alt="F&oacute;rmula para c&aacute;lculo PI" width="111" height="61"></A></P>
+<P>Ou seja, teremos o seguinte nas primeiras iterações: PI/4 = 1 – 1/3 + 1/5 – 1/7 + …</P>
+<P>Quanto mais iterações, mais preciso o valor fica. Veja esse link: <A href="http://www.eveandersson.com/pi/gregory-leibniz" target="_blank">http://www.eveandersson.com/pi/gregory-leibniz</A></P>
+<P>O código abaixo realiza o cálculo do somatório recebendo o valor inicial (k) e o final (n). Veja que nossa classe implementa a interface <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/Callable.html" target="_blank">Callable</A> através do método call(), o qual retorna o tipo Double como resultado do somatório.</P>
+<DIV id="highlighter_980159" class="syntaxhighlighter  "><DIV class="bar"><DIV class="toolbar"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_980159_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_980159" menu="false" src="http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>01</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.Callable;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>02</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>03</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">CalculoPI </CODE><CODE class="keyword">implements</CODE> <CODE class="plain">Callable&lt;Double&gt; {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>04</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>05</CODE></TD><TD class="content"><CODE class="keyword">private</CODE> <CODE class="keyword">int</CODE> <CODE class="plain">inicio;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>06</CODE></TD><TD class="content"><CODE class="keyword">private</CODE> <CODE class="keyword">int</CODE> <CODE class="plain">fim;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>07</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>08</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="plain">CalculoPI(</CODE><CODE class="keyword">int</CODE> <CODE class="plain">inicio, </CODE><CODE class="keyword">int</CODE> <CODE class="plain">fim) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>09</CODE></TD><TD class="content"><CODE class="keyword">this</CODE><CODE class="plain">.inicio = inicio;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>10</CODE></TD><TD class="content"><CODE class="keyword">this</CODE><CODE class="plain">.fim = fim;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>11</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>12</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>13</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="plain">Double call() </CODE><CODE class="keyword">throws</CODE> <CODE class="plain">Exception {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>14</CODE></TD><TD class="content"><CODE class="keyword">double</CODE> <CODE class="plain">valor = </CODE><CODE class="value">0.0</CODE><CODE class="plain">;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>15</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>16</CODE></TD><TD class="content"><CODE class="keyword">for</CODE> <CODE class="plain">(</CODE><CODE class="keyword">int</CODE> <CODE class="plain">i=inicio; i &lt;= fim; i++) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>17</CODE></TD><TD class="content"><CODE class="plain">valor += Math.pow(-</CODE><CODE class="value">1.0</CODE><CODE class="plain">, i + </CODE><CODE class="value">1</CODE><CODE class="plain">) / (</CODE><CODE class="value">2.0</CODE> <CODE class="plain">* (</CODE><CODE class="keyword">double</CODE><CODE class="plain">)i - </CODE><CODE class="value">1.0</CODE><CODE class="plain">);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>18</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>19</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>20</CODE></TD><TD class="content"><CODE class="keyword">return</CODE> <CODE class="plain">valor;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>21</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>22</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<P>Para separarmos este cálculo em várias tarefas concorrentes podemos definir os valores iniciais e finais de cada uma delas. Veja o código a seguir:</P>
+<DIV id="highlighter_894644" class="syntaxhighlighter  "><DIV class="bar"><DIV class="toolbar"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_894644_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_894644" menu="false" src="http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>01</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.ExecutionException;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>02</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.ExecutorService;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>03</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.Executors;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>04</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.Future;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>05</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>06</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">Main {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>07</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>08</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">static</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">main(String[] args) </CODE><CODE class="keyword">throws</CODE> <CODE class="plain">InterruptedException, ExecutionException {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>09</CODE></TD><TD class="content"><CODE class="comments">//cria um pool de threads para realizar o cálculo</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>10</CODE></TD><TD class="content"><CODE class="plain">ExecutorService es = Executors.newCachedThreadPool();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>11</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>12</CODE></TD><TD class="content"><CODE class="comments">//separa o cálculo em 4 partes definindo o valor de n inicial e final para cada uma</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>13</CODE></TD><TD class="content"><CODE class="plain">Future&lt;Double&gt; parte1 =&nbsp; es.submit(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">CalculoPI(</CODE><CODE class="value">1</CODE><CODE class="plain">,</CODE><CODE class="value">100000000</CODE><CODE class="plain">));</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>14</CODE></TD><TD class="content"><CODE class="plain">Future&lt;Double&gt; parte2 = es.submit(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">CalculoPI(</CODE><CODE class="value">100000001</CODE><CODE class="plain">,</CODE><CODE class="value">200000000</CODE><CODE class="plain">));</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>15</CODE></TD><TD class="content"><CODE class="plain">Future&lt;Double&gt; parte3 = es.submit(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">CalculoPI(</CODE><CODE class="value">200000001</CODE><CODE class="plain">,</CODE><CODE class="value">300000000</CODE><CODE class="plain">));</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>16</CODE></TD><TD class="content"><CODE class="plain">Future&lt;Double&gt; parte4 = es.submit(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">CalculoPI(</CODE><CODE class="value">300000001</CODE><CODE class="plain">,</CODE><CODE class="value">400000000</CODE><CODE class="plain">));</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>17</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>18</CODE></TD><TD class="content"><CODE class="comments">//junta os valores cálculados das 4 partes e multiplica por 4</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>19</CODE></TD><TD class="content"><CODE class="keyword">double</CODE> <CODE class="plain">pi = </CODE><CODE class="value">4.0</CODE> <CODE class="plain">* (parte1.get() + parte2.get() + parte3.get() + parte4.get());</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>20</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>21</CODE></TD><TD class="content"><CODE class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</CODE><CODE class="plain">es.shutdown();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>22</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>23</CODE></TD><TD class="content"><CODE class="plain">System.out.println(</CODE><CODE class="string">"Valor calculado de PI é "</CODE> <CODE class="plain">+ pi);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>24</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>25</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<P>Aqui foram utilizadas 500.000.000 iterações, as quais são dividas em 4 partes. Inicialmente, foi criado um pool de threads através de <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/Executors.html#newCachedThreadPool()" target="_blank">Executors.newCachedThreadPool()</A> que retorna um objeto <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/ThreadPoolExecutor.html" target="_blank">ThreadPoolExcutor</A> configurado para criar novas threads assim que necessário e reaproveitar as já existentes que estejam disponíveis. Você pode também utilizar métodos como <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/Executors.html#newFixedThreadPool(int)" target="_blank">Executors.newFixedThreadPool(int)</A> para criar um pool com número fixo de threads ou criar um objeto do tipo <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/ThreadPoolExecutor.html" target="_blank">ThreadPoolExcutor</A> explicitamente definindo seus parâmetros no construtor. Em seguida, as partes dos cálculos foram submetidas para execução de forma assíncrona, ou seja, ao chamar submit() não vamos aguardar o cálculo finalizar porque ele será executado em paralelo.</P>
+<P>Quando um serviço é submetido, é retornado um objeto <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/Future.html" target="_blank">Future</A>. É através dele que pegamos o resultado do cálculo na linha 19 chamando seu método get(). Este método é bloqueante, ou seja, ao chamá-lo é necessário aguardar o final da execução da tarefa.</P>
+<H4>Exemplo 2: Produtor/Consumidor com BlockingQueue</H4>
+<P><A href="http://dl.getdropbox.com/u/193282/blog/concurrent/BlockingQueue.zip">Download do Exemplo</A></P>
+<P>Implementar esse algoritmo usando apenas blocos de código com synchronized e os métodos wait() e notify()/notifyAll() muitas vezes é trabalhoso. Para facilitar isso, podemos utilizar a collection <A href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/BlockingQueue.html" target="_blank">BlockingQueue</A>. Veja abaixo como fica simples o código:</P>
+<DIV id="highlighter_242678" class="syntaxhighlighter  "><DIV class="bar"><DIV class="toolbar"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_242678_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_242678" menu="false" src="http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>01</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.BlockingQueue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>02</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.LinkedBlockingQueue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>03</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>04</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">Main {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>05</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>06</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">static</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">main(String[] args) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>07</CODE></TD><TD class="content"><CODE class="comments">//cria fila bloqueante com 10 lugares disponíveis</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>08</CODE></TD><TD class="content"><CODE class="plain">BlockingQueue&lt;Integer&gt; queue = </CODE><CODE class="keyword">new</CODE> <CODE class="plain">LinkedBlockingQueue&lt;Integer&gt;(</CODE><CODE class="value">10</CODE><CODE class="plain">);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>09</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>10</CODE></TD><TD class="content"><CODE class="comments">//cria e inicia thread para o produtor</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>11</CODE></TD><TD class="content"><CODE class="keyword">new</CODE> <CODE class="plain">Thread(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">Produtor(queue)).start();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>12</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>13</CODE></TD><TD class="content"><CODE class="comments">//cria e inicia thread para o consumidor</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>14</CODE></TD><TD class="content"><CODE class="keyword">new</CODE> <CODE class="plain">Thread(</CODE><CODE class="keyword">new</CODE> <CODE class="plain">Consumidor(queue)).start();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>15</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>16</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id="highlighter_117169" class="syntaxhighlighter  "><DIV class="bar "><DIV class="toolbar"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_117169_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_117169" menu="false" src="http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>01</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.BlockingQueue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>02</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>03</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">Produtor </CODE><CODE class="keyword">implements</CODE> <CODE class="plain">Runnable {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>04</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>05</CODE></TD><TD class="content"><CODE class="keyword">private</CODE> <CODE class="plain">BlockingQueue&lt;Integer&gt; queue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>06</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>07</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="plain">Produtor(BlockingQueue&lt;Integer&gt; queue) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>08</CODE></TD><TD class="content"><CODE class="keyword">this</CODE><CODE class="plain">.queue = queue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>09</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>10</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>11</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">run() {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>12</CODE></TD><TD class="content"><CODE class="keyword">int</CODE> <CODE class="plain">i=</CODE><CODE class="value">0</CODE><CODE class="plain">;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>13</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>14</CODE></TD><TD class="content"><CODE class="keyword">try</CODE> <CODE class="plain">{</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>15</CODE></TD><TD class="content"><CODE class="keyword">while</CODE><CODE class="plain">(</CODE><CODE class="keyword">true</CODE><CODE class="plain">) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>16</CODE></TD><TD class="content"><CODE class="comments">/*adiciona valor na fila imediatamente se houver espaço,</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>17</CODE></TD><TD class="content"><CODE class="comments">caso contrario aguarda até que o espaço fique disponível*/</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>18</CODE></TD><TD class="content"><CODE class="plain">queue.put(i++);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>19</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>20</CODE></TD><TD class="content"><CODE class="plain">Thread.sleep(</CODE><CODE class="value">500</CODE><CODE class="plain">);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>21</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>22</CODE></TD><TD class="content"><CODE class="plain">} </CODE><CODE class="keyword">catch</CODE> <CODE class="plain">(InterruptedException e) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>23</CODE></TD><TD class="content"><CODE class="plain">e.printStackTrace();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>24</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>25</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>26</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id="highlighter_185209" class="syntaxhighlighter  "><DIV class="bar"><DIV class="toolbar"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_185209_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_185209" menu="false" src="http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>01</CODE></TD><TD class="content"><CODE class="keyword">import</CODE> <CODE class="plain">java.util.concurrent.BlockingQueue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>02</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>03</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">Consumidor </CODE><CODE class="keyword">implements</CODE> <CODE class="plain">Runnable {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>04</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>05</CODE></TD><TD class="content"><CODE class="keyword">private</CODE> <CODE class="plain">BlockingQueue&lt;Integer&gt; queue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>06</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>07</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="plain">Consumidor(BlockingQueue&lt;Integer&gt; queue) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>08</CODE></TD><TD class="content"><CODE class="keyword">this</CODE><CODE class="plain">.queue = queue;</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>09</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>10</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>11</CODE></TD><TD class="content"><CODE class="keyword">public</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">run() {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>12</CODE></TD><TD class="content"><CODE class="keyword">try</CODE> <CODE class="plain">{</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>13</CODE></TD><TD class="content"><CODE class="keyword">while</CODE><CODE class="plain">(</CODE><CODE class="keyword">true</CODE><CODE class="plain">) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>14</CODE></TD><TD class="content"><CODE class="comments">/*se houver valor retira ele da fila, senão fica bloqueado</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>15</CODE></TD><TD class="content"><CODE class="comments">até que um valor seja adicionado */</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>16</CODE></TD><TD class="content"><CODE class="keyword">int</CODE> <CODE class="plain">valor = queue.take();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>17</CODE></TD><TD class="content">&nbsp;</TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>18</CODE></TD><TD class="content"><CODE class="plain">System.out.println(valor);</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>19</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>20</CODE></TD><TD class="content"><CODE class="plain">} </CODE><CODE class="keyword">catch</CODE> <CODE class="plain">(InterruptedException e) {</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>21</CODE></TD><TD class="content"><CODE class="plain">e.printStackTrace();</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>22</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt1"><TABLE><TBODY><TR><TD class="number"><CODE>23</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV><DIV class="line alt2"><TABLE><TBODY><TR><TD class="number"><CODE>24</CODE></TD><TD class="content"><CODE class="plain">}</CODE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<P>Conforme pode ser visto nos comentários no código, o método put() adiciona valor na fila imediatamente se houver espaço, caso contrario aguarda até que o espaço fique disponível. No consumidor, o método take() é chamado e, se houver algum valor disponível ele é retirado, senão fica bloqueado   até que um valor seja adicionado.</P>
+<P>Na próxima parte deste artigo irei apresentar algumas outras ferramentas deste pacote, como o uso de locks e semáforos.
+</P><DIV class="pd-rating" id="pd_rating_holder_459441_post_124" style="display: inline-block; "><DIV onmouseout="PDRTJS_459441_post_124.rebuild();" onclick="PDRTJS_459441_post_124.rate(1);" onmouseover="PDRTJS_459441_post_124.hover(1);" id="PDRTJS_459441_post_124_stars_1" style="cursor: pointer; width: 16px; height: 16px; background: url(http://i.polldaddy.com/ratings/images/star-yellow-sml.png) bottom left; float: left; margin-right: 1px;"></DIV><DIV onmouseout="PDRTJS_459441_post_124.rebuild();" onclick="PDRTJS_459441_post_124.rate(2);" onmouseover="PDRTJS_459441_post_124.hover(2);" id="PDRTJS_459441_post_124_stars_2" style="cursor: pointer; width: 16px; height: 16px; background: url(http://i.polldaddy.com/ratings/images/star-yellow-sml.png) bottom left; float: left; margin-right: 1px;"></DIV><DIV onmouseout="PDRTJS_459441_post_124.rebuild();" onclick="PDRTJS_459441_post_124.rate(3);" onmouseover="PDRTJS_459441_post_124.hover(3);" id="PDRTJS_459441_post_124_stars_3" style="cursor: pointer; width: 16px; height: 16px; background: url(http://i.polldaddy.com/ratings/images/star-yellow-sml.png) bottom left; float: left; margin-right: 1px;"></DIV><DIV onmouseout="PDRTJS_459441_post_124.rebuild();" onclick="PDRTJS_459441_post_124.rate(4);" onmouseover="PDRTJS_459441_post_124.hover(4);" id="PDRTJS_459441_post_124_stars_4" style="cursor: pointer; width: 16px; height: 16px; background: url(http://i.polldaddy.com/ratings/images/star-yellow-sml.png) bottom left; float: left; margin-right: 1px;"></DIV><DIV onmouseout="PDRTJS_459441_post_124.rebuild();" onclick="PDRTJS_459441_post_124.rate(5);" onmouseover="PDRTJS_459441_post_124.hover(5);" id="PDRTJS_459441_post_124_stars_5" style="cursor: pointer; width: 16px; height: 16px; background: url(http://i.polldaddy.com/ratings/images/star-yellow-sml.png) bottom left; float: left; margin-right: 1px;"></DIV><DIV id="PDRTJS_459441_post_124_msg" style="float:left; padding-left: 5px; text-align: left; font:normal normal /16px ; color: ;">Rate This</DIV><P style="padding: 0px; margin: 0px; clear: both;"></P><IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/p-ab3gTb8xb3dLg.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"></DIV>
+<P></P>
+<P><SCRIPT type="text/javascript">
+	PDRTJS_settings_459441_post_124 = {
+		"id" : "459441",
+		"unique_id" : "wp-post-124",
+		"title" : "Programa%C3%A7%C3%A3o+concorrente+com+java.util.concurrent+%28parte+1%29",
+		"item_id" : "_post_124",
+		"permalink" : "http%3A%2F%2Fvictorvserta.wordpress.com%2F2008%2F12%2F11%2Fprogramacao-concorrente-com-javautilconcurrent-parte-1%2F"
+	}
+</SCRIPT></P>
+</DIV>
+							</DIV> <!-- .entry-content -->
+			<DIV class="clear"></DIV>
+		</DIV> <!-- #post-ID -->
+
+	
+	
+				
+	<DIV class="comments">
+
+		<H4><SPAN id="comments">8</SPAN> Respostas para “Programação concorrente com java.util.concurrent (parte&nbsp;1)”</H4>
+
+		<DIV class="metalinks">
+			<SPAN class="commentsrsslink"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/feed/">Feed para esta Entrada</A></SPAN>
+			<SPAN class="trackbacklink"><A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/trackback/" title="Copie essa URL para dar um Trackback nessa entrada">Endereço de trackback</A></SPAN>		</DIV>
+	<HR>
+
+	<OL id="commentlist">
+	<LI class="comment even thread-even depth-1" id="comment-13">
+	<DIV id="div-comment-13">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/f828cf68309b35c9933163a8fa8210e9" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-13" class="counter" title="Link permanente para este coment&aacute;rio">1</A>
+		<SPAN class="commentauthor fn">Mauricio Nunes</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-13" title="1 year  atrás.">Dezembro 12, 2008 às 2:53 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Olá Victor, beleza ?<BR>
+Cara parabens pelo artigo. Essa API do java é umas das mais fantásticas e poucas pessoas sabem usar, inclusive eu. Espero ver mais artigos sobre ela.<BR>
+Abraços</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=13#respond" onclick="return addComment.moveForm(&quot;div-comment-13&quot;, &quot;13&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment byuser comment-author-victorvserta bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-14">
+	<DIV id="div-comment-14">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/e1a1f0dfbafecd8514f033905b134d4d" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-14" class="counter" title="Link permanente para este coment&aacute;rio">2</A>
+		<SPAN class="commentauthor fn">victorvserta</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-14" title="1 year  atrás.">Dezembro 12, 2008 às 7:53 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Olá Mauricio. Tudo certo e com você?</P>
+<P>Obrigado! Também acho muito interessante essa API e só foi a pouco tempo atrás que aprendi a usá-la. Pode deixar que vou escrever mais algumas coisas sobre ela sim <IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/icon_wink.gif" alt=";)" class="wp-smiley"> </P>
+<P>Abraços!</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=14#respond" onclick="return addComment.moveForm(&quot;div-comment-14&quot;, &quot;14&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment even thread-even depth-1" id="comment-15">
+	<DIV id="div-comment-15">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/91cb47e79d38c79cf2508a807aae5121" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-15" class="counter" title="Link permanente para este coment&aacute;rio">3</A>
+		<SPAN class="commentauthor fn">Drausio</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-15" title="1 year  atrás.">Dezembro 13, 2008 às 12:08 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Victor ,</P>
+<P>Muito bom o seu artigo.<BR>
+Após ler , resolvi tirar a prova dos 9.<BR>
+Acrescentei ao seu código o cálculo usando a programação tradicional e fiz a comparação .<BR>
+O código usando a concorrência roda o equivalente a 57% do tempo do  sem concorrência. É claro que depende do hardware .O meu notebook é um Intel Core2 T5500 e já tive um ganho considerável.</P>
+<P>Drausio</P>
+<P>    import java.util.concurrent.ExecutionException;<BR>
+    import java.util.concurrent.ExecutorService;<BR>
+    import java.util.concurrent.Executors;<BR>
+    import java.util.concurrent.Future;  </P>
+<P>    public class Main {  </P>
+<P>        public static void main(String[] args) throws InterruptedException, ExecutionException,Exception {<BR>
+            //cria um pool de threads para realizar o cálculo  </P>
+<P>            long ti = System.currentTimeMillis();<BR>
+            ExecutorService es = Executors.newCachedThreadPool();  </P>
+<P>           //separa o cálculo em 4 partes definindo o valor de n inicial e final para cada uma<BR>
+           Future parte1 =  es.submit(new CalculoPI(1,100000000));<BR>
+           Future parte2 = es.submit(new CalculoPI(100000001,200000000));<BR>
+           Future parte3 = es.submit(new CalculoPI(200000001,300000000));<BR>
+           Future parte4 = es.submit(new CalculoPI(400000001,500000000));  </P>
+<P>//junta os valores cálculados das 4 partes e multiplica por 4<BR>
+           double pi = 4.0 * (parte1.get() + parte2.get() + parte3.get() + parte4.get());  </P>
+<P>           System.out.println(“Valor calculado de PI é ” + pi);<BR>
+           long tf = System.currentTimeMillis();<BR>
+           long tcc = tf-ti;<BR>
+           System.out.println(“Tempo gasto com concorrência ” + tcc);  </P>
+<P>           ti = System.currentTimeMillis();</P>
+<P>           //separa o cálculo em 4 partes definindo o valor de n inicial e final para cada uma  </P>
+<P>           Double parteA = (new CalculoPI(1,100000000)).call();<BR>
+           Double parteB = (new CalculoPI(100000001,200000000)).call();<BR>
+           Double parteC = (new CalculoPI(200000001,300000000)).call();<BR>
+           Double parteD = (new CalculoPI(400000001,500000000)).call();  </P>
+<P>           //junta os valores cálculados das 4 partes e multiplica por 4<BR>
+           pi = 4.0 * (parteA + parteB + parteC + parteD);  </P>
+<P>           System.out.println(“Valor calculado de PI é ” + pi);<BR>
+           tf = System.currentTimeMillis();<BR>
+           long tsc = tf-ti;<BR>
+           double divisao =(double)tcc / (double)tsc;<BR>
+           double ganho = (divisao) * 100 ;<BR>
+           System.out.println(“Tempo gasto sem concorrência ” + tsc);<BR>
+           System.out.println(“ganho % – TCC/TSC * 100 = ” + ganho + ” %”);<BR>
+       }<BR>
+   }</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=15#respond" onclick="return addComment.moveForm(&quot;div-comment-15&quot;, &quot;15&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment odd alt thread-odd thread-alt depth-1" id="comment-16">
+	<DIV id="div-comment-16">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/91cb47e79d38c79cf2508a807aae5121" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-16" class="counter" title="Link permanente para este coment&aacute;rio">4</A>
+		<SPAN class="commentauthor fn">Drausio</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-16" title="1 year  atrás.">Dezembro 13, 2008 às 2:25 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Victor,</P>
+<P>Tem mais um detalhe.<BR>
+Usando uma ferramenta de profile, percebi que o custo de se ter o código mais rápido é o aumento do uso da memória . O aumento da memória utlizada foi de 40% ( não é da memória como um todo , mas apenas das classes envolvidas ) . Na verdade temos uma relação de custo benefício. Se a parte do código que desejo alterar utlizando o paralelismo, inicialmente usa pouca memória acho que vale a pena mexer. Ou seja, em termos de uso de memória o impacto será baixo, mas a percepção de melhora por parte do usuário pode ser grande. Parece , também, ser interessante o uso da concurrent em aplicações batch.<BR>
+Antigamente não tinhamos opção, agora podemos decidir entre melhorar o tempo de resposta ou economizar recursos.</P>
+<P>Drausio</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=16#respond" onclick="return addComment.moveForm(&quot;div-comment-16&quot;, &quot;16&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment byuser comment-author-victorvserta bypostauthor even thread-even depth-1" id="comment-17">
+	<DIV id="div-comment-17">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/e1a1f0dfbafecd8514f033905b134d4d" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-17" class="counter" title="Link permanente para este coment&aacute;rio">5</A>
+		<SPAN class="commentauthor fn">Victor Villela Serta</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-17" title="1 year  atrás.">Dezembro 13, 2008 às 5:31 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Pessoal, agora que eu vi que tinha esquecido de colocar a última versão do código do cálculo do PI na hora de postar esse artigo.<BR>
+Estava com um bugzinho, mas agora tá corrigido <IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/icon_smile.gif" alt=":)" class="wp-smiley"> </P>
+<P>Coloquei também um link em cada exemplo pra quem quiser baixá-los.</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=17#respond" onclick="return addComment.moveForm(&quot;div-comment-17&quot;, &quot;17&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment byuser comment-author-victorvserta bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-18">
+	<DIV id="div-comment-18">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/e1a1f0dfbafecd8514f033905b134d4d" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-18" class="counter" title="Link permanente para este coment&aacute;rio">6</A>
+		<SPAN class="commentauthor fn">Victor Villela Serta</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-18" title="1 year  atrás.">Dezembro 13, 2008 às 6:00 pm</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Drausio,</P>
+<P>Valeu por enviar os resultados de seus testes! Realmente é interessante ver como dá diferença no tempo de execução. Apesar de usar mais memória, como você testou aí, em muitos casos isso compensa. </P>
+<P>Rodei rapidinho um profile de CPU  aqui pra ver a diferença e em meu caso com concorrência ficou 56,55% mais rápido. O processador é um AMD Athlon 64X2 rodando Linux. Imagino que em processadores Quad Core esse ganho de desempenho deva ser muito maior.</P>
+<P>Victor</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=18#respond" onclick="return addComment.moveForm(&quot;div-comment-18&quot;, &quot;18&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+<LI class="comment even thread-even depth-1" id="comment-19">
+	<DIV id="div-comment-19">
+	<SPAN class="comment-author vcard">
+		<IMG alt="" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/f828cf68309b35c9933163a8fa8210e9" class="avatar avatar-48" height="48" width="48">		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-19" class="counter" title="Link permanente para este coment&aacute;rio">7</A>
+		<SPAN class="commentauthor fn">Mauricio Nunes</SPAN>
+	</SPAN>
+	<SMALL class="comment-meta">
+	<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-19" title="1 year  atrás.">Dezembro 15, 2008 às 11:46 am</A>	</SMALL>
+
+	<DIV class="comment-content">
+		<P>Olá Vitor, tudo bem ?<BR>
+Ve se nos próximos artigos, utilize um exemplo mais concreto, sem ser calculos matemáticos. Se bem que a utilização desses calculos são muito bom para medir performace, porem perde-se um pouco o foco no artigo. De exemplos mais simples, explicando as classe da API, e o porque de sua utilização. Estarei esperando o próximo artigo.   </P>
+<P>Vamos nos falando, meu e-mail é:<BR>
+<A href="mailto:nunes.mauricio@gmail.com">nunes.mauricio@gmail.com</A>. </P>
+<P>Aguardo seu e-mail. </P>
+<P>Abraços</P>
+ 
+	</DIV>
+
+	
+	<DIV class="reply">
+		<A rel="nofollow" class="comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/?replytocom=19#respond" onclick="return addComment.moveForm(&quot;div-comment-19&quot;, &quot;19&quot;, &quot;respond&quot;, &quot;124&quot;)">Responder</A>	</DIV>
+	</DIV>
+</LI>
+	</OL> <!-- END #commentlist -->
+		
+	<DIV class="navigation">
+		<DIV class="alignleft"></DIV>
+		<DIV class="alignright"></DIV>
+	</DIV>
+	<BR>
+
+	<OL id="pinglist">
+	<LI class="pingback even thread-even depth-1" id="comment-51">
+		<A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-51" title="Link permanente para este coment&aacute;rio" class="counter">1</A>
+	<SPAN class="commentauthor"><A href="http://victorvserta.wordpress.com/2009/11/16/google-go-primeiros-passos-e-exemplos/" rel="external nofollow" class="url">Google Go: Primeiros passos e exemplos « Victor V. Serta’s Tech Blog</A></SPAN>
+	<SMALL class="comment-meta">				
+	<SPAN class="pingtype">Trackback</SPAN> em <A href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#comment-51" title="1 month, 3 weeks  atrás.">Novembro 16, 2009 às 10:18 am</A>				
+		</SMALL>
+</LI>
+	</OL> <!-- END #pinglist -->
+		
+	
+	
+	</DIV> <!-- END .comments 1 -->
+		
+		
+		<DIV class="comments" id="respond">
+		<H4 class="reply">Deixe uma resposta</H4>
+		<DIV id="cancel-comment-reply"><SMALL><A rel="nofollow" id="cancel-comment-reply-link" href="http://victorvserta.wordpress.com/2008/12/11/programacao-concorrente-com-javautilconcurrent-parte-1/#respond" style="display:none;">Clique aqui para cancelar a resposta.</A></SMALL></DIV>
+
+		
+			<FORM action="http://victorvserta.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+		
+			<P class="comment-login">Conectado como <A href="http://victorvserta.wordpress.com/wp-admin/profile.php"></A>. <A href="http://victorvserta.wordpress.com/wp-login.php?action=logout" title="Fazer logout desta conta.">Desconectar »</A></P>
+	
+					
+							<DIV id="comment-personaldetails">
+					<P><INPUT type="text" name="author" id="author" value="" size="22" tabindex="1">
+					<LABEL for="author"><SMALL><STRONG>Nome</STRONG> </SMALL></LABEL></P>
+
+					<P><INPUT type="text" name="email" id="email" value="" size="22" tabindex="2">
+					<LABEL for="email"><SMALL><STRONG>Email</STRONG> (não será publicado) </SMALL></LABEL></P>
+
+					<P><INPUT type="text" name="url" id="url" value="" size="22" tabindex="3">
+					<LABEL for="url"><SMALL><STRONG>Site</STRONG></SMALL></LABEL></P>
+				</DIV>
+							<!--<p><small><strong>XHTML:</strong> Você pode usar essas tags &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;pre&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; :</small></p>-->
+		
+				<P><TEXTAREA name="comment" id="comment" cols="100%" rows="10" tabindex="4"></TEXTAREA></P>
+
+				<P>
+					<INPUT name="submit" type="submit" id="submit" tabindex="5" value="Enviar">
+					<INPUT type="hidden" name="comment_post_ID" value="124" id="comment_post_ID">
+<INPUT type="hidden" name="comment_parent" id="comment_parent" value="0">
+				</P>
+				
+				<DIV class="clear"></DIV>
+
+				
+<INPUT type="hidden" name="genseq" value="1263195800">
+		<P>
+			<INPUT type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6">
+			<LABEL class="subscribe-label" id="subscribe-label" for="subscribe">Notificar-me os comentários mais recentes via e-mail.</LABEL>
+		</P>
+			<P>
+			<INPUT type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7">
+			<LABEL class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notifique-me de novos artigos por e-mail</LABEL>
+		</P>
+	
+			</FORM>
+		
+	
+	</DIV> <!-- END .comments #2 -->
+	
+		
+	<HR>
+
+	
+	<DIV class="navigation">
+		<DIV class="left"><SPAN>«</SPAN> <A href="http://victorvserta.wordpress.com/2008/11/13/enumerated-da-jpa/">@Enumerated da&nbsp;JPA</A></DIV>		<DIV class="right"><A href="http://victorvserta.wordpress.com/2008/12/15/resumao-jboss-seam/">“Resumão” JBoss&nbsp;Seam</A> <SPAN>»</SPAN></DIV>		<DIV class="clear"></DIV>
+	</DIV>
+
+	
+	<HR>
+
+			</DIV> <!-- #primarycontent .hfeed -->
+		</DIV> <!-- #current-content -->
+
+		<DIV id="dynamic-content"></DIV>
+	</DIV> <!-- #primary -->
+
+	<HR>
+
+<DIV class="secondary">
+
+<DIV id="text-3" class="widget widget_text">			<DIV class="textwidget"><P align="center">
+<A href="http://feeds.feedburner.com/victorvserta" target="_blank"><IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/rss.png"></A>
+<A href="http://twitter.com/victorvserta" target="_blank"><IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/twitter.png" alt="Siga-me no Twitter"></A>
+</P></DIV>
+		</DIV><DIV id="search-2" class="widget widget_search">
+<FORM method="get" id="searchform" action="http://victorvserta.wordpress.com/">
+	<INPUT type="text" id="s" name="s" onblur="this.value=(this.value==&#39;&#39;) ? &#39;busca&#39; : this.value;" onfocus="this.value=(this.value==&#39;busca&#39;) ? &#39;&#39; : this.value;" value="busca">
+	<INPUT type="submit" id="searchsubmit" value="ir">
+</FORM>
+
+
+</DIV><DIV id="categories-254104151" class="widget widget_categories"><H2 class="widgettitle">Categorias</H2>
+		<UL>
+			<LI class="cat-item cat-item-18466"><A href="http://victorvserta.wordpress.com/category/java/eclipse/" title="Ver todos os posts arquivados em Eclipse">Eclipse</A>
+</LI>
+	<LI class="cat-item cat-item-2517772"><A href="http://victorvserta.wordpress.com/category/linux/google-android/" title="Ver todos os posts arquivados em Google Android">Google Android</A>
+</LI>
+	<LI class="cat-item cat-item-1017"><A href="http://victorvserta.wordpress.com/category/java/" title="Ver todos os posts arquivados em Java">Java</A>
+</LI>
+	<LI class="cat-item cat-item-2142423"><A href="http://victorvserta.wordpress.com/category/java/jsf/jboss-seam/" title="Ver todos os posts arquivados em JBoss Seam">JBoss Seam</A>
+</LI>
+	<LI class="cat-item cat-item-307053"><A href="http://victorvserta.wordpress.com/category/java/jpa/" title="Ver todos os posts arquivados em JPA">JPA</A>
+</LI>
+	<LI class="cat-item cat-item-51468"><A href="http://victorvserta.wordpress.com/category/java/jsf/" title="Ver todos os posts arquivados em JSF">JSF</A>
+</LI>
+	<LI class="cat-item cat-item-610"><A href="http://victorvserta.wordpress.com/category/linux/" title="Ver todos os posts arquivados em Linux">Linux</A>
+</LI>
+	<LI class="cat-item cat-item-1306283"><A href="http://victorvserta.wordpress.com/category/outras-linguagens/" title="Ver todos os posts arquivados em Outras linguagens">Outras linguagens</A>
+</LI>
+	<LI class="cat-item cat-item-255"><A href="http://victorvserta.wordpress.com/category/linux/ubuntu/" title="Ver todos os posts arquivados em Ubuntu">Ubuntu</A>
+</LI>
+		</UL>
+</DIV>		<DIV id="recent-posts" class="widget widget_recent_entries">			<H2 class="widgettitle">Tópicos recentes</H2>
+			<UL>
+						<LI><A href="http://victorvserta.wordpress.com/2009/11/16/google-go-primeiros-passos-e-exemplos/">Google Go: Primeiros passos e&nbsp;exemplos </A></LI>
+						<LI><A href="http://victorvserta.wordpress.com/2009/08/01/rodando-o-google-android-em-x86/">Rodando o Google Android em&nbsp;x86 </A></LI>
+						<LI><A href="http://victorvserta.wordpress.com/2009/03/19/instalando-o-jboss-tools-3-no-eclipse-34/">Instalando o JBoss Tools 3 no Eclipse&nbsp;3.4/3.5 </A></LI>
+						<LI><A href="http://victorvserta.wordpress.com/2008/12/15/resumao-jboss-seam/">“Resumão” JBoss&nbsp;Seam </A></LI>
+						<LI><A href="./Programação_concorrente_com_java.util.concurrent_parte_1_files/Programação_concorrente_com_java.util.concurrent_parte_1.html">Programação concorrente com java.util.concurrent (parte&nbsp;1) </A></LI>
+						</UL>
+		</DIV><DIV id="rss-2" class="widget widget_rss"><H2 class="widgettitle"><A class="rsswidget" href="http://twitter.com/statuses/user_timeline/35514165.rss" title="Assinar este conte&uacute;do"><IMG style="background:orange;color:white;border:none;" width="14" height="14" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/rss(1).png" alt="RSS"></A> <A class="rsswidget" href="http://twitter.com/victorvserta" title="Twitter updates from Victor V. Serta / victorvserta.">No Twitter</A></H2>
+<UL><LI><A class="rsswidget" href="http://twitter.com/victorvserta/statuses/7602069108" title="victorvserta: #ferias Arrumando a mala pra ir pra praia. Pelo jeito a capa de chuva vai ser essencial.">victorvserta: #ferias Arrumando a mala pra ir pra praia. Pelo jeito a capa de chuva vai ser essencial.</A> <SPAN class="rss-date">Janeiro 10, 2010</SPAN></LI><LI><A class="rsswidget" href="http://twitter.com/victorvserta/statuses/7600284720" title="victorvserta: RT @loboweissmann: RT @lucastex: Portal imobili&aacute;rio usando #Groovy e #Grails: http://bit.ly/63RkNa (Por favor RT)">victorvserta: RT @loboweissmann: RT @lucastex: Portal imobiliário usando #Groovy e #Grails: http://bit.ly/63RkNa (Por favor RT)</A> <SPAN class="rss-date">Janeiro 10, 2010</SPAN></LI><LI><A class="rsswidget" href="http://twitter.com/victorvserta/statuses/7600083714" title="victorvserta: Lista de comandos &uacute;teis no Vim: http://ow.ly/UPz1 (via @asfelix)">victorvserta: Lista de comandos úteis no Vim: http://ow.ly/UPz1 (via @asfelix)</A> <SPAN class="rss-date">Janeiro 10, 2010</SPAN></LI><LI><A class="rsswidget" href="http://twitter.com/victorvserta/statuses/7558374434" title="victorvserta: Legal a id&eacute;ia. RT @JavaFree Novo blog: fotos de escrit&oacute;rios http://bit.ly/8deBsu">victorvserta: Legal a idéia. RT @JavaFree Novo blog: fotos de escritórios http://bit.ly/8deBsu</A> <SPAN class="rss-date">Janeiro 9, 2010</SPAN></LI><LI><A class="rsswidget" href="http://twitter.com/victorvserta/statuses/7558025833" title="victorvserta: Com uma tela daquele tamanho e filme em 3D perde at&eacute; a gra&ccedil;a ir num cinema normal ou assistir em casa. hehehe">victorvserta: Com uma tela daquele tamanho e filme em 3D perde até a graça ir num cinema normal ou assistir em casa. hehehe</A> <SPAN class="rss-date">Janeiro 9, 2010</SPAN></LI></UL></DIV><DIV id="linkcat-1017" class="widget widget_links"><H2 class="widgettitle">Java</H2>
+
+	<UL class="xoxo blogroll">
+<LI><A href="http://www.guj.com.br/" title="GUJ &ndash; Not&iacute;cias, F&oacute;rum e Artigos sobre Java" target="_blank">GUJ</A></LI>
+<LI><A href="http://www.javafree.com.br/" title="A voz do Java no Brasil" target="_blank">JavaFree</A></LI>
+<LI><A href="http://groups.google.com/group/javasf?hl=en" title="O grupo de JavaServer Faces oficial do Brasil">javasf: JavaServer Faces International Group</A></LI>
+<LI><A href="http://www.portaljava.com/">PortalJava</A></LI>
+<LI><A href="http://www.theserverside.com/" title="TheServerSide.com: your java Community discussing server side development" target="_blank">TheServerSide.com</A></LI>
+
+	</UL>
+</DIV>
+<DIV id="linkcat-32827" class="widget widget_links"><H2 class="widgettitle">Projetos</H2>
+
+	<UL class="xoxo blogroll">
+<LI><A href="http://code.google.com/p/kvnix/" title="Site sobre desenvolvimento de sistemas operacionais">kvnix.org</A></LI>
+
+	</UL>
+</DIV>
+<DIV id="text-391214341" class="widget widget_text">			<DIV class="textwidget"><A href="http://www.ubuntu.com/"><IMG src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/00.png" width="180" height="150" alt="Ubuntu: For Desktops, Servers, Netbooks and in the cloud" border="0"></A></DIV>
+		</DIV><DIV id="text-254104361" class="widget widget_text">			<DIV class="textwidget"><A href="http://www.java.com/?cid=2435">
+<IMG border="0" width="142" height="63" style="margin:8px;" alt="java.com - Check out Java in Action" title="java.com - Check out Java in Action" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/java_com_banner.gif"></A> </DIV>
+		</DIV>
+</DIV>
+<DIV class="clear"></DIV>
+
+</DIV> <!-- .content -->
+
+	<DIV class="clear"></DIV>
+
+</DIV> <!-- Close Page -->
+
+<HR>
+
+<P id="footer"><SMALL>
+	Tema: k2 por <A href="http://getk2.com/" rel="designer">k2 team</A>. <A href="http://pt-br.wordpress.com/" rel="generator">Blog no WordPress.com</A>.
+	<BR> 
+	<A href="http://victorvserta.wordpress.com/feed/">RSS das entradas</A> e <A href="http://victorvserta.wordpress.com/comments/feed/">RSS dos comentários</A></SMALL></P>
+
+	
+<SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/wordpress.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+var skimlinks_pub_id = "725X1342";
+var skimlinks_sitename = "victorvserta.wordpress.com";
+var skimlinks_domain = "go2.wordpress.com";
+skimlinks();
+</SCRIPT><SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/quant.js"></SCRIPT>
+<SCRIPT type="text/javascript">_qoptions = { labels:"adt.0,language.pt-br,posttag.java" };_qacct="p-18-mFEk4J448M";quantserve();</SCRIPT>
+<NOSCRIPT></NOSCRIPT>
+<SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/rating.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/shCore.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/shBrushJava.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var themecssurl = "http://s2.wordpress.com/wp-content/plugins/syntaxhighlighter-wpcom/shThemeDefault.css?m=1258244991g";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://s3.wordpress.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'mostrar código-fonte';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.all();
+</SCRIPT>
+<SCRIPT src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/w.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+st_go({'blog':'5066149','v':'wpcom','user_id':'0','post':'124','subd':'victorvserta'});
+ex_go({'crypt':'RDZ8LFkxbXF+TzRKTEZiNmhbWjdjUWwxPW1xXT9HZXR2MSVMWTVvUXVTTjFDdjEvPWlvTStDdWhSfm89WnJXQlROZF9ZTSU5MXVdUnZHZFlTeE1yRGpRZUhwR1YxLUdYOTl1MGd6TGxhMUppYkU9MWFOM2d2Jl1admE5Nm9pTlRJSSsyZU9CZml4d0h2cV1GWEgmc2duY0NUMS0uJT9hW05hWWlDVDByXS1wbg=='});
+addLoadEvent(function(){linktracker_init('5066149',124);});
+	</SCRIPT><IMG id="wpstats" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/g.gif" alt=""><IMG id="wpstats2" src="./Programação_concorrente_com_java.util.concurrent_parte_1_files/g(1).gif" alt="" style="display:none">
+
+ 
+</BODY></HTML>

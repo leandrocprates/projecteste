@@ -1,0 +1,23 @@
+#barra_ig *{FONT:bold 11px/0.9em arial, verdana!important;clear:none!important;border:0;padding:0;margin:0 auto}
+#barra_ig{width:100%!important;background:url(http://images.ig.com.br/barraig/barra_bg.gif); HEIGHT:32px;}
+
+#barra_ig .barv8_fox{width:630px!important;height:32px}
+
+#barra_ig .barraLogoIG {height:auto!important}
+#barra_ig .barraLogoIG img{display:block;FONT-SIZE:10%; FLOAT:left; MARGIN:0px 10px 0px 6px; width:56px; TEXT-INDENT:-15000em; HEIGHT:31px}*/
+#barra_ig .barraLogoIBEST{FLOAT:left; MARGIN:0px;}
+#barra_ig .barraLogoIBEST img{FLOAT:left; width:21px; MARGIN-RIGHT:10px; HEIGHT:28px}
+#barra_ig .barraLogoBRT{FLOAT:left; MARGIN:0px;}
+#barra_ig .barraLogoBRT img{FLOAT:left; width:41px; HEIGHT:30px}
+
+#barra_ig .barra_busca{background:#fff!important;BORDER-RIGHT:#263a89 1px solid; PADDING-RIGHT:5px; BORDER-TOP:#263a89 1px solid; MARGIN-TOP:6px; PADDING-LEFT:5px; FLOAT:left; PADDING-BOTTOM:2px; FONT:bold 11px Arial, verdana; BORDER-LEFT:#263a89 1px solid; width:148px; COLOR:#4171bb; PADDING-TOP:2px; BORDER-BOTTOM:#263a89 1px solid}
+#barra_ig .barra_botao{MARGIN:6px 12px 0px 6px}
+#barra_ig .hrbar{background:url(http://images.ig.com.br/barraig/barra_hr.gif); FLOAT:left; MARGIN:6px 10px; width:2px; HEIGHT:20px;clear: none}
+
+#barra_ig .barraLinksIG li{BORDER-RIGHT:#fff 1px solid; PADDING-RIGHT:10px; FLOAT:left; MARGIN:11px 10px 0px 0px; FONT:bold 11px/0.9em arial, verdana; COLOR:#fff; LIST-STYLE-TYPE:none}
+#barra_ig .barraLinksIG li.last{PADDING-RIGHT:0px; PADDING-LEFT:0px; PADDING-BOTTOM:0px; BORDER-TOP-STYLE:none; PADDING-TOP:0px; BORDER-RIGHT-STYLE:none; BORDER-LEFT-STYLE:none; BORDER-BOTTOM-STYLE:none}
+#barra_ig .barraLinksIG li a{COLOR:#fff!important; TEXT-DECORATION:none}
+#barra_ig .barraLinksIG li a:hover{TEXT-DECORATION:underline}
+
+#barra_ig .barraForm fieldset{FLOAT:left;}
+#barra_ig .barraForm select{BORDER-RIGHT:#263a89 1px solid; BORDER-TOP:#263a89 1px solid; MARGIN-TOP:7px; FONT:bold 11px Arial, verdana; BORDER-LEFT:#263a89 1px solid; width:111px; COLOR:#4171bb!important; BORDER-BOTTOM:#263a89 1px solid}

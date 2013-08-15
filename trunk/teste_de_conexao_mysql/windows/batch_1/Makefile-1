@@ -1,0 +1,7 @@
+
+all:
+	gcc  -I /usr/include/ -L /usr/lib -lmysqlclient -o main main.c 
+
+clean:
+	rm main
+

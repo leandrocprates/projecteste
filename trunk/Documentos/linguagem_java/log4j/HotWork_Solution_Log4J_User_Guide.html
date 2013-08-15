@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0073)http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><TITLE>HotWork Solution - Log4J User Guide</TITLE><STYLE type="text/css" media="all">
+          @import url("../../../style/maven-base.css");
+          
+			    @import url("../../../style/maven-theme.css");</STYLE><LINK rel="stylesheet" href="./HotWork_Solution_Log4J_User_Guide_files/print.css" type="text/css" media="print"><META name="author" content="N&eacute;ki Team"><META name="email" content="carlos.magno@neki-technologies.com.br"></HEAD><BODY class="composite"><DIV id="banner"><A href="http://hotwork.sf.net/" id="organizationLogo"><IMG alt="HotWork Solution" src="./HotWork_Solution_Log4J_User_Guide_files/hot.gif"></A><A href="http://www.sf.net/" id="projectLogo"><IMG alt="Hotwork" src="./HotWork_Solution_Log4J_User_Guide_files/sourceforge.jpg"></A><DIV class="clear"><HR></DIV></DIV><DIV id="breadcrumbs"><DIV class="xleft">
+                	Last published: 13 Fevereiro 2004 04:06:28
+                  | Doc for 0.1-b3-dev</DIV><DIV class="xright">
+        
+        <A href="http://sourceforge.net/projects/hotwork">SourceForge</A>
+      
+        
+          
+            <SPAN class="separator">|</SPAN>
+          
+        
+        <A href="http://hotwork.dev.java.net/">Java.net</A>
+      </DIV><DIV class="clear"><HR></DIV></DIV><DIV id="leftColumn"><DIV id="navcolumn"><DIV id="menuApresenta&ccedil;&atilde;o"><H5>Apresentação</H5><UL><LI class="none"><A href="http://hotwork.sourceforge.net/index.html">Overview</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/apresentacao/elaboracao.html">Elaboração</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/apresentacao/concepcao.html">Concepção</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/apresentacao/consideracoes.html">Considerações</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/apresentacao/sabendo_mais.html">Sabendo mais...</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/colaboracao/contribuidores.html">Como participar</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/colaboracao/sponsors.html">Sponsors</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/apresentacao/resumo.html">Resumo</A></LI></UL></DIV><DIV id="menuQuick_Links"><H5>Quick Links</H5><UL><LI class="none"><A href="http://hotwork.sourceforge.net/status.html">Notícias e Status</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/mail-lists.html">Mailing Lists</A></LI><LI class="none"><A href="http://wiki.java.net/bin/view/Projects/HotWork">HotWork Wiki</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/cvs-usage.html">Source</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/technology/licenses/lgpl.html">License</A></LI></UL></DIV><DIV id="menuComposi&ccedil;&atilde;o"><H5>Composição</H5><UL><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/estudoDeCaso.html">Estudo de Caso</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/ferramentas/ferramentas.html">HotStudio</A></LI><LI class="expanded"><A href="http://hotwork.sourceforge.net/hotwork/manuais_tutoriais.html">Manuais/Tutoriais</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/struts/index.html">Struts</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/hibernate/index.html">Hibernate</A></LI><LI class="expanded"><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/index.html">Log4J</A></LI><LI class="none"><STRONG><A href="./HotWork_Solution_Log4J_User_Guide_files/HotWork_Solution_Log4J_User_Guide.html">  User Guide</A></STRONG></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/junit/index.html">JUnit</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/quartz/index.html">Quartz</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/jasper/index.html">JasperReports</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/ireport/index.html">IReport</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/displaytag/index.html">DisplayTag</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/patterns/index.html">Patterns</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/eclipse/index.html">Eclipse</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/cvs/index.html">CVS</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/jboss/index.html">JBoss</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/ant/index.html">ANT</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/maven/index.html">Maven</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/manual/xdoclet/index.html">XDoclet</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/manual/guidelines/index.html">Code Guidelines</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/componentes.html">Componentes</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/hotwork/templates/templates.html">Templates Projects</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/cookbook.html">CookBook</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/instalacao.html">Instalação</A></LI><LI class="none"><A href="http://hotwork.sourceforge.net/hotwork/download.html">Download</A></LI></UL></DIV><DIV id="search"><H5>Search Hotwork</H5><FORM action="http://www.google.com/search" method="get"><A href="http://www.google.com/" class="navlink"><IMG height="32" width="75" alt="Google" src="./HotWork_Solution_Log4J_User_Guide_files/Logo_25wht.gif"></A><INPUT name="q" maxlength="255" size="15" type="text" value="" id="q"><INPUT name="btnG" type="submit" value="Go" id="btnG"><INPUT name="domains" type="hidden" value="http://www.sf.net"><INPUT name="sitesearch" type="hidden" value="http://www.sf.net" id="search"></FORM></DIV><DIV id="menuProject_Documentation"><H5>Project Documentation</H5><UL><LI class="none"><A href="http://hotwork.sourceforge.net/index.html">About Hotwork</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/project-info.html">Project Info</A></LI><LI class="collapsed"><A href="http://hotwork.sourceforge.net/maven-reports.html">Project Reports</A></LI><LI class="none"><A href="http://maven.apache.org/development-process.html">Development Process</A></LI></UL></DIV><A href="http://www.neki-technologies.com.br/" title="N&eacute;ki Technologies" id="poweredBy"><IMG alt="N&eacute;ki Technologies" src="./HotWork_Solution_Log4J_User_Guide_files/maven-button-1.png"></A></DIV></DIV><DIV id="bodyColumn"><DIV class="contentBox"><DIV class="section"><H2><A name="Log4J_User_Guide">Log4J User Guide</A></H2><P>
+        </P><OL>
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Introdução</A></LI>
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Download</A></LI>
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Instalação</A></LI>
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Configuração</A></LI>
+		  	<OL>
+	          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Configurando por programação</A></LI>
+	          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Através de arquivo .properties</A></LI>
+			 </OL> 
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Componentes</A></LI>
+		  	<OL>
+	          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Logger</A></LI>
+	          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Appender</A></LI>
+			  	<OL>
+		          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">SMTPAppender - logs via e-mail</A></LI>
+				 </OL> 
+	          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Layout</A></LI>
+			 </OL> 
+          <LI><A href="http://hotwork.sourceforge.net/hotwork/manual/log4j/log4j-user-guide.html#">Um arquivo de configuração abrangente</A></LI>
+        </OL>
+      <P></P></DIV><DIV class="section"><H2><A name="Sobre_esse_Tutorial">Sobre esse Tutorial</A></H2><P>
+        <A href="mailto:suporte@neki-technologies.com.br">Néki Technologies</A>.
+      </P><P>
+        Agradecimentos ao Néki Team!
+      </P></DIV><DIV class="section"><H2><A name="Introdu&ccedil;&atilde;o">Introdução</A></H2><P>
+			Podemos afirmar que instruções de log, isto é, mensagens indicando o comportamento de um programa, podem poluir o código e diminuir a legibilidade. Além disso, o log aumenta o tamanho do código e reduz sua velocidade.
+		</P><P>
+			Log4j é um projeto de código aberto (open Source) baseado no trabalho de diversos autores. Ele permite ao desenvolvedor controlar, de maneira flexível, cada saída de log. Com o ele, podemos ativar o log em tempo de execução sem modificar os binários da aplicação, esse comportamento pode ser controlado apenas editando um arquivo de configuração.
+		</P><P>
+			Uma das características do Log4j é a herança em loggers. Usando uma hierarquia de loggers é possível controlar quais instruções de log serão usadas. Isto ajuda a reduzir o volume de saídas e minimizar seu custo.
+		</P><P>
+			A saída poderá ser um arquivo, um OutputStream, um java.io.Writer, um servidor Log4j remoto, um daemon Unix, ou mesmo um evento de log do Windows.
+		</P></DIV><DIV class="section"><H2><A name="Download">Download</A></H2><P>
+			A versão atual do Log4J é a 1.2.8, seu download pode ser feito em  <A href="http://logging.apache.org/log4j/docs/download.html" target="_new">
+			http://logging.apache.org/log4j/docs/download.html</A> onde poderá ser obtido o código fonte e as bibliotecas para uso.
+		</P></DIV><DIV class="section"><H2><A name="Instala&ccedil;&atilde;o">Instalação</A></H2><P>
+			Para começar a usar o Log4J, basta descompactar o arquivo que foi baixado e colocar o log4j-xxx.jar (onde xxx é a versão).
+		</P></DIV><DIV class="section"><H2><A name="Configura&ccedil;&atilde;o">Configuração</A></H2><P>
+			Para se usar o Log4j deve-se ter um considerável planejamento e esforço, pois após colocarmos instruções de log dentro do código de um sistema, é importante que não seja preciso modificá-las manualmente.
+		</P><P>	
+			Esse planejamento é feito na configuração, esta é, talvez, a parte mais importante ao utilizar o Log4j. A configuração pode ser feita por programação,entretanto, fica claro que é obtida uma flexibilidade muito maior ao usarmos outras duas formas possíveis de configuração: um arquivo xml ou um arquivo de propriedades (no formato chave=valor).
+		</P><DIV class="subsection"><H3><A name="Configurando_por_programa&ccedil;&atilde;o">Configurando por programação</A></H3><P>
+				Basta chamar o método estático configure() da classe org.apache.log4j.BasicConfigurator.
+			</P><P>
+
+
+    </P><DIV class="source"><PRE>private SessionFactory sessionFactory;
+public static void main(String[] args) {
+	BasicConfigurator.configure();
+	logger.info("Iniciando a aplicacao");
+}
+</PRE></DIV>
+  
+				
+			<P></P></DIV><DIV class="subsection"><H3><A name="Atrav&eacute;s_de_arquivo__properties">Através de arquivo .properties</A></H3><P>
+				Configurar o Log4j é de fato setar os loggers para mostrar as mensagens de log nos appenders escolhidos usando layouts determinados pelo desenvolvedor. Os loggers podem ser criados e configurados em qualquer ordem, em particular um logger irá encontrar e agrupar seus descendentes mesmo que ele seja instanciado depois deles.
+			</P><P>
+				Isto tudo pode ser feito em um arquivo que deve ser chamado de log4j.properties, desta forma a configuração é feita apenas uma vez e é carregada na inicialização da aplicação. Este arquivo deve ser colocado no classpath da aplicação.
+			</P><P>
+				Veja um exemplo:
+			</P><P>
+
+
+    </P><DIV class="source"><PRE>#### Usando 2 appenders, 1 para logar no console, outro para um arquivo
+log4j.rootCategory=DEBUG, stdout, fileOut
+
+# Imprime somente mensagens com 'priority' WARN ou mais alto para o logger
+#lembrando a ordem: DEBUG - INFO - WARN - ERROR - FATAL
+log4j.category.SEU.LOGGER.NAME=WARN
+
+# Explicita a herança do nivel de prioridade
+#log4j.category.your.category.name=INHERITED
+
+#### O primeiro appender escreve no console
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+# Pattern que mostra o nome do arquivo e numero da linha.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
+
+#### O segundo appender escreve em um arquivo
+log4j.appender.fileOut =org.apache.log4j.RollingFileAppender
+log4j.appender.fileOut.File=example.log
+
+# Controla o tamanho maximo do arquivo
+log4j.appender.fileOut.MaxFileSize=100KB
+
+# Faz backup dos arquivos de log (apenas 1)
+log4j.appender.fileOut.MaxBackupIndex=1
+
+log4j.appender.fileOut.layout=org.apache.log4j.PatternLayout
+log4j.appender.fileOut.layout.ConversionPattern=%p %t %c - %m%n
+</PRE></DIV>
+  
+			
+			<P></P></DIV></DIV><DIV class="section"><H2><A name="Componentes">Componentes</A></H2><P>
+			O Log4j possui três componentes principais: loggers, appenders e layouts. Eles trabalham juntos para que os desenvolvedores façam o log de suas mensagens de acordo com o tipo e o nível delas, e controle em tempo de execução como estas mensagens são formatadas e onde são reportadas.
+		</P><DIV class="subsection"><H3><A name="Logger">Logger</A></H3><P>
+				A primeira e principal vantagem de qualquer API de log sobre o System.out.println está em sua
+				habilidade de desabilitar certos níveis de log (quando estes não são necessários) enquanto os demais 
+				níveis continuam funcionando normalmente. O Log4j oferece cinco níveis de log em sua hierarquia: 
+				DEBUG, INFO, WARN, ERROR e FATAL. O nível da hierarquia de log será informado quando da chamada ao 
+				método de log.
+			</P><P>
+				O nome de um logger deve seguir o mesmo estilo já conhecido dos programadores Java, separando por pontos (.) desta forma:
+				<BR>
+
+    </P><DIV class="source"><PRE>"com.foo" é um parent de "com.foo.Bar" e este chamado de child. 
+Similarmente, assim como "java" é um ancestor de "java.util.Vector", 
+dizemos que "com" é um ancestor de "com.foo.Bar".
+</PRE></DIV>
+  
+			<P></P><P>
+				A classe org.apache.log4j.Logger é a classe central do Log4j, a maioria das operações de log, exceto configuração, são 
+				feitas através desta classe.
+			</P></DIV><DIV class="subsection"><H3><A name="Appender">Appender</A></H3><P>
+				Um appender é uma saída onde são mostradas as mensagens, o console, algum arquivo, um servidor remoto de sockets, etc. 
+				Um logger pode ter mais de um appender. Por exemplo, podemos mandar as mensagens de log para o console e para um arquivo 
+				ao mesmo tempo. Além disso podemos mostrar níveis diferentes de mensagens nos appenders diferentes, ou seja, mandar 
+				para o console todas as mensagens enquanto que para o arquivo podemos salvar apenas as mensagens de nível 
+				WARN, por exemplo.
+			</P><P>
+				Appenders:
+				<BR>
+				ConsoleAppender - envia as mensagens de log para o System.out (default) ou System.err (mudado com a propriedade Target)
+				</P><UL>
+					<LI>FileAppender - envia para um arquivo</LI>
+					<LI>RollingFileAppender - é subclasse de FileAppender, sendo que este pode fazer um backup do arquivo sempre que ele atingir um determinado tamanho.</LI>
+					<LI>DailyRollingFileAppender - é subclasse de FileAppender, este appender pode fazer um backup de tempos em tempos (definido pelo desenvolvedor, a cada semana por exemplo), para setar o tempo, basta usar o mesmo pattern da classe SimpleDateFormat na propriedade DatePattern.</LI>
+					<LI>SMTPAppender - appender para enviar o log para um destinatário de e-mail</LI>
+					<LI>SocketAppender - envia os eventos de log para um servidor de logs remoto através do protocolo TCP.</LI>
+					<LI>NTEventLogAppender - envia para o sistema de log de uma máquina com plataforma Windows.</LI>
+					<LI>SyslogAppender - envia os logs para um daemon (monitor de logs) remoto</LI>
+					<LI>JMSAppender - envia os logs como uma mensagem JMS</LI>
+					<LI>AsyncAppender - possibilita que os logs sejam coletados em um buffer e depois enviados para um ou mais appender anexados a ele</LI>
+					<LI>NullAppender - meramente existe mas nao manda mensagens para nenhum dispositivo.</LI>
+				</UL>
+			<P></P><P>	
+				Para filtrar os tipos de logs, basta setar a propriedade <CODE>Threshold=&lt;nivel minimo&gt;</CODE>, desta forma serão 
+				mostradas todas as mensagens que tiverem prioridade igual ou maior do que o nível setado, seguindo a ordem: 
+				DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL.
+			</P><P>
+
+    </P><DIV class="source"><PRE>log4j.appender.meuLogger.Threshold=WARN
+</PRE></DIV>
+  
+			<P></P><P>
+				Isto significa dizer que somente as mensagens com nível WARN, ERROR e FATAL serão mostradas.
+			</P><DIV class="subsection"><H3><A name="SMTPAppender_-_logs_via_e-mail">SMTPAppender - logs via e-mail</A></H3><P>
+					Com Log4j é possível enviar os logs facilmente para um destinatário de e-mail, usando o appender 
+					<CODE>org.apache.log4j.net.SMTPAppender </CODE>
+				</P><P>
+					Como o SMTPAppender usa a JavaMail API da Sun (http://java.sun.com/products/javamail), é necessário utilizar o 
+					JavaBeans Activation Framework (http://java.sun.com/beans/glasgow/jaf.html) através do arquivo activation.jar, 
+					e o pacote javax.mail que pode ser encontrado no arquivo mail.jar da Sun. Estes dois arquivos devem ser colocados 
+					no <CODE>CLASSPATH</CODE> da aplicação.
+				</P><P>
+					Daí então, só é preciso fazer a devida configuração assim como qualquer outro appender:
+					<BR>
+
+    </P><DIV class="source"><PRE>log4j.rootCategory=DEBUG, emailOut
+
+!-------------------- Enviando por e-mail -------------------!
+
+log4j.appender.emailOut=org.apache.log4j.net.SMTPAppender
+log4j.appender.emailOut.Threshold=DEBUG
+
+log4j.appender.emailOut.SMTPHost=&lt;seu servidor smtp&gt;
+log4j.appender.emailOut.From=&lt;seu e-mail&gt;
+
+log4j.appender.emailOut.BufferSize=2
+log4j.appender.emailOut.Subject=&lt;assunto&gt;
+
+log4j.appender.emailOut.To=&lt;destinatario&gt;
+log4j.appender.emailOut.layout=org.apache.log4j.PatternLayout
+log4j.appender.emailOut.layout.ConversionPattern=%d{ISO8601} %5p [%t](%F:%L)- %m%n
+</PRE></DIV>
+  
+				<P></P><P>
+					O e-mail enviado conterá exatamente as mensagens de log como aparecem no console por exemplo, seguindo o pattern escolhido pelo desenvolvedor.
+				</P></DIV></DIV><DIV class="subsection"><H3><A name="Layout">Layout</A></H3><P>
+				Layout é o formato como a mensagem vai ser mostrada. Este formato pode incluir a data da mensagem, qual o método 
+				que contém o log, qual linha, classe, arquivo, etc.
+			</P><P>	
+				Log4j fornece as seguintes classes de Layout:
+			</P><P>
+
+
+    </P><DIV class="source"><PRE>org.apache.log4j.Layout (abstrata)
+	-org.apache.log4j.SimpleLayout
+	-org.apache.log4j.PatternLayout
+	-org.apache.log4j.HTMLLayout
+	-org.apache.log4j.XMLLayout
+	-org.apache.log4j.DateLayout(abstrata): org.apache.log4j.TTCCLayout
+</PRE></DIV>
+  
+			<P></P><P>
+				Para usar um destes layouts é muito simples, veja este exemplo que irá criar um saída em uma tabela HTML:
+			</P><P>
+
+    </P><DIV class="source"><PRE>log4j.rootCategory=DEBUG, htmlOut
+!-------------------------------HTMLLayout OPTIONS----------------------------!
+log4j.appender.htmlOut=org.apache.log4j.RollingFileAppender
+
+log4j.appender.htmlOut.File=logging/HTMLLayout.html
+log4j.appender.htmlOut.layout=org.apache.log4j.HTMLLayout
+
+log4j.appender.htmlOut.layout.LocationInfo=true
+log4j.appender.htmlOut.layout.Title=Log gerado pelo Log4j
+</PRE></DIV>
+  
+			<P></P><P>
+				Isto irá criar um arquivo com o nome HTMLLayout.html, e neste arquivo terá uma tabela com o tempo decorrido em milisegundos desde quando o programa foi iniciado, a thread que disparou o log, o nível de prioridade, a classe, o nome do arquivo *.java desta classe e o número da linha (se LocationInfo = true) e a mensagem de log.
+			</P><P>
+				Ao enviar o log para o console ou para um arquivo por exemplo, podemos mostrar tais informações na ordem em que escolhermos 
+				e com o formato que desejarmos, um ótimo exemplo é o formato da data, podemos mostrar "dd/mm/aaaa" ou "aaaa-mm-dd" com hora 
+				ou não. Isto depende do pattern usado. Veja este exemplo:
+			</P><P>
+
+    </P><DIV class="source"><PRE>Pattern: "%r [%t] %-5p %c{2} - %m%n"
+			
+176 [main] INFO  examples.Sort - Populating an array of 2 elements in reverse order
+</PRE></DIV>
+  
+			<P></P><P>
+				<B>r</B> - numero de milissegundos transcorridos desde o inicio do programa
+				<BR>
+				<B>t</B> - nome da thread que gerou o evento de log
+				<BR>
+				<B>p</B> - prioridade (o -5 indica que deve alinhar a direita se o número de caracteres for menor que cinco)
+				<BR>
+				<B>c</B> - nome da classe (2 indica que se o nome completo da classe for "a.b.c" por exemplo, deverá ser mostrado apenas "b.c")
+				<BR>
+				<B>m</B> - é a mensagem (não pode faltar !)
+				<BR>
+				<B>n</B> - é o separador de linhas padrão do sistema operacional - "\n" ou "\r\n"
+			</P><P>	
+				Para usar os patterns devemos dizer que o layout será da classe org.apache.log4j.PatternLayout. Ela serve justamente para formatar um 
+				evento de log e retornar uma string que será mostrada no appender escolhido, para fazer a formatação usamos uma propriedade de 
+				PatternLayout chamada ConversionPattern.
+			</P><P>	
+				Veja como esta configuração é simples:
+			</P><P>	
+
+
+    </P><DIV class="source"><PRE>log4j.rootCategory=DEBUG, stdOut
+
+# stdOut usa PatternLayout
+log4j.appender.stdOut.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdOut.layout.ConversionPattern=%-2d{dd/MM/yy HH:mm} [%t] %5p %c:%L - %m%n
+</PRE></DIV>
+  
+			<P></P><P>
+				Isto irá mostrar
+				<BR>
+
+    </P><DIV class="source"><PRE>22/01/04 13:07 [main]  INFO logging.UseLogger :12 - Iniciando a aplicacao
+22/01/04 13:07 [main]  INFO logging.UseLogger :14 - Fim da aplicacao
+</PRE></DIV>
+  
+			<P></P><P>
+				Para ver a lista dos patterns, consulte a classe org.apache.log4j.PatternLayout nos javadocs do Log4j, a versão 
+				on-line é http://logging.apache.org/log4j/docs/api/org/apache/log4j/PatternLayout.html
+			</P></DIV></DIV><DIV class="section"><H2><A name="Um_arquivo_de_configura&ccedil;&atilde;o_abrangente">Um arquivo de configuração abrangente</A></H2><P>
+			Veja abaixo um arquivo com muitas opções de configuração do Log4j.
+		</P><P>
+
+
+    </P><DIV class="source"><PRE>#log4j.debug=true
+#log4j.disable=fatal
+#log4j.additivity.TestLogging=false
+
+log4j.rootCategory=, dest1
+log4j.category.TestLogging=DEBUG, dest1
+log4j.appender.dest1=org.apache.log4j.ConsoleAppender
+#log4j.appender.dest1.layout=org.apache.log4j.SimpleLayout
+log4j.appender.dest1.layout=org.apache.log4j.PatternLayout
+#log4j.appender.dest1.layout.ConversionPattern=%-5p %l %x: %m%n
+
+
+!----------------------####### END OF PROPERTIES #######----------------------!
+
+
+###############################################################################
+# Below I document in more detail how to write a log4j configuration file.    #
+# SELECTIVELY copy lines beginning with #, paste and uncomment them above.    #
+###############################################################################
+
+!-----------------------------------------------------------------------------!
+! PLACE THIS FILE ANYWHERE IN CLASSPATH                                       !
+! Appenders are additive by default.                                          !
+! Priorities are inherited until overridden in a category.                    !
+! In ${property_key}, the value of the key can be defined as a system         !
+! property or in this file itself.  System properties are searched first and  !
+! then this file.                                                             !
+!-----------------------------------------------------------------------------!
+
+
+
+!-----------------------------------------------------------------------------!
+! Configure log4j's operation at the meta level                               !
+!-----------------------------------------------------------------------------!
+! Observe log4j parsing this file
+#log4j.debug=true
+! Set this to false for log4j to actually obey the log4j.disable property(next)
+#log4j.disableOverride=false
+! Disable all logging in all categories for messages with priority equal to
+! or lower than the one given here
+#log4j.disable=INFO
+
+
+
+!-----------------------------------------------------------------------------!
+! Configure categories (loggers)                                              !
+!-----------------------------------------------------------------------------!
+
+! ROOT CATEGORY (Usually sufficient to set this one only)
+! Here, logs messages with priority DEBUG (default) or higher
+#log4j.rootCategory=, dest1
+! Or,
+#log4j.rootCategory=debug, dest1, dest2
+
+! YOUR CATEGORIES (to customize logging per class/pkg/project/etc)
+! Here, overrides ancestor's priority and makes it WARN or higher for this cat.
+#log4j.category.TestLogging=WARN, dest3
+! Or,
+#log4j.category.TestLogging=DEBUG, dest3
+
+!--------DON'T DO THIS!!!  APPENDERS ARE ADDITIVE BY DEFAULT!!!---------------!
+! It will write the same log message TWICE to dest1. Once for root, then for  !
+! this category.                                                              !
+!#log4j.category.TestLogging=DEBUG, dest1, dest3                              !
+! If you DO NOT want additivity for this category, say so                     !
+!#log4j.additivity.TestLogging=false                                          !
+!-----------------------------------------------------------------------------!
+
+
+
+!-----------------------------------------------------------------------------!
+! Configure appenders (log destinations/targets) and their options            !
+!-----------------------------------------------------------------------------!
+
+! WRITE TO CONSOLE (stdout or stderr)
+#log4j.appender.dest1=org.apache.log4j.ConsoleAppender
+#log4j.appender.dest1.ImmediateFlush=true
+
+! WRITE LOG TO A FILE, ROLL THE FILE AFTER SOME SIZE
+#log4j.appender.dest2=org.apache.log4j.RollingFileAppender
+! This appender will only log messages with priority equal to or higher than
+! the one specified here
+#log4j.appender.dest2.Threshold=ERROR
+! Specify the file name (${property_key} gets substituted with its value)
+#log4j.appender.dest2.File=${java.home}/log4j.log
+! Don't append, overwrite
+#log4j.appender.dest2.Append=false
+! Control the maximum log file size
+#log4j.appender.dest2.MaxFileSize=100KB
+! Keep backup file(s) (backups will be in filename.1, .2 etc.)
+#log4j.appender.dest2.MaxBackupIndex=2
+
+! WRITE LOG TO A FILE, ROLL THE FILE EVERY WEEK
+#log4j.appender.dest3=org.apache.log4j.DailyRollingFileAppender
+! Specify the file name
+#log4j.appender.dest3.File=log4TestLogging2.html
+! Control the maximum log file size
+#log4j.appender.dest3.MaxFileSize=300KB
+! Rollover log file at the start of each week
+#log4j.appender.dest3.DatePattern='.'yyyy-ww
+
+
+
+!-----------------------------------------------------------------------------!
+! Configure appender layouts (log formats) and their options                  !
+!-----------------------------------------------------------------------------!
+
+! USE SIMPLE LOG FORMAT (e.g. INFO - your log message)
+#log4j.appender.dest1.layout=org.apache.log4j.SimpleLayout
+
+! USE A C PRINTF STYLE PATTERN TO FORMAT LOG MESSAGE
+#log4j.appender.dest1.layout=org.apache.log4j.PatternLayout
+! For a pattern layout, specify the pattern (Default is %m%n which is fastest)
+#log4j.appender.dest1.layout.ConversionPattern=%-5p: %m%n
+! Or,
+#log4j.appender.dest1.layout.ConversionPattern=%-5p %6.10r[%t]%x(%F:%L) - %m%n
+
+#log4j.appender.dest2.layout=org.apache.log4j.PatternLayout
+#log4j.appender.dest2.layout.ConversionPattern=[%d{ISO8601}]%5p%6.6r[%t]%x(%F:%L) - %m%n
+! Or, (the pattern below will slow down your app)
+#log4j.appender.dest2.layout.ConversionPattern=[%d{yyyy-mm-dd hh:mm},%6.6r]%-5p[%t]%x(%F:%L) - %m%n
+
+
+! FORMAT LOG MESSAGES IN THE FORM OF AN HTML TABLE
+#log4j.appender.dest3.layout=org.apache.log4j.HTMLLayout
+! Include Java file name and line number (Default is false)
+#log4j.appender.dest3.layout.LocationInfo=true
+! Set &lt;title&gt; tag (Default: Log4J Log Messages)
+#log4j.appender.dest3.layout.Title=My App Log
+
+
+!-----------------------------------------------------------------------------!
+!                          PATTERN FORMATS GLOSSARY                           !
+!-----------------------------------------------------------------------------!
+! %n - newline                                                                !
+! %m - your log message                                                       !
+! %p - message priority (FATAL, ERROR, WARN, INFO, DEBUG or custom)           !
+! %r - millisecs since program started running                                !
+! %% - percent sign in output                                                 !
+!                                                                             !
+!-----------------------SOME MORE CLUTTER IN YOUR LOG-------------------------!
+! %c - name of your category (logger), %c{2} will outputs last two components !
+! %t - name of current thread                                                 !
+! %x - Nested Diagnostic Context (NDC) (you supply it!)                       !
+!                                                                             !
+!-------------------------SLOW PERFORMANCE FORMATS----------------------------!
+! %d - date and time, also %d{ISO8601}, %d{DATE}, %d{ABSOLUTE},               !
+!        %d{HH:mm:ss,SSS}, %d{dd MMM yyyy HH:mm:ss,SSS} and so on             !
+! %l - Shortcut for %F%L%C%M                                                  !
+! %F - Java source file name                                                  !
+! %L - Java source line number                                                !
+! %C - Java class name, %C{1} will output the last one component              !
+! %M - Java method name                                                       !
+!                                                                             !
+!------------------------------FORMAT MODIFIERS-------------------------------!
+! %-any_letter_above - Left-justify in min. width (default is right-justify)  !
+! %20any_letter_above - 20 char. min. width (pad with spaces if reqd.)        !
+! %.30any_letter_above - 30 char. max. width (truncate beginning if reqd.)    !
+! %-10.10r - Example.  Left-justify time elapsed within 10-wide field.        !
+!              Truncate from beginning if wider than 10 characters.           !
+!-----------------------------------------------------------------------------!
+
+
+!-----------------------------------------------------------------------------!
+!                             OPTIONS GLOSSARY                                !
+!-----------------------------------------------------------------------------!
+!-------------------------OVERALL OPTIONS FOR log4j---------------------------!
+! Specify as command line option: -Dlog4j.defaultInitOverride=false
+! Specify as command line option: -Dlog4j.configuration=app_config.properties
+!#log4j.debug=true
+!#log4j.disable=INFO
+!#log4j.disableOverride=false
+!#log4j.additivity.your.category.name=false
+!
+!----------------------------NullAppender OPTIONS-----------------------------!
+!#log4j.appender.dest1.Threshold=INFO
+!
+!---------------------------ConsoleAppender OPTIONS---------------------------!
+!#log4j.appender.dest1.Threshold=INFO
+!#log4j.appender.dest1.ImmediateFlush=true
+!#log4j.appender.dest1.Target=System.err
+!
+!-----------------------------FileAppender OPTIONS----------------------------!
+!#log4j.appender.dest2.Threshold=INFO
+!#log4j.appender.dest2.ImmediateFlush=true
+!#log4j.appender.dest2.File=mylog.txt
+!#log4j.appender.dest2.Append=false
+!
+!-------------------------RollingFileAppender OPTIONS-------------------------!
+!#log4j.appender.dest2.Threshold=INFO
+!#log4j.appender.dest2.ImmediateFlush=true
+!#log4j.appender.dest2.File=mylog.txt
+!#log4j.appender.dest2.Append=false
+!#log4j.appender.dest2.MaxFileSize=100KB
+!#log4j.appender.dest2.MaxBackupIndex=2
+!
+!-----------------------DailyRollingFileAppender OPTIONS----------------------!
+!#log4j.appender.dest2.Threshold=INFO
+!#log4j.appender.dest2.ImmediateFlush=true
+!#log4j.appender.dest2.File=mylog.txt
+!#log4j.appender.dest2.Append=false
+!#log4j.appender.dest2.DatePattern='.'yyyy-ww
+!
+!-----------------------------SimpleLayout OPTIONS----------------------------!
+!**None**
+!
+!-------------TTCCLayout OPTIONS (PatternLayout is more flexible)-------------!
+!#log4j.appender.dest1.layout.DateFormat=ISO8601
+!#log4j.appender.dest1.layout.TimeZoneID=GMT-8:00
+!#log4j.appender.dest1.layout.CategoryPrefixing=false
+!#log4j.appender.dest1.layout.ThreadPrinting=false
+!#log4j.appender.dest1.layout.ContextPrinting=false
+!
+!-----------------------------PatternLayout OPTIONS---------------------------!
+!#log4j.appender.dest1.layout.ConversionPattern=%m%n
+!
+!-------------------------------HTMLLayout OPTIONS----------------------------!
+!#log4j.appender.dest3.layout.LocationInfo=true
+!#log4j.appender.dest3.layout.Title=My app title
+!
+!--------------------------------XMLLayout OPTIONS----------------------------!
+!#log4j.appender.dest3.layout.LocationInfo=true
+!-----------------------------------------------------------------------------!
+
+</PRE></DIV>
+  
+
+		<P></P></DIV><DIV class="section"><H2><A name="Feedback">Feedback</A></H2><IMG border="2" src="./HotWork_Solution_Log4J_User_Guide_files/ico_disc.gif" align="right" alt=""><P>
+			Por favor, dê a sua opinião a respeito do conteúdo apresentado. Correções, sugestões ou qualquer
+			outra informação relevante é de suma importância para nós e será muito bem vinda.
+		</P><P>
+			Contato: <A href="mailto:owner@hotwork.dev.java.net">owner@hotwork.dev.java.net</A>
+		</P></DIV></DIV></DIV><DIV class="clear"><HR></DIV><DIV id="footer"><DIV class="xright">© 2003-2004, HotWork Solution</DIV><DIV class="clear"><HR></DIV></DIV></BODY></HTML>

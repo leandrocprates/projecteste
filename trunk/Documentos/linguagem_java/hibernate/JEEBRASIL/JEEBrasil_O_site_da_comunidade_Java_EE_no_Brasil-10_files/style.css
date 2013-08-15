@@ -1,0 +1,144 @@
+
+table.listagem {
+	font-size: 80%;
+	border: 1px solid #333;
+	margin-left: 15px;
+}
+
+table.listagem caption {
+	background: #666;
+	border: 1px solid #333;
+	border-bottom: none;
+	color: #FFF;	
+	padding: 2px;	
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+table.listagem tr.linhaPar {
+	background: #eee;
+}
+
+table.listagem tr td {
+	padding: 1px;	
+	padding-right: 4px;
+	padding-left: 8px;
+	border-left: 1px solid #DFDFDF;	
+}
+
+table.listagem tr td form {
+	font-size: 0.8em;	
+}
+
+/* Inicio - Validacao */
+
+div.errorPanel {
+	display: none;
+}
+
+div.errorPanel table {
+	border : 1px solid red;
+}
+
+div.errorPanel table caption {
+	background: #FF0000;
+	color: #FFF;
+	font-weight: bold;
+}
+
+input.disabled {
+	border: 1px solid #F2F2F2;
+	background-color: #F2F2F2;
+}
+
+input.required, textarea.required, select.required {
+	border: 1px solid #00A8E6;
+}
+input.validation-failed, textarea.validation-failed {
+	border: 1px solid #FF3300;
+	color : #FF3300;
+}
+input.validation-passed, textarea.validation-passed {
+	border: 1px solid #00CC00;
+	color : #000;
+}
+
+.validation-advice {
+	margin: 5px 0;
+	padding: 5px;
+	background-color: #FF3300;
+	color : #FFF;
+	font-weight: bold;
+	width: 67%;
+}
+
+.custom-advice {
+	margin: 5px 0;
+	padding: 5px;
+	background-color: #C8AA00;
+	color : #FFF;
+	font-weight: bold;
+}
+
+fieldset {
+	padding: 1em;
+	margin-bottom: 0.5em;
+}
+
+label {
+	font-weight: bold;
+}
+.form-row {
+	clear: both;
+	padding: 0.5em;
+}
+
+.field-label {
+
+}
+
+.field-widget {
+
+}
+
+/* Fim - Validacao */
+
+/* Inicio - Estilos para escolhas de tags */
+p.tags {
+	margin: 0;
+	padding: 0;
+}
+
+p.tags a {
+	padding: 2px;
+}
+
+p.tags a:hover {
+	background: #555;
+}
+
+p.tags a.selectedTag {
+	background: #555;
+	color: white;
+}
+/* Fim - Estilos para escolhas de tags */
+
+
+table tr td.menu {
+	color: #666666;
+	font-size: 0.75em;
+	margin: 5px 0px 0px 0px;
+  	padding: 1px 3px;
+}
+
+table tr td.menu ul {
+	list-style: none; 
+	margin: 0; 
+	padding: 0;
+	border-right: 1px solid #469ACD;
+}
+
+table tr td.menu ul li ul {
+	margin-left: 15px;
+	border-right: none;
+}

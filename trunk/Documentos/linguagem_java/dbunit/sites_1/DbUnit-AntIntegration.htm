@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0034)http://www.dbunit.org/anttask.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>DbUnit - Ant Integration</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./DbUnit-AntIntegration_files/print.css" type="text/css" media="print">
+        
+                                                    
+<LINK rel="icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                                                        
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                    </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://www.dbunit.org/" id="bannerLeft">
+    
+                                            <IMG src="./DbUnit-AntIntegration_files/dbunit-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://www.sourceforge.net/projects/dbunit" id="bannerRight">
+    
+                                    <IMG src="./DbUnit-AntIntegration_files/sflogo.php" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <DIV class="xleft">
+          
+                <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+                &gt;
+      
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+                  </DIV>
+            <DIV class="xright">            <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+            |
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+            
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <H5>Quick Links</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://maven-plugins.sourceforge.net/maven-dbunit-plugin/index.html" class="externalLink">Maven 1.x Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://mojo.codehaus.org/dbunit-maven-plugin/" class="externalLink">Maven 2 Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/project/showfiles.php?group_id=47439" class="externalLink">Download</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/changes-report.html">Changes</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/faq.html">FAQ</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://dbunit.wikidot.com/" class="externalLink">Wiki</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/support/getsupport.php?group_id=47439" class="externalLink">Get Support</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/source-repository.html">Get source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/xref/index.html">Browse source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/apidocs/index.html">JavaDocs</A>
+          </LI>
+          </UL>
+              <H5>Overview</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/index.html">About DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/intro.html">Database Testing</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/howto.html">Getting Started</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/bestpractices.html">Best Practices</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/components.html">Core Components</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/properties.html">Properties</A>
+          </LI>
+              
+    <LI class="none">
+              <STRONG>Ant Task</STRONG>
+        </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/migration.html">Migration Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/building.html">Building DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/devguide.html">Developers Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/resources.html">Resources</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/credits.html">Credits</A>
+          </LI>
+          </UL>
+                        <H5>Project Documentation</H5>
+            <UL>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-info.html">Project Information</A>
+                </LI>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-reports.html">Project Reports</A>
+                </LI>
+          </UL>
+                                           <A href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <IMG alt="Built by Maven" src="./DbUnit-AntIntegration_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+    
+            <DIV id="lastPublished">
+        Last Published: 20-Sep-2009
+              </DIV>
+            </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        <DIV class="section"><H2><A></A>
+</H2>
+<H3>Ant Integration</H3><H4>Installation</H4>
+The steps required to add the DbUnit task
+    to your system are: 
+    <P>1. Add the DbUnit jar to Ant's classpath. You may
+    alternatively use the 'classpath' attribute of
+    &lt;taskdef&gt;.</P>
+<P>2. Add a &lt;taskdef&gt; element to your build script as
+    follows: 
+    </P><DIV class="source"><PRE>      &lt;taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask"/&gt;
+</PRE>
+</DIV>
+<P></P>
+<P>3. Use the task in the rest of the buildfile.</P>
+<H3>Usage</H3><P>Executes either a single transaction, or a group of
+    transactions, under the DbUnit database testing framework.</P>
+<H4>Parameters</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="b"><TD>driver</TD>
+<TD>Class name of the jdbc driver. Must be available on the
+        classpath (either system classpath or nested
+        classpath)</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="a"><TD>url</TD>
+<TD>Database connection url</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>userid</TD>
+<TD>Database username</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="a"><TD>password</TD>
+<TD>Database password</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>schema</TD>
+<TD>Database schema</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>classpath</TD>
+<TD>Classpath used to load driver.</TD>
+<TD>No (use system classpath)</TD>
+</TR>
+<TR class="b"><TD>useQualifiedTableNames</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#qualifiedtablenames">qualified
+        table names</A>
+feature. Defaults to false. 
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>supportBatchStatement</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#batchstatement">batched
+        statement</A>
+feature. Defaults to false.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>datatypeWarning</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#typewarning">data type
+        warning</A>
+feature. Defaults to true.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>escapePattern</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#escapepattern">escape
+        pattern</A>
+property.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>datatypeFactory</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#typefactory">datatype
+        factory</A>
+property.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>skipOracleRecycleBinTables</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#skiporaclereyclebintables">
+        skipOracleRecycleBinTables</A>
+feature.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>batchSize</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#batchsize">
+        batchSize</A>
+property.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>fetchSize</TD>
+<TD>Set the 
+        <A href="http://www.dbunit.org/properties.html#fetchsize">
+        fetchSize</A>
+property.
+        <B>@deprecated since 2.4. Use nested <A href="http://www.dbunit.org/anttask.html#dbconfig">dbconfig</A>
+ element instead.</B>
+</TD>
+<TD>No</TD>
+</TR>
+</TBODY></TABLE>
+<H4>Parameters specified as nested elements</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>classpath</TD>
+<TD><P>DbUnit's classpath attribute is a PATH like structure
+          and can also be set via a nested classpath element. It is
+          used to load the JDBC classes.</P>
+</TD>
+</TR>
+<TR class="a"><TD><A name="dbconfig">dbconfig</A>
+</TD>
+<TD><P>DbUnit's configuration parameters to set any of the
+            <A href="http://www.dbunit.org/properties.html">properties</A>
+ for the database connection.
+          It supports all properties and features from the 
+          <A href="http://www.dbunit.org/apidocs/org/dbunit/database/DatabaseConfig.html">
+          DatabaseConfig</A>
+ java class, having the last path component of
+          the property/feature URL as name. A more detailed example is
+          shown at <A href="http://www.dbunit.org/anttask.html#dbconfigexample">dbconfig-example</A>
+.
+          </P>
+<P>The nested &lt;property&gt; element <B>and</B>
+ the nested 
+             &lt;feature&gt; element looks as follows:
+          </P>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>name</TD>
+<TD>The name of the property/feature which must be the last path component of
+              the property/feature URL (see <A href="http://www.dbunit.org/properties.html">properties</A>
+ for more).
+              Example: for the property "http://www.dbunit.org/properties/tableType"
+              the name is "tableType".</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>value</TD>
+<TD>The value of the property/feature as string. Since feature are boolean values
+              the string can take one of the values "true" or "false".</TD>
+<TD>Yes</TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+<TR class="a"><TD>operation</TD>
+<TD><P>Use nested 
+          <A class="code">&lt;query&gt;elements to exportdata
+          according to a sql statement. 
+          <BR>
+</A></P><A class="code">
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>type</TD>
+<TD>Type of Database operation to perform. Supported
+              types are UPDATE, INSERT, DELETE, DELETE_ALL,
+              REFRESH, CLEAN_INSERT, MSSQL_INSERT, MSSQL_REFRESH,
+              MSSQL_CLEAN_INSERT.</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>src</TD>
+<TD>The xml source upon which the operation is to be
+              performed</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="a"><TD>format</TD>
+<TD>Format type of supplied source file. Possible
+              values are "flat", "xml", "csv", "dtd", "xls".
+              Defaults to 
+              <B>"flat"</B>
+</TD>
+<TD><P>No</P>
+</TD>
+</TR>
+<TR class="b"><TD>transaction</TD>
+<TD>Boolean indicating if this operation should be
+              wrapped in a transaction, ensuring that the entire
+              operation completes or is rolled back. This may also
+              dramatically improve performance of large operations.
+              Possible values are "true" or "false". Defaults to 
+              <B>"false"</B>
+.</TD>
+<TD><P>No</P>
+</TD>
+</TR>
+</TBODY></TABLE>
+</A></TD>
+</TR>
+<TR class="a"><TD>export</TD>
+<TD><P>Use nested &lt;export&gt; operation elements to export
+          the database to the supplied filename. The default
+          operation is to &lt;export&gt; the entire database to the
+          destination filename with the supplied dataset type. You
+          can specify individual tables or queries to
+          &lt;export&gt; by nesting them under the &lt;export&gt;
+          step.</P>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>dest</TD>
+<TD>The xml destination filename</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>format</TD>
+<TD>Format type of supplied destination file.
+              Possible values are "flat", "xml" or "dtd". Defaults
+              to 
+              <B>"flat"</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>doctype</TD>
+<TD>If set and format is "flat", add DOCTYPE
+              declaration referencing specified DTD to exported
+              dataset. The DTD path can be absolute or
+              relative.</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>ordered</TD>
+<TD>If set to "true" the tables of the exported
+              dataset are ordered using the FilteredDataSet
+              combined with the DatabaseSequenceFilter. Defaults to
+              "false"</TD>
+<TD>No</TD>
+</TR>
+<TR class="a"><TD>encoding</TD>
+<TD>Desired encoding for XML-Output. Possible values are valid XML-Endings 
+              like "UTF-8" or "ISO-8859-1". Defaults to <B>"UTF-8"</B>
+</TD>
+<TD>No</TD>
+</TR>
+</TBODY></TABLE>
+<H4>Parameters specified as nested elements</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>table</TD>
+<TD><P>Use nested &lt;table&gt; elements to export
+                specific tables.</P>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="b"><TD>name</TD>
+<TD>Name of the database table to export.</TD>
+<TD>Yes</TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+<TR class="a"><TD>query</TD>
+<TD><P>Use nested 
+                <A class="code">&lt;query&gt;elements to export
+                data according to a sql statement.</A></P><A class="code">
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>name</TD>
+<TD>Name to reference the sql statement.</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="b"><TD>sql</TD>
+<TD>The sql to execute. You can use either
+                    SELECT * from Mytable or SELECT col1, col4 from
+                    MyTable</TD>
+<TD>Yes</TD>
+</TR>
+</TBODY></TABLE>
+</A></TD>
+</TR>
+<TR class="a"><TD>queryset</TD>
+<TD><P>Use a &lt;queryset&gt; element to establish a
+                group of &lt;query&gt; elements which can be
+                referenced throughout the Ant project. Also use
+                nested &lt;queryset&gt;s to include more than one
+                &lt;query&gt; element for a table. QuerySets are
+                joined together using a <A href="http://www.dbunit.org/components.html#compositedataset">CompositeDataSet</A>
+.</P>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>id</TD>
+<TD>Unique identifier for this element instance
+                    which can be referred to using 'refid'.</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>refid</TD>
+<TD>The reference 'id' of the queryset to refer
+                    to.</TD>
+<TD>No</TD>
+</TR>
+</TBODY></TABLE>
+<H4>Parameters specified as nested elements</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD><A href="http://ant.apache.org/manual/CoreTypes/filterset.html" class="externalLink">
+                      filterset</A>
+</TD>
+<TD>Tokens can be specified when a
+                    &lt;queryset&gt; reference is defined. Nested
+                    filtersets specify values to replace when the
+                    &lt;queryset&gt; is referenced. Tokens will be
+                    replaced within values of &lt;query&gt; sql
+                    attributes. (see 
+                    <A href="http://www.dbunit.org/anttask.html#queryset-example">queryset example</A>
+)</TD>
+</TR>
+</TBODY></TABLE>
+<P>In order to use &lt;queryset&gt; elements with
+                references, you must add the DbUnit Ant tasks to
+                your project in one of the following ways, to
+                ensure all elements are loaded with the same class
+                loader.</P>
+<P>If you are using Ant version &gt; 1.6.0</P>
+<DIV class="source"><PRE>                  &lt;typedef resource="org/dbunit/ant/antlib.xml"/&gt; 
+                </PRE>
+</DIV>
+<P>If you are using an Ant version &lt; 1.6</P>
+<DIV class="source"><PRE>                  
+                    &lt;taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" loaderref="dbunit"/&gt;
+                    &lt;typedef name="queryset" classname="org.dbunit.ant.QuerySet" loaderref="dbunit"/&gt;
+                
+                </PRE>
+</DIV>
+</TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+<TR class="b"><TD>compare</TD>
+<TD><P>Use nested &lt;compare&gt; elements to validate the
+          content of the database against the specified dataset
+          file.</P>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="b"><TD>src</TD>
+<TD>The xml source upon which the comparison is to be
+              performed</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="a"><TD>format</TD>
+<TD>Format type of supplied source file. Possible
+              values are "flat" or "xml". Defaults to 
+              <B>"flat"</B>
+</TD>
+<TD>No</TD>
+</TR>
+<TR class="b"><TD>sort</TD>
+<TD>Sorts tables prior comparison. Defaults to 
+              <B>"false".</B>
+</TD>
+<TD>No</TD>
+</TR>
+</TBODY></TABLE>
+<H4>Parameters specified as nested elements</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>table</TD>
+<TD><P>Use nested &lt;table&gt; elements to compare
+                specific tables.</P>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="a"><TD>name</TD>
+<TD>Name of the database table to compare.</TD>
+<TD>Yes</TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+<TR class="b"><TD>query</TD>
+<TD><P>Use nested 
+                <A class="code">&lt;query&gt;elements to
+                compare data according to a sql statement.</A></P><A class="code">
+<TABLE class="bodyTable"><TBODY><TR class="a"><TH>Attribute</TH>
+<TH>Description</TH>
+<TH>Required</TH>
+</TR>
+<TR class="b"><TD>name</TD>
+<TD>Name of the database table to compare.</TD>
+<TD>Yes</TD>
+</TR>
+<TR class="a"><TD>sql</TD>
+<TD>The sql to execute. You can use either
+                    SELECT * from Mytable or SELECT col1, col4 from
+                    MyTable</TD>
+<TD>Yes</TD>
+</TR>
+</TBODY></TABLE>
+</A></TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+</TBODY></TABLE>
+<H3>Examples</H3><H4>Update operation with specified JDBC driver jar</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+    url="jdbc:vendor:mydatabase"
+    userid="user"
+    password="password"&gt;
+    &lt;classpath&gt;
+        &lt;pathelement location="/some/jdbc.jar"/&gt;
+    &lt;/classpath&gt;
+    &lt;operation type="UPDATE" src="updateFile.xml"/&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4>Insert and update operations</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;operation type="INSERT" src="insertFile.xml"/&gt;
+    &lt;operation type="UPDATE" src="updateFile.xml"/&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4>Database data export to XML</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;export dest="export.xml"/&gt;
+&lt;/dbunit&gt;
+
+    </PRE>
+</DIV>
+<H4>Database structure export to DTD</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;export dest="export.dtd" format="dtd"/&gt;
+&lt;/dbunit&gt;
+
+    </PRE>
+</DIV>
+<H4><A name="partialexport">Partial database data export</A>
+</H4>
+<P>Export two tables: FOO, resulting from specified query and
+    BAR entire content</P>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;export dest="partial.xml"&gt;
+        &lt;query name="FOO" sql="SELECT COL1, COL2 FROM FOO WHERE COL1=4"/&gt;
+        &lt;table name="BAR"/&gt;
+    &lt;/export&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4><A name="databasecompare">Database data comparison</A>
+</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;compare src="expectedData.xml"/&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4><A name="partialcompare">Partial database data comparison</A>
+</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;compare src="expectedData.xml"&gt;
+        &lt;query name="FOO" sql="SELECT COL1, COL2 FROM FOO WHERE COL1=4"/&gt;
+        &lt;table name="BAR"/&gt;
+    &lt;/compare&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4><A name="queryset-example">Partial CSV export using queryset reference.</A>
+</H4>
+<P>Export employees with specified userNames, as well as all
+    managers.</P>
+<DIV class="source"><PRE>      
+&lt;!-- ======== Define the reference. Note that before ant 1.6
+              this would have to be within a target. ====== --&gt;
+&lt;queryset id="employees"&gt;
+   &lt;query name="EMPLOYEE"
+     sql="SELECT * FROM EMPLOYEE WHERE EMP_ID IN (@subQuery@)"/&gt;
+   &lt;query name="EMP_ADDRESS" sql="
+       SELECT B.* FROM EMPLOYEE A, EMP_ADDRESS B
+       WHERE A.EMP_ID IN (@subQuery@)
+       AND B.EMP_ID = A.EMP_ID"/&gt;
+&lt;/queryset&gt;
+.....
+&lt;!-- ========= Use the reference ====================== --&gt;
+
+&lt;dbunit driver="${jdbcDriver}"
+        url="${jdbcURL}" 
+        userid="${jdbcUser}" 
+        password="${jdbcPassword}"&gt;
+  &lt;export dest="someDir" format="csv"&gt;
+    &lt;queryset refid="employees"&gt;
+       &lt;filterset&gt;
+         &lt;filter token="subQuery" value="
+           SELECT EMP_ID FROM EMPLOYEE WHERE USER_NAME IN('joe', 'schmo')"/&gt;
+       &lt;/filterset&gt;
+    &lt;/queryset&gt;
+    &lt;queryset refid="employees"&gt;
+       &lt;filterset&gt;
+         &lt;filter token="subQuery" value="
+           SELECT EMP_ID FROM EMPLOYEE WHERE IS_MANAGER = 1"/&gt;
+       &lt;/filterset&gt;
+    &lt;/queryset&gt;
+  &lt;/export&gt;
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+<H4><A name="dbconfigexample">DatabaseConfig example with nested configuration</A>
+</H4>
+<DIV class="source"><PRE>      
+&lt;dbunit driver="com.vendor.jdbc.Driver"
+        url="jdbc:vendor:mydatabase"
+        userid="user"
+        password="password"&gt;
+    &lt;dbconfig&gt;
+        &lt;property name="datatypeFactory" value="org.dbunit.ext.oracle.OracleDataTypeFactory" /&gt;
+        &lt;!-- Is internally split to a string array using the comma as separator --&gt;
+        &lt;property name="tableType" value="TABLE,SYNONYM" /&gt;
+        &lt;feature name="batchedStatements" value="true" /&gt;
+    &lt;/dbconfig&gt;
+
+    ...
+&lt;/dbunit&gt;
+    </PRE>
+</DIV>
+</DIV>
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          2002-2009
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

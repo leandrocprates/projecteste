@@ -1,0 +1,14 @@
+mv udp_srv.c udp_srv.cpp
+mv udp_srv1.c udp_srv1.cpp
+mv udp_snd.c udp_snd.cpp
+mv udp_rcv.c udp_rcv.cpp
+mv udp_cli.c udp_cli.cpp
+mv udp_cli3.c udp_cli3.cpp
+mv udp_cli2.c udp_cli2.cpp
+mv udp_cli1.c udp_cli1.cpp
+mv tcp_srv.c tcp_srv.cpp
+mv tcp_srv_b.c tcp_srv_b.cpp
+mv tcp_snd.c tcp_snd.cpp
+mv tcp_rcv.c tcp_rcv.cpp
+mv tcp_cli.c tcp_cli.cpp
+mv tcp_cli_b.c tcp_cli_b.cpp

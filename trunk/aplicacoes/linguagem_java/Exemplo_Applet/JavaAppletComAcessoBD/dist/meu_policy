@@ -1,0 +1,7 @@
+/* AUTOMATICALLY GENERATED ON Thu Feb 04 16:09:23 BRST 2010*/
+/* DO NOT EDIT */
+
+grant signedBy "key",  codeBase "file:/home/leandro/NetBeansProjects/JavaAppletComAcessoBD/dist" {
+  permission java.security.AllPermission;
+};
+

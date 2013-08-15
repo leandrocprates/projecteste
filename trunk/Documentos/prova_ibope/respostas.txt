@@ -1,0 +1,339 @@
+
+Folha 1 
+
+1) Sistema preemptivo , e o sistema capaz de processar varios programas ao mesmo tempo (windows) . 
+
+2) ls -ltr ID1* 
+
+3) killall decimator1 decimantor2 sampler1 
+
+4) pmap , top
+
+
+Resumo Ingles :
+
+Sao dispositivos de informatica pequenos , e baratos que se podem se conectar em rede para processamento ,  sem utilizacao de fios , 
+
+como um meio de iteracao do homem com a maquina  com objetos que estao em nossas vida no dia a dia , com tecnologiass que forma incorporados 
+em nosso Ambiente
+
+Este termo foi criado por Mark Weiser enquanto trabalhava na Xerox Parc em 1988 ele descreve os vários computadores
+em uma sala como guias, blocos e placas 
+
+Como exemplos estes dispositivos estao telefones celulares, tocadores de mp3 ,  aparelho GPS, e quadros interactivos.
+
+
+
+Programacao C 
+
+1) 
+
+#include <stdio.h>
+
+int main ()
+{
+
+	int i=0 , y=0,h=0,x=0 , soma=0;
+ 
+	scanf("%d", &n);
+	scanf("%d", &y);
+	scanf("%d", &h);
+	scanf("%d", &x);
+
+	while (i<(n-1) )
+	{
+		termo= h*k*x*(n-k);
+		soma+=termo;
+		i++;
+	} 
+
+	printf "Resultado Soma : %d" , soma ) ; 
+
+}
+
+
+2) 
+
+    char str[80];
+    unsigned char leitura;
+    int acumula=0;
+    int media=0;
+    int pontos=0;
+    FILE *fsc ;
+    int kk;
+    //Ler 100 arquivos de um diretorio
+    for (kk=0;kk<100;kk++)
+    {
+        /*Imprimir em str o nome concatenado pela variavel path alem da
+         * constante ID e o contador dado pela variavel kk  */
+
+        /*patch  - nao existente
+         * ID  - nao existente
+         * */
+        sprintf(str, "%s",  "arquivo.txt");
+
+        if ((fsc=fopen(str,"rb") )==0){
+            //Imprimir a informacao ao usuario a informacao de erro
+            printf("Erro ao abrir o arquivo %s", str );
+        }
+        else {
+
+            // Com o arquivo aberto leia os dados binarios
+            while(!feof(fsc)){
+                //Leitura de 8 bits
+                fread(&leitura,1,1,fsc);
+                pontos++;
+                
+                // Acumule os dados na variavel acumulada
+                acumula+=leitura;
+            }
+            // Calcule a media dos valores lidos
+            media=(acumula/pontos);
+
+            /*Imprima a media calculada, a quantidade de pontos lidos e o numero
+             * do arquivo tambem , sendo que a media deve ser impressa em hexadecimal
+             * e a quantidade de pontos em decimal , todos com
+             * separacao com TAB e LINE FEED ao final da impressao */
+            printf("Media [%x] \t\n Pontos [%d] \t\n kk [%d] \n" , media , pontos , kk);
+
+        }
+
+        fclose(fsc);
+
+    }
+
+
+3) Criado um arquivo "entrada.txt" formato abaixo , saida no arquivo "saida_ordenada.txt".
+
+24
+52
+11
+94
+28
+36
+14
+80
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char** argv) {
+
+    int vet[8];
+    int temp=0;
+    char str[20];
+    char temp_char[10];
+    int j=0;
+
+    FILE *f1= fopen("entrada.txt" , "r");
+
+    while (!feof(f1))
+    {
+        fgets(temp_char,10,f1);
+        vet[j++]=atoi(temp_char);
+    }
+
+
+    for ( int t=1 ; t<8 ; t++ )
+    {
+        for ( int i=0 ; i< 8-t ; i++ )
+        {
+            if ( vet[i]>vet[i+1])
+            {
+                temp=vet[i+1];
+                vet[i+1]=vet[i];
+                vet[i]=temp;
+            }
+        }
+    }
+
+
+    FILE *f2= fopen("saida_ordenada.txt" , "w");
+
+    for ( int i=0 ; i< 8 ; i++ )
+    {
+        memset(str,'\0',sizeof(str));
+        sprintf(str,"%d\n",vet[i]);
+        fputs ( str, f2);
+    }
+
+    fclose(f2);
+    
+
+    return (EXIT_SUCCESS);
+}
+
+
+
+
+Folha 4 
+
+Programacao Java
+1) JDK - Ambiente de desenvolvimento e compilacao e execucao para aplicacoes java . 
+
+2) JRE - Ambiente de execucao para aplicacoes java.
+
+
+3) 
+
+public class Conta {
+
+    private String Numero_Conta;
+    private String Nome_Usuario;
+    private double Saldo;
+
+
+    public void setNumero_Conta(String Numero_Conta){
+        this.Numero_Conta=Numero_Conta;
+    }
+
+    public void setNome_Usuario(String Nome_Usuario){
+        this.Nome_Usuario=Nome_Usuario;
+    }
+
+    public void setSaldo(double Saldo){
+        this.Saldo=Saldo;
+    }
+
+    public String getNumero_Conta(){
+        return this.Numero_Conta;
+    }
+
+    public String getNome_Usuario(){
+        return this.Nome_Usuario;
+    }
+
+    public double getSaldo(){
+        return this.Saldo;
+    }
+
+}
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+
+public class Main {
+
+    public static void main (String args[])
+    {
+        Conta conta[]=new Conta[3];
+        Conta conta2=new Conta();
+
+        conta[0]=new Conta();
+        conta[1]=new Conta();
+        conta[2]=new Conta();
+
+        conta[0].setNumero_Conta("0");
+        conta[0].setNome_Usuario("Conta1");
+        conta[0].setSaldo(10);
+        
+        conta[1].setNumero_Conta("1");
+        conta[1].setNome_Usuario("Conta2");
+        conta[1].setSaldo(20);
+
+        conta[2].setNumero_Conta("2");
+        conta[2].setNome_Usuario("Conta3");
+        conta[2].setSaldo(30);
+        
+        List<Conta> lista=new ArrayList<Conta>();
+        lista.add(conta[0]);
+        lista.add(conta[1]);
+        lista.add(conta[2]);
+
+        for ( int i=0 ; i< 3 ; i++ )
+        {
+           conta2 = (Conta )lista.get(i);
+           System.out.println( "Numero Conta: " + conta2.getNumero_Conta() );
+           System.out.println( "Nome Usuario: " + conta2.getNome_Usuario() );
+           System.out.println( "Saldo : " + conta2.getSaldo() );
+        }
+
+    }
+
+}
+
+
+
+4) 
+
+public class Pessoa 
+{
+
+	public void setNome();
+	public void setIdentificacao();
+	public void setPeso();
+
+	public void getNome();
+	public void getIdentificacao();
+	public void getPeso();
+
+
+	private string Nome;
+	private string Identificacao;
+	private string Peso;
+
+}
+
+public class Automovel extends Pessoa
+{
+	public void getCor();
+	public void setCor();
+
+	private string cor;
+}
+
+
+5) Notacao Big O 
+
+
+Resposta Excel : 
+
+MED1 
+=Media(x1[1]:x1[10])
+=Minimo(x1[1]:x1[10])
+=Maximo(x1[1]:x1[10])
+=DesvPAD(x1[1]:x1[10])
+=VAR(x1[1]:x1[10])
+
+MED2
+=Media(x2[1]:x2[10])
+=Minimo(x2[1]:x2[10])
+=Maximo(x2[1]:x2[10])
+=DesvPAD(x2[1]:x2[10])
+=VAR(x2[1]:x2[10])
+
+MED3
+=Media(x3[1]:x3[10])
+=Minimo(x3[1]:x3[10])
+=Maximo(x3[1]:x3[10])
+=DesvPAD(x3[1]:x3[10])
+=VAR(x3[1]:x3[10])
+
+MED4
+=Media(x4[1]:x4[10])
+=Minimo(x4[1]:x4[10])
+=Maximo(x4[1]:x4[10])
+=DesvPAD(x4[1]:x4[10])
+=VAR(x4[1]:x4[10])
+
+MED5
+=Media(x5[1]:x5[10])
+=Minimo(x5[1]:x5[10])
+=Maximo(x5[1]:x5[10])
+=DesvPAD(x5[1]:x5[10])
+=VAR(x5[1]:x5[10])
+
+
+
+
+
+
+
+
+
+
+

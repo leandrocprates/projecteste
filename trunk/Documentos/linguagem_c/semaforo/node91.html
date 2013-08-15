@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+
+<!--Converted with LaTeX2HTML 99.2beta6 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+
+
+<title>Exemplo de operação sobre um semáforo:</title>
+<meta name="description" content="Exemplo de operação sobre um semáforo:">
+<meta name="keywords" content="all">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="LaTeX2HTML v99.2beta6">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="node91_arquivos/all.css">
+
+<link rel="previous" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">
+<link rel="up" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">
+<link rel="next" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node92.html">
+</head><body bgcolor="white">
+<!--Navigation Panel-->
+<a name="tex2html1138" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node92.html">
+<img alt="next" src="node91_arquivos/next.html" width="37" align="bottom" border="0" height="24"></a> 
+<a name="tex2html1136" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">
+<img alt="up" src="node91_arquivos/up.html" width="26" align="bottom" border="0" height="24"></a> 
+<a name="tex2html1132" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">
+<img alt="previous" src="node91_arquivos/prev.html" width="63" align="bottom" border="0" height="24"></a>   
+<br>
+<b> Next:</b> <a name="tex2html1139" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node92.html">Semáforos de Dijsktra</a>
+<b> Up:</b> <a name="tex2html1137" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">A Função semop()</a>
+<b> Previous:</b> <a name="tex2html1133" href="http://www.dca.ufrn.br/%7Eadelardo/cursos/DCA409/node90.html">A Função semop()</a>
+<br>
+<br>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION00951000000000000000">
+Exemplo de operação sobre um semáforo:</a>
+</h2>
+Um processo (executando o programa <tt>processo1</tt>) cria um
+conjunto de semáforos, fixa o valor de um dos semáforos do conjunto em
+1, depois demanda um recurso. Ele se coloca em espera por 10 segundos.
+Um segundo processo (executando o programa <tt>processo2</tt>)
+recupera o identifcador <tt>semid</tt> do conjunto de semáforos,
+depois também demanda um recurso. Ele fica bloqueado até que o
+primeiro processo acabe sua espera e libere o recurso.
+<br>
+<p>
+<b>Programa executado pelo processo1</b>
+</p><pre>                 /* arquivo processo1.c */
+
+#include &lt;errno.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/ipc.h&gt;
+#include &lt;sys/sem.h&gt;
+#include &lt;unistd.h&gt;
+
+#define KEY 123
+
+int semid ;
+struct sembuf operacao[1] ;
+char *path = "nome_de_arquivo_existente" ;
+
+union {
+     int val ;
+     struct semid_ds *buf ;
+     ushort array[4] ; } arg ;
+
+int main()
+{
+ 
+    /* criacao de um conjunto de de 4 semaforos */ 
+     if (( semid = semget(ftok(path,(key_t)KEY),4,IPC_CREAT|0600))==-1){
+          perror("impossivel a criacao do conjunto de semaforos") ;
+          exit(1) ;
+     }
+     printf("\nprocesso1: acabo de criar um conjunto de semaforos:%d\n",semid);
+
+    /* colocando 1 no terceiro semaforo */
+     arg.val=1 ;
+     if ((semctl(semid,2,SETVAL,arg))==-1){
+         perror("Error semctl") ;
+         exit(1);
+         }
+
+    /* demanda de recurso pelo terceiro semaforo */
+     printf("processo1: vou demandar um recurso\n") ;
+     operacao[0].sem_num = 2 ; /* operacao sobre o terceiro semaforo */
+     operacao[0].sem_op = -1 ; /* operacao de decremento */
+     operacao[0].sem_flg = SEM_UNDO; /* para desfazer as operacoes */
+     if ( semop(semid,operacao,1) == -1){
+          perror("semop:operacao de decremento nao realizada") ;
+          exit(1) ;
+     }
+     
+    /* espera para bloquear o segundo processo */
+     printf("processo1: Esperando 10 sec\n") ;
+     sleep(10) ; /* espera ... */
+     printf("processo1: Acabei minha espera: liberando o recurso\n");
+     
+    /* liberacao do recurso */
+     operacao[0].sem_op = 1 ; /* incremento */
+     if ( semop(semid,operacao,1) == -1){
+          perror("semop:operacao de incremento nao realizada") ;
+          exit(1) ;
+     }
+     
+     printf("morte de processo1\n") ;
+     exit(0) ;
+}
+</pre>
+
+<p>
+<b>Programa executado pelo processo2</b>
+<br></p><pre>                 /* arquivo processo2.c */
+
+#include &lt;errno.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/ipc.h&gt;
+#include &lt;sys/sem.h&gt;
+#include &lt;unistd.h&gt;
+
+#define KEY 123
+
+int semid ;
+struct sembuf operacao[1] ;
+char *path = "nome_de_arquivo_existente" ;
+
+int main()
+{
+    /* recuperacao du semid */ 
+     if (( semid = semget(ftok(path,(key_t)KEY),0,0))==-1){
+          perror("impossivel achar o conjunto de semaforos") ;
+          exit(1) ;
+     }
+     printf("\nprocesso2: trata os semaforos : semid %d\n",semid) ;
+
+
+     /* Laco de espera da disponibilidade do semaforo.
+      * O processo nao fara uma espera bloquante usando
+      * o flag IPC_NOWAIT
+      */
+     operacao[0].sem_num = 2 ;
+     operacao[0].sem_op = -1 ;
+     operacao[0].sem_flg = IPC_NOWAIT + SEM_UNDO ;
+     for (;;){
+          if ( semop(semid,operacao,1) != -1) break ;
+          printf(" demanda do processo2 : semaforo nao disponivel\n") ;
+          sleep(1) ; 
+     }
+     printf(" semaforo alocado ao processo2\n") ;
+  
+    /* liberacao do segmento de semaforo */
+     if (semctl(semid,0,IPC_RMID,0) == -1){
+          perror("problema durante a destruicao dos semaforos") ;
+          exit(1) ;
+     }
+     exit(0);
+}
+</pre>
+
+<p>
+<tt>Resultado da execução</tt>
+<br>
+Os dois processos são lançados em <i>background</i> e o resultado
+deve ser o seguinte:
+
+</p><p>
+</p><pre>euler:~/&gt; processo1 &amp;
+[2] 967
+euler:~/&gt; 
+processo1: acabo de criar um conjunto de semaforos : 768
+processo1: vou demandar um recurso
+processo1: Esperando 10 sec
+euler:~/&gt; processo2 &amp;
+[3] 968
+euler:~/&gt;
+processo2: trata os semaforos : semid 768
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+ demanda do processo2 : semaforo nao disponivel
+processo1: Acabei minha espera: liberando o recurso
+morte de processo1
+
+[2]    Done                          processo1
+semaforo alocado ao processo2
+
+[3]    Done                          processo2
+euler:~/&gt;
+</pre>
+
+<p>
+<br></p><hr>
+<address>
+Celso Alberto Saibel Santos
+2000-11-14
+</address>
+</body></html>

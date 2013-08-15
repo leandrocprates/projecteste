@@ -1,0 +1,335 @@
+
+<!-- saved from url=(0047)http://www.guj.com.br/article.show.logic?id=130 -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
+	
+
+
+
+
+<TITLE>GUJ - Introdução ao Log4J</TITLE>
+<LINK href="./GUJ_Introdução_ao_Log4J_files/guj3.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- OAS SETUP begin -->
+<SCRIPT language="JavaScript">
+<!--
+//configuration
+OAS_url = 'http://media.realmedia.com.br/RealMedia/ads/';
+OAS_listpos = 'Top,Right,x01,x04';
+OAS_query = '';
+OAS_sitepage = 'guj/internas';
+//end of configuration
+OAS_version = 10;
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+function OAS_NORMAL(pos) {
+	document.write('<A HREF="' + OAS_url + 'click_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" TARGET=_top>');
+	document.write('<IMG SRC="' + OAS_url + 'adstream_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" BORDER=0></A>');
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+OAS_version = 11;
+if (navigator.userAgent.indexOf('Mozilla/3') != -1)
+OAS_version = 10;
+if (OAS_version >= 11)
+document.write('<SCR'+ 'IPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url + 'adstream_mjx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + OAS_query + '"></SC'+'RIPT>');
+//-->
+</SCRIPT><SCRIPT language="JavaScript1.1" src="./GUJ_Introdução_ao_Log4J_files/1688699820@Top,Right,x01,x04"></SCRIPT><SCRIPT language="JavaScript">
+<!-- 
+document.write('')
+function OAS_AD(pos) {
+if (OAS_version >= 11)
+	OAS_RICH(pos);
+else
+	OAS_NORMAL(pos);
+}
+//-->
+</SCRIPT>
+<!-- OAS SETUP end -->
+<!--[if IE]>
+<link href="/stylesheets/guj3-ie.css?20090222" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+<SCRIPT type="text/javascript" src="./GUJ_Introdução_ao_Log4J_files/jquery-1.3.1.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./GUJ_Introdução_ao_Log4J_files/jquery.dimensions.min.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+$().ready(function() {
+	$("#returnPath").val(document.location);
+});
+</SCRIPT>  
+<STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE></HEAD><BODY>
+  <DIV id="header">
+    <DIV class="container1">
+    	<DIV id="banner">
+<!--
+<iframe id='abc8adb3' name='abc8adb3' src='http://d1.openx.org/afr.php?zoneid=18786&amp;cb=INSERT_RANDOM_NUMBER_HERE' framespacing='0' frameborder='no' scrolling='no' width='728' height='90'><a href='http://d1.openx.org/ck.php?n=a32fe7cc&amp;cb=3948240248' target='_blank'><img src='http://d1.openx.org/avw.php?zoneid=18786&amp;cb=3948240248&amp;n=a32fe7cc' border='0' alt='' /></a></iframe>
+-->
+			<!-- OAS AD 'Top' begin -->
+			<SCRIPT language="JavaScript">
+			OAS_AD('Top');
+			</SCRIPT><A href="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/1146940802/Top/rmlanetwork/091201_guj_mundojava_top/banner728x90_ed38.gif/62643465363163633462336462636430" target="_blank"><IMG src="./GUJ_Introdução_ao_Log4J_files/banner728x90_ed38.gif" alt="" border="0"></A>
+			<!-- OAS AD 'Top' end -->
+    	</DIV>
+      <DIV class="container2">
+        <A href="http://www.guj.com.br/home.index.logic" id="logo">GUJ</A>
+        <H2>Notícias, artigos e o maior fórum brasileiro sobre Java</H2>
+      </DIV>
+    </DIV>
+  </DIV>
+
+  <DIV id="menu">
+    <UL>
+      <LI class="home">
+        <A href="http://www.guj.com.br/home.index.logic">home</A>
+      </LI>
+      <LI class="forum">
+        <A href="http://www.guj.com.br/forums/list.java">fórum</A>
+      </LI>
+      <LI class="artigos">
+        <A href="http://www.guj.com.br/article.list.logic">artigos</A>
+      </LI>
+      <LI class="noticias">
+        <A href="http://www.guj.com.br/forums/show/17.java">notícias</A>
+      </LI>
+      
+      <LI class="topics">
+        <A href="http://www.guj.com.br/recentTopics/list.java">tópicos recentes</A>
+      </LI>
+        
+      <LI class="empregos">
+		<A href="http://www.guj.com.br/jobs.list.logic">empregos</A>
+      </LI>
+    
+    	<!--
+      <li class="blogs">
+        <a href="/posts">blogs</a>
+      </li>
+      -->
+    </UL>
+    <FORM class="busca" method="GET" action="http://www.guj.com.br/jforum.java?module=search&action=search">
+		<INPUT type="hidden" name="module" value="search">
+		<INPUT type="hidden" name="action" value="search">
+		<INPUT class="campo rounded" name="search_keywords" value="Pesquisar" onfocus="if (this.value == &#39;Pesquisar&#39;) { this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) { this.value = &#39;Pesquisar&#39;;}" tabindex="1">
+      	<INPUT type="image" class="botao" style="border: 0px;" src="./GUJ_Introdução_ao_Log4J_files/botao_ok.gif" tabindex="2">
+    </FORM>
+  </DIV>
+  
+  <DIV id="submenu">
+    <DIV class="container1">
+      <DIV class="container2">
+          
+      	
+      		
+      		
+	      		Bem vindo ao GUJ. <A href="http://www.guj.com.br/user/insert.java" style="color: #4382B0;">Crie seu login</A>, 
+	          	ou digite-o para logar no site.
+              
+	          	<FORM class="login" action="http://www.guj.com.br/jforum.java?module=user&action=validateLogin" method="POST">
+                    <INPUT type="hidden" name="returnPath" id="returnPath" value="http://www.guj.com.br/article.show.logic?id=130">
+	            	Usuário: <INPUT class="campo rounded" size="8" name="username" tabindex="3">
+					Senha: <INPUT class="campo rounded" type="password" size="8" name="password" tabindex="4">
+	            	<INPUT type="image" class="botao" src="./GUJ_Introdução_ao_Log4J_files/botao_entrar.gif" tabindex="5" name="login" value="Login">
+	          	</FORM>
+      		
+      	
+      </DIV>
+    </DIV>
+  </DIV>
+
+  
+
+<LINK href="./GUJ_Introdução_ao_Log4J_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+<STYLE type="text/css">@import url(/stylesheets/tagging.css);</STYLE>
+<SCRIPT src="./GUJ_Introdução_ao_Log4J_files/shCore.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="./GUJ_Introdução_ao_Log4J_files/shBrushJava.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+window.onload = function () {
+	dp.SyntaxHighlighter.HighlightAll('code');
+}
+</SCRIPT>
+
+<DIV id="content">
+<DIV class="box">
+<B class="spiffy"><B class="spiffy1"><B></B></B><B class="spiffy2"><B></B></B><B class="spiffy3"></B><B class="spiffy4"></B><B class="spiffy5"></B></B>
+	<DIV class="spiffyfg inner-content">
+  <SPAN class="article">
+    <H2><A href="http://www.guj.com.br/article.show.logic?id=130#">Introdução ao Log4J</A>
+    </H2>
+  </SPAN>
+  
+  <DIV class="miolo">
+    <SPAN class="data">em 20/11/2003</SPAN>
+    <SPAN class="autor">, por <A href="mailto:">Caio Filipini</A></SPAN>
+    <BR>
+  
+    
+	    <DIV style="float: left; padding: 10px;">
+			<SCRIPT type="text/javascript"><!--
+			google_ad_client = "pub-7098584793170190";
+			/* GUJ Quadrado Artigos */
+			google_ad_slot = "2113535366";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</SCRIPT> 
+			<SCRIPT type="text/javascript" src="./GUJ_Introdução_ao_Log4J_files/show_ads.js"> 
+			</SCRIPT><SCRIPT src="./GUJ_Introdução_ao_Log4J_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="300" height="250" frameborder="0" src="./GUJ_Introdução_ao_Log4J_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+		</DIV>
+	      
+	      <SPAN class="content"><PAGE>
+<DIV id="subtitle"><B>Introdução ao Log4J</B></DIV>
+
+<I>Por quê logging</I>?
+
+Quem nunca precisou depurar qualquer trecho de código que atire a primeira pedra! Bem, depuração é algo trivial no desenvolvimento de aplicações. As principais IDEs possuem depuradores bastante eficientes.
+
+Logging também é uma forma de depuração, que mostra mensagens de status e de erro na tela, por exemplo, ou grava essas mensagens em um arquivo, ou até as duas coisas ao mesmo tempo. Este artigo mostra como usar o Log4J, uma API que faz parte do projeto Jakarta, para fazer logging em suas aplicações.
+
+<DIV id="subtitle"><B>Download e Instalação</B></DIV>
+
+A instalação do Log4J é bastante simples. Você pode fazer o download do pacote <A href="http://jakarta.apache.org/site/binindex.cgi" target="_new">aqui</A> (a versão disponível no momento da escrita deste artigo era 1.2.8). Feito o download, descompacte o arquivo <I>jakarta-log4j-X.X.X.zip</I> em um diretório de sua escolha e adicione a seguinte entrada ao seu CLASSPATH:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>&lt;diretório&nbsp;onde&nbsp;você&nbsp;descompactou&nbsp;o&nbsp;log4j&gt;/dist/lib/log4j-X.X.X.jar&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+<diretório onde você descompactou o log4j>/dist/lib/log4j-X.X.X.jar
+</TEXTAREA> <BR>
+
+No caso do Windows, lembre-se de trocar as barras pelas barras invertidas.
+
+<DIV id="subtitle"><B>Fazendo logging</B></DIV>
+
+Está na hora de colocar o Log4J pra funcionar. Primeiramente, é preciso saber que o Log4J divide os logs em níveis hierárquicos (do nível mais baixo ao mais severo):
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>-&nbsp;DEBUG&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>-&nbsp;INFO&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>-&nbsp;WARN&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>-&nbsp;ERROR&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>-&nbsp;FATAL&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+- DEBUG
+- INFO
+- WARN
+- ERROR
+- FATAL
+</TEXTAREA> <BR>
+
+Isso traz uma grande vantagem: é possível ajustar o nível de logging que você quer utilizar. Por exemplo: se você, testando sua aplicação, insere instruções de nível DEBUG, você poderia facilmente desligar este nível depois dos testes sem precisar apagar as instruções dentro do código.
+
+Vamos aos exemplos:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.Logger;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.Level;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.BasicConfigurator;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;LoggingTest&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">static</SPAN><SPAN>&nbsp;Logger&nbsp;logger&nbsp;=&nbsp;Logger.getLogger(LoggingTest.</SPAN><SPAN class="keyword">class</SPAN><SPAN>);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;main(String[]&nbsp;args)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BasicConfigurator.configure();&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.setLevel(Level.INFO);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.debug(?Isso&nbsp;nao&nbsp;vai&nbsp;aparecer...?);&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.info(?Inicializando...?);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">try</SPAN><SPAN>&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">throw</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Exception(?Loga&nbsp;esse,&nbsp;Log4J!?);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<SPAN class="keyword">catch</SPAN><SPAN>&nbsp;(Exception&nbsp;e)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.error(?Oops,&nbsp;deu&nbsp;erro:&nbsp;?&nbsp;+&nbsp;e.getMessage());&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.info(?Finalizando...?);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.BasicConfigurator;
+
+public class LoggingTest {
+	static Logger logger = Logger.getLogger(LoggingTest.class);
+
+	public static void main(String[] args) {
+		BasicConfigurator.configure();
+
+		logger.setLevel(Level.INFO);
+		logger.debug(?Isso nao vai aparecer...?);
+		logger.info(?Inicializando...?);
+		
+		try {
+			throw new Exception(?Loga esse, Log4J!?);
+		} catch (Exception e) {
+			logger.error(?Oops, deu erro: ? + e.getMessage());
+		}
+
+		logger.info(?Finalizando...?);
+	}	
+}
+</TEXTAREA> <BR>
+
+No código acima, o objeto da classe <I>Logger</I> é usado para enviar as mensagens de log. Primeiramente, é chamado o método <BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>BasicConfigurator.configure()&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">BasicConfigurator.configure()</TEXTAREA> <BR>, que inicializa o sistema de logging com as configurações padrão. A seguir, o método <I>setLevel()</I> é utilizado para ajustar o nível de logging para INFO. A primeira instrução que realmente envia uma mensagem para o log é <BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>logger.debug(?Isso&nbsp;não&nbsp;vai&nbsp;aparecer...?);&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">logger.debug(?Isso não vai aparecer...?);</TEXTAREA> <BR>. Note que o nível de logging foi ajustado para INFO, que é um nível acima de DEBUG, portanto essa instrução não enviará nada para o log.
+
+<DIV id="subtitle"><B>Appenders</B></DIV>
+
+É possível enviar as mensagens de log para mais de um dispositivo de saída. Por exemplo: quando você faz uma chamada ao método <I>configure()</I> da classe <I>BasicConfigurator</I>, o Log4J é iniciado com a sua configuração padrão. Porém, muitas vezes é interessante armazenar um arquivo de log, para que as mensagens possam ser analisadas posteriormente. Para solucionar esse problema, o Log4J implementou os Appenders.
+
+Um appender representa um dispositivo de saída de log. Para que um arquivo seja criado com as mensagens de log da sua aplicação, é necessário registrar um FileAppender para sua instância de Logger. Isto é feito através do método <I>addAppender()</I>. Exemplo:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=130#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;java.io.IOException;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.Logger;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.Level;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.Appender;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.FileAppender;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.PatternLayout;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;org.apache.log4j.BasicConfigurator;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;LoggingToFile&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">static</SPAN><SPAN>&nbsp;Logger&nbsp;logger&nbsp;=&nbsp;Logger.getLogger(LoggingToFile.</SPAN><SPAN class="keyword">class</SPAN><SPAN>);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;main(String[]&nbsp;args)&nbsp;</SPAN><SPAN class="keyword">throws</SPAN><SPAN>&nbsp;IOException&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BasicConfigurator.configure();&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">/*&nbsp;Cria&nbsp;um&nbsp;novo&nbsp;FileAppender&nbsp;baseado&nbsp;no&nbsp;layout&nbsp;padrão,</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;pré-definido&nbsp;na&nbsp;constante&nbsp;TTCC_CONVERSION_PATTERN</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;da&nbsp;classe&nbsp;PatternLayout.&nbsp;*/</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>Appender&nbsp;fileAppender&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;FileAppender(&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN),&nbsp;?myLogFile.log?);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.addAppender(fileAppender);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">try</SPAN><SPAN>&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">throw</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Exception(?Loga&nbsp;esse&nbsp;no&nbsp;arquivo,&nbsp;Log4J!?);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<SPAN class="keyword">catch</SPAN><SPAN>&nbsp;(Exception&nbsp;e)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.error(?Oops,&nbsp;deu&nbsp;erro:&nbsp;?&nbsp;+&nbsp;e.getMessage());&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+import java.io.IOException;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Appender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.BasicConfigurator;
+
+public class LoggingToFile {
+	static Logger logger = Logger.getLogger(LoggingToFile.class);
+
+	public static void main(String[] args) throws IOException {
+		BasicConfigurator.configure();
+
+		/* Cria um novo FileAppender baseado no layout padrão,
+		 * pré-definido na constante TTCC_CONVERSION_PATTERN
+		 * da classe PatternLayout. */
+Appender fileAppender = new FileAppender(
+			new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN), ?myLogFile.log?);
+		
+		logger.addAppender(fileAppender);
+		
+		try {
+			throw new Exception(?Loga esse no arquivo, Log4J!?);
+		} catch (Exception e) {
+			logger.error(?Oops, deu erro: ? + e.getMessage());
+		}
+	}	
+}
+</TEXTAREA> <BR>
+
+A novidade no código acima fica por conta da parte que registra um novo appender, no caso, um <I>FileAppender</I>, que armazena as mensagens de log em um arquivo. O construtor de <I>FileAppender</I> aceita dois argumentos: o primeiro é o Layout das mensagens; o segundo, o nome do arquivo de log que será criado. Vale lembrar que se o arquivo especificado já existir, as mensagens serão escritas no final do arquivo, mantendo o conteúdo já existente; senão, o Log4J criará o arquivo para você.
+
+Além do <I>FileAppender</I>, existem ainda as classes <I>ConsoleAppender</I> (padrão, para mensagens no console), <I>JDBCAppender</I> (banco de dados), <I>SMTPAppender</I> (servidores de e-mail SMTP), <I>SocketAppender</I> (para servidores remotos) e <I>IMAppender</I> (para instant messengers!).
+
+No nosso exemplo, as mensagens serão gravadas com o mesmo layout das mensagens padrão que vão para o console. Este layout é pré-definido na constante <I>TTCC_CONVERSION_PATTERN</I> da classe <I>PatternLayout</I>. Existem vários outros layouts que podem ser usados, representados pelas classes <I>SimpleLayout</I>, <I>DateLayout</I>, <I>HTMLLayout</I> e <I>XMLLayout</I>. Todas essas classes estendem a superclasse abstrata Layout. Além desses layouts pré-definidos, você pode criar seu próprio layout, criando uma subclasse de <I>Layout</I> e implementando seus métodos.
+
+Referências
+
+http://jakarta.apache.org/log4j
+
+Conclusão
+
+Este artigo cobriu apenas a parte introdutória do Log4J. É uma API extremamente flexível e customizável, que vale a pena ser explorada mais a fundo. Até a próxima!
+</PAGE></SPAN>
+    
+
+    <SPAN class="pdf">
+    
+    </SPAN>
+  </DIV>
+  </DIV>
+	<B class="spiffy"><B class="spiffy5"></B><B class="spiffy4"></B><B class="spiffy3"></B><B class="spiffy2"><B></B></B><B class="spiffy1"><B></B></B></B>
+</DIV>
+
+</DIV>
+
+
+<!-- OAS AD 'x01' begin -->
+<SCRIPT language="JavaScript">
+<!--
+//OAS_AD('x01');
+//-->
+</SCRIPT>
+<!-- OAS AD 'x01' end -->
+
+  <DIV id="footer">
+  	<P>Apoiado e desenvolvido por <A href="http://www.caelum.com.br/">Caelum Cursos Java</A> - Copyright © 2002-2009 <A href="mailto:guj@guj.com.br">GUJ</A> <!--<script type="text/javascript" src="http://widgets.amung.us/small.js"></script><script type="text/javascript">WAU_small('kwnaee1y3d4h')</script>--></P>
+  </DIV>
+ 
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./GUJ_Introdução_ao_Log4J_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+var pageTracker = _gat._getTracker("UA-132222-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</SCRIPT>
+  
+
+
+</BODY></HTML>

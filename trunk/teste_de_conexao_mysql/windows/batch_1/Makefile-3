@@ -1,0 +1,16 @@
+
+CC=gcc
+INCLUDE=-I /usr/include
+LIB=-L /usr/lib
+EXECUTAVEL=main
+OBJ=main.o
+
+all:$(OBJ)
+	$(CC) $(LIB) -lmysqlclient -o $(EXECUTAVEL) $^
+
+%.o:%.c
+	$(CC) $(INCLUDE) -c $< -o $@
+
+clean:
+	rm main *.o
+

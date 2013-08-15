@@ -1,0 +1,834 @@
+
+<!-- saved from url=(0058)http://fipp.unoeste.br/~chico/comunicacao_socket/index.htm -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<TITLE>Sockets Java</TITLE>
+<META name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+
+<META name="Microsoft Theme" content="capsules 101"><META name="Microsoft Border" content="none"></HEAD><BODY background="./Sockets Java_files/captext.gif" bgcolor="#FFFFFF" text="#000000" link="#FF6633" vlink="#00CCCC" alink="#CC9933"><!--mstheme--><FONT face="arial, helvetica">
+<B><I><FONT size="6">
+
+</FONT></I><P align="CENTER"><I><FONT size="5">Comunicação de Computadores utilizando Sockets</FONT></I><FONT size="3"></FONT></P><FONT size="3">
+
+</FONT></B><P align="CENTER"><B><FONT size="3">Francisco Assis da Silva</FONT></B><BR>
+<SMALL>Mestrando FACCAR/UFRGS</SMALL></P>
+
+<P align="CENTER"><SMALL>FIPP – Faculdade de Informática de Presidente
+Prudente/UNOESTE<BR>
+Rua: José Bongiovani, 700, Cidade Universitária<BR>
+CEP: 19050-900, Presidente Prudente-SP<BR>
+E-mail: <A href="mailto:chico@unoeste.br">chico@unoeste.br</A></SMALL></P>
+
+<P><FONT size="2">&nbsp;</FONT></P><FONT size="2">
+
+</FONT><P><FONT size="3"><I><B>1 – Introdução</B></I></FONT><FONT size="2"></FONT></P><FONT size="2">
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Os
+computadores da Internet são conectados entre si pelo protocolo TCP/IP. Na década de
+1980, a ARPA (Advanced Research Projects Agency) do governo norte-americano forneceu
+recursos financeiros à Universidade da Califórnia em Berkeley com a finalidade de
+oferecer uma implementação UNIX do pacote de protocolos TCP/IP. O que foi desenvolvido
+então ficou conhecido como interface de sockets. Hoje, a interface de sockets é o
+método mais utilizado para acesso a uma rede TCP/IP [Hopson 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A idéia
+de um socket faz parte do TCP/IP, o conjunto de protocolos usado pela Internet. Um socket
+essencialmente é uma conexão de dados transparente entre dois computadores numa rede.
+Ele é identificado pelo endereço de rede dos computadores e por seus pontos finais e uma
+porta em cada computador. Os computadores em rede direcionam os streams de dados recebidos
+da rede para programas receptores específicos, associando cada programa a um número
+diferente, a porta do programa. Da mesma forma, quando o tráfego de saída é gerado, o
+programa de origem recebe um número de porta para a transação. Caso contrário, o
+computador remoto poderia não responder à entrada. Determinados números de porta são
+reservados no TCP/IP para protocolos específicos – por exemplo, 25 para SMTP e 80
+para HTTP [Thomas 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Um socket
+não é nada além de uma abstração conveniente. Ele representa um ponto de conexão
+para uma rede TCP/IP. Quando dois computadores querem manter uma conversação, cada um
+deles utiliza um socket. Um computador é chamado servidor, ele abre um socket e presta
+atenção às conexões. O outro computador denomina-se cliente, ele chama o socket
+servidor para iniciar a conexão. Para estabelecer uma conexão, é necessário apenas um
+endereço de destino e um número de porta [Hopson 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cada
+computador em uma rede TCP/IP possui um endereço exclusivo. As portas representam
+conexões individuais dentro desse endereço. Cada porta de um computador compartilha o
+mesmo endereço, mas os dados são roteados dentro de cada computador pelo número da
+porta. Quando um socket é criado, ele tem de estar associado a uma porta específica
+– o processo é conhecido como acoplamento a uma porta [Hopson 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As
+próximas seções são organizadas como segue: A Seção 2 apresenta os modos de
+transmissão de socktes. As classes do Java baseadas em conexões para clientes e
+servidores são apresentadas na Seção 3, juntamente com uma aplicação desenvolvida
+para este trabalho, um MiniChat utilizando conexões. As classes de datagramas do Java
+para recepção e transmissão são apresentadas na Seção 4, juntamente com uma
+aplicação utilizando datagramas, um servidor de eco de mensagens. As conclusões
+principais deste trabalho são apresentadas na Seção 5.</SMALL></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+<I><B>
+
+</B></I><P align="JUSTIFY"><I><B>2 – Modos de Transmissão de Sockets</B></I></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Os
+sockets têm dois modos principais de operação: o modo <I>baseado em conexões</I> e o
+modo<I> sem conexão</I>. Os sockets baseados em conexões operam como um telefone; eles
+têm de estabelecer uma conexão e suspender a ligação. Tudo que flui entre esses dois
+eventos chega na mesma ordem em que foi transmitido. Os sockets sem conexão operam como o
+correio, a entrega não é garantida, e os diferentes itens da correspondência podem
+chegar em uma ordem diferente daquela em que foram enviados [Hopson 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O modo a
+ser utilizado é determinado pelas necessidades de um aplicativo. Se a conformidade é
+importante, então a operação baseada em conexões é a melhor opção. Os servidores de
+arquivos precisam fazer todos os seus dados chegarem corretamente e em seqüência. Se
+alguma parte dos dados se perdesse, a utilidade do servidor seria invalidada. Quando
+precisar de confiabilidade, a aplicação terá que pagar um preço. Garantir a
+seqüência e a correção dos dados exige processamento extra e utilização de mais
+memória; esse overhead adicional pode reduzir o tempo de resposta de um servidor [Hopson
+97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A
+operação sem conexão utiliza o UDP (<EM>User Datagrama Protocol</EM>). Um datagrama é
+uma unidade autônoma que tem todas as informações necessárias para tentar fazer sua
+entrega. Similar a um envelope, o datagrama tem um endereço do destinatário e do
+remetente e contém em seu interior os dados a serem enviados. Um socket nesse modo de
+operação não precisa se conectar a um socket de destino; ele simplesmente envia o
+datagrama. O protocolo UDP só promete fazer o melhor esforço possível para tentar
+entregar o datagrama. A operação sem conexão é rápida e eficiente, mas não é
+garantida [Hopson 97]. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A
+operação baseada em conexões emprega o TCP (<EM>Transport Control Protocol</EM>). Um
+socket nesse modo de operação precisa se conectar ao destino antes de transmitir os
+dados. Uma vez conectados, os sockets são acessados pelo uso de uma interface de fluxos:
+abertura-leitura-escrita-fechamento. Tudo que é enviado por um socket é recebido pela
+outra extremidade da conexão, exatamente na mesma ordem em que foi transmitido. A
+operação baseada em conexões é menos eficiente do que a operação sem conexão, mas
+é garantida [Hopson 97]. </SMALL></P>
+
+<P><I><B>&nbsp;</B></I></P><I><B>
+
+</B></I><P align="JUSTIFY"><I><B>3 – Classes do Java Baseadas em Conexões</B></I></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As
+classes baseadas em conexões do Java têm uma versão cliente e outra servidora. O socket
+cliente emite uma conexão para um socket servidor que está na escuta. Os sockets
+clientes são criados e conectados pelo uso de um construtor da classe Socket. A tabela 1
+mostra os construtores da classe Socket. </SMALL></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Tabela 1</STRONG>. Construtores da classe Socket
+[Thomas 97]</FONT></P>
+
+<!--mstheme--></FONT><TABLE border="1" cellspacing="1" cellpadding="4" width="617" height="170" bordercolordark="#99CC99" bordercolorlight="#99CC99">
+  <TBODY><TR>
+    <TD width="208" valign="MIDDLE" height="16" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Construtor</B></FONT><!--mstheme--></FONT></P></TD>
+    <TD width="385" valign="MIDDLE" height="16" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Descrição</B></FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="208" valign="TOP" height="14" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Socket(String,
+    int)</FONT><!--mstheme--></FONT></P></TD>
+    <TD width="385" valign="TOP" height="14" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">O
+    nome do computador e a porta de conexão.</FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="208" valign="TOP" height="32" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="left"><FONT face="arial, helvetica"><FONT size="2">Socket(String,
+    int, boolean)<BR>
+    </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="385" valign="TOP" height="32" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">O
+    nome do computador, a porta e um booleano indicando se o socket é para streams (true) ou
+    datagramas (false).&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="208" valign="TOP" height="16" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="left"><FONT face="arial, helvetica"><FONT size="2">Socket(InetAddress,
+    int) </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="385" valign="TOP" height="16" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">O
+    endereço Internet e a porta para conexão.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="208" valign="TOP" height="32" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="left"><FONT face="arial, helvetica"><FONT size="2">Socket(InetAddress,
+    int, boolean)<BR>
+    </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="385" valign="TOP" height="32" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">O
+    endereço Internet, a porta e um booleano, indicando se o socket é para streams (true) ou
+    datagramas (false).&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+</TBODY></TABLE><!--mstheme--><FONT face="arial, helvetica">
+
+<P align="JUSTIFY"><SMALL>A linha a seguir cria um socket cliente e o conecta a um host:</SMALL></P>
+<FONT size="2">
+
+</FONT><P align="JUSTIFY"><FONT size="2"><FONT face="Courier">Socket clientSocket = new
+Socket("microchico", 4321);</FONT></FONT></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O
+primeiro parâmetro é o nome do host a se conectar, que especifica o computador de
+destino; o segundo parâmetro é o número da porta. É necessário o número da porta
+para completar a transação e permitir que um aplicativo individual receba a chamada. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A tabela
+2 relaciona os métodos para Socket, getInputStream e getOutputStream são importantes
+para comunicar com computadores remotos. Streams são geralmente usados para tratar da
+transferência de dados entre os computadores. </SMALL></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Tabela 2</STRONG>. Métodos da classe Socket
+[Thomas 97]</FONT></P>
+
+<!--mstheme--></FONT><TABLE border="1" cellspacing="1" cellpadding="4" width="616" bordercolordark="#99CC99" bordercolorlight="#99CC99">
+  <TBODY><TR>
+    <TD width="210" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Métodos</B></FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Descrição</B></FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">close() &nbsp;
+    </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Fecha o
+    socket. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">InetAddress
+    getInetAddress() </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna o
+    InetAddress do computador no outro lado do socket. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">int
+    getLocalPort() </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna o
+    número da porta local à qual este socket está ligado. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">InputStream
+    getInputStream() </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna um
+    InputStream anexado a este socket. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">OutputStream
+    getOutputStream() </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna um
+    OutputStream anexado a este socket. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">SetSocketImplFactory(SocketImplFactory)</FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Define o
+    socket implementation factory para o sistema. </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+</TBODY></TABLE><!--mstheme--><FONT face="arial, helvetica">
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pelo fato
+de ser baseada em conexões, a classe Socket fornece uma interface de fluxos para
+operações de leitura e escrita (gravação). As classes do pacote java.io devem ser
+usadas para acesso a um socket conectado: </SMALL></P>
+
+<P align="JUSTIFY"><FONT size="2" face="Courier">DataOutputStream outbound = new
+DataOutputStream(clienteSocket.getOutputStream());&nbsp; <BR>
+DataInputStream inbound = new DataInputStream(clienteSocket.getInputStream());
+&nbsp;&nbsp; </FONT></P>
+
+<P align="JUSTIFY"><SMALL>Quando o programa termina de usar o socket, a conexão precisa
+ser fechada: </SMALL></P>
+<FONT size="3">
+
+</FONT><P align="JUSTIFY"><FONT size="2"><FONT face="Courier">outbound.close();<BR>
+inbound.close();<BR>
+clienteSocket.close();</FONT></FONT></P><FONT size="2">
+</FONT>
+
+<P align="JUSTIFY"><SMALL>Todos os fluxos de socket devem ser fechados antes do fechamento
+do próprio socket. </SMALL></P>
+
+<P align="JUSTIFY"><STRONG>Sockets Clientes</STRONG></P>
+
+<P align="JUSTIFY"><SMALL>Topos os programas cliente seguem o mesmo scritp básico:</SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>1</STRONG>. Criam a conexão de
+socket cliente.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>2</STRONG>. Adquirem fluxos de leitura e escrita
+para o socket.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>3</STRONG>. Utilizam os fluxos de acordo com o
+protocolo do servidor.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>4</STRONG>. Fecham os fluxos.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>5</STRONG>. Fecham o socket.</SMALL></P>
+<B><I>
+
+</I></B><P align="JUSTIFY"><B>Sockets Servidores</B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Os
+servidores não criam conexões de forma ativa. Em vez disso, eles permanecem passivamente
+aguardando um pedido de conexão de cliente, e depois fornecem seus serviços. Os
+servidores são criados com um construtor da classe ServerSocket. A linha a seguir cria um
+socket servidor e acopla esse socket à porta 4321: </SMALL></P>
+<FONT size="3">
+
+</FONT><P align="JUSTIFY"><FONT size="2" face="Courier">Server Socket ssocket = new
+ServerSocket(4321,5);</FONT></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O
+primeiro parâmetro é o número da porta na qual o servidor deve fazer a escuta. O
+segundo parâmetro é opcional. O segundo parâmetro indica a profundidade da pilha de
+escuta. Um servidor pode receber pedidos de conexão de vários clientes ao mesmo tempo,
+mas cada chamada tem de ser processada isoladamente. A <I>pilha de escuta</I> é uma fila
+de pedidos de conexão não respondidos. O código anterior instrui o driver do socket a
+manter os cinco últimos pedidos de conexão. Se o construtor omitir a profundidade da
+pilha de escuta, será utilizado o valor padrão 50.</SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois
+que o socket é criado e passa a ficar atendo a pedidos de conexões, cada conexão que
+chega é criada e colocada na pilha de escuta. O métdo </SMALL><FONT size="2">accept()</FONT><SMALL>
+retona um socket cliente conectado que é utilizado para se comunicar com o chamador:</SMALL></P>
+<FONT size="3">
+
+</FONT><P align="JUSTIFY"><FONT size="2" face="Courier">Socket clisocket = new
+serverSocket.accept();</FONT></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nenhuma
+conversação é conduzida sobre o próprio socket servidor. Em vez disso, o socket
+servidor irá gerar um novo socket no método </SMALL><FONT size="2">accept()</FONT><SMALL>.
+O socket servidor ainda permanece aberto e enfileirando novos pedidos de conexões. Como
+no caso do socket cliente, o próximo passo é criar um fluxo de entrada e saída:</SMALL></P>
+<FONT size="3">
+
+</FONT><P align="JUSTIFY"><FONT size="2"><FONT face="Courier">DataInputStream inbound =
+new <BR>
+DataInputStream(clisocket.getInputStream()); <BR>
+DataOutputStram outbound = new <BR>
+DataOutputStream(clisocket.getOutputStream()); </FONT></FONT></P><FONT size="2">
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As
+operações normais de I/O podem agora ser executadas pela utilização dos fluxos
+recém-criados. Esse servidor espera que o cliente envie uma linha em branco antes de
+transmitir sua resposta. Quando a conversação se completa, o servidor fecha os fluxos e
+o socket cliente. Nesse ponto, o servidor tenta aceitar outras chamadas. Quando não há
+nenhuma chamada na fila, o método irá aguardar a chegada de uma chamada. Esse
+comportamento é conhecido como <I>bloqueio</I>. O método </SMALL><FONT size="2">accept()</FONT><SMALL>
+irá bloquear o thread do servidor, impedindo que este execute quaisquer outras tarefas
+até a chegada de uma nova chamada.&nbsp; </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>Todos os servidores seguem o mesmo script básico:</SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>1</STRONG>. Criam o socket
+servidor e iniciam a escuta.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>2</STRONG>. Chamam o método accept() para obter
+novas conexões.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>3</STRONG>. Criam fluxos de entrada e saída para
+o socket retornado.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>4</STRONG>. Conduzem a conversação com base no
+protocolo combinado.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>5</STRONG>. Fecham os fluxos e o socket do
+cliente.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>6</STRONG>. Voltam ao Passo 2 ou continuam até o
+Passo 7.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>7</STRONG>. Fecham o socket servidor.</SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+1 resume os passos necessários para os aplicativos cliente/servidor baseados em
+conexões.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/sconexao.jpg" width="543" height="352"></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Figura 1</STRONG>. Aplicativo cliente e servidor
+baseados em conexões [Hopson 97].</FONT></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+
+<P><I><B>3.1 – Uma Aplicação baseada em Conexões </B></I></P><I><B>
+</B></I>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Foi
+desenvolvida uma Aplicação de Comunicação de Computadores utilizando o protocolo TCP (<EM>Transport
+Control Protocol</EM>). Dois computadores podem se comunicar por meio do MiniChat
+implementado utilizando Conexão de Sockets. O socket servidor do MiniChat é ativado e
+permanece passivo aguardando um pedido de conexão de cliente (fica ouvindo na porta
+especificada no desenvolvimento (4321)). Os sockets clientes emitem uma conexão para o
+socket servidor que está na escuta. Quando um socket cliente envia uma mensagem para o
+socket servidor, o cliente anexa o nome do usuário do MiniChat junto com a mensagem. Daí
+então o socket servidor repassa para todos os sockets clientes conectados a mensagem
+recebida.</SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para ver
+os arquivos fontes do Minichat, clique no link a seguir: </SMALL></P>
+
+<P align="JUSTIFY">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SMALL><A href="http://fipp.unoeste.br/~chico/comunicacao_socket/minichat.htm">Fonte do servidor socket "<STRONG>chatserver.java</STRONG>",
+fonte do cliente socket "<STRONG>ClienteCall.java</STRONG>" e fonte HTML para
+executar a applet do socket cliente "<STRONG>ClienteCall.html</STRONG>"</A>. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para
+obter os arquivos fontes do MiniChat: servidor socket "chatserver.java", cliente
+socket "ClienteCall.java" e HTML do</SMALL> <SMALL>socket cliente
+"ClienteCall.html": <A href="http://fipp.unoeste.br/~chico/comunicacao_socket/chat.zip">[chat.zip]</A>.</SMALL></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+
+<P align="JUSTIFY"><EM><STRONG>3.1.1 </STRONG></EM><I><B>– </B></I><EM><STRONG>Executando
+o MiniChat</STRONG></EM></P>
+
+<P><SMALL><STRONG>Passo 1</STRONG>: </SMALL></P>
+
+<P><SMALL>Executando o servidor do MiniChat (socket servidor): </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Abra uma janela do Prompt do MS-DOS. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Direcione o Path do Sistema Operacional para
+C:\jdk1.2.2\bin ou para outro diretório em que o Java 1.2.2 estiver instalado. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Compile o arquivo chatserver.java para gerar o bytecode
+(interpretável pela JVM - Java Virtual Machine) usando a seguinte linha</SMALL> <SMALL>de
+comando: <STRONG>C:\...&gt;javac -deprecation chatserver.java</STRONG> </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Para executar o servidor do MiniChat use a seguinte linha
+de comando: <STRONG>C:\...&gt;java chatserver</STRONG> </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+2 mostra o servidor socket do MiniChat em uso com duas conexões de clientes realizadas. </SMALL></P>
+
+<P><SMALL><IMG src="./Sockets Java_files/chatserver.jpg" width="572" height="359"></SMALL><BR>
+<FONT size="2"><STRONG><BR>
+Figura 2</STRONG>. Servidor do MiniChat em uso. </FONT></P>
+
+<P><STRONG><SMALL>Passo 2:</SMALL></STRONG></P>
+
+<P><SMALL>Executando o cliente do MiniChat (socket cliente)</SMALL>:<BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Abra uma janela do Prompt do MS-DOS.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Direcione o Path do Sistema Operacional para
+C:\jdk1.2.2\bin ou para outro diretório em que o Java 1.2.2 estiver instalado</SMALL>.<BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Compile o arquivo ClienteCall.java para gerar o bytecode
+(interpretável pela JVM - Java Virtual Machine) usando a seguinte linha de comando: <STRONG>C:\...&gt;javac
+-deprecation ClienteCall.java</STRONG></SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Para executar o cliente do MiniChat, será necessário
+utilizar o <EM>appletviewer do java</EM>, pelo fato do cliente ser escrito na forma de</SMALL>
+<SMALL>applet. Para isso use a seguinte linha de comando: <STRONG>C:\...&gt;appletviewer
+ClienteCall.html</STRONG></SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Repita todas as etapas do <STRONG>Passo 2</STRONG> para
+executar outro cliente do MiniChat. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+3 mostra dois clientes sendo executados e se comunicando através da tela do socket
+cliente do MiniChat. </SMALL></P>
+
+<!--mstheme--></FONT><TABLE border="0" width="100%">
+  <TBODY><TR>
+    <TD width="50%"><!--mstheme--><FONT face="arial, helvetica"><SMALL><IMG src="./Sockets Java_files/clientecall1.jpg" width="358" height="514"></SMALL><!--mstheme--></FONT></TD>
+    <TD width="50%"><!--mstheme--><FONT face="arial, helvetica"><SMALL><IMG src="./Sockets Java_files/clientecall2.jpg" width="358" height="514"></SMALL><!--mstheme--></FONT></TD>
+  </TR>
+</TBODY></TABLE><!--mstheme--><FONT face="arial, helvetica">
+
+<P><FONT size="2"><STRONG>Figura 3</STRONG>. Sockets clientes do MiniChat se comunicando. </FONT></P>
+
+<P><B><I>&nbsp;</I></B></P><B><I>
+
+</I></B><P align="JUSTIFY"><B><I>4 – Classes de Datagramas do Java</I></B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Diferentes das classes baseadas em conexões, as versões de datagramas do cliente e do
+servidor se comportam de maneira praticamente idêntica, a única diferença ocorre na
+implementação. A mesma classe é utilizada na metade cliente e na metade servidora. As
+linhas a seguir criam sockets de datagramas cliente e servidor:</SMALL></P>
+<FONT size="3">
+
+</FONT><P align="JUSTIFY"><FONT size="2"><FONT face="Courier">DatagramSocket serverSocket
+= new DatagramSocket(4545);<BR>
+DatagramSocket clientSocket = new DatagramSocket();</FONT></FONT></P><FONT size="2">
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O
+servidor especifica sua porta (4545) no parâmetro do construtor. O cliente pode utilizar
+qualquer porta disponível para chamar o servidor. O parâmetro omitido do construtor na
+segunda chamada instrui o sistema operacional a atribuir o número da próxima porta
+disponível. O cliente poderia ter solicitado uma porta específica, mas a chamada iria
+falhar se algum outro socket já estivesse acoplado a essa porta. </SMALL></P>
+<I><B>
+
+</B></I><P align="JUSTIFY">&nbsp;</P>
+
+<P align="JUSTIFY"><B>Recepção de Datagramas</B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A classe
+DatagramPacket é usada para receber e enviar dados sobre classes DatagramSocket. A classe
+de pacotes contém informações sobre a conexão, bem como os dados. Os datagramas são
+unidades autônomas de transmissão. A classe DatagramPacket encapsula essas unidades. A
+tabela 3 mostra os construtores e métodos da classe DatagramPacket.</SMALL></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Tabela 3</STRONG>. Construtores e Métodos da
+classe DatagramPacket [Thomas 97]</FONT></P>
+
+<!--mstheme--></FONT><TABLE border="1" cellspacing="1" cellpadding="4" width="616" bordercolordark="#99CC99" bordercolorlight="#99CC99">
+  <TBODY><TR>
+    <TD width="210" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Construtores e Métodos</B></FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Descrição</B></FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">DatagramPacket(byte[],
+    int) </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Constrói um
+    pacote a ser usado para receber um datagrama. O conteúdo do datagrama será copiado para
+    o array de bytes quando o datagrama for recebido. O inteiro especifica o número de bytes
+    a ser copiado para o array.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">DatagramPacket(byte[],
+    int, <BR>
+    InetAddress, int)&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Constrói um
+    pacote a ser usado para enviar um datagrama. O conteúdo do array de bytes será enviado
+    para a porta do computador remoto especificada pelo segundo inteiro e pelo InetAddress. O
+    primeiro inteiro especifica o número de bytes a ser enviado.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">InetAddress
+    getAddress()&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna o
+    InetAddress do pacote.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">int
+    getPort()&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna a
+    porta do pacote.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">byte[]
+    getData()&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna os
+    dados do pacote.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">int
+    getLength()&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna o
+    comprimento do pacote.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+</TBODY></TABLE><!--mstheme--><FONT face="arial, helvetica">
+
+<P align="JUSTIFY"><SMALL>As linhas a seguir recebem dados de um socket de datagramas:</SMALL></P>
+<FONT size="2">
+
+<P align="JUSTIFY"><FONT face="Courier">DatagramPacket packet = new DatagramPacket(new
+byte[512], 512); <BR>
+clienteSocket.receive(packet);</FONT></P>
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O
+construtor correspondente ao pacote precisa saber onde deve colocar os dados recebidos. Um
+buffer de 512 bytes foi criado e repassado ao construtor como primeiro parâmetro. O
+segundo parâmetro do construtor foi o tamanho do buffer. O método </SMALL><FONT size="2">receive()</FONT><SMALL>
+ficará bloqueado até haver dados disponíveis.</SMALL></P>
+
+<P><B><I>&nbsp;</I></B></P><B><I>
+
+</I></B><P align="JUSTIFY"><B>Transmissão de Datagramas</B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para
+transmissão de datagramas é necessário apenas um endereço completo. Os endereços são
+criados e controlados pelo uso da classe InetAddress. Essa classe não tem construtores
+públicos, mas tem vários métodos estáticos que podem ser usados com a finalidade de
+criar uma instância da classe. A lista a seguir mostra os métodos públicos que criam
+instâncias da classe InetAddress:</SMALL></P>
+<FONT size="2">
+
+<P align="JUSTIFY"><FONT face="Courier">InetAddress.getByName(String host);<BR>
+InetAddress.getAllByName(String host);<BR>
+InetAddress.getLocalHost();</FONT></P>
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tanto o </SMALL><FONT size="2">getByName()</FONT><SMALL> quanto o </SMALL><FONT size="2">getAllByName()</FONT><SMALL>
+exigem o nome do host de destino. O primeiro apenas retorna a primeira coincidência que
+encontra. O segundo método é necessário, porque um computador pode ter mais de um
+endereço. O computador tem um único nome, mas existem várias maneiras de alcançá-lo. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>Todos os métodos de criação são identificados como
+estáticos:</SMALL></P>
+<FONT size="2">
+
+<P align="JUSTIFY"><FONT face="Courier">InetAddress addr1 =
+InetAddress.getByName("microchico");<BR>
+InetAddress addr2[] = InetAddress.getAllByName(<FONT size="2">"</FONT>microchico<FONT size="2">"</FONT>);<BR>
+InetAddress addr3 = InetAddress.getLocalHost();</FONT></P>
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qualquer
+uma dessas chamadas pode emitir uma <EM>UnknownHostException</EM>. Se um computador não
+estiver conectado a um DNS (<EM>Domain Name Server</EM>) ou se o host realmente não for
+encontrado, será emitida uma exceção. Se um computador não tiver uma configuração
+TCP/IP ativa, então provavelmente </SMALL><FONT size="2">getLocalHost()</FONT><SMALL>
+também irá falhar com essa exceção.</SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois
+que um endereço é determinado, podem ser enviados datagramas. As linhas a seguir
+transmitem um String para um socket de destino:</SMALL></P>
+<FONT size="2">
+
+<P align="JUSTIFY"><FONT face="Courier">String toSend = "Esses são os dados a serem
+enviados!";<BR>
+byte[] sendbuf = new byte[toSend.length()];<BR>
+toSend.getBytes(0, toSend.length(), sendbuf, 0);<BR>
+DatagramPacket sendPacket = new DatagramPacket(sendbuf, sendbuf.lenth, addr, port);&nbsp; <BR>
+clienteSocket.send(sendPacket);</FONT></P>
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Primeiramente, o string tem de ser convertido em um array de bytes. O método </SMALL><FONT size="2">getBytes()</FONT><SMALL> cuida dessa conversão. Em seguida, tem de ser criada
+uma nova instância de DatagramPacket. O endereço e a porta de destino devem ser
+incluídos no pacote. Um datagrama é semelhante a um envelope, ele tem um endereço de
+retorno que é incluído automaticamente no pacote enviado. O endereço de retorno pode
+ser extraído do pacote pelo uso de </SMALL><FONT size="2">getAddress()</FONT><SMALL> e </SMALL><FONT size="2">getPort()</FONT><SMALL>. Aseguir uma maneira como um servidor responderia a um
+pacote do cliente:</SMALL></P>
+<FONT size="2">
+
+<P align="JUSTIFY"><FONT face="Courier">DatagramPacket sendPacket = new
+DatagramPacket(sendbuf, sendbuf.length,recvPacket.getAddress(),<BR>
+recv.getPort());<BR>
+ServerSocket.send(sendPacket);</FONT></P>
+</FONT>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Os
+construtores e métodos da classe DatagramSocket usados para construir um servidor de
+datagramas são mostrados na tabela 4.</SMALL></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Tabela 4</STRONG>. Construtores e Métodos da
+classe DatagramSocket [Thomas 97]</FONT></P>
+
+<!--mstheme--></FONT><TABLE border="1" cellspacing="1" cellpadding="4" width="616" bordercolordark="#99CC99" bordercolorlight="#99CC99">
+  <TBODY><TR>
+    <TD width="210" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Construtores e Métodos</B></FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="MIDDLE" height="22" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"><B></B></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2"><B>Descrição</B></FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">DatagramSocket()
+    &nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Cria um socket
+    UDP numa porta livre não especificada.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">DatagramSocket(int)
+    &nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Cria um socket
+    UDP na porta especificada.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Receive(DatagramPacket)
+    &nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Espera para
+    receber um datagrama e copia os dados para o DatagramPacket especificado.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">send(DatagramPacket)
+    &nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Envia um
+    DatagramPacket.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">getLocalPort()
+    &nbsp;&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Retorna a
+    porta local à qual o socket está ligado.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD width="210" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">close()
+    &nbsp;&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+    <TD width="382" valign="TOP" align="left"><!--mstheme--><FONT face="arial, helvetica"><FONT size="2"></FONT></FONT><P align="JUSTIFY"><FONT face="arial, helvetica"><FONT size="2">Fecha o
+    socket.&nbsp; </FONT><!--mstheme--></FONT></P></TD>
+  </TR>
+</TBODY></TABLE><!--mstheme--><FONT face="arial, helvetica">
+
+<P><B>&nbsp;</B></P><B>
+
+</B><P align="JUSTIFY"><B>Servidores de Datagramas</B></P>
+
+<P align="JUSTIFY"><SMALL>Script básico para servidores de datagramas:</SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>1</STRONG>. Criar o socket de
+datagrama em uma porta específica.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>2</STRONG>. Chamar o receive, a fim de esperar
+pacotes que estão chegando.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>3</STRONG>. Responder aos pacotes recebidos, de
+acordo com o protocolo combinado.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>4</STRONG>. Voltar ao Passo 2 ou continuar até o
+Passo 5.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>5</STRONG>. Fechar o socket de datagramas.</SMALL></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+<B>
+
+</B><P align="JUSTIFY"><B>Clientes de Datagramas</B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O cliente
+que corresponde ao servidor de datagramas utiliza o mesmo processo, com uma única
+exceção: um cliente tem de iniciar a conversação: </SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>1</STRONG>. Criar o socket de
+datagrama em qualquer porta disponível. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>2</STRONG>. Criar o endereço para envio. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>3</STRONG>. Transmitir os dados de acordo com o
+protocolo do servidor. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>4</STRONG>. Esperar para receber dados. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>5</STRONG>. Voltar ao Passo 3 (enviar outros
+dados), 4 (esperar pela recepção) ou 6 (sair). </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL><STRONG>6</STRONG>. Fechar o socket de datagramas. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+4 resume os passos necessários para aplicativos cliente/servidor de datagramas. </SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/sdatagrama.jpg" width="590" height="353"></P>
+
+<P align="JUSTIFY"><FONT size="2"><STRONG>Figura 4</STRONG>. Aplicativo cliente e servidor
+de datagramas [Hopson 97]</FONT></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+
+<P><I><B>4.1 – Uma Aplicação baseada em Datagramas</B></I></P><I><B>
+</B></I>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Foi
+desenvolvida uma Aplicação de comunicação de computadores utilizando o protocolo UDP (<EM>User
+Datagrama Protocol</EM>). O servidor datagrama fica ouvindo na porta </SMALL><FONT size="2">especifica no desenvolvimento da aplicação (4545</FONT><SMALL>) e retransmite o
+datagrama que recebe, ecoando a mensagem. O cliente datagrama envia um datagrama contendo
+uma mensagem e o recebe de volta do servidor datagrama. &nbsp; </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para ver
+os arquivos fontes do servidor de eco datagrama e do cliente datagrama, clique no link a
+seguir: </SMALL></P>
+
+<P align="JUSTIFY">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SMALL><A href="http://fipp.unoeste.br/~chico/comunicacao_socket/datagrama.htm">Fonte do servidor datagrama "<STRONG>ServidorDatagrama.java</STRONG>"
+e fonte do cliente datagrama "<STRONG>ClienteDatagrama.java".</STRONG></A> </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para
+obter os arquivos fontes do servidor de eco datagrama e cliente datagrama: Servidor
+Datagrama "ServidorDatagrama.java" e cliente datagrama
+"ClienteDatagrama.java": <A href="http://fipp.unoeste.br/~chico/comunicacao_socket/eco.zip">[eco.zip]</A>.</SMALL></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+
+<P align="JUSTIFY"><EM><STRONG>4.1.1 </STRONG></EM><I><B>– </B></I><EM><STRONG>Executando
+a Aplicação </STRONG></EM></P>
+
+<P><SMALL><STRONG>Passo 1</STRONG>: </SMALL></P>
+
+<P><SMALL>Executando o servidor de eco&nbsp; (servidor datagrama): </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Abra uma janela do Prompt do MS-DOS. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Direcione o Path do Sistema Operacional para
+C:\jdk1.2.2\bin ou para outro diretório em que o Java 1.2.2 estiver instalado. </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Compile o arquivo ServidorDatagrama.java para gerar o
+bytecode (interpretável pela JVM - Java Virtual Machine) usando a seguinte linha de
+comando: <STRONG>C:\...&gt;javac -deprecation ServidorDatagrama.java</STRONG> </SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Para executar o servidor de eco datagrama use a seguinte
+linha de comando: <STRONG>C:\...&gt;java ServidorDatagrama </STRONG></SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+5 mostra o servidor de eco datagrama no ar recebendo e repassando datagramas de mensagens.
+</SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/servidordatagrama.jpg" width="652" height="359"></P>
+
+<P><FONT size="2"><STRONG>Figura 5</STRONG>. Servidor de eco datagrama no ar. </FONT></P>
+
+<P><STRONG><SMALL>Passo 2:</SMALL></STRONG></P>
+
+<P><SMALL>Executando o cliente datagrama</SMALL>:<BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Abra uma janela do Prompt do MS-DOS.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Direcione o Path do Sistema Operacional para
+C:\jdk1.2.2\bin ou para outro diretório em que o Java 1.2.2 estiver instalado.</SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Compile o arquivo ClienteDatagrama.java para gerar o
+bytecode (interpretável pela JVM - Java Virtual Machine) usando a seguinte linha de
+comando: <STRONG>C:\...&gt;javac -deprecation ClienteDatagrama.java</STRONG></SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Para executar o cliente datagrama use a seguinte linha de
+comando: <STRONG>C:\...&gt;java ClienteDatagrama </STRONG></SMALL><BR>
+<IMG src="./Sockets Java_files/indbul2a.gif" width="12" height="12"> <SMALL>Para executar outro cliente datagrama repita todas as
+etapas do <STRONG>Passo 2</STRONG>. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A figura
+6 mostra um cliente datagrama sendo executado e se comunicando com servidor, enviando e
+recebendo as mensagens que envia. </SMALL></P>
+
+<P align="JUSTIFY"><IMG src="./Sockets Java_files/clientedatagrama.jpg" width="652" height="359"></P>
+
+<P><FONT size="2"><STRONG>Figura 6</STRONG>. Cliente datagrama se comunicando com o
+servidor de eco datagrama. </FONT></P>
+
+<P>&nbsp;</P>
+
+<P align="JUSTIFY"><B><I>5 – Conclusões</I></B></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Presentemente existem muitas e diversas aplicações desenvolvidas com a tecnologia de
+interface de sockets, que é o método mais utilizado para acesso a uma rede TCP/IP.
+Comunicação de Computadores utilizando Sockets representa um ponto de conexão para uma
+rede TCP/IP. Para dois computadores manter uma conversação, cada um deles utiliza um
+socket. Um computador chamado servidor abre um socket e presta atenção às conexões,
+ouvindo num determinado endereço IP e número de porta. O outro ou os outros computadores
+chamados de clientes, chamam o socket servidor através do endereço IP e número de porta
+que foi configurado para iniciar a conexão. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quando a
+confiabilidade for necessária, deve-se empregar a operação baseada em conexão
+utilizando o protocolo TCP, ou seja, tudo que é enviado por um socket é recebido pela
+outra extremidade da conexão, na mesma ordem que foi transmitido, para isso a aplicação
+vai ter que pagar um preço. Garantir a seqüência e a correção dos dados exige
+processamento extra e utilização de mais memória, o que pode significar em um overhead
+adicional reduzindo o tempo de resposta do servidor. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quando se
+deseja rapidez e eficiência a operação sem conexão utilizando o protocolo UDP é mais
+adequado, mas não garantido. Datagramas têm menos overhead do que sockets TCP, pois
+nenhum controle de fluxo é necessário quando se envia ou recebe um datagrama UDP. Os
+datagramas UDP também podem ser usados num servidor Java que envie atualizações
+periódicas para um conjunto de clientes. O servidor teria de fazer menos trabalho e
+conseqüentemente seria mais rápido, se ele pudesse simplesmente enviar datagramas UDP em
+vez de ter de iniciar uma conexão TCP para cada cliente [Thomas 97]. </SMALL></P>
+
+<P align="JUSTIFY">&nbsp;</P>
+
+<P align="JUSTIFY"><B><I>Referências Bibliográficas</I></B></P>
+
+<P align="JUSTIFY"><SMALL>[Hopson 97]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hopson, K. C e
+Ingram, Stephen E. <I>Desenvolvendo Applets com Java</I>. Editora Campus, 1997. Págs. 335
+– 351. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>[Thomas 97]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thomas, Michael D.,
+Patel, Pratik R., Hudson, Alan D e Ball, Donald A Jr. <I>Programando em Java para a
+Internet</I>. Makron Books, 1997. Págs. 467 – 489. </SMALL></P>
+
+<P align="JUSTIFY"><SMALL>[Damasceno 96] Damasceno, Américo Jr. <I>Aprendendo Java –
+Programação na Internet</I>. Editora Érica, 1996. Págs. 217 – 262. </SMALL></P>
+<!--mstheme--></FONT>
+
+</BODY></HTML>

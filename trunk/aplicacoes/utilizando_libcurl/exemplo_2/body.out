@@ -1,0 +1,2503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><!-- /IE7 mode -->
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+  <title>UOL - O melhor conteúdo</title>
+  
+  <meta name="description" content="O UOL é o maior provedor de acesso à Internet do Brasil. É também o maior provedor de conteúdo em língua portuguesa do mundo." />
+  <meta name="keywords" content="esporte, jornais, revistas, biblioteca, folha online, classificados, compras, computador, corpo, saúde, moda, carros, cinema, crianças, diversão, arte, economia, educação, internet, jogos, novelas, rádio, tv, tempo, mapas, trânsito, últimas notícias, viagem, jornalismo, informação, notícia, cultura, entretenimento, lazer, opinião, análise, internet, televisão, fotografia, imagem, som, áudio, vídeo, fotos, tecnologia, gay, vestibular, empregos, humor, música" />
+  <meta http-equiv="Content-Language" content="pt-br" />
+  <script type="text/javascript">
+  	jsRefresh = null;
+  	setJsRefresh = function(){
+  		jsRefresh = setTimeout(function(){window.location.href=window.location.href},250000);
+  	};
+    var d=document;
+    $ = function(id) {
+    	if(!arguments[1]) return document.getElementById(id);
+    	else document.getElementById(id).style[arguments[1]]=arguments[2];
+    }
+    
+    // Painel de chamadas rotativo com botões para navegação
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('p 7=1I.7||{};7.b={y:e,8:e,f:e,s:{1i:"z",1j:"F",U:"1J",N:"1K"},t:"",h:0,F:0,z:0,V:!!1L.1M.1N(/1O/g),o:e,u:6,O:k,l:i.W("G"),H:k,P:0,1P:9(A){4.y=i.1Q(A["1R"]);4.u=A["u"]||4.u;4.t=A["t"]||4.t;4.s=A["s"]||4.s;c(X Y=="1k"){Y=0}4.H=H=(i.I.1l("1m=1")==-1)?j:k;4.8=4.y.v("1S");4.Z(4.h);4.1n();c(4.8.m==1){A["10"]=j}n{4.1o()}c(i.I.1l("11=1")!=-1){A["10"]=j}c(!A["10"]){4.Q()}n{4.w("N")}},12:{R:9(A){c(A.R){A.R()}n{A.1T=k}},1p:9(C,B,A){c(i.1q){C.1q("1U"+B,A)}n{c(i.1r){C.1r(B,A,j)}}}},Q:9(A){c((!A&&4.o==e)||(A&&4.o!=e)){1s(4.o);4.o=1V(9(){7.b.13(1)},7.b.u*1t);i.I="11=0; 14=/";4.w("U")}n{i.I="11=1; 14=/";1s(4.o);4.o=e;4.w("N")}},w:9(A){c(4.f!=e){p B=4.f.v("a")[1];B.q="1W"+A;B.15=4.s[A]}},Z:9(A){4.h=(1X(A)+(4.h||4.8.m))%4.8.m;4.F=((4.h||4.8.m)-1)%4.8.m;4.z=((4.h||4.8.m)+1)%4.8.m},x:9(B,D,C){c(D){B.d.16=0;B.d.S="17(18=0)"}n{B.d.16=1;B.d.S="17(18=1u)"}7.b.O=j;19(p A=1;A<=5;A++){1v(9(E){1Y 9(){c(7.b.V){B.d.S="17(18="+(D?20*E:1u-20*E)+")"}n{B.d.16=(D?0.2*E:1-0.2*E)}c(E==5){7.b.O=k;c(7.b.V){B.d.S="1a"}c(X C=="9"){C()}}}}(A),1Z*A)}},1w:9(){i.I="1m=1; 14=/";4.H=k;21(7.b.1x);4.1b()},1b:9(){4.x(4.l,k,9(){7.b.l.d.T="1a";7.b.f.d.T="1y"});4.x(4.f,j,e)},13:9(B){p A=4.h;4.22=k;4.P++;c(Y==1&&4.H&&4.P>0&&4.P%4.8.m==0){4.l.d.T="1y";4.l.q="l";4.l.15=\'<a r="\'+23+\'" J="24"><K 1c="\'+25+\'" 1d="0" /></a><G L="26"><K 1c="1z://1A.K.1B.1C.1D/1E/27.1F" L="28" 1d="0" /><a r="29:2a(0)" 2b="7.b.1w()"><K 1c="1z://1A.K.1B.1C.1D/1E/l-2c.1F" 1d="0" /></G>\';4.y.1e(4.l);4.x(4.l,j,9(){7.b.f.d.T="1a"});4.x(4.f,k,e);c(4.o!=e){7.b.1x=1v(9(){7.b.1b()},7.b.u*1t)}}n{4.Z(B);4.8[4.h].q=4.8[4.h].q.2d(/1f/g,"");4.8[4.h].d.1G=3;4.x(4.8[4.h],j,9(){7.b.8[A].q="1f"},j);4.8[A].d.1G=2;4.1g();c(4.o==e){4.w("N")}n{4.w("U")}}},1o:9(){4.f=i.W("G");4.f.q="2e";4.1g();4.y.1e(4.f)},1n:9(){p B=i.W("G");B.q="2f";19(p A=0;A<4.8.m;A++){c(A>0){4.8[A].q+=" 1f"}4.8[A].1e(B.2g(j))}},1g:9(){4.f.15="<a M=\'-1\' r=\'"+4.8[4.F].v("a")[0].r+"\' L=\'F\' 1h=\'"+4.t+"\'>"+4.s.1j+"</a>      <a M=\'0\' r=\'"+4.8[4.h].v("a")[0].r+"\' L=\'\' 1h=\'"+4.t+"\'></a>      <a M=\'+1\' r=\'"+4.8[4.z].v("a")[0].r+"\' L=\'z\' 1h=\'"+4.t+"\'>"+4.s.1i+"</a>";p B=4.f.v("a");19(p A=0;A<B.m;A++){4.12.1p(B[A],"2h",9(C){7.b.12.R(C);c(C.1H&&X C.J=="1k"){C.J=C.1H}c(C.J.M==0){7.b.Q()}n{c(7.b.O==k){7.b.13(C.J.M);7.b.Q(j)}}})}}}',62,142,'||||this|||UOLLib|itens|function||rotativoDeChamadas|if|style|null|botoes||ativado|document|true|false|banner|length|else|timeOut|var|className|href|botoesTxts|botoesRefClickUOL|timer|getElementsByTagName|setBtStopPlay|fadeIO|painel|proximo||||||anterior|div|showBanner|cookie|target|img|class|rel|play|animando|contaTrocas|stopPlay|preventDefault|filter|display|stop|navMSIE|createElement|typeof|mostrabanner|setNavegacao|startOff|rotativoDeChamadasStop|events|navegar|path|innerHTML|opacity|Alpha|Opacity|for|none|bannerFadeOut|src|border|appendChild|desativado|writeBotoesHTML|name|next|prev|undefined|indexOf|rotativoDeChamadasNoBanner|aplicarSombras|montarBotoes|add|attachEvent|addEventListener|clearInterval|1000|100|setTimeout|fecharBanner|bannerFadeOutTimer|block|http|home|uol|com|br|h3|gif|zIndex|srcElement|window|parar|executar|navigator|userAgent|match|MSIE|init|getElementById|id|li|returnValue|on|setInterval|bt|parseInt|return|75||clearTimeout|removerBanner|mostrabannerLINK|_blank|mostrabannerIMG|rodape|pub_h_120_b|txtPublicidade|javascript|void|onclick|fechar|replace|botoesNavegacao|sombra|cloneNode|click'.split('|'),0,{}))
+  </script>
+  <noscript><meta http-equiv="refresh" content="250" /></noscript>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store" />
+  <meta http-equiv="Pragma" content="no-cache, no-store" />
+  <meta http-equiv="expires" content="Mon, 06 Jan 1990 00:00:01 GMT" />
+  <meta name="googlebot" content="noodp">
+  <meta name="robots" content="index, follow" />
+  <link rel="alternate" title="Home UOL - RSS" href="http://rss.home.uol.com.br/index.xml" type="application/rss+xml" />
+  <link rel="SHORTCUT ICON" href="http://h.imguol.com/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://h.imguol.com/icon-touch.png" />
+  <style>
+    body {background:#f4f3ef;font-family:Arial, Helvetica, sans-serif;margin:5px 0px 5px 0px;padding:0;}
+body {font-size:1.25ex;}
+html>body {font-size:10px}
+
+* {padding:0;margin:0;}
+ul, li {list-style:none;}
+img {border:0;}
+#conteudo a { outline: none;}
+a {color:#000000; display:block; font-family:Arial, Helvetica, sans-serif; font-weight:normal; text-decoration:none;}
+a:hover {text-decoration:underline;}
+h2 {font-size:1.5em;color:darkred;}
+h2 a {color:darkred;font-weight:bold;}
+h3 {font-size:1em;}
+h5 {font-size:1em;background:url(http://h.imguol.com/h3/seta-azul.gif) no-repeat;padding-left:0.8em;}
+h6 {font-size:1.3em;}
+strong {font-size:1.3em;}
+em {font:bold 1em verdana;color:#496881;display:block;}
+h6 em {font-size:0.75em;display:inline;}
+em img {height:21px;}
+.ok {vertical-align:bottom;}
+.icone {vertical-align:middle;margin-left:0.3em;}
+.thumb {width:6.6em;height:6.6em;}
+.chapeu-especial {height:1.15em;}
+ol.toCombo, ul.toCombo { display: none;}
+.clearAll {clear:both;font-size:1px;}
+.separador {border-top:solid .1em #CCC; border-bottom:solid .2em #CCC; clear:both; height:.1em; overflow:hidden;}
+
+#centraliza {background:#FFF; margin:0 auto; width:98.8em; position:relative; overflow:hidden;}
+
+/* Barra UOL */
+#barraUOL {height:2.3em;line-height:2.3em;padding:0 1em;position:relative;}
+#barraUOL a {display:inline}
+#barraUOL strong {font:bolder 1.1em Arial, Helvetica, sans-serif;}
+#barraUOL ul {position:absolute;top:0;right:3em;}
+#barraUOL ul li {float:left;position:relative;}
+#barraUOL ul li .icone {background:url('http://h.imguol.com/h3/barrauolicones.gif') no-repeat;display:block;position:absolute;top:.1em;left:.6em;width:2.8em;height:2em;}
+#barraUOL ul li.batepapo .icone {background-position:-32px 0}
+#barraUOL ul li.messenger .icone {background-position:-64px 0}
+#barraUOL ul li.email .icone {background-position:-96px 0}
+#barraUOL ul li.shopping .icone {background-position:-128px 0}
+#barraUOL ul li.voip .icone {background-position:-160px 0}
+#barraUOL ul li.namoro .icone {background-position:-192px 0}
+
+#barraUOL ul li a {padding-left:4em}
+
+/* Barra TOP */
+#barraTopo {height:8.7em;background:url('http://h.imguol.com/2009/barratopo_bg.jpg');position:relative;}
+#barraTopo .box {position:absolute;top:1.4em;height:5.8em;color:#fff;background-color:#003464;border-top:.1em solid #bfbfbf;border-right:.1em solid #595a55;border-bottom:.1em solid #595a55;border-left:.1em solid #bfbfbf;}
+#barraTopo .box form {display:block;padding:1em 0 0 .5em;}
+#barraTopo .box.email {left:14.9em;width:19.3em;}
+#barraTopo .box.email #usuario,
+#barraTopo .box.email #senha {border:1px solid #7C9BB7;width:62px;height:15px;}
+#barraTopo .box.empregos select {border:1px solid #7C9BB7;width:95px;height:18px;margin-top:.5em;font:normal 1.1em arial;}
+#barraTopo .box.empregos a { color:#FFF; display:inline;}
+#barraTopo .box.email #senha {margin-top:2px;}
+#barraTopo .box.empregos {left:84.8em;width:12.8em;}
+#barraTopo #banner-468x60-1-area {position:absolute;left:35.6em;top:1.4em;width:47.8em;height:6em;background:url('http://h.imguol.com/h1/pub-vertical.gif') no-repeat right -3em;}
+
+/* Barra busca */
+#barraBusca {height:3.6em;background-color:#f4f3ef;padding:1em 0;position:relative;border-bottom:1em solid #fff;}
+#barraBusca .divisoria {height:3.6em;width:.1em;background-color:#fff;border-right:.1em solid #d9d4c0;float:left;}
+#barraBusca .divisoria.right {margin-right:.8em;}
+#barraBusca .divisoria.left {border-left:.8em solid #f4f3ef;}
+* html #barraBusca .divisoria.left {border-left:.7em solid #f4f3ef;}
+#barraBusca .banner, #barraBusca #busca {float:left}
+#barraBusca .banner {width:12em;height:3.6em;background-color:#fff;}
+#barraBusca #busca {width:41.6em;height:3.6em}
+#barraBusca #abas {height:1.4em;font-size:1.1em;}
+#barraBusca #abas a {display:inline;font:normal 1em Arial, Helvetica, sans-serif;padding:0 .5em;}
+#barraBusca #abas a.sel {font-weight:bolder;background:url('http://h.imguol.com/2009/seta-laranja.gif') no-repeat .5em .3em;padding-left:1.2em;}
+#barraBusca #form .texto,
+#barraBusca #form .idiomas,
+#to-search .text {border-top:.1em solid #1e272e;border-left:.1em solid #384855; border-bottom:.1em solid #c2d0dd;border-right:.1em solid #99b4c9;}
+#barraBusca #form .texto {height:1.45em;width:25em;float:left;margin:0 .5em 0 0;}
+#barraBusca #form .idiomas-texto {width:12.5em;}
+#barraBusca #busca .idiomas {display:none;float:left;width:12.4em;height:1.6em;margin-right:.5em;}
+#barraBusca #busca .btBuscar {margin-top:.1em;}
+
+/* Corpo */
+#corpo {position:relative;}
+
+/* conteudo */
+#conteudo {float:left;width:66.8em;border-right:.1em solid #CCCCCC;margin-right:-.1em;position:relative;}
+
+
+#data {padding:0.4em 0 0 0.5em; height:1.6em; border:1px solid #ccc;padding-bottom:0.1em;font-size:1.1em;}
+#topo-direita {width:25em;padding:0 .5em 0.1em 0;float:right;margin:-2em .5em 0 0;text-align:right;}
+#topo-direita a {display:inline;font-size:1.1em;}
+#topo-direita a:visited {color:#000}
+
+/* modulos */
+#modulos {width:54em;float:right;padding-bottom:1em;}
+#modulos .content {padding:0 1em;border-left:.1em solid #ccc;}
+
+
+/* menu */
+.col-menu {width:12.8em;float:right;margin:0 -.1em 0 0;border-right:.1em solid #ccc;padding-bottom:1em;}
+* html col-menu {margin-bottom:.5em;}
+#menu {padding:0 1em 0 0;}
+* html #menu ul li {height:.1em;} /* IE 6 Fix */
+#menu ul li a, #menu dl dd a {background:url(http://h.imguol.com/h3/seta-vermelha3.gif) no-repeat .8em .3em;font:normal 1.2em Arial, Helvetica, sans-serif;line-height:1.5em;padding-left:1.4em;}
+* html #menu ul li a, * html #menu dl dd a {line-height:1.32em;}
+#menu ul li a:hover {background-color:#f4f3ef;}
+#menu ul li ul li a {color:#666; background:url(http://h.imguol.com/h3/traco-vermelho3.gif) no-repeat 1em .75em;padding-left:1.6em;}
+
+/* Col Direita */
+#colDireita {width:31.9em;float:right;border-left:.1em solid #ccc;position:relative;}
+* html #colDireita {width:31em;border-left:none;}
+#colDireita .content {padding:0 1em 1em 1em;position:relative;}
+* html #colDireita .content {padding-left:0;}
+#colDireita #banner-300x250-5-area {width:30em;height:25em;}
+
+/* Mod Servicos */
+.mod-servicos-box {clear:both; width:64.8em; margin:0 1em; overflow:hidden; padding-top:.5em;}
+#mod-servicos { height:6.4em; margin:0.2em 0; clear:both; border-right:solid 1px #CCC;}
+#mod-servicos li {list-style:none; padding:0 0.9em; float:left; text-align:center; border-left:solid 1px #CCC; height:6.3em;}
+#mod-servicos li img {width:5em; height:3.5em;}
+#mod-servicos li#servicos-ultimo {padding:0 .6em;}
+#mod-servicos li h3 {font:bold 1.1em arial;white-space:nowrap;}
+#mod-servicos li h3 a {font-weight:bold;}
+
+/* Banners */
+#banner-468x60-1,
+#banner-120x36-6,
+#banner-120x36-9,
+#banner-120x36-12,
+#banner-120x36-15,
+#banner-300x250-5,
+#banner-slot-1,
+#banner-slot-2,
+#banner-slot-15,
+#banner-slot-16 {position:absolute;}
+* html #banner-slot-1, * html #banner-slot-2 {left:auto !important;right:15.5em !important;}
+* html #banner-slot-15, * html #banner-slot-16 {left:auto !important;right:0 !important;}
+* html #banner-300x250-5 {left:auto !important;right:1em !important;}
+#banner-468x60-1 a {display:inline;}
+
+
+/* modulos */
+.mod {position:relative;margin-top:15px;}
+.mod h5 {border-bottom:1px dotted silver;padding:3px 8px;background-position:0 3px;}
+.mod .canais {right:0;top:0;position:absolute;text-align:right;padding:3px 0;}
+.mod .canais a {display:inline;}
+.mod .faixa {background-color:#F0F0E4;}
+/* shopping */
+#colDireita .shop {width:30em;height:24.8em;overflow:hidden;position:relative;}
+#colDireita .shop2 {height:83.5em;margin-top:1.9em;}
+#colDireita .shop .titPub {font:normal 1em Arial, Helvetica, sans-serif;}
+#colDireita .shop .lista {width:35em;border-top:.1em dotted #CBCBCB;padding-top:1.2em;position:relative;}
+#colDireita .shop2 .lista {border-top:none;}
+#colDireita .shop a {float:left;height:7.5em;font-size:10px;width:14.5em;margin-right:1em;}
+#colDireita .shop a em, .banner-ecommerce a em { cursor: pointer; cursor: hand;}
+#colDireita .shop a span, .banner-ecommerce a span {height:4.9em;font-size:10px;width:14.1em;background-color:#f4f4f4;border:.2em solid #f4f4f4;overflow:hidden;color:#496881;display:block;padding-top:.5em; cursor: pointer; cursor: hand;}
+#colDireita .shop a span img, .banner-ecommerce a span img {float:left;margin:-.4em .5em 0 0; cursor: pointer; cursor: hand;}
+#colDireita .shop strong, .banner-ecommerce strong {font:bold 1em verdana; color:#336699; cursor: pointer; cursor: hand;}
+#colDireita .shop .banner-slot {float:left;font-size:10px;height:7.5em;margin-right:1em;width:14.5em;}
+/* banners - ecommerce */
+.banner-ecommerce { font-size:10px;height:7.5em;margin-right:1em;width:14.5em;position:absolute;}
+.banner-ecommerce a {float:left;height:7.5em;font-size:10px;width:14.5em;}
+
+/* produtos */
+#prodass {display:none}
+/* rodape */
+#hUOLfooter {text-align:center;padding-top:0;}
+#hUOLfooter a {display:inline;padding:0 4px;}
+#hUOLfooter2 {position:relative}
+#hUOLfooter2 a {display:inline}
+#copyright {position:absolute;top:4em;height:2em;text-align:center}
+#uolhome {position:absolute;top:4.5em;left:4em; width:17em;z-index:1}
+#arquivohome {position:absolute;top:4.5em;left:22.3em; width:16em;z-index:1}	
+#rss {position:absolute;top:4.5em; left:39.4em; z-index:1;}
+#ombudsman {position:absolute;top:4.5em;left:51.6em; width:8em;z-index:1}	
+#erratas {position:absolute;top:4.5em;left:61.2em; width:4em;z-index:1}
+#erro {position:absolute;top:4.5em;left:66.3em; width:17em;z-index:1}
+#crimes {position:absolute;top:4.5em;left:83.5em; width:15em;z-index:1}
+#pipes {font-size:1.6em; position:absolute;top:2.6em;left:13.3em;*left:13.2em;_left:13.3em; z-index:0}
+#pipes #pipe2{margin-left:10.4em}
+#pipes #pipe3{margin-left:7.5em}
+#pipes #pipe4{margin-left:5.8em}
+#pipes #pipe5{margin-left:3em}
+#pipes #pipe6{margin-left:10.6em}
+#rodape {margin-left:0em; height:10.5em; position:relative; background:#f4f3ef;border-top:2em solid #f4f3ef} 
+#uolhome, #rss, #arquivohome, #ombudsman, #erro, #crimes, #erratas {position:absolute; top:1.5em} 
+#pipes {position:absolute; top:.8em} 
+#copyright{top:4.5em; margin-left:31em}
+#uol-host {padding:0.2em 0 0 0;}
+
+/*Álbum de Fotos*/
+#album, #jornais, #blogs {clear:both; width:30em; overflow:hidden;margin-top:2em;_margin-top:2.3em;}
+#album a { outline: none;}
+#album-top, #jornais-top, #blogs-top {height:3.5em;}
+#album-top h2, #jornais-top h2, #blogs-top h2 {float:left;font:normal 2.6em arial; color:#cc0100; padding:0.2em 0 0 0;}
+#album-top h2 a, #jornais-top h2 a, #blogs-top h2 a {color:#cc0100;font-weight:normal;}
+#album-body, #jornais-body, #blogs-body {border-right:solid 2px #EBEFF0; border-bottom:solid 2px #D0D4D7;}
+#album ul, #jornais ul, #blogs ul {padding:0.7em 0.7em 0 0.7em; margin:0; list-style:none; border:solid 1px #D0D4D5;}
+#album ul li {background:#F5F4EF; height:8em; margin:0 0 0.7em 0; overflow:hidden;}
+#album ul li.rodapeLinks, #jornais ul li.rodapeLinks, #blogs ul li.rodapeLinks {background:none;font:normal 1.1em Arial, Helvetica, sans-serif;height:auto;margin:0;padding-bottom:.5em;clear:both;}
+#album ul li.rodapeLinks a, #jornais ul li.rodapeLinks a, #blogs ul li.rodapeLinks a {display:inline}
+#album .img108x80 {float:left; padding-right:.7em; width:11em; height:8em;}
+#album ul div.chapeu a, #blogs ul div.chapeu a {color:#336699; font:bold 1.1em arial; padding:1em 1.5em 0 0;}
+#album ul p a, #blogs ul p a {font:normal 1.3em arial; padding:0 1.5em 0 0;}
+/*#album ul li.first p a, #blogs ul li.first p a {font-weight:bolder}*/
+
+#jornais li {padding:.7em 0;border-bottom:.1em dotted #CCC;}
+#jornais .chapeu a {font:bolder 1.2em Arial, Helvetica, sans-serif;color:#336699}
+#jornais h3 {font-size:10px;}
+#jornais h3 a {font:bolder 1.6em Arial, Helvetica, sans-serif;}
+#jornais li.mod-duas-fotos {border-top:none;padding:1em;height:16em;}
+#jornais li.mod-duas-fotos h3 a {font-size:1.3em;font-weight:normal;}
+#jornais ul li.rodapeLinks {border-bottom:none;}
+
+#blogs ul li {background:#F5F4EF; height:6.1em; margin:0 0 0.7em 0; overflow:hidden;}
+#blogs .img59x59 {float:left; padding-right:1.5em; width:5.9em; height:5.9em; border-top:.1em solid #F5F4EF; border-left:.1em solid #F5F4EF;}
+#blogs ul div.chapeu a {padding-top:.5em}
+
+/* Classe Colunas */
+.opc-box {clear:both; overflow: hidden;}
+.opc-box-col1 {width:25em; float:left;}
+.opc-box-col2 {width:25em; float:right;}
+/* mod-horz - geral */
+#mod-horz {clear:both; margin:0 0 3em 0; margin:1.2em 0 0 0;}
+#mod-horz-top {height:3em;}
+#mod-horz-top a {display:inline;}
+#mod-horz-top a {color:#000;}
+#mod-horz-top div {padding:1.5em 0.2em 0 0; float:right; text-align:right; overflow:hidden; vertical-align:middle;}
+#mod-horz-top div a {vertical-align:middle; font:normal 1.1em arial;}
+#mod-horz-top h2 {float:left;font:normal 2.6em arial; color:#cc0100; padding:0;}
+#mod-horz-top h2 a {color:#cc0100;font-weight:normal;}
+#mod-horz-body {border-right:solid 2px #F0EFEF; border-bottom:solid 2px #F0EFEF;}
+#mod-horz-destaques {padding:0em 0; margin:0; list-style:none;}
+#mod-horz-destaques li { margin:0; float:left; padding:0.7em 0 0 0.3em; width:31em; font-size:1.1em; overflow:hidden;}
+#mod-horz-destaques a strong {color:#336699; font:bold 11px arial;}
+/* mod-dinamicos */
+#mod-box-dinamicos { overflow:hidden;clear:both;}
+.mod-dinamicos { float: left; margin: 1.5em 0 0 0.8em;}
+.mod-dinamicos a { display: inline;}
+.mod-dinamicos li { list-style:none; height:1.5em; *height:1.3em; _height:1em;margin-left: 0.3em;padding:0.2em 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-vermelha.gif") no-repeat 0 0.5em;}
+.mod-dinamicos li a { font:normal 1.1em arial; color: #000;}
+.mod-dinamicos .hora { float: right; font: normal 1.1em arial; padding: 0.2em 0.5em 0 0;}
+.mod-dinamicos-box { background:#FFFFFF;border: solid 1px #f0f0e4;}
+.mod-dinamicos-box h2 { font: bold 1.1em arial;color: #000; padding:0.2em 0.5em 0;}
+.mod-dinamicos-box .mod-valores{ background:#efefe3;border:solid 1px #FFFFFF;padding:0.3em 0 0.3em 0.3em;height:1.8em;overflow:hidden;}
+.mod-dinamicos-box dl { overflow: hidden;}
+.mod-dinamicos-box dt { background-color: #FFF;float:left;font:bold 1.1em arial;padding:0.2em;text-align:center;width:4.3em;overflow:hidden;margin-right:0.2em;}
+.mod-dinamicos-box dd { background-color: #FFF;float:left;font:normal 1.1em arial;padding:0.2em;text-align:center;width:4.6em;}
+.mod-dinamicos .variacao-alta { background:url("http://h.imguol.com/h3/variacao-alta.gif") no-repeat 0 0.3em; padding: 0 0 0 1em;}
+.mod-dinamicos .variacao-baixa { background:url("http://h.imguol.com/h3/variacao-baixa.gif") no-repeat 0 0.4em; padding: 0 0 0 1em;}
+#mod-box-dinamicos.cotacao .mod-dinamicos h2 { width:9.5em;line-height:2.4em;padding:0;float:left;border-right:solid 1px #EFEFE3;}
+#mod-box-dinamicos.cotacao .hora { float:left;font:normal 1em arial;}
+#mod-box-dinamicos.cotacao .mod-dinamicos-box2 { overflow:hidden;padding:0 0.5em;}
+#mod-box-dinamicos.cotacao ul { float:right;}
+.mod-dinamicos-box2 li { display:inline;}
+/* mod-horz-dolar */
+#mod-horz-dolar { width: 13.7em; margin-left: 0.2em;}
+#mod-horz-dolar h2 a { color: #000;}
+#mod-horz-dolar .mod-dinamicos-box dd { width:6.3em;}
+#mod-box-dinamicos.cotacao #mod-horz-dolar { width:24.2em;text-align:center;}
+#mod-box-dinamicos.cotacao #mod-horz-dolar h2 { width:9.5em;_width:9.3em;line-height:2.4em;padding:0;float:left;border-right:solid 1px #EFEFE3;}
+#mod-box-dinamicos.cotacao #mod-horz-dolar .mod-dinamicos-box dd { width:6.2em;}
+/* mod-horz-bolsas */
+#mod-horz-bolsas { width: 11.8em;}
+#mod-horz-bolsas h2 a { color: #000;}
+#mod-box-dinamicos.cotacao #mod-horz-bolsas { width:23.4em;text-align:center;margin-left:2em;*margin-left:1.8em;}
+#mod-box-dinamicos.cotacao #mod-horz-bolsas h2 { width:6.5em;_width:6.3em;line-height:2.4em;padding:0;float:left;border-right:solid 1px #EFEFE3;}
+#mod-box-dinamicos.cotacao #mod-horz-bolsas .mod-dinamicos-box dd { width:8.4em;}
+/* mod-horz-tempo */
+#mod-horz-tempo { width: 22.4em;_float:none;}
+#mod-horz-tempo h2 a { color: #000;}
+#mod-horz-tempo ul { overflow: hidden;height:2em;}
+#mod-horz-tempo .mod-valores { padding:0 0.5em; height: 2.4em;}
+#mod-horz-tempo .mod-valores li { list-style:none;height:auto;background:none;display:inline;float:left;padding:0;margin:0;}
+#mod-horz-tempo img { float: left;width: 2.4em;height: 2.4em;margin:0;}
+#mod-horz-tempo h3 { font:bold 1.1em arial; padding: 0.4em;margin-top:0;float: left;width:8.1em;height:1em;overflow:hidden;}
+#mod-horz-tempo h3 a { font-weight: bold;}
+#mod-horz-tempo .temperatura { float:left;padding:0.2em 0.5em;margin:0.4em 0 0 0.4em;width:2.3em;}
+#mod-horz-tempo .temperatura a { font: normal 1em arial;color:#000;}
+#mod-horz-tempo .max { background:#FFFFFF url("http://h.imguol.com/h3/temperatura-max.gif") no-repeat 0.3em 0.2em;padding-left:1em;}
+#mod-horz-tempo .min { background:#FFFFFF url("http://h.imguol.com/h3/temperatura-min.gif") no-repeat 0.3em 0.2em;padding-left:1em;}
+#mod-horz-tempo.externo { width:auto;margin: 1.5em 0.3em 0 0;overflow:hidden;clear:both;border:solid 1px #f0f0e4;}
+#mod-horz-tempo.externo h2 { float: left;width:4em;*width:3.5em;text-align:center;font: bold 1.1em arial;line-height: 2.1em;}
+#mod-horz-tempo.externo h3 { width: 1.5em;}
+#mod-horz-tempo.externo .mod-valores{ background:#efefe3;border:solid 1px #FFFFFF;overflow:hidden;padding:0;}
+#mod-horz-tempo.externo .mod-valores li { display: block;width:14.8em;margin:0 0 0 0.3em;}
+/* mod-vert*/
+.mod-vert{clear:both; overflow:hidden; margin:1.2em 0 0; padding:0;}
+#mod-vert-top {height:3.2em;}
+#mod-vert-top h2 { font:normal 2.6em arial;color:#cc0100;}
+#mod-vert-top h2 a {display:block;color:#cc0100;font-weight:normal;}
+.mod-vert .mod-vert-canais{ border-top: dotted 1px #CBCBCB; padding:0.5em 0;vertical-align:middle;}
+.mod-vert .mod-vert-canais a {display:inline; color:#000; font:normal 1.1em arial;vertical-align:middle;}
+/* mod-lista */
+.mod-lista { margin: 0; padding: 1em 0 0.5em;border-top:dotted 1px #CDCDCD; clear:both}
+.mod-lista dl { margin: 0;}
+.mod-lista dt{ font: bold 1.1em arial; padding-top:0.1em; color: #336699; float: left; clear: left; margin-right: 0.5em;}
+.mod-lista dt a { color: #336699; font-weight: bold;}
+.mod-lista dt a:visited {color:#336699;}
+.mod-lista dd { font: normal 1.3em arial; padding: 0 0 0.5em; margin: 0;}
+.mod-lista dd a:visited { color: #000000;}
+/* mod-fotogrande */
+.mod-fotogrande {clear:both; overflow:hidden;border-top:dotted 1px #CDCDCD;padding:1em 0;}
+.mod-fotogrande .img230x108 {width:25em; height:10em; display:block; padding:0 0 0.5em 0;}
+.mod-fotogrande div.chapeu a, .mod-fotogrande div.chapeu a:visited {color:#336699; font:bold 1.1em arial;}
+.mod-fotogrande h3 {font:bold 1.6em arial;padding:0.1em 0 0.3em 0;}
+.mod-fotogrande h3 a {color:#000;font-weight:bold;}
+.mod-fotogrande li {list-style:none; height:1.4em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-azul.gif") no-repeat 0 0.3em;}
+.mod-fotogrande li a {font:normal 1.1em arial;}
+/* mod-fotomedia */
+.mod-fotomedia {clear:both; overflow:hidden; margin:0; border-top:dotted 1px #CDCDCD; padding:1em 0;}
+.mod-fotomedia a:visited { color: #000000;}
+.mod-fotomedia-body {clear:both; overflow:hidden;}
+.mod-fotomedia-body .img130x108 {width:13em; height:10em; margin:0 0.8em 0 0 ; float:left;}
+.mod-fotomedia-body div.chapeu a {color:#336699; font:bold 1.1em arial; padding:1.7em 0 0 0;}
+.mod-fotomedia-body h3 {font:bold 1.3em arial; padding:0 0 0.3em 0;}
+.mod-fotomedia-body h3 a {color:#000;font-weight:bold;}
+.mod-fotomedia-body ul {width:25em; clear:both; overflow:hidden; padding:0.5em 0 0 0;}
+.mod-fotomedia-body li {list-style:none; height:1.4em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-azul.gif") no-repeat 0 0.3em;}
+.mod-fotomedia-body li a {font:normal 1.1em arial;}
+/* mod-fotopequena */
+.mod-fotopequena {clear:both; overflow:hidden; margin:0; border-top:dotted 1px #CDCDCD; padding:1em 0;}
+.mod-fotopequena a:visited { color: #000000;}
+.mod-fotopequena-body {clear:both; overflow:hidden;}
+.mod-fotopequena-body .img80x80 {width:8em; *width:7.9em; _width:8em;  height:8em; *height:7.9em; _height:8em; margin:0 0.8em 0 0; float:left;}
+.mod-fotopequena-body div.chapeu a {color:#336699; font:bold 1.1em arial; padding:1.7em 0 0 0;}
+.mod-fotopequena-body h3 {font:bold 1.3em arial; padding:0 0 0.3em 0;}
+.mod-fotopequena-body h3 a {color:#000;font-weight:bold;}
+.mod-fotopequena-body ul {width:25em; clear:both; overflow:hidden; padding:0.5em 0 0 0;}
+.mod-fotopequena-body li {list-style:none; height:1.4em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-azul.gif") no-repeat 0 0.3em;}
+.mod-fotopequena-body li a {font:normal 1.1em arial;}
+/* mod-duas-fotos */
+.mod-duas-fotos {clear:both; overflow:hidden; margin:0; border-top:dotted 1px #CDCDCD; padding:0.7em 0 1em;}
+.mod-duas-fotos a:visited { color: #000000;}
+.mod-duas-fotos .img108x80 {width:12em; height:9em;}
+.mod-duas-fotos div.chapeu { padding-bottom: 0.3em;}
+.mod-duas-fotos div.chapeu a {color:#336699; font:bold 1.1em arial; padding:0;}
+.mod-duas-fotos h3 { font:normal 1.3em arial; padding:0.5em 0 0 0;}
+.mod-duas-fotos h3 a { color:#000;}
+.mod-duas-fotos .mod-duas-fotos-esq, .mod-duas-fotos .mod-duas-fotos-dir {overflow:hidden; width:12em;}
+.mod-duas-fotos .mod-duas-fotos-esq {float:left;}
+.mod-duas-fotos .mod-duas-fotos-dir {float:right;}
+/* mod-semfoto */
+.mod-semfoto {clear:both; overflow:hidden; margin:0; border-top:dotted 1px #CDCDCD; padding:1em 0;}
+.mod-semfoto-body {clear:both; overflow:hidden;}
+.mod-semfoto-body div.chapeu a {color:#336699; font:bold 1.1em arial; padding:0;}
+.mod-semfoto-body h3 {font:bold 1.3em arial; padding:0 0 0.3em 0;}
+.mod-semfoto-body h3 a {color:#000;font-weight:bold;}
+.mod-semfoto-body ul {width:25em; clear:both; overflow:hidden; padding:0.5em 0 0 0;}
+.mod-semfoto-body li {list-style:none; height:1.4em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-azul.gif") no-repeat 0 0.3em;}
+.mod-semfoto-body li a {font:normal 1.1em arial;}	
+
+/* IE6 */
+* html .mod-lista,
+* html .mod-semfoto,
+* html .mod-fotomedia,
+* html .mod-duas-fotos,
+* html .mod-fotopequena,
+* html .mod-fotogrande {margin-top:.5em;padding-top:.5em;padding-bottom:.5em;}
+
+
+/* mod-quatro-blocos */
+#mod-quatro-blocos {height:25.5em;padding:1em 0 0 1em}
+#mod-quatro-blocos h2.titulo {background-color:#9A0000;color:#FFFFFF;font:normal 1.3em Arial, Helvetica, sans-serif;padding:0.5em 0.7em;text-transform:uppercase;border:.1em solid #fff;border-right:none;}
+#mod-quatro-blocos h2.titulo a {font:normal 1em Arial, Helvetica, sans-serif;color:#fff;}
+#box-radiouol, 
+#box-jogos,
+#mod-times,
+#mod-horoscopo {width:16em;height:24.5em;float:left;margin-right:.1em;border:.1em solid #ccc;border-bottom:.3em solid #ccc;border-right:none;}
+#mod-horoscopo {border-right:.1em solid #ccc;}
+
+/*mod-shopping*/
+#mod-shopping {clear:both; margin:2em 0 1em 0;}
+#colDireita #mod-shopping {margin:2.5em 0;}
+#mod-shopping #shopping-link {text-align:right; font:bold 1em verdana; color:#326495; padding:0 0 0.2em 0;}
+#mod-shopping #mod-shopping-top {height:2.6em;background-color:#ec9b01}
+#mod-shopping #mod-shopping-top .busca {float:right;padding:.4em 1em 0 0;width:275px;}
+#mod-shopping #mod-shopping-top #inpttxt {width:20em;border:.1em solid #6689a9;font:normal 1em Arial, Helvetica, sans-serif;padding:0.1em 0 .2em 0;float:left;margin-right:.5em;}
+#mod-shopping #mod-shopping-top .bt-buscar {float:right;}
+#mod-shopping #mod-shopping-top #logo-shopping {width:23.4em;height:2.6em;background:url('http://h.imguol.com/2009/shoppinguoltop3.gif') no-repeat;float:left;}
+#colDireita #mod-shopping #mod-shopping-top #logo-shopping {background:url('http://h.imguol.com/2009/shoppinguoltop4.gif') no-repeat;width:30em;}
+#mod-shopping #mod-shopping-top #logo-shopping a {display:block;width:23.4em;height:2.6em;text-decoration:none;}
+#colDireita #mod-shopping #mod-shopping-top #logo-shopping a {width:30em;}
+#mod-shopping #mod-shopping-body {border:solid 1px #ccc;border-top:none;overflow:hidden;height:14em;}
+#colDireita #mod-shopping #mod-shopping-body {height:7em;border-left:none;}
+* html #mod-shopping #mod-shopping-body {width:51.7em;}
+* html #colDireita #mod-shopping #mod-shopping-body {width:29.9em;}
+#mod-shopping #mod-shopping-body ul {clear:both; overflow:hidden; height:14em;width:52em;}
+#colDireita #mod-shopping #mod-shopping-body ul {height:7em;width:35em;}
+#mod-shopping #mod-shopping-body li {width:11.85em; padding:.5em; height:6em; list-style:none; float:left; border-left:.1em solid #CCC; border-bottom:.1em solid #CCC; overflow:hidden;}
+#colDireita #mod-shopping #mod-shopping-body li {width:14em;}
+#mod-shopping #mod-shopping-body li img {float:left; margin:0 0.5em 0 0; width:4.9em; height:4.9em;}
+#mod-shopping #mod-shopping-body li h3 a {color:#336699; font:bold 1em verdana;}
+#mod-shopping #mod-shopping-body li p a {font:normal 1em arial;}
+#mod-shopping #mod-shopping-body li.item-bottom {border:1px #FEF1D1; border-style:solid none none solid;}
+#mod-shopping #mod-shopping-body li.first {border-left:none;}
+#mod-shopping #mod-shopping-body li.maior {height: 13em;}
+#mod-shopping #mod-shopping-body li.maior img {width:12em;height:8em;height:7.9em; float:none;}
+#mod-shopping #mod-shopping-body li.maior h3 {text-align: center;}
+#mod-shopping #mod-shopping-body li.maior p {line-height: 1em; margin: 0 1em; text-align: center;}
+#mod-shopping #mod-shopping-body li.maior p a {line-height:1.1em;}
+#mod-shopping #mod-shopping-footer {border:.1em solid #ccc;border-top:none;}
+#mod-shopping #mod-shopping-footer .border {font-size:1.1em;border:.1em solid #fff;background-color:#f4f4f4;text-align:center;}
+#mod-shopping #mod-shopping-footer a {font:bolder 1em Arial, Helvetica, sans-serif;display:inline;line-height:2.2em;}
+
+/* mod-abas */
+#mod-abas {clear:both; padding-top:3em;_padding-top:3.7em; }
+#mod-abas a {outline:none;}
+#mod-abas #mod-abas-body {border-right:solid 2px #EBEFF0; border-left:solid 1px #D7D7D7; height:25.7em; border-bottom:solid 3px #D0D4D7; border-top:solid 1px #D7D7D7;overflow:hidden;}
+#mod-abas #mod-abas-body #mod-abas-borda {border:solid 1px #D7D7D7; padding:0.7em 0.7em 0.5em 0.7em; width:34.3em; *width:34.1em; _width:34.3em; overflow:hidden;}
+#mod-abas #conteudo-canal {width:27.5em; height:25.7em; margin:.5em 0 0 1em;}
+#mod-abas #abas-top {height:27px;position:relative;}
+#mod-abas #abas-top li {float:left; list-style:none; border:1px #d7d7d7; border-style:solid solid none solid; position:relative;}
+#mod-abas #abas-top li a {font:bold 13px arial; color:#336598; display:block; height:19px; padding:5px 0 0 5px; border:solid 1px #FFF; background:url("http://h.imguol.com/h3/bg-aba.gif") repeat-x;border-bottom-color:#e9e9e9;}
+#mod-abas #abas-top li a:visited {color:#336598;}
+#mod-abas #abas-top li.aba1 {width:58px;}
+#mod-abas #abas-top li.aba2 {width:134px; margin-left:4px;}   
+#mod-abas #abas-top li.aba3 {width:90px; margin-left:4px;}
+#mod-abas #abas-top li.aba4 {width:58px; margin-left:4px;}
+#mod-abas #abas-top li .canto {position:absolute; top:-1px; right:-1px;}
+#mod-abas #abas-top ul {position:absolute; z-index:2; width:36em; *width:35.9em; _width:36.1em; overflow:hidden;}
+#mod-abas #abas-top li#abaSel a {background:url("http://h.imguol.com/h3/bg-aba-sel.gif") repeat-x; color:#9b0103; height:20px; border-bottom-color:#FFF;}
+#mod-abas #abas-top li#abaSel a:visited {color:#9b0103;}
+
+#menu dl { padding:0 0 1em 0;}
+#menu dl dt {font:bolder 1.2em Arial, Helvetica, sans-serif;color:#9b0103;padding:.8em 0 .4em 0;margin-left:.8em;border-top:.1em solid #CCC;}
+#menu dl dt a {font:bolder 1em Arial, Helvetica, sans-serif;color:#9b0103;}
+#menu dl.mn-assinante {padding-top:1em;}
+#menu dl.mn-uolhost { padding-bottom:1em;}
+#menu dl.mn-lnkpatrocinados dd a,
+#menu dl.mn-pagseguro dd a {background:none;padding-left:.8em;}
+#menu dl.mn-bp dt {border-top:none;padding:0 0 .5em 0;}
+#menu dl.mn-bp dd {border-bottom:.1em solid #CCC;margin-left:.8em;height:3em;}
+#menu dl.mn-bp dd select {width:8.7em; font:normal 1em Arial, Helvetica, sans-serif; float:left;margin-right:.2em;}
+#menu dl.mn-bp dd .ok {float:left;}
+
+/*
+#menu dl.mn-servgratuitos { height: 8.2em;}
+*/
+#menu .produtos {margin-left:1em;border-top:.1em solid #CCC;padding-top:1em;height:41em;overflow:hidden;}
+#menu .produtos li {width:10.6em;height:12.8em;border:.1em solid #CCC;margin-bottom:1em;background:url('http://h.imguol.com/2009/produtos-bg.gif');overflow:hidden;font-size:10px;}
+#menu .produtos li a {background:none;padding:0;margin:0;font-size:10px;}
+#menu .produtos li a:hover {background:none;text-decoration:none;}
+#menu .produtos li h5, #menu .produtos li p {font:normal 1.1em Arial, Helvetica, sans-serif;background:none;padding:0 0 0 1em;}
+#menu .produtos li h5 {font-weight:bolder;}
+#menu .produtos li .bt, #menu .produtos li .bt:hover {width:8.4em;height:2em;background:url('http://h.imguol.com/2009/produtos-bt.gif');overflow:hidden;margin:.5em auto 0 auto;text-align:center;text-decoration:none;}
+#menu .produtos li .bt span {font:bolder 1.1em Arial, Helvetica, sans-serif;color:#fff;line-height:1.8em;}
+
+/*eof*/
+
+    /* mod-hn-destaque */
+#mod-hn-destaque {clear:both; overflow:hidden;}
+#mod-hn-destaque div.chapeu a, #mod-hn-destaque div.chapeu a:visited {color:#990000; font:bold 1.1em arial;}
+#mod-hn-destaque h3 {font:bold 2em arial; padding:0; line-height: 1.1em;}
+#mod-hn-destaque h3 a, #mod-hn-destaque h3 a:visited {color:#000; font-weight: bold;}
+#mod-hn-destaque ul {padding:0.3em 0 0;}
+#mod-hn-destaque li {list-style:none; height:1.5em; _height:1.3em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-vermelha.gif") no-repeat 0 0.3em;}
+#mod-hn-destaque li a, #mod-hn-destaque li a:visited {font:normal 1.1em arial;color:#000;}
+
+/* mod-hn-chamada */
+#mod-hn-chamada {clear:both; overflow:hidden; border-top: dotted 1px #cbcbcb; padding: 0.7em 0 0;margin-top: 0.7em;}
+#mod-hn-chamada.first {border:0; padding-top:0; margin-top:0;}
+#mod-hn-chamada div.chapeu a, #mod-hn-chamada div.chapeu a:visited {color:#990000; font:bold 1.1em arial;}
+#mod-hn-chamada h3 {font:bold 1.6em arial; padding:0;}
+#mod-hn-chamada h3 a, #mod-hn-chamada h3 a:visited {color:#000; font-weight: bold;}
+#mod-hn-chamada ul {padding:0.3em 0 0;}
+#mod-hn-chamada li {list-style:none; height:1.5em; _height:1em; padding:0 0 0 0.8em; background:url("http://h.imguol.com/h3/seta-vermelha.gif") no-repeat 0 0.3em;}
+#mod-hn-chamada li a, #mod-hn-chamada li a:visited {font:normal 1.1em arial;color:#000;}
+
+/* mod- rotativo */
+#mod-rotativo { margin-top: 1em; width: 51.9em; overflow:hidden; }
+
+
+/* Painel rotativo de chamdas */
+#rotCham {height:26.3em;width:25em;position:relative;background-color:#F5F4EF;font-size:10px;}
+#rotCham .banner {position:absolute;top:0;left:0;z-index:5;display:none;}
+#rotCham .banner .rodape {position:relative;background-color:#fff;border:.1em solid #000;height:3em;width:24.8em;}
+#rotCham .banner .rodape .txtPublicidade {margin:1.2em;}
+#rotCham .banner .rodape a {position:absolute;top:.8em;right:1em;}
+#rotCham ul,
+#rotCham ul li {margin:0;padding:0;list-style:none;height:26.3em;width:25em;}
+#rotCham ul li {display:block;position:absolute;top:0;left:0;z-index:3}
+#rotCham ul li.desativado {display:none;z-index:1;}
+#rotCham ul li img {border:none;margim:0;}
+#rotCham ul li a {text-decoration:none;}
+#rotCham ul li a:hover * {text-decoration:underline;}
+#rotCham ul li .legenda {background-color:#D7D7D7;position:absolute;bottom:0;left:0;height:9.4em;width:25em;}
+#rotCham ul li p {display:block;width:24.3em;height:8.7em;font-size:10px;margin:0;padding:0;cursor:pointer;cursor:hand;position:absolute;top:.1em;left:.1em;background-color:#F5F4EF;border:.2em solid #fff;}
+#rotCham ul li p strong {font:bolder 1.1em Arial, Helvetica, sans-serif;color:#990000;display:block;margin:.8em .8em 0 .8em;}
+#rotCham ul li p span {font:bolder 1.3em Arial, Helvetica, sans-serif;color:#000;display:block;margin:0 .6em 0 .6em;}
+#rotCham ul li p .icone {margin-left:.4em}
+#rotCham ul li .sombra {display:none;}
+#rotCham .botoesNavegacao {position:absolute;bottom:.8em;left:3em;z-index:12;}
+#rotCham .botoesNavegacao a {margin:0 .2em;float:left;outline:none;text-indent:-999em;}
+#rotCham .botoesNavegacao a.anterior {background:url('http://home.img.uol.com.br/h3/botao-anterior.gif') no-repeat;width:7.6em;height:2em;}
+#rotCham .botoesNavegacao a.proximo {background:url('http://home.img.uol.com.br/h3/botao-proxima.gif') no-repeat;width:7.6em;height:2em;}
+#rotCham .botoesNavegacao a.btstop {background:url('http://home.img.uol.com.br/h3/botao-pause1-off.gif') no-repeat;width:2.3em;height:2em;}
+#rotCham .botoesNavegacao a.btplay {background:url('http://home.img.uol.com.br/h3/botao-pause1-on.gif') no-repeat;width:2.3em;height:2em;}
+/* Painel rotativo de chamdas */
+
+
+/* mod-videos */
+#mod-videos {margin:1.1em 0 0 0;}
+#mod-videos a:visited {color: #000;}
+#videos-busca {background:#9a0000; color:#FFF; height:3em; clear:both; overflow:hidden;}
+#videos-busca h2 {float:left; font:normal 1.3em arial; width:7.4em; padding:0.5em 0 0 0.8em;color:#FFFFFF;}
+#videos-busca h2 a {color:#FFF; font-weight:normal;}
+#videos-busca h2 a:visited {color:#FFF;}
+#videos-busca #videos-busca-texto {width:284px; width:281px; font:normal 10px arial; position:relative; top:0.1em; margin:0 3px 0 0;}
+#videos-busca li h3 a {font:bold 1.1em arial; padding:0.9em 0 0 0; color:#000; position:relative;}
+#videos-busca .bt-buscar {position:relative; top:0.5em; *top:0.6em;}
+#mod-videos {clear:both; border:solid 1px #D7D7D7; padding:0.2em;}
+#mod-videos ul {clear:both; overflow:hidden; width:51.3em;}
+#mod-videos li {margin:0; background:#F4F3EF; padding:.8em 0; list-style:none; width:11.9em; float:left; position:relative; font-size:10px; border-right:.1em solid #fff; border-left:.9em solid #F4F3EF;}
+#mod-videos li .img108x80 {width:11em; height:8em;}
+#mod-videos li h3 {padding-right:.8em;}
+#mod-videos li h3 a {font:bold 1.1em arial; color:#000 !important; display:block; padding:0.5em 0 0 0;}
+#mod-videos li div {position:absolute; top:5.1em; left:7.7em; height:2.8em; width:2.8em; background:#000; opacity:0.6; filter:alpha(opacity=60);}
+#mod-videos li div a {height:2.8em; width:2.8em; display:block; text-decoration:none;}
+#mod-videos li#videos-primeiro {width:11.8em}
+#mod-videos li#videos-ultimo {border-right:none;width:11.8em}
+
+#mod-horz2 {border:solid 1px #D7D7D7; padding:0.8em;_overflow: visible;_height: 1em;}
+#mod-horz2 .opc-box-col1 {width:25em; float:left; padding: 0;}
+#mod-horz2 .opc-box-col2 {width:24em; float:right; padding: 0;}
+#mod-horz2 .mod-fotogrande, #mod-horz2 .mod-fotopequena { border:none; padding:0 0 1em;}
+#mod-horz2 .mod-fotogrande .img230x108 {width:25em; height:10em;}
+#mod-horz2 .mod-fotopequena .mod-fotopequena-body h3, 
+#mod-horz2 .mod-fotogrande h3 { padding: 0;}
+#mod-horz2 .mod-fotogrande ul { padding: 0.5em 0 0;}
+#mod-horz2 .mod-lista { padding: 0.7em 0 0;}
+#mod-horz2 .last { padding-bottom: 0;}
+#mod-horz2 #mod-box-dinamicos { padding: 1.5em 0 0; _padding: 0.4em 0 0;}
+#mod-horz2 #mod-box-dinamicos #mod-horz-dolar { _margin-left: 0.1em}
+#mod-horz2 #mod-box-dinamicos #mod-horz-dolar,
+#mod-horz2 #mod-box-dinamicos #mod-horz-bolsas,
+#mod-horz2 #mod-box-dinamicos #mod-horz-tempo { margin-top: 0; float: left;}
+/* Módulo Colunas */
+#col-mod {clear:both;}
+#col-mod-esq {width:25em; float:left;}
+#col-mod-dir {width:25em; float:right;}
+
+
+
+
+  </style>
+</head>
+<body>
+<!--SKa1/1-->
+<div id="centraliza">
+  <!-- uolhome:arq -->
+  <div id="barraUOL">
+    <a href="http://assine.uol.com.br/index.htm?eos=yes&promo=217531907&sg=300015590&sa=home-barra-assine&promochild=PROMOCOMBIAVSS">ASSINE UOL <strong>0800 703 3000</strong></a> | <a href="https://sac.uol.com.br/">SAC</a>
+    <ul>
+      <li class="ico folha"><a href="http://www.folha.uol.com.br/" title="FOLHA ONLINE"><div class="icone"></div>FOLHA ONLINE</a></li>
+      <li class="ico batepapo"><a href="http://batepapo.uol.com.br/" title="BATE-PAPO"><div class="icone"></div>BATE-PAPO</a></li>
+      <li class="ico messenger"><a href="http://messenger.uol.com.br/" title="MESSENGER"><div class="icone"></div>MESSENGER</a></li>
+      <li class="ico email"><a href="http://www.bol.uol.com.br/" title="E-MAIL GRÁTIS"><div class="icone"></div>E-MAIL GRÁTIS</a></li>
+      <li class="ico shopping"><a href="http://shopping.uol.com.br/?&rtrk=src:13;size:18;chn:103;creative:link_fixo;thm:barra_navegacao1" title="SHOPPING UOL"><div class="icone"></div>SHOPPING UOL</a></li>
+      <li class="ico voip"><a href="http://clicklogger.rm.uol.com.br/?prd=5&grp=src:13;chn:0;creative:link_voip;pos:barra_superior&msr=Cliques%20de%20Origem:1&oper=8&redir=http://voip.uol.com.br/" title="VOIP"><div class="icone"></div>VOIP</a></li>
+      <li class="ico namoro"><a href="http://clicklogger.rm.uol.com.br/?prd=9&grp=src:10;chn:48&msr=Cliques%20de%20Origem:1&oper=7&redir=http://namoro.uol.com.br" title="NAMORO"><div class="icone"></div>NAMORO</a></li>
+    </ul>
+  </div>
+  <div id="barraTopo">
+    <a href="http://click.uol.com.br/?rf=home&u=http://sobre.uol.com.br/" title="UOL - O melhor conteúdo"><img src="http://h.imguol.com/2009/uol.jpg" alt="UOL - O melhor conteúdo" title="UOL - O melhor conteúdo" border="0" /></a>
+    <div class="box email">
+  		<form onsubmit="return submitEmailForm()" name="formEmail" action="https://acesso.uol.com.br/login.html?skin=webmail" method="post">
+  		E-MAIL <input name=user type=text id="usuario" /> @uol.com.br<br />
+  		SENHA <input name=pass type=password id="senha" /> <input type=image src="http://h.imguol.com/h3/botao-ok.gif" class="ok"/>
+  		</form>
+    </div>
+    <div class="box empregos">
+      <form onsubmit="return submitEmpregosForm()" name="formEmpregos">
+        <a href="http://click.uol.com.br/?rf=home-caixa-busca-empregos&u=http://clicklogger.rm.uol.com.br/?prd=21&grp=src:10;size:6;chn:0;creative:caixadebuscahomeuol;thm:textovagasdeempregos&msr=Cliques%20de%20Origem:1&oper=7&redir=http://empregocerto.uol.com.br/">VAGAS DE EMPREGOS</a> <br />
+        <select name="sltEmpregos" id="sltEmpregos"><option value="">Escolha</option><option value="WORK_AREA_ADMI" id="areaadministrativa">Administrativa</option>
+<option value="WORK_AREA_ARQU" id="areaarquitetura">Arquitetura</option>
+<option value="WORK_AREA_COME_VEND" id="areacomercial">Comercial</option>
+<option value="WORK_AREA_COME_EXTE" id="areacomercioexterior">Comércio Exterior</option>
+<option value="WORK_AREA_COMP" id="areacompras">Compras</option>
+<option value="WORK_AREA_COMU_PUBL" id="areacomunicacao">Comunicação</option>
+<option value="WORK_AREA_ECON" id="areaeconomia">Economia</option>
+<option value="WORK_AREA_EDUC" id="areaeducacao">Educação </option>
+<option value="WORK_AREA_ENFE" id="areaenfermagem">Enfermagem</option>
+<option value="WORK_AREA_ENGE" id="areaengenharias">Engenharias</option>
+<option value="WORK_AREA_FINA" id="areafinanceira">Financeira</option>
+<option value="WORK_AREA_INDU" id="areaindustrial">Industrial</option>
+<option value="WORK_AREA_INFO_TI" id="areainformatica">Informática (T.I.)</option>
+<option value="WORK_AREA_INTE" id="areainternet">Internet</option>
+<option value="WORK_AREA_JORN" id="areajornalismo">Jornalismo</option>
+<option value="WORK_AREA_JURI" id="areajuridica">Jurídica</option>
+<option value="WORK_AREA_MARK" id="areamarketing">Marketing</option>
+<option value="WORK_AREA_MEDI" id="areamedica">Médica</option>
+<option value="WORK_AREA_PSIC" id="areapsicologia">Psicologia</option>
+<option value="WORK_AREA_QUAL" id="areaqualidade">Qualidade</option>
+<option value="WORK_AREA_RECU_HUMA" id="arearh">RH</option>
+<option value="WORK_AREA_SECR" id="areasecretariado">Secretariado</option>
+<option value="WORK_AREA_TECN" id="areatecnica">Técnica</option>
+<option value="WORK_AREA_TELE_COMU" id="areatelecomunicacoes">Telecomunicações</option>
+<option value="WORK_AREA_TELE_MARK" id="areatelemarketing">Telemarketing</option>
+<option value="WORK_AREA_OUTR_AREA" id="areaoutrasareas">Outras Áreas</option></select> <input type=image src="http://h.imguol.com/h3/botao-ok.gif" class="ok"/>
+      </form>
+    </div>
+    <div id="banner-468x60-1-area"></div>
+  </div>
+  <!-- /uolhome:arq -->
+  <div id="barraBusca">
+      <div class="divisoria right"></div>
+      <div class="banner" id="banner-120x36-6-area"></div>
+      <div class="divisoria right left"></div>
+
+      <div id="busca">
+        <div id="abas">
+          <script type="text/javascript">
+          bwr = navigator.appVersion;
+          if(navigator.appName == "Microsoft Internet Explorer" && bwr.substr(bwr.indexOf("MSIE")+5,3)<5.5) { }
+          else d.write('<a href="javascript:void(0)" onclick="UOLBusca(this)" class="sel" id="primeira">Web</a>|<a href="javascript:void(0)" onclick="UOLBusca(this)">Comparar preços</a>|<a href="javascript:void(0)" onclick="UOLBusca(this)">Imagens</a>|<!--a href="javascript:void(0)" onclick="UOLBusca(this)">Vídeos</a--><a href="javascript:void(0)" onclick="UOLBusca(this)">Notícias</a>|<a href="javascript:void(0)" onclick="UOLBusca(this)">Dicionários</a>');
+          </script>
+        </div>
+        <form onsubmit="return clickCount('busca-submit')" action="http://busca.uol.com.br/www/index.html" method="get" target="_blank" name="formb">
+        <input type="hidden" name="t" disabled="disabled" />
+        <input type="hidden" name="skin" value="news" disabled="disabled" />
+        <input type="hidden" name="id" value="1" disabled="disabled" />
+        <input type="hidden" name="rd" value="1" disabled="disabled" />
+        <input type="hidden" name="ref" value="homeuol" />
+        <input type="hidden" name="ad" value="on" />
+        <div id="form">
+          <input type="text" name="q" class="texto" />
+      	  <select name="group" class="idiomas" disabled="disabled">
+        		<option value="6">Alemão/Português</option>
+        		<option value="4">Espanhol/Português</option>
+        		<option value="8">Francês/Português</option>
+        		<option value="1">Inglês/Inglês</option>
+        		<option value="2">Inglês/Português</option>
+        
+        		<option value="10">Italiano/Português</option>
+        		<option selected="selected" value="0">Português</option>
+        		<option value="5">Português/Alemão</option>
+        		<option value="3">Português/Espanhol</option>
+        		<option value="7">Português/Francês</option>
+        		<option value="12">Português/Inglês</option>
+        
+        		<option value="9">Português/Italiano</option>
+        		<option value="11">Português/Vários Idiomas</option>
+      	  </select>
+      	  <input type=image src="http://h.imguol.com/2009/bt-buscar.gif" class="btBuscar" />
+         </div>
+         </form>
+      </div><!--/busca-->
+
+      <div class="divisoria right left"></div>
+      <div class="banner" id="banner-120x36-9-area"></div>
+      <div class="divisoria right left"></div>
+      <div class="banner" id="banner-120x36-12-area"></div>
+      <div class="divisoria right left"></div>
+      <div class="banner" id="banner-120x36-15-area"></div>
+      <div class="divisoria left"></div>
+
+  </div><!--/barraBusca-->
+  
+  <div id="corpo">
+    <div id="conteudo">
+      <div id="modulos"><div class="content">
+    		<div id="data-ultnot">
+    			<div id="data"><script>var dia="01";dia=dia.replace(/^0/,'');(dia=="1")?dd="1&ordm;":dd=dia;d.write(dd);</script> de fevereiro de 2009</div>
+    			<div id="topo-direita"><a href="http://click.uol.com.br/?rf=hu-visite-barrauol&u=http://barra.uol.com.br/">Barra UOL</a>&nbsp;|&nbsp;&nbsp;<a id="faca-sua-home-header" href=# rel="nofollow" onclick="defineHome(this);"><img src="http://h.imguol.com/h1/icone-uolhome.gif" width=14 height=14 border=0 align="absmiddle"> Faça do UOL a sua home page</a></div>
+    		</div>
+        <div id="mod-rotativo" class="opc-box">
+	
+	
+	<div class="opc-box-col1">
+		<div id="rotCham">
+		  <ul>
+			
+    <li><a href="http://esporte.uol.com.br/album/090201australian_album.jhtm?abrefoto=4" name="hu-home-rotativo"><img src="http://h.imguol.com/0902/01nadao.jpg" alt="Andrew Brownbill/AP" title="Andrew Brownbill/AP" />
+    <div class="legenda"><p><strong>Austrália</strong><span>Nadal frustra Federer e ganha primeiro título espanhol <img src="http://home.img.uol.com.br/h0/i_foto.gif" class="icone" /></span></p></div></a></li>
+
+
+
+    <li><a href="http://noticias.uol.com.br/album/090201_album.jhtm?abrefoto=3" name="hu-home-rotativo"><img src="http://h.imguol.com/0902/01quenia.jpg" alt="Reuters" title="Reuters" />
+    <div class="legenda"><p><strong>Tragédia</strong><span>Explosão de caminhão-tanque mata ao menos 100 no Quênia<img src="http://home.img.uol.com.br/h0/i_foto.gif" class="icone" /></span></p></div></a></li>
+
+
+
+    <li><a href="http://viagem.uol.com.br/album/guia/praiadoforte_album.jhtm?abrefoto=19" name="hu-home-rotativo"><img src="http://h.imguol.com/0902/01praiaforte.jpg" alt="Jotafreitas / Bahiatursa" title="Jotafreitas / Bahiatursa" />
+    <div class="legenda"><p><strong>Guia de Destinos</strong><span>Praia do Forte é local de resorts sofisticados e respeito à natureza </span></p></div></a></li>
+
+
+
+    <li><a href="http://noticias.uol.com.br/album/090201_album.jhtm?abrefoto=7" name="hu-home-rotativo"><img src="http://h.imguol.com/0902/01ortod.jpg" alt="AP" title="AP" />
+    <div class="legenda"><p><strong>Cerimônia</strong><span>Novo patriarca assume Igreja Ortodoxa Russa em Moscou<img src="http://home.img.uol.com.br/h0/i_foto.gif" class="icone" /></span></p></div></a></li>
+
+
+
+    <li><a href="http://app.radio.musica.uol.com.br/radiouol/cdcapa.php?artista=Victor-e-Leo&album=Nada-Es-Normal&codcd=010748-7" name="hu-home-rotativo"><img src="http://h.imguol.com/0901/31victorleoc.jpg" alt="Reprodução/Site oficial" title="Reprodução/Site oficial" />
+    <div class="legenda"><p><strong>Sertanejo</strong><span>Ouça músicas do novo CD da dupla Victor e Léo, "Nada Es Normal"<img src="http://img.uol.com.br/ico_ouvir.gif" class="icone" /></span></p></div></a></li>
+
+
+		  </ul>
+		</div>
+		<!-- painel -->
+	</div>
+  
+  <script language="JavaScript" type="text/javascript">
+    UOLLib.rotativoDeChamadas.init({
+      id: 'rotCham',
+      botoesRefClickUOL : 'hu-home-rotativo'
+    });
+  </script>
+
+	<div class="opc-box-col2">
+		<div id="mod-hn-destaque">			
+			<div class="chapeu"><a name="mancheteA" href=http://www1.folha.uol.com.br/folha/dinheiro/ult91u496982.shtml rel="nofollow">Economia</a></div>
+			<h3><a name="mancheteA" href=http://www1.folha.uol.com.br/folha/dinheiro/ult91u496982.shtml>Corte de vagas afeta mais mulheres, jovens e negros </a></h3>
+			
+			<ul>
+				<li><a name="submancheteA1" href=http://www1.folha.uol.com.br/folha/dinheiro/ult91u496600.shtml>Salário mínimo de R$ 465 entra em vigor</a></li>
+				
+			</ul>
+			
+		</div>
+		
+		<div id="mod-hn-chamada">
+			<div class="chapeu"><a name="mancheteB" href=http://esporte.uol.com.br/futebol/ultimas/2009/02/01/ult59u186008.jhtm rel="nofollow">Futebol</a></div>
+			<h3><a name="mancheteB" href=http://esporte.uol.com.br/futebol/ultimas/2009/02/01/ult59u186008.jhtm>Flamengo tenta manter 100% com volta de Marcelinho Paraíba</a></h3>
+			
+			<ul>
+				<li><a name="submancheteB1" href=http://esporte.uol.com.br/futebol/ultimas/2009/02/01/ult59u185973.jhtm>São Paulo joga em busca de formação ideal</a></li>
+				<li><a name="submancheteB2" href=http://esporte.uol.com.br/futebol/ultimas/2009/02/01/ult59u186041.jhtm>Internacional tenta vencer a primeira em casa</a></li>
+			</ul>
+				
+		</div>
+		
+		
+		<div id="mod-hn-chamada">			
+			<div class="chapeu"><a name="mancheteC" href=http://cinema.uol.com.br/preview-filmes-2009/os-filmoes.jhtm rel="nofollow">Cinema em 2009</a></div>
+			<h3><a name="mancheteC" href=http://cinema.uol.com.br/preview-filmes-2009/os-filmoes.jhtm>Conheça os blockbusters que devem ser destaques neste ano</a></h3>
+			
+			<ul>
+				<li><a name="submancheteC1" href=http://cinema.uol.com.br/preview-filmes-2009/na-briga-pelo-oscar.jhtm>Os concorrentes ao Oscar ainda inéditos no país</a></li>
+				
+			</ul>
+				
+		</div>
+		
+		
+	</div>
+
+</div><div id="mod-videos">
+	<div id="videos-busca">
+		<h2><a name="video-chapeu" href="http://tvuol.uol.com.br/">VÍDEOS</a></h2>
+		<form action="" method="post" onsubmit="if(this.q.value!=''){ this.action='http://tvuol.uol.com.br/permalink/?list/type=search/name=Resultado%20da%20busca:%20'+this.q.value+'/q='+this.q.value+'/';} else return false;">
+			<input type="text" value="" name="q" id="videos-busca-texto" />
+			<input type="image" src="http://home.img.uol.com.br/h3/bt_buscar.gif" value="BUSCAR" title="BUSCAR" alt="BUSCAR" class="bt-buscar" />
+		</form>
+	</div>		
+		<ul>
+			<li id="videos-primeiro">
+				<a name="video1" href="http://tvuol.uol.com.br/permalink/?view/id=numero-de-desempregados-no-mundo-pode-chegar-a-230-milhoes-0402346EC8916326/user=1575mnadmj5c/date=2009-02-01&&list/type=user/codProfile=1575mnadmj5c/" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01desemprego.jpg" alt="Folha Imagem" title="Folha Imagem" /></a>
+				<h3><a name="video1" href="http://tvuol.uol.com.br/permalink/?view/id=numero-de-desempregados-no-mundo-pode-chegar-a-230-milhoes-0402346EC8916326/user=1575mnadmj5c/date=2009-02-01&&list/type=user/codProfile=1575mnadmj5c/">230 milhões podem ficar sem emprego</a></h3>
+				<div><a name="video1" href="http://tvuol.uol.com.br/permalink/?view/id=numero-de-desempregados-no-mundo-pode-chegar-a-230-milhoes-0402346EC8916326/user=1575mnadmj5c/date=2009-02-01&&list/type=user/codProfile=1575mnadmj5c/"><img src="http://home.img.uol.com.br/h3/home_seta_video.gif" alt="" /></a></div>
+			</li>
+			<li>
+				<a name="video2" href="http://tvuol.uol.com.br/permalink/?view/id=confira-os-gols-da-rodada-de-sabado-do-estadual-do-rio-04023270D8996326/user=t2pjn3videvl/date=2009-01-31&&list/type=user/codProfile=t2pjn3videvl/" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01vasco.jpg" alt="Fotocom/Divulgação" title="Fotocom/Divulgação" /></a>
+				<h3><a name="video2" href="http://tvuol.uol.com.br/permalink/?view/id=confira-os-gols-da-rodada-de-sabado-do-estadual-do-rio-04023270D8996326/user=t2pjn3videvl/date=2009-01-31&&list/type=user/codProfile=t2pjn3videvl/">Gols da rodada do Estadual do Rio</a></h3>
+				<div><a name="video2" href="http://tvuol.uol.com.br/permalink/?view/id=confira-os-gols-da-rodada-de-sabado-do-estadual-do-rio-04023270D8996326/user=t2pjn3videvl/date=2009-01-31&&list/type=user/codProfile=t2pjn3videvl/"><img src="http://home.img.uol.com.br/h3/home_seta_video.gif" alt="" /></a></div>
+			</li>
+			<li>
+				<a name="video3" href="http://tvuol.uol.com.br/permalink/?view/id=museu-homenageia-os-100-anos-de-carmem-miranda-04023170C0996326/user=1575mnadmj5c/date=2009-02-01&&list/type=tagUser/codProfile=1575mnadmj5c/tags=1669/" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01carmenmiranda.jpg" alt="Reprodução" title="Reprodução" /></a>
+				<h3><a name="video3" href="http://tvuol.uol.com.br/permalink/?view/id=museu-homenageia-os-100-anos-de-carmem-miranda-04023170C0996326/user=1575mnadmj5c/date=2009-02-01&&list/type=tagUser/codProfile=1575mnadmj5c/tags=1669/">Mostra: 100 anos de Carmen Miranda</a></h3>
+				<div><a name="video3" href="http://tvuol.uol.com.br/permalink/?view/id=museu-homenageia-os-100-anos-de-carmem-miranda-04023170C0996326/user=1575mnadmj5c/date=2009-02-01&&list/type=tagUser/codProfile=1575mnadmj5c/tags=1669/"><img src="http://home.img.uol.com.br/h3/home_seta_video.gif" alt="" /></a></div>
+			</li>
+			<li id="videos-ultimo">
+				<a name="video4" href="http://tvuol.uol.com.br/permalink/?view/id=aula-de-samba-para-o-carnaval-04023360C8996326/user=bfc3becnpbdr/date=2009-01-30&&list/type=tags/tags=914/" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01samba.jpg" alt="Reprodução" title="Reprodução" /></a>
+				<h3><a name="video4" href="http://tvuol.uol.com.br/permalink/?view/id=aula-de-samba-para-o-carnaval-04023360C8996326/user=bfc3becnpbdr/date=2009-01-30&&list/type=tags/tags=914/">Carnaval: professor dá aula de samba</a></h3>
+				<div><a name="video4" href="http://tvuol.uol.com.br/permalink/?view/id=aula-de-samba-para-o-carnaval-04023360C8996326/user=bfc3becnpbdr/date=2009-01-30&&list/type=tags/tags=914/"><img src="http://home.img.uol.com.br/h3/home_seta_video.gif" alt="" /></a></div>
+			</li>
+		</ul>
+</div>
+
+<!-- mod-horz B -->
+<div id="mod-horz">
+	<div id="mod-horz-top">
+		<h2><a name="horizontalB-chapeu" href=http://esporte.uol.com.br/>Esporte</a></h2>
+		<div><a name="horizontalB-canais" href=http://esporte.uol.com.br/futebol/campeonatos/carioca/2009/grupoa.jhtm>ESTADUAL DO RIO</a> | <a name="horizontalB-canais" href=http://esporte.uol.com.br/futebol/campeonatos/pernambucano/2009/turno.jhtm>PERNAMBUCANO</a> | <a name="horizontalB-canais" href=http://esporte.uol.com.br/futebol/campeonatos/paulista/2009/>PAULISTÃO</a> | <a name="horizontalB-canais" href=http://esporte.uol.com.br/tenis/>TÊNIS</a> | <a name="horizontalB-canais" href=http://esporte.uol.com.br/tenis/>BLOGS</a></div>
+	</div>			
+	<div id="mod-horz2" class="opc-box">
+		<div class="opc-box-col1">
+			<!-- mod-fotogrande -->
+			<div class="mod-fotogrande">
+				<a name="horizontalB-manchete" href=http://esporteinterativo.uol.com.br/Noticia.aspx?idNoticia=3825 rel="nofollow"><img class="img230x108" src="http://h.imguol.com/0902/01amauri.jpg" alt="AP" title="AP" /></a>
+				<div class="chapeu"><a name="horizontalB-manchete" href=http://esporteinterativo.uol.com.br/Noticia.aspx?idNoticia=3825 rel="nofollow">Futebol</a></div>
+				<h3><a name="horizontalB-manchete" href=http://esporteinterativo.uol.com.br/Noticia.aspx?idNoticia=3825>Amauri aceita decisão da Juve, mas ainda sonha com seleção  </a></h3>
+				
+				<ul>
+					
+					<li><a name="horizontalB-manchete-sub2" href="http://esporte.uol.com.br/enquetes/enquete.jhtm?id=5601">Enquete: Dunga acertou ao convocar Amauri?</a></li>
+				</ul>
+				
+			</div>
+			<!-- /mod-fotogrande -->
+			<!-- mod-lista -->
+			<div class="mod-lista">
+				<dl>
+					<dt><a name="horizontalB-sub1" href=http://esporteinterativo.uol.com.br/noticia.aspx?idNoticia=3816 rel="nofollow">Sul-americano Sub-20</a></dt>
+					<dd><a name="horizontalB-sub1" href=http://esporteinterativo.uol.com.br/noticia.aspx?idNoticia=3816>Assista aos gols da vitória do Brasil sobre Uruguai por 3 a 2<img src="http://img.uol.com.br/ico_assistir.gif" alt="" /></a></dd>
+					<dt><a name="horizontalB-sub2" href=http://esporte.uol.com.br/album/090201nba_album.jhtm?abrefoto=1 rel="nofollow">NBA</a></dt>
+					<dd><a name="horizontalB-sub2" href=http://esporte.uol.com.br/album/090201nba_album.jhtm?abrefoto=1>Leandrinho brilha, mas não evita derrota do Suns para o Chicago Bulls<img src="http://img.uol.com.br/ico_verfotos.gif" alt="" /></a></dd>
+				</dl>
+			</div>
+			<!--/mod-lista -->
+		</div>
+		<div class="opc-box-col2">
+			<!-- mod-fotopequena -->
+			<div class="mod-fotopequena">
+				<div class="mod-fotopequena-body">			
+					<a name="horizontalB-foto1" href=http://esporte.uol.com.br/futebol/ultimas/2009/01/31/ult59u186013.jhtm rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0901/31ronaldoc.jpg" alt="Rubens Cavallari/Folha Imagem" title="Rubens Cavallari/Folha Imagem" /></a>
+					<div class="chapeu"><a name="horizontalB-foto1" href=http://esporte.uol.com.br/futebol/ultimas/2009/01/31/ult59u186013.jhtm rel="nofollow">Na linha</a></div>
+					<h3><a name="horizontalB-foto1" href=http://esporte.uol.com.br/futebol/ultimas/2009/01/31/ult59u186013.jhtm>Ronaldo "seca" 5 kg, mas ainda deve 4 kg para acertar peso</a></h3>
+				</div>
+			</div>
+			<!-- /mod-fotopequena -->
+			<!-- mod-fotopequena -->
+			<div class="mod-fotopequena">
+				<div class="mod-fotopequena-body">			
+					<a name="horizontalB-foto2" href=http://esporte.uol.com.br/lutas/ultimas/2009/02/01/ult4362u455.jhtm rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0902/01ufc.jpg" alt="Divulgação / UFC" title="Divulgação / UFC" /></a>
+					<div class="chapeu"><a name="horizontalB-foto2" href=http://esporte.uol.com.br/lutas/ultimas/2009/02/01/ult4362u455.jhtm rel="nofollow">UFC 94</a></div>
+					<h3><a name="horizontalB-foto2" href=http://esporte.uol.com.br/lutas/ultimas/2009/02/01/ult4362u455.jhtm>Brasileiro Lyoto Machida rouba a cena com luta perfeita</a></h3>
+				</div>
+			</div>
+			<!-- /mod-fotopequena -->
+			<!-- mod-fotopequena -->
+			<div class="mod-fotopequena last">
+				<div class="mod-fotopequena-body">			
+					<a name="horizontalB-foto3" href=http://esporte.uol.com.br/natacao/ultimas/2009/02/01/ult77u2213.jhtm rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0902/01phelps.jpg" alt="AFP" title="AFP" /></a>
+					<div class="chapeu"><a name="horizontalB-foto3" href=http://esporte.uol.com.br/natacao/ultimas/2009/02/01/ult77u2213.jhtm rel="nofollow">Michael Phelps</a></div>
+					<h3><a name="horizontalB-foto3" href=http://esporte.uol.com.br/natacao/ultimas/2009/02/01/ult77u2213.jhtm>Tabloide inglês flagra recordista olímpico fumando maconha</a></h3>
+				</div>
+			</div>
+			<!-- /mod-fotopequena -->
+		</div>
+		
+	</div>
+</div>
+<!--/ mod-horz -->
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mod-horz-tempo -->
+<div id="mod-horz-tempo" class="externo">
+	<div class="mod-dinamicos-box">
+		
+		<h2><a name="tempo" href="http://www3.uol.com.br/tempo/">Tempo</a></h2>
+		
+		<ul class="mod-valores">
+			<li>
+				<a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/SaoPaulo-SP/"><img border="0" class="icone1" src="http://home.img.uol.com.br/h3/tempo/mini-PC.gif"/></a>
+				<h3><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/SaoPaulo-SP/">SP</a></h3>
+				<div class="temperatura min"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/SaoPaulo-SP/">20°C</a></div>
+				<div class="temperatura max"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/SaoPaulo-SP/">26°C</a></div>
+			</li>
+			<li>
+				<a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/RiodeJaneiro-RJ/"><img border="0" class="icone1" src="http://home.img.uol.com.br/h3/tempo/mini-PC.gif"/></a>
+				<h3><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/RiodeJaneiro-RJ/">RJ</a></h3>
+				<div class="temperatura min"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/RiodeJaneiro-RJ/">23°C</a></div>
+				<div class="temperatura max"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/RiodeJaneiro-RJ/">29°C</a></div>
+			</li>
+			<li>
+				<a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/BeloHorizonte-MG/"><img border="0" class="icone1" src="http://home.img.uol.com.br/h3/tempo/mini-PC.gif"/></a>
+				<h3><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/BeloHorizonte-MG/">BH</a></h3>
+				<div class="temperatura min"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/BeloHorizonte-MG/">20°C</a></div>
+				<div class="temperatura max"><a name="tempo" target="_blank" href="http://tempoagora.uol.com.br/previsaodotempo.html/brasil/BeloHorizonte-MG/">26°C</a></div>
+			</li>
+		</ul>
+		
+	</div>
+	
+</div>
+<!-- /mod-horz-tempo -->	
+
+
+
+
+
+
+<div id="col-mod">
+
+	<div id="col-mod-esq">
+
+		<!-- mod-verticalA -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vA-chapeu" href="http://diversao.uol.com.br/">Entretenimento</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vA-canais" href="http://guia.uol.com.br/noite/">NOITE</a> | <a name="vA-canais" href="http://guia.uol.com.br/teatro/">TEATRO</a> | <a name="vA-canais" href="http://guia.uol.com.br/exposicoes/">EXPOSIÇÕES</a></div>
+	
+		<!-- mod-semfoto -->
+	<div class="mod-semfoto">
+		<div class="mod-semfoto-body">			
+			<div class="chapeu"><a name="vA-semfoto1-manchete" href="http://www1.folha.uol.com.br/folha/ilustrada/ult90u496479.shtml" rel="nofollow">Literatura</a></div>
+			<h3><a name="vA-semfoto1-manchete" href="http://www1.folha.uol.com.br/folha/ilustrada/ult90u496479.shtml">Leia texto exclusivo de Ian McEwan sobre o escritor John Updike</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-semfoto -->
+
+		<!-- mod-duas-fotos -->
+	<div class="mod-duas-fotos">
+		<div class="mod-duas-fotos-esq">
+			<div class="chapeu"><a name="vA-duasfotos1" href="http://jovem.uol.com.br/album/benjamin_button_hq_album.jhtm?abrefoto=1" rel="nofollow">Jovem</a></div>
+			<a name="vA-duasfotos1" href="http://jovem.uol.com.br/album/benjamin_button_hq_album.jhtm?abrefoto=1" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0901/31benjamin.jpg" alt="Divulgação" title="Divulgação" /></a>
+			<h3><a name="vA-duasfotos1" href="http://jovem.uol.com.br/album/benjamin_button_hq_album.jhtm?abrefoto=1">"O Curioso Caso de Benjamin Button" estreia em HQ <img src=" http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+		</div>
+		<div class="mod-duas-fotos-dir">
+			<div class="chapeu"><a name="vA-duasfotos2" href="http://diversao.uol.com.br/album/lenise-pinheiro-andaime_album.jhtm?abrefoto=8" rel="nofollow">Teatro</a></div>
+			<a name="vA-duasfotos2" href="http://diversao.uol.com.br/album/lenise-pinheiro-andaime_album.jhtm?abrefoto=8" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0901/31lenise.jpg" alt="Lenise Pinheiro/UOL" title="Lenise Pinheiro/UOL" /></a>
+			<h3><a name="vA-duasfotos2" href="http://diversao.uol.com.br/album/lenise-pinheiro-andaime_album.jhtm?abrefoto=8">Lenise Pinheiro fotografa a peça "Andaime" <img src=" http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+		</div>
+	</div>
+	<!-- /mod-duas-fotos -->
+
+	<!-- mod-fotomedia -->
+<div class="mod-fotomedia">
+	<div class="mod-fotomedia-body">
+		<a name="vA-fotomedia-manchete" href="http://televisao.uol.com.br/ultimas-noticias/2009/01/31/ult4244u2473.jhtm"><img class="img130x108" src="http://h.imguol.com/0901/31elianec.jpg" alt="Jorge Rodrigues/CZN" title="Jorge Rodrigues/CZN" /></a>
+		<div class="chapeu"><a name="vA-fotomedia-manchete" href="http://televisao.uol.com.br/ultimas-noticias/2009/01/31/ult4244u2473.jhtm" rel="nofollow">Novela das oito</a></div>
+		<h3><a name="vA-fotomedia-manchete" href="http://televisao.uol.com.br/ultimas-noticias/2009/01/31/ult4244u2473.jhtm">Eliane Giardini fala de seu papel em "Caminho das Índias"</a></h3>
+		
+	</div>
+</div>
+<!-- mod-fotomedia -->
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vA-chamadas2-1" href="http://www1.folha.uol.com.br/folha/ilustrada/ult90u496774.shtml" rel="nofollow">Aumento do império </a></dt>
+			<dd><a name="vA-chamadas2-1" href="http://www1.folha.uol.com.br/folha/ilustrada/ult90u496774.shtml">Rapper 50 Cent quer investir em suplementos alimentares </a></dd>
+			
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+
+		<!-- mod-fotopequena -->
+	<div class="mod-fotopequena">
+		<div class="mod-fotopequena-body">			
+			<a name="vA-fotopequena-manchete" href="http://televisao.uol.com.br/bbb9/album/festa_3101_album.jhtm?abrefoto=5" rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0901/31bbbc.jpg" alt="Reprodução" title="Reprodução" /></a>
+			<div class="chapeu"><a name="vA-fotopequena-manchete" href="http://televisao.uol.com.br/bbb9/album/festa_3101_album.jhtm?abrefoto=5" rel="nofollow">BBB 9</a></div>
+			<h3><a name="vA-fotopequena-manchete" href="http://televisao.uol.com.br/bbb9/album/festa_3101_album.jhtm?abrefoto=5">À noite, festa com temática mexicana anima participantes <img src="http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+			
+			<ul>
+				<li><a name="vA-fotopequena-sub1" href="http://televisao.uol.com.br/bbb9/ultimas-noticias/2009/01/31/ult6952u1354.jhtm">Castigo do Anjo: Naiá e Ana são enjauladas <img src="http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></li>
+				
+			</ul>
+			
+		</div>
+	</div>
+	<!-- /mod-fotopequena -->
+
+	
+
+	
+
+</div>
+<!-- /mod-verticalA -->
+
+<div class="separador">&nbsp;</div>
+<!-- mod-verticalE -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vG-chapeu" href="http://horoscopo.uol.com.br/">Astral</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vG-canais" href="http://horoscopo.uol.com.br/numerologia.jhtm">NUMEROLOGIA</a> | <a name="vG-canais" href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml">HORÓSCOPO DIÁRIO</a></div>
+	
+		<!-- mod-semfoto -->
+	<div class="mod-semfoto">
+		<div class="mod-semfoto-body">			
+			<div class="chapeu"><a name="vG-semfoto1-manchete" href="http://horoscopo.uol.com.br/mensais/ " rel="nofollow">Previsão</a></div>
+			<h3><a name="vG-semfoto1-manchete" href="http://horoscopo.uol.com.br/mensais/ ">Saiba o que o mês de fevereiro reserva para cada um dos signos</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-semfoto -->
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vG-chamadas2-1" href="http://horoscopo.uol.com.br/ult1958u46.jhtm" rel="nofollow">Céu do mês</a></dt>
+			<dd><a name="vG-chamadas2-1" href="http://horoscopo.uol.com.br/ult1958u46.jhtm">Veja como os astros <br>devem influenciar o Brasil e o mundo</a></dd>
+			
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+		<!-- mod-fotopequena -->
+	<div class="mod-fotopequena">
+		<div class="mod-fotopequena-body">			
+			<a name="vG-fotopequena-manchete" href="http://bonsfluidos.abril.com.br/livre/edicoes/0119/03/01.shtml" rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0901/31eneagrama.jpg" alt="Bons Fluidos" title="Bons Fluidos" /></a>
+			<div class="chapeu"><a name="vG-fotopequena-manchete" href="http://bonsfluidos.abril.com.br/livre/edicoes/0119/03/01.shtml" rel="nofollow">Qual o seu tipo?</a></div>
+			<h3><a name="vG-fotopequena-manchete" href="http://bonsfluidos.abril.com.br/livre/edicoes/0119/03/01.shtml">Símbolo milenar, o eneagrama ajuda no autoconhecimento</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-fotopequena -->
+
+	
+
+	
+
+	
+
+	
+
+</div>
+<!-- /mod-verticalE --><div class="separador">&nbsp;</div>
+<!-- mod-verticalF -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vF-chapeu" href="http://criancas.uol.com.br/">Crianças</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vF-canais" href="http://criancas.uol.com.br/atividades/">ATIVIDADES</a> | <a name="vF-canais" href="http://criancas.uol.com.br/jogos/">JOGOS</a> | <a name="vF-canais" href="http://criancas.uol.com.br/passeios/">PASSEIOS</a></div>
+	
+	<div class="mod-fotogrande">
+	<a name="vF-fotogrande-manchete" href="http://blogdolele.blog.uol.com.br/arch2009-01-01_2009-01-31.html#2009_01-31_00_22_37-10740057-0" rel="nofollow"><img class="img230x108" src="http://h.imguol.com/0901/31lele.jpg" alt="Reprodução" title="Reprodução" /></a>
+	<div class="chapeu"><a name="vF-fotogrande-manchete" href="http://blogdolele.blog.uol.com.br/arch2009-01-01_2009-01-31.html#2009_01-31_00_22_37-10740057-0" rel="nofollow">Gregos</a></div>
+	<h3><a name="vF-fotogrande-manchete" href="http://blogdolele.blog.uol.com.br/arch2009-01-01_2009-01-31.html#2009_01-31_00_22_37-10740057-0">Lelê conhece a lenda de Orfeu, <br>o músico que foi até o inferno</a></h3>
+	
+</div>
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vF-chamadas1-1" href="http://criancas.uol.com.br/novidades/ult2314u1032.jhtm" rel="nofollow">Criatividade</a></dt>
+			<dd><a name="vF-chamadas1-1" href="http://criancas.uol.com.br/novidades/ult2314u1032.jhtm">Oficina de bonecos ensina a transformar sucata em brinquedos</a></dd>
+			<dt><a name="vF-chamadas1-2" href="http://criancas.uol.com.br/ferias/2009/janeiro/dia29.jhtm" rel="nofollow">Jogo</a></dt>
+			<dd><a name="vF-chamadas1-2" href="http://criancas.uol.com.br/ferias/2009/janeiro/dia29.jhtm">Encontre as notas certas da guitarra com o teclado para fazer um show</a></dd>
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+	<!-- mod-fotomedia -->
+<div class="mod-fotomedia">
+	<div class="mod-fotomedia-body">
+		<a name="vF-fotomedia-manchete" href="http://criancas.uol.com.br/album/enquete_atrizesfilmesinfantis_album.jhtm?abrefoto=7"><img class="img130x108" src="http://h.imguol.com/0901/31hermione2.jpg" alt="Divulgação" title="Divulgação" /></a>
+		<div class="chapeu"><a name="vF-fotomedia-manchete" href="http://criancas.uol.com.br/album/enquete_atrizesfilmesinfantis_album.jhtm?abrefoto=7" rel="nofollow">Vote</a></div>
+		<h3><a name="vF-fotomedia-manchete" href="http://criancas.uol.com.br/album/enquete_atrizesfilmesinfantis_album.jhtm?abrefoto=7">Qual atriz de filme infantil você acha mais talentosa? <img src=" http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+		
+	</div>
+</div>
+<!-- mod-fotomedia -->
+
+	
+
+	
+
+	
+
+	
+
+</div>
+<!-- /mod-verticalF -->
+
+
+
+
+
+
+
+
+	</div><!-- /col-mod-esq -->
+
+	<div id="col-mod-dir">
+
+		<!-- mod-verticalC -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vC-chapeu" href="http://noticias.uol.com.br/">Notícias</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vC-canais" href="http://noticias.uol.com.br/ultnot/noticias.jhtm">ÚLTIMAS NOTÍCIAS</a> | <a name="vC-canais" href="http://noticias.uol.com.br/fotos/">FOTOS</a> | <a name="vC-canais" href="http://www.folha.uol.com.br/">FOLHA ONLINE</a></div>
+	
+		<!-- mod-semfoto -->
+	<div class="mod-semfoto">
+		<div class="mod-semfoto-body">			
+			<div class="chapeu"><a name="vC-semfoto1-manchete" href="http://www1.folha.uol.com.br/folha/brasil/ult96u497006.shtml" rel="nofollow">Eleição</a></div>
+			<h3><a name="vC-semfoto1-manchete" href="http://www1.folha.uol.com.br/folha/brasil/ult96u497006.shtml">Candidatos no Congresso receberam doação de fornecedores da União</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-semfoto -->
+
+	<!-- mod-fotomedia -->
+<div class="mod-fotomedia">
+	<div class="mod-fotomedia-body">
+		<a name="vC-fotomedia-manchete" href="http://noticias.uol.com.br/album/090131_album.jhtm?abrefoto=13"><img class="img130x108" src="http://h.imguol.com/0901/31chuvasrsc.jpg" alt="Nauro Júnior/Agência RBS" title="Nauro Júnior/Agência RBS" /></a>
+		<div class="chapeu"><a name="vC-fotomedia-manchete" href="http://noticias.uol.com.br/album/090131_album.jhtm?abrefoto=13" rel="nofollow">Enchentes</a></div>
+		<h3><a name="vC-fotomedia-manchete" href="http://noticias.uol.com.br/album/090131_album.jhtm?abrefoto=13">Estrada destruída pelas chuvas no RS, que já mataram 12 <img src="http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+		
+		<ul>
+			<li><a name="vC-fotomedia-sub1" href="http://www1.folha.uol.com.br/folha/cotidiano/ult95u496948.shtml">Quatro cidades do Estado decretam emergência</a></li>
+			
+		</ul>
+		
+	</div>
+</div>
+<!-- mod-fotomedia -->
+
+		<!-- mod-semfoto -->
+	<div class="mod-semfoto">
+		<div class="mod-semfoto-body">			
+			<div class="chapeu"><a name="vC-semfoto2-manchete" href="http://noticias.uol.com.br/ultnot/agencia/2009/02/01/ult4469u36789.jhtm" rel="nofollow">Ritmo lento</a></div>
+			<h3><a name="vC-semfoto2-manchete" href="http://noticias.uol.com.br/ultnot/agencia/2009/02/01/ult4469u36789.jhtm">Levantamento mostra que 62% dos projetos do PAC estão atrasados</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-semfoto -->
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vC-Chamadas1-1" href="http://www1.folha.uol.com.br/folha/cotidiano/ult95u497010.shtml" rel="nofollow">Acidente</a></dt>
+			<dd><a name="vC-Chamadas1-1" href="http://www1.folha.uol.com.br/folha/cotidiano/ult95u497010.shtml">Motorista perde controle e cai com o veículo no rio Tietê, em São Paulo</a></dd>
+			<dt><a name="vC-Chamadas1-2" href="http://www1.folha.uol.com.br/folha/mundo/ult94u496975.shtml" rel="nofollow">Internacional</a></dt>
+			<dd><a name="vC-Chamadas1-2" href="http://www1.folha.uol.com.br/folha/mundo/ult94u496975.shtml">TV colombiana divulga identidade de sequestrados das Farc</a></dd>
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+		<!-- mod-duas-fotos -->
+	<div class="mod-duas-fotos">
+		<div class="mod-duas-fotos-esq">
+			<div class="chapeu"><a name="vC-duasfotos1" href="http://noticias.uol.com.br/cotidiano/2009/02/01/ult5772u2778.jhtm" rel="nofollow">Violência</a></div>
+			<a name="vC-duasfotos1" href="http://noticias.uol.com.br/cotidiano/2009/02/01/ult5772u2778.jhtm" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01ctba.jpg" alt="Franklin de Freitas" title="Franklin de Freitas" /></a>
+			<h3><a name="vC-duasfotos1" href="http://noticias.uol.com.br/cotidiano/2009/02/01/ult5772u2778.jhtm">Insegurança faz Curitiba suspender vigília em velórios</a></h3>
+		</div>
+		<div class="mod-duas-fotos-dir">
+			<div class="chapeu"><a name="vC-duasfotos2" href="http://www1.folha.uol.com.br/folha/brasil/ult96u497008.shtml" rel="nofollow">Refugiado</a></div>
+			<a name="vC-duasfotos2" href="http://www1.folha.uol.com.br/folha/brasil/ult96u497008.shtml" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01battisti2.jpg" alt="Reuters" title="Reuters" /></a>
+			<h3><a name="vC-duasfotos2" href="http://www1.folha.uol.com.br/folha/brasil/ult96u497008.shtml">STF retorna do recesso com caso Battisti (f) para julgar</a></h3>
+		</div>
+	</div>
+	<!-- /mod-duas-fotos -->
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vC-chamadas2-1" href="http://www1.folha.uol.com.br/folha/cotidiano/ult95u496926.shtml" rel="nofollow">Loteria</a></dt>
+			<dd><a name="vC-chamadas2-1" href="http://www1.folha.uol.com.br/folha/cotidiano/ult95u496926.shtml">Mega-Sena acumula e pode<br>pagar R$ 20 milhões no próximo sorteio</a></dd>
+			
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+	
+
+</div>
+<!-- /mod-verticalC -->
+<div class="separador">&nbsp;</div>
+<!-- mod-vertD -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vD-chapeu" href="http://estilo.uol.com.br/casa/">Casa e Decoração</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vD-canais" href="http://revistacasaeconstrucao.uol.com.br/ESCC/">CASA E CONSTRUÇÃO</a> | <a name="vD-canais" href="http://casa.abril.uol.com.br/casaclaudia/">CASA CLÁUDIA</a></div>
+	
+	<div class="mod-fotogrande">
+	<a name="vD-fotogrande-manchete" href="http://itodas.uol.com.br/portal/final/materia.aspx?canal=13&cod=6581" rel="nofollow"><img class="img230x108" src="http://h.imguol.com/0902/01orquidias.jpg" alt="iTodas" title="iTodas" /></a>
+	<div class="chapeu"><a name="vD-fotogrande-manchete" href="http://itodas.uol.com.br/portal/final/materia.aspx?canal=13&cod=6581" rel="nofollow">Flores</a></div>
+	<h3><a name="vD-fotogrande-manchete" href="http://itodas.uol.com.br/portal/final/materia.aspx?canal=13&cod=6581">Orquídias podem ser cultivadas com sucesso até dentro de casa</a></h3>
+	
+</div>
+
+	
+
+		<!-- mod-fotopequena -->
+	<div class="mod-fotopequena">
+		<div class="mod-fotopequena-body">			
+			<a name="vD-fotopequena-manchete" href="http://casa.abril.uol.com.br/blogs/prateleira/2009/01/mveis-e-utenslios-com-sua-cara.shtml" rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0902/01personal.jpg" alt="casa.com.br" title="casa.com.br" /></a>
+			<div class="chapeu"><a name="vD-fotopequena-manchete" href="http://casa.abril.uol.com.br/blogs/prateleira/2009/01/mveis-e-utenslios-com-sua-cara.shtml" rel="nofollow">Personalizado</a></div>
+			<h3><a name="vD-fotopequena-manchete" href="http://casa.abril.uol.com.br/blogs/prateleira/2009/01/mveis-e-utenslios-com-sua-cara.shtml">Deixe móveis, cortinas, almofadas, painéis e louças com a sua cara</a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-fotopequena -->
+
+	
+
+	
+
+	
+
+	
+
+</div>
+<!-- /mod-vertD -->
+
+<div class="separador">&nbsp;</div>
+<!-- mod-verticalE -->
+<div class="mod-vert">
+	
+	<div id="mod-vert-top">
+		<h2><a name="vE-chapeu" href="http://carros.uol.com.br/">Carros</a></h2>
+	</div>
+
+
+	<div class="mod-vert-canais"><a name="vE-canais" href="http://carros.uol.com.br/fipe/">TABELA FIPE</a> | <a name="vE-canais" href="http://carros.uol.com.br/fotos/">FOTOS</a> | <a name="vE-canais" href="http://carsale.uol.com.br/servicos/manutencao.shtml">MANUTENÇÃO</a></div>
+	
+	<!-- mod-fotomedia -->
+<div class="mod-fotomedia">
+	<div class="mod-fotomedia-body">
+		<a name="vE-fotomedia-manchete" href="http://carros.uol.com.br/ultnot/multi/2009/01/30/04023560C8996326.jhtm?peugeot-407-agrega-luxo-a-gama-da-francesa-04023560C8996326"><img class="img130x108" src="http://h.imguol.com/0901/31seda.jpg" alt="Reprodução" title="Reprodução" /></a>
+		<div class="chapeu"><a name="vE-fotomedia-manchete" href="http://carros.uol.com.br/ultnot/multi/2009/01/30/04023560C8996326.jhtm?peugeot-407-agrega-luxo-a-gama-da-francesa-04023560C8996326" rel="nofollow">Francesa</a></div>
+		<h3><a name="vE-fotomedia-manchete" href="http://carros.uol.com.br/ultnot/multi/2009/01/30/04023560C8996326.jhtm?peugeot-407-agrega-luxo-a-gama-da-francesa-04023560C8996326">Sedã 407 dá <br>um toque de <br>luxo na gama <br>da Peugeot <img src=" http://home.img.uol.com.br/h0/i_video.gif" alt="" /></a></h3>
+		
+	</div>
+</div>
+<!-- mod-fotomedia -->
+
+		<!-- mod-lista -->
+	<div class="mod-lista">
+		<dl>
+			<dt><a name="vE-chamadas1-1" href="http://caranddriverbrasil.uol.com.br/carro-moto-testes/13/gt-de-vida-mansa-cambio-automatico-em-carro-gt-123489-1.asp" rel="nofollow">Testes</a></dt>
+			<dd><a name="vE-chamadas1-1" href="http://caranddriverbrasil.uol.com.br/carro-moto-testes/13/gt-de-vida-mansa-cambio-automatico-em-carro-gt-123489-1.asp">Veja como Golf e Vectra se saem num duelo de GTs 'facinhos' de domar </a></dd>
+			
+			
+			
+		</dl>
+	</div>
+	<!--/mod-lista -->
+
+		<!-- mod-fotopequena -->
+	<div class="mod-fotopequena">
+		<div class="mod-fotopequena-body">			
+			<a name="vE-fotopequena-manchete" href="http://carros.uol.com.br/album/harley_xr_1200_album.jhtm?abrefoto=3" rel="nofollow"><img class="img80x80" src="http://h.imguol.com/0901/31harley.jpg" alt="Divulgação" title="Divulgação" /></a>
+			<div class="chapeu"><a name="vE-fotopequena-manchete" href="http://carros.uol.com.br/album/harley_xr_1200_album.jhtm?abrefoto=3" rel="nofollow">Mesmo DNA</a></div>
+			<h3><a name="vE-fotopequena-manchete" href="http://carros.uol.com.br/album/harley_xr_1200_album.jhtm?abrefoto=3">Nova XR 1200 resgata passado esportivo da Harley-Davidson <img src=" http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></h3>
+			
+		</div>
+	</div>
+	<!-- /mod-fotopequena -->
+
+	
+
+	
+
+	
+
+	
+
+</div>
+<!-- /mod-verticalE -->
+
+
+
+
+
+
+
+
+	</div><!-- /col-mod-dir -->
+
+</div><!-- /col-mod -->
+
+
+
+
+
+        <div class="separador"></div>
+        		<div id="mod-shopping">
+			<div id="mod-shopping-top">
+				<div id="logo-shopping"><a href="http://click.uol.com.br/?rf=home-shopping&u=
+http://shopping.uol.com.br/?&rtrk=src:13;size:19;chn:0;thm:barrasuperiorcomlogo_box">&nbsp;</a></div>
+				<div class="busca">
+					<form action="http://shopping.busca.uol.com.br/busca.html" onsubmit="return shopCompara(this);" target="_blank">
+						<input name="q" id="inpttxt" value="digite produto ou marca" onfocus="this.value=this.value==this.defaultValue?'':this.value" ;="" type="text" />
+						<input type="image" src="http://home.img.uol.com.br/2009/bt-buscar.gif" value="COMPARE" title="COMPARE" alt="COMPARE" class="bt-buscar" />
+					</form>
+				</div>
+			</div>	
+			<div id="mod-shopping-body">
+				<ul>
+					<li class="first maior">
+						<h3><a name="shopping-cham1" href="http://shopping.busca.uol.com.br/automoveis-e-veiculos/carros/index.html?q=gol+2009&num=50&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:1;thm:Gol;creative:Gol-Home-120X80">Gol</a></h3>
+						<a name="shopping-cham1" href="http://shopping.busca.uol.com.br/automoveis-e-veiculos/carros/index.html?q=gol+2009&num=50&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:1;thm:Gol;creative:Gol-Home-120X80"><img src="http://pubshop.img.uol.com.br/home.uol/gol.home.120X80.gif" alt="" /></a>
+						<p><a name="shopping-cham1" href="http://shopping.busca.uol.com.br/automoveis-e-veiculos/carros/index.html?q=gol+2009&num=50&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:1;thm:Gol;creative:Gol-Home-120X80">2008/2009 - Vários modelos a partir de <br>R$ 22.900</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham2" href="http://shopping.busca.uol.com.br/perfumaria-e-cosmeticos/hidratante-e-locao-corporal/index.html?q=victoria&num=100&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:2;thm:Victoria+Secret+;creative:VictoriaSecret-46">Victoria Secret </a></h3>
+						<a name="shopping-cham2" href="http://shopping.busca.uol.com.br/perfumaria-e-cosmeticos/hidratante-e-locao-corporal/index.html?q=victoria&num=100&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:2;thm:Victoria+Secret+;creative:VictoriaSecret-46"><img src="http://pubshop.img.uol.com.br/200901/VictoriaSecret.gif" alt="" /></a>
+						<p><a name="shopping-cham2" href="http://shopping.busca.uol.com.br/perfumaria-e-cosmeticos/hidratante-e-locao-corporal/index.html?q=victoria&num=100&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:2;thm:Victoria+Secret+;creative:VictoriaSecret-46">Hidratantes a partir de <br>R$ 45.</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham3" href="http://shopping.busca.uol.com.br/moda-e-acessorios/tenis/tenis-adidas-megabounce-2008-unissex.html?id=1771817&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:3;thm:Adidas+Megabounce;creative:Adidas-Mega">Adidas Megabounce</a></h3>
+						<a name="shopping-cham3" href="http://shopping.busca.uol.com.br/moda-e-acessorios/tenis/tenis-adidas-megabounce-2008-unissex.html?id=1771817&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:3;thm:Adidas+Megabounce;creative:Adidas-Mega"><img src="http://pubshop.img.uol.com.br/home.uol/adidas.mega.gif" alt="" /></a>
+						<p><a name="shopping-cham3" href="http://shopping.busca.uol.com.br/moda-e-acessorios/tenis/tenis-adidas-megabounce-2008-unissex.html?id=1771817&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:3;thm:Adidas+Megabounce;creative:Adidas-Mega">Imperdível! A partir de12X<br>de R$ 24,99!</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham4" href="http://shopping.uol.com.br/cine-e-foto/cameras-digitais/camera-digital-samsung-digimax-s760-7-2-megapixels.html?id=1448627&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:4;thm:Digital+Samsung;creative:Camera-samsung">Digital Samsung</a></h3>
+						<a name="shopping-cham4" href="http://shopping.uol.com.br/cine-e-foto/cameras-digitais/camera-digital-samsung-digimax-s760-7-2-megapixels.html?id=1448627&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:4;thm:Digital+Samsung;creative:Camera-samsung"><img src="http://pubshop.img.uol.com.br/home.uol/camera.samsung.gif" alt="" /></a>
+						<p><a name="shopping-cham4" href="http://shopping.uol.com.br/cine-e-foto/cameras-digitais/camera-digital-samsung-digimax-s760-7-2-megapixels.html?id=1448627&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:4;thm:Digital+Samsung;creative:Camera-samsung">7.2 MP, a partir de<br> R$ 309. Compare!</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham5" href="http://shopping.uol.com.br/telefonia/celular-e-smartphone/index.html?id=1580040&rtrk=src:12;size:19;chn:0;pos:5;thm:Celular+Samsung;creative:CelularSamsung_M310">Celular Samsung</a></h3>
+						<a name="shopping-cham5" href="http://shopping.uol.com.br/telefonia/celular-e-smartphone/index.html?id=1580040&rtrk=src:12;size:19;chn:0;pos:5;thm:Celular+Samsung;creative:CelularSamsung_M310"><img src="http://pubshop.img.uol.com.br/200901/SamsungM310L.gif" alt="" /></a>
+						<p><a name="shopping-cham5" href="http://shopping.uol.com.br/telefonia/celular-e-smartphone/index.html?id=1580040&rtrk=src:12;size:19;chn:0;pos:5;thm:Celular+Samsung;creative:CelularSamsung_M310">Bluetooth e<br>Câmera, a partir de <br>R$ 233,75.</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham6" href="http://shopping.busca.uol.com.br/informatica/wireless/index.html?q=adaptador&num=25&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:6;thm:Internet+sem+fio;creative:wireless-home">Internet sem fio</a></h3>
+						<a name="shopping-cham6" href="http://shopping.busca.uol.com.br/informatica/wireless/index.html?q=adaptador&num=25&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:6;thm:Internet+sem+fio;creative:wireless-home"><img src="http://home.img.uol.com.br/shop/wireless-home.gif" alt="" /></a>
+						<p><a name="shopping-cham6" href="http://shopping.busca.uol.com.br/informatica/wireless/index.html?q=adaptador&num=25&subsearch=true&s=&ord=preco&dir=asc&rtrk=src:12;size:19;chn:0;pos:6;thm:Internet+sem+fio;creative:wireless-home">Pague menos: a partir de <br>R$ 48!</a></p>
+					</li>
+					<li>
+						<h3><a name="shopping-cham7" href="http://shopping.uol.com.br/moveis-e-decoracao/puff/index.html?num=50&rtrk=src:12;size:19;chn:0;pos:7;thm:Puff;creative:Puff-Home">Puff</a></h3>
+						<a name="shopping-cham7" href="http://shopping.uol.com.br/moveis-e-decoracao/puff/index.html?num=50&rtrk=src:12;size:19;chn:0;pos:7;thm:Puff;creative:Puff-Home"><img src="http://pubshop.img.uol.com.br/200901/Puff.gif" alt="" /></a>
+						<p><a name="shopping-cham7" href="http://shopping.uol.com.br/moveis-e-decoracao/puff/index.html?num=50&rtrk=src:12;size:19;chn:0;pos:7;thm:Puff;creative:Puff-Home">Diversos modelos a partir de <br>R$ 37,90.</a></p>
+					</li>
+					
+				</ul>
+			</div><!-- /mod-shopping-body -->
+			<div id="mod-shopping-footer">
+			  <div class="border">
+				<a name="shopping" href="http://shopping.uol.com.br/busca.html?q=carros%20usados">Carros Usados</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/informatica/notebooks/index.html">Notebook</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/eletronicos/mp3-players/index.html">MP3</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/busca.html?q=nike">Nike</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/busca.html?q=tv%20lcd">TV LCD</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/telefonia/celular-e-smartphone/index.html">Celular</a> | 
+				<a name="shopping" href="http://shopping.uol.com.br/busca.html?q=camera%20digital">Câmera Digital</a> | 
+				<a name="shopping" href="http://shopping.busca.uol.com.br/eletronicos/tvs/index.html">TV</a>
+        </div>
+			</div>
+		</div><!-- /mod-shopping -->
+
+
+      </div></div><!-- /modulos -->
+      <div class="col-menu">
+        <div id="menu">
+          	<dl class="mn-bp">
+		<dt><a href="http://click.uol.com.br/?rf=home-batepapo-caixa&u=http://batepapo.uol.com.br/">Bate-papo</a></dt>
+		<dd class="bullet">
+  		<form onsubmit="return clickCount('batepapo-caixa-temas');" action="http://batepapo.uol.com.br/bytheme.html" target="_blank">
+  		<select name="nodeid">
+  		<option value="493076">Por Idade</option>
+  		<option value="487995">Cidades</option>
+  		<option value="522045">Tema Livre</option>
+  		<option value="524768">Variados</option>
+  		<option value="519589">Encontros</option>
+  		<option value="519802">Sexo</option></select> <input type="image" src="http://home.img.uol.com.br/h3/botao-ok.gif" class="ok" /></form>
+		</dd>
+	</dl>
+		<ul>
+		<li><a name="menu" href="http://fotos.uol.com.br">Álbum de Fotos</a></li>
+		<li><a name="menu" href="http://seguranca.uol.com.br">Antivírus Firewall</a></li>
+		<li><a name="menu" href="http://ferramentas.uol.com.br">Aplicativos</a></li>
+		<li><a name="menu" href="http://diversao.uol.com.br/bandalarga/">Banda Larga</a></li>
+		<li><a name="menu" href="http://tc.batepapo.uol.com.br">Bate-papo</a></li>
+		<li><a name="menu" href="http://estilo.uol.com.br/beleza/">Beleza</a></li>
+		<li><a name="menu" href="http://biblioteca.uol.com.br">Biblioteca</a></li>
+		<li><a name="menu" href="http://bichos.uol.com.br">Bichos</a></li>
+		<li><a name="menu" href="http://blog.uol.com.br">Blog</a></li>
+		<li><a name="menu" href="http://busca.uol.com.br">Busca</a></li>
+		<li><a name="menu" href="http://carros.uol.com.br">Carros</a>
+			<ul>
+				<li><a name="menu" href="http://carros.uol.com.br/fipe/">Tabela Fipe</a></li>
+				<li><a name="menu" href="http://compare.carros.uol.com.br">Comparar Carros</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://cartoes.uol.com.br">Cartões</a></li>
+		<li><a name="menu" href="http://celebridades.uol.com.br">Celebridades</a></li>
+		<li><a name="menu" href="http://celular.uol.com.br">Celular</a></li>
+		<li><a name="menu" href="http://cienciaesaude.uol.com.br">Ciência e Saúde</a></li>
+		<li><a name="menu" href="http://cinema.uol.com.br">Cinema e Filmes</a>
+			<ul>
+				<li><a name="menu" href="http://cinema.uol.com.br/oscar/2009/">Oscar</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://shopping.uol.com.br/?&rtrk=src:13;size:18;chn:0;creative:link_fixo;thm:shopping_menu;">Comparar preços</a></li>
+		<li><a name="menu" href="http://criancas.uol.com.br">Crianças</a></li>
+		<li><a name="menu" href="http://downloads.uol.com.br">Downloads</a></li>
+		<li><a name="menu" href="http://economia.uol.com.br">Economia</a>
+			<ul>
+				<li><a name="menu" href="http://economia.uol.com.br/cotacoes">Cotações</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://educacao.uol.com.br" rel="nofollow">Educação</a>
+			<ul>
+				<li><a name="menu" href="http://educacao.uol.com.br/dicionarios">Dicionários</a></li>
+				<li><a name="menu" href="http://educacao.uol.com.br/portugues/acordoortografico.jhtm">Nova ortografia</a></li>
+				<li><a name="menu" href="http://vestibular.uol.com.br">Vestibular</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://email.uol.com.br">E-Mail</a></li>
+		<li><a name="menu" href="http://noticias.uol.com.br/empregos/">Empregos</a></li>
+		<li><a name="menu" href="http://www.uol.com.br/entretenimento">Entretenimento</a>
+			<ul>
+				<li><a name="menu" href="http://carnaval.uol.com.br/">Carnaval</a></li>
+				<li><a name="menu" href="http://guia.uol.com.br/">Guia Cultural SP</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://esporte.uol.com.br">Esporte</a>
+			<ul>
+				<li><a name="menu" href="http://esporte.uol.com.br/infografico/2009/01/12/mercado-da-bola.jhtm">Mercado da Bola</a></li>
+				<li><a name="menu" href="http://esporte.uol.com.br/f1/">Fórmula 1</a></li>
+				<li><a name="menu" href="http://esporte.uol.com.br/futebol/">Futebol</a></li>
+				<li><a name="menu" href="http://esporte.uol.com.br/videos/?tagId=1829&tagName=gols">Gols da Rodada</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://estilo.uol.com.br">Estilo</a>
+			<ul>
+
+				<li><a name="menu" href="http://estilo.uol.com.br/moda/">Moda</a></li>
+
+			</ul>
+		</li>
+	  <li><a name="menu" href="http://www.folha.uol.com.br">Folha Online</a></li>
+		<li><a name="menu" href="http://fotoblog.uol.com.br">Fotoblog</a></li>
+		<li><a name="menu" href="http://gay.uol.com.br">Gay</a></li>
+		<li><a name="menu" href="http://horoscopo.uol.com.br" rel="nofollow">Horóscopo</a></li>
+		<li><a name="menu" href="http://humor.uol.com.br">Humor</a></li>
+		<li><a name="menu" href="http://indice.uol.com.br">Índice</a></li>
+		<li><a name="menu" href="http://jogos.uol.com.br" rel="nofollow">Jogos</a></li>
+		<li><a name="menu" href="http://noticias.uol.com.br/jornais/">Jornais</a></li>
+		<li><a name="menu" href="http://jovem.uol.com.br">Jovem</a></li>
+		<li><a name="menu" href="http://jogos.uol.com.br/loja/">Loja de Jogos</a></li>
+		<li><a name="menu" href="http://mapas.uol.com.br">Mapas</a></li>
+		<li><a name="menu" href="http://megastore.uol.com.br">Megastore</a></li>
+		<li><a name="menu" href="http://musica.uol.com.br">Música</a>
+		</li>
+		<li><a name="menu" href="http://clicklogger.rm.uol.com.br/?prd=9&grp=src:10;chn:48&msr=Cliques%20de%20Origem:1&oper=7&redir=http://namoro.uol.com.br">Namoro</a></li>
+		<li><a name="menu" href="http://noticias.uol.com.br">Notícias</a>
+			<ul>
+				<li><a name="menu" href="http://noticias.uol.com.br/cotidiano/">Cotidiano</a></li>
+				<li><a name="menu" href="http://noticias.uol.com.br/internacional/">Internacional</a></li>
+				<li><a name="menu-outros" href="http://noticias.uol.com.br/jornais/">Jornais</a></li>
+				<li><a name="menu" href="http://noticias.uol.com.br/politica/">Política</a></li>
+				<li><a name="menu" href="http://noticias.uol.com.br/tabloide/">Tabloide</a></li>
+				<li><a name="menu" href="http://noticias.uol.com.br/ultnot/noticias.jhtm">Últimas Notícias</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://radio.musica.uol.com.br" rel="nofollow">Rádio UOL</a></li>
+		<li><a name="menu" href="http://estilo.uol.com.br/gastronomia/">Receitas</a></li>
+		<li><a name="menu" href="http://noticias.uol.com.br/revistas">Revistas</a></li>
+		<li><a name="menu" href="https://sac.uol.com.br">SAC</a></li>
+		<li><a name="menu" href="http://servicos.uol.com.br">Serviços</a></li>
+		<li><a name="menu" href="http://sexo.uol.com.br">Sexo</a></li>
+		<li><a name="menu" href="http://sites.uol.com.br">Sites Pessoais</a></li>
+		<li><a name="menu" href="http://tecnologia.uol.com.br">Tecnologia</a></li>
+		<li><a name="menu" href="http://televisao.uol.com.br">Televisão</a>
+			<ul>
+				<li><a name="menu" href="http://televisao.uol.com.br/bbb9/">BBB 9</a></li>
+				<li><a name="menu" href="http://televisao.uol.com.br/novelas.jhtm">Novelas</a></li>
+				<li><a name="menu" href="http://televisao.uol.com.br/programacao/">Programação</a></li>
+			</ul>
+		</li>
+		<li><a name="menu" href="http://www3.uol.com.br/tempo/">Tempo e Trânsito</a></li>
+		<li><a name="menu" href="http://tvuol.uol.com.br">TV UOL</a></li>
+		<li><a name="menu" href="http://mais.uol.com.br">UOL Mais</a></li>
+	    <li><a name="menu" href="http://uolk.uol.com.br">UOL K</a></li>
+		<li><a name="menu" href="http://viagem.uol.com.br">Viagem</a>
+			<ul>
+				<li><a name="menu" href="http://viagem.uol.com.br/destinos/">Guia de destinos</a></li>
+			</ul>
+		</li>
+		<li><a name="menu-outros" href="http://tvuol.uol.com.br">Vídeos</a></li>
+		<li><a name="menu" href="http://voip.uol.com.br">Voip</a></li>
+		<li><a name="menu" href="http://wifi.uol.com.br">Wi-Fi</a></li>
+		</ul>
+
+		<dl class="mn-assinante">
+			<dt>Assinante UOL</dt>
+			<dd class="bullet"><a name="menu" href=http://discador.uol.com.br/>Discador UOL</a></dd>
+			<dd class="bullet"><a name="menu" href=http://email.uol.com.br/antispam/>AntiSpam</a></dd>
+			<dd class="bullet"><a name="menu" href=https://acesso.uol.com.br/login.html?skin=sac&authenticate=1&dest=REDIR|https://sac.uol.com.br/usuario/senha.html>Troque sua senha</a></dd>
+		</dl>
+		<dl class="mn-servgratuitos">
+			<dt>Serviços Gratuitos</dt>
+			<dd class="bullet"><a name="menu" href=http://barrauol.uol.com.br/>Barra UOL</a></dd>
+			<dd class="bullet"><a name="menu" href=http://www.bol.uol.com.br/>E-Mail grátis</a></dd>
+			<dd class="bullet"><a name="menu" href=http://noticias.uol.com.br/widgets/>Widgets</a></dd>
+		</dl>
+		<dl class="mn-lnkpatrocinados">
+			<dt>Links Patrocinados</dt>
+			<dd class=diff><a name="menu" href=http://click.uol.com.br/?rf=hu-lp&u=http://linkspatrocinados.uol.com.br/>Anuncie e só pague quando seu anúncio for clicado</a></dd>
+		</dl>
+		<dl class="mn-pagseguro">
+			<dt>PagSeguro</dt>
+			<dd class=diff><a name="menu" href=http://click.uol.com.br/?rf=hu-ps&u=https://pagseguro.uol.com.br/>
+				
+				Ganhe <br /> até R$ 1 mil <br /> por indicação
+				
+			</a></dd>
+		</dl>
+    
+		<dl class="mn-uolhost">
+			<dt>UOL Host</dt>
+			<dd class="bullet"><a name="menu" href="http://click.uol.com.br/?rf=hu-uolhost&u=http://clicklogger.rm.uol.com.br/?prd=16&grp=src:13;chn:0;creative:linkfixo_homeuol;link:registro-dominio&msr=Cliques%20de%20Origem:1&oper=11&redir=http://www.uolhost.com.br/registro-de-dominio.html">Registro de domínio</a></dd>
+			<dd class="bullet"><a name="menu" href="http://click.uol.com.br/?rf=hu-uolhost&u=http://clicklogger.rm.uol.com.br/?prd=16&grp=src:13;chn:0;creative:linkfixo_homeuol;link:hospedagemdesites&msr=Cliques%20de%20Origem:1&oper=11&redir=http://www.uolhost.com.br/hospedagem-de-sites.html">Hospedagem de sites</a></dd>
+			
+			<dd class="bullet"><a name="menu" href="http://click.uol.com.br/?rf=hu-uolhost&u=http://clicklogger.rm.uol.com.br/?prd=16&grp=src:13;chn:0;creative:linkfixo_homeuol;link:servidordedicado&msr=Cliques%20de%20Origem:1&oper=11&redir=http://www.uolhost.com.br/data-center/">Servidor Dedicado</a></dd>
+			
+		</dl>
+    
+
+
+
+          <ul class="produtos">
+	
+	<li><img src="http://home.img.uol.com.br/produtos/wifi_box_01.gif" alt="UOL Wi-Fi" border="0" /><h5>UOL Wi-Fi</h5><p>Navegue pela Internet sem fio no Brasil e exterior</p><a href="http://click.uol.com.br/?rf=hu-to-bottom1-slot1&u=http://clicklogger.rm.uol.com.br/?prd=4&grp=src:10;size:19;chn:0;creative:boxprodutos;thm:uolwifi&msr=Cliques%20de%20Origem:1&oper=7&redir=http://wifi.uol.com.br/" class="bt"><span>ASSINE JÁ</span></a></li>
+	
+
+	
+	<li><img src="http://home.img.uol.com.br/produtos/img-full.gif" alt="Antivírus FULL" border="0" /><h5>Antivírus FULL</h5><p>Proteja seu computador<br>contra invasores</p><a href="http://click.uol.com.br/?rf=hu-to-bottom1-slot1&u=http://clicklogger.rm.uol.com.br/?prd=2&grp=src:10;size:19;chn:0;creative:boxprodutos;thm:antivirusfull&msr=Cliques%20de%20Origem:1&oper=7&redir=http://antivirus.uol.com.br/ " class="bt"><span>ASSINE JÁ</span></a></li>
+	
+
+	
+	<li><img src="http://home.img.uol.com.br/produtos/perfectworld2.gif" alt="Perfect World" border="0" /><h5>Perfect World</h5><p>Descontos exclusivos para assinantes UOL</p><a href="http://click.uol.com.br/?rf=hu-to-bottom1-slot1&u=http://clicklogger.rm.uol.com.br/?prd=3&grp=src:10;size:19;chn:0;creative:boxprodutos;thm:grandchase&msr=Cliques%20de%20Origem:1&oper=7&redir=http://jogos.uol.com.br/loja/perfect-world/#o-que" class="bt"><span>COMPRE JÁ</span></a></li>
+	
+</ul>
+
+
+
+
+
+
+        </div><!--/menu-->
+      </div>
+      <div class="mod-servicos-box"><div class="separador"></div><ul id="mod-servicos">
+	<li><a name="servicos" href="http://compare.carros.uol.com.br/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_carros_cor.gif" alt="Compare carros" title="Compare carros" /></a><h3><a name="servicos" href="http://compare.carros.uol.com.br/">Compare <br />carros</a></h3></li>
+	<li><a name="servicos" href="http://mapas.uol.com.br/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_mapas_cor.gif" alt="Mapas" title="Mapas" /></a><h3><a name="servicos" href="http://mapas.uol.com.br/">Mapas</a></h3></li>
+	<li><a name="servicos" href="http://viagem.uol.com.br/destinos/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_viagem_cor.gif" alt="Guia de viagens" title="Guia de viagens" /></a><h3><a name="servicos" href="http://viagem.uol.com.br/destinos/">Guia de <br />viagens</a></h3></li>
+	<li><a name="servicos" href="http://musica.uol.com.br/letras.jhtm" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_letras_cor.gif" alt="Letras de músicas" title="Letras de músicas" /></a><h3><a name="servicos" href="http://musica.uol.com.br/letras.jhtm">Letras de <br />músicas</a></h3></li>
+	<li><a name="servicos" href="http://televisao.uol.com.br/novelas/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_tv_cor.gif" alt="Novelas" title="Novelas" /><h3><a name="servicos" href="http://televisao.uol.com.br/novelas.jhtm">Novelas</h3></a></li>
+	<li><a name="servicos" href="http://www1.folha.uol.com.br/folha/loterias/mega_sena.shtml" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_loteria_cor.gif" alt="Loterias" title="Loterias" /></a><h3><a name="servicos" href="http://www1.folha.uol.com.br/folha/loterias/mega_sena.shtml">Loterias</a></h3></li>
+	<li><a name="servicos" href="http://estilo.uol.com.br/gastronomia/receitas/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_receitas_cor.gif" alt="Receitas" title="Receitas" /></a><h3><a name="servicos" href="http://estilo.uol.com.br/gastronomia/receitas/">Receitas</a></h3></li>
+	<li><a name="servicos" href="http://widgets.uol.com.br/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_widgets_cor.gif" alt="Widgets" title="Widgets" /></a><h3><a name="servicos" href="http://widgets.uol.com.br/">Widgets</a></h3></li>
+	<li id="servicos-ultimo"><a name="servicos" href="http://mais.uol.com.br/" rel="nofollow"><img src="http://home.img.uol.com.br/h3/ico_publique_cor.gif" alt="Publique seu conteúdo" title="Publique seu conteúdo" /></a><h3><a name="servicos" href="http://mais.uol.com.br/">Publique seu<br />conteúdo</a></h3></li>
+</ul><div class="separador"></div></div>
+      <div id="mod-quatro-blocos">
+        <style>
+  #radiouol-chamadas {padding:1em 1em 0 1em;}
+  #radiouol-chamadas .chamadaFoto {padding-bottom:.7em;border-bottom:.1em dotted #CCC;margin-bottom:.7em;}
+  #radiouol-chamadas a {font:bolder 1.1em Arial, Helvetica, sans-serif;}
+  #radiouol-chamadas .chapeu a {color:#336699;}
+  #radiouol-chamadas h3 a {font-weight:normal}
+  #radiouol-chamadas .chamadaFoto h3 {overflow:hidden;}
+  #radiouol-chamadas .chamadaFoto .img65x65 {float:left;margin-right:.8em;}
+  #mod-radiouol-busca {background-color:#F5F4EF;border-left:.2em solid #fff;border-right:.2em solid #fff;height:7.8em;position:relative;}
+  #radiouol-busca-texto {border:.1em solid #7e9db9;margin:.5em 0 0 1em;width:12em;font:normal 1.1em Arial, Helvetica, sans-serif;height:15px;}
+  #mod-radiouol-busca .bt-buscar {position:absolute;top:2.5em;right:.85em;}
+  #radiouol-chamadas .chamadaSemFoto {height:4em;overflow:hidden}
+  #radiouol-chamadas .chamadaSemFoto .chapeu {float:left; padding-right:.4em;}
+  #radiouol-radios {padding:.5em 0 0 1em;}
+  #radiouol-radios li {height:16px;overflow:hidden;}
+  #radiouol-radios input {margin:0;*margin-top:-5px;}
+  #radiouol-radios label {margin:0;font:bolder 1.1em Arial, Helvetica, sans-serif;}
+</style>
+<div id="box-radiouol">
+	<h2 class="titulo"><a name="radio" href="http://radio.musica.uol.com.br/">Rádio UOL</a></h2>
+	<div id="radiouol-chamadas">
+		<div class="chamadaFoto">
+			<a name="radio" href="http://radio.musica.uol.com.br/abreradio.htm?canal=516" rel="nofollow"><img class="img65x65" src="http://h.imguol.com/0901/31coldplay.jpg" alt="AFP" title="AFP" /></a>
+			<div class="chapeu"><a name="radio" href="http://radio.musica.uol.com.br/abreradio.htm?canal=516" rel="nofollow">Grammy </a></div>
+			<h3><a name="radio" href="http://radio.musica.uol.com.br/abreradio.htm?canal=516">Ouça Lil Wayne, Coldplay (f) <br>e outros  <img src="http://home.img.uol.com.br/h0/i_audio.gif" alt="" /></a></h3>
+		</div>
+    <div class="chamadaSemFoto">
+  		<div class="chapeu"><a name="radio" href="http://radio.musica.uol.com.br/abreradio.htm?canal=1" rel="nofollow">Jovem</a></div>
+  		<h3><a name="radio" href="http://radio.musica.uol.com.br/abreradio.htm?canal=1">Conheça o disco do ator de "Drake & Josh" <img src="http://home.img.uol.com.br/h0/i_audio.gif" alt="" /></a></h3>
+    </div>
+	</div>
+	<div id="mod-radiouol-busca">
+	<form action="http://b.radio.musica.uol.com.br/radio/index.php" method="get" name="simples" id="searchform" onsubmit="document.simples.busca.value = document.simples.q.value;">
+		<input type="hidden" name="ad" value="on" />
+		<input type="hidden" name="ref" value="Musica" />
+		<input type="hidden" name="busca" />
+		<input type="hidden" name="param1" value="homebusca" />
+		<input type="text" id="radiouol-busca-texto" name="q" value="" class="texto" />
+		<input type="image" id="submitbutton" src="http://home.img.uol.com.br/h3/bt_buscar.gif" value="BUSCAR" title="BUSCAR" alt="BUSCAR" class="bt-buscar" />
+		<ul id="radiouol-radios">
+			<li><input type="radio" class="opcao" name="check" value="artista" id="opt-artista" checked="checked" /><label for="opt-artista">Artista</label></li>
+			<li><input type="radio" class="opcao" name="check" value="musica" id="opt-musica" /><label for="opt-musica">Música</label></li>
+			<li><input type="radio" class="opcao" name="check" value="disco" id="opt-disco" /><label for="opt-disco">Álbum</label></li>
+		</ul>
+	</form>
+	</div>
+</div>
+        <style>
+#jogos-margem {padding:.8em;}
+#jogos-margem .img65x65 {float:left; margin-right:.8em; width:65px; height:65px;}
+#jogos-margem a {font:bolder 1.1em Arial, Helvetica, sans-serif;}
+#jogos-margem .chapeu a, #jogos-margem ul li strong {color:#336699;}
+#jogos-margem ul {padding-top:.8em;}
+#jogos-margem ul li {padding:.5em 0;border-top:.1em dotted #ccc;}
+#jogos-margem ul li a {font-weight:normal;}
+#jogos-margem ul li strong {font-size:1em;padding-right:.4em;}
+</style>
+<!-- box-jogos -->
+<div id="box-jogos">
+	<h2 class="titulo"><a name="jogos" href="http://jogos.uol.com.br/">Jogos</a></h2>
+	<div id="jogos-margem">
+		<a name="jogos" href="http://jogos.uol.com.br/playstation3/previas/needforspeedshift.jhtm "><img class="img65x65" src="http://h.imguol.com/0901/31jogosspeed.jpg" alt="Reprodução" title="Reprodução" /></a>
+		<div class="chapeu"><a name="jogos" href="http://jogos.uol.com.br/playstation3/previas/needforspeedshift.jhtm ">Need for Speed</a></div>
+		<h3><a name="jogos" href="http://jogos.uol.com.br/playstation3/previas/needforspeedshift.jhtm ">Pilote com adrenalina em "Shift"</a></h3>
+		<ul>
+			<li><a name="jogos" href="http://jogos.uol.com.br/xbox360/galerias/50centbloodonthesand.jhtm "><strong>Blood on the Sand</strong>50 Cent dá seus tiros em versão <img src=" http://home.img.uol.com.br/h0/i_foto.gif" alt="" /></a></li>
+			<li><a name="jogos" href="http://jogos.uol.com.br/playstation3/videos/batmanarkhamasylum.jhtm"><strong>Batman</strong>Vídeo mostra o lugar perfeito para o Coringa</a></li>
+			<li><a name="jogos" href="http://jogos.uol.com.br/wii/analises/animalcrossingcityfolks.jhtm"><strong>Animal Crossing</strong>Crie um vilarejo no meio da natureza </a></li>
+		</ul>
+	</div>
+</div>
+<!--/ box-jogos -->
+        <style>
+#tms-abs {height:3em;padding-left:1em;}
+#tms-abs span {float:left;padding:0 .5em;line-height:2.5em}
+#tms-abs a {float:left;font:normal 1.1em Arial, Helvetica, sans-serif;line-height:2.5em}
+#tms-abs a.abaSel {font-weight:bolder;background:url(http://home.img.uol.com.br/h3/seta-vermelha3.gif) no-repeat 0 .9em;padding-left:.8em;}
+
+#mod-times #tms-srA,
+#mod-times #tms-srB {display:none;padding-left:1em;}
+#mod-times #tms-srA.abaSel,
+#mod-times #tms-srB.abaSel {display:block;}
+#mod-times #tms-srA ul, #mod-times #tms-srB ul {}
+#mod-times #tms-srA li, #mod-times #tms-srB li {float:left; width: 2.8em; height:2.7em; overflow:hidden; background: #F5F4EF ; border-right: 0.1em solid #FFF;border-bottom: 0.1em solid #FFF; padding: 0.5em 0 0 0.5em;}
+#mod-times #tms-srA li a, #mod-times #tms-srB li a {display:block; width: 2.3em; height: 2.4em; overflow:hidden; background: url('http://h.imguol.com/h3/timesbrasoesv1.gif') no-repeat 0 0 ; text-indent: -999em;}
+
+#mod-times li#fut-avai a {background-position:-4.8em -4.9em;}
+#mod-times li#fut-atletico_mg a {background-position:0 0;}
+#mod-times li#fut-atletico_pr a{background-position:-2.4em 0;}
+#mod-times li#fut-botafogo a{background-position:-4.8em 0;}
+#mod-times li#fut-corinthians a{background-position:-16.8em -4.9em;}
+#mod-times li#fut-coritiba a{background-position:-7.2em 0;}
+#mod-times li#fut-cruzeiro a{background-position:-9.6em 0;}
+#mod-times li#fut-figueirense a{background-position:-12em 0;}
+#mod-times li#fut-flamengo a{background-position:-14.4em 0;}
+#mod-times li#fut-goias a{background-position:-19.2em 0;}
+
+#mod-times li#fut-gremio a{background-position:-21.6em 0;}
+#mod-times li#fut-gremio_barueri a{background-position:-21.8em -4.8em;}
+#mod-times li#fut-internacional a{background-position:0 -2.5em;}
+#mod-times li#fut-nautico_pe a{background-position:-4.8em -2.5em;}
+#mod-times li#fut-palmeiras a{background-position:-7.2em -2.5em;}  
+#mod-times li#fut-santos a{background-position:-12em -2.5em;}
+#mod-times li#fut-sao_paulo a{background-position:-14.4em -2.5em;}
+#mod-times li#fut-santo_andre a{background-position:-7.2em -7.2em;}
+#mod-times li#fut-sport a{background-position:-16.8em -2.5em;}
+#mod-times li#fut-vitoria a{background-position:-21.6em -2.5em;}
+
+#mod-times li#fut-atletico_go a{background-position:-21.8em -7.2em;}
+#mod-times li#fut-abc a{background-position:0 -4.9em;}
+#mod-times li#fut-america_rn a{background-position:-2.4em -4.9em;}
+#mod-times li#fut-bahia a{background-position:-7.2em -4.9em;}
+#mod-times li#fut-bragantino a{background-position:-9.6em -4.9em;}
+#mod-times li#fut-brasiliense_df a{background-position:-12em -4.9em;}
+#mod-times li#fut-campinense_pb a{background-position:-14.4em -7.2em;}
+#mod-times li#fut-ceara a{background-position:-14.4em -4.9em;}
+#mod-times li#fut-duque_de_caxias a{background-position:-19.3em -7.3em;} 
+#mod-times li#fut-fluminense a{background-position:-16.8em 0;}
+
+#mod-times li#fut-fortaleza a{background-position:-19.2em -4.8em;}
+#mod-times li#fut-guarani a{background-position:-16.9em -7.2em;}
+#mod-times li#fut-ipatinga_mg a{background-position:-2.4em -2.5em;}
+#mod-times li#fut-juventude a{background-position:0 -7.2em}
+#mod-times li#fut-parana_clube a{background-position:-2.4em -7.2em;}
+#mod-times li#fut-ponte_preta a{background-position:-4.7em -7.2em;}
+#mod-times li#fut-portuguesa a{background-position:-9.6em -2.5em;}
+#mod-times li#fut-sao_caetano a{background-position:-9.5em -7.3em;}  
+#mod-times li#fut-vasco a{background-position:-19.2em -2.5em;}
+#mod-times li#fut-vila_nova_go a{background-position:-11.9em -7.3em;}
+
+#tms-noticias ul { padding:0 1em 0.7em;}
+#tms-noticias li { float: none; background: url(http://home.img.uol.com.br/h3/seta-vermelha2.gif) no-repeat 0 0.3em; padding:0 0 0.2em 0.8em;font: bold 1.3em arial;}
+#tms-noticias li a { font: bold 1em arial;}
+
+</style>
+
+<script type="text/javascript">
+function aba(e){
+  var abas = document.getElementById('tms-abs').getElementsByTagName('a');
+  var times = [document.getElementById('tms-srA'),document.getElementById('tms-srB')];
+  abas[0].className = abas[1].className = times[0].className = times[1].className = "";
+  abas[e].className = times[e].className = "abaSel";
+}
+</script>
+
+<div id="mod-times">
+  <h2 class="titulo">TIMES</h2>
+	<div id="tms-abs">
+    <a href="javascript:aba(0);" class="abaSel">SÉRIE A</a> <span>|</span> <a href="javascript:aba(1);">SÉRIE B</a>
+	</div>
+	<div id="brd-tm">
+		<div class="abaSel" id="tms-srA">
+			<ul id="srA">
+				<li id="fut-atletico_mg"><a title="Atlético-MG (Galo)" alt="Atlético-MG (Galo)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=atletico_mg" name="home-times">Atlético-MG</a></li>
+				<li id="fut-atletico_pr"><a title="Atlético-PR (Furacão)" alt="Atlético-PR (Furacão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=atletico_pr" name="home-times">Atlético-PR</a></li>
+				<li id="fut-avai"><a title="Avaí (Leão da Ilha)" alt="Avaí (Leão da Ilha)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=avai" name="home-times">Avaí</a></li>
+        <li id="fut-botafogo"><a title="Botafogo (Fogão)" alt="Botafogo (Fogão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=botafogo" name="home-times">Botafogo</a></li>
+				<li id="fut-corinthians"><a title="Corinthians (Timão)" alt="Corinthians (Timão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=corinthians" name="home-times">Corinthians</a></li>
+        <li id="fut-coritiba"><a title="Coritiba (Coxa)" alt="Coritiba (Coxa)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=coritiba" name="home-times">Coritiba</a></li>
+				<li id="fut-cruzeiro"><a title="Cruzeiro (Raposa, Celeste)" alt="Cruzeiro (Raposa, Celeste)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=cruzeiro" name="home-times">Cruzeiro</a></li>
+				<li id="fut-flamengo"><a title="Flamengo (Fla, Mengão, Rubro-negro)" alt="Flamengo (Fla, Mengão, Rubro-negro)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=flamengo" name="home-times">Flamengo</a></li>
+				<li id="fut-fluminense"><a title="Fluminense (Tricolor, Pó-de-arroz)" alt="Fluminense (Tricolor, Pó-de-arroz)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=fluminense" name="home-times">Fluminense</a></li>
+				<li id="fut-goias"><a title="Goiás (Verdão)" alt="Goiás (Verdão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=goias" name="home-times">Goiás</a></li>
+				<li id="fut-gremio"><a title="Grêmio (Tricolor)" alt="Grêmio (Tricolor)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=gremio" name="home-times">Grêmio</a></li>
+				<li id="fut-gremio_barueri"><a title="Grêmio Barueri (Barueri)" alt="Grêmio Barueri (Barueri)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=gremio_barueri" name="home-times">Grêmio Barueri</a></li>
+				<li id="fut-internacional"><a title="Internacional (Colorado, Inter)" alt="Internacional (Colorado, Inter)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=internacional" name="home-times">Internacional</a></li>
+				<li id="fut-nautico_pe"><a title="Náutico (Timbu, Alvirrubro)" alt="Náutico (Timbu, Alvirrubro)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=nautico" name="home-times">Náutico</a></li>
+				<li id="fut-palmeiras"><a title="Palmeiras (Verdão, Alviverde)" alt="Palmeiras (Verdão, Alviverde)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=palmeiras" name="home-times">Palmeiras</a></li>
+				<li id="fut-santo_andre"><a title="Santo André (Ramalhão)" alt="Santo André (Ramalhão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=santo_andre" name="home-times">Santo André</a></li>
+        <li id="fut-santos"><a title="Santos (Peixe, Alvinegro)" alt="Santos (Peixe, Alvinegro)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=santos" name="home-times">Santos</a></li>
+				<li id="fut-sao_paulo"><a title="São Paulo (Tricolor)" alt="São Paulo (Tricolor)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=sao_paulo" name="home-times">São Paulo</a></li>
+				<li id="fut-sport"><a title="Sport (Leão, Rubro-negro)" alt="Sport (Leão, Rubro-negro)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=sport" name="home-times">Sport</a></li>
+				<li id="fut-vitoria"><a title="Vitória (Leão)" alt="Vitória (Leão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=vitoria" name="home-times">Vitória</a></li>
+			</ul>
+		</div>
+		<div id="tms-srB">
+			<ul id="srB">		
+				<li id="fut-abc"><a title="ABC (Alvinegro)" alt="ABC (Alvinegro)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=abc" name="home-times">ABC</a></li>
+				<li id="fut-america_rn"><a title="América-RN (Mecão)" alt="América-RN (Mecão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=america_rn" name="home-times">América RN</a></li>
+				<li id="fut-atletico_go"><a title="Atlético-GO" alt="Atlético-GO" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=atletico_go" name="home-times">Atlético-GO</a></li>
+				<li id="fut-bahia"><a title="Bahia (Tricolor, Esquadrão de Aço)" alt="Bahia (Tricolor, Esquadrão de Aço)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=bahia" name="home-times">Bahia</a></li>
+				<li id="fut-bragantino"><a title="Bragantino (Braga)" alt="Bragantino (Braga)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=bragantino" name="home-times">Bragantino</a></li>
+				<li id="fut-brasiliense_df"><a title="Brasiliense (Jacaré, Febre Amarela)" alt="Brasiliense (Jacaré, Febre Amarela)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=brasiliense_df" name="home-times">Brasiliense DF</a></li>
+				<li id="fut-campinense_pb"><a title="Campinense" alt="Campinense" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=campinense_pb" name="home-times">Campinense</a></li>
+				<li id="fut-ceara"><a title="Ceará (Vovô)" alt="Ceará (Vovô)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=ceara" name="home-times">Ceará</a></li>
+				<li id="fut-duque_de_caxias"><a title="Duque de Caxias" alt="Duque de Caxias" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=duque_de_caxias" name="home-times">Duque de Caxias</a></li>
+				<li id="fut-figueirense"><a title="Figueirense (Figueira)" alt="Figueirense (Figueira)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=figueirense" name="home-times">Figueirense</a></li>				
+				<li id="fut-fortaleza"><a title="Fortaleza (Tricolor, Leão)" alt="Fortaleza (Tricolor, Leão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=fortaleza" name="home-times">Fortaleza</a></li>
+				<li id="fut-guarani"><a title="Guarani" alt="Guarani" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=guarani" name="home-times">Guarani</a></li>
+        <li id="fut-ipatinga_mg"><a title="Ipatinga (Tigre)" alt="Ipatinga (Tigre)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=ipatinga_mg" name="home-times">Ipatinga MG</a></li>
+				<li id="fut-juventude"><a title="Juventude (Verdão)" alt="Juventude (Verdão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=juventude" name="home-times">Juventude</a></li>
+				<li id="fut-parana_clube"><a title="Paraná Clube (Tricolor da Vila)" alt="Paraná Clube (Tricolor da Vila)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=parana_clube" name="home-times">Paraná Clube</a></li>
+				<li id="fut-ponte_preta"><a title="Ponte Preta (Macaca)" alt="Ponte Preta (Macaca)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=ponte_preta" name="home-times">Ponte Preta</a></li>
+				<li id="fut-portuguesa"><a title="Portuguesa (Lusa)" alt="Portuguesa (Lusa)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=portuguesa" name="home-times">Portuguesa</a></li>
+				<li id="fut-sao_caetano"><a title="São Caetano (Azulão)" alt="São Caetano (Azulão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=sao_caetano" name="home-times">São Caetano</a></li>
+				<li id="fut-vasco"><a title="Vasco (Gigante da Colina)" alt="Vasco (Gigante da Colina)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=vasco" name="home-times">Vasco</a></li>
+        <li id="fut-vila_nova_go"><a title="Vila Nova (Tigrão)" alt="Vila Nova (Tigrão)" href="http://click.uol.com.br/?rf=home-home-times&amp;u=http://esporte.uol.com.br/futebol/clubes/clube.jhtm?time=vila_nova_go" name="home-times">Vila Nova GO</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+        <style>
+  #mod-horoscopo {padding-right:.1em;}
+  #mod-horoscopo .linkHoroscopo {font:bolder 1.1em Arial, Helvetica, sans-serif;line-height:2.5em;padding-left:1em;}
+  #mod-horoscopo ul {margin:0;padding:0 .8em;}
+  #mod-horoscopo li {margin:.1em 0 0 0;display:block;text-align:left;background-color:#F5F4EF;padding:.6em 0}
+  #mod-horoscopo li.fl {float:left;clear:both;width:6.7em;}
+  #mod-horoscopo li.fr {float:right;width:7.5em;}
+  #mod-horoscopo li a {font:normal 1.1em arial;}
+  #mod-horoscopo li a img {margin:0 .2em;vertical-align:middle;}
+</style>
+<div id="mod-horoscopo">
+  <h2 class="titulo"><a href="http://horoscopo.uol.com.br" name="horoscopo">HORÓSCOPO</a></h2>
+  <a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml" name="horoscopo" class="linkHoroscopo">PREVISÃO DO DIA</a>
+  <ul>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#aries" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/aries.gif" border="0" />Áries</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#libra" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/libra.gif" border="0" />Libra</a></li>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#touro" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/touro.gif" border="0" />Touro</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#escorpiao" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/escorpiao.gif" border="0" />Escorpião</a></li>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#gemeos" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/gemeos.gif" border="0" />Gêmeos</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#sagitario" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/sagitario.gif" border="0" />Sagitário</a></li>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#cancer" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/cancer.gif" border="0" />Câncer</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#capricornio" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/capricornio.gif" border="0" />Capricórnio</a></li>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#leao" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/leao.gif" border="0" />Leão</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#aquario" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/aquario.gif" border="0" />Aquário</a></li>
+    <li class="fl"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#virgem" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/virgem.gif" border="0" />Virgem</a></li>
+    <li class="fr"><a href="http://www1.folha.uol.com.br/folha/urania/signoexpress1.shtml#peixes" name="horoscopo" target="_blank"><img src="http://h.imguol.com/h3/horoscopo/peixes.gif" border="0" />Peixes</a></li>
+  </ul>
+</div>
+      </div>
+    </div><!-- /conteudo -->
+    <div id="colDireita"><div class="content">
+
+  		<div class=shop id=shop1>
+  <span class="titPub">Publicidade</span>
+  <div class="lista">
+		<div id="banner-slot-1-area" class="banner-slot"></div>
+		<div id="banner-slot-15-area" class="banner-slot"></div>
+		<div id="banner-slot-2-area" class="banner-slot"></div>
+		<div id="banner-slot-16-area" class="banner-slot"></div>
+
+    	<a name="03" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6554&AdID=13396&TargetID=1275&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1143&Targets=1275&Values=31,51,60,81,100,110,150,204,346,356,364,384,421,1611&RawValues=&Redirect=http://www.submarino.com.br/portal/home-portais-sl/21433612/?listid=sl80tvlcdscarlet&menuId=840&coup_num=17-PRI18-00001-0612902031&franq=147796" title="" target="_blank">
+    		<strong>Submarino</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/49x49_tvscarlet.gif" width="49" height="49" />TVs LCD LG Scarlet descontos de até R$ 1.000!</span>
+    	</a>
+    
+
+    	<a name="17" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6540&AdID=13356&TargetID=1260&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1127&Targets=1260&Values=31,51,60,81,100,110,150,204,346,356,363,386,421,1606&RawValues=&Redirect=http://www.magazineluiza.com.br/parceiro/visita_parceiro.asp?parceiro=345&produto=2022609&pagina=setor&utm_source=UOL&utm_medium=Oferta_coluna_1047&utm_content=cod_2022609&utm_campaign=Magazine_Luiza" title="" target="_blank">
+    		<strong>MagazineLuiza.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/mluiza3101h.gif" width="49" height="49" />PC 4GB + HD 250 + LCD 19" em 12x de  R$ 124,92.</span>
+    	</a>
+    
+  </div>
+</div><!--/shopping-->
+
+      <div id="mod-shopping">
+  			<div id="mod-shopping-top">
+  				<div id="logo-shopping"><a href="http://click.uol.com.br/?rf=home-shopping&u=
+http://shopping.uol.com.br/?&rtrk=src:13;size:19;chn:0;thm:barrasuperiorcomlogo
+">&nbsp;</a></div>
+  			</div>	
+  			<div id="mod-shopping-body">
+  				<ul>
+  					<li>
+  						<h3><a name="shopping-blocoshop1" href="http://shopping.uol.com.br/perfumaria-e-cosmeticos/batom-lapis-e-protetor-labial/index.html?q=Victoria+Secret&subsearch=true&min=&max=&id=&num=50&rtrk=src:12;size:18;chn:0;pos:1;thm:Victoria+Secret;creative:BatomVictoriaSecret">Victoria Secret</a></h3>
+  						<a name="shopping-blocoshop1" href="http://shopping.uol.com.br/perfumaria-e-cosmeticos/batom-lapis-e-protetor-labial/index.html?q=Victoria+Secret&subsearch=true&min=&max=&id=&num=50&rtrk=src:12;size:18;chn:0;pos:1;thm:Victoria+Secret;creative:BatomVictoriaSecret"><img src="http://pubshop.img.uol.com.br/200901/BatomVictoriaSecret.gif" alt="" /></a>
+  						<p><a name="shopping-blocoshop1" href="http://shopping.uol.com.br/perfumaria-e-cosmeticos/batom-lapis-e-protetor-labial/index.html?q=Victoria+Secret&subsearch=true&min=&max=&id=&num=50&rtrk=src:12;size:18;chn:0;pos:1;thm:Victoria+Secret;creative:BatomVictoriaSecret">Batons diversos, a partir de <br>R$ 29,90.</a></p>
+  					</li>
+  					<li>
+  						<h3><a name="shopping-blocoshop2" href="http://shopping.busca.uol.com.br/eletronicos/gps/index.html?q=Navegador&num=50&subsearch=true&ord=preco&dir=asc&rtrk=src:12;size:18;chn:0;pos:2;thm:Navegador+GPS;creative:oferta-navegador">Navegador GPS</a></h3>
+  						<a name="shopping-blocoshop2" href="http://shopping.busca.uol.com.br/eletronicos/gps/index.html?q=Navegador&num=50&subsearch=true&ord=preco&dir=asc&rtrk=src:12;size:18;chn:0;pos:2;thm:Navegador+GPS;creative:oferta-navegador"><img src="http://pubshop.img.uol.com.br/home.uol/navegador.gps.gif" alt="" /></a>
+  						<p><a name="shopping-blocoshop2" href="http://shopping.busca.uol.com.br/eletronicos/gps/index.html?q=Navegador&num=50&subsearch=true&ord=preco&dir=asc&rtrk=src:12;size:18;chn:0;pos:2;thm:Navegador+GPS;creative:oferta-navegador">Tenha o seu! A partir de <br>R$ 499!</a></p>
+  					</li>
+  			  </ul>
+  			</div>
+      </div>
+
+
+<div class="banner" id="banner-300x250-5-area"></div>
+
+<div class="shop shop2" id="shop2">
+  <div class="lista">
+
+
+    	<a name="04" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6550&AdID=13472&TargetID=1271&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1137&Targets=1271&Values=31,51,60,81,100,110,150,204,346,356,364,384,421,1610&RawValues=&Redirect=http://www.shoptime.com.br/ShopProdF/20/5096009?&par=46031&un=1007&midia=6744&submidia=1216&WT.mc_id=uolshopping2" title="" target="_blank">
+    		<strong>Shoptime</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/5096009.gif" width="49" height="49" />Nokia com MP3, câmera 2MP e 2GB: R$ 599</span>
+    	</a>
+    
+
+    	<a name="18" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6477&AdID=13334&TargetID=1229&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1096&Targets=1229&Values=31,51,60,81,100,110,150,204,346,356,363,386,421,1290&RawValues=&Redirect=http://clk.atdmt.com/DBZ/go/134798546/direct/01/" title="" target="_blank">
+    		<strong>Dell Studio 540</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/studio_49x49.gif" width="49" height="49" />3GB, placa de vídeo e Intel® Core&trade;2 Duo</span>
+    	</a>
+    
+
+    	<a name="05" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6513&AdID=13463&TargetID=1250&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1114&Targets=1250&Values=31,51,60,81,100,110,150,204,346,356,364,384,421,1603&RawValues=&Redirect=http://www.americanas.com.br/HGLanding/595/64758/00/3/2412622?opn=XBUDWJ&order=rankSort&par=uolh1024" title="" target="_blank">
+    		<strong>Americanas.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/2412622.gif" width="49" height="49" />Refrigerador 425L Duplex  Brastemp: R$ 1.599 em 12x</span>
+    	</a>
+    
+
+    	<a name="19" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6556&AdID=13398&TargetID=1276&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1145&Targets=1276&Values=31,51,60,81,100,110,150,204,346,356,364,386,421,1611&RawValues=&Redirect=http://www.submarino.com.br/menu/201381/monitores+cardiacos?offset=0&limit=20&order=salesPrice&dir=asc&brand="suunto"&STM_GROUPS=237804&franq=148443" title="" target="_blank">
+    		<strong>Submarino</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/49x49_suunto.gif" width="49" height="49" />Monitor cardíaco Suunto a partir de R$ 399! Aqui!</span>
+    	</a>
+    
+
+    	<a name="06" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55473&AdID=147105&TargetID=7290&ASeg=&AMod=&Segments=23,96,138,190,238,244,500,2149,2412,2862,2881,3165,3172,3173,3445,4209,4236,4307,4792,4986,5614,5763,5844&Targets=7290&Values=31,51,60,84,100,110,150,204,346,356,373,379,384,407,421,2065,2348,11842&RawValues=&Redirect=http://www.comprafacil.com.br/comprafacil/ex.jsf?cod=PmrUXHj4q8OfwtLZVNGIOA%2FfyRmRav8K&map=RDl9urHxJ0MhNnbzJr5bXffW16xiNh5%2BurOKYS9UnPvMb8%2B0Pd1eeA%3D%3D" title="" target="_blank">
+    		<strong>Comprafacil.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/cfacil3001c.gif" width="49" height="49" />Receptor TV digital Conecta USB 10 x R$15,90</span>
+    	</a>
+    
+
+    	<a name="20" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6549&AdID=13470&TargetID=1268&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1136&Targets=1268&Values=31,51,60,81,100,110,150,204,346,356,364,385,421,1608&RawValues=&Redirect=http://www.livrariasaraiva.com.br/eletro/promo/superquedabravia.htm?pac_id=25605" title="" target="_blank">
+    		<strong>Saraiva.com.br</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/sar2901b.gif" width="49" height="49" />Sony Bravia: LCDs com desconto de até R$ 1.500.</span>
+    	</a>
+    
+
+    	<a name="07" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=54128&AdID=145020&TargetID=1309&ASeg=&AMod=&Segments=23,96,138,190,238,500,1044,1272,2149,2848,2881,3165,3172,3173,3445,4209,4236,4307,4792,4986,5090,5244,5272,5550,5614,5763&Targets=1309&Values=31,51,60,82,100,110,150,204,346,356,371,384,407,421,1619,2348&RawValues=&Redirect=http://perfumes.sacks.com.br/site/marca.asp?id=37&idcategoria=1&idcategoriasub=2&idparceria=327" title="" target="_blank">
+    		<strong>Sack's Perfumaria</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/slot_uol_50.gif" width="49" height="49" />Perfumes Hugo Boss em 12 vezes e frete grátis!</span>
+    	</a>
+    
+
+    	<a name="21" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55759&AdID=148482&TargetID=7330&ASeg=&AMod=&Segments=23,96,138,190,238,500,2149,2644,2848,2862,2881,3165,3172,3173,3445,4209,4236,4307,4986,5189,5614,5763,5851,5863&Targets=7330&Values=31,51,60,83,100,110,150,204,346,356,371,386,407,421,1605,2348&RawValues=&Redirect=http://www.fastshop.com.br/product.aspx?par=colhomeuol&product_id=SGLN40A330J1XD" title="" target="_blank">
+    		<strong>Fast Shop</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/fshop3101c.gif" width="49" height="49" />TV LCD HDTV 2 HDMI Series 3 Samsung.</span>
+    	</a>
+    
+
+    	<a name="08" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55758&AdID=148481&TargetID=1256&ASeg=&AMod=&Segments=23,96,138,190,238,500,1123,2149,2848,2862,2881,3165,3172,3173,3445,4209,4236,4307,4986,5189,5614,5763,5863&Targets=1256&Values=31,51,60,83,100,110,150,204,346,356,372,384,407,1605,2348&RawValues=&Redirect=http://www.fastshop.com.br/product.aspx?par=colhomeuol&product_id=SGLN32A550P3RX" title="" target="_blank">
+    		<strong>Fast Shop</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/fshop3101a.gif" width="49" height="49" />TV LCD 32" 3 HDMI USB Series 5 Samsung</span>
+    	</a>
+    
+
+    	<a name="22" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55755&AdID=148484&TargetID=4034&ASeg=&AMod=&Segments=23,96,138,190,238,500,2149,2848,2862,2881,3165,3172,3173,3438,3445,4209,4236,4307,4986,5189,5614,5763,5851,5863&Targets=4034&Values=31,51,60,83,100,110,150,204,346,356,371,386,407,421,1619,2348&RawValues=&Redirect=http://www.sacks.com.br/site/main.asp?idparceria=327" title="" target="_blank">
+    		<strong>Sack's Perfumaria</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/slot_uol_49.gif" width="49" height="49" />Todo o site em até 12 vezes sem juros e frete grátis!</span>
+    	</a>
+    
+
+    	<a name="09" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6548&AdID=13469&TargetID=1267&Segments=23,96,127,129,138,238,247,338,341,500,710,800,803,811,966,968,971,1043,1044,1135&Targets=1267&Values=31,51,60,81,100,110,150,204,346,356,364,384,421,1608&RawValues=&Redirect=http://www.livrariasaraiva.com.br/pesquisaweb/pesquisaweb.dll/pesquisa?ID=C95532857D9011A0D3A2D1081&ESTRUTN1=030322&ORDEMN1=E&MODELON1=C&ESTRUTN2=03032211&PRECON2=&FILTRON2=&PALAVRASN2=&ORDEMN2=G&MODELON2=C&PAGINA&pac_id=24079" title="" target="_blank">
+    		<strong>Saraiva.com.br</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/sar2901a.gif" width="49" height="49" />LCD 19" widescreen: só<br> R$ 499 em 12x</span>
+    	</a>
+    
+
+    	<a name="23" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55475&AdID=147104&TargetID=7291&ASeg=&AMod=&Segments=23,96,138,190,238,244,500,2149,2412,2862,2881,3165,3172,3173,3445,4209,4236,4307,4792,4986,5614,5763,5845&Targets=7291&Values=31,51,60,84,100,110,150,204,346,356,373,379,385,407,421,2065,2348,11842&RawValues=&Redirect=http://www.comprafacil.com.br/comprafacil/ex.jsf?cod=E8KEpgceY6lyTUYI37p8llViK6hvPjXu&map=RDl9urHxJ0MhNnbzJr5bXffW16xiNh5%2BIRARj7845mWFcWf1jibqWA%3D%3D" title="" target="_blank">
+    		<strong>Comprafacil.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/cfacil3001g.gif" width="49" height="49" />Em 10x com MP3, entrada auxiliar, antichoque.</span>
+    	</a>
+    
+
+    	<a name="10" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6538&AdID=13354&TargetID=1261&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1125&Targets=1261&Values=31,51,60,81,100,110,150,204,346,356,363,384,421,1606&RawValues=&Redirect=http://www.magazineluiza.com.br/parceiro/visita_parceiro.asp?parceiro=841&produto=0114252&pagina=setor&utm_source=UOL&utm_medium=Oferta_coluna_intermediaria&utm_content=cod_0114252&utm_campaign=Magazine_Luiza" title="" target="_blank">
+    		<strong>MagazineLuiza.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/mluiza3101c.gif" width="49" height="49" />Ar Condicionado frio/ quente Consul: R$ 1.059</span>
+    	</a>
+    
+
+    	<a name="24" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6539&AdID=13355&TargetID=1259&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1126&Targets=1259&Values=31,51,60,81,100,110,150,204,346,356,363,385,421,1606&RawValues=&Redirect=http://www.magazineluiza.com.br/parceiro/visita_parceiro.asp?parceiro=1588&produto=2015040&pagina=setor&utm_source=UOL&utm_medium=Oferta_coluna_inferior&utm_content=cod_2015040&utm_campaign=Magazine_Luiza" title="" target="_blank">
+    		<strong>MagazineLuiza.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/mluiza3101i.gif" width="49" height="49" />Celular Motorola W175 por R$ 89 em 2x. Aproveite!</span>
+    	</a>
+    
+
+    	<a name="11" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=20175&AdID=47216&TargetID=3109&Segments=23,96,127,138,190,500,1044,1460,1664,1682,1734,1885,2005,2009,2149,2262,2326,2353,2377,2400,2401,2607,2634,2724,2730&Targets=3109&Values=31,51,60,85,100,110,150,204,345,356,357,371,378,388,421,1604&RawValues=&Redirect=http://bn.uol.com.br/event.ng/Type=click&FlightID=6532&AdID=13347&TargetID=1255&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1120&Targets=1255&Values=31,51,60,81,100,110,150,204,346,356,363,385,421,1604&RawValues=&Redirect=http://www.extra.com.br/redir2.aspx?codProduto=6851965&codCategoria=CatEsporteLazerBicicletas-Acessorios&xtracam=55&xtramed=45&xtracon=4&xtrasource=192&siteOrigem=cupom010209&utm_source=UOL&utm_medium=slot-C&utm_content=Bicicleta&utm_campaign=Renove-Casa" title="" target="_blank">
+    		<strong>Extra.com.br</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/extra3101e.gif" width="49" height="49" />Exclusivo! Bike Aro 26 Viper 18V só R$ 189.</span>
+    	</a>
+    
+
+    	<a name="25" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=35582&AdID=91143&TargetID=4987&Segments=23,96,129,138,238,247,500,710,1044,2149,2377,2724,2848,2862,2881,3172,3564,3573,3719,3726,3897,4038,4040,4047,4137,4144,4145,4188&Targets=4987&Values=30,50,60,84,100,110,150,204,347,356,369,387,407,421,1608&RawValues=&Redirect=http://www.livrariasaraiva.com.br/promo/volta_aulas_2009.htm?pac_id=24399" title="" target="_blank">
+    		<strong>Saraiva.com.br</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/sar2901c.gif" width="49" height="49" />Sua lista em até 12x sem juros e frete grátis!</span>
+    	</a>
+    
+
+    	<a name="12" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=9355&AdID=19187&TargetID=1704&Segments=23,127,129,138,141,190,238,247,256,327,500,710,801,811,968,971,973,1043,1044,1344,1346,1460,1482,1497,1629&Targets=1704&Values=31,51,60,83,100,110,150,204,345,356,357,369,388,421,1611&RawValues=&Redirect=http://www.submarino.com.br/portal/home-portais-sl/21409143/?listid=sl80somautomotivo&menuId=840&coup_num=17-PRI18-00001-0612902031&franq=148865" title="" target="_blank">
+    		<strong>Submarino</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/49x49_mp3pen2.gif" width="49" height="49" />MP3 auto USB grátis pen drive 2GB: só R$ 429!</span>
+    	</a>
+    
+
+    	<a name="26" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=55757&AdID=148483&TargetID=7044&ASeg=&AMod=&Segments=23,96,138,190,238,500,2149,2848,2862,2881,3165,3172,3173,3445,4209,4236,4307,4986,5189,5614,5681,5763,5851,5863&Targets=7044&Values=31,51,60,83,100,110,150,204,346,356,371,387,407,421,1619,2348&RawValues=&Redirect=http://www.sacks.com.br/site/marca.asp?id=43&x=12&y=6&idparceria=327" title="" target="_blank">
+    		<strong>Sack's Perfumaria</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/slot_uol_47.gif" width="49" height="49" />Perfumes Kenzo a partir de apenas R$ 99,90. Confira!</span>
+    	</a>
+    
+
+    	<a name="13" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=6539&AdID=13355&TargetID=1259&Segments=23,96,127,129,138,238,247,338,341,500,710,811,964,968,971,1043,1044,1126&Targets=1259&Values=31,51,60,81,100,110,150,204,346,356,363,385,421,1606&RawValues=&Redirect=http://www.magazineluiza.com.br/parceiro/visita_parceiro.asp?parceiro=1589&produto=2008232&pagina=setor&utm_source=UOL&utm_medium=Oferta_coluna_inferior&utm_content=cod_2008232&utm_campaign=Magazine_Luiza" title="" target="_blank">
+    		<strong>MagazineLuiza.com</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/mluiza3101j.gif" width="49" height="49" />Poltrona reclinável por apenas R$ 259!</span>
+    	</a>
+    
+
+    	<a name="27" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=20175&AdID=47216&TargetID=3109&Segments=23,96,127,138,190,500,1044,1460,1664,1682,1734,1885,2005,2009,2149,2262,2326,2353,2377,2400,2401,2607,2634,2724,2730&Targets=3109&Values=31,51,60,85,100,110,150,204,345,356,357,371,378,388,421,1604&RawValues=&Redirect=http://www.extra.com.br/redir2.aspx?codProduto=5985135&codCategoria=CatImagemCamerasDigitais&xtracam=55&xtramed=207&xtracon=4&xtrasource=192&siteOrigem=&utm_source=UOL&utm_medium=slot-C&utm_content=Cam-Mitsuca&utm_campaign=Renove-Casa" title="" target="_blank">
+    		<strong>Extra.com.br</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/extra3101f.gif" width="49" height="49" />Câmera digital 8 MP por apenas<br> R$ 299. Confira!</span>
+    	</a>
+    
+
+    	<a name="14" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=54196&AdID=145064&TargetID=7202&ASeg=&AMod=&Segments=23,96,138,190,238,500,1044,2149,2848,2881,3165,3172,3173,3445,4209,4236,4307,4792,4986,5090,5244,5272,5550,5614,5763,5786&Targets=7202&Values=31,51,60,82,100,110,150,204,346,356,371,384,407,421,2348,11837&RawValues=&Redirect=http://ad.adnetwork.com.br/mfa/go/img/;s=7;c=2500;a=1;l=1;p=20;sc=11024;n=0;b=73113" title="" target="_blank">
+    		<strong>Promoção SKY</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200812/sky.gif" width="49" height="49" />BBB9 + 50% de desconto 1° mês + 12 PPV!</span>
+    	</a>
+    
+
+    	<a name="28" href="http://bn.uol.com.br/event.ng/Type=click&FlightID=37166&AdID=94410&TargetID=5072&Segments=23,96,129,138,190,238,247,500,710,1043,1044,2149,2377,2724,2848,2881,3165,3172,3445,3564,3719,3726,3897,4038,4040,4047,4137,4145,4172,4194,4205,4209,4236,4251&Targets=5072&Values=31,51,60,81,100,110,150,204,346,356,371,384,407,421,2348,10565&RawValues=&Redirect=http://www.walmart.com.br/Produto/D/E/F/Produto.aspx?idSku=535&utm_source=uol&utm_medium=barra-de-ofertas-p18&utm_campaign=Walk-Talk-8km-Por-R-99-00-5X-de-R-19-80" title="" target="_blank">
+    		<strong>Wal-Mart</strong>
+    		<span><img src="http://pubshop.img.uol.com.br/200901/walk_talk_02_49x49.gif" width="49" height="49" />Walk Talk 8km Por R$ 99 em 5x de apenas R$ 19,80</span>
+    	</a>
+    
+
+
+  </div>
+</div><!--/box1-->
+
+
+
+<!--/shopping-->
+
+
+      
+      <style type="text/css">
+#to {border:.1em solid #CCC;margin-top:3em;position:relative;padding:4px;background:url('http://home.img.uol.com.br/to/bg3.gif') repeat-x 0 60px;}
+#to-header {height:60px;}
+#to-header a {background:transparent url(http://home.img.uol.com.br/to/logo.gif) no-repeat scroll 0 0;float:left;height:35px;margin:10px 6px;width:93px;}
+#to-header a span {display:none;}
+#to-header strong {font:bolder 1em Verdana, Geneva, Arial, Helvetica, sans-serif;float:right;margin:10px 8px 0 0;}
+#to-search {position:absolute;display:block;top:32px;left:110px;}
+#to-search .text {width:105px;height:14px;font:normal 10px Arial, Helvetica, sans-serif;float:left;margin-right:5px;}
+#to-search .send {float:left;}
+#to-offers {height:173px;overflow:hidden;border-bottom:1px dotted #CCC;}
+* html #to-offers {width:290px;}
+#to-offers ul {width:340px;}
+#to-offers ul li.to-has-photo {float:left;width:98px;height:110px;border-right:1px dotted #CCC;clear:none;padding:0;background:none;}
+#to-offers ul li.to-has-photo img {margin:10px 0 2px 25px;}
+#to-offers ul li.to-has-photo strong,
+#to-offers ul li.to-has-photo em {display:block;text-align:center;float:none;}
+#to-offers ul li {clear:both;height:14px;padding-left:24px;background:url('http://home.img.uol.com.br/to/bullet2.gif') no-repeat 10px 6px;overflow:hidden;}
+#to-offers ul li a:hover {text-decoration:none;}
+#to-offers ul li a:hover strong, #to-offers ul li a:hover em {text-decoration:underline;cursor:pointer;}
+#to-offers ul li strong {font:bolder 1.1em Arial, Helvetica, sans-serif;color:#336699;float:left;margin-right:.4em;}
+#to-offers ul li em {font:normal 1em Arial, Helvetica, sans-serif;color:#000;float:left;}
+#to-offers ul li.first-no-photo {display:block;clear:both;border-top:1px dotted #CCC;padding-top:8px;background-position:10px 13px;}
+#to-sell {height:28px;border-bottom:1px dotted #CCC;}
+#to-sell p {display:inline;float:left;padding-top:7px;}
+#to-sell p strong {font:bolder 11px Arial, Helvetica, sans-serif;}
+#to-sell p img {border-left:4px solid #fff;}
+#to #pagseguro {height:30px;background:url('http://h.imguol.com/2009/pagseguro.jpg') no-repeat 150px center;}
+#to #pagseguro strong {display:none}
+#to #pagseguro em {font:bolder 11px Arial, Helvetica, sans-serif;color:#000;padding-top:10px;}
+</style>
+      <div id="to">
+	<div class="clearfix" id="to-header">
+		<a href="http://click.uol.com.br/?rf=hu-to-logo&u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:logo;creative:logo;thm:logo&msr=Cliques%20de%20Origem:1&oper=7&redir=http://todaoferta.uol.com.br/" target="_blank" title="comprar, vender e negociar em tempo real">
+			<span>TodaOferta</span>
+		</a>
+		<strong>
+			Tudo o que você quer comprar
+		</strong>
+	</div>
+	<form action="http://todaoferta.busca.uol.com.br/" id="to-search" target="_blank">
+		<p>
+			<input class="text" name="q" type="text" value="O que você procura?" onclick="this.value = '';" />
+			<input alt="Buscar" class="send" src="http://h.imguol.com/to/bot-buscar.gif" type="image" />
+		</p>
+	</form>
+	<div id="to-offers"><div>
+		<ul>
+			<li class="to-has-photo">
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos1-slot4&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos1_slot4;creative:celular_com_2_chips;thm:celular_telefonia&msr=Cliques%20de%20Origem:1&oper=7&redir=http://celular-e-telefonia.todaoferta.uol.com.br/celulares?filter=%26q=celular+com+2+chips%26photo=true%26nav_qref=%26nav_qmain=%26nav_path=%26nav_spec=%26nav_min=1%26nav_max=1000000%26nav_origin=%26nav_search_for=5%26auto_min_price=true%26auto_max_price=true" target="_blank">
+					<img alt="Celular com 2 Chips" src="http://home.img.uol.com.br/todaoferta/Celular_Telefonia/celular/thumb-cel-2-chips.gif" title="Celular com 2 Chips" />
+					<strong><b>Celular com 2 Chips</b></strong>
+					<em><b>12x de R$ 37</b></em>
+				</a>
+				
+			</li>
+			<li class="to-has-photo">
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos2-slot3&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos2_slot3;creative:camera_sony;thm:camera_foto&msr=Cliques%20de%20Origem:1&oper=7&redir=http://cameras-e-foto.todaoferta.uol.com.br/cameras-digitais?filter=%26q=%26photo=true%26nav_qref=%26nav_qmain=%26nav_path=%26nav_spec=brand%3A|Sony%3A|Sony%26nav_min=1%26nav_max=1000000%26nav_origin=%26nav_search_for=5%26auto_min_price=true%26auto_max_price=true" target="_blank">
+					<img alt="Câmera Sony" src="http://home.img.uol.com.br/todaoferta/Camera_Foto/camera-digital/thumb-camera-sony-01.gif" title="Câmera Sony" />
+					<strong><b>Câmera Sony</b></strong>
+					<em><b>12x de R$ 29</b></em>
+				</a>
+				
+			</li>
+			<li class="to-has-photo">
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos3-slot2&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos3_slot2;creative:pen_drive_8gb;thm:informatica&msr=Cliques%20de%20Origem:1&oper=7&redir=http://informatica.todaoferta.uol.com.br/pen-drive?filter=%26q=pen+drive%26photo=true%26nav_qref=8GB%26nav_qmain=%26nav_path=%26nav_spec=%26nav_min=1%26nav_max=1000000%26nav_origin=%26nav_search_for=5%26auto_min_price=true%26auto_max_price=true" target="_blank">
+					<img alt="Playstation 2 Slim" src="http://home.img.uol.com.br/todaoferta/playstation/play-slim-01.gif" title="Playstation 2 Slim" />
+					<strong><b>Playstation 2 Slim</b></strong>
+					<em><b>12x de R$ 42</b></em>
+				</a>
+				
+			</li>
+			<li class="first-no-photo">
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos4-slot3&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos4_slot3;creative:mp9_widescreen;thm:celular_telefonia&msr=Cliques%20de%20Origem:1&oper=7&redir=http://comprar.todaoferta.uol.com.br/celular-mp9-mp7-v866-ctv-pega-vivooitimclaro-WJYCOUEYJE" target="_blank">
+					<strong><b>MP9 Widescreen</b></strong>
+					<em><b>12x de R$ 47</b></em>
+				</a>
+				
+			</li>
+			<li>
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos5-slot4&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos5_slot4;creative:celular_mp10;thm:celular_telefonia&msr=Cliques%20de%20Origem:1&oper=7&redir=http://celular-e-telefonia.todaoferta.uol.com.br/celulares?filter=%26q=%26photo=true%26nav_qref=MP10%26nav_qmain=%26nav_path=%26nav_spec=%26nav_min=300%26nav_max=1000000%26nav_origin=%26nav_search_for=5%26auto_max_price=true " target="_blank">
+					<strong><b>MP10 Player</b></strong>
+					<em><b>12x de R$ 51,00</b></em>
+				</a>
+				
+			</li>
+			<li class="last-no-photo">
+				
+				<a href="http://click.uol.com.br/?rf=hu-to-pos6-slot3&amp;u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:pos6_slot3;creative:monitor_lcd;thm:informatica&msr=Cliques%20de%20Origem:1&oper=7&redir=http://informatica.todaoferta.uol.com.br/monitores?nav_subcategory=monitores%26nav_search_for=5%26nav_category=informatica%26nav_min=329%26nav_qref=LCD%26photo=true%26auto_max_price=true%26nav_order=price%26dir=asc" target="_blank">
+					<strong><b>Monitor LCD</b></strong>
+					<em><b>12x de R$ 32,00</b></em>
+				</a>
+				
+			</li>
+		</ul>
+	</div></div>
+	<div id="to-sell">
+		<p>
+			<strong class="to-section">Tem algo para vender?</strong>
+		</p>
+		<p>
+			<a href="http://click.uol.com.br/?rf=hu-to-anuncie&u=http://clicklogger.rm.uol.com.br/?prd=12&grp=src:12;size:18;chn:0;pos:anuncie;creative:anuncie;thm:anuncie&msr=Cliques%20de%20Origem:1&oper=7&redir=http://todaoferta.uol.com.br/extras/bem-vindo/index.html" target="_blank">
+				<img alt="Venda seu produto" src="http://home.img.uol.com.br/to/bt-anuncie.jpg" title="Venda seu produto" />
+			</a>
+		</p>
+	</div>
+	<p>
+		<a id="pagseguro" href="http://click.uol.com.br/?rf=hu-to-last&u=https://pagseguro.uol.com.br/" target="_blank">
+			<strong>PagSeguro</strong>
+			<em>Sua compra protegida</em>
+		</a>
+	</p>
+</div>		
+      <!-- Álbum de Fotos -->
+<div id="album">
+	<div id="album-top">
+		<h2>Fotos</h2>
+	</div>			
+	<div id="album-body">
+		<ul>
+			<li class="first">
+				<a name="fotos1" href="http://diversao.uol.com.br/album/bbc/unveiled-middle-east_album.jhtm?abrefoto=1" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01mostraoriente.jpg" alt="Saatchi Gallery © Shadi Ghadirian, 2009" title="Saatchi Gallery © Shadi Ghadirian, 2009" /></a>
+				<div class="chapeu"><a name="fotos1" href="http://diversao.uol.com.br/album/bbc/unveiled-middle-east_album.jhtm?abrefoto=1" rel="nofollow">Em Londres</a></div>
+				<p><a name="fotos1" href="http://diversao.uol.com.br/album/bbc/unveiled-middle-east_album.jhtm?abrefoto=1">Veja obras da mostra "Unveiled", com nomes da nova arte do Oriente</a></p>	
+			</li>
+			<li>
+				<a name="fotos2" href="http://tc.batepapo.uol.com.br/album/janeiro2009_album.jhtm?abrefoto=4" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01batepapo.jpg" alt="Ernani d´Almeida/Divulgação" title="Ernani d´Almeida/Divulgação" /></a>
+				<div class="chapeu"><a name="fotos2" href="http://tc.batepapo.uol.com.br/album/janeiro2009_album.jhtm?abrefoto=4" rel="nofollow">Melhores de janeiro</a></div>
+				<p><a name="fotos2" href="http://tc.batepapo.uol.com.br/album/janeiro2009_album.jhtm?abrefoto=4">Reveja Carolina Ferraz e outros convidados do Bate-papo UOL </a></p>	
+			</li>
+			<li>
+				<a name="fotos3" href="http://capricho.abril.com.br/beleza/make-penteado-volta-aulas-418638.shtml" rel="nofollow"><img class="img108x80" src="http://h.imguol.com/0902/01makeup.jpg" alt="Capricho" title="Capricho" /></a>
+				<div class="chapeu"><a name="fotos3" href="http://capricho.abril.com.br/beleza/make-penteado-volta-aulas-418638.shtml" rel="nofollow">Jovem</a></div>
+				<p><a name="fotos3" href="http://capricho.abril.com.br/beleza/make-penteado-volta-aulas-418638.shtml">Aprenda um "make-up" com penteado para arrasar na escola</a></p>	
+			</li>
+			<li class="rodapeLinks">
+				<a name="fotos-canais" href="http://noticias.uol.com.br/fotos/">NOTÍCIAS</a> | <a name="fotos-canais" href="http://esporte.uol.com.br/fotos/">ESPORTE</a> | <a name="fotos-canais" href="http://tecnologia.uol.com.br/fotos/">TECNOLOGIA</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- /Álbum de Fotos -->
+      <!-- Jornais e revistas -->
+<div id="jornais">
+	<div id="jornais-top">
+		<h2>Jornais e Revistas</h2>
+	</div>			
+	<div id="jornais-body">
+		<ul>
+      <li>
+  			<div class="chapeu"><a rel="nofollow" href="http://revistaadega.uol.com.br/edicoes/37/artigo116844-1.asp" name="jornais">Adega</a></div>
+  			<h3><a href="http://revistaadega.uol.com.br/edicoes/37/artigo116844-1.asp" name="jornais">Dicas para você saber apreciar<br>um charuto e não cometer gafes</a></h3>
+    	</li>
+      <li class="mod-duas-fotos">
+    		<div class="mod-duas-fotos-esq">
+    			<div class="chapeu"><a name="vB-duasfotos1" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9129.jhtm" rel="nofollow">The New York Times</a></div>
+    			<a name="vB-duasfotos1" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9129.jhtm" rel="nofollow"><img class="img108x80" src="http://n.i.uol.com.br/ultnot/0902/01watchmen2.jpg" alt="Warner/The New York Times" title="Warner/The New York Times" /></a>
+    			<h3><a name="vB-duasfotos1" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9129.jhtm">Os desafios para se levar 'Watchmen' para as telas</a></h3>
+    		</div>
+    		<div class="mod-duas-fotos-dir">
+    			<div class="chapeu"><a name="vB-duasfotos21" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9128.jhtm" rel="nofollow">The New York Times</a></div>
+    			<a name="vB-duasfotos2" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9128.jhtm" rel="nofollow"><img class="img108x80" src="http://n.i.uol.com.br/ultnot/0902/01marilynmanson.jpg" alt="Mihai Barbu/Reteurs - 1.jul.2007" title="Mihai Barbu/Reteurs - 1.jul.2007" /></a>
+    			<h3><a name="vB-duasfotos2" href="http://noticias.uol.com.br/midiaglobal/nytimes/2009/02/01/ult574u9128.jhtm">Produção de bebida de Marilyn Manson dá fama a vila suíça</a></h3>
+    		</div>
+    	</li>
+      <li class="rodapeLinks">
+        <a name="jornais" href="http://noticias.uol.com.br/ultnot/elpais/">EL PAÍS</a>
+         | <a name="jornais" href="http://noticias.uol.com.br/ultnot/herald/">HERALD</a>
+         | <a name="jornais" href="http://noticias.uol.com.br/ultnot/financial/">FIN. TIMES</a>
+         | <a name="jornais" href="http://noticias.uol.com.br/ultnot/lavanguardia/">LA VANGUARDIA</a>
+        
+      </li>
+		</ul>
+	</div>
+</div>
+<!-- / Jornais e revistas -->
+
+      
+<!-- mod-abas -->
+<div id="mod-abas">
+	<div id="abas-top">
+		<ul>
+			<li onclick="mudaConteudo('noticias.uol.com.br/home-blogs-noticias.jhtm' ,this);" class="aba1"><img class="canto" src="http://home.img.uol.com.br/aba-canto.gif"><a href="javascript:void(0);" name="">Blogs</a></li>
+			<li onclick="mudaConteudo('noticias.uol.com.br/home-humor-noticias.jhtm' ,this);" class="aba4" id="abaSel"><img class="canto" src="http://home.img.uol.com.br/aba-canto.gif"><a href="javascript:void(0);" name="">Humor</a></li>
+		</ul>
+	</div>	
+	<div id="mod-abas-body">
+		<iframe id="conteudo-canal" src="http://home.noticias.uol.com.br/home-humor-noticias.jhtm" frameborder="0" scrolling="no"></iframe>
+	</div>
+</div>
+	<script type="text/javascript">
+		function mudaConteudo(canal,selecao){
+			document.getElementById = document.getElementById;
+			document.getElementById("abaSel").getElementsByTagName("img")[0].src = "http://home.img.uol.com.br/aba-canto.gif";
+			document.getElementById("abaSel").getElementsByTagName("a")[0].style.height = "19px";
+			document.getElementById("abaSel").id = "";
+			selecao.id = "abaSel";
+			document.getElementById("abaSel").getElementsByTagName("a")[0].style.height = "20px";
+			document.getElementById("conteudo-canal").src = "http://click.uol.com.br/?rf=home-"+ document.getElementById("abaSel").className +"&u=http://home." + canal;
+			if (navigator.userAgent.indexOf("MSIE 6.0") != -1){
+				document.getElementById("abaSel").innerHTML = document.getElementById("abaSel").innerHTML;
+			}
+		}
+	</script>
+<!-- mod-abas -->
+
+
+
+
+
+      
+      <div class="clearAll"></div>
+
+    </div></div><!-- /colDireita -->
+    <div class="clearAll"></div>
+  </div><!--/corpo-->
+
+  <!-- uolhome:arq -->
+  <script>if (d.getElementById&&screen.height<=480){document.write('<style>#rodape{height:21em}</style>')}</script>
+  <div id="rodape">
+  	<div id="hUOLfooter">
+  		<a href="http://sobre.uol.com.br/index_en.jhtm">About UOL</a>&#149;<a href="http://publicidade.uol.com.br/">Anuncie</a>&#149;<a href="http://assine.uol.com.br/index.htm?eos=yes&promo=117532407&sg=300015590&sa=home-rodape-assine&promochild=PROMOCOMBIAVSS">Assine</a>&#149;<a href="http://ri.uol.com.br/">Relações com Investidores</a>&#149;<a href="https://sac.uol.com.br/info/protecao_privacidade/normas_protecao_privacidade.jhtm">Segurança e privacidade</a>&#149;<a href="http://sobre.uol.com.br/">Sobre o UOL</a>&#149;<a href="http://sistema.ucn.com.br/1/mtc/E20707-717">Trabalhe no UOL</a>&#149;<a href="http://www.uol.com.ar/" target="_blank">UOL Argentina</a><br>
+  		<a href="http://assinebandalarga.uol.com.br/">Banda Larga</a>&#149;<a href="http://todaoferta.uol.com.br/">TodaOferta</a>&#149;<a href="https://pagseguro.uol.com.br/?ind=681489">PagSeguro</a>&#149;<a href="http://shopping.uol.com.br/">Pesquisa de preços</a>&#149;<a href="http://seguranca.uol.com.br/virus/">Antivírus</a>&#149;<a href="http://megastore.uol.com.br/">Música</a>&#149;<a href="http://voip.uol.com.br/">Voip</a>&#149;<a href="http://jogos.uol.com.br/loja/">Jogos</a>&#149;<a href="http://wifi.uol.com.br/">Wi-Fi</a>&#149;<a href="http://linkspatrocinados.uol.com.br/">Links patrocinados</a>&#149;<a href="http://www.bol.uol.com.br/">E-mail gratuito</a>
+  	</div>
+  	<div id="hUOLfooter2">
+  		<div id="uolhome"><a id="faca-sua-home-footer" href=# rel="nofollow" onclick="defineHome(this);"><img src="http://h.imguol.com/h1/icone-uolhome.gif" width=14 height=14 border=0 align="absmiddle"> Faça do UOL a sua home page</a></div>
+  		<div id="arquivohome"><a name="arquivo" href="http://noticias.uol.com.br/arquivohome/"><img src="http://h.imguol.com/h1/icone-arquivo.gif" width=12 height=12 border=0 align="absmiddle"> Arquivo de home pages UOL</a></div>
+  		<div id="rss"><a href="http://rss.home.uol.com.br/index.xml"><img src="http://h.imguol.com/h1/icone-rss.gif" border="0" align="absmiddle"></a> <a href="/p14">O que é isso?</a></div>
+  		<div id="ombudsman"><a name="ombudsman" href="http://ombudsmandouol.blog.uol.com.br/" target="_blank"><img src="http://h.imguol.com/h1/icone-faleconosco.gif" width=13 height=11 border=0 align="absmiddle"> Ombudsman</a></div>
+  		<div id="erratas"><a name="erratas" href="http://noticias.uol.com.br/erratas/"> Erratas</a></div>
+  		<div id="erro"><a href="javascript:ShowEnviaErro()" rel="nofollow"><img src="http://h.imguol.com/h1/icone-erro.gif" width=14 height=11 border=0 align="absmiddle"> Comunicar erro nesta página</a></div>
+  		<div id="crimes"><a href="http://denuncia.uol.com.br/"><img src="http://h.imguol.com/h1/icone-denuncie.gif" width=12 height=11 border=0 align="absmiddle"> Crimes virtuais: denuncie</a></div>
+  		<div id="pipes">|<span id="pipe2">|</span><span id="pipe3">|</span><span id="pipe4">|</span><span id="pipe5">|</span><span id="pipe6">|</span></div>
+  		<script>if (d.getElementById&&screen.height<=480){document.write('<style>#copyright{top:8.5em} #homecelular {position:relative;top:4.5em;width:100%;text-align:center;height:4em;} #homecelular a {display:inline;outline:none;}</style><div id="homecelular"><a href=http://click.uol.com.br/?rf=hu-celular-rodape&u=http://wap.uol.com.br/?celularView><img src="http://h.imguol.com/h3/acessar_versao_celular.gif" alt="Acessar a versão Celular" title="Acessar a versão Celular" /></a></div>');}</script>
+  		<div id="copyright">
+  			&copy; 1996-2009 UOL - O melhor conteúdo. Todos os direitos reservados
+  			<div id="uol-host"><a name="hospedagem" href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:13;chn:103;creative:hospedagem&amp;msr=Cliques%20de%20Origem:1&amp;oper=7&amp;redir=http://www.uolhost.com.br/hospedagem-de-sites.html" target="_blank">Hospedagem:</a> <a name="uolhost" href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:13;chn:103;creative:uolhost&amp;msr=Cliques%20de%20Origem:1&amp;oper=7&amp;redir=http://www.uolhost.com.br/" target="_blank">UOL Host</a></div>
+  		</div>
+  	</div>
+  
+  </div><!--/rodape-->
+  <!-- /uolhome:arq -->
+  <form method="post" action="http://cf5.uol.com.br/envie/enviar3.cfm" name="reportar" target="iframeErros">
+  <input type="hidden" name="titmateria" value="Home page do UOL" />
+  <input type="hidden" name="chmateria" value="01/02/2009">
+  <input type="hidden" name="estacao" value="Home page do UOL" />
+  <input type="hidden" name="coderramos" value="5" />
+  <input type="hidden" name="seunome" value="" />
+  <input type="hidden" name="seuemail" value="" />
+  <input type="hidden" name="descricao" value="" />
+  <input type="hidden" name="urlmateria" value="" />
+  <input type="hidden" name="obrigado" value="" />
+  </form>
+
+  <script>
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('b={$6:9(A){26 7.27(A)},1I:{28:2W.2X.13("1I")>=0?2Y:1J},8:1n,U:1n,1b:"",1o:1n,29:9(){c F="2Z(7.2a && 7.2a==\'30\')";c G="31";c C="7.d";c D="32";c A="33";c B="34";c E="35";7.2b("<k>      #b {V:2c;v:0;r:0;y:2d%;W:2d%;z-2e:2f;L-X:#2g;1K:.45;-36-1K:.45;37:38(1K=45)}      * 2h #b {V:1p;        v:Q("+F+" ? "+G+"."+D+"+\'h\' : "+C+"."+D+"+\'h\');        r:Q("+F+" ? "+G+"."+A+"+\'h\' : "+C+"."+A+"+\'h\');        W:Q("+F+" ? "+G+"."+E+"+\'h\' : "+C+"."+E+"+\'h\');        y:Q("+F+" ? "+G+"."+B+"+\'h\' : "+C+"."+B+"+\'h\');}      #Y.1q {L:#2i 2j(1c://I.1d.1e.l/39/3a.1r) 2k-2l 1L%;2m-y:2n;2m-W:2n}      #Y.1q #14 {M:15;16:1f;}      #Y.1s {16:1f;}      #Y.1s #14 {M:1M;16:3b;}      #Y.2o {16:2p;}      .1g {V:2c !1N;v:1L%;r:1L%;z-2e:3c !1N;        s-v:Q(3."+E+"/2*-1+\'h\');        s-r:Q(3."+B+"/2*-1+\'h\');      }      * 2h .1g {V:1p !1N;s:0;         v:Q("+F+"         ? "+G+"."+D+"+(("+G+"."+E+"-3."+E+")/2)+\'h\'         : "+C+"."+D+"+(("+C+"."+E+"-3."+E+")/2)+\'h\'         );         r:Q("+F+"         ? "+G+"."+A+"+(("+G+"."+B+"-3."+B+")/2)+\'h\'         : "+C+"."+A+"+(("+C+"."+B+"-3."+B+")/2)+\'h\'         );      }      d.Z 2q,      d.Z 2r {16:1f}      d.Z .1g 2q,      d.Z .1g 2r {16:2p}    </k>")},3d:9(A){3.1b=A},1t:9(){3.$6("b").k.M="15";3.$6(3.8).k.M="15";3.$6(3.8).m=3.2s;j(1u 3.1o=="9"){3.1o()}7.q("d")[0].m=7.q("d")[0].m.1v(/Z/g,"")},2t:9(){j(!3.$6("b")){c A=7.1O("4");A.6="b";A.2u=9(){b.1t()};7.q("d")[0].17[0].1w.1x(A,7.q("d")[0].17[0])}},2v:9(B){j(1u(B)!="2w"){c A=B.q("I");3.U="";3e(i=0;i<A.3f;i++){j(A[i].m.13("3g")>=0||A[i].m.13("3h")>=0){3.U=A[i].1h}}j(3.U!=""&&3.$6("14")){3.$6("14").1y="";3.$6(3.8).m+=" 1q";1P(9(){b.$6("14").1y=\'<I 1h="\'+b.U.1v("t.",".")+\'" 3i="b.2x()" />\'},3j)}}},1Q:9(C,B){3.1o=B||1n;3.2t();j(7.q("d")[0].m.13("Z")==-1){7.q("d")[0].m+="Z"}3.8=(1u(C)=="2w"?C:"Y");j(!3.$6(3.8)&&3.8=="Y"){c A=7.1O("4");A.6=8;A.1y=\'<4 6="14"></4>\';7.q("d")[0].17[0].1w.1x(A,7.q("d")[0].17[0])}3.2s=3.$6(3.8).m;3.2v(C);3.$6(3.8).m+=" 1g";3.$6("b").k.M=3.$6(3.8).k.M="1M";3.1R();7.q("d")[0].17[0].1w.1x(3.$6(3.8),7.q("d")[0].17[0]);j(3.1b!=""){3.2y()}},2x:9(){3.$6(3.8).m=3.$6(3.8).m.1v("1q","1s");3.1R();3.$6(3.8).m=3.$6(3.8).m.1v("1s","2o")},1R:9(){j(3.1I.28==1J){3.$6(3.8).k.3k=((3.$6(3.8).3l/2)*-1)+"h";3.$6(3.8).k.3m=((3.$6(3.8).3n/2)*-1)+"h"}},2y:9(){c E="3o";c A=3.$6(E);c C=(3p 3q()).3r();c D;j(A){A.1w.3s(A)}D=7.1O("4");D.6=E;c B=3.1b+(3.1b.13("?")==-1?"?":"&")+"3t="+C;j(3.U!=""){B+=(B.13("?")==-1?"?":"&")+"I="+3u(3.U)}D.1y=\'<1z 1h="\'+B+\'" 10="\'+E+C+\'" k="y:1A;W:1A;V:1p;v:-2z;r:-2z"></1z>\';7.q("d")[0].1x(D,7.q("d")[0].3v)}},9 3w(A){b.1Q(A)};b.29();9 2A(){3x(3y);j(1u(b)!="3z"){b.1Q("J",9(){3A()})}1i{1P(9(){2A()},2f)}}9 2B(){u=7.2C;11=7.1S;c B=u.18.f;j(u.1j.f==""){1B("1T 1U 2D 3B");u.1j.1C()}1i{j(B==""){1B("1T 1U 2D e-1V");u.18.1C()}1i{j(!B.3C(/\\w+@\\w+\\.\\w+/)){1B("E-1V 3Dá3E");u.18.1C()}1i{j(u.1k.f==""){1B("1T 1U a 3Fção");u.1k.1C()}1i{11.1j.f=u.1j.f;11.18.f=u.18.f;11.1k.f=u.1k.f;11.1D.f=u.1D.f;11.3G.f=3H.2E;c A=1P("b.1t()",3I);7.27("1E").k.M="1M";11.3J()}}}}}9 3K(){7.2b(\'<k>4#J {M:15;}4#J .R {L:1W; 1l:S}4#J .R #12 { y:3L; L:2j(1c://n.i.1d.1e.l/K/3M.1r) 2k-2l 1X; 1l-r:T; 1l-1X:S; 3N:1f; 2F:3O; }4#J .R #12 .1F { L:2G; 2H:2I;}4#J .R #12 .1F I { 1l:0 0 T T; *1l:0 0 0 T; 3P-r:T; *s-v:T; 19:0}4#J .R #12 .1F a {N:1G S 1a; X:#2J; 1Y-3Q:15}4#J .R #12 .1Z {L:2G; 2H:r; N:1G 2K 1a; X:#3R; }4#J .R #12 .1Z I {*s-v:T; s-2I:T }#K {L: #2i; N: x-3S 1a, 20, 3T-3U; X:#2g; y:2L; W:3V; V:3W}#K #1H {s-v:3X;}#K #1H {y:3Y;N:2K 1a; s:S;}#K #1H .P {y:3Z; s-1X:2M; 19:1A 40 #41; L:1W}#K .21-22 {1Y-42:43;L-X:#2J;19-X:#44;19-y:1A;N-46:1a;N-47:S;y:48;W:49;X:1W; s-v:2M;}#K .2N {N:S 20}#K .2O {N:1G 4a 1a}#1E {19:0; V:1p; v:4b; r:0; y:2L; W:4c; s:S; M:15}</k><4 6="J" H="4d">  <4 H="R">  <4 6=12>  <4 H=1Z><I 1h=1c://2P.I.1d.1e.l/2Q/4e.1r 23=2R> 4f 24</4>  <4 H=1F><a 2E=4g:b.1t()>4h <I 1h=1c://2P.I.1d.1e.l/2Q/4i.1r 23=2R></a></4>  </4>  <4 6=K>  <4 6=1H 4j="26 1J">  <4 H=2N>\'+7.1S.4k.f+"</4><4 H=2O>"+7.1S.4l.f+\'</4>  <l 2F=r>  4m 4nê 4o 24 4p 4q 4r 4s pá2S, 4t 4u 4v 4w 4x 4y. O 4z 4A pá2S 4Bá 4C 4D 4E 4F.<l><l>  <2T 10="2C">  <4 k="s-r:4G; N:1G S 20">  4H:<l><P 1m="2U" H=P 10="1j"><l />  E-1V:<l><P 1m="2U" H=P 10="18"><l />  4Ição 4J 24:<l><2V 4K=5 H=P 10="1k"></2V><l />  </4>  <4 k="1Y-23:4L"><P 1m="4M" H="21-22" f="4N">&25;&25;&25;<P 1m="4O" H="21-22" f="4P" 2u="2B();"></4>  <P 1m="1f" 10="1D" f="1c://4Q.1d.1e.l/K/1D.4R">  </2T>  </4>  </4>  <1z 6="1E" 10="1E" 19=0 4S=0></1z>  </4></4>\')}',62,303,'|||this|div||id|document|HTMLElementId|function||FullOpacity|var|body||value||px||if|style|br|className||||getElementsByTagName|left|margin||df1|top|||width|||||||||class|img|FullOpacityPopUpErro|erros|background|display|font||input|expression|errosconteudo|10px|3px|imgTb|position|height|color|FullOpacityPopUp|fullOpacityShow|name|df2|errostop|indexOf|FullOpacityPopUpImg|none|visibility|childNodes|seuemail|border|arial|hit|http|uol|com|hidden|FullOpacityPopUpFixed|src|else|seunome|descricao|padding|type|null|hideCallback|absolute|carregandoImg|gif|carregado|hide|typeof|replace|parentNode|insertBefore|innerHTML|iframe|1px|alert|focus|obrigado|iframeErros|errosfechar|bold|errosformulario|MSIE|false|opacity|50|block|important|createElement|setTimeout|show|setPosition|reportar|Favor|preencher|mail|white|bottom|text|errostit|verdana|bot|envia|align|erro|nbsp|return|getElementById|status|init|compatMode|write|fixed|100|index|1000|000|html|fff|url|no|repeat|min|100px|exibindo|visible|embed|object|oldClassName|appendFullOpacity|onclick|findThumbnail|string|showImage|requestHit|1000px|ShowEnviaErro|validaErros|formerros|seu|href|clear|transparent|float|right|84774a|13px|460px|5px|v10nb|a18bb|home|h3|absmiddle|gina|form|Text|textarea|navigator|userAgent|true|eval|CSS1Compat|documentElement|scrollTop|scrollLeft|clientWidth|clientHeight|moz|filter|alpha|libs|loading|inherit|1001|setHit|for|length|fotb|shot|onload|200|marginLeft|offsetWidth|marginTop|offsetHeight|fullOpacityHit|new|Date|getTime|removeChild|ts|escape|firstChild|FullOpacityShow|clearTimeout|jsRefresh|undefined|setJsRefresh|nome|match|inv|lido|descri|urlmateria|location|30000|submit|EnviarErro|450px|linha|overflow|both|_margin|decoration|986631|small|sans|serif|360px|relative|15px|440px|230px|solid|7e9db9|transform|uppercase|BDBDBD||family|size|55px|19px|18px|25px|345px|apagarEquipe|ico_erro|Comunicar|javascript|FECHAR|bt_x|onSubmit|chmateria|titmateria|Se|voc|encontrou|neste|texto|ou|nesta|por|favor|preencha|os|campos|abaixo|link|da|ser|enviado|automaticamente|ao|UOL|105px|Nome|Descri|do|rows|center|reset|Limpar|button|Enviar|noticias|jhtm|frameborder'.split('|'),0,{}))
+    EnviarErro();
+  </script>
+
+  <script type="text/javascript">
+  function findPos(bId, sum){
+    var x=0, y=0;
+    while(bId.parentNode.id!="centraliza"){
+      x+=bId.offsetLeft;
+      y+=bId.offsetTop;
+      bId = bId.parentNode;
+    }
+    x+=bId.offsetLeft;
+    y+=bId.offsetTop;
+    return x+"x"+y;
+  }
+  function placePos(bId, pos){
+    var p = pos.split("x");
+  	bId.style.left=p[0]+"px";
+  	bId.style.top=p[1]+"px";
+  }
+  // posiciona banners //
+  var DEsite="uolbr";
+  var DEchan="homeuol";
+  var DEsubc="capa";
+  var Expble=0;
+  var DEt=new Date(); DEt=DEt.getTime(); DErand=Math.floor(DEt*1000*Math.random());
+  var scw=0,sch=0; if(screen.height){scw=screen.width;sch=screen.height;}
+  function DEshow(ad,pos){
+  var DEconn=d.body; DEconn.style.behavior='url(#default#clientCaps)'; DEconn=(DEconn.connectionType=='lan')?1:0;
+  if($('banner-'+ad+'-'+pos+'-area')){
+  	d.write('<'+'scr'+'ipt type="text/javascript" src="http://bn.uol.com.br/js.ng/site='+DEsite+'&amp;chan='+DEchan+'&amp;subchan='+DEsubc+'&amp;affiliate='+DEsite+DEchan+'&amp;size='+ad+'&amp;page='+pos+'&amp;conntype='+DEconn+'&amp;expble='+Expble+'&amp;reso='+scw+'x'+sch+'&amp;tile='+DErand+'?"><\/scr'+'ipt>');
+  	if(ad!='1x1'&&ad!='100x100') 
+      setTimeout(function(){
+        placePos($('banner-'+ad+'-'+pos), findPos($('banner-'+ad+'-'+pos+'-area'))); // se não é popup, posiciona na tela
+      },1000);
+  	}
+  }
+
+// pop radio 
+function pop(url) {
+clk = url.replace(/(.*&u=).*/,"$1");
+canal = url.replace(/.*canal=(.*)/,"$1");
+if(arguments[0].indexOf('abreradio.htm')!=-1) {
+	url = clk+"http://app.radio.musica.uol.com.br/radiouol/player/frameset.php?opcao=playlist&nomeplaylist="+canal;
+	window.open(url,'popplaylist','width=480,height=570,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no');
+} else if (arguments[0].indexOf('player.htm')!=-1) {
+	player = ((arguments[1].indexOf("_128")!=-1) ? arguments[1].slice(0,-4) : arguments[1].slice(0,-3));
+	url = clk+"http://radio.musica.uol.com.br/players/detector.htm?au="+arguments[1]+"&htm="+player+"_player";
+	feat = 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,title=yes,resizable='+((navigator.appName.indexOf("Explorer")!=-1) ? 'no' : 'yes')+',width=215,height=380';
+	window.open(url,'audio_'+arguments[1],feat);
+} else if (arguments[0].indexOf('frameset.php')!=-1) {
+	window.open(url,'popplaylist','width=480,height=570,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no');
+} else if (arguments[0].indexOf('cdcapa.php')!=-1) {
+	try{
+		var album = url.match(/album=([^&]+)/)[1];
+		var codcd = url.match(/codcd=([^&]+)/)[1];
+	} catch(e) {	return false;	}
+	url = clk+"http://app.radio.musica.uol.com.br/radiouol/player/frameset.php?opcao=umcd&nomeplaylist="+codcd+"%3C@%3E"+album;
+	window.open(url,'popplaylist','width=480,height=570,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no');
+} else {
+	return false; //uolhome
+} }
+
+// click uol //
+divs=d.getElementsByTagName('div').length;
+reF='';
+for(i=0;i<divs;i++){
+diV=d.getElementsByTagName('div')[i];
+dId=diV.id;
+if(dId=='menu'||dId=='extra'||dId=='conteudo'||dId=='area-inf'||dId=='barra'||diV.className=='mod'||dId=='hn'||dId=='barra-uol1'||dId=='barra-uol2'||dId=='shop1'||dId=='shop2'||dId=='hUOLfooter'||dId=='hUOLfooter2'||dId=='hnpan2007'||dId=='hn-r'||dId=='arquivohome'||dId=='ombudsman'||dId=='erratas'||dId=='album'||dId=='jornais'||dId=='blogs'||dId=='tms-noticias'||dId=='barraUOL'||dId=='mod-shopping'){
+	lnks=diV.getElementsByTagName('a').length;
+	for(j=0;j<lnks;j++){
+		aObj=diV.getElementsByTagName('a')[j];
+		aLnk=aObj.href.toString();
+		reF='home';
+		if(aObj.name!='') reF+='-'+(dId=="shop1"||dId=="shop2"?"coluna"+(parseFloat(aObj.name)<15?"1":"2")+"-of":"")+aObj.name;
+    if (aObj.name == 'hu-home-rotativo') reF = aObj.name;
+		if(aLnk.indexOf('http://click.uol')==-1 && aLnk.indexOf('void(')==-1) {
+			aObj.href = aLnk.replace(/http(s?):\/\//,'http:\/\/click.uol.com.br/?rf='+reF+'&u=http$1:\/\/');
+		}
+		if(aLnk.indexOf('radio.musica.uol.com.br')!=-1&&(aLnk.indexOf('player.htm')!=-1||aLnk.indexOf('abreradio.htm')!=-1||aLnk.indexOf('cdcapa.php')!=-1||aLnk.indexOf('frameset.php')!=-1)){
+			aObj.href='javascript:pop("'+aObj.href+'")';
+		}
+	}
+} }
+document.getElementById("faca-sua-home-header").href = "#";
+document.getElementById("faca-sua-home-footer").href = "#";
+
+// busca //
+var ultimaBarraSel = $('abas').getElementsByTagName('a')[0];
+var docForm = $('form');
+function UOLBusca(s){
+if(ultimaBarraSel!="" && ultimaBarraSel!=s){
+	ultimaBarraSel.className="";
+}
+if(s.nextSibling.innerHTML!=""){
+	docForm.getElementsByTagName('select')[0].style.display='none';
+	docForm.getElementsByTagName('input')[0].className='texto';
+}
+s.blur();
+s.className="sel";
+ultimaBarraSel=s;
+d.formb.group.disabled="disabled";
+d.formb.skin.disabled=d.formb.id.disabled=d.formb.rd.disabled=(s.innerHTML=='Notícias') ? "" : "disabled";
+if(s.innerHTML=='Web') {d.formb.action = "http://busca.uol.com.br/www/index.html"; ababusca = "web";}
+else if(s.innerHTML=='Notícias') {d.formb.action = "http://noticias.busca.uol.com.br/uol/index.html"; ababusca = "noticias";}
+else if(s.innerHTML=='Imagens') {d.formb.action = "http://busca.uol.com.br/imagem/index.html"; ababusca = "imagens";}
+else if(s.innerHTML=='Vídeos') {d.formb.action = "http://busca.uol.com.br/video/index.html"; ababusca = "videos";}
+else if(s.innerHTML=='Dicionários') {
+	d.formb.action = "http://dic.busca.uol.com.br/result.html";
+	d.formb.group.disabled = "";
+	d.formb.t.disabled = "";
+	d.formb.t.value="10";
+	docForm.getElementsByTagName('select')[0].style.display='block';
+	docForm.getElementsByTagName('input')[0].className='texto idiomas-texto';
+	ababusca = "dicionarios";
+}
+else if(s.innerHTML=='Comparar preços') { d.formb.action = "http://shopping.busca.uol.com.br/busca.html";  ababusca = "precos" }
+docForm.getElementsByTagName('input')[0].focus();
+buscatop(ababusca);
+}
+function buscatop(aba) {
+	var abaclick = document.createElement('img');
+	document.getElementsByTagName('body')[0].appendChild(abaclick);
+	abaclick.src = 'http://click.uol.com.br/?rf=hu-busca-'+aba+'&u=http://home.img.uol.com.br/h3/x.gif';
+}
+var clickCount = function(clickId){
+	var imgClick = document.createElement("img");
+	imgClick.id="clickUOL"+clickId;
+	document.getElementsByTagName("body")[0].appendChild(imgClick);
+	imgClick.src = "http://click.uol.com.br/?rf=home-"+clickId+"&u=http://home.img.uol.com.br/h3/x.gif";
+}
+var submitEmailForm = function(){
+	clickCount('email-caixa');
+	checaClickUOLEmail(); 
+	return false;
+}
+var checaClickUOLEmail = function(){
+	if(document.getElementById("clickUOLemail-caixa").complete){
+		document.formEmail.onsubmit = function(){return true;};		
+		document.formEmail.submit();
+	}
+	else{
+		setTimeout(function(){checaClickUOLEmail();},500);
+	}
+}
+var submitEmpregosForm = function(){
+	if (document.formEmpregos.sltEmpregos.value!=""){
+		clickCount('empregos-caixa');
+		checaClickUOLEmpregos();
+	}
+	return false;
+}
+var checaClickUOLEmpregos = function(){
+  if(document.getElementById("clickUOLempregos-caixa").complete){
+    document.location="http://clicklogger.rm.uol.com.br/?prd=21&grp=src:10;size:6;chn:0;creative:caixadebuscahomeuol;thm:"+document.formEmpregos.sltEmpregos.options[document.formEmpregos.sltEmpregos.selectedIndex].id+"&msr=Cliques%20de%20Origem:1&oper=7&redir=http://empregocerto.uol.com.br/search/jobs.html?workingArea="+document.formEmpregos.sltEmpregos.value;
+    }
+    else{
+        setTimeout(function(){checaClickUOLEmpregos();},500);
+    }
+}
+
+function defineHome(obj){
+    var defineHomeClick = document.createElement('img')
+    defineHomeClick.src = 'http://click.uol.com.br/?rf=hu-homepage&u=http://home.img.uol.com.br/x.gif';
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+        obj.style.behavior = 'url(#default#homepage)';
+        obj.setHomePage('http://www.uol.com.br/')
+    }
+    else {
+        location.href = "http://www.uol.com.br/p15";
+    }
+}
+
+setJsRefresh();
+  </script>
+  <div id="banner-468x60-1"><script type="text/javascript">DEshow('468x60',1);</script></div>
+  <div id="banner-120x36-6"><script type="text/javascript">DEshow('120x36',6);</script></div>
+  <div id="banner-120x36-9"><script type="text/javascript">DEshow('120x36',9);</script></div>
+  <div id="banner-120x36-12"><script type="text/javascript">DEshow('120x36',12);</script></div>
+  <div id="banner-120x36-15"><script type="text/javascript">DEshow('120x36',15);</script></div>
+  <div id="banner-300x250-5"><script type="text/javascript">DEshow('300x250',5);</script></div>
+  <div id="banner-slot-1" class="banner-ecommerce"><script type="text/javascript">DEshow('slot',1);</script></div>
+  <div id="banner-slot-15" class="banner-ecommerce"><script type="text/javascript">DEshow('slot',15);</script></div>
+  <div id="banner-slot-2" class="banner-ecommerce"><script type="text/javascript">DEshow('slot',2);</script></div>
+  <div id="banner-slot-16" class="banner-ecommerce"><script type="text/javascript">DEshow('slot',16);</script></div>
+  <div id="banner-1x1-11-area"></div>
+  <script type="text/javascript">
+    if(d.cookie.indexOf("POPhomeUOL")==-1) { 
+    if(location.href.indexOf('homeuol')==-1) {
+    d.cookie="POPhomeUOL=0;domain=.uol.com.br;";
+    DEshow('1x1',11);
+    }}
+  </script>
+  
+    <div id="banner-250x230-5-area"></div><div id="banner-250x230-5"><script type="text/javascript">if(showBanner==true)DEshow('250x230',5,0);</script></div>
+  
+</div>
+<!--/SKa-->
+</body>
+</html>
+
+<!-- -->
+

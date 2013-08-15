@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0032)http://www.dbunit.org/howto.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>DbUnit - Getting Started</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./DbUnit-Getting Started_files/print.css" type="text/css" media="print">
+        
+                                                    
+<LINK rel="icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                                                        
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                    </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://www.dbunit.org/" id="bannerLeft">
+    
+                                            <IMG src="./DbUnit-Getting Started_files/dbunit-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://www.sourceforge.net/projects/dbunit" id="bannerRight">
+    
+                                    <IMG src="./DbUnit-Getting Started_files/sflogo.php" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <DIV class="xleft">
+          
+                <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+                &gt;
+      
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+                  </DIV>
+            <DIV class="xright">            <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+            |
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+            
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <H5>Quick Links</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://maven-plugins.sourceforge.net/maven-dbunit-plugin/index.html" class="externalLink">Maven 1.x Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://mojo.codehaus.org/dbunit-maven-plugin/" class="externalLink">Maven 2 Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/project/showfiles.php?group_id=47439" class="externalLink">Download</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/changes-report.html">Changes</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/faq.html">FAQ</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://dbunit.wikidot.com/" class="externalLink">Wiki</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/support/getsupport.php?group_id=47439" class="externalLink">Get Support</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/source-repository.html">Get source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/xref/index.html">Browse source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/apidocs/index.html">JavaDocs</A>
+          </LI>
+          </UL>
+              <H5>Overview</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/index.html">About DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/intro.html">Database Testing</A>
+          </LI>
+              
+    <LI class="none">
+              <STRONG>Getting Started</STRONG>
+        </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/bestpractices.html">Best Practices</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/components.html">Core Components</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/properties.html">Properties</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/anttask.html">Ant Task</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/migration.html">Migration Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/building.html">Building DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/devguide.html">Developers Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/resources.html">Resources</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/credits.html">Credits</A>
+          </LI>
+          </UL>
+                        <H5>Project Documentation</H5>
+            <UL>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-info.html">Project Information</A>
+                </LI>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-reports.html">Project Reports</A>
+                </LI>
+          </UL>
+                                           <A href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <IMG alt="Built by Maven" src="./DbUnit-Getting Started_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+    
+            <DIV id="lastPublished">
+        Last Published: 20-Sep-2009
+              </DIV>
+            </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        <DIV class="section"><H2><A></A>
+</H2>
+<H3>Getting Started</H3><OL type="1"><LI><A href="http://www.dbunit.org/howto.html#createtest">
+        Database setup with DBTestCase subclass
+      </A>
+</LI>
+<LI><A href="http://www.dbunit.org/howto.html#noextend">
+        Database setup with your own TestCase subclass
+      </A>
+</LI>
+<LI><A href="http://www.dbunit.org/howto.html#assertdata">
+        Database data verification
+      </A>
+</LI>
+<LI><A href="http://www.dbunit.org/howto.html#canoo">
+        DbUnit Ant task and Canoo WebTest 
+      </A>
+</LI>
+</OL>
+<A name="createtest"><H3>Database setup with DBTestCase subclass</H3></A>
+<A name="createdataset"><H4>Step 1: Create your dataset file</H4>
+</A>
+<P>Your test need some data to work with. This means you must
+      create a dataset. In most situations you will work with xml datasets. You
+      can manually create a <A href="http://www.dbunit.org/components.html#FlatXmlDataSet">flat XML dataset</A>
+ 
+      from scratch or create one by <A href="http://www.dbunit.org/faq.html#extract">exporting</A>
+
+      some data from your database.
+      </P>
+<H4>Step 2: Extend the DBTestCase class</H4>
+<P>Now you need to create a test class. The easiest way to use Dbunit is to
+      make your test class extend the DBTestCase class. DBTestCase
+      extends the JUnit TestCase class. A template method is required to be
+      implemented: <A class="code">getDataSet() to return the dataset
+      you created in step 1. DBTestCase relies on a IDatabaseTester to do
+      its work, the default configuration uses PropertiesBasedJdbcDatabaseTester, it locates
+      configuration for the DriverManager within the Sytem properties.
+      The simplest way to configure it would be in the constructor of your test class.
+      You may modify this behavior by overriding </A><A class="code">getDatabaseTester(),</A></P><A class="code">
+
+      using one of the other 3 provided IDatabaseTester implementations or your own.
+      You may also use the other subclasses of DBTestCase described in the next table:
+      <TABLE class="bodyTable"><TBODY><TR class="a"><TD><A class="code">JdbcBasedDBTestCase</A></TD>
+<TD>uses a DriverManager to create connections (with the aid of a JdbcDatabaseTester).</TD>
+</TR>
+<TR class="b"><TD><A class="code">DataSourceBasedDBTestCase</A></TD>
+<TD>uses a javax.sql.DataSource to create connections (with the aid of a DataSourceDatabaseTester).</TD>
+</TR>
+<TR class="a"><TD><A class="code">JndiBasedDBTestCase</A></TD>
+<TD>uses a javax.sql.DataSource located through JNDI (with the aid of a JndiDatabaseTester).</TD>
+</TR>
+</TBODY></TABLE>
+<BR>
+<P>
+      Following is a sample implementation that returns a connection to a Hypersonic
+      database and a xml dataset:
+      </P><DIV class="source"><PRE>public class SampleTest extends DBTestCase
+{
+    public SampleTest(String name)
+    {
+        super( name );
+        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "org.hsqldb.jdbcDriver" );
+        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:hsqldb:sample" );
+        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "sa" );
+        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
+	// System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_SCHEMA, "" );
+    }
+
+    protected IDataSet getDataSet() throws Exception
+    {
+        return new FlatXmlDataSet(new FileInputStream("dataset.xml"));
+    }
+}</PRE>
+</DIV>
+<P></P>
+<H4>Step 3: (Optional) Implement getSetUpOperation() and getTearDownOperation()
+        methods</H4>
+</A><P><A class="code">By default, Dbunit performs a </A><A href="http://www.dbunit.org/components.html#cleanInsert">CLEAN_INSERT</A>
+
+        operation before executing each test and performs no cleanup operation
+        afterward. You can modify this behavior by overriding <A class="code">getSetUpOperation()
+        and </A><A class="code">getTearDownOperation().</A></P><A class="code">
+<P>The following example demonstrates how you can easily override the operation
+        executed before or after your test.
+      </P><DIV class="source"><PRE>public class SampleTest extends DBTestCase
+{
+    ...
+    protected DatabaseOperation getSetUpOperation() throws Exception
+    {
+        return DatabaseOperation.REFRESH;
+    }
+
+    protected DatabaseOperation getTearDownOperation() throws Exception
+    {
+        return DatabaseOperation.NONE;
+    }
+    ...
+}</PRE>
+</DIV>
+<P></P>
+<H4>Step 4: (Optional) Override method setUpDatabaseConfig(DatabaseConfig config)</H4>
+<P>Use this to change some configuration settings of the dbunit DatabaseConfig.</P>
+<P>The following example demonstrates how you can easily override this method:
+      </P><DIV class="source"><PRE>public class SampleTest extends DBTestCase
+{
+    ...
+    /**
+     * Override method to set custom properties/features
+     */
+    protected void setUpDatabaseConfig(DatabaseConfig config) {
+        config.setProperty(DatabaseConfig.PROPERTY_BATCH_SIZE, new Integer(97));
+        config.setFeature(DatabaseConfig.FEATURE_BATCHED_STATEMENTS, true);
+    }
+    ...
+}</PRE>
+</DIV>
+<P></P>
+<H4>Step 5: Implement your testXXX() methods</H4>
+<P>Implement your test methods as you normally would with JUnit. Your database
+      is now initialized before and cleaned-up after each test methods according
+      to what you did in previous steps.</P>
+</A><A name="noextend"><H3>Database setup with your own TestCase subclass</H3></A>
+<P>In order to use Dbunit you are not required to extend the DBTestCase
+      class. You can override the standard JUnit setUp() method and execute the
+      desired operation on your database. Do something similar in teardown() if
+      you need to perform clean-up.</P>
+<P>
+      For example:
+      </P><DIV class="source"><PRE>public class SampleTest extends TestCase
+{
+    public SampleTest(String name)
+    {
+        super(name);
+    }
+
+    protected void setUp() throws Exception
+    {
+        super.setUp();
+
+        // initialize your database connection here
+        IDatabaseConnection connection = null;
+        // ...
+
+        // initialize your dataset here
+        IDataSet dataSet = null;
+        // ...
+
+        try1
+        {
+            DatabaseOperation.CLEAN_INSERT.execute(connection, dataSet);
+        }
+        finally
+        {
+            connection.close();
+        }
+    }
+    ...
+}</PRE>
+</DIV>
+<P></P>
+<P>Since version 2.2 you may use the new IDatabaseTester to accomplish the same feat. 
+      As explained in the previous topic, DBTestCase uses a IDatabaseTester internally to do its work; your test class
+      may also use this feature to manipulate DataSets. Currently there are 4 convenient implementations:<BR>
+</P><TABLE class="bodyTable"><TBODY><TR class="b"><TD><A class="code">JdbcDatabaseTester</A></TD>
+<TD>uses a DriverManager to create connections.</TD>
+</TR>
+<TR class="a"><TD><A class="code">PropertiesBasedJdbcDatabaseTester</A></TD>
+<TD>also uses DriverManager, but the configuration is taken from system properties.<BR>
+
+                 This is the default implementation used by DBTestCase.</TD>
+</TR>
+<TR class="b"><TD><A class="code">DataSourceDatabaseTester</A></TD>
+<TD>uses a javax.sql.DataSource to create connections.</TD>
+</TR>
+<TR class="a"><TD><A class="code">JndiDatabaseTester</A></TD>
+<TD>uses a javax.sql.DataSource located through JNDI.</TD>
+</TR>
+</TBODY></TABLE>
+<BR>
+
+      You may also provide your own IDatabaseTester implementation. It is recommended to 
+      use AbstractDatabaseTester as a starting point.<P></P>
+<P>
+      Example:
+      </P><DIV class="source"><PRE>public class SampleTest extends TestCase
+{
+    private IDatabaseTester databaseTester;
+
+    public SampleTest(String name)
+    {
+        super(name);
+    }
+
+    protected void setUp() throws Exception
+    {
+        databaseTester = new JdbcDatabaseTester("org.hsqldb.jdbcDriver",
+            "jdbc:hsqldb:sample", "sa", "");
+
+        // initialize your dataset here
+        IDataSet dataSet = null;
+        // ...
+
+        databaseTester.setDataSet( dataSet );
+	// will call default setUpOperation
+        databaseTester.onSetUp();
+    }
+
+    protected void tearDown() throws Exception
+    {
+	// will call default tearDownOperation
+        databaseTester.onTearDown();
+    }
+    ...
+}</PRE>
+</DIV>
+<P></P>
+<A name="assertdata"><H3>Database data verification</H3></A>
+<P>Dbunit provides support for verifying whether two tables or datasets
+      contain identical data. The following two methods can be used to verify if 
+      your database contains the expected data during 
+      test cases execution.
+      </P><DIV class="source"><PRE>public class Assertion
+{
+    public static void assertEquals(ITable expected, ITable actual)
+    public static void assertEquals(IDataSet expected, IDataSet actual)
+}</PRE>
+</DIV>
+<P></P>
+<H4>Sample</H4>
+<P>The following sample, show how to compare a database table snapshot
+        against a flat XML table.
+      </P><DIV class="source"><PRE>public class SampleTest extends DBTestCase
+{
+    public SampleTest(String name)
+    {
+        super(name);
+    }
+
+    // Implements required setup methods here
+    ...
+
+    public void testMe() throws Exception
+    {
+        // Execute the tested code that modify the database here
+        ...
+
+
+        // Fetch database data after executing your code
+        IDataSet databaseDataSet = getConnection().createDataSet();
+        ITable actualTable = databaseDataSet.getTable("TABLE_NAME");
+
+        // Load expected data from an XML dataset
+        IDataSet expectedDataSet = new FlatXmlDataSet(new File("expectedDataSet.xml"));
+        ITable expectedTable = expectedDataSet.getTable("TABLE_NAME");
+
+        // Assert actual database table match expected table
+        Assertion.assertEquals(expectedTable, actualTable);
+    }
+}</PRE>
+</DIV>
+<P></P>
+<P>The actual dataset is a database snapshot you 
+      want to verify against an expected dataset. As its name imply, the expected 
+      dataset contains the expectation values. 
+      </P>
+<P>The expected dataset must be different from the one you have used to
+        setup your database. Therefore you need two datasets to do that; one to
+        setup your database before a test and another to provide the expected
+        data during the test.</P>
+<A name="assertquery"><H4>Using a query to take the database snapshot</H4>
+</A>
+<P>You can also verify if the result of a query match an expected set of
+        data. The query can be used to select only a subset of a table or even
+        join multiple tables together.
+      </P><DIV class="source"><PRE>        ITable actualJoinData = getConnection().createQueryTable("RESULT_NAME",
+                "SELECT * FROM TABLE1, TABLE2 WHERE ..."); </PRE>
+</DIV>
+<P></P>
+<A name="compareignorecolumns"><H4>Ignoring some columns in comparison</H4>
+</A>
+<P>
+Sometimes this is desirable to ignore some columns to perform the comparison; particularly for primary keys, date or time columns having values generated by the code under test.
+One way to do this is to omit to declare unwanted columns in your expected table. You can then filter the actual database table to only expose the expected table columns. 
+<BR>
+
+The following code snippet shows you how to filter the actual table. To works, the actual table MUST contain at least ALL the columns from the expected table. Extra columns can exist in the actual table but not in the expected one.
+</P><DIV class="source"><PRE>        
+    ITable filteredTable = DefaultColumnFilter.includedColumnsTable(actual, 
+            expected.getTableMetaData().getColumns());
+    Assertion.assertEquals(expected, filteredTable); 
+</PRE>
+</DIV>
+<P></P>
+<P>
+A major limitation of this technique is that you cannot use a DTD with your expected flat XML dataset. With a DTD you need to filter columns from both the expected and the actual table. See the FAQ about 
+<A href="http://www.dbunit.org/faq.html#columnfilter">excluding some table columns at runtime</A>
+.
+</P>
+<A name="roworder"><H4>Row ordering</H4>
+</A>
+<P>By default, database table snapshot taken by DbUnit are sorted by primary
+        keys. If a table does not have a primary key or the primary key is automatically
+        generated by your database, the rows ordering is not predictable and <CODE>assertEquals</CODE>
+        will fail.</P>
+<P>You must order your database snapshot manually by using <CODE>IDatabaseConnection.createQueryTable</CODE>
+        with an "ORDER BY" clause. Or you can use the <CODE>SortedTable</CODE>
+        decorator class like this:
+      </P><DIV class="source"><PRE>          Assertion.assertEquals(new SortedTable(expected),
+                new SortedTable(actual, expected.getTableMetaData()));
+      </PRE>
+</DIV>
+
+      Note that the SortedTable uses the string value of each column for doing the sort by default. So if you are
+      sorting a numeric column you notice that the sort order is like <I>1, 10, 11, 12, 2, 3, 4</I>
+. If you want to use
+      the columns datatype for sorting (to get the columns like <I>1, 2, 3, 4, 10, 11, 12</I>
+) you can do this as follows:
+      <DIV class="source"><PRE>          SortedTable sortedTable1 = new SortedTable(table1, new String[]{"COLUMN1"});
+          sortedTable1.setUseComparable(true); // must be invoked immediately after the constructor
+          SortedTable sortedTable2 = new SortedTable(table2, new String[]{"COLUMN1"});
+          sortedTable2.setUseComparable(true); // must be invoked immediately after the constructor
+          Assertion.assertEquals(sortedTable1, sortedTable2);
+      </PRE>
+</DIV>
+<I>The reason why the parameter is currently not in the constructor is that the number of constructors needed for
+        SortedTable would increase from 4 to 8 which is a lot. Discussion should go on about this feature on how to implement
+        it the best way in the future.
+      </I>
+<P></P>
+<A name="assert-collect-diff"><H4>Assert and collect the differences</H4>
+</A>
+<P>By default, dbunit immediately fails when the first data difference was found.
+      Starting with dbunit 2.4 it is possible to register a custom 
+      <A href="http://www.dbunit.org/apidocs/org/dbunit/assertion/FailureHandler.html">FailureHandler</A>
+
+      which lets users specify which kinds of exceptions to be thrown and how to handle
+      the occurrences of data differences. Using the  
+      <A href="http://www.dbunit.org/apidocs/org/dbunit/assertion/DiffCollectingFailureHandler.html">DiffCollectingFailureHandler</A>
+
+      you can avoid an exception to be thrown on a data mismatch so that you can
+      evaluate all results of the data comparison afterwards.
+      </P>
+<P></P><DIV class="source"><PRE>IDataSet dataSet = getDataSet();
+DiffCollectingFailureHandler myHandler = new DiffCollectingFailureHandler();
+//invoke the assertion with the custom handler
+assertion.assertEquals(dataSet.getTable("TEST_TABLE"),
+                       dataSet.getTable("TEST_TABLE_WITH_WRONG_VALUE"),
+                       myHandler);
+// Evaluate the results and throw an failure if you wish
+List diffList = myHandler.getDiffList();
+Difference diff = (Difference)diffList.get(0);
+...
+      </PRE>
+</DIV>
+<P></P>
+<A name="canoo"><H3>DbUnit Ant task and Canoo WebTest</H3></A>
+<P>By Eric Pugh</P>
+<P>With Dbunit Ant tasks, Dbunit makes it much easier to run Canoo WebTest
+        scripts for database centric applications. <A href="http://webtest.canoo.com/" class="externalLink">WebTest</A>
+
+        is a tool to simulate a user's browser clicking through the pages on a
+        web site. It allows you to create a series of Ant based tests for your
+        website. In fact, this can be used to perform User Acceptance tests for
+        websites built using non Java technologies like ColdFusion or ASP! This
+        document walks you through a suggested format for storing tests. 
+      </P>
+<H4>Step 1: Create your dataset file</H4>
+<P>Your first step is to create your dataset file that you want to load into
+      your database before running your WebTest script. Use one of the various
+      methods <A href="http://www.dbunit.org/howto.html#createdataset">described above</A>
+. Put the various datasets you need in a <CODE>/data</CODE>
+      directory.</P>
+<H4>Step 2: Create your Ant build.xml file</H4>
+<P>A suggested setup is to have a single build.xml file that is the entry point
+      for all your tests. This would include a couple targets like:
+      </P><OL type="1"><LI><CODE>test</CODE>: Runs all the testSuites that you have created
+        </LI>
+<LI><CODE>test:single</CODE>: Runs a single test in a specific testSuite
+        </LI>
+<LI><CODE>test:suite</CODE>: Runs all the tests for a specific testSuite
+      </LI>
+</OL>
+<P></P>
+<H4>Step 3: Create your various Test Suites</H4>
+<P>Once you have your build.xml file set up, you can now call the various TestSuites.
+      Create a separate TestSuiteXXX.xml for the various modules that you would
+      like to test. In your TestSuiteXXX.xml, you should have your default target
+      testSuite call all the testcases you have definied:
+      </P><DIV class="source"><PRE>      &lt;target name="testSuite"&gt;
+
+        &lt;antcall target="unsubscribeEmailAddressWithEmail"/&gt;
+        &lt;antcall target="unsubscribeEmailAddressWithEmailID"/&gt;
+        &lt;antcall target="unsubscribeEmailAddressWithNewEmailAddress"/&gt;
+
+        &lt;antcall target="subscribeEmailAddressWithOptedOutEmail"/&gt;
+        &lt;antcall target="subscribeEmailAddressWithNewEmailAddress"/&gt;
+        &lt;antcall target="subscribeEmailAddressWithInvalidEmailAddress"/&gt;
+
+      &lt;/target&gt;</PRE>
+</DIV>
+<P></P>
+<P>This way you can either run all the test's in your Test Suite, or just run
+      a specific one, all from build.xml!</P>
+<H4>Step 4: Create your various Tests</H4>
+<P>Now you need to write your various testcases. For more information on WebTest,
+      please refer to the <A href="http://webtest.canoo.com/" class="externalLink">WebTest home page</A>
+.
+      If you have find you are duplicating pieces of XML, then place them in a
+      <CODE>/includes</CODE> directory. If you have a single set of properties,
+      then load them as part of build.xml by specifing them in your build.properties
+      file. If you have multiple databases you need to connect to, then declare
+      your sql connection properties in a TestSuiteXXX.properties file that you
+      load on a per suite basis. In this example, we are using doing a clean insert
+      into the database, and using the MSSQL_CLEAN_INSERT instead of CLEAN_INSERT
+      because of the requirement to do identity column inserts.
+      </P><DIV class="source"><PRE>      &lt;target name="subscribeEmailAddressWithOptedOutEmail"&gt;
+        &lt;dbunit
+            driver="${sql.jdbcdriver}"
+            url="${sql.url}"
+            userid="${sql.username}"
+            password="${sql.password}"&gt;
+                &lt;operation type="MSSQL_CLEAN_INSERT"
+                      src="data/subscribeEmailAddressWithOptedOutEmail.xml"
+                format="flat"/&gt;
+        &lt;/dbunit&gt;
+        &lt;testSpec name="subscribeEmailAddressWithOptedOutEmail"&gt;
+          &amp;amp;sharedConfiguration;
+          &lt;steps&gt;
+            &lt;invoke stepid="main page"
+              url="/edm/subscribe.asp?e=subscribeEmailAddressWithOptedOutEmail@test.com"
+              save="subscribeEmailAddressWithNewEmailAddress"/&gt;
+            &lt;verifytext stepid="Make sure we received the success message"
+              text="You have been subscribed to the mailing list"/&gt;
+
+          &lt;/steps&gt;
+        &lt;/testSpec&gt;
+      &lt;/target&gt;</PRE>
+</DIV>
+<P></P>
+<H4>Sample Directory Layout</H4>
+<P>When you are done, you will have a series of files that look like this:
+      </P><DIV class="source"><PRE>      \root\
+        <A href="http://www.dbunit.org/sample_webtest/build.xml">build.xml</A>
+<A href="http://www.dbunit.org/sample_webtest/build.properties">build.properties</A>
+<A href="http://www.dbunit.org/sample_webtest/TestSuiteEDM.xml">TestSuiteEDM.xml</A>
+<A href="http://www.dbunit.org/sample_webtest/TestSuiteEDM.properties">TestSuiteEDM.properties</A>
+
+      \root\data\
+        <A href="http://www.dbunit.org/sample_webtest/subscribeEmailAddressWithOptedOutEmail.xml">subscribeEmailAddressWithOptedOutEmail.xml</A>
+
+      \root\includes\
+        <A href="http://www.dbunit.org/sample_webtest/sharedConfiguration.xml">sharedConfiguration.xml</A>
+</PRE>
+</DIV>
+<P></P>
+</DIV>
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          2002-2009
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

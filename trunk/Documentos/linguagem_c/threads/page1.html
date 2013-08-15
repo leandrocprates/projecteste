@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><!-- saved from url=(0022)http://internet.e-mail -->
+
+<style> <!-- 
+          A { text-decoration : none ;
+              color : "#FFFFFF";
+
+          } 
+
+          A:Hover {text-decoration : underline;
+                   color : "red";
+
+          }
+
+         -->
+
+</style>
+
+
+
+	<title>Tutorial Pthreads</title>
+</head><body>
+
+<font face="ms sans serif">	 
+
+<table cellpadding="4" cellspacing="4">
+
+<tbody><tr>
+       <td valign="top" width="20%" bgcolor="#330099">
+ 	   <font size="2">
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/inicio.html"><b>Inicio</b></a><br><br>
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/page1.html"><b>1. Programação em Pthreads</b></a><br><br>
+	   </font>
+   	   <font size="1" color="#ffffff">
+	   1.1. Introdução <br><br>
+	   1.2. Como compilar um programa com threads <br><br>
+	   1.3. Criação e manipulação de threads <br><br>
+	   1.4. Outras funções úteis da biblioteca pthread <br><br>
+	   </font>
+	   <br>
+   	   <font size="2">
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/page2.html"><b>2. Problemas de concorrência com threads</b></a><br><br>
+	   </font>
+   	   <font size="1" color="#ffffff">
+	   2.1. Introdução <br><br>
+	   2.2. Mecanismos de prevenção em Pthreads <br><br>
+	   2.3. Problemas <br><br>
+	   </font> 		
+	   </td>  		   	   		   	   			   	  								  	  
+
+       <td>
+<font size="1">	   
+<b><font size="4"></font></b></font><p><font size="1"><b><font size="4">1. Programação em Pthreads</font></b><br>
+<br>
+<b><font size="2">1.1. Introdução</font><br><br>
+</b>A biblioteca de pthreads cumpre os padrões POSIX e nos permite
+trabalhar com diferentes "traços de execução" (threads) ao mesmo tempo.<br>
+A diferença entre uma thread e um processo é que os processos não
+compartilham memória entre si a não ser que seja declarado
+explicitamente usando algum dos mecanismos de IPC (InterProcess
+Communication) de Unix, já as threads compartilham totalmente a memória
+entre elas. Além do mais, para criar threads sao usadas as funções da
+biblioteca "pthread" ou de qualquer outra que suporte "threads" e para
+criar processos usaremos a chamada de sistema fork(), que é encontrada
+em todos os sistemas unix.<br>
+Como pthreads é uma biblioteca POSIX é possível portar os programas
+feitos com ela para qualquer sistema operacional POSIX que suporte
+threads. Exemplos disso são IRIX, BSD, Digital Unix OSF/1, etc.<br>
+<br>
+<b><font size="2">1.2. Como compilar um programa com pthreads:</font><br>
+</b><br>
+Para criar programas que façam uso de biblioteca pthread precisamos, em
+primeiro lugar, da biblioteca em si. Esta vem na maioria de
+distribuições do linux, e seguramente é instalada juntamente com os
+outros pacotes para o desenvolvimento de aplicações.<br>
+Uma vez que tenhamos a biblioteca instalada, deveremos compilar o
+programa e "linkalo" à biblioteca dependendo do compilador que estamos
+usando.<br>
+A forma mais usual de fazer isto é, se estamos usando um compilador GNU gcc, com o seguinte comando:<br>
+	cc programa_com_pthreads.c -o programa_com_pthreads -pthread<br>
+<br>
+<b><font size="2">1.3. Criação e manipulação de threads</font><br><br>
+</b>Para criar uma thread usaremos a função pthread_create da
+biblioteca e da estrutura de dados pthread_t que identifica cada thread
+diferenciando-a das demais e que contem todos os seus dados.<br>
+O protótipo da função é o seguinte:<br>
+<br>
+int&nbsp; pthread_create(pthread_t&nbsp; *&nbsp; thread, pthread_attr_t *attr, void * (*start_routine)(void *), void *arg) <br>
+<br>
+* thread: é uma variável do tipo pthread_t que conterá os dados da
+thread e que nos servirá para identificar a thread quando nos
+interessar fazer chamadas a biblioteca para realizar alguma ação sobre
+ela.<br>
+* attr: é um parâmetro do tipo pthread_attr_t que se deve inicializar
+previamente com os atributos que queremos que a thread tenha. Entre os
+atributos estão a prioridade, o algoritmo da thread, etc. Se passarmos
+como parâmetro NULL, a biblioteca atribuirá a thread atributos por
+default.<br>
+* start_routine: aqui colocamos o endereço da função que queremos que a
+thread execute. A função deve devolver um ponteiro genérico (void *)
+como resultado, e deve ter como único parâmetro um outro ponteiro
+genérico.<br>
+A vantagem dos ponteiros serem genéricos é que podemos devolver qualquer coisa que se queira através dos castings dos tipos.<br>
+Se necessitarmos passar ou devolver mais de um parâmetro de uma vez, se
+pode criar uma estrutura e incluir ali tudo o que é necessário. Logo
+passaremos ou devolveremos o caminho desta estrutura como um único
+parâmetro. (ver código do exemplo)<br>
+* arg: é um ponteiro ao parâmetro que passaremos para a função. Pode ser NULL se não quisermos passar nada para a função.<br>
+* Em caso de sucesso, a função retorna 0 ou um valor de diferente de 0 caso tenha havido algum erro.<br>
+<br><br>
+Uma vez que tenhamos chamado esta função, já teremos a(s) nossa(s)
+thread(s) funcionando, mas agora temos duas opções: esperar que as
+threads terminem, caso nos interesse recuperar algum resultado, ou
+simplesmente deixamos a biblioteca de pthreads decidir que quando
+termine a execução da função da thread elimine todas os dados de suas
+tabelas internas. <br>
+Para isso, dispomos de duas funções adicionais da biblioteca: pthread_join e pthread_detach.<br>
+<br>
+int pthread_join(pthread_t th, void **thread_return) <br>
+<br>
+* Esta função suspende a thread que a chamou até que termine a execução
+da thread indicada por th. Além do mais, uma vez que esta última
+termina, o resultado é colocado em thread_return devolvendo para a
+thread que estava executando.<br>
+
+* th: É o identificador da thread que queremos esperar, e é o mesmo que indicamos quando criamos com o pthread_create.<br>
+* thread_return: É um ponteiro de um ponteiro que aponta para o
+resultado devolvido pela thread que estamos esperando quando esta
+termina a sua execução. Se este parâmetro for NULL, estamos dizendo que
+o resultado não importa.<br>
+
+* Devolve 0 em caso de sucesso, e valor diferente de 0 em caso de algum erro.<br>
+
+<br>
+int pthread_detach(pthread_t th) <br>
+<br>
+* Esta função indica para a biblioteca que não queremos que o resultado
+da thread indicada por th seja guardado. Por padrão, o resultado da
+execução de todas as threads são guardados até que façamos um
+pthread_join para recuperar o resultado.<br>
+É por isso que se não nos interessa o resultado das threads temos que
+indicar isso com esta função. Assim uma vez que a thread tenha
+terminado, a biblioteca eliminará todos os dados da thread de suas
+tabelas internas e teremos mais espaço para criar outras threads.<br>
+<br>
+* th: É o indentificador da thread.<br>
+
+* Devolve 0 em caso de sucesso, e valor diferente de 0 em caso de algum erro.<br>
+Até agora estivemos falando sobre devolver valores quando a thread
+finaliza, mas não dizemos como se faz. Pois bem, para isso temos a
+função pthread_exit.<br>
+<br>
+void pthread_exit(void *retval)<br>
+<br>
+* Esta função termina a execução da thread que a chama.<br>
+* retval: É um ponteiro genérico para os dados que queremos retornar
+como resultado. Estes dados serão recolhidos mais tarde quando alguém
+fizer um pthread_join com o nosso identificador de thread.<br>
+* Não devolve nenhum valor.<br>
+<br> Com tudo que vimos até agora, já estamos preparados para fazer
+nosso primeiro problema com pthreads. O programa de exemplo criará
+MAX_THREADS threads que executarão a função function_thr.
+Esta função imprimirá uma mensagem na tela do tipo "sou a thread número
+x", onde x será um número diferente para cada thread.<br>
+Para passar estes parâmetros para a função usaremos um struct de C,
+onde colocaremos o vetor que deverá conter cada thread juntamente com
+seu identificador. (Esta cadeia poderia ser colocada diretamente dentro
+da função, mas desta forma aproveitaremos para ver como fazer para
+passar mais de um parâmetro para a thread)
+Uma vez que termine sua execução, a thread devolverá com resultado seu
+identificador (codificado em um inteiro), que será impresso na tela
+pela "thread-pai" que esperará que todas as outras threads terminem.<br>
+<br>
+exemplo:<br>
+/*** Arquivo ex1.c ***/<br>
+#include <pthread.h><br>
+#include <stdio.h><br>
+#include <stdlib.h><br>
+#include <string.h><br>
+<br>
+#define MAX_THREADS   10<br>
+<br>
+//tabela com os identificadores das threads<br>
+pthread_t tabela_thr[MAX_THREADS];<br>
+<br>
+//tipo de dados e tabela com os parâmetros<br>
+typedef struc {<br>
+  int id;<br>
+  char *cadeia;<br>
+} thr_param_t;<br>
+thr_param_t param[MAX_THREADS];<br>
+//Tivemos que criar uma tabela para os parâmetros pois os passamos por referência.<br>
+//Assim, se só tivermos uma variável para os parâmetros, ao modificá-la estaremos<br>
+//modificando todas as que havíamos passado anteriomente, porque as threads não <br>
+//armazenam os valores e sim os endereços<br>
+<br>
+void *função_thr(thr_param_t *p)<br>
+{<br>
+  //Esta é a função que as threads executam<br>
+  //Como se pode ver não há maiores segredos<br>
+  printf("%s %d\n", p-&gt;cadeia, p-&gt;id);<br>
+<br>
+  //Uma vez que terminamos, devolvemos o valor<br>
+  pthread_exit(&amp;(p-&gt;id));<br>
+}<br>
+<br>
+int main (void)<br>
+{<br>
+  int i, *res;<br>
+<br>
+  //criamos as theads<br>
+  printf("Criando as threads...\n");<br>
+  for(i=0; i<max_threads; i++)="" {=""><br>
+     param[i].cadeia = strdup("Olá, sou a thread");<br>
+     param[i].id = i;<br>
+     pthread_create(&amp;tabela_thr[i], NULL, (void*)&amp;função_thr, (void*) &amp; param[i]);<br>
+  }<br>
+  //esperamos que as threads terminem<br>
+  printf("Threads criadas. Esperando que terminem...\n");<br>
+  for(i=0; i<max_threads; i++)="" {=""><br>
+     pthread_join(tabela_thr[i], (void*)&amp;res);<br>
+     printf("A thread %d retornou o valor %d\n", i, *res);<br>
+  }<br>
+  //imprimimos uma mensagem e saimos do programa<br>
+  printf("Todas as threads terminadas!\n");<br>
+<br>
+  return(0);<br>
+}<br>
+<br>
+fim do exemplo!<br>
+<br>
+Para compilar (com o gcc do Linux):   gcc ex1.c -o ex1 -pthread<br>
+<br>
+O exemplo é em si bastante simples, mas é o esquema básico ao qual
+seguem todas as aplicações que criam uma thread para realizar um
+cálculo e esperam por seu resultado de retorno:<br>
+1. Criar a(s) thread(s)<br>
+2. Esperar que termine(m)<br>
+3. Recolher e processar os resultados<br>
+Isto é um exemplo do que chamamos de paralelismo estruturado.<br>
+<br>
+Um exemplo de um programa que use a função pthread_detach poderia ser o
+de um servidor (de qualquer coisa: de correio, de http, de ftp, etc)
+que crie um traço de execução para cada solicitação que receba. Como o
+que nos interessa é o resultado da execução, uma vez que criármos uma
+thread chamaremos a função pthread_detach.<br>
+Isto é o que se conhece por paralelismo não estruturado. Ou seja,
+nossos programas não seguem uma estrutura concreta, e vão se
+ramificando de acordo com as nossas necessidades.<br>
+<br>
+<br>
+<b><font size="2">1.4. Outras funções úteis da biblioteca pthread:</font></b><br>
+<br> Até agora vimos apenas as funções mais básicas para se tratar com
+pthreads. Começaremos então a analisar outras funções úteis:<br>
+<br>
+1)  pthread_t pthread_self(void)<br>
+<br>
+    - Esta função retorna para a thread que realiza a chamada sua informação, em forma de variável do tipo pthread_t.<br>
+É útil nos casos em que a própria thread que se está executando quer
+trocar seus atributos, ou seja, fazer em si mesma um pthread_detach,
+etc.<br>
+    - Devolve o identificador da thread.<br>
+<br>
+Exemplo:<br>
+
+#include <br>
+...<br>
+void *funcion_threads(void *param)<br>
+{<br>
+  pthread_t eu_mesmo;<br>
+  ...<br>
+  /*nós mesmo nos fazemos o detach*/<br>
+  eu_mesmo = pthread_self();<br>
+  pthread_detacc(eu_mesmo);<br>
+  ...<br>
+}<br>
+int main (void)<br>
+{<br>
+...<br>
+}<br>
+<br>
+2)  int pthread_kill(pthread_t thread, int signo)<br>
+    <br> -
+Envia um sinal específico para a a thread especificada. Um sinal útil
+pode ser o SIGKILL, ou algum dos definidos pelo usuário, SIGUSR1 e
+SIGUSR2.<br>
+Mesmo que possa parecer útil à primeira vista, a única utilidade que
+tem é matar uma thread a partir do processo pai. Se quiseres usar um
+com fins de sincronização, há formas melhores de se fazer, tratando-se
+de threads: mediante semáforos e variáveis de condição (veremos em
+seguida).<br>
+    - thread: identifica a thread para a qual queremos enviar o sinal.<br>
+    - signo: número do sinal que queremos enviar para a thread. Podemos usar as constantes definidas em usr/include/signa.h.<br>
+    - Retorna 0 se não ocorrer erro, e diferente de 0 se houver erro.<br>
+</max_threads;></max_threads;></string.h></stdlib.h></stdio.h></pthread.h></font></p><font size="1">	   
+</font>
+	   </td>
+</tr>
+
+</tbody></table>
+
+
+</font>	  
+
+</body></html>

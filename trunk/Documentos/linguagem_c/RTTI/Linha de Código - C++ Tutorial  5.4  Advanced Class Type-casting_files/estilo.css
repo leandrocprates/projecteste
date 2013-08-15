@@ -1,0 +1,187 @@
+body {
+margin:0;
+background-color: #e8f1f8;
+}
+a:link, a:visited, a:active {
+text-decoration: none;
+color: #487fba;
+}
+a:hover {
+text-decoration: underline;
+}
+.Hora-Busca {
+font-family: Verdana;
+font-weight: bold;
+font-size: 10px;
+color: #588bc0;
+}
+.itensMenu {
+font-family: Verdana;
+font-weight: bold;
+font-size: 10px;
+color: #5185bd;
+}
+.tituloMenu {
+font-family: Verdana;
+font-weight: bold;
+font-size: 11px;
+color: #FFFFFF;
+}
+.titulosFundoAmarelo {
+font-family: Arial;
+font-weight: bold;
+font-size: 13px;
+color: #5185bd;
+}
+.titulosFundoAmareloSimples {
+font-family: Arial;
+font-weight: bold;
+font-size: 13px;
+color: #5185bd;
+}
+.titulosFundoAmareloItalico {
+font-family: Arial;
+font-size: 12px;
+color: #5185bd;
+}
+.tituloVaga {
+font-family: Verdana;
+font-weight: bold;
+font-size: 11px;
+color: #487fba;
+}
+.descricaoVaga {
+font-family: Verdana;
+font-size: 11px;
+color: #487fba;
+}
+.anuncieOferta {
+font-family: Verdana;
+font-size: 10px;
+color: #487fba;
+}
+.anuncieOfertaNegrito {
+font-family: Verdana;
+font-size: 10px;
+color: #487fba;
+font-weight:bold;
+}
+.anuncieOfertaItalico {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #487fba;
+	font-style: italic;
+}
+.anuncieOfertaItalico {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #487fba;
+	font-style: italic;
+}
+.tituloArtigo {
+font-family: Arial;
+font-weight: bold;
+font-size: 12px;
+color: #487fba;
+}
+.tituloArtigoVermelho {
+font-family: Arial;
+font-weight: bold;
+font-size: 12px;
+color: #CC0000;
+}
+.Vermelho {
+font-family: Arial;
+font-size: 12px;
+color: #CC0000;
+padding-left:20px;
+}
+.Vermelho2 {
+font-family: Arial;
+font-size: 12px;
+color: #CC0000;
+}
+.autorArtigo {
+font-family: Arial;
+font-weight: italic;
+font-size: 12px;
+color: #5185bd;
+}
+.descricaoArtigo {
+font-family: Arial;
+font-size: 12px;
+color: #5185bd;
+}
+.rodape {
+font-family: Verdana;
+font-weight: bold;
+font-size: 10px;
+color: #5185bd;
+}
+
+.fonte14 {
+font-family: Verdana;
+font-size: 14px;
+color: #5185bd;
+}
+.fonte13 {
+font-family: Verdana;
+font-size: 13px;
+color: #5185bd;
+}
+.fonte12 {
+font-family: Verdana;
+font-size: 12px;
+color: #5185bd;
+}
+.fonte12_bold {
+font-family: Verdana;
+font-size: 12px;
+font-weight: bold;
+color: #5185bd;
+}
+.fonte11 {
+font-family: Verdana;
+font-size: 11px;
+color: #5185bd;
+}
+.fonte11_bold {
+font-family: Verdana;
+font-size: 11px;
+font-weight: bold;
+color: #5185bd;
+}
+.fonte10 {
+font-family: Verdana;
+font-size: 10px;
+color: #5185bd;
+}
+.fonte9 {
+font-family: Verdana;
+font-size: 9px;
+color: #5185bd;
+}
+.bordaImagens img {
+border-style:solid;
+border-width:1px;
+border-color:#a1c7e0;
+}
+div#rss {
+float:left;
+}
+div#rss img {
+margin-right:5px;
+}
+div#numeroArtigos {
+float:right;
+}
+.imagensAutor {
+margin-right:8px;
+}
+
+div#TextoArtigo a:link
+{
+	text-decoration: underline;
+	color: #487fba;
+}
+

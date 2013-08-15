@@ -1,0 +1,33 @@
+
+
+1) Gerando chaves : 
+
+comando : keytool -genkey -dname "cn=Banco do Das, ou=LCMI, o=UFSC, c=BR" -alias key -keystore ~/NetBeansProjects/JavaAppletComAcessoBD/dist/mykesstore  -storepass 123456  -keypass 123456  -validity 180
+
+
+2) Assinando o Jar : 
+
+comando : jarsigner -keystore ~/NetBeansProjects/JavaAppletComAcessoBD/dist/mykesstore -storepass 123456 -keypass 123456 -signedjar  teste.jar JavaAppletComAcessoBD.jar   key 
+
+3) Assinar todas as libs que o applet for utilizar (Exemplo de Assinatura na lib do mysql)
+
+comando : jarsigner -keystore ~/NetBeansProjects/JavaAppletComAcessoBD/dist/mykesstore -storepass 123456 -keypass 123456 -signedjar  mysql-connector-java-5.1.6-bin.jar mysql.jar   key 
+
+4) Exportar o certificado:
+
+comando : keytool -export -keystore ~/NetBeansProjects/JavaAppletComAcessoBD/dist/mykesstore  -storepass 123456 -alias key -file keycert.x509
+
+
+5) Executar o comando para converter a pagina de internet para com o htmconvert para usa-la no browser 
+
+comando : java -jar htmlconv1_3.jar index.html
+
+6) Criar arquivo policytool
+comando ./policytool
+
+
+7) Adicionar a linha abaixo no arquivo "/usr/lib/jvm/java-6-sun/jre/lib/security/java.security"
+
+policy.url.3=file:/home/leandro/NetBeansProjects/JavaAppletComAcessoBD/dist/meu_policy_2
+
+

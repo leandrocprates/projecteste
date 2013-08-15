@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="pt" xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head>
+
+
+<title>JUnit - Wikipédia, a enciclopédia livre</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.16alpha-wmf">
+<link rel="alternate" type="application/x-wiki" title="Editar" href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit">
+<link rel="edit" title="Editar" href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit">
+<link rel="apple-touch-icon" href="http://pt.wikipedia.org/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://pt.wikipedia.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://pt.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (pt)">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/rss+xml" title="Feed RSS Wikipedia" href="http://pt.wikipedia.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&amp;feed=rss">
+<link rel="alternate" type="application/atom+xml" title="Feed Atom Wikipedia" href="http://pt.wikipedia.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&amp;feed=atom">
+<link rel="stylesheet" href="JUnit_arquivos/shared.css" type="text/css" media="screen">
+<link rel="stylesheet" href="JUnit_arquivos/commonPrint.css" type="text/css" media="print">
+<link rel="stylesheet" href="JUnit_arquivos/main_002.css" type="text/css" media="screen">
+<link rel="stylesheet" href="JUnit_arquivos/main.css" type="text/css" media="handheld">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE50Fixes.css?243z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE55Fixes.css?243z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins-1.5/monobook/IE60Fixes.css?243z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins-1.5/monobook/IE70Fixes.css?243z2" type="text/css" media="screen" /><![endif]-->
+<link rel="stylesheet" href="JUnit_arquivos/index_004.css" type="text/css" media="all">
+<link rel="stylesheet" href="JUnit_arquivos/index_005.css" type="text/css" media="print">
+<link rel="stylesheet" href="JUnit_arquivos/index_003.css" type="text/css" media="handheld">
+<link rel="stylesheet" href="JUnit_arquivos/index_002.css" type="text/css" media="all">
+<link rel="stylesheet" href="JUnit_arquivos/index.css" type="text/css" media="all">
+<script type="text/javascript">
+var skin="monobook",
+stylepath="/skins-1.5",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/w",
+wgScriptExtension=".php",
+wgScript="/w/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://pt.wikipedia.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="JUnit",
+wgTitle="JUnit",
+wgAction="view",
+wgArticleId=184160,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="pt",
+wgContentLanguage="pt",
+wgBreakFrames=false,
+wgCurRevisionId=17131463,
+wgVersion="1.16alpha-wmf",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", " 	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Página principal",
+wgFormattedNamespaces={"-2": "Media", "-1": "Especial", "0": "", "1": "Discussão", "2": "Usuário", "3": "Usuário Discussão", "4": "Wikipedia", "5": "Wikipedia Discussão", "6": "Ficheiro", "7": "Ficheiro Discussão", "8": "MediaWiki", "9": "MediaWiki Discussão", "10": "Predefinição", "11": "Predefinição Discussão", "12": "Ajuda", "13": "Ajuda Discussão", "14": "Categoria", "15": "Categoria Discussão", "100": "Portal", "101": "Portal Discussão", "102": "Anexo", "103": "Anexo Discussão"},
+wgNamespaceIds={"media": -2, "especial": -1, "": 0, "discussão": 1, "usuário": 2, "usuário_discussão": 3, "wikipedia": 4, "wikipedia_discussão": 5, "ficheiro": 6, "ficheiro_discussão": 7, "mediawiki": 8, "mediawiki_discussão": 9, "predefinição": 10, "predefinição_discussão": 11, "ajuda": 12, "ajuda_discussão": 13, "categoria": 14, "categoria_discussão": 15, "portal": 100, "portal_discussão": 101, "anexo": 102, "anexo_discussão": 103, "imagem": 6, "imagem_discussão": 7, "arquivo": 6, "arquivo_discussão": 7, "discussão_portal": 101, "image": 6, "image_talk": 7},
+wgMWSuggestTemplate="http://pt.wikipedia.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest",
+wgDBname="ptwiki",
+wgSearchNamespaces=[0],
+wgMWSuggestMessages=["com sugestões", "sem sugestões"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[],
+wgNotice="",
+wgNoticeLocal="";
+</script>
+<script src="JUnit_arquivos/wikibits.js" type="text/javascript"></script>
+<script src="JUnit_arquivos/ajax.js" type="text/javascript"></script>
+<script src="JUnit_arquivos/mwsuggest.js" type="text/javascript"></script>
+<script type="text/javascript" src="JUnit_arquivos/centralnotice.js"></script><style type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</style>
+
+
+<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?243z2"></script>
+	<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+<script src="JUnit_arquivos/index.php" type="text/javascript"></script><style type="text/css">#interProject, #sisterProjects {display: none; speak: none;} #p-tb .pBody {padding-right: 0;}</style><script type="text/javascript" src="JUnit_arquivos/index_004.php"></script><script type="text/javascript" src="JUnit_arquivos/index_002.php"></script><script type="text/javascript" src="JUnit_arquivos/index_003.php"></script>
+
+<style type="text/css">/*<![CDATA[*/
+.source-java {line-height: normal;}
+.source-java li, .source-java pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for java
+ * CSS class: source-java, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.java.source-java .de1, .java.source-java .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.java.source-java  {font-family:monospace;}
+.java.source-java .imp {font-weight: bold; color: red;}
+.java.source-java li, .java.source-java .li1 {font-weight: normal; vertical-align:top;}
+.java.source-java .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.java.source-java .li2 {font-weight: bold; vertical-align:top;}
+.java.source-java .kw1 {color: #000000; font-weight: bold;}
+.java.source-java .kw2 {color: #000066; font-weight: bold;}
+.java.source-java .kw3 {color: #003399;}
+.java.source-java .kw4 {color: #000066; font-weight: bold;}
+.java.source-java .co1 {color: #666666; font-style: italic;}
+.java.source-java .co2 {color: #006699;}
+.java.source-java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java.source-java .coMULTI {color: #666666; font-style: italic;}
+.java.source-java .es0 {color: #000099; font-weight: bold;}
+.java.source-java .br0 {color: #009900;}
+.java.source-java .sy0 {color: #339933;}
+.java.source-java .st0 {color: #0000ff;}
+.java.source-java .nu0 {color: #cc66cc;}
+.java.source-java .me1 {color: #006633;}
+.java.source-java .me2 {color: #006633;}
+.java.source-java .ln-xtra, .java.source-java li.ln-xtra, .java.source-java div.ln-xtra {background-color: #ffc;}
+.java.source-java span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style></head><body class="mediawiki ltr ns-0 ns-subject page-JUnit skin-monobook">
+	<div id="globalWrapper"><div style="position: absolute; z-index: 40; left: 155px; top: 1px; clear: both; float: left; font-size: 90%; font-style: italic; white-space: nowrap;" class="noprint" id="anon-banner"><a href="http://pt.wikipedia.org/wiki/Ajuda:Guia_de_edi%C3%A7%C3%A3o/Como_criar_uma_conta" class="extiw" title="Como criar uma conta"><b>Criando uma conta</b></a>, você terá <a href="http://pt.wikipedia.org/wiki/Wikipedia:Por_que_se_registrar%3F" class="extiw" title="Vantagens"><b>algumas vantagens</b></a>!</div>
+		<div id="column-content">
+	<div id="content">
+		<a id="top"></a>
+		<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script></div>		<h1 id="firstHeading" class="firstHeading">JUnit</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Origem: Wikipédia, a enciclopédia livre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Ir para: <a href="#column-one">navegação</a>, <a href="#searchInput">pesquisa</a></div>			<!-- start content -->
+			<p>O <b>JUnit</b> é um <i><a href="http://pt.wikipedia.org/wiki/Framework" title="Framework">framework</a> <a href="http://pt.wikipedia.org/wiki/Open-source" title="Open-source" class="mw-redirect">open-source</a></i>, criado por <a href="http://pt.wikipedia.org/w/index.php?title=Eric_Gamma&amp;action=edit&amp;redlink=1" class="new" title="Eric Gamma (página não existe)">Eric Gamma</a> e <a href="http://pt.wikipedia.org/w/index.php?title=Kent_Beck&amp;action=edit&amp;redlink=1" class="new" title="Kent Beck (página não existe)">Kent Beck</a>, com suporte à criação de testes automatizados na <a href="http://pt.wikipedia.org/wiki/Linguagem_de_programa%C3%A7%C3%A3o" title="Linguagem de programação">linguagem de programação</a> <a href="http://pt.wikipedia.org/wiki/Java" title="Java">Java</a>.</p>
+<p>Esse framework facilita a criação de código para a automação de
+testes com apresentação dos resultados. Com ele, pode ser verificado se
+cada método de uma classe funciona da forma esperada, exibindo
+possíveis erros ou falhas podendo ser utilizado tanto para a execução
+de baterias de testes como para extensão.</p>
+<p>Com JUnit, o programador tem uma ferramenta que o ajudará a eliminar
+os erros de seu código de maneira mais atraente. Pois, se criou uma
+forma interessante de realizar testes onde é possível a criação de
+programas que realizem os testes pelo programador. É utilizando esse
+conceito que JUnit permite deixar a fase de teste de unidades bem mais
+agradável ao programador.</p>
+<p>O teste de unidade testa o menor dos componentes de um sistema de
+maneira isolada. Cada uma dessas unidades define um conjunto de
+estímulos (chamada de métodos), e de dados de entrada e saída
+associados a cada estímulo. As entradas são parâmetros e as saídas são
+o valor de retorno, exceções ou o estado do objeto. Tipicamente um
+teste unitário executa um método individualmente e compara uma saída
+conhecida após o processamento da mesma. Por exemplo:</p>
+<pre>Assert.assertEquals(2, algumMetodo(1)); 
+</pre>
+<p>A expressão acima verifica se a saída de algumMetodo() é 2 quando
+esse método recebe o parâmetro 1. Normalmente o desenvolvedor já
+realiza testes semelhantes a esse pequeno exemplo, o que é chamado de
+testes unitários em linha. Assim sendo, o conceito chave de um teste de
+unidade é exercitar um código e qual o resultado esperado.</p>
+<p>O JUnit permite a realização de <b><a href="http://pt.wikipedia.org/wiki/Teste_unit%C3%A1rio" title="Teste unitário" class="mw-redirect">testes de unidades</a></b>, conhecidos como "caixa branca", facilitando assim a correção de métodos e <a href="http://pt.wikipedia.org/wiki/Objeto" title="Objeto">objetos</a>.</p>
+<p>Algumas vantagens de se utilizar JUnit:</p>
+<ol>
+<li>Permite a criação rápida de código de teste enquanto possibilita um
+aumento na qualidade do sistema sendo desenvolvido e testado;</li>
+<li>Não é necessário escrever o próprio framework;</li>
+<li>Amplamente utilizado pelos desenvolvedores da comunidade código-aberto, possuindo um grande número de exemplos;</li>
+<li>Uma vez escritos, os testes são executados rapidamente sem que, para isso, seja interrompido o processo de desenvolvimento;</li>
+<li>JUnit checa os resultados dos testes e fornece uma resposta imediata;</li>
+<li>Pode-se criar uma hierarquia de testes que permitirá testar apenas uma parte do sistema ou todo ele;</li>
+<li>Escrever testes com JUnit permite que o programador perca menos tempo depurando seu código;</li>
+<li>JUnit é LIVRE.</li>
+</ol>
+<p>A experiência adquirida com o <b>JUnit</b> tem sido importante na consolidação do <i><a href="http://pt.wikipedia.org/wiki/Test_Driven_Development" title="Test Driven Development">Test Driven Development</a></i> (desenvolvimento direcionado à testes). Além disso, ele foi adaptado à outras linguagens, tais como <a href="http://pt.wikipedia.org/wiki/C" title="C">C_sharp</a>(NUnit), <a href="http://pt.wikipedia.org/wiki/Python" title="Python">Python</a>, <a href="http://pt.wikipedia.org/wiki/Fortran" title="Fortran">Fortran</a>, e <a href="http://pt.wikipedia.org/wiki/C%2B%2B" title="C++">C++</a>.</p>
+<h2><span class="editsection">[<a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit&amp;section=1" title="Editar seção: Exemplos de Código">editar</a>]</span> <span class="mw-headline" id="Exemplos_de_C.C3.B3digo">Exemplos de Código</span></h2>
+<p>Caso de teste bem simples para mostrar como o JUnit 3.8 funciona:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="java source-java" style="font-family: monospace;">
+<pre class="de1"><span class="kw1">import</span> <span class="co2">junit.framework.TestCase</span><span class="sy0">;</span>
+ 
+<span class="co1">// Todo caso de teste deve herdar características de TestCase.</span>
+<span class="kw1">public</span> <span class="kw1">class</span> SampleTest <span class="kw1">extends</span> TestCase <span class="br0">{</span>
+ 
+ <span class="kw1">private</span> java.<span class="me1">util</span>.<span class="me1">List</span><span class="sy0">&lt;</span>Object<span class="sy0">&gt;</span> listaVazia<span class="sy0">;</span>
+ 
+ <span class="co3">/**
+  * Este método será chamado antes de cada método de teste.
+  */</span>
+ <span class="kw1">protected</span> <span class="kw4">void</span> setUp<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 listaVazia <span class="sy0">=</span> <span class="kw1">new</span> java.<span class="me1">util</span>.<span class="me1">ArrayList</span><span class="sy0">&lt;</span>Object<span class="sy0">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>    
+ 
+ <span class="co3">/**
+  * Após cada método de teste, este método é invocado para limpar o lixo.
+  */</span>
+ <span class="kw1">protected</span> <span class="kw4">void</span> tearDown<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 listaVazia <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+ 
+ <span class="co3">/**
+  * Todo método que começar com a palavra "test" será executado pelo JUnit.
+  * O método testComportamento faz uma chamada ao método assertEquals(mensagem, valor
+  * esperado, valor atual) que verfica se o resultado de "listaVazia.size()" (tamanho da
+  * lista) é igual a 0 (zero) que é o valor esperado, caso contrário emite a mensagem.
+  */</span>
+ <span class="kw1">public</span> <span class="kw4">void</span> testComportamento<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 assertEquals<span class="br0">(</span><span class="st0">"A lista vazia deve ter 0 elementos"</span>, 0, listaVazia.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+ 
+ <span class="co3">/**
+  * Este método está testando a exceção. Ela deve ser lançada, pois existe
+  * nenhum item na lista. Caso contrário a implementação tem problemas.
+  */</span>
+ <span class="kw1">public</span> <span class="kw4">void</span> testForException<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 <span class="kw1">try</span> <span class="br0">{</span>
+		 <span class="kw3">Object</span> o <span class="sy0">=</span> listaVazia.<span class="me1">get</span><span class="br0">(</span>0<span class="br0">)</span><span class="sy0">;</span>
+		 fail<span class="br0">(</span><span class="st0">"Deve levantar uma IndexOutOfBoundsException"</span><span class="br0">)</span><span class="sy0">;</span>
+	 <span class="br0">}</span> <span class="kw1">catch</span> <span class="br0">(</span><span class="kw3">IndexOutOfBoundsException</span> success<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+ <span class="br0">}</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<p>O mesmo teste para JUnit 4.0:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="java source-java" style="font-family: monospace;">
+<pre class="de1"><span class="kw1">import</span> <span class="co2">org.junit.Assert</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">org.junit.Test</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">org.junit.Before</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">org.junit.After</span><span class="sy0">;</span>
+ 
+<span class="co1">// Não necessita herdar nada.</span>
+<span class="kw1">public</span> <span class="kw1">class</span> SampleTest <span class="br0">{</span>
+ 
+ <span class="kw1">private</span> java.<span class="me1">util</span>.<span class="me1">List</span><span class="sy0">&lt;</span>Object<span class="sy0">&gt;</span> listaVazia<span class="sy0">;</span>
+ 
+ <span class="co3">/**
+  * Este método será chamado antes de cada método de teste.
+  */</span>
+ @Before
+ <span class="kw1">protected</span> <span class="kw4">void</span> inicializar<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 listaVazia <span class="sy0">=</span> <span class="kw1">new</span> java.<span class="me1">util</span>.<span class="me1">ArrayList</span><span class="sy0">&lt;</span>Object<span class="sy0">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>    
+ 
+ <span class="co3">/**
+  * Após cada método de teste, este método é invocado para limpar o lixo.
+  */</span>
+ @After
+ <span class="kw1">protected</span> <span class="kw4">void</span> terminou<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 listaVazia <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+ 
+ <span class="co3">/**
+  * Todo método que começar com a palavra "test" será executado pelo JUnit.
+  * O método testComportamento faz uma chamada ao método assertEquals(mensagem, valor
+  * esperado, valor atual) que verfica se o resultado de "listaVazia.size()" (tamanho da
+  * lista) é igual a 0 (zero) que é o valor esperado, caso contrário emite a mensagem.
+  */</span>
+ @Test
+ <span class="kw1">public</span> <span class="kw4">void</span> comportamento<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 <span class="kw1">Assert</span>.<span class="me1">assertEquals</span><span class="br0">(</span><span class="st0">"A lista vazia deve ter 0 elementos"</span>, 0, listaVazia.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+ 
+ <span class="co3">/**
+  * Este método está testando a exceção. Ela deve ser lançada, pois não existe
+  * nenhum item na lista. Caso contrário a implementação tem problemas.
+  */</span>
+ @Test<span class="br0">(</span>expected<span class="sy0">=</span><span class="kw3">IndexOutOfBoundsException</span>.<span class="kw1">class</span><span class="br0">)</span>
+ <span class="kw1">public</span> <span class="kw4">void</span> lancarException<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 listaVazia.<span class="me1">get</span><span class="br0">(</span>0<span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<hr>
+<p>Exemplo de classe de testes usando versões anteriores a 3.8:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="java source-java" style="font-family: monospace;">
+<pre class="de1"><span class="kw1">import</span> <span class="co2">junit.framework.TestCase</span><span class="sy0">;</span>
+ 
+<span class="kw1">public</span> <span class="kw1">class</span> TesteMultiplica <span class="kw1">extends</span> TestCase <span class="br0">{</span>
+ <span class="kw1">public</span> <span class="kw4">void</span> testMultiplication<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 <span class="co1">// Testando se 2*2=4:</span>
+	 assertEquals<span class="br0">(</span><span class="st0">"Multiplica"</span>, 4, 2 <span class="sy0">*</span> 2<span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<p>O Mesmo exemplo utilizando o <b>JUnit</b> 4.0:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="java source-java" style="font-family: monospace;">
+<pre class="de1"><span class="kw1">import</span> <span class="co2">org.junit.Assert</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">org.junit.Test</span><span class="sy0">;</span>
+ 
+<span class="kw1">public</span> <span class="kw1">class</span> TesteMultiplica <span class="br0">{</span>
+ @Test
+ <span class="kw1">public</span> <span class="kw4">void</span> testMultiplication<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+	 <span class="co1">// Testando se 2*2=4:</span>
+	 <span class="kw1">Assert</span>.<span class="me1">assertEquals</span><span class="br0">(</span><span class="st0">"Multiplica"</span>, 4, 2 <span class="sy0">*</span> 2<span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<h2><span class="editsection">[<a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit&amp;section=2" title="Editar seção: Ligações externas">editar</a>]</span> <span class="mw-headline" id="Liga.C3.A7.C3.B5es_externas">Ligações externas</span></h2>
+<ul>
+<li><a href="http://junit.wikidot.com/" class="external text" rel="nofollow">Tutorial em português</a></li>
+<li><a href="http://junit.org/" class="external text" rel="nofollow">Site oficial do JUnit</a></li>
+<li><a href="http://www.javafree.org/content/view.jf?idContent=213" class="external text" rel="nofollow">Artigo em Português sobre JUnit</a></li>
+<li><a href="http://www.linux.ie/articles/tutorials/junit.php" class="external text" rel="nofollow">Testes de Unidade com JUnit</a></li>
+<li><a href="http://www.ibm.com/developerworks/opensource/library/os-junit/?ca=dgr-lnxw07JUnite" class="external text" rel="nofollow">JUnit antipatterns (developerWorks)</a> and <a href="http://www.exubero.com/junit/antipatterns.html" class="external text" rel="nofollow">JUnit antipatterns (Exubero)</a></li>
+<li><a href="http://www.ibm.com/developerworks/java/library/j-junit4.html?ca=dgr-lnxw01JUnit4" class="external text" rel="nofollow">Uma breve análise do JUnit 4</a></li>
+</ul>
+<h2><span class="editsection">[<a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit&amp;section=3" title="Editar seção: Ferramentas complementares">editar</a>]</span> <span class="mw-headline" id="Ferramentas_complementares">Ferramentas complementares</span></h2>
+<ul>
+<li><a href="http://www.oncast.com.br/dev/lobo" class="external text" rel="nofollow">Lobo, continuous tuning</a> Ferramenta para testes de performance. Sua utilização é semelhante ao JUnit.</li>
+</ul>
+<p><br></p>
+<table class="noprint" style="border-top: 3px solid silver; border-bottom: 1px solid silver; background: transparent none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; clear: both;" width="100%">
+<tbody><tr>
+<td align="center"><a href="http://pt.wikipedia.org/wiki/Ficheiro:Crystal_Clear_app_ktalkd.png" class="image"><img alt="Crystal Clear app ktalkd.png" src="JUnit_arquivos/30px-Crystal_Clear_app_ktalkd.png" width="30" height="30"></a></td>
+<td><i>Este artigo é um <a href="http://pt.wikipedia.org/wiki/Wikipedia:Esbo%C3%A7o" title="Wikipedia:Esboço">esboço</a> sobre <b><a href="http://pt.wikipedia.org/wiki/Inform%C3%A1tica" title="Informática">Informática</a></b>. Você pode ajudar a Wikipédia <span class="plainlinks"><a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit" class="external text" rel="nofollow"><span title="Expandir o artigo.">expandindo-o</span></a>.</span></i></td>
+</tr>
+</tbody></table>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 70/1000000
+Post-expand include size: 1038/2048000 bytes
+Template argument size: 44/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key ptwiki:pcache:idhash:184160-0!1!0!!pt!2 and timestamp 20091011143205 -->
+<div class="printfooter">
+Obtido em "<a href="http://pt.wikipedia.org/wiki/JUnit">http://pt.wikipedia.org/wiki/JUnit</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://pt.wikipedia.org/wiki/Especial:Categorias" title="Especial:Categorias">Categoria</a>: <span dir="ltr"><a href="http://pt.wikipedia.org/wiki/Categoria:Java" title="Categoria:Java">Java</a></span></div><div id="mw-hidden-catlinks" class="mw-hidden-cats-hidden">Categoria oculta: <span dir="ltr"><a href="http://pt.wikipedia.org/wiki/Categoria:%21Esbo%C3%A7os_sobre_inform%C3%A1tica" title="Categoria:!Esboços sobre informática">!Esboços sobre informática</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul xml:lang="pt" lang="pt">
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://pt.wikipedia.org/wiki/JUnit" title="Ver a página de conteúdo [alt-shift-c]" accesskey="c">Artigo</a></li>
+				 <li id="ca-talk" class="new"><a href="http://pt.wikipedia.org/w/index.php?title=Discuss%C3%A3o:JUnit&amp;action=edit&amp;redlink=1" title="Discussão sobre o conteúdo da página [alt-shift-t]" accesskey="t">Discussão</a></li>
+				 <li id="ca-edit"><a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=edit" title="Você pode editar esta página. Por favor, utilize o botão Mostrar Previsão antes de salvar. [alt-shift-e]" accesskey="e">Editar</a></li>
+				 <li id="ca-history"><a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;action=history" title="Edições anteriores desta página. [alt-shift-h]" accesskey="h">História</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Ferramentas pessoais</h5>
+		<div class="pBody">
+			<ul xml:lang="pt" lang="pt">
+				<li id="pt-optin-try"><a href="http://pt.wikipedia.org/w/index.php?title=Especial:UsabilityInitiativeOptIn&amp;from=JUnit" title="Try out new features" class="no-text-transform">Experimente o Beta</a></li>
+				<li id="pt-login"><a href="http://pt.wikipedia.org/w/index.php?title=Especial:Entrar&amp;returnto=JUnit" title="Aconselhamos-lhe a criar uma conta na Wikipédia, embora tal não seja obrigatório. [alt-shift-o]" accesskey="o">Entrar / criar conta</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/61/Wikipedia-logo-pt.png);" href="http://pt.wikipedia.org/wiki/P%C3%A1gina_principal" title="Visite a página principal"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div id="p-search" class="portlet">
+		<h5 xml:lang="pt" lang="pt"><label for="searchInput">Busca</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/w/index.php" id="searchform">
+				<input name="title" value="Especial:Busca" type="hidden">
+				<input autocomplete="off" id="searchInput" title="Pesquisar na Wikipedia" accesskey="f" value="" name="search">
+				<input name="go" class="searchButton" id="searchGoButton" value="Ir" title="Ir a uma página com este exato nome, caso exista" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Pesquisa" title="Procurar por páginas contendo este texto" type="submit">
+			</form>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5 xml:lang="pt" lang="pt">Navegação</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://pt.wikipedia.org/wiki/P%C3%A1gina_principal" title="Visitar a página principal [alt-shift-z]" accesskey="z">Página principal</a></li>
+				<li id="n-Conte.C3.BAdo-destacado"><a href="http://pt.wikipedia.org/wiki/Portal:Conte%C3%BAdo_destacado">Conteúdo destacado</a></li>
+				<li id="n-currentevents"><a href="http://pt.wikipedia.org/wiki/Portal:Eventos_atuais" title="Informação temática sobre eventos atuais">Eventos atuais</a></li>
+				<li id="n-Esplanada"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Esplanada">Esplanada</a></li>
+				<li id="n-randompage"><a href="http://pt.wikipedia.org/wiki/Especial:Aleat%C3%B3ria" title="Carregar página aleatória [alt-shift-x]" accesskey="x">Página aleatória</a></li>
+				<li id="n-Portais"><a href="http://pt.wikipedia.org/wiki/Portal:%C3%8Dndice">Portais</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-colabora.C3.A7.C3.A3o">
+		<h5 xml:lang="pt" lang="pt">colaboração</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Boas-vindas"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Boas-vindas">Boas-vindas</a></li>
+				<li id="n-help"><a href="http://pt.wikipedia.org/wiki/Ajuda:P%C3%A1gina_principal" title="Um local reservado para auxílio.">Ajuda</a></li>
+				<li id="n-P.C3.A1gina-de-testes"><a href="http://pt.wikipedia.org/wiki/Wikipedia:P%C3%A1gina_de_testes">Página de testes</a></li>
+				<li id="n-portal"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Portal_comunit%C3%A1rio" title="Sobre o projeto">Portal comunitário</a></li>
+				<li id="n-recentchanges"><a href="http://pt.wikipedia.org/wiki/Especial:Mudan%C3%A7as_recentes" title="A lista de mudanças recentes nesta wiki. [alt-shift-r]" accesskey="r">Mudanças recentes</a></li>
+				<li id="n-Estaleiro"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Estaleiro">Estaleiro</a></li>
+				<li id="n-P.C3.A1ginas-novas"><a href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_novas">Páginas novas</a></li>
+				<li id="n-Contato"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Contato">Contato</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Coleta_de_fundos" title="Ajude-nos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-coll-print_export">
+		<h5 xml:lang="pt" lang="pt">Imprimir/exportar</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://pt.wikipedia.org/w/index.php?title=Especial:Livro&amp;bookcmd=book_creator&amp;referer=JUnit" title="Cria um livro ou uma coleção de páginas" rel="nofollow">Criar um livro</a></li><li id="coll-download-as-rl"><a href="http://pt.wikipedia.org/w/index.php?title=Especial:Livro&amp;bookcmd=render_article&amp;arttitle=JUnit&amp;oldid=17131463&amp;writer=rl" title="Baixar uma versão PDF desta página wiki" rel="nofollow">Descarregar como PDF</a></li><li id="t-print"><a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;printable=yes" title="Versão para impressão desta página [alt-shift-p]" accesskey="p">Versão para impressão</a></li></ul>		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5 xml:lang="pt" lang="pt">Ferramentas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_afluentes/JUnit" title="Lista de todas as páginas que se ligam a esta [alt-shift-j]" accesskey="j">Páginas afluentes</a></li>
+				<li id="t-recentchangeslinked"><a href="http://pt.wikipedia.org/wiki/Especial:Novidades_relacionadas/JUnit" title="Mudanças recentes em páginas relacionadas a esta [alt-shift-k]" accesskey="k">Alterações relacionadas</a></li>
+<li id="t-upload"><a href="http://pt.wikipedia.org/wiki/Ajuda:Como_carregar_ficheiros_no_Commons" title="Carregar ficheiros [alt-shift-u]" accesskey="u">Carregar ficheiro</a></li>
+<li id="t-specialpages"><a href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_especiais" title="Lista de páginas especiais [alt-shift-q]" accesskey="q">Páginas especiais</a></li>
+				<li id="t-permalink"><a href="http://pt.wikipedia.org/w/index.php?title=JUnit&amp;oldid=17131463" title="Link permanente para esta versão desta página">Enlace permanente</a></li><li id="t-cite"><a href="http://pt.wikipedia.org/w/index.php?title=Especial:Citar&amp;page=JUnit&amp;id=17131463" title="Informação sobre como citar esta página">Citar este artigo</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5 xml:lang="pt" lang="pt">Outras línguas</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/JUnit">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/JUnit">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/JUnit">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/JUnit">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/JUnit">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/JUnit">עברית</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/JUnit">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/JUnit">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/JUnit">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/JUnit">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/JUnit">Русский</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/JUnit">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/JUnit">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="JUnit_arquivos/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="JUnit_arquivos/wikimedia-button.png" alt="Wikimedia Foundation" width="88" height="31"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> Esta página foi modificada pela última vez às 02h36min de 6 de outubro de 2009.</li>
+					<li id="copyright">O texto está disponível sob a licença <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution/Share-Alike License</a>; condições adicionais podem-se aplicar. Veja <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Condições de Uso</a> para detalhes.</li>
+					<li id="privacy"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Pol%C3%ADtica_de_privacidade" title="Wikipedia:Política de privacidade">Política de privacidade</a></li>
+					<li id="about"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Sobre" title="Wikipedia:Sobre">Sobre a Wikipédia</a></li>
+					<li id="disclaimer"><a href="http://pt.wikipedia.org/wiki/Wikipedia:Aviso_Geral" title="Wikipedia:Aviso Geral">Avisos gerais</a></li>
+			</ul>
+		</div>
+</div>
+
+<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served by srv198 in 0.332 secs. --></body></html>

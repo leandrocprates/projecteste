@@ -1,0 +1,489 @@
+a:link {
+        color: #000000;
+        text-decoration: none;
+}
+a:visited {
+        color: #000000;
+        text-decoration: none;
+}
+a:hover {
+        color: #22558E;
+        text-decoration: underline;
+}
+a:active {
+        color: #0000FF;
+        text-decoration: underline;
+}
+
+#artigoData {
+        margin-top       : 6px;
+        margin-bottom    : 7px;
+        margin-left      : 2px;
+        margin-right     : 0px;
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        font-size        : 11px;
+        color            : #A2A2A2;
+}
+#artigoData a:link {
+        color: #A2A2A2;
+        text-decoration: none;
+}
+#artigoData a:visited {
+        color: #A2A2A2;
+        text-decoration: none;
+}
+#artigoData a:hover {
+        color: #A2A2A2;
+        text-decoration: underline;
+}
+#artigoData a:active {
+        color: #A2A2A2;
+        text-decoration: underline;
+}
+#artigoTitulo {
+        margin-top       : 7px;
+        margin-bottom    : 7px;
+        margin-left      : 2px;
+        margin-right     : 0px;
+        font             : bold 17px Verdana, Arial, Helvetica, sans-serif ;
+        color            : #22558E;
+}
+#artigoSubTitulo {
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 2px;
+        margin-right     : 6px;
+        font             : bold 13px Verdana, Arial, Helvetica, sans-serif ;
+        color            : #000000;
+}
+#artigoCurriculo {
+        PADDING-TOP          : 10px;
+        PADDING-LEFT         : 0px;
+        PADDING-RIGHT        : 0px;
+        PADDING-BOTTOM       : 15px;
+                
+        margin-top       : 3px;
+        margin-bottom    : 15px;
+        margin-left      : 5px;
+        margin-right     : 9px;
+                
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       : left;
+        font-size        : 11px;
+        color            : #000000;
+        border-bottom    : 1px solid #000000;
+        border-top    : 1px solid #000000;
+        background-color : #FFFFFF;
+}
+
+#artigoCurriculo a:link {
+        color: #22558E;
+        text-decoration: underline;
+}
+#artigoCurriculo a:visited {
+        color: #22558E;
+        text-decoration: underline;
+}
+#artigoCurriculo a:hover {
+        color: #22558E;
+        text-decoration: none;
+}
+#artigoCurriculo a:active {
+        color: #22558E;
+        text-decoration: none;
+}
+
+#artigoConteudo {
+        margin-top       : 7px;
+        margin-bottom    : 7px;
+        margin-left      : 2px;
+        margin-right     : 7px;
+        font             : normal 12px Verdana, Arial, Helvetica, sans-serif ;
+        color            : #000000;
+}
+#artigoConteudo a:link {
+        color: #22558E;
+        text-decoration: underline;
+}
+#artigoConteudo a:visited {
+        color: #44228E;
+        text-decoration: underline;
+}
+#artigoConteudo a:hover {
+        color: #22558E;
+        text-decoration: none;
+}
+#artigoConteudo a:active {
+        color: #44228E;
+        text-decoration: none;
+}
+#artigoConteudo p {
+        margin-left: 0px;
+        margin-top: 18px;
+        margin-right: 0px;
+        margin-bottom: 18px;
+}
+#artigoConteudoDivisor {
+        PADDING-TOP      : 18px;
+        PADDING-LEFT     : 3px;
+        PADDING-RIGHT    : 3px;
+        PADDING-BOTTOM   : 0px;
+
+        margin-top       : 12px;
+        margin-bottom    : 6px;
+        margin-left      : 3px;
+        margin-right     : 3px;
+        font             : normal 11px Verdana, Arial, Helvetica, sans-serif ;
+        color            : #000000;
+        background-image : url('http://www.plugmasters.com.br/sys/templates/Plug/Images/divisor_artigos.gif');
+        background-repeat: repeat-x;
+}
+
+#artigoLateralDivisor {
+        PADDING-TOP      : 5px;
+        PADDING-LEFT     : 5px;
+        PADDING-RIGHT    : 5px;
+        PADDING-BOTTOM   : 5px;
+
+        margin-top       : 10px;
+        margin-bottom    : 10px;
+        margin-left      : 6px;
+        margin-right     : 6px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        #text-align      : justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #EBEBEB;
+}
+
+#artigoComentarios {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       :justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #FFFFFF;
+}
+#artigoEmSerie {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       :justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #FFFFFF;
+}
+#artigoLinksRelacionados {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       :justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #FFFFFF;
+}
+#artigoArtigosRelacionados {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       :justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #FFFFFF;
+}
+#artigoAnexos {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        text-align       :justify;
+        font-size        : 11px;
+        color            : #000000;
+        border-top       : 1px solid #22558E;
+        background-color : #FFFFFF;
+}
+#artigoPaginacao {
+        PADDING-TOP      : 6px;
+        PADDING-LEFT     : 6px;
+        PADDING-RIGHT    : 6px;
+        PADDING-BOTTOM   : 6px;
+        
+        margin-top       : 8px;
+        margin-bottom    : 8px;
+        margin-left      : 8px;
+        margin-right     : 8px;
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        font-size        : 11px;
+        color            : #22558E;
+}
+#artigoPaginacao a:link {
+        color: #22558E;
+        text-decoration: none;
+}
+#artigoPaginacao a:visited {
+        color: #22558E;
+        text-decoration: none;
+}
+#artigoPaginacao a:hover {
+        color: #A2A2A2;
+        text-decoration: underline;
+}
+#artigoPaginacao a:active {
+        color: #A2A2A2;
+        text-decoration: underline;
+}
+/* web standards */
+#Colunas UL {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+        DISPLAY: block;
+        MARGIN: 0px;
+        LIST-STYLE-TYPE: none;
+}
+#Autor img
+{
+        float:left;
+        width: 54px;
+        height:60px;
+        margin-right:6px;
+        border: 1px;
+        border-color: black;
+        border-style: solid;
+}
+#Colunas UL LI {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 1px;
+        PADDING-TOP: 0px;
+        MARGIN: 0px;
+        FONT-SIZE: 10px;
+}
+#Colunas UL LI A {
+        PADDING-RIGHT: 8px;
+        PADDING-LEFT: 8px;
+        PADDING-TOP: 10px;
+        PADDING-BOTTOM: 10px;
+        BORDER-TOP: #EEEEEE 1px solid;
+        DISPLAY: block;
+        TEXT-DECORATION: none
+}
+#Colunas UL LI A:hover {
+        BACKGROUND: #F9F9F9;
+        COLOR: #555555
+}
+#Colunas UL LI A:active {
+        BACKGROUND: #F9F9F9;
+        COLOR: #555555
+}
+#Colunas UL LI A:visited {
+        COLOR: #000000
+}
+
+
+
+
+/* web standards */
+#ColunasArtigos UL {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+        DISPLAY: block;
+        MARGIN: 0px;
+        LIST-STYLE-TYPE: none;
+        BORDER-BOTTOM: #EEEEEE 1px solid;
+        BACKGROUND: #FFFFFF;
+}
+#ColunasArtigos UL LI {
+        BACKGROUND: #FFFFFF;
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 1px;
+        PADDING-TOP: 0px;
+        MARGIN: 0px;
+        FONT-SIZE: 10px;
+}
+#ColunasArtigos UL LI A {
+        PADDING-RIGHT: 8px;
+        PADDING-LEFT: 8px;
+        PADDING-TOP: 10px;
+        PADDING-BOTTOM: 10px;
+        BORDER-TOP: #EEEEEE 1px solid;
+        BORDER-LEFT: #EEEEEE 1px solid;
+        BORDER-RIGHT: #EEEEEE 1px solid;
+        DISPLAY: block;
+        TEXT-DECORATION: none
+}
+#ColunasArtigos UL LI A:hover {
+        BACKGROUND: #F9F9F9;
+        COLOR: #555555
+}
+#ColunasArtigos UL LI A:active {
+        BACKGROUND: #F9F9F9;
+        COLOR: #555555
+}
+#ColunasArtigos UL LI A:visited {
+        COLOR: #000000
+}
+
+
+
+
+
+#linkTodasMaterias {
+        PADDING-TOP      : 4px;
+        PADDING-LEFT     : 4px;
+        PADDING-RIGHT    : 4px;
+        PADDING-BOTTOM   : 4px;
+                
+        margin-top       : 7px;
+        margin-bottom    : 7px;
+        margin-left      : 2px;
+        margin-right     : 4px;
+                
+        font-family      : Verdana, Arial, Helvetica, sans-serif;
+        font-size        : 11px;
+        color            : #333333;
+        border-top       : 1px solid #FFCC00;
+        border-bottom    : 1px solid #FFCC00;
+        background-color : #FFFFCC;
+}
+/* web standards */
+#listagemMaterias UL {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+        DISPLAY: block;
+        MARGIN: 0px;
+        LIST-STYLE-TYPE: none;
+}
+#listagemMaterias UL LI {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+        PADDING-TOP: 0px;
+                
+        MARGIN: 0px;
+        FONT-SIZE: 10px;
+}
+#listagemMaterias UL LI A {
+        PADDING-RIGHT   : 4px;
+        PADDING-LEFT    : 4px;
+        PADDING-TOP     : 4px;
+        PADDING-BOTTOM  : 4px;
+                
+        margin-top      : 0px;
+        margin-bottom   : 0px;
+        margin-left     : 8px;
+        margin-right    : 9px;
+                
+        BORDER-BOTTOM   : #666666 1px dotted;
+        DISPLAY         : block;
+        TEXT-DECORATION : none
+}
+#listagemMaterias UL LI A:hover {
+        BACKGROUND: #F9F9F9;
+        COLOR: #333333
+}
+/* web standards */
+#Colunistas {
+                PADDING-RIGHT: 0px;
+                PADDING-LEFT: 0px;
+                MARGIN-BOTTOM: 0px;
+                MARGIN-TOP:0px;
+}
+#Colunistas UL {
+                BORDER-LEFT: #CCCCCC 1px solid;
+                BORDER-RIGHT: #CCCCCC 1px solid;
+                BORDER-BOTTOM: #FFFFFF 1px solid;
+                PADDING-LEFT: 0px;
+                PADDING-RIGHT: 0px;
+                PADDING-BOTTOM: 0px;
+                MARGIN: 0px;
+                LIST-STYLE-TYPE: none;
+                BACKGROUND: #E4E4E4;
+                DISPLAY: block;
+                WIDTH: 198px;
+}
+#Colunistas UL LI {
+                BORDER-TOP: #FFFFFF 1px solid;
+                BORDER-RIGHT: #FFFFFF 2px solid;
+                BORDER-LEFT: #FFFFFF 1px solid;
+                PADDING-RIGHT: 0px;
+                PADDING-LEFT: 0px;
+                PADDING-BOTTOM: 0px;
+                MARGIN: 0px;
+                PADDING-TOP: 0px;
+                FONT-SIZE: 10px;
+}
+#Colunistas UL LI A {
+                BORDER-RIGHT: #E4E4E4 4px solid;
+                BORDER-BOTTOM: 0px;
+                PADDING-TOP: 5px;
+                PADDING-LEFT: 10px;
+                PADDING-RIGHT: 10px;
+                PADDING-BOTTOM: 5px;
+                WIDTH: 170px;
+                DISPLAY: block;
+                BACKGROUND: #F4F4F4;
+                TEXT-DECORATION: none
+}
+#Colunistas UL LI A:hover {
+                BORDER-RIGHT: #0048FF 5px solid;
+                BORDER-BOTTOM: 0px;
+                PADDING-TOP: 5px;
+                PADDING-LEFT: 10px;
+                PADDING-RIGHT: 10px;
+                PADDING-BOTTOM: 5px;
+                WIDTH: 170px;
+                DISPLAY: block;
+                BACKGROUND: #F9F9F9;
+                TEXT-DECORATION: none
+                COLOR: #000000;
+}

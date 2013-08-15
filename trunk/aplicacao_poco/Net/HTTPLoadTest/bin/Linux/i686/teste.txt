@@ -1,0 +1,907 @@
+http://localhost:9980 200 OK 3.388ms
+http://localhost:9980 200 OK 6.283ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 6.283ms, 
+Avg requests/second handled: 159.16
+Total time: 0.006283
+http://localhost:9980 200 OK 5.25ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 5.25ms, 
+Avg requests/second handled: 190.476
+Total time: 0.00525
+http://localhost:9980 200 OK 6.045ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 6.045ms, 
+Avg requests/second handled: 165.426
+Total time: 0.006045
+http://localhost:9980 200 OK 6.234ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 6.234ms, 
+Avg requests/second handled: 160.411
+Total time: 0.006234
+http://localhost:9980 200 OK 6.325ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 6.325ms, 
+Avg requests/second handled: 158.103
+Total time: 0.006325
+http://localhost:9980 200 OK 7.939ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 7.939ms, 
+Avg requests/second handled: 125.96
+Total time: 0.007939
+http://localhost:9980 200 OK 7.104ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 3.388ms, 
+Avg requests/second handled: 295.159
+Total time: 0.003388
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 7.104ms, 
+Avg requests/second handled: 140.766
+Total time: 0.007104
+http://localhost:9980 200 OK 8.501ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 8.501ms, 
+Avg requests/second handled: 117.633
+Total time: 0.008501
+http://localhost:9980 200 OK 5.499ms
+http://localhost:9980 200 OK 7.575ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 5.499ms, 
+Avg requests/second handled: 181.851
+Total time: 0.005499
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 7.575ms, 
+Avg requests/second handled: 132.013
+Total time: 0.007575
+http://localhost:9980 200 OK 0.683ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.683ms, 
+Avg requests/second handled: 1464.13
+Total time: 0.000683
+http://localhost:9980 200 OK 0.843ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.843ms, 
+Avg requests/second handled: 1186.24
+Total time: 0.000843
+http://localhost:9980 200 OK 0.661ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.661ms, 
+Avg requests/second handled: 1512.86
+Total time: 0.000661
+http://localhost:9980 200 OK 0.775ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.775ms, 
+Avg requests/second handled: 1290.32
+Total time: 0.000775
+http://localhost:9980 200 OK 0.614ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.614ms, 
+Avg requests/second handled: 1628.66
+Total time: 0.000614
+http://localhost:9980 200 OK 0.751ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.751ms, 
+Avg requests/second handled: 1331.56
+Total time: 0.000751
+http://localhost:9980 200 OK 0.61ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.61ms, 
+Avg requests/second handled: 1639.34
+Total time: 0.00061
+http://localhost:9980 200 OK 0.742ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.742ms, 
+Avg requests/second handled: 1347.71
+Total time: 0.000742
+http://localhost:9980 200 OK 0.606ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.606ms, 
+Avg requests/second handled: 1650.17
+Total time: 0.000606
+http://localhost:9980 200 OK 0.762ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.762ms, 
+Avg requests/second handled: 1312.34
+Total time: 0.000762
+http://localhost:9980 200 OK 0.609ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.609ms, 
+Avg requests/second handled: 1642.04
+Total time: 0.000609
+http://localhost:9980 200 OK 0.763ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.763ms, 
+Avg requests/second handled: 1310.62
+Total time: 0.000763
+http://localhost:9980 200 OK 0.615ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.615ms, 
+Avg requests/second handled: 1626.02
+Total time: 0.000615
+http://localhost:9980 200 OK 0.754ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.754ms, 
+Avg requests/second handled: 1326.26
+Total time: 0.000754
+http://localhost:9980 200 OK 0.596ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.596ms, 
+Avg requests/second handled: 1677.85
+Total time: 0.000596
+http://localhost:9980 200 OK 0.738ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.738ms, 
+Avg requests/second handled: 1355.01
+Total time: 0.000738
+http://localhost:9980 200 OK 0.603ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.603ms, 
+Avg requests/second handled: 1658.37
+Total time: 0.000603
+http://localhost:9980 200 OK 0.793ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.793ms, 
+Avg requests/second handled: 1261.03
+Total time: 0.000793
+http://localhost:9980 200 OK 0.635ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.635ms, 
+Avg requests/second handled: 1574.8
+Total time: 0.000635
+http://localhost:9980 200 OK 0.753ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.753ms, 
+Avg requests/second handled: 1328.02
+Total time: 0.000753
+http://localhost:9980 200 OK 0.612ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.612ms, 
+Avg requests/second handled: 1633.99
+Total time: 0.000612
+http://localhost:9980 200 OK 0.744ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.744ms, 
+Avg requests/second handled: 1344.09
+Total time: 0.000744
+http://localhost:9980 200 OK 0.724ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.724ms, 
+Avg requests/second handled: 1381.22
+Total time: 0.000724
+http://localhost:9980 200 OK 3.405ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 3.405ms, 
+Avg requests/second handled: 293.686
+Total time: 0.003405
+http://localhost:9980 200 OK 0.804ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.804ms, 
+Avg requests/second handled: 1243.78
+Total time: 0.000804
+http://localhost:9980 200 OK 0.738ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.738ms, 
+Avg requests/second handled: 1355.01
+Total time: 0.000738
+http://localhost:9980 200 OK 0.744ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.744ms, 
+Avg requests/second handled: 1344.09
+Total time: 0.000744
+http://localhost:9980 200 OK 0.73ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.73ms, 
+Avg requests/second handled: 1369.86
+Total time: 0.00073
+http://localhost:9980 200 OK 0.734ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.734ms, 
+Avg requests/second handled: 1362.4
+Total time: 0.000734
+http://localhost:9980 200 OK 0.725ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.725ms, 
+Avg requests/second handled: 1379.31
+Total time: 0.000725
+http://localhost:9980 200 OK 0.881ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.881ms, 
+Avg requests/second handled: 1135.07
+Total time: 0.000881
+http://localhost:9980 200 OK 0.825ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.825ms, 
+Avg requests/second handled: 1212.12
+Total time: 0.000825
+http://localhost:9980 200 OK 0.752ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.752ms, 
+Avg requests/second handled: 1329.79
+Total time: 0.000752
+http://localhost:9980 200 OK 0.846ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.846ms, 
+Avg requests/second handled: 1182.03
+Total time: 0.000846
+http://localhost:9980 200 OK 0.661ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.661ms, 
+Avg requests/second handled: 1512.86
+Total time: 0.000661
+http://localhost:9980 200 OK 0.761ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.761ms, 
+Avg requests/second handled: 1314.06
+Total time: 0.000761
+http://localhost:9980 200 OK 1.082ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 1.082ms, 
+Avg requests/second handled: 924.214
+Total time: 0.001082
+http://localhost:9980 200 OK 0.761ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.761ms, 
+Avg requests/second handled: 1314.06
+Total time: 0.000761
+http://localhost:9980 200 OK 0.92ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.92ms, 
+Avg requests/second handled: 1086.96
+Total time: 0.00092
+http://localhost:9980 200 OK 1.694ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 1.694ms, 
+Avg requests/second handled: 590.319
+Total time: 0.001694
+http://localhost:9980 200 OK 0.954ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.954ms, 
+Avg requests/second handled: 1048.22
+Total time: 0.000954
+http://localhost:9980 200 OK 1.889ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 1.889ms, 
+Avg requests/second handled: 529.381
+Total time: 0.001889
+http://localhost:9980 200 OK 0.549ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.549ms, 
+Avg requests/second handled: 1821.49
+Total time: 0.000549
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 0 succesful (0%)
+Avg response time: 0ms, 
+Avg requests/second handled: nan
+Total time: 0
+http://localhost:9980 200 OK 0.864ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.864ms, 
+Avg requests/second handled: 1157.41
+Total time: 0.000864
+http://localhost:9980 200 OK 0.75ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.75ms, 
+Avg requests/second handled: 1333.33
+Total time: 0.00075
+http://localhost:9980 200 OK 0.734ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.734ms, 
+Avg requests/second handled: 1362.4
+Total time: 0.000734
+http://localhost:9980 200 OK 0.737ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.737ms, 
+Avg requests/second handled: 1356.85
+Total time: 0.000737
+http://localhost:9980 200 OK 0.736ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.736ms, 
+Avg requests/second handled: 1358.7
+Total time: 0.000736
+http://localhost:9980 200 OK 0.767ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.767ms, 
+Avg requests/second handled: 1303.78
+Total time: 0.000767
+http://localhost:9980 200 OK 0.875ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.875ms, 
+Avg requests/second handled: 1142.86
+Total time: 0.000875
+http://localhost:9980 200 OK 0.902ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.902ms, 
+Avg requests/second handled: 1108.65
+Total time: 0.000902
+http://localhost:9980 200 OK 0.749ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.749ms, 
+Avg requests/second handled: 1335.11
+Total time: 0.000749
+http://localhost:9980 200 OK 0.737ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.737ms, 
+Avg requests/second handled: 1356.85
+Total time: 0.000737
+http://localhost:9980 200 OK 0.748ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.748ms, 
+Avg requests/second handled: 1336.9
+Total time: 0.000748
+http://localhost:9980 200 OK 0.739ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.739ms, 
+Avg requests/second handled: 1353.18
+Total time: 0.000739
+http://localhost:9980 200 OK 0.74ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.74ms, 
+Avg requests/second handled: 1351.35
+Total time: 0.00074
+http://localhost:9980 200 OK 0.776ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.776ms, 
+Avg requests/second handled: 1288.66
+Total time: 0.000776
+http://localhost:9980 200 OK 0.891ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.891ms, 
+Avg requests/second handled: 1122.33
+Total time: 0.000891
+http://localhost:9980 200 OK 0.911ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.911ms, 
+Avg requests/second handled: 1097.69
+Total time: 0.000911
+http://localhost:9980 200 OK 0.802ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.802ms, 
+Avg requests/second handled: 1246.88
+Total time: 0.000802
+http://localhost:9980 200 OK 0.839ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.839ms, 
+Avg requests/second handled: 1191.9
+Total time: 0.000839
+http://localhost:9980 200 OK 0.771ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.771ms, 
+Avg requests/second handled: 1297.02
+Total time: 0.000771
+http://localhost:9980 200 OK 0.831ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.831ms, 
+Avg requests/second handled: 1203.37
+Total time: 0.000831
+http://localhost:9980 200 OK 0.825ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.825ms, 
+Avg requests/second handled: 1212.12
+Total time: 0.000825
+http://localhost:9980 200 OK 0.757ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.757ms, 
+Avg requests/second handled: 1321
+Total time: 0.000757
+http://localhost:9980 200 OK 0.862ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.862ms, 
+Avg requests/second handled: 1160.09
+Total time: 0.000862
+http://localhost:9980 200 OK 0.812ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.812ms, 
+Avg requests/second handled: 1231.53
+Total time: 0.000812
+http://localhost:9980 200 OK 0.766ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.766ms, 
+Avg requests/second handled: 1305.48
+Total time: 0.000766
+http://localhost:9980 200 OK 0.739ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.739ms, 
+Avg requests/second handled: 1353.18
+Total time: 0.000739
+http://localhost:9980 200 OK 0.739ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.739ms, 
+Avg requests/second handled: 1353.18
+Total time: 0.000739
+http://localhost:9980 200 OK 0.738ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.738ms, 
+Avg requests/second handled: 1355.01
+Total time: 0.000738
+http://localhost:9980 200 OK 0.737ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.737ms, 
+Avg requests/second handled: 1356.85
+Total time: 0.000737
+http://localhost:9980 200 OK 0.729ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.729ms, 
+Avg requests/second handled: 1371.74
+Total time: 0.000729
+http://localhost:9980 200 OK 0.732ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.732ms, 
+Avg requests/second handled: 1366.12
+Total time: 0.000732
+http://localhost:9980 200 OK 0.825ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.825ms, 
+Avg requests/second handled: 1212.12
+Total time: 0.000825
+http://localhost:9980 200 OK 0.763ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.763ms, 
+Avg requests/second handled: 1310.62
+Total time: 0.000763
+http://localhost:9980 200 OK 0.842ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.842ms, 
+Avg requests/second handled: 1187.65
+Total time: 0.000842
+http://localhost:9980 200 OK 0.797ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.797ms, 
+Avg requests/second handled: 1254.71
+Total time: 0.000797
+http://localhost:9980 200 OK 0.74ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.74ms, 
+Avg requests/second handled: 1351.35
+Total time: 0.00074
+http://localhost:9980 200 OK 0.737ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.737ms, 
+Avg requests/second handled: 1356.85
+Total time: 0.000737
+http://localhost:9980 200 OK 0.733ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.733ms, 
+Avg requests/second handled: 1364.26
+Total time: 0.000733
+http://localhost:9980 200 OK 0.742ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.742ms, 
+Avg requests/second handled: 1347.71
+Total time: 0.000742
+http://localhost:9980 200 OK 0.73ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.73ms, 
+Avg requests/second handled: 1369.86
+Total time: 0.00073
+http://localhost:9980 200 OK 0.733ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.733ms, 
+Avg requests/second handled: 1364.26
+Total time: 0.000733
+http://localhost:9980 200 OK 0.735ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.735ms, 
+Avg requests/second handled: 1360.54
+Total time: 0.000735
+http://localhost:9980 200 OK 0.751ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.751ms, 
+Avg requests/second handled: 1331.56
+Total time: 0.000751
+http://localhost:9980 200 OK 0.737ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.737ms, 
+Avg requests/second handled: 1356.85
+Total time: 0.000737
+http://localhost:9980 200 OK 0.733ms
+
+--------------
+Statistics for http://localhost:9980
+--------------
+1 attempts, 1 succesful (100%)
+Avg response time: 0.733ms, 
+Avg requests/second handled: 1364.26
+Total time: 0.000733
+
+--------------
+Statistics for http://localhost:9980
+--------------
+100 attempts, 99 succesful (99%)
+Avg response time: 1.04389ms, 
+Avg requests/second handled: 948.376
+Total time: 0.104389

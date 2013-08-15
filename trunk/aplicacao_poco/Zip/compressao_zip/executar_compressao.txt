@@ -1,0 +1,11 @@
+
+Poco/Zip/Compress.h
+
+So consegui nos teste executar compressao com "zip" e "gz" , "tar" nao deu certo
+
+./zip teste.txt  --file=teste.zip
+
+./zip teste.txt  --file=teste.gz
+
+
+

@@ -1,0 +1,17 @@
+
+Passo para utilizar o Mysql Proxy.
+
+utilizar o script em lua : "all-hooks.lua" 
+
+
+1) como inicializar : 
+comando :  mysql-proxy  --proxy-backend-addresses=127.0.0.1:3306 --proxy-lua-script=all-hooks.lua
+
+
+2) Executar a query :
+mysql -h 127.0.0.1 -P 4040  -u***** -p******    -e " SELECT id_serie, promocao, id_grupo , max_cupons , DATE_FORMAT(dt_inicio , '%Y%m%d%H%i%S' ) as data_inicio ,  DATE_FORMAT(dt_fim, '%Y%m%d%H%i%S' ) as data_fim , status , qtde_emitidos FROM promo_teste.ctrl_series where status='Ativa' limit 2  "
+
+
+
+
+

@@ -1,0 +1,84 @@
+ {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#isee {
+	LEFT: 0px; WIDTH: 1px; POSITION: absolute; TOP: -100px; HEIGHT: 1px
+}
+#barraparceiros {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; BORDER-COLLAPSE: collapse
+}
+#barraparceiros TD {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; BORDER-COLLAPSE: collapse
+}
+.box {
+	FONT: 9px verdana, arial, helvetica, sans-serif; WIDTH: 120px; COLOR: #333333; HEIGHT: 20px
+}
+#banner {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+#banner A IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+#barraparceiros {
+	BACKGROUND: url(http://www.digirati.com.br/barra/images/bg_parceiros.gif); OVERFLOW: hidden; HEIGHT: 29px
+}
+#barraparceiros .logo {
+	FLOAT: left
+}
+#barraparceiros UL {
+	BACKGROUND: url(http://www.digirati.com.br/barra/images/bg_botoes.jpg)
+}
+#barraparceiros UL {
+	DISPLAY: block; FLOAT: left
+}
+#barraparceiros UL LI {
+	DISPLAY: block; FLOAT: left
+}
+#barraparceiros UL LI A {
+	DISPLAY: block; FONT-SIZE: 1px; BACKGROUND: url(http://www.digirati.com.br/barra/images/div_menu.gif) no-repeat right 0px; OVERFLOW: hidden; WIDTH: 120px; TEXT-INDENT: -1000px; HEIGHT: 29px; TEXT-DECORATION: none
+}
+#barraparceiros UL LI A SPAN {
+	DISPLAY: block; BACKGROUND: no-repeat 5px 5px; WIDTH: 120px; CURSOR: pointer; HEIGHT: 29px
+}
+#barraparceiros UL .host A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/hospedagem.gif)
+}
+#barraparceiros UL .registro A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/registro.gif)
+}
+#barraparceiros UL .auditoria A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/auditoria.gif)
+}
+#barraparceiros UL .webfacil A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/webfacil.gif)
+}
+#barraparceiros UL .webmasters A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/webmaster.gif)
+}
+#barraparceiros UL .profissionaisweb A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/profissionaisweb.gif)
+}
+#barraparceiros UL .cursos A SPAN {
+	BACKGROUND-IMAGE: url(http://www.digirati.com.br/barra/images/cursos.gif)
+}
+#barraparceiros FORM {
+	BACKGROUND: url(http://www.digirati.com.br/barra/images/bg_parceiros.gif); HEIGHT: 29px
+}
+#barraparceiros .parceiros .txt {
+	FONT-SIZE: 1px; BACKGROUND: url(http://www.digirati.com.br/barra/images/div_parceiros.gif) no-repeat 67px 5px; FLOAT: left; WIDTH: 75px; HEIGHT: 29px
+}
+#barraparceiros .parceiros .txt SPAN {
+	FONT-SIZE: 1px; BACKGROUND: url(http://www.digirati.com.br/barra/images/parceiros.gif) no-repeat 15px 8px; FLOAT: left; WIDTH: 75px; TEXT-INDENT: -100000px; HEIGHT: 29px
+}
+#barraparceiros FIELDSET {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+#barraparceiros FIELDSET DIV {
+	FLOAT: left; HEIGHT: 29px
+}
+#barraparceiros FIELDSET SELECT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 3px 0px 0px 6px; PADDING-TOP: 0px
+}
+#barraparceiros FIELDSET INPUT {
+	FLOAT: right; MARGIN: 5px 5px 0px 0px
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.portugal-a-programar.org/forum/index.php?topic=38424.0 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<META name="description" content="Java Socket">
+	<META name="keywords" content="Programming, Programa&ccedil;&atilde;o, PHP, Visual Basic, C, C++, Action Script, Java, Flash, Python, Programar">
+	<TITLE>Java Socket</TITLE>
+	<LINK rel="canonical" href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09">
+	<LINK rel="stylesheet" type="text/css" href="./Java Socket_files/index.css">
+	<LINK rel="stylesheet" type="text/css" href="./Java Socket_files/print.css" media="print">
+	<LINK rel="help" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=help">
+	<LINK rel="search" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=search">
+	<LINK rel="contents" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&">
+	<LINK rel="alternate" type="application/rss+xml" title="Portugal-a-Programar - RSS" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&type=rss;action=.xml">
+	<LINK rel="prev" href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,prev.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09">
+	<LINK rel="next" href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,next.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09">
+	<LINK rel="index" href="http://www.portugal-a-programar.org/forum/index.php/board,123.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09">
+	<LINK rel="stylesheet" type="text/css" href="./Java Socket_files/webkit.css">
+	<SCRIPT type="text/javascript" src="./Java Socket_files/script.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./Java Socket_files/theme.js"></SCRIPT>
+	<SCRIPT type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://www.portugal-a-programar.org/forum/Themes/default";
+		var smf_default_theme_url = "http://www.portugal-a-programar.org/forum/Themes/default";
+		var smf_images_url = "http://www.portugal-a-programar.org/forum/Themes/default/images";
+		var smf_scripturl = "http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&amp;";
+		var smf_iso_case_folding = false;
+		var smf_charset = "UTF-8";
+		var ajax_notification_text = "A carregar...";
+		var ajax_notification_cancel_text = "Cancelar";
+	// ]]></SCRIPT>
+</HEAD><BODY>
+	<DIV id="header"><DIV class="frame">
+		<DIV id="top_section">
+			<H1 class="forumtitle">
+				<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&"><IMG src="./Java Socket_files/logo.png" alt="Portugal-a-Programar"></A>
+			</H1>
+			<IMG id="upshrink" src="./Java Socket_files/upshrink.png" alt="*" title="Comprimir ou expandir o cabe&ccedil;alho." style="cursor: pointer; ">
+			<IMG id="smflogo" src="./Java Socket_files/smflogo.png" alt="Simple Machines Forum" title="Simple Machines Forum">
+		</DIV>
+		<DIV id="upper_section" class="middletext">
+			<DIV class="user">
+				<SCRIPT type="text/javascript" src="./Java Socket_files/sha1.js"></SCRIPT>
+				<FORM id="guest_form" action="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=login2" method="post" accept-charset="UTF-8" onsubmit="hashLoginPassword(this, &#39;b210c5fdd52215dbef72850215a76bac&#39;);">
+					<DIV class="info">Please <A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=login">login</A> or <A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=register">register</A>.</DIV>
+					<INPUT type="text" name="user" size="10" class="input_text">
+					<INPUT type="password" name="passwrd" size="10" class="input_password">
+					<SELECT name="cookielength">
+						<OPTION value="60">1 Hora</OPTION>
+						<OPTION value="1440">1 Dia</OPTION>
+						<OPTION value="10080">1 Semana</OPTION>
+						<OPTION value="43200">1 Mês</OPTION>
+						<OPTION value="-1" selected="selected">Para sempre</OPTION>
+					</SELECT>
+					<INPUT type="submit" value="Entrar" class="button_submit"><BR>
+					<DIV class="info">Entrar com nome de utilizador, password e duração da sessão</DIV>
+					<INPUT type="hidden" name="hash_passwrd" value="">
+				</FORM>
+			</DIV>
+			<DIV class="news normaltext">
+				<FORM id="search_form" style="margin: 0;" action="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=search2" method="post" accept-charset="UTF-8">
+					<INPUT type="text" name="search" value="" class="input_text">&nbsp;
+					<INPUT type="submit" name="submit" value="Pesquisa" class="button_submit">
+					<INPUT type="hidden" name="advanced" value="0">
+					<INPUT type="hidden" name="topic" value="38424"></FORM>
+				<H2>Notícias: </H2>
+				<P><A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&/topic,36363.0.html" class="bbc_link">Colaboradores P@P</A>, uma nova forma de ajudar a comunidade!</P>
+			</DIV>
+		</DIV>
+		<BR class="clear">
+		<SCRIPT type="text/javascript"><!-- // --><![CDATA[
+			var oMainHeaderToggle = new smc_Toggle({
+				bToggleEnabled: true,
+				bCurrentlyCollapsed: false,
+				aSwappableContainers: [
+					'upper_section'
+				],
+				aSwapImages: [
+					{
+						sId: 'upshrink',
+						srcExpanded: smf_images_url + '/upshrink.png',
+						altExpanded: 'Comprimir ou expandir o cabeçalho.',
+						srcCollapsed: smf_images_url + '/upshrink2.png',
+						altCollapsed: 'Comprimir ou expandir o cabeçalho.'
+					}
+				],
+				oThemeOptions: {
+					bUseThemeSettings: false,
+					sOptionName: 'collapse_header',
+					sSessionVar: 'e914d16c',
+					sSessionId: 'b210c5fdd52215dbef72850215a76bac'
+				},
+				oCookieOptions: {
+					bUseCookie: true,
+					sCookieName: 'upshrink'
+				}
+			});
+		// ]]></SCRIPT>
+		<DIV id="main_menu">
+			<UL class="dropmenu" id="menu_nav">
+				<LI id="button_home">
+					<A class="active firstlevel" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&">
+						<SPAN class="last firstlevel">Início</SPAN>
+					</A>
+				</LI>
+				<LI id="button_help">
+					<A class="firstlevel" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=help">
+						<SPAN class="firstlevel">Ajuda</SPAN>
+					</A>
+				</LI>
+				<LI id="button_login">
+					<A class="firstlevel" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=login">
+						<SPAN class="firstlevel">Entrar</SPAN>
+					</A>
+				</LI>
+				<LI id="button_register">
+					<A class="firstlevel" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=register">
+						<SPAN class="last firstlevel">Registe-se</SPAN>
+					</A>
+				</LI>
+			</UL>
+		</DIV>
+<CENTER><SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5954931440082332";
+/* P@P Forum Large */
+google_ad_slot = "3245122116";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./Java Socket_files/show_ads.js">
+</SCRIPT><SCRIPT src="./Java Socket_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="728" height="90" frameborder="0" src="./Java Socket_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME></CENTER>
+			<BR class="clear">
+	<DIV class="navigate_section">
+		<UL>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&"><SPAN>Portugal-a-Programar</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&#c4"><SPAN>Desenvolvimento</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php/board,15.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>Java</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php/board,123.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>[Java]-Armazém de Código</SPAN></A>&nbsp;»
+			</LI>
+			<LI class="last">
+				<A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>Java Socket</SPAN></A>
+			</LI>
+		</UL>
+	</DIV>
+	</DIV></DIV>
+	<DIV id="content_section"><DIV class="frame">
+		<DIV id="main_content_section">
+			<A id="top"></A>
+			<A id="msg293039"></A>
+			<DIV class="pagesection">
+				<DIV class="nextlinks"><A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,prev.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#new">« anterior</A> <A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,next.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#new">seguinte »</A></DIV>
+		<DIV class="buttonlist align_right">
+			<UL>
+				<LI><A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=printpage;topic=38424.0" rel="new_win nofollow"><SPAN class="last">Imprimir</SPAN></A></LI>
+			</UL>
+		</DIV>
+				<DIV class="pagelinks align_left">Páginas: [<STRONG>1</STRONG>]   &nbsp;&nbsp;<A href="http://www.portugal-a-programar.org/forum/index.php?topic=38424.0#lastPost"><STRONG>Ir para o fundo</STRONG></A></DIV>
+			</DIV>
+			<DIV id="forumposts">
+				<H3 class="catbg"><SPAN class="left"></SPAN>
+					<IMG src="./Java Socket_files/normal_post.gif" align="bottom" alt="">
+					<SPAN id="author">Autor</SPAN>
+					<SPAN id="top_subject">Tópico: Java Socket &nbsp;(Lida 1517 vezes)</SPAN>
+				</H3>
+				<FORM action="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=quickmod2;topic=38424.0" method="post" accept-charset="UTF-8" name="quickModForm" id="quickModForm" style="margin: 0;" onsubmit="return oQuickModify.bInEditMode ? oQuickModify.modifySave(&#39;b210c5fdd52215dbef72850215a76bac&#39;, &#39;e914d16c&#39;) : false">
+					<DIV class="windowbg">
+						<SPAN class="topslice"><SPAN></SPAN></SPAN>
+						<DIV class="poster">
+							<H4>
+								<IMG src="./Java Socket_files/useroff.gif" alt="Offline">
+								<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=profile;u=291" title="Ver o perfil de Dkid">Dkid</A>
+							</H4>
+							<UL class="reset smalltext" id="msg_293039_extra_info">
+								<LI class="postgroup">Boolean User</LI>
+								<LI class="stars"><IMG src="./Java Socket_files/star.gif" alt="*" border="0"><IMG src="./Java Socket_files/star.gif" alt="*" border="0"></LI>
+								<LI class="avatar" style="overflow: auto;"><IMG src="./Java Socket_files/avatarchs.jpg" alt="" class="avatar" border="0"></LI>
+								<LI class="postcount">Mensagens: 177</LI>
+								<LI class="profile">
+									<UL>
+									</UL>
+								</LI>
+							</UL>
+						</DIV>
+						<DIV class="postarea">
+							<DIV class="flow_hidden">
+								<DIV class="keyinfo">
+									<DIV class="messageicon">
+										<IMG src="./Java Socket_files/wink.gif" alt="" border="0">
+									</DIV>
+									<H5 id="subject_293039">
+										<A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.msg293039.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#msg293039" rel="nofollow">Java Socket</A>
+									</H5>
+									<DIV class="smalltext">« <STRONG> em:</STRONG> 02 de Julho de 2009, 21:42 »</DIV>
+									<DIV id="msg_293039_quick_mod"></DIV>
+								</DIV>
+							</DIV>
+							<DIV class="post">
+								<DIV class="inner" id="msg_293039">Boas Pessoal,<BR><BR>Ando iniciado no Java, e à bocado deu-me na cabeça saber como funciona os sockets, pois queria enviar mensagens de um computador para outro em LAN (ou seja, na mesma rede).<BR><BR>Meti as mãos na pesquisa e li em parte o artigo da SUN<BR><BR><A href="http://java.sun.com/developer/onlineTraining/Programming/BasicJava2/socket.html" class="bbc_link new_win" target="_blank">http://java.sun.com/developer/onlineTraining/Programming/BasicJava2/socket.html</A><BR><BR>Encontra-se a funcionar e consigo enviar mensagem do computador cliente para o Servidor!<BR><BR>Código do Cliente (socketcliente.java)<BR><DIV class="codeheader">Código (Java): <A href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Seleccione]</A></DIV><CODE><SPAN style="color: #008000; font-style: italic; font-weight: bold;">/**<BR>&nbsp;* @author Dkid<BR>&nbsp;* Baseado nos artigos<BR>&nbsp;* http://java.sun.com/developer/onlineTraining/Programming/BasicJava2/socket.html<BR>&nbsp;* http://www.devarticles.com/c/a/Java/Socket-Programming-in-Java/<BR>&nbsp;*/</SPAN><BR><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.awt.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.awt.event.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">javax.swing.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.io.*</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">// pacote de streams</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.net.*</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">// pacote de sockets</SPAN><BR><BR><BR><SPAN style="color: #000000; font-weight: bold;">class</SPAN> socketcliente <SPAN style="color: #000000; font-weight: bold;">extends</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajframe+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JFrame</SPAN></A> <SPAN style="color: #000000; font-weight: bold;">implements</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aactionlistener+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ActionListener</SPAN></A> <BR><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajlabel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JLabel</SPAN></A> text,clicked<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajbutton+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JButton</SPAN></A> botao<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajpanel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JPanel</SPAN></A> painel<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajtextfield+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JTextField</SPAN></A> campotexto<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asocket+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Socket</SPAN></A> socket <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Aprintwriter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">PrintWriter</SPAN></A> saida <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Abufferedreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BufferedReader</SPAN></A> entrada <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; socketcliente<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #666666; font-style: italic;">//iniciamos o constructor</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajlabel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JLabel</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Texto a enviar por socket:"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; campotexto<SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajtextfield+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JTextField</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">30</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; botao <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajbutton+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JButton</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Enviar!"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; botao.<SPAN style="color: #006633;">addActionListener</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">this</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajpanel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JPanel</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel.<SPAN style="color: #006633;">setLayout</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aborderlayout+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BorderLayout</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel.<SPAN style="color: #006633;">setBackground</SPAN><SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Acolor+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Color</SPAN></A>.<SPAN style="color: #006633;">white</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; getContentPane<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN>.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN>painel<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"North"</SPAN>, text<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Center"</SPAN>, campotexto<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"South"</SPAN>, botao<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; @Override<BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> actionPerformed<SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aactionevent+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ActionEvent</SPAN></A> event<SPAN style="color: #009900;">)</SPAN> <BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Aobject+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Object</SPAN></A> fonte <SPAN style="color: #339933;">=</SPAN> event.<SPAN style="color: #006633;">getSource</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">if</SPAN> <SPAN style="color: #009900;">(</SPAN>fonte <SPAN style="color: #339933;">==</SPAN> botao<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #666666; font-style: italic;">//Envia informacao pelo socket</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A> text <SPAN style="color: #339933;">=</SPAN> campotexto.<SPAN style="color: #006633;">getText</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; saida.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN>text<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; campotexto.<SPAN style="color: #006633;">setText</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">""</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">//recebe do servidor</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A> linha <SPAN style="color: #339933;">=</SPAN> entrada.<SPAN style="color: #006633;">readLine</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Texto recebido: "</SPAN> <SPAN style="color: #339933;">+</SPAN> linha<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Falha na leitura!"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> EscutaSocket<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #666666; font-style: italic;">//cria ligacao de socket</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; socket <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Asocket+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Socket</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"127.0.0.1"</SPAN>, <SPAN style="color: #cc66cc;">85</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">//aqui decidimos qual o IP e a sua porta, neste caso 127.0.0.1:85</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; saida <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aprintwriter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">PrintWriter</SPAN></A><SPAN style="color: #009900;">(</SPAN>socket.<SPAN style="color: #006633;">getOutputStream</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN>, <SPAN style="color: #000066; font-weight: bold;">true</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; entrada <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Abufferedreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BufferedReader</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ainputstreamreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">InputStreamReader</SPAN></A><SPAN style="color: #009900;">(</SPAN>socket.<SPAN style="color: #006633;">getInputStream</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">catch</SPAN><SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aunknownhostexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">UnknownHostException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Host desconhecido: localhost"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Não Existe Entrada nem Saída de informação"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000000; font-weight: bold;">static</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> main <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A><SPAN style="color: #009900;">[</SPAN><SPAN style="color: #009900;">]</SPAN> args<SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; socketcliente frame <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> socketcliente<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">setTitle</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Cliente"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowlistener+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowListener</SPAN></A> ls <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowadapter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowAdapter</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> windowClosing<SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowevent+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowEvent</SPAN></A> e<SPAN style="color: #009900;">)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">0</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">addWindowListener</SPAN><SPAN style="color: #009900;">(</SPAN>ls<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">pack</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">setVisible</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000066; font-weight: bold;">true</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">EscutaSocket</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR><SPAN style="color: #009900;">}</SPAN></CODE><BR>Código do Servidor (SocketServer.java)<BR><DIV class="codeheader">Código (Java): <A href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Seleccione]</A></DIV><CODE><SPAN style="color: #008000; font-style: italic; font-weight: bold;">/**<BR>&nbsp;* @author Dkid<BR>&nbsp;* Baseado nos artigos<BR>&nbsp;* http://java.sun.com/developer/onlineTraining/Programming/BasicJava2/socket.html<BR>&nbsp;* http://www.devarticles.com/c/a/Java/Socket-Programming-in-Java/<BR>&nbsp;*/</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.awt.Color</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.awt.BorderLayout</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.awt.event.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">javax.swing.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.io.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #000000; font-weight: bold;">import</SPAN> <SPAN style="color: #006699;">java.net.*</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR><SPAN style="color: #000000; font-weight: bold;">class</SPAN> SocketServer <SPAN style="color: #000000; font-weight: bold;">extends</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajframe+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JFrame</SPAN></A><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">implements</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aactionlistener+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ActionListener</SPAN></A> <SPAN style="color: #009900;">{</SPAN><BR><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Ajbutton+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JButton</SPAN></A> botao<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Ajlabel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JLabel</SPAN></A> label <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajlabel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JLabel</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Texto Recebido:"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Ajpanel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JPanel</SPAN></A> painel<SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Ajtextarea+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JTextArea</SPAN></A> campotexto <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajtextarea+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JTextArea</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Aserversocket+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ServerSocket</SPAN></A> servidor <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Asocket+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Socket</SPAN></A> cliente <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Abufferedreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BufferedReader</SPAN></A> entrada <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Aprintwriter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">PrintWriter</SPAN></A> saida <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000066; font-weight: bold;">null</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A> linha<SPAN style="color: #339933;">;</SPAN><BR><BR>&nbsp; &nbsp;SocketServer<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN> <SPAN style="color: #666666; font-style: italic;">//Constructor</SPAN><BR>&nbsp; &nbsp; &nbsp;botao <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajbutton+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JButton</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Receber!"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;botao.<SPAN style="color: #006633;">addActionListener</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">this</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR>&nbsp; &nbsp; &nbsp;painel <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ajpanel+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">JPanel</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;painel.<SPAN style="color: #006633;">setLayout</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aborderlayout+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BorderLayout</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;painel.<SPAN style="color: #006633;">setBackground</SPAN><SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Acolor+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Color</SPAN></A>.<SPAN style="color: #006633;">white</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;getContentPane<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN>.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN>painel<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"North"</SPAN>, label<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Center"</SPAN>, campotexto<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;painel.<SPAN style="color: #006633;">add</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"South"</SPAN>, botao<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR>&nbsp; &nbsp;<SPAN style="color: #009900;">}</SPAN> <BR><BR>&nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> actionPerformed<SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aactionevent+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ActionEvent</SPAN></A> event<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp;<A href="http://www.google.com/search?hl=en&q=allinurl%3Aobject+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">Object</SPAN></A> source <SPAN style="color: #339933;">=</SPAN> event.<SPAN style="color: #006633;">getSource</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR><BR>&nbsp; &nbsp; &nbsp;<SPAN style="color: #000000; font-weight: bold;">if</SPAN><SPAN style="color: #009900;">(</SPAN>source <SPAN style="color: #339933;">==</SPAN> botao<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;campotexto.<SPAN style="color: #006633;">setText</SPAN><SPAN style="color: #009900;">(</SPAN>linha<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp;<SPAN style="color: #009900;">}</SPAN><BR>&nbsp; <SPAN style="color: #009900;">}</SPAN><BR><BR>&nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> EscutaSocket<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN><BR><BR>&nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; servidor <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aserversocket+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">ServerSocket</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">85</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">//Definição da porta que vai ficar à escuta, neste caso : porta 85</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN> <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Não é possivel escutar na porta 85"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #339933;">-</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR><BR>&nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; cliente <SPAN style="color: #339933;">=</SPAN> servidor.<SPAN style="color: #006633;">accept</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN> <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Servidor não aceitou: 85"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN> <SPAN style="color: #666666; font-style: italic;">//</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #339933;">-</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR><BR>&nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; entrada <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Abufferedreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">BufferedReader</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Ainputstreamreader+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">InputStreamReader</SPAN></A><SPAN style="color: #009900;">(</SPAN>cliente.<SPAN style="color: #006633;">getInputStream</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; saida <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Aprintwriter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">PrintWriter</SPAN></A><SPAN style="color: #009900;">(</SPAN>cliente.<SPAN style="color: #006633;">getOutputStream</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN>, <SPAN style="color: #000066; font-weight: bold;">true</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN> <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Falha de permissão: 85"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #339933;">-</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp;<BR>&nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">while</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000066; font-weight: bold;">true</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; linha <SPAN style="color: #339933;">=</SPAN> entrada.<SPAN style="color: #006633;">readLine</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR><SPAN style="color: #666666; font-style: italic;">//Send data back to cliente</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; saida.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN>linha<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN> <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Falha de Leitura!"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #339933;">-</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; <SPAN style="color: #009900;">}</SPAN><BR><BR>&nbsp; <SPAN style="color: #000000; font-weight: bold;">protected</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> finalize<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN><BR><SPAN style="color: #666666; font-style: italic;">//Clean up </SPAN><BR>&nbsp; &nbsp; &nbsp;<SPAN style="color: #000000; font-weight: bold;">try</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; entrada.<SPAN style="color: #006633;">close</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; saida.<SPAN style="color: #006633;">close</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; servidor.<SPAN style="color: #006633;">close</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN> <SPAN style="color: #000000; font-weight: bold;">catch</SPAN> <SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Aioexception+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">IOException</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">out</SPAN>.<SPAN style="color: #006633;">println</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Não é possivel fechar!."</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #339933;">-</SPAN><SPAN style="color: #cc66cc;">1</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; <SPAN style="color: #009900;">}</SPAN><BR><BR>&nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000000; font-weight: bold;">static</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> main<SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Astring+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">String</SPAN></A><SPAN style="color: #009900;">[</SPAN><SPAN style="color: #009900;">]</SPAN> args<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; SocketServer frame <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> SocketServer<SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">setTitle</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #0000ff;">"Servidor"</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowlistener+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowListener</SPAN></A> ls <SPAN style="color: #339933;">=</SPAN> <SPAN style="color: #000000; font-weight: bold;">new</SPAN> <A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowadapter+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowAdapter</SPAN></A><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #000000; font-weight: bold;">public</SPAN> <SPAN style="color: #000066; font-weight: bold;">void</SPAN> windowClosing<SPAN style="color: #009900;">(</SPAN><A href="http://www.google.com/search?hl=en&q=allinurl%3Awindowevent+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">WindowEvent</SPAN></A> e<SPAN style="color: #009900;">)</SPAN> <SPAN style="color: #009900;">{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <A href="http://www.google.com/search?hl=en&q=allinurl%3Asystem+java.sun.com&btnI=I%27m%20Feeling%20Lucky"><SPAN style="color: #003399;">System</SPAN></A>.<SPAN style="color: #006633;">exit</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #cc66cc;">0</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN style="color: #009900;">}</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">addWindowListener</SPAN><SPAN style="color: #009900;">(</SPAN>ls<SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">pack</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">setVisible</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #000066; font-weight: bold;">true</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; frame.<SPAN style="color: #006633;">EscutaSocket</SPAN><SPAN style="color: #009900;">(</SPAN><SPAN style="color: #009900;">)</SPAN><SPAN style="color: #339933;">;</SPAN><BR>&nbsp; <SPAN style="color: #009900;">}</SPAN><BR><SPAN style="color: #009900;">}</SPAN></CODE><BR>No caso de apenas quererem experimentar e não terem compiladores disponibilizo os ficheiros de código bem como os compilados.<BR><BR><A href="http://www.badongo.com/file/15803827" class="bbc_link new_win" target="_blank">http://www.badongo.com/file/15803827</A></DIV>
+							</DIV>
+						</DIV>
+						<DIV class="moderatorbar">
+							<DIV class="smalltext modified" id="modified_293039">
+							</DIV>
+							<DIV class="smalltext reportlinks">
+								<IMG src="./Java Socket_files/ip.gif" alt="" border="0">
+								Registado
+							</DIV>
+							<DIV class="signature" id="msg_293039_signature"><A href="http://davidslv.com/" class="bbc_link new_win" target="_blank">http://davidslv.com/</A></DIV>
+						</DIV>
+						<SPAN class="botslice"><SPAN></SPAN></SPAN>
+					</DIV>
+					<HR class="post_separator">
+					<A id="msg293141"></A>
+					<DIV class="windowbg2">
+						<SPAN class="topslice"><SPAN></SPAN></SPAN>
+						<DIV class="poster">
+							<H4>
+								<IMG src="./Java Socket_files/useroff.gif" alt="Offline">
+								<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=profile;u=1360" title="Ver o perfil de Triton">Triton</A>
+							</H4>
+							<UL class="reset smalltext" id="msg_293141_extra_info">
+								<LI class="membergroup"><B>Membro do Staff</B></LI>
+								<LI class="postgroup">Stack Overflow</LI>
+								<LI class="stars"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"><IMG src="./Java Socket_files/star_blue.gif" alt="*" border="0"></LI>
+								<LI class="avatar" style="overflow: auto;"><IMG src="./Java Socket_files/2up8t8n.png" alt="" class="avatar" border="0"></LI>
+								<LI class="postcount">Mensagens: 7048</LI>
+								<LI class="profile">
+									<UL>
+									</UL>
+								</LI>
+							</UL>
+						</DIV>
+						<DIV class="postarea">
+							<DIV class="flow_hidden">
+								<DIV class="keyinfo">
+									<DIV class="messageicon">
+										<IMG src="./Java Socket_files/xx.gif" alt="" border="0">
+									</DIV>
+									<H5 id="subject_293141">
+										<A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.msg293141.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#msg293141" rel="nofollow">Re: Java Socket</A>
+									</H5>
+									<DIV class="smalltext">« <STRONG>Responder #1 em:</STRONG> 03 de Julho de 2009, 00:41 »</DIV>
+									<DIV id="msg_293141_quick_mod"></DIV>
+								</DIV>
+							</DIV>
+							<DIV class="post">
+								<DIV class="inner" id="msg_293141">Porreiro, é capaz de dar jeito a outro pessoal. <IMG src="./Java Socket_files/thumbsup.gif" alt=":thumbsup:" title="thumbsup" border="0" class="smiley"></DIV>
+							</DIV>
+						</DIV>
+						<DIV class="moderatorbar">
+							<DIV class="smalltext modified" id="modified_293141">
+							</DIV>
+							<DIV class="smalltext reportlinks">
+								<IMG src="./Java Socket_files/ip.gif" alt="" border="0">
+								Registado
+							</DIV>
+							<DIV class="signature" id="msg_293141_signature">&lt;3 life</DIV>
+						</DIV>
+						<SPAN class="botslice"><SPAN></SPAN></SPAN>
+					</DIV>
+					<HR class="post_separator">
+				</FORM>
+			</DIV>
+			<A id="lastPost"></A>
+			<DIV class="pagesection">
+				
+		<DIV class="buttonlist align_right">
+			<UL>
+				<LI><A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=printpage;topic=38424.0" rel="new_win nofollow"><SPAN class="last">Imprimir</SPAN></A></LI>
+			</UL>
+		</DIV>
+				<DIV class="pagelinks align_left">Páginas: [<STRONG>1</STRONG>]   &nbsp;&nbsp;<A href="http://www.portugal-a-programar.org/forum/index.php?topic=38424.0#top"><STRONG>Ir para o topo</STRONG></A></DIV>
+				<DIV class="nextlinks_bottom"><A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,prev.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#new">« anterior</A> <A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0/prev_next,next.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09#new">seguinte »</A></DIV>
+			</DIV>
+	<DIV class="navigate_section">
+		<UL>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&"><SPAN>Portugal-a-Programar</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&#c4"><SPAN>Desenvolvimento</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php/board,15.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>Java</SPAN></A>&nbsp;»
+			</LI>
+			<LI>
+				<A href="http://www.portugal-a-programar.org/forum/index.php/board,123.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>[Java]-Armazém de Código</SPAN></A>&nbsp;»
+			</LI>
+			<LI class="last">
+				<A href="http://www.portugal-a-programar.org/forum/index.php/topic,38424.0.html?PHPSESSID=d5ad8da203b532436fd753fd6db51f09"><SPAN>Java Socket</SPAN></A>
+			</LI>
+		</UL>
+	</DIV>
+			<DIV id="moderationbuttons"></DIV>
+			<DIV class="plainbox" style="text-align: right;" id="display_jump_to"><LABEL class="smalltext" for="display_jump_to_select">Ir para:</LABEL> <SELECT name="display_jump_to_select" id="display_jump_to_select" onfocus="grabJumpToContent();"><OPTION value="?board=123.0">===&gt; [Java]-Armazém de Código</OPTION></SELECT>&nbsp;<INPUT type="button" value="OK" onclick="window.location.href = &#39;http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&amp;?board=123.0&#39;;"></DIV>
+		<BR class="clear">
+			<FORM action="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=spellcheck" method="post" accept-charset="UTF-8" name="spell_form" id="spell_form" target="spellWindow"><INPUT type="hidden" name="spellstring" value=""></FORM>
+				<SCRIPT type="text/javascript" src="./Java Socket_files/spellcheck.js"></SCRIPT>
+				<SCRIPT type="text/javascript" src="./Java Socket_files/topic.js"></SCRIPT>
+				<SCRIPT type="text/javascript"><!-- // --><![CDATA[
+					var oQuickReply = new QuickReply({
+						bDefaultCollapsed: false,
+						iTopicId: 38424,
+						iStart: 0,
+						sScriptUrl: smf_scripturl,
+						sImagesUrl: "http://www.portugal-a-programar.org/forum/Themes/default/images",
+						sContainerId: "quickReplyOptions",
+						sImageId: "quickReplyExpand",
+						sImageCollapsed: "collapse.gif",
+						sImageExpanded: "expand.gif",
+						sJumpAnchor: "quickreply"
+					});
+					if (typeof(window.XMLHttpRequest) != "undefined")
+					{
+						var oQuickModify = new QuickModify({
+							sScriptUrl: smf_scripturl,
+							bShowModify: true,
+							iTopicId: 38424,
+							sTemplateBodyEdit: '\n\t\t\t\t\t\t\t\t<div id="quick_edit_body_container">\n\t\t\t\t\t\t\t\t\t<div id="error_box" style="padding: 4px;" class="error"><' + '/div>\n\t\t\t\t\t\t\t\t\t<textarea class="editor" name="message" rows="12" style="width: 94%; margin-bottom: 10px;" tabindex="7">%body%<' + '/textarea><br />\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="e914d16c" value="b210c5fdd52215dbef72850215a76bac" />\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="topic" value="38424" />\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="msg" value="%msg_id%" />\n\t\t\t\t\t\t\t\t\t<div class="centertext">\n\t\t\t\t\t\t\t\t\t\t<input type="submit" name="post" value="Gravar" tabindex="8" onclick="return oQuickModify.modifySave(\'b210c5fdd52215dbef72850215a76bac\', \'e914d16c\');" accesskey="s" class="button_submit" />&nbsp;&nbsp;<input type="button" value="Verificador ortográfico" tabindex="9" onclick="spellCheck(\'quickModForm\' . \'message\');" class="button_submit" />&nbsp;&nbsp;<input type="submit" name="cancel" value="Cancelar" tabindex="9" onclick="return oQuickModify.modifyCancel();" class="button_submit" />\n\t\t\t\t\t\t\t\t\t<' + '/div>\n\t\t\t\t\t\t\t\t<' + '/div>',
+							sTemplateSubjectEdit: '<input type="text" style="width: 90%;" name="subject" value="%subject%" size="80" maxlength="80" tabindex="6" class="input_text" />',
+							sTemplateBodyNormal: '%body%',
+							sTemplateSubjectNormal: '<a hr' + 'ef="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&amp;' + '?topic=38424.msg%msg_id%#msg%msg_id%" rel="nofollow">%subject%<' + '/a>',
+							sTemplateTopSubject: "Tópico: %subject% &nbsp;(Lida 1517 vezes)",
+							sErrorBorderStyle: "1px solid red"
+						});
+
+						aJumpTo[aJumpTo.length] = new JumpTo({
+							sContainerId: "display_jump_to",
+							sJumpToTemplate: "<label class=\"smalltext\" for=\"%select_id%\">Ir para:<" + "/label> %dropdown_list%",
+							iCurBoardId: 123,
+							iCurBoardChildLevel: 1,
+							sCurBoardName: "[Java]-Armazém de Código",
+							sBoardChildLevelIndicator: "==",
+							sBoardPrefix: "=> ",
+							sCatSeparator: "-----------------------------",
+							sCatPrefix: "",
+							sGoButtonLabel: "OK"
+						});
+
+						aIconLists[aIconLists.length] = new IconList({
+							sBackReference: "aIconLists[" + aIconLists.length + "]",
+							sIconIdPrefix: "msg_icon_",
+							sScriptUrl: smf_scripturl,
+							bShowModify: true,
+							iBoardId: 123,
+							iTopicId: 38424,
+							sSessionId: "b210c5fdd52215dbef72850215a76bac",
+							sSessionVar: "e914d16c",
+							sLabelIconList: "Icon de Mensagem",
+							sBoxBackground: "transparent",
+							sBoxBackgroundHover: "#ffffff",
+							iBoxBorderWidthHover: 1,
+							sBoxBorderColorHover: "#adadad" ,
+							sContainerBackground: "#ffffff",
+							sContainerBorder: "1px solid #adadad",
+							sItemBorder: "1px solid #ffffff",
+							sItemBorderHover: "1px dotted gray",
+							sItemBackground: "transparent",
+							sItemBackgroundHover: "#e0e0f0"
+						});
+					}
+				// ]]></SCRIPT>
+		</DIV>
+	</DIV></DIV>
+	<DIV id="footer_section"><DIV class="frame">
+		<UL class="reset">
+			<LI class="copyright">
+		<SPAN class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><A href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank" class="new_win">Powered by SMF 2.0 RC2</A> | <A href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank" class="new_win">SMF © 2006–2009, Simple Machines LLC</A>
+		</SPAN></LI>
+			<LI><A id="button_xhtml" href="http://validator.w3.org/check/referer" target="_blank" class="new_win" title="XHTML 1.0 v&aacute;lido!"><SPAN>XHTML</SPAN></A></LI>
+			<LI><A id="button_rss" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&action=.xml;type=rss" class="new_win"><SPAN>RSS</SPAN></A></LI>
+			<LI class="last"><A id="button_wap2" href="http://www.portugal-a-programar.org/forum/index.php?PHPSESSID=d5ad8da203b532436fd753fd6db51f09&wap2" class="new_win"><SPAN>WAP2</SPAN></A></LI>
+		</UL>
+	</DIV></DIV>
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./Java Socket_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5170071-1");
+pageTracker._trackPageview();
+} catch(err) {}</SCRIPT>
+</BODY></HTML>

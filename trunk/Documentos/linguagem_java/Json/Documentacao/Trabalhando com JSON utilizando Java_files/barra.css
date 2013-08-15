@@ -1,0 +1,53 @@
+body{
+	margin:0px;
+}
+
+#tabela_barra{
+	background-color:#000;
+	background-image:url("http://www.olhardigital.com.br/barra/fundo.jpg");
+	background-repeat:no-repeat;
+	width:965px;
+	height:25px;
+}
+
+#logo_barra{
+	width:104px;
+}
+
+.links_barra{
+	font-size:8pt;
+	color:#FFF;
+	font-family:Arial;
+	text-align:center;
+}
+
+.links_barra a, .links_barra a:visited{
+	font-size:8pt;
+	color:#FFF;
+	font-family:Arial;
+	text-decoration:none;
+}
+
+.links_barra a:hover{
+	font-size:8pt;
+	color:#FFF;
+	font-family:Arial;
+	text-decoration:underline;
+}
+
+.form_barra{
+	text-align:right;
+	padding-right:10px;
+}
+
+.form_barra form{
+	margin:0px;
+}
+
+.form_barra select{
+	font-size:8pt;
+	color:#FFF;
+	font-family:Arial;
+	border:1px solid #EEE;
+	background-color:#000;
+}

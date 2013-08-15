@@ -1,0 +1,1374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://logging.apache.org/log4j/1.2/manual.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>Apache log4j 1.2 - 
+    Short introduction to log4j</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./Apache_log4j_1.2_Short_introduction_to_log4j_files/print.css" type="text/css" media="print">
+          <META name="author" content="
+    Ceki G&uuml;lc&uuml;">
+        
+      </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://logging.apache.org/" id="bannerLeft">
+    
+                                            <IMG src="./Apache_log4j_1.2_Short_introduction_to_log4j_files/ls-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://logging.apache.org/log4j" id="bannerRight">
+    
+                                            <IMG src="./Apache_log4j_1.2_Short_introduction_to_log4j_files/logo.jpg" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+            <DIV class="xleft">
+        Last Published: 08/25/2007
+                          |   
+          <A href="http://www.apache.org/">Apache</A>
+              &gt;
+      
+          <A href="http://logging.apache.org/">Logging Services</A>
+              &gt;
+      
+          <A href="http://logging.apache.org/log4j/">log4j</A>
+              &gt;
+      
+          1.2
+                        </DIV>
+            <DIV class="xright">      
+  
+
+  
+    
+  
+  
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+                   <H5>Get log4j 1.2</H5>
+        <UL>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/download.html">Download</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/changes-report.html">Changes</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/license.html">License</A>
+        </LI>
+          </UL>
+          <H5>About log4j 1.2</H5>
+        <UL>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/index.html">What is log4j?</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/faq.html">FAQ</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/roadmap.html">Roadmap</A>
+        </LI>
+          </UL>
+          <H5>Community</H5>
+        <UL>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/mail-lists.html">Mailing Lists</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/issue-tracking.html">Issue Tracking</A>
+        </LI>
+          </UL>
+          <H5>Development</H5>
+        <UL>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/source-repository.html">Repository</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/jxr.html">Cross Reference</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/dependencies.html">Dependencies</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/integration.html">Continuous Integration</A>
+        </LI>
+          </UL>
+          <H5>Documentation</H5>
+        <UL>
+              
+    <LI class="none">
+              <STRONG>Introduction</STRONG>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/apidocs/index.html">JavaDoc</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://logging.apache.org/log4j/1.2/publications.html">Publications</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://wiki.apache.org/logging-log4j">Wiki</A>
+        </LI>
+          </UL>
+          <H5>Apache</H5>
+        <UL>
+              
+    <LI class="none">
+              <A href="http://www.apache.org/">Home</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://www.apache.org/foundation/thanks.html">Thanks</A>
+        </LI>
+              
+    <LI class="none">
+              <A href="http://www.apachecon.com/">Conferences</A>
+        </LI>
+          </UL>
+                                       <A href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+            <IMG alt="Built by Maven" src="./Apache_log4j_1.2_Short_introduction_to_log4j_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+        </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        
+
+  
+  
+<A name="Short introduction to log4j: Ceki G&uuml;lc&uuml;, March 2002"></A><DIV class="section"><H2>Short introduction to log4j: Ceki Gülcü, March 2002</H2>
+    <P>
+      Copyright © 2000-2002 The Apache Software Foundation. All
+      rights reserved.  This software is published under the terms of
+      the Apache Software License version 2.0, a copy of which has
+      been included in the LICENSE file shipped with the log4j
+      distribution. This document is based on the article <A href="http://www.javaworld.com/jw-11-2000/jw-1122-log4j.html">"Log4j
+      delivers control over logging"</A> published in November 2000
+      edition of JavaWorld. However, the present article contains more
+      detailed and up to date information. The present short manual
+      also borrows some text from <A href="https://www.qos.ch/shop/products/eclm/">"<EM>The
+      complete log4j manual</EM>"</A> by the same author (yours
+      truly).</P>
+
+<H2>Abstract</H2>
+
+<P>This document describes the log4j API, its unique features and
+design rationale. Log4j is an open source project based on the work of
+many authors.  It allows the developer to control which log statements
+are output with arbitrary granularity. It is fully configurable at
+runtime using external configuration files.  Best of all, log4j has a
+gentle learning curve. Beware: judging from user feedback, it is also
+quite addictive.</P>
+
+<H2>Introduction</H2>
+
+<P>Almost every large application includes its own logging or tracing
+API. In conformance with this rule, the E.U.  <A href="http://www.semper.org/">SEMPER</A> project decided to write its
+own tracing API. This was in early 1996. After countless enhancements,
+several incarnations and much work that API has evolved to become
+log4j, a popular logging package for Java. The package is distributed
+under the <A href="http://logging.apache.org/log4j/LICENSE">Apache Software License</A>, a
+fully-fledged open source license certified by the <A href="http://www.opensource.org/">open source</A> initiative. The
+latest log4j version, including full-source code, class files and
+documentation can be found at <A href="http://logging.apache.org/log4j/"><B>http://logging.apache.org/log4j/</B></A>.
+By the way, log4j has been ported to the C, C++, C#, Perl, Python,
+Ruby, and Eiffel languages.</P>
+
+<P>Inserting log statements into code is a low-tech method for
+debugging it. It may also be the only way because debuggers are not
+always available or applicable. This is usually the case for
+multithreaded applications and distributed applications at large.</P>
+
+<P>Experience indicates that logging was an important component of the
+development cycle. It offeres several advantages. It provides precise
+<EM>context</EM> about a run of the application. Once inserted into
+the code, the generation of logging output requires no human
+intervention.  Moreover, log output can be saved in persistent medium
+to be studied at a later time. In addition to its use in the
+development cycle, a sufficiently rich logging package can also be
+viewed as an auditing tool.</P>
+
+<P>As Brian W. Kernighan and Rob Pike put it in their truly excellent
+book <I>"The Practice of Programming"</I>
+</P><PRE>  As personal choice, we tend not to use debuggers beyond getting a
+  stack trace or the value of a variable or two. One reason is that it
+  is easy to get lost in details of complicated data structures and
+  control flow; we find stepping through a program less productive
+  than thinking harder and adding output statements and self-checking
+  code at critical places. Clicking over statements takes longer than
+  scanning the output of judiciously-placed displays. It takes less
+  time to decide where to put print statements than to single-step to
+  the critical section of code, even assuming we know where that
+  is. More important, debugging statements stay with the program;
+  debugging sessions are transient.
+</PRE><P></P>
+
+<P>Logging does have its drawbacks. It can slow down an
+application. If too verbose, it can cause scrolling blindness. To
+alleviate these concerns, log4j is designed to be reliable, fast and
+extensible. Since logging is rarely the main focus of an application,
+the log4j API strives to be simple to understand and to use.</P>
+
+<H2>Loggers, Appenders and Layouts</H2>
+
+<P>Log4j has three main components: <EM>loggers</EM>,
+<EM>appenders</EM> and <EM>layouts</EM>. These three types of
+components work together to enable developers to log messages according
+to message type and level, and to control at runtime how these
+messages are formatted and where they are reported.</P>
+
+<H3>Logger hierarchy</H3>
+
+<P>The first and foremost advantage of any logging API over plain
+<CODE>System.out.println</CODE> resides in its ability to disable
+certain log statements while allowing others to print unhindered. This
+capability assumes that the logging space, that is, the space of all
+possible logging statements, is categorized according to some
+developer-chosen criteria. This observation had previously led us to
+choose <EM>category</EM> as the central concept of the
+package. However, since log4j version 1.2, <CODE>Logger</CODE> class
+has replaced the <CODE>Category</CODE> class. For those familiar with
+earlier versions of log4j, the <CODE>Logger</CODE> class can be
+considered as a mere alias to the <CODE>Category</CODE> class.</P>
+
+<P>Loggers are named entities. Logger names are case-sensitive and
+they follow the hierarchical naming rule:</P>
+
+<P>
+</P><TABLE class="bodyTable">
+ <TBODY><TR class="a">
+  <TD>
+   <DL>
+     <DT><B>Named Hierarchy</B></DT>
+
+     <DD>A logger is said to be an <EM>ancestor</EM> of another
+     logger if its name followed by a dot is a prefix of the
+     <EM>descendant</EM> logger name. A logger is said to be a
+     <EM>parent</EM> of a <EM>child</EM> logger if there are no
+     ancestors between itself and the descendant logger.</DD>
+
+
+   </DL>
+</TD></TR></TBODY></TABLE><P></P>
+
+
+<P>For example, the logger named <CODE>"com.foo"</CODE> is a parent
+of the logger named <CODE>"com.foo.Bar"</CODE>.  Similarly,
+<CODE>"java"</CODE> is a parent of <CODE>"java.util"</CODE> and an
+ancestor of <CODE>"java.util.Vector"</CODE>.  This naming scheme
+should be familiar to most developers.</P>
+
+<P>The root logger resides at the top of the logger hierarchy. It
+is exceptional in two ways:
+
+</P><OL type="1">
+<LI> it always exists,</LI>
+<LI> it cannot be retrieved by name.</LI>
+</OL>
+Invoking the class static <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#getRootLogger()">Logger.getRootLogger</A>
+method retrieves it. All other loggers are instantiated and
+retrieved with the class static <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#getLogger()">Logger.getLogger</A>
+method. This method takes the name of the desired logger as a
+parameter. Some of the basic methods in the Logger class are listed
+below.
+
+<P></P><TABLE class="bodyTable">
+<TBODY><TR class="b">
+<TD>
+<PRE>  package org.apache.log4j;
+
+  public class <B>Logger</B> {
+
+    // Creation &amp; retrieval methods:
+    public static Logger getRootLogger();
+    public static Logger getLogger(String name);
+
+    // printing methods:
+    public void trace(Object message);
+    public void debug(Object message);
+    public void info(Object message);
+    public void warn(Object message);
+    public void error(Object message);
+    public void fatal(Object message);
+
+    // generic printing method:
+    public void log(Level l, Object message);
+}
+</PRE>
+</TD>
+</TR>
+</TBODY></TABLE><P></P>
+
+<P>Loggers <EM>may</EM> be assigned levels. The set of possible
+levels, that is:<BR><BR>
+
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#TRACE">TRACE</A>,<BR>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#DEBUG">DEBUG</A>,<BR>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#INFO">INFO</A>,<BR>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#WARN">WARN</A>,<BR>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#ERROR">ERROR</A> and<BR>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html#FATAL">FATAL</A><BR>
+<BR>
+
+are defined in the <CODE><A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html">org.apache.log4j.Level</A></CODE>
+class. Although we do not encourage you to do so, you may define
+your own levels by sub-classing the <CODE>Level</CODE> class. A
+perhaps better approach will be explained later on.</P>
+
+<P>If a given logger is not assigned a level, then it inherits
+one from its closest ancestor with an assigned level. More
+formally:</P>
+
+
+<P>
+</P><TABLE class="bodyTable">
+  <TBODY><TR class="a">
+  <TD>
+   <DL>
+     <DT><B>Level Inheritance</B></DT>
+
+     <DD><P>The <EM>inherited level</EM> for a given logger
+<I>C</I>, is equal to the first non-null level in the logger
+hierarchy, starting at <I>C</I> and proceeding upwards in the
+hierarchy towards the <CODE>root</CODE> logger.</P></DD>
+
+   </DL>
+   </TD>
+   </TR>
+</TBODY></TABLE><P></P>
+
+<P>To ensure that all loggers can eventually inherit a level,
+the root logger always has an assigned level.</P>
+
+<P>Below are four tables with various assigned level values and the
+resulting inherited levels according to the above rule.</P>
+
+<P>
+</P><TABLE class="bodyTable">
+  <TBODY><TR class="b"><TH>Logger<BR>name</TH><TH>Assigned<BR>level</TH>
+    <TH>Inherited<BR>level</TH></TR>
+    <TR class="a"><TD>root</TD>    <TD>Proot</TD> <TD>Proot</TD></TR>
+    <TR class="b"><TD>X </TD>      <TD>none</TD>  <TD>Proot</TD></TR>
+    <TR class="a"><TD>X.Y </TD>    <TD>none</TD>  <TD>Proot</TD></TR>
+    <TR class="b"><TD>X.Y.Z</TD>   <TD>none</TD>  <TD>Proot</TD></TR>
+    </TBODY><CAPTION align="bottom">Example 1</CAPTION>
+</TABLE><P></P>
+
+<P>In example 1 above, only the root logger is assigned a
+level. This level value, <CODE>Proot</CODE>, is inherited by the
+other loggers <CODE>X</CODE>, <CODE>X.Y</CODE> and
+<CODE>X.Y.Z</CODE>.</P>
+
+
+<P>
+</P><TABLE class="bodyTable">
+    <TBODY><TR class="a"><TH>Logger<BR>name</TH><TH>Assigned<BR>level</TH>
+    <TH>Inherited<BR>level</TH></TR>
+    <TR class="b"><TD>root</TD>    <TD>Proot</TD> <TD>Proot</TD></TR>
+    <TR class="a"><TD>X </TD>      <TD>Px</TD>    <TD>Px</TD></TR>
+    <TR class="b"><TD>X.Y </TD>    <TD>Pxy</TD>   <TD>Pxy</TD></TR>
+    <TR class="a"><TD>X.Y.Z</TD>   <TD>Pxyz</TD>  <TD>Pxyz</TD></TR>
+    </TBODY><CAPTION align="bottom">Example 2</CAPTION>
+  </TABLE><P></P>
+
+<P>In example 2, all loggers have an assigned level value. There
+is no need for level inheritence.</P>
+
+<P></P><TABLE class="bodyTable">
+    <TBODY><TR class="b"><TH>Logger<BR>name</TH><TH>Assigned<BR>level</TH>
+    <TH>Inherited<BR>level</TH></TR>
+    <TR class="a"><TD>root</TD>    <TD>Proot</TD> <TD>Proot</TD></TR>
+    <TR class="b"><TD>X </TD>      <TD>Px</TD>    <TD>Px</TD></TR>
+    <TR class="a"><TD>X.Y </TD>    <TD>none</TD>  <TD>Px</TD></TR>
+    <TR class="b"><TD>X.Y.Z</TD>   <TD>Pxyz</TD>  <TD>Pxyz</TD></TR>
+    </TBODY><CAPTION align="bottom">Example 3</CAPTION>
+</TABLE><P></P>
+
+<P>In example 3, the loggers <CODE>root</CODE>, <CODE>X</CODE> and
+<CODE>X.Y.Z</CODE> are assigned the levels <CODE>Proot</CODE>,
+<CODE>Px</CODE> and <CODE>Pxyz</CODE> respectively. The logger
+<CODE>X.Y</CODE> inherits its level value from its parent
+<CODE>X</CODE>.</P>
+
+<TABLE class="bodyTable">
+    <TBODY><TR class="a"><TH>Logger<BR>name</TH><TH>Assigned<BR>level</TH>
+    <TH>Inherited<BR>level</TH></TR>
+    <TR class="b"><TD>root</TD>    <TD>Proot</TD> <TD>Proot</TD></TR>
+    <TR class="a"><TD>X </TD>      <TD>Px</TD>    <TD>Px</TD></TR>
+    <TR class="b"><TD>X.Y </TD>    <TD>none</TD>  <TD>Px</TD></TR>
+    <TR class="a"><TD>X.Y.Z</TD>   <TD>none</TD>  <TD>Px</TD></TR>
+    </TBODY><CAPTION align="bottom">Example 4</CAPTION>
+</TABLE>
+
+<P>In example 4, the loggers <CODE>root</CODE> and <CODE>X</CODE>
+and are assigned the levels <CODE>Proot</CODE> and <CODE>Px</CODE>
+respectively. The loggers <CODE>X.Y</CODE> and <CODE>X.Y.Z</CODE>
+inherits their level value from their nearest parent <CODE>X</CODE>
+having an assigned level..</P>
+
+
+<P>Logging requests are made by invoking one of the printing methods
+of a logger instance. These printing methods are
+
+<CODE>
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#debug(java.lang.Object)">debug</A>,
+
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#info(java.lang.Object)">info</A>,
+
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#warn(java.lang.Object)">warn</A>,
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j//Logger.html#error(java.lang.Object)">error</A>,
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#fatal(java.lang.Object)">fatal</A>
+ and <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#log(org.apache.log4j.Level, java.lang.Object)">log</A></CODE>.</P>
+
+
+<P>By definition, the printing method determines the level of a
+logging request. For example, if <CODE>c</CODE> is a logger
+instance, then the statement <CODE>c.info("..")</CODE> is a logging
+request of level INFO.</P>
+
+<P>A logging request is said to be <EM>enabled</EM> if its level is
+higher than or equal to the level of its logger. Otherwise, the
+request is said to be <EM>disabled</EM>. A logger without an
+assigned level will inherit one from the hierarchy. This rule is
+summarized below.</P>
+
+
+<P>
+<A name="selectionRule"></A></P><TABLE class="bodyTable">
+  <TBODY><TR class="b">
+  <TD>
+      <DL>
+	<DT><B>Basic Selection Rule</B></DT>
+
+	<DD><P>A log request of level <I>p</I> in a logger with
+	(either assigned or inherited, whichever is appropriate) level <I>q</I>, is enabled if <I> p &gt;=
+	q</I>.</P></DD>
+      </DL>
+</TD></TR></TBODY></TABLE><P></P>
+
+<P>This rule is at the heart of log4j. It assumes that levels are
+ordered. For the standard levels, we have <CODE>DEBUG &lt; INFO
+&lt; WARN &lt; ERROR &lt; FATAL</CODE>.</P>
+
+<P>Here is an example of this rule.</P>
+
+<P></P><TABLE class="bodyTable">
+<TBODY><TR class="a"><TD>
+<PRE>
+   // get a logger instance named "com.foo"
+   Logger  logger = Logger.getLogger(<STRONG>"com.foo"</STRONG>);
+
+   // Now set its level. Normally you do not need to set the
+   // level of a logger programmatically. This is usually done
+   // in configuration files.
+   <STRONG>logger</STRONG>.setLevel(<FONT color="0000AA"><STRONG>Level.INFO</STRONG></FONT>);
+
+   Logger barlogger = Logger.getLogger(<STRONG>"com.foo.Bar"</STRONG>);
+
+   // This request is enabled, because <FONT color="00AA00"><STRONG>WARN</STRONG></FONT> &gt;= <FONT color="0000AA"><STRONG>INFO</STRONG></FONT>.
+   logger.<FONT color="00AA00"><STRONG>warn</STRONG></FONT>("Low fuel level.");
+
+   // This request is disabled, because <FONT color="00AA00"><STRONG>DEBUG</STRONG></FONT> &lt; <FONT color="0000AA"><STRONG>INFO</STRONG></FONT>.
+   logger.<FONT color="00AA00"><STRONG>debug</STRONG></FONT>("Starting search for nearest gas station.");
+
+   // The logger instance barlogger, named "com.foo.Bar",
+   // will inherit its level from the logger named
+   // "com.foo" Thus, the following request is enabled
+   // because <FONT color="00AA00"><STRONG>INFO</STRONG></FONT> &gt;= <FONT color="0000AA"><STRONG>INFO</STRONG></FONT>.
+   barlogger.<FONT color="00AA00"><STRONG>info</STRONG></FONT>("Located nearest gas station.");
+
+   // This request is disabled, because <FONT color="00AA00"><STRONG>DEBUG</STRONG></FONT> &lt; <FONT color="0000AA"><STRONG>INFO</STRONG></FONT>.
+   barlogger.<FONT color="00AA00"><STRONG>debug</STRONG></FONT>("Exiting gas station search");
+</PRE>
+</TD></TR>
+</TBODY></TABLE><P></P>
+
+<P>Calling the <CODE>getLogger</CODE> method with the same name will
+always return a reference to the exact same logger object.</P>
+
+<P>For example, in
+
+</P><TABLE class="bodyTable">
+<TBODY><TR class="b"><TD>
+<PRE>   Logger x = Logger.getLogger("wombat");
+   Logger y = Logger.getLogger("wombat");</PRE>
+</TD></TR>
+</TBODY></TABLE>
+<CODE>x</CODE> and <CODE>y</CODE> refer to <EM>exactly</EM> the same
+logger object.<P></P>
+
+<P>Thus, it is possible to configure a logger and then to retrieve
+the same instance somewhere else in the code without passing around
+references. In fundamental contradiction to biological parenthood,
+where parents always preceed their children, log4j loggers can be
+created and configured in any order. In particular, a "parent"
+logger will find and link to its descendants even if it is
+instantiated after them.</P>
+
+<P>Configuration of the log4j environment is typically done at
+application initialization. The preferred way is by reading a
+configuration file. This approach will be discussed shortly.</P>
+
+<P>Log4j makes it easy to name loggers by <EM>software
+component</EM>.  This can be accomplished by statically instantiating
+a logger in each class, with the logger name equal to the fully
+qualified name of the class. This is a useful and straightforward
+method of defining loggers. As the log output bears the name of the
+generating logger, this naming strategy makes it easy to identify
+the origin of a log message.  However, this is only one possible,
+albeit common, strategy for naming loggers. Log4j does not restrict
+the possible set of loggers. The developer is free to name the
+loggers as desired.</P>
+
+<P>Nevertheless, naming loggers after the class where they are
+located seems to be the best strategy known so far.</P>
+
+<H2>Appenders and Layouts</H2>
+
+<P>The ability to selectively enable or disable logging requests based
+on their logger is only part of the picture. Log4j allows logging
+requests to print to multiple destinations. In log4j speak, an output
+destination is called an <EM>appender</EM>. Currently, appenders exist
+for the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/ConsoleAppender.html">console</A>, <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/FileAppender.html">files</A>, GUI
+components, <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/net/SocketAppender.html">remote socket</A>
+servers,  <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/net/JMSAppender.html">JMS</A>,
+
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/nt/NTEventLogAppender.html"> NT
+Event Loggers</A>, and remote UNIX <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/net/SyslogAppender.html">Syslog</A>
+daemons. It is also possible to log <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/AsyncAppender.html">asynchronously</A>.</P>
+
+<P>More than one appender can be attached to a logger.</P>
+
+<P>The <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#addAppender(org.apache.log4j.Appender)">addAppender</A>
+method adds an appender to a given logger.
+
+<B>Each enabled logging
+request for a given logger will be forwarded to all the appenders in
+that logger as well as the appenders higher in the hierarchy.</B> In
+other words, appenders are inherited additively from the logger
+hierarchy. For example, if a console appender is added to the root
+logger, then all enabled logging requests will at least print on the
+console. If in addition a file appender is added to a logger, say
+<EM>C</EM>, then enabled logging requests for <EM>C</EM> and
+<EM>C</EM>'s children will print on a file <EM>and</EM> on the
+console. It is possible to override this default behavior so that
+appender accumulation is no longer additive by <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Logger.html#setAdditivity(boolean)">setting
+the additivity flag</A> to <CODE>false</CODE>.</P>
+
+<P>The rules governing appender additivity are summarized below.</P>
+
+<P>
+<A name="additivity"></A></P><TABLE class="bodyTable">
+  <TBODY><TR class="a">
+  <TD>
+      <DL>
+	<DT><B>Appender Additivity</B></DT>
+
+	<DD><P>The output of a log statement of logger <I>C</I> will
+	go to all the appenders in <I>C</I> and its ancestors. This is
+	the meaning of the term "appender additivity".</P>
+
+	<P>However, if an ancestor of logger <I>C</I>, say <I>P</I>,
+	has the additivity flag set to <CODE>false</CODE>, then
+	<I>C</I>'s output will be directed to all the appenders in
+	<I>C</I> and it's ancestors upto and including <I>P</I> but
+	not the appenders in any of the ancestors of <I>P</I>.</P>
+
+	<P>Loggers have their additivity flag set to
+	<CODE>true</CODE> by default.</P></DD>
+      </DL></TD></TR>
+</TBODY></TABLE><P></P>
+
+
+<P>The table below shows an example:</P>
+
+<P></P><TABLE class="bodyTable">
+  <TBODY><TR class="b">
+  <TH>Logger<BR>Name </TH><TH>Added<BR>Appenders</TH> <TH>Additivity<BR>Flag</TH> <TH>Output Targets</TH> <TH>Comment</TH>
+  </TR>
+<TR class="a"><TD>root    </TD><TD>A1         </TD><TD>not applicable </TD><TD>A1</TD>
+
+    <TD>The root logger is anonymous but can be accessed with the
+        Logger.getRootLogger() method. There is no default appender
+        attached to root.</TD></TR>
+
+<TR class="b"><TD>x       </TD><TD>A-x1, A-x2 </TD><TD>true </TD><TD>A1, A-x1, A-x2</TD>
+    <TD>Appenders of "x" and root.</TD></TR>
+
+<TR class="a"><TD>x.y     </TD><TD>none       </TD><TD>true </TD><TD>A1, A-x1, A-x2</TD>
+    <TD>Appenders of "x" and root.</TD></TR>
+
+<TR class="b"><TD>x.y.z   </TD><TD>A-xyz1     </TD><TD>true </TD><TD>A1, A-x1, A-x2, A-xyz1</TD>
+    <TD>Appenders in "x.y.z", "x" and root.</TD></TR>
+
+<TR class="a"><TD>security        </TD><TD>A-sec	   </TD><TD><FONT color="blue">false</FONT></TD>
+                                           <TD>A-sec</TD>
+
+    <TD>No appender accumulation since the additivity flag is set to
+        <CODE>false</CODE>.</TD></TR>
+
+<TR class="b"><TD>security.access </TD><TD>none </TD><TD> true </TD><TD> A-sec </TD><TD>Only
+    appenders of "security" because the additivity flag in "security" is
+    set to <CODE>false</CODE>.</TD></TR>
+
+</TBODY></TABLE>
+
+
+<P>More often than not, users wish to customize not only the output
+destination but also the output format. This is accomplished by
+associating a <EM>layout</EM> with an appender. The layout is
+responsible for formatting the logging request according to the user's
+wishes, whereas an appender takes care of sending the formatted output
+to its destination.</P>
+
+The <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html">PatternLayout</A>, part
+of the standard log4j distribution, lets the user specify the output
+format according to conversion patterns similar to the C language
+<CODE>printf</CODE> function.<P></P>
+
+<P>For example, the PatternLayout with the conversion pattern "%r [%t]
+%-5p %c - %m%n" will output something akin to:<BR>
+
+</P><PRE>176 [main] INFO  org.foo.Bar - Located nearest gas station.
+</PRE><P></P>
+
+<P>The first field is the number of milliseconds elapsed since the
+start of the program.  The second field is the thread making the log
+request.  The third field is the level of the log statement. The
+fourth field is the name of the logger associated with the log
+request. The text after the '-' is the message of the statement.</P>
+
+<P>Just as importantly, log4j will render the content of the log
+message according to user specified criteria. For example, if you
+frequently need to log <CODE>Oranges</CODE>, an object type used in
+your current project, then you can register an
+<CODE>OrangeRenderer</CODE> that will be invoked whenever an orange
+needs to be logged.</P>
+
+<P>Object rendering follows the class hierarchy. For example, assuming
+oranges are fruits, if you register an <CODE>FruitRenderer</CODE>, all
+fruits including oranges will be rendered by the
+<CODE>FruitRenderer</CODE>, unless of course you registered an orange
+specific <CODE>OrangeRenderer</CODE>.</P>
+
+<P>Object renderers have to implement the
+<A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/or/ObjectRenderer.html">ObjectRenderer</A>
+interface.</P>
+
+
+<H2>Configuration</H2>
+
+<P>Inserting log requests into the application code requires a fair
+amount of planning and effort. Observation shows that approximately 4
+percent of code is dedicated to logging. Consequently, even moderately
+sized applications will have thousands of logging statements embedded
+within their code.  Given their number, it becomes imperative to
+manage these log statements without the need to modify them manually.</P>
+
+<P>The log4j environment is fully configurable programmatically.
+However, it is far more flexible to configure log4j using
+configuration files.  Currently, configuration files can be written in
+XML or in Java properties (key=value) format.</P>
+
+<P>Let us give a taste of how this is done with the help of an
+imaginary application <CODE>MyApp</CODE> that uses log4j.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="a"><TD>
+<PRE> import com.foo.Bar;
+
+ // Import log4j classes.
+ <B>import org.apache.log4j.Logger;
+ import org.apache.log4j.BasicConfigurator;</B>
+
+ public class MyApp {
+
+   // Define a static logger variable so that it references the
+   // Logger instance named "MyApp".
+   <STRONG>static</STRONG> Logger logger = <STRONG>Logger.getLogger(MyApp.class);</STRONG>
+
+   public static void main(String[] args) {
+
+     // Set up a simple configuration that logs on the console.
+     <STRONG>BasicConfigurator.configure();</STRONG>
+
+     logger.info("Entering application.");
+     Bar bar = new Bar();
+     bar.doIt();
+     logger.info("Exiting application.");
+   }
+ }
+</PRE>
+</TD></TR>
+</TBODY></TABLE><P></P>
+
+<P><CODE>MyApp</CODE> begins by importing log4j related classes.  It
+then defines a static logger variable with the name
+<CODE>MyApp</CODE> which happens to be the fully qualified name of the
+class.</P>
+
+<P><CODE>MyApp</CODE> uses the <CODE>Bar</CODE> class defined in the
+package <CODE>com.foo</CODE>.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="b"><TD>
+<PRE> <B>package com.foo;</B>
+ import org.apache.log4j.Logger;
+
+ public class Bar {
+   <STRONG>static</STRONG> Logger logger = <STRONG>Logger.getLogger(Bar.class);</STRONG>
+
+   public void doIt() {
+     logger.debug("Did it again!");
+   }
+ }
+</PRE>
+</TD></TR>
+</TBODY></TABLE><P></P>
+
+<P>The invocation of the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/BasicConfigurator.html#configure()">BasicConfigurator.configure</A>
+method creates a rather simple log4j setup. This method is hardwired
+to add to the root logger a <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/ConsoleAppender.html">
+ConsoleAppender</A>. The output will be formatted using a <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html">PatternLayout</A> set
+to the pattern "%-4r [%t] %-5p %c %x - %m%n".</P>
+
+<P>Note that by default, the root logger is assigned to
+<CODE>Level.DEBUG</CODE>.</P>
+
+<P>The output of MyApp is:
+</P><PRE>0    [main] INFO  MyApp  - Entering application.
+36   [main] DEBUG com.foo.Bar  - Did it again!
+51   [main] INFO  MyApp  - Exiting application.
+</PRE><P></P>
+
+<P>The figure below depicts the object diagram of <CODE>MyApp</CODE>
+after just having called the <CODE>BasicConfigurator.configure</CODE>
+method.</P>
+
+<P>
+</P><CENTER>
+<IMG src="./Apache_log4j_1.2_Short_introduction_to_log4j_files/od.gif" align="center">
+</CENTER><P></P>
+
+<P>As a side note, let me mention that in log4j child loggers link
+only to their existing ancestors. In particular, the logger named
+<CODE>com.foo.Bar</CODE> is linked directly to the <CODE>root</CODE>
+logger, thereby circumventing the unused <CODE>com</CODE> or
+<CODE>com.foo</CODE> loggers. This significantly increases
+performance and reduces log4j's memory footprint.</P>
+
+
+<P>The <CODE>MyApp</CODE> class configures log4j by invoking
+<CODE>BasicConfigurator.configure</CODE> method.  Other classes only
+need to import the <CODE>org.apache.log4j.Logger</CODE> class,
+retrieve the loggers they wish to use, and log away.</P>
+
+<P>The previous example always outputs the same log information.
+Fortunately, it is easy to modify <CODE>MyApp</CODE> so that the log
+output can be controlled at run-time. Here is a slightly modified
+version.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="a"><TD>
+<PRE> import com.foo.Bar;
+
+ import org.apache.log4j.Logger;
+ <B>import org.apache.log4j.PropertyConfigurator;</B>
+
+ public class MyApp {
+
+   static Logger logger = Logger.getLogger(MyApp.class.getName());
+
+   public static void main(String[] args) {
+
+
+     // BasicConfigurator replaced with PropertyConfigurator.
+     <STRONG>PropertyConfigurator.configure(args[0]);</STRONG>
+
+     logger.info("Entering application.");
+     Bar bar = new Bar();
+     bar.doIt();
+     logger.info("Exiting application.");
+   }
+ }
+</PRE>
+</TD></TR>
+</TBODY></TABLE>
+
+<P>This version of <CODE>MyApp</CODE> instructs
+<CODE>PropertyConfigurator</CODE> to parse a configuration file and
+set up logging accordingly.</P>
+
+<P>Here is a sample configuration file that results in exactly same
+output as the previous <CODE>BasicConfigurator</CODE> based example.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="b"><TD>
+<PRE># Set root logger level to DEBUG and its only appender to A1.
+log4j.rootLogger=DEBUG, A1
+
+# A1 is set to be a ConsoleAppender.
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+
+# A1 uses PatternLayout.
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
+</PRE>
+</TD></TR></TBODY></TABLE><P></P>
+
+
+<P>Suppose we are no longer interested in seeing the output of any
+component belonging to the <CODE>com.foo</CODE> package. The following
+configuration file shows one possible way of achieving this.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="a"><TD>
+<PRE>log4j.rootLogger=DEBUG, A1
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+
+# <STRONG>Print the date in ISO 8601 format</STRONG>
+log4j.appender.A1.layout.ConversionPattern=<STRONG>%d</STRONG> [%t] %-5p %c - %m%n
+
+# Print only messages of level WARN or above in the package com.foo.
+<STRONG>log4j.logger.com.foo=WARN</STRONG>
+</PRE>
+</TD></TR></TBODY></TABLE><P></P>
+
+<P>The output of <CODE>MyApp</CODE> configured with this file is shown below.</P>
+
+<PRE><STRONG>2000-09-07 14:07:41,508</STRONG> [main] INFO  MyApp - Entering application.
+<STRONG>2000-09-07 14:07:41,529</STRONG> [main] INFO  MyApp - Exiting application.
+</PRE>
+
+<P>As the logger <CODE>com.foo.Bar</CODE> does not have an assigned
+level, it inherits its level from <CODE>com.foo</CODE>, which
+was set to WARN in the configuration file. The log statement from the
+<CODE>Bar.doIt</CODE> method has the level DEBUG, lower than the
+logger level WARN. Consequently, <CODE>doIt()</CODE> method's log
+request is suppressed.</P>
+
+<P>Here is another configuration file that uses multiple appenders.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="b"><TD>
+<PRE>log4j.rootLogger=debug, <STRONG>stdout, R</STRONG>
+
+log4j.appender.<STRONG>stdout</STRONG>=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+# Pattern to output the caller's file name and line number.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] <STRONG>(%F:%L)</STRONG> - %m%n
+
+log4j.appender.<STRONG>R</STRONG>=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=example.log
+
+log4j.appender.R.MaxFileSize=<STRONG>100KB</STRONG>
+# Keep one backup file
+log4j.appender.R.MaxBackupIndex=1
+
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
+</PRE>
+</TD></TR></TBODY></TABLE><P></P>
+
+<P>Calling the enhanced MyApp with the this configuration file will
+output the following on the console.</P>
+
+<PRE> INFO [main] <STRONG>(MyApp2.java:12)</STRONG> - Entering application.
+DEBUG [main] (Bar.java:8) - Doing it again!
+ INFO [main] (MyApp2.java:15) - Exiting application.
+</PRE><P></P>
+
+<P>In addition, as the root logger has been allocated a second
+appender, output will also be directed to the <CODE>example.log</CODE>
+file. This file will be rolled over when it reaches 100KB. When
+roll-over occurs, the old version of <CODE>example.log</CODE> is
+automatically moved to <CODE>example.log.1</CODE>.</P>
+
+<P>Note that to obtain these different logging behaviors we did not
+need to recompile code. We could just as easily have logged to a UNIX
+Syslog daemon, redirected all <CODE>com.foo</CODE> output to an NT
+Event logger, or forwarded logging events to a remote log4j server,
+which would log according to local server policy, for example by
+forwarding the log event to a second log4j server.</P>
+
+<A name="defaultInit"></A><H2>Default Initialization Procedure</H2>
+
+<P>The log4j library does not make any assumptions about its
+environment. In particular, there are no default log4j
+appenders. Under certain well-defined circumstances however, the
+static inializer of the <CODE>Logger</CODE> class will attempt to
+automatically configure log4j. The Java language guarantees that the
+static initializer of a class is called once and only once during the
+loading of a class into memory. It is important to remember that
+different classloaders may load distinct copies of the same
+class. These copies of the same class are considered as totally
+unrelated by the JVM.</P>
+
+<P>The default initialization is very useful in environments where the
+exact entry point to the application depends on the runtime
+environment. For example, the same application can be used as a
+stand-alone application, as an applet, or as a servlet under the
+control of a web-server.</P>
+
+<P>The exact default initialization algorithm is defined as follows:</P>
+
+<OL type="1">
+
+ <LI>Setting the <B>log4j.defaultInitOverride</B> system property to
+ any other value then "false" will cause log4j to skip the default
+ initialization procedure (this procedure).</LI>
+
+ <LI>Set the <CODE>resource</CODE> string variable to the value of
+ the <B>log4j.configuration</B> system property.  <EM>The preferred
+ way to specify the default initialization file is through the
+ <B>log4j.configuration</B> system property.</EM> In case the system
+ property <B>log4j.configuration</B> is not defined, then set the
+ string variable <CODE>resource</CODE> to its default value
+ "log4j.properties".</LI>
+
+ <LI>Attempt to convert the <CODE>resource</CODE> variable to a
+ URL.</LI>
+
+ <LI>If the resource variable cannot be converted to a URL, for
+ example due to a <CODE>MalformedURLException</CODE>, then search for
+ the <CODE>resource</CODE> from the classpath by calling
+ <CODE>org.apache.log4j.helpers.Loader.getResource(resource,
+ Logger.class)</CODE> which returns a URL.  Note that the string
+ "log4j.properties" constitutes a malformed URL.
+
+ See <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/helpers/Loader.html#getResource(java.lang.String)">Loader.getResource(java.lang.String)</A>
+ for the list of searched locations.</LI>
+
+ <LI>If no URL could not be found, abort default
+ initialization. Otherwise, configure log4j from the URL.
+
+ The <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PropertyConfigurator.html">PropertyConfigurator</A>
+  will be used to parse the URL to configure log4j unless the URL ends
+  with the ".xml" extension, in which case the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/DOMConfigurator.html">DOMConfigurator</A>
+  will be used. You can optionaly specify a custom configurator. The
+  value of the <B>log4j.configuratorClass</B> system property is taken
+  as the fully qualified class name of your custom configurator. The
+  custom configurator you specify <EM>must</EM> implement the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/spi/Configurator.html">Configurator</A>
+  interface.</LI>
+
+</OL>
+
+<H2>Example Configurations</H2>
+
+
+
+<H2>Default Initialization under Tomcat</H2>
+
+The default log4j initialization is particularly useful in
+web-server environments. Under Tomcat 3.x and 4.x, you should place
+the <CODE>log4j.properties</CODE> under the
+<CODE>WEB-INF/classes</CODE> directory of your web-applications. Log4j
+will find the properties file and initialize itself. This is easy to
+do and it works.
+
+You can also choose to set the system property
+<B>log4j.configuration</B> before starting Tomcat. For Tomcat 3.x The
+<CODE>TOMCAT_OPTS</CODE> environment variable is used to set command
+line options. For Tomcat 4.0, set the <CODE>CATALINA_OPTS</CODE>
+environment variable instead of <CODE>TOMCAT_OPTS</CODE>.
+
+<B>Example 1</B>
+
+<P>The Unix shell command
+</P><PRE>   export TOMCAT_OPTS="-Dlog4j.configuration=foobar.txt"
+</PRE>
+
+tells log4j to use the file <CODE>foobar.txt</CODE> as the default
+configuration file. This file should be place under the
+<CODE>WEB-INF/classes</CODE> directory of your web-application. The
+file will be read using the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/PropertyConfigurator.html">PropertyConfigurator</A>. Each
+web-application will use a different default configuration file because
+each file is relative to a web-application.<P></P>
+
+
+<P><B>Example 2</B></P>
+
+<P>The Unix shell command
+</P><PRE>   export TOMCAT_OPTS="-Dlog4j.debug -Dlog4j.configuration=foobar.xml"
+</PRE>
+
+tells log4j to output log4j-internal debugging information and to use
+the file <CODE>foobar.xml</CODE> as the default configuration
+file. This file should be place under the <CODE>WEB-INF/classes</CODE>
+directory of your web-application. Since the file ends with a
+<CODE>.xml</CODE> extension, it will read using the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/DOMConfigurator.html">DOMConfigurator</A>. Each
+web-application will use a different default configuration file because
+each file is relative to a web-application.<P></P>
+
+<P><B>Example 3</B></P>
+
+<P>The Windows shell command
+</P><PRE>   set TOMCAT_OPTS=-Dlog4j.configuration=foobar.lcf -Dlog4j.configuratorClass=com.foo.BarConfigurator
+</PRE>
+
+tells log4j to use the file <CODE>foobar.lcf</CODE> as the default
+configuration file. This file should be place under the
+<CODE>WEB-INF/classes</CODE> directory of your web-application. Due to
+the definition of the <B>log4j.configuratorClass</B> system property,
+the file will be read using the <CODE>com.foo.BarConfigurator</CODE>
+custom configurator.  Each web-application will use a different
+default configuration file because each file is relative to a
+web-application.<P></P>
+
+<P><B>Example 4</B></P>
+
+<P>The Windows shell command
+</P><PRE>   set TOMCAT_OPTS=-Dlog4j.configuration=file:/c:/foobar.lcf</PRE>
+
+tells log4j to use the file <CODE>c:\foobar.lcf</CODE> as the default
+configuration file. The configuration file is fully specified by the
+URL <CODE>file:/c:/foobar.lcf</CODE>. Thus, the same configuration
+file will be used for all web-applications.<P></P>
+
+
+<P>Different web-applications will load the log4j classes through
+their respective classloaderss. Thus, each image of the log4j
+environment will act independetly and without any mutual
+synchronization. For example, <CODE>FileAppenders</CODE> defined
+exactly the same way in multiple web-application configurations will
+all attempt to write the same file. The results are likely to be less
+than satisfactory. You must make sure that log4j configurations of
+different web-applications do not use the same underlying system
+resource.</P>
+
+
+<P><B>Initialization servlet</B></P>
+
+<P>It is also possible to use a special servlet for log4j
+initialization. Here is an example,</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="a"><TD>
+<PRE>package com.foo;
+
+import org.apache.log4j.PropertyConfigurator;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+public class Log4jInit extends HttpServlet {
+
+  public
+  void <B>init()</B> {
+    String prefix =  getServletContext().getRealPath("/");
+    String file = getInitParameter("log4j-init-file");
+    // if the log4j-init-file is not set, then no point in trying
+    if(file != null) {
+      PropertyConfigurator.configure(prefix+file);
+    }
+  }
+
+  public
+  void doGet(HttpServletRequest req, HttpServletResponse res) {
+  }
+}
+</PRE>
+</TD></TR></TBODY></TABLE><P></P>
+
+<P>Define the following servlet in the web.xml file for your web-application.</P>
+
+<P></P><TABLE class="bodyTable"><TBODY><TR class="b"><TD>
+<PRE>  &lt;servlet&gt;
+    &lt;servlet-name&gt;log4j-init&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.foo.Log4jInit&lt;/servlet-class&gt;
+
+    &lt;init-param&gt;
+      &lt;param-name&gt;log4j-init-file&lt;/param-name&gt;
+      &lt;param-value&gt;WEB-INF/classes/log4j.lcf&lt;/param-value&gt;
+    &lt;/init-param&gt;
+
+    <B>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</B>
+  &lt;/servlet&gt;
+</PRE>
+</TD></TR></TBODY></TABLE><P></P>
+
+<P>Writing an initialization servlet is the most flexible way for
+initializing log4j. There are no constraints on the code you can place
+in the <CODE>init()</CODE> method of the servlet.</P>
+
+
+
+<H2> Nested Diagnostic Contexts</H2>
+
+<P>Most real-world systems have to deal with multiple clients
+simultaneously. In a typical multithreaded implementation of such a
+system, different threads will handle different clients. Logging is
+especially well suited to trace and debug complex distributed
+applications. A common approach to differentiate the logging output of
+one client from another is to instantiate a new separate logger for
+each client. This promotes the proliferation of loggers and
+increases the management overhead of logging.</P>
+
+<P>A lighter technique is to uniquely stamp each log request initiated
+from the same client interaction. Neil Harrison described this method
+in the book "Patterns for Logging Diagnostic Messages," in <EM>Pattern
+Languages of Program Design 3</EM>, edited by R. Martin, D.  Riehle,
+and F. Buschmann (Addison-Wesley, 1997).</P>
+
+
+
+<P> To uniquely stamp each request, the
+user pushes contextual information into the NDC, the abbreviation of
+<EM>Nested Diagnostic Context</EM>. The NDC class is shown below.
+
+</P><PRE>  public class NDC {
+    // Used when printing the diagnostic
+    public <STRONG>static</STRONG> String get();
+
+    // Remove the top of the context from the NDC.
+    public <STRONG>static</STRONG> String pop();
+
+    // Add diagnostic context for the current thread.
+    public <STRONG>static</STRONG> void push(String message);
+
+    // Remove the diagnostic context for this thread.
+    public <STRONG>static</STRONG> void remove();
+  }
+</PRE><P></P>
+
+<P>The NDC is managed per thread as a <EM>stack</EM> of contextual
+information. Note that all methods of the <CODE>org.apache.log4j.NDC</CODE>
+class are static. Assuming that NDC printing is turned on, every time
+a log request is made, the appropriate log4j component will include
+the <EM>entire</EM> NDC stack for the current thread in the log
+output. This is done without the intervention of the user, who is
+responsible only for placing the correct information in the NDC by
+using the <CODE>push</CODE> and <CODE>pop</CODE> methods at a few
+well-defined points in the code.  In contrast, the per-client logger
+approach commands extensive changes in the code.</P>
+
+<P>To illustrate this point, let us take the example of a servlet
+delivering content to numerous clients. The servlet can build the NDC
+at the very beginning of the request before executing other code. The
+contextual information can be the client's host name and other
+information inherent to the request, typically information contained
+in cookies. Hence, even if the servlet is serving multiple clients
+simultaneously, the logs initiated by the same code, i.e. belonging to
+the same logger, can still be distinguished because each client
+request will have a different NDC stack. Contrast this with the
+complexity of passing a freshly instantiated logger to all code
+exercised during the client's request.</P>
+
+<P>Nevertheless, some sophisticated applications, such as virtual
+hosting web servers, must log differently depending on the virtual
+host context and also depending on the software component issuing the
+request. Recent log4j releases support multiple hierarchy trees. This
+enhancement allows each virtual host to possess its own copy of the
+logger hierarchy.</P>
+
+
+<A name="performance"></A><H2>Performance</H2>
+
+<P>One of the often-cited arguments against logging is its
+computational cost. This is a legitimate concern as even moderately
+sized applications can generate thousands of log requests.  Much
+effort was spent measuring and tweaking logging performance. Log4j
+claims to be fast and flexible: speed first, flexibility second.</P>
+
+<P>The user should be aware of the following performance issues.</P>
+
+<OL type="1">
+  <LI><B>Logging performance when logging is turned off.</B><BR>
+
+   When logging is turned
+   off entirely or just for a <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Hierarchy.html#setThreshold(java.lang.String)">set
+   of levels</A>, the cost of a log request consists of a method
+   invocation plus an integer comparison.  On a 233 MHz Pentium II
+   machine this cost is typically in the 5 to 50 nanosecond range.
+
+   <P>However, The method invocation involves the "hidden" cost of
+   parameter construction.</P>
+
+   <P>For example, for some logger <CODE>cat</CODE>, writing,
+    </P><PRE>     logger.debug("Entry number: " + i + " is " + String.valueOf(entry[i]));
+    </PRE>
+
+      incurs the cost of constructing the message parameter, i.e.
+      converting both integer <CODE>i</CODE> and <CODE>entry[i]</CODE>
+      to a String, and concatenating intermediate strings,
+      regardless of whether the message will be logged or not.
+
+      This cost of parameter construction can be quite high and it
+      depends on the size of the parameters involved.<P></P>
+
+
+      <P>To avoid the parameter construction cost write:
+    </P><PRE>      if(logger.isDebugEnabled() {
+        logger.debug("Entry number: " + i + " is " + String.valueOf(entry[i]));
+      }
+   </PRE><P></P>
+
+      <P>This will not incur the cost of parameter
+      construction if debugging is disabled.  On the other hand, if
+      the logger is debug-enabled, it will incur twice the cost of
+      evaluating whether the logger is enabled or not: once
+      in <CODE>debugEnabled</CODE> and once in
+      <CODE>debug</CODE>. This is an insignificant
+      overhead because evaluating a logger takes about 1%
+      of the time it takes to actually log.</P>
+
+   <P>In log4j, logging requests are made to instances of the Logger
+   class. Logger is a class and not an interface. This measurably
+   reduces the cost of method invocation at the cost of some
+   flexibility.</P>
+
+
+   <P>Certain users resort to preprocessing or compile-time
+   techniques to compile out all log statements. This leads to perfect
+   performance efficiency with respect to logging. However, since the
+   resulting application binary does not contain any log statements,
+   logging cannot be turned on for that binary. In my opinion this is
+   a disproportionate price to pay in exchange for a small performance
+   gain.</P></LI>
+
+   <LI><B>The performance of deciding whether to log or not to log when
+       logging is turned on.</B><BR>
+
+   This is essentially the performance of walking the logger
+   hierarchy. When logging is turned on, log4j still needs to compare
+       the level of the log request with the level of the request
+   logger. However, loggers may not have an assigned
+   level; they can inherit them from the logger hierarchy. Thus,
+   before inheriting a level, the logger may need to search its
+   ancestors.
+
+   <P>There has been a serious effort to make this hierarchy walk to
+be as fast as possible. For example, child loggers link only to
+their existing ancestors. In the <CODE>BasicConfigurator</CODE>
+example shown earlier, the logger named <CODE>com.foo.Bar</CODE> is
+linked directly to the root logger, thereby circumventing the
+nonexistent <CODE>com</CODE> or <CODE>com.foo</CODE> loggers. This
+significantly improves the speed of the walk, especially in "sparse"
+hierarchies.</P>
+
+       <P>The typical cost of walking the hierarchy is typically 3
+       times slower than when logging is turned off entirely.</P></LI>
+
+   <LI><B>Actually outputting log messages</B><BR>
+
+   This is the cost of formatting the log output and sending it to
+   its target destination. Here again, a serious effort was made to
+   make layouts (formatters) perform as quickly as possible. The same
+   is true for appenders. The typical cost of actually logging is
+   about 100 to 300 microseconds.
+
+   See <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/performance/Logging.html">org.apache.log4.performance.Logging</A>
+   for actual figures.
+   </LI>
+
+</OL>
+
+<P>Although log4j has many features, its first design goal was speed.
+Some log4j components have been rewritten many times to improve
+performance.  Nevertheless, contributors frequently come up with new
+optimizations. You should be pleased to know that when configured with
+the <A href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/SimpleLayout.html">SimpleLayout</A>
+performance tests have shown log4j to log as quickly as
+<CODE>System.out.println</CODE>.</P>
+
+<H2>Conclusions</H2>
+
+<P>Log4j is a popular logging package written in Java.  One of its
+distinctive features is the notion of inheritance in loggers. Using
+a logger hierarchy it is possible to control which log statements
+are output at arbitrary granularity. This helps reduce the volume of
+logged output and minimize the cost of logging.</P>
+
+<P>One of the advantages of the log4j API is its manageability. Once
+the log statements have been inserted into the code, they can be
+controlled with configuration files. They can be selectively enabled
+or disabled, and sent to different and multiple output targets in
+user-chosen formats. The log4j package is designed so that log
+statements can remain in shipped code without incurring a heavy
+performance cost.</P>
+
+<H2>Acknowledgments</H2>
+
+Many thanks to N. Asokan for reviewing the article. He is also one of
+the originators of the logger concept. I am indebted to Nelson Minar
+for encouraging me to write this article. He has also made many useful
+suggestions and corrections to this article. Log4j is the result of a
+collective effort. My special thanks go to all the authors who have
+contributed to the project.  Without exception, the best features in
+the package have all originated in the user community.
+</DIV>
+
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          1999-2007
+    
+          Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

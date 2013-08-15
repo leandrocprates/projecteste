@@ -1,0 +1,26 @@
+
+
+**************************************************************************************
+*                                                                                    *
+*   Nome da Empresa : Home                                                           *
+*                                                                                    *
+*   Autor : Leandro                                                                  *
+*                                                                                    *
+*   Data : 18 / 10 / 2008                                                            *
+*                                                                                    *
+*   Projeto : Log de Debug                                                           *
+*                                                                                    *
+*                                                                                    *
+**************************************************************************************
+
+[20090124170334]  Iniciando execucao do programa.
+[20090124170334]  Conectado ao Banco de Dados.
+[20090124170334]  Erro ao executar query: [CREATE DATABASE Banco_De_Teste]
+[20090124170334]  Erro ao criar Banco de Dados: [Banco_De_Teste]. Erro numero : [1007] , Mensagem : [Can't create database 'Banco_De_Teste'; database exists]
+[20090124170334]  Obtidas [10] linhas.
+[20090124170334]  Numero de Colunas: [4] 
+[20090124170334]  Numero de Registros Afetados [10] .
+[20090124170334]  Fim dos dados.
+[20090124170334]  Imprimindo status da conexao: [Uptime: 3847  Threads: 2  Questions: 319  Slow queries: 0  Opens: 35  Flush tables: 1  Open tables: 23  Queries per second avg: 0.083]
+[20090124170334]  Mudanca de Banco de Dados efetuada com sucesso.
+[20090124170334]  Tipo de caracters da Conexao Atual [latin1].

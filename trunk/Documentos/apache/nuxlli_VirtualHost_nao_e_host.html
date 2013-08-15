@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="description" content="nuxlli - Programação, linux, software livre e um punhado de coisas">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="nuxlli_VirtualHost_nao_e_host_arquivos/style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/nuxlli">
+<link rel="alternate" type="text/xml" title="RSS .92" href="http://feeds.feedburner.com/nuxlli">
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://feeds.feedburner.com/nuxlli">
+<link rel="pingback" href="http://www.nuxlli.com.br/xmlrpc.php">
+
+<title>nuxlli » VirtualHost não é host</title>
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.nuxlli.com.br/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.nuxlli.com.br/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 2.7.1">
+
+</head><body>
+
+
+<div id="wrap">
+	<div id="header">
+		<h2><a href="http://www.nuxlli.com.br/">nuxlli</a></h2>
+		<p>Programação, linux, software livre e um punhado de coisas</p>
+		<ul>
+					<li class="page_item current_page_item"><a href="http://www.nuxlli.com.br/">Home</a></li>
+			<li class="page_item page-item-9"><a href="http://www.nuxlli.com.br/sobre/" title="Sobre">Sobre</a></li>
+		</ul>
+		<a href="http://feeds.feedburner.com/nuxlli"><img src="nuxlli_VirtualHost_nao_e_host_arquivos/icon_rss.jpg" alt="Subscribe" class="subscribe"></a>
+	</div>
+	<div id="bg_top">
+<div id="middle_wrap">
+		<div id="content">
+				
+			<h2><a href="http://www.nuxlli.com.br/2008/02/20/virtualhost-nao-e-host/" rel="bookmark" title="VirtualHost não é host">VirtualHost não é host</a></h2>
+			<div class="post_details"><p>Posted on February 20, 2008, under <a href="http://www.nuxlli.com.br/category/configuracao/" title="View all posts in Configuração" rel="category tag">Configuração</a>,  <a href="http://www.nuxlli.com.br/category/desenvolvimento/" title="View all posts in Desenvolvimento" rel="category tag">Desenvolvimento</a>.</p></div>
+			<p><a href="http://www.flickr.com/photos/seetwist/426338422/" title="Host - Little Rock">
+</a></p><div style="text-align: center;"><a href="http://www.flickr.com/photos/seetwist/426338422/" title="Host - Little Rock"><img src="nuxlli_VirtualHost_nao_e_host_arquivos/426338422_a8f260d5bf.jpg" style="border: 2px solid rgb(0, 0, 0);"></a></div>
+<p><a href="http://www.flickr.com/photos/seetwist/426338422/" title="Host - Little Rock"></a>&nbsp;
+</p><p style="text-align: justify;">A muito estou trabalhando com
+desenvolvimento web, e sempre encontrei pelo caminho quem confundisse a
+configuração dos web servers, commumente chamada de VirtualHost com a
+configuração do host.</p>
+<p style="text-align: justify;">Para quem trabalha com redes ou
+servidores a definição de hosts, domínio, zonas e tantas outras coisas
+ligadas ao serviço de DNS são bem simples, mas nem todo desenvolver
+almeja entender ou querem entender como isso funciona, ao meu ver um
+erro, pois é muito importante entender pelo menos o básico de redes,
+para si tornar um bom programador.</p>
+<p style="text-align: justify;">Mas essa questão a parte, muitos
+confundem essa pequena diferença e acaba por não conseguirem configurar
+seus ambientes de testes corretamente. Para estes ai vai uma pequena
+explicação:</p>
+<p style="text-align: justify;">Como muitos já devem ter percebido ate
+aqui, VirtualHost não é o mesmo que host. Tente imaginar o seguinte o
+VirtualHost que você configurou dentro do seu web server é como um if
+ou um case, que testa por qual host o cliente chegou ao seu serviço. Ou
+seja ele esta lá analisado o cabeçalho das requisições http, e vê lá a
+informação de qual host o usuário digitou no browser para que ele
+conseguisse chegar ate seu servidor.</p>
+<p style="text-align: justify;">Já o host é como uma entrada em uma
+agenda de endereços que diz qual ip está associado a este nome. Existe
+duas formas de configurar um host, a primeira é através de um servidor
+de DNS, no caso do Linux commumente se utiliza o bind para tal tarefa,
+no caso do Windows existe uma implementação desse tipo de serviço em
+versões server, que por sinal utiliza muito do código do bind, para
+usuário domésticos ou mesmo programadores há uma serie de software
+comerciais que desempenham este papel.</p>
+<p style="text-align: justify;">Apesar da configuração do servidor de
+DNS ser a opção com mais características e com mais flexibilidade, se
+trata de uma configuração complexa, e muitas das vezes inviável ao
+programador, que quer apenas configurar um ambiente de teste. Em seu
+lugar podemos utilizar o apelido de ip, que é algo mais simples de ser
+configurado, com o empecilho de que só funciona na maquina onde for
+configurado.</p>
+<p style="text-align: justify;">Para esta configuração deve se editar o
+arquivo /etc/hosts no caso de ambientes Posix, como Mac os X, Linux,
+BSD’s, entre outros, e o arquivo
+C:/[windows|winnt]/System32/drivers/etc/hosts para máquinas Windows.
+Para ambos os casos a configuração é a mesma, adicione uma nova linha
+no arquivo e coloque primeiro o ip, depois o host, ficando assim:</p>
+<pre>...
+127.0.0.1 apolo apolo.nasa.org
+127.0.0.1 jupter
+...
+</pre>
+<p style="text-align: justify;">Observe quê se pode configurar mais de
+um apelido em uma mesma linha, basta apenas separar eles por um
+espaços. Algo muito importante que deve se deve entender é que essa
+configuração não é uma configuração de domínios, o fato de adicionar
+apolo.nasa.org não faz diferença algum para o domínio nasa.org, a não
+ser na minha própria maquina, o que estamos fazendo é apelidado o ip
+com o endereço inteiro: apolo.nasa.org para o ip 127.0.0.1.</p>
+<p style="text-align: justify;">Como isso funciona: quando um serviço
+ou um programa qualquer, como um browser, pede ao kernel do seu sistema
+para resolver o endereço chamado, o kernel antes de consultar o
+servidor de dns, verifica se para aquele endereço não existe uma
+entrada no arquivo hosts, uma vez encontrado um apelido ali, ele nem
+procura resolver o endereço no servidor, apenas responde com o ip.</p>
+<p style="text-align: justify;">Uma vez com o ip na mão o programa ou
+serviço, monta um cabeçalho http e envia-o ao ip na porta também
+especificada, o padrão é 80 para serviço de http. Dentre as informações
+que estão neste cabeçalho esta o nome do host que ser quer ter acesso,
+o web server recebe esse cabeçalho, e checa em seu “case” qual a
+configuração para este host.</p>
+<p style="text-align: justify;">Espero que isso possa ajudar aos
+programadores iniciantes que querem montar seus ambientes de teste para
+o desenvolvimento de aplicações web. Em um próximo post vou falar como
+é fácil configurar um VirtualHost no apache sobre Ubuntu, até lá!</p>
+	
+			
+<!-- You can start editing here. -->
+
+
+<h2 id="comments">One Reply to "<i>VirtualHost não é host</i>"</h2>
+
+
+
+<div class="comments_wrap" id="comment-24">
+<div class="left"><img src="nuxlli_VirtualHost_nao_e_host_arquivos/avatar.jpeg" alt="gravatar"></div>
+<div class="right">
+<h4><b><a href="http://euvoupranasa.wordpress.com/2008/02/20/virtualhost-nao-e-host/" rel="external nofollow" class="url">VirtualHost não é host « Eu vou pra NASA</a></b>&nbsp; on May 14, 2008 </h4>
+<p>[...] post info Por nuxlli Categorias: Configuração e
+Desenvolvimento Tags: apache, host, ubuntu, virtualhost Este post mudou
+de casa: <a href="http://www.nuxlli.com.br/2008/02/20/virtualhost-nao-e-host" rel="nofollow">http://www.nuxlli.com.br/2008/02/20/virtualhost-nao-e-host</a> [...]</p>
+</div>
+</div>
+
+
+
+	
+	
+
+ 
+
+
+
+<h2>Leave a Comment</h2>
+
+
+
+
+
+<form action="http://www.nuxlli.com.br/wp-comments-post.php" method="post" id="commentform">
+<div>
+
+
+<label for="author">Username (required) :<br>
+<input name="author" id="author" value="" size="27" tabindex="1" type="text"></label> 
+
+
+
+<label for="email">Email (required) :<br>
+<input name="email" id="email" value="" size="27" tabindex="2" type="text"></label> 
+
+
+
+<label for="url">Web Site :<br>
+<input name="url" id="url" value="" size="27" tabindex="3" type="text"></label> 
+
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+
+<label for="comment">Comment :<br></label> 
+<textarea name="comment" id="comment" cols="50" rows="8" tabindex="4"></textarea>
+
+
+
+<input name="submit" id="submit" tabindex="5" value="Submit" type="submit">
+
+
+
+<input name="comment_post_ID" value="28" type="hidden">
+
+</div>
+</form>
+
+
+
+
+
+				
+		</div>
+
+		<div id="sidebar">
+                <!--
+		<div class="author_box">
+		<div class="author_box_in">
+		<p>Welcome, ipsum dolor sit amet, consectetur <a href="#">adipisicing elit</a>, sed do eiusmod tempor incididunt ut labo re et dolore magna liqua. Ut enim ad minim veniam, quis nostrud exercitation quis.</p>
+		<p>Ut enim ad minim exercitation eacommodo <a href="#">veniam quis...</a></p>
+		</div>
+		</div>
+-->
+										<div class="textwidget"><center>
+<a href="http://fisl.softwarelivre.org/"><img src="nuxlli_VirtualHost_nao_e_host_arquivos/rectangle180x150.png" title="Fisl 10" alt="banner_fisl"></a>
+</center><br>
+
+<div id="github-badge"></div>
+<script type="text/javascript" charset="utf-8">
+  GITHUB_USERNAME="nuxlli";
+  GITHUB_LIST_LENGTH=10;
+  GITHUB_HEAD="div"; // e.g. change to "h2" for wordpress sidebars
+  GITHUB_THEME="black"; // try 'black'
+  GITHUB_TITLE = "Meus Projetos"
+  GITHUB_SHOW_ALL = "Show all"
+</script>
+<script src="nuxlli_VirtualHost_nao_e_host_arquivos/github-badge-launcher.html" type="text/javascript"></script></div>
+		<h2><a class="rsswidget" href="http://twitter.com/statuses/user_timeline/8514132.rss" title="Syndicate this content"><img style="border: medium none ; background: orange none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: white;" src="nuxlli_VirtualHost_nao_e_host_arquivos/rss.png" alt="RSS" width="14" height="14"></a> <a class="rsswidget" href="" title="">Twitter</a></h2><h2><a href="http://delicious.com/nuxlli" class="delicious_title_link">del.icio.us</a></h2><ul class="delicious"><li>No bookmarks avaliable.</li></ul>					<h2>Google Reader</h2>			<div class="textwidget"><script type="text/javascript" src="nuxlli_VirtualHost_nao_e_host_arquivos/publisher-en.js"></script>
+<script type="text/javascript" src="nuxlli_VirtualHost_nao_e_host_arquivos/broadcast"></script><div id="readerpublishermodule0" class="reader-publisher-module"><ul><li><a class="i" title="FiBre Clock concluído" href="http://feedproxy.google.com/%7Er/Lusoroboticacom/%7E3/9FLjBepFVEw/topic,1403.0.html">FiBre Clock concluído</a><div class="s">from <a href="http://lusorobotica.com/index.php">LusoRobótica - Notícias e Novidades</a></div></li><li><a class="i" title="Robots aprendem a enganar para sobreviver!" href="http://feedproxy.google.com/%7Er/Lusoroboticacom/%7E3/MVR2AjUw6aE/topic,1373.0.html">Robots aprendem a enganar para sobreviver!</a><div class="s">from <a href="http://lusorobotica.com/index.php">LusoRobótica - Notícias e Novidades</a></div></li><li><a class="i" title="Três Casos Incríveis de Controle Mental" href="http://www.si14.com.br/2009/08/02/tres-casos-incriveis-de-controle-mental/">Três Casos Incríveis de Controle Mental</a><div class="s">from <a href="http://www.si14.com.br/">Si14</a></div></li><li><a class="i" title="Testando helpers de bloco no RSpec" href="http://feedproxy.google.com/%7Er/simplesideias/%7E3/Ou4_nzV89Ag/">Testando helpers de bloco no RSpec</a><div class="s">from <a href="http://simplesideias.com.br/">Simples Ideias. Por Nando Vieira.</a></div></li><li><a class="i" title="Paginação mais rápida no Firefox: como acelerar a roda de rolagem do mouse" href="http://www.efetividade.net/2009/02/03/paginacao-mais-rapida-no-firefox-como-acelerar-a-roda-de-rolagem-do-mouse/">Paginação mais rápida no Firefox: como acelerar a...</a><div class="s">from <a href="http://www.efetividade.net/">Efetividade.net</a></div></li></ul><div class="f"><a href="http://www.google.com/reader/shared/user/08288737125387110574/state/com.google/broadcast">View all »</a></div></div></div>
+							<h2>últimos</h2>			<ul>
+						<li><a href="http://www.nuxlli.com.br/2009/04/18/limpando-o-console-automaticamente-a-cada-teste/">Limpando o console automaticamente a cada teste </a></li>
+						<li><a href="http://www.nuxlli.com.br/2009/02/21/yourmove-a-saga-de-um-concurso-movel/">YourMove - A Saga de um concurso móvel </a></li>
+						<li><a href="http://www.nuxlli.com.br/2009/02/03/nova-ferramenta-de-visualizacao-da-api-do-jquery/">Nova ferramenta de visualização da API do jQuery </a></li>
+						<li><a href="http://www.nuxlli.com.br/2009/02/01/qt-opengl/">Qt + OpenGL </a></li>
+						<li><a href="http://www.nuxlli.com.br/2009/01/11/de-volta-das-ferias/">De volta das ferias </a></li>
+						</ul>
+		<h2>arquivo</h2>		<ul>
+			<li><a href="http://www.nuxlli.com.br/2009/04/" title="April 2009">April 2009</a></li>
+	<li><a href="http://www.nuxlli.com.br/2009/02/" title="February 2009">February 2009</a></li>
+	<li><a href="http://www.nuxlli.com.br/2009/01/" title="January 2009">January 2009</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/12/" title="December 2008">December 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/11/" title="November 2008">November 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/09/" title="September 2008">September 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/08/" title="August 2008">August 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2008/02/" title="February 2008">February 2008</a></li>
+	<li><a href="http://www.nuxlli.com.br/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://www.nuxlli.com.br/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://www.nuxlli.com.br/2007/10/" title="October 2007">October 2007</a></li>
+	<li><a href="http://www.nuxlli.com.br/2007/09/" title="September 2007">September 2007</a></li>
+		</ul>
+								<div class="textwidget"><center>
+<a href="http://blogblogs.com.br/" title="BlogBlogs: O seu guia na blogosfera."><img src="nuxlli_VirtualHost_nao_e_host_arquivos/blogblogs_80x15.gif" alt="BlogBlogs"></a></center></div>
+				</div>
+	</div>
+	</div>
+	<div id="footer">
+		<ul>
+				<li class="page_item current_page_item"><a href="http://www.nuxlli.com.br/">Home</a></li>
+		<li class="page_item page-item-9"><a href="http://www.nuxlli.com.br/sobre/" title="Sobre">Sobre</a></li>
+		</ul>
+		<p>Copyright 2008, Demo. Powered by <a href="http://wordpress.org/">WordPress</a>. A <a href="http://www.mygreencorner.com/">Internet marketing</a> design, made free by <a href="http://www.thcsonline.com/">California health insurance</a>.</p>
+		<p class="bot"><a href="#wrap">Back on Top</a></p>
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" href="nuxlli_VirtualHost_nao_e_host_arquivos/github.css">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="nuxlli_VirtualHost_nao_e_host_arquivos/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1552663-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body></html>

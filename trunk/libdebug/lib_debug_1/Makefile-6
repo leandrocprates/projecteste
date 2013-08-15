@@ -1,0 +1,27 @@
+#este makefile serve para criar uma lib
+
+CXX=g++
+RM=rm
+SOURCES=debug.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+LIB=libDebug.so
+
+all: $(LIB)
+
+$(LIB): $(OBJECTS)
+	@echo nome da lib que sera criada $@
+	@echo criando lib com os arquivos $^
+	@$(CXX) -shared -fPIC -o $@ $^
+
+.cpp.o:
+	@echo compilando arquivo $<
+	@$(CXX) -c $< -o $@
+
+clean:
+	$(RM) *.o
+	$(RM) $(LIB)
+
+distclean: clean
+	$(RM) $(LIB)  
+
+

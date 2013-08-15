@@ -1,0 +1,1668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0060)http://www.ibm.com/developerworks/java/library/j-dbunit.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<TITLE>Control your test-environment with DbUnit and Anthill</TITLE>
+<META http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+<LINK rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<LINK rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+<META name="Owner" content="dW Information/Raleigh/IBM">
+<META name="DC.Language" scheme="rfc1766" content="en">
+<META name="IBM.Country" content="ZZ">
+<META name="Security" content="Public">
+<META name="IBM.SpecialPurpose" content="SP001">
+<META name="IBM.PageAttributes" content="sid=1003">
+<META name="Source" content="v16 Template Generator">
+<META name="Robots" content="index,follow">
+<META name="Abstract" content="The inception of the Extreme Programming methodology has brought test-driven development and continuous integration into mainstream Java development practices. Applying these techniques to Java server-side development can quickly become a nightmare if you don&#39;t have the right tools. In this article, software developer Philippe Girolami describes how to deal with continuous integration and how to use DbUnit in conjunction with JUnit to control the test environment end-to-end by setting up the state of the database before each test.">
+<META name="Description" content="The inception of the Extreme Programming methodology has brought test-driven development and continuous integration into mainstream Java development practices. Applying these techniques to Java server-side development can quickly become a nightmare if you don&#39;t have the right tools. In this article, software developer Philippe Girolami describes how to deal with continuous integration and how to use DbUnit in conjunction with JUnit to control the test environment end-to-end by setting up the state of the database before each test.">
+<META name="Keywords" content="java, unit-testing, DbUnit, Anthill, Philippe Girolami, tttjca">
+<META name="DC.Date" scheme="iso8601" content="2004-04-13">
+<META name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316">
+<META name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="TT300">
+<META scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCJVAZZ">
+<META name="DC.Rights" content="&copy; Copyright&nbsp;IBM Corporation&nbsp;2004">
+<META name="IBM.Effective" scheme="W3CDTF" content="2004-04-13">
+<META name="title" content="Control your test-environment with DbUnit and Anthill">
+
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/all.css" media="all" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/print.css" media="print" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/overlay.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+
+<!-- dW-specific CSS -->
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/dw-screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<LINK href="./ControlyourtestenvironmentwithDbUnitandAnthill_files/jquery.cluetip.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+
+<SCRIPT src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/ibmcommon.js" type="text/javascript">//</SCRIPT><LINK rel="search" type="application/opensearchdescription+xml" href="http://www.ibm.com/search/opensearch/description.xml" title="IBM Search">
+<SCRIPT src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/dynamicnav.js" type="text/javascript">//</SCRIPT>
+
+<!-- dW functional JS -->
+<SCRIPT language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/urltactic.js" type="text/javascript"></SCRIPT>
+<!-- Rating_START -->
+<SCRIPT language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/artrating.js" type="text/javascript"></SCRIPT>
+<STYLE type="text/css">
+.metavalue {
+  display: none;
+}
+</STYLE>
+<!-- Rating_END --><!-- RESERVED_HEADER_INCLUDE -->
+<SCRIPT language="javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/ajax1.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/search_counter-maverick.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/request_referer_capture-maverick.js" type="text/javascript"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/javascript">
+ <!--
+ setDefaultQuery('');
+ //-->
+</SCRIPT>
+<SCRIPT language="JavaScript" type="text/javascript">
+ <!--
+ function openNewWindow(url,tar,arg){window.open(url,tar,arg);}
+ //-->
+</SCRIPT>
+<SCRIPT id="flashdetect" type="text/javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/flash-detect.js" charset="UTF-8"></SCRIPT><SCRIPT id="mhMenu" type="text/javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/usen-utf8.js" charset="UTF-8"></SCRIPT><SCRIPT id="registerProps" type="text/javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/register.js" charset="UTF-8"></SCRIPT><SCRIPT id="dynavEA" type="text/javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/Controller" charset="UTF-8"></SCRIPT><SCRIPT id="wiBundle" type="text/javascript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/Controller(1)" charset="UTF-8"></SCRIPT></HEAD><BODY id="ibm-com">
+<DIV id="ibm-top" class="ibm-landing-page">
+
+<!-- MASTHEAD_BEGIN -->
+<DIV class="ibm-access"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-content">Skip to main content</A></DIV>
+<DIV id="ibm-masthead"><IMG src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/print-header.gif" width="510" height="32" id="ibm-print-masthead">
+<DIV id="ibm-logo"><A href="http://www.ibm.com/"><IMG height="50" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/ibm-logo.gif" width="110" alt="IBM&reg;"></A></DIV>
+<UL id="ibm-geo"><LI id="ibm-country" class="ibm-first">Country/region</LI><LI id="ibm-change-country">[ <A href="http://www.ibm.com/developerworks/country/">select</A> ]</LI></UL>
+  <FORM id="ibm-search-form" action="http://www.ibm.com/developerworks/search/searchResults.jsp" method="get" name="form1"><INPUT type="hidden" name="searchType" value="1"><INPUT type="hidden" name="searchSite" value="dW"><P>
+<SPAN id="ibm-search-scope">
+<LABEL for="sn"><IMG src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif" width="1" height="1" alt="Search in:"></LABEL>
+<SELECT name="searchScope" id="sn">
+<OPTION value="dW" selected="selected">All of dW</OPTION>
+<OPTION value="dW">-----------------</OPTION>
+<OPTION value="aixunix">&nbsp;AIX and UNIX</OPTION>
+<OPTION value="db2">&nbsp;Information Mgmt</OPTION>
+<OPTION value="lotus">&nbsp;Lotus</OPTION>
+<OPTION value="rdd">&nbsp;Rational</OPTION>
+<OPTION value="tivoli">&nbsp;Tivoli</OPTION>  
+<OPTION value="WSDD">&nbsp;WebSphere</OPTION>
+<OPTION value="dW">-----------------</OPTION> 
+<OPTION value="javaZ">&nbsp;Java technology</OPTION> 
+<OPTION value="linuxZ">&nbsp;Linux</OPTION> 
+<OPTION value="opensrcZ">&nbsp;Open source</OPTION>
+<OPTION value="webservZ">&nbsp;SOA/Web services</OPTION>
+<OPTION value="webarchZ">&nbsp;Web development</OPTION>  
+<OPTION value="xmlZ">&nbsp;XML</OPTION>
+<OPTION value="dW">-----------------</OPTION>
+<OPTION value="forums">&nbsp;dW forums</OPTION> 
+<OPTION value="dW">-----------------</OPTION>
+<OPTION value="aI">University</OPTION>
+<OPTION value="dW">-----------------</OPTION>
+<OPTION value="aW">alphaWorks</OPTION>
+<OPTION value="dW">-----------------</OPTION>
+<OPTION value="all">All of IBM</OPTION>
+</SELECT>
+</SPAN>
+
+<LABEL for="q"><IMG alt="Search for:" height="1" width="1" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></LABEL><INPUT type="text" name="query" maxlength="100" id="q"><INPUT type="submit" id="ibm-search" class="ibm-btn-search" name="Search" value="Search"></P></FORM>
+<DIV id="ibm-site-name">
+<!-- IBM site name container -->
+</DIV>
+<DIV id="ibm-universal-nav">
+<UL><LI id="ibm-unav-home" class="ibm-first"><A href="http://www.ibm.com/us/en/">Home</A></LI><LI id="ibm-unav-solutions"><A href="http://www.ibm.com/solutions/us/en/" class=" ibm-unav-has-child">Solutions</A><DIV class="ibm-unav-menu" id="gi-3a68fe10"><SPAN class="ibm-unav-menu-ehb" id="gi-3a68fe10-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-12eaee88-trigger">By industry</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-12eaee88"><SPAN class="ibm-unav-menu-ehb" id="gi-12eaee88-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/industries/aerodefense/?cm_re=masthead-_-business-_-ind-aerodef">Aerospace and defense</A></LI><LI><A href="http://www.ibm.com/industries/automotive/?cm_re=masthead-_-business-_-ind-auto">Automotive</A></LI><LI><A href="http://www.ibm.com/industries/financialservices/banking/?cm_re=masthead-_-business-_-ind-banking">Banking</A></LI><LI><A href="http://www.ibm.com/industries/chemicalspetroleum/?cm_re=masthead-_-business-_-ind-chem">Chemicals and petroleum</A></LI><LI><A href="http://www.ibm.com/industries/consumerproducts/?cm_re=masthead-_-business-_-ind-consumer">Consumer products</A></LI><LI><A href="http://www.ibm.com/industries/education/?cm_re=masthead-_-business-_-ind-edu">Education</A></LI><LI><A href="http://www.ibm.com/industries/electronics/?cm_re=masthead-_-business-_-ind-elec">Electronics</A></LI><LI><A href="http://www.ibm.com/industries/utilities/?cm_re=masthead-_-business-_-ind-energy">Energy and utilities</A></LI><LI><A href="http://www.ibm.com/industries/financialservices/financialmarkets/?cm_re=masthead-_-business-_-ind-finance">Financial markets</A></LI><LI><A href="http://www.ibm.com/industries/government/?cm_re=masthead-_-business-_-ind-gov">Government</A></LI><LI><A href="http://www.ibm.com/industries/healthcare/?cm_re=masthead-_-business-_-ind-health">Healthcare and life sciences</A></LI><LI><A href="http://www.ibm.com/industries/industrialproducts/?cm_re=masthead-_-business-_-ind-ind_prods">Industrial products</A></LI><LI><A href="http://www.ibm.com/industries/financialservices/insurance/?cm_re=masthead-_-business-_-ind-ins">Insurance</A></LI><LI><A href="http://www.ibm.com/industries/media/?cm_re=masthead-_-business-_-ind-media">Media and entertainment</A></LI><LI><A href="http://www.ibm.com/industries/retail/?cm_re=masthead-_-business-_-ind-retail">Retail</A></LI><LI><A href="http://www.ibm.com/industries/telecom/?cm_re=masthead-_-business-_-ind-tele">Telecommunications</A></LI><LI><A href="http://www.ibm.com/industries/travel/?cm_re=masthead-_-business-_-ind-travel">Travel and transportation</A></LI><LI><A href="http://www.ibm.com/wholesaledistribution/?cm_re=masthead-_-business-_-ind-wholesale">Wholesale distribution</A></LI><LI><A href="http://www.ibm.com/businesscenter/smb/us/en/industries?cm_re=masthead-_-business-_-ind-medbus">Medium business industries</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-311eb2c-trigger">By business need</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-311eb2c"><SPAN class="ibm-unav-menu-ehb" id="gi-311eb2c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/software/data/db2bi/?cm_re=masthead-_-business-_-bzn-busint">Business intelligence</A></LI><LI><A href="http://www.ibm.com/services/crm/?cm_re=masthead-_-business-_-bzn-crm">Customer relationship management</A></LI><LI><A href="http://www.ibm.com/solutions/erp/?cm_re=masthead-_-business-_-bzn-erp">Enterprise resource planning</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_financialmgmt.html?re=bcs_home&cm_re=masthead-_-business-_-bzn-finmgmt">Financial management</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_humancapitalmgmt.html?re=bcs_home&cm_re=masthead-_-business-_-bzn-humancap">Human capital management</A></LI><LI><A href="http://www.ibm.com/software/plm/?cm_re=masthead-_-business-_-bzn-plm">Product lifecycle management</A></LI><LI><A href="http://www.ibm.com/security/index.shtml?cm_re=masthead-_-business-_-bzn-sec">Security</A></LI><LI><A href="http://www.ibm.com/software/solutions/sensors/?cm_re=masthead-_-business-_-bzn-sensors">Sensors</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_strategyplanning.html?re=bcs_home&cm_re=masthead-_-business-_-bzn-strat">Strategy and change</A></LI><LI><A href="http://www.ibm.com/services/scm/?cm_re=masthead-_-business-_-bzn-scm">Supply chain management</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-26776dc8-trigger">By IT issue</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-26776dc8"><SPAN class="ibm-unav-menu-ehb" id="gi-26776dc8-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/itsolutions/business-process-management/?cm_re=masthead-_-business-_-bzn-bpm">Business process management</A></LI><LI><A href="http://www.ibm.com/itsolutions/collaboration/?cm_re=masthead-_-business-_-bzn-collab">Collaboration</A></LI><LI><A href="http://www.ibm.com/itsolutions/content-management//?cm_re=masthead-_-business-_-bzn-content">Content management</A></LI><LI><A href="http://www.ibm.com/itsolutions/it-cost/?cm_re=masthead-_-business-_-bzn-cost">Cost management</A></LI><LI><A href="http://www.ibm.com/itsolutions/data/?cm_re=masthead-_-business-_-bzn-data">Data management</A></LI><LI><A href="http://www.ibm.com/itsolutions/disaster-recovery/?cm_re=masthead-_-business-_-bzn-recovery">Disaster recovery</A></LI><LI><A href="http://www.ibm.com/itsolutions/distribution-management/?cm_re=masthead-_-business-_-bzn-disman">Distribution management</A></LI><LI><A href="http://www.ibm.com/itsolutions/energy-efficiency/?cm_re=masthead-_-business-_-bzn-energy">Energy efficiency</A></LI><LI><A href="http://www.ibm.com/itsolutions/eai/?cm_re=masthead-_-business-_-bzn-eai">Enterprise application integration</A></LI><LI><A href="http://www.ibm.com/itsolutions/enterprisearchitecture/">Enterprise architecture</A></LI><LI><A href="http://www.ibm.com/itsolutions/compliance/?cm_re=masthead-_-business-_-bzn-compliance">Regulatory compliance</A></LI><LI><A href="http://www.ibm.com/security?cm_re=masthead-_-business-_-bzn-security">Security</A></LI><LI><A href="http://www.ibm.com/itsolutions/systems-management/?cm_re=masthead-_-business-_-bzn-sysman">Systems management</A></LI><LI><A href="http://www.ibm.com/itsolutions/virtualization/?cm_re=masthead-_-business-_-bzn-virtual">Virtualization</A></LI><LI><A href="http://www.ibm.com/itsolutions/portals/?cm_re=masthead-_-business-_-bzn-wrkforce">Workforce productivity</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-18bebd74-trigger">By Business Partner</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-18bebd74"><SPAN class="ibm-unav-menu-ehb" id="gi-18bebd74-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/solutions/cisco/?cm_re=masthead-_-business-_-bp-cisco">IBM and Cisco</A></LI><LI><A href="http://www.ibm.com/solutions/businesssolutions/oracle/?cm_re=masthead-_-business-_-bp-oracle">IBM and Oracle</A></LI><LI><A href="http://www.ibm.com/solutions/sap/?cm_re=masthead-_-business-_-bp-sap">IBM and SAP</A></LI><LI><A href="http://www.ibm.com/solutions/businesssolutions/">More alliance partners</A></LI><LI><A href="http://www.ibm.com/software/showcase/?cm_re=masthead-_-business-_-bp-all">Select Business Partners</A></LI></UL></DIV></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_index.html?cm_re=masthead-_-business-_-busconsult">Business consulting</A></LI><LI><A href="http://www.ibm.com/systems/dynamicinfrastructure/?cm_re=masthead-_-business-_-di">Dynamic infrastructure</A></LI><LI><A href="http://www.ibm.com/financing/us/?cm_re=masthead-_-business-_-financing">Financing</A></LI><LI><A href="http://www.ibm.com/green/?cm_re=masthead-_-business-_-green">Green: energy, environment &amp; sustainability</A></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/soa?pgel=ibmhzn&cm_re=masthead-_-business-_-soa" id="gi-7b973a1c-trigger">Service oriented architecture (SOA)</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-7b973a1c"><SPAN class="ibm-unav-menu-ehb" id="gi-7b973a1c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/businesscenter/smb/us/en/solutionareas?cm_re=masthead-_-business-_-sol4mb" id="gi-c8441f9f-trigger">Small and medium business solutions</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-c8441f9f"><SPAN class="ibm-unav-menu-ehb" id="gi-c8441f9f-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI><A href="http://www.ibm.com/businesssolutions/us/en/?cm_re=masthead-_-business-_-more">More</A></LI></UL></DIV></LI><LI id="ibm-unav-services"><A href="http://www.ibm.com/technologyservices/us/en/" class=" ibm-unav-has-child">Services</A><DIV class="ibm-unav-menu" id="gi-174f00c"><SPAN class="ibm-unav-menu-ehb" id="gi-174f00c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-3a870308-trigger">IT services</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-3a870308"><SPAN class="ibm-unav-menu-ehb" id="gi-3a870308-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/services/us/index.wss">All IT services</A></LI><LI><A href="http://www.ibm.com/services/continuity/?cm_re=masthead-_-itservices-_-buscont">Business continuity and resiliency services</A></LI><LI><A href="http://www.ibm.com/services/enduser/?cm_re=masthead-_-itservices-_-enduser">End-user services</A></LI><LI><A href="http://www.ibm.com/services/integratedcommunications/?cm_re=masthead-_-itservices-_-communications">Integrated communications services</A></LI><LI><A href="http://www.ibm.com/services/itsaconsulting/?cm_re=masthead-_-itservices-_-strategy">IT strategy and architecture services</A></LI><LI><A href="http://www.ibm.com/services/maintenance/?cm_re=masthead-_-itservices-_-maint">Maintenance and technical support services</A></LI><LI><A href="http://www.ibm.com/services/middleware/?cm_re=masthead-_-itservices-_-middleware">Middleware services</A></LI><LI><A href="http://www.ibm.com/services/security/?cm_re=masthead-_-itservices-_-security">Security services</A></LI><LI><A href="http://www.ibm.com/services/server/?cm_re=masthead-_-itservices-_-server">Server services</A></LI><LI><A href="http://www.ibm.com/services/siteandfacilities/?cm_re=masthead-_-itservices-_-site">Site and facilities services</A></LI><LI><A href="http://www.ibm.com/services/storage/?cm_re=masthead-_-itservices-_-storage">Storage and data services</A></LI><LI><A href="http://www.ibm.com/services/us/index.wss/allservices">IT services A-Z</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-8247a82b-trigger">Business consulting</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-8247a82b"><SPAN class="ibm-unav-menu-ehb" id="gi-8247a82b-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_index.html?cm_re=masthead-_-itservices-_-busconsult">All business consulting</A></LI><LI><A href="http://www.ibm.com/gbs/bao?cm_re=masthead-_-itservices-_-bao">Business analytics and optimization</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_salesmrktingservices.html?re=bcs_home">Customer relationship management</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_financialmgmt.html?re=bcs_home">Financial management</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_humancapitalmgmt.html?re=bcs_home">Human capital management</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_strategyplanning.html?re=bcs_home">Strategy and change</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/bus/html/bcs_supplychainprocurement.html?re=bcs_home">Supply chain management</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-469ee32c-trigger">Application services</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-469ee32c"><SPAN class="ibm-unav-menu-ehb" id="gi-469ee32c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/services/applications?cm_re=masthead-_-business-_-apps-allappserv">All application services</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/app/html/gbs_app_custom_appdev_sysinteg.html?cm_re=masthead-_-business-_-apps-appdev">Custom application development and system integration</A></LI><LI><A href="http://www.ibm.com/services/us/gbs/app/html/gbs_app_appmanagement.html?cm_re=masthead-_-business-_-apps-appmgmt">Application management</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-dbc3e44-trigger">Outsourcing services</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-dbc3e44"><SPAN class="ibm-unav-menu-ehb" id="gi-dbc3e44-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/services/us/index.wss/offerfamily/aod/a1028600">Applications outsourcing</A></LI><LI><A href="http://www.ibm.com/services/us/index.wss/offerfamily/igs/a1001429">Business process outsourcing</A></LI><LI><A href="http://www.ibm.com/services/us/index.wss/offerfamily/gts/a1029385">IT outsourcing and hosting</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/training" id="gi-b64eacd7-trigger">Training</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-b64eacd7"><SPAN class="ibm-unav-menu-ehb" id="gi-b64eacd7-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/businesscenter/smb/us/en/service?cm_re=masthead-_-itservices-_-medbus" id="gi-92ccd3e7-trigger">Small and medium business services</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-92ccd3e7"><SPAN class="ibm-unav-menu-ehb" id="gi-92ccd3e7-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-8c00538-trigger">Other services</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-8c00538"><SPAN class="ibm-unav-menu-ehb" id="gi-8c00538-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/financing/us/recovery/?cm_re=masthead-_-itservices-_-asset">Asset recovery</A></LI><LI><A href="http://www.ibm.com/software/sw-services/?cm_re=masthead-_-itservices-_-software">Software services</A></LI></UL></DIV></LI><LI><A href="http://www.ibm.com/technologyservices/us/en/?cm_re=masthead-_-itservices-_-more">More</A></LI></UL></DIV></LI><LI id="ibm-unav-products"><A href="http://www.ibm.com/products/us/en/" class=" ibm-unav-has-child">Products</A><DIV class="ibm-unav-menu" id="gi-99c10e27"><SPAN class="ibm-unav-menu-ehb" id="gi-99c10e27-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI class=" ibm-place-holder"><A href="http://www.ibm.com/products/specialoffers/us/en/index.html?cm_re=masthead-_-products-_-promo" id="gi-f1ce4ddf-trigger">Special offers</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-f1ce4ddf"><SPAN class="ibm-unav-menu-ehb" id="gi-f1ce4ddf-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-781923e0-trigger">Software</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-781923e0"><SPAN class="ibm-unav-menu-ehb" id="gi-781923e0-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/software?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-allsoftware">Software overview</A></LI><LI><A href="http://www.ibm.com/software/products/us/en/?pgel=ibmhzn&cm_re=masthead-_-products-_-swprodfinder">Products</A></LI><LI class=" ibm-mhdyn-rule"><A href="http://www14.software.ibm.com/webapp/download/byproduct.jsp?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-trials" id="gi-d68a5847-trigger">Trials and demos</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-d68a5847"><SPAN class="ibm-unav-menu-ehb" id="gi-d68a5847-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI><A href="http://www.ibm.com/software/data?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-infomgmt">Information Management</A></LI><LI><A href="http://www.ibm.com/software/data/cognos/?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-cognos">- Cognos</A></LI><LI><A href="http://www.ibm.com/software/data/management/?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-db2">- DB2</A></LI><LI><A href="http://www.ibm.com/software/data/content-management/?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-filenet">- ECM (including FileNet)</A></LI><LI><A href="http://www.ibm.com/software/data/informix/?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-informix">- Informix</A></LI><LI><A href="http://www.ibm.com/software/data/infosphere/?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-infosphere">- InfoSphere</A></LI><LI><A href="http://www.ibm.com/software/lotus?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-lotus">Lotus</A></LI><LI><A href="http://www.ibm.com/software/rational?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-rational">Rational</A></LI><LI><A href="http://www.ibm.com/software/tivoli?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-tivoli">Tivoli</A></LI><LI><A href="http://www.ibm.com/software/websphere?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-websphere">WebSphere</A></LI><LI><A href="http://www.ibm.com/software/os/zseries?pgel=ibmhzn&cm_re=masthead-_-products-_-sw-sysz">System z software</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-f343182f-trigger">Storage</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-f343182f"><SPAN class="ibm-unav-menu-ehb" id="gi-f343182f-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/storage/?cm_re=masthead-_-products-_-stg-allstorage">All storage</A></LI><LI><A href="http://www.ibm.com/storage/disk/?cm_re=masthead-_-products-_-stg-disk">Disk systems</A></LI><LI><A href="http://www.ibm.com/storage/tape/?cm_re=masthead-_-products-_-stg-tape">Tape systems</A></LI><LI><A href="http://www.ibm.com/storage/snetwork/?cm_re=masthead-_-products-_-stg-san">Storage area networks</A></LI><LI><A href="http://www.ibm.com/totalstorage/nas/?cm_re=masthead-_-products-_-stg-nas">Network attached storage</A></LI><LI><A href="http://www.ibm.com/storage/software/?cm_re=masthead-_-products-_-stg-storagesoft">Storage software</A></LI><LI><A href="http://www.ibm.com/pc/ww/hdd/hddredirect.html?cm_re=masthead-_-products-_-stg-hdd">Hard drives/microdrives</A></LI><LI><A href="http://www.ibm.com/systems/storage/product/?cm_re=masthead-_-products-_-stg-storagea2z">Storage A to Z</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-74746d54-trigger">Servers &amp; systems</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-74746d54"><SPAN class="ibm-unav-menu-ehb" id="gi-74746d54-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/systems/?cm_re=masthead-_-products-_-sys-allsystems">All servers and systems</A></LI><LI><A href="http://www.ibm.com/systems/power/?cm_re=masthead-_-products-_-sys-power">Power Systems</A></LI><LI><A href="http://www.ibm.com/systems/i/?cm_re=masthead-_-products-_-sys-iseries">System i (iSeries)</A></LI><LI><A href="http://www.ibm.com/systems/p/?cm_re=masthead-_-products-_-sys-pseries">System p (pSeries)</A></LI><LI><A href="http://www.ibm.com/systems/z/?cm_re=masthead-_-products-_-sys-zseries">System z (Mainframe)</A></LI><LI><A href="http://www.ibm.com/systems/x/?cm_re=masthead-_-products-_-sys-xseries">System x (xSeries)</A></LI><LI><A href="http://www.ibm.com/servers/eserver/bladecenter/?cm_re=masthead-_-products-_-sys-blade">BladeCenter</A></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/systems/clusters/?cm_re=masthead-_-products-_-sys-cluster" id="gi-dbcdc3af-trigger">Cluster systems</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-dbcdc3af"><SPAN class="ibm-unav-menu-ehb" id="gi-dbcdc3af-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI><A href="http://www.ibm.com/systems/hardware/browse/unix/?cm_re=masthead-_-products-_-sys-unix">UNIX servers</A></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/servers/eserver/linux/?cm_re=masthead-_-products-_-sys-linux" id="gi-ee43667f-trigger">Linux servers</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-ee43667f"><SPAN class="ibm-unav-menu-ehb" id="gi-ee43667f-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI><A href="http://www.ibm.com/servers/jump_intel.html?cm_re=masthead-_-products-_-sys-intel">Intel processor-based servers</A></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/servers/eserver/opteron/?cm_re=masthead-_-products-_-sys-amd" id="gi-fd627467-trigger">AMD processor-based servers</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-fd627467"><SPAN class="ibm-unav-menu-ehb" id="gi-fd627467-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI><A href="http://www.ibm.com/systems/oem?cm_re=masthead-_-products-_-oemsys">OEM systems</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/services/us/internet-security-products?cm_re=masthead-_-products-_-iss" id="gi-83a376d7-trigger">Internet security</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-83a376d7"><SPAN class="ibm-unav-menu-ehb" id="gi-83a376d7-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/shop/pc" id="gi-41879378-trigger">Personal computers</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-41879378"><SPAN class="ibm-unav-menu-ehb" id="gi-41879378-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/products/retail/?cm_re=masthead-_-products-_-pos" id="gi-4c1341e0-trigger">Point of sale</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-4c1341e0"><SPAN class="ibm-unav-menu-ehb" id="gi-4c1341e0-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.infoprint.com/us" id="gi-d73361fb-trigger">Printing systems from InfoPrint</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-d73361fb"><SPAN class="ibm-unav-menu-ehb" id="gi-d73361fb-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/technology/?cm_re=masthead-_-products-_-chips" id="gi-88f81a33-trigger">Semiconductors</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-88f81a33"><SPAN class="ibm-unav-menu-ehb" id="gi-88f81a33-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/shop/americas/content/home/store_IBMPublicUSA/en_US/Upgrades.html?cm_re=masthead-_-products-_-upgrades" id="gi-bf7f7583-trigger">Upgrades, accessories &amp; parts</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-bf7f7583"><SPAN class="ibm-unav-menu-ehb" id="gi-bf7f7583-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/shop/usedsystems" id="gi-2c36621c-trigger">Certified used systems &amp; storage</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-2c36621c"><SPAN class="ibm-unav-menu-ehb" id="gi-2c36621c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/community/?cm_re=masthead-_-products-_-promo" id="gi-c4f21313-trigger">Communities</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-c4f21313"><SPAN class="ibm-unav-menu-ehb" id="gi-c4f21313-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/businesscenter/smb/us/en/smallbusiness?cm_re=masthead-_-products-_-smallbus" id="gi-ae3fbf57-trigger">Small business products</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-ae3fbf57"><SPAN class="ibm-unav-menu-ehb" id="gi-ae3fbf57-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-d8b9242b-trigger">Medium business products</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-d8b9242b"><SPAN class="ibm-unav-menu-ehb" id="gi-d8b9242b-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/businesscenter/smb/us/en/product?cm_re=masthead-_-products-_-med-hardware">Hardware</A></LI><LI><A href="http://www.ibm.com/businesscenter/smb/us/en/software?cm_re=masthead-_-products-_-med-software">Software</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/products/us/?cm_re=masthead-_-products-_-more" id="gi-c0e202c3-trigger">More</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-c0e202c3"><SPAN class="ibm-unav-menu-ehb" id="gi-c0e202c3-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI></UL></DIV></LI><LI id="ibm-unav-support"><A href="http://www.ibm.com/support/us/en/" class=" ibm-unav-has-child">Support &amp; downloads</A><DIV class="ibm-unav-menu" id="gi-c9381f5f"><SPAN class="ibm-unav-menu-ehb" id="gi-c9381f5f-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI class=" ibm-place-holder"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-7ca616ac-trigger">Download</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-7ca616ac"><SPAN class="ibm-unav-menu-ehb" id="gi-7ca616ac-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/products/finder/us/finders?pg=ddfinder&cm_re=other-_-suprcn-_-download">Fixes, updates and drivers</A></LI><LI><A href="http://www14.software.ibm.com/webapp/download/byproduct.jsp?pgel=ibmhzn1&cm_re=masthead-_-supdl-_-dl-trials">Trials and demos</A></LI></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/troubleshooting/en_US?cm_re=other-_-suprcn-_-troubleshoot" id="gi-b1ab4117-trigger">Troubleshoot</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-b1ab4117"><SPAN class="ibm-unav-menu-ehb" id="gi-b1ab4117-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/advsrch.wss?rs=0&loc=en_US&cm_re=masthead-_-supdl-_-search" id="gi-6f2444cc-trigger">Search</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-6f2444cc"><SPAN class="ibm-unav-menu-ehb" id="gi-6f2444cc-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/documentation/en_US?cm_re=other-_-suprcn-_-documentation" id="gi-b017b773-trigger">Documentation</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-b017b773"><SPAN class="ibm-unav-menu-ehb" id="gi-b017b773-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/forums/en_US?cm_re=other-_-suprcn-_-forums" id="gi-9c124203-trigger">Forums &amp; communities</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-9c124203"><SPAN class="ibm-unav-menu-ehb" id="gi-9c124203-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/plan/en_US?cm_re=other-_-suprcn-_-plan" id="gi-5ab4533c-trigger">Plan</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-5ab4533c"><SPAN class="ibm-unav-menu-ehb" id="gi-5ab4533c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/install/en_US?cm_re=other-_-suprcn-_-install" id="gi-d85f885f-trigger">Install</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-d85f885f"><SPAN class="ibm-unav-menu-ehb" id="gi-d85f885f-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/use/en_US?cm_re=other-_-suprcn-_-use" id="gi-dda344f3-trigger">Use</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-dda344f3"><SPAN class="ibm-unav-menu-ehb" id="gi-dda344f3-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/electronic/uprtransition.wss?category=2&locale=en_us&cm_re=other-_-suprcn-_-request" id="gi-1023d30c-trigger">Open a technical service request</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-1023d30c"><SPAN class="ibm-unav-menu-ehb" id="gi-1023d30c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="javascript:void(0);" class=" ibm-unav-menu-has-child" id="gi-d746050-trigger">Support by product</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-d746050"><SPAN class="ibm-unav-menu-ehb" id="gi-d746050-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="http://www.ibm.com/software/support/?cm_re=masthead-_-supdl-_-sbp-software">Software</A></LI><LI><A href="http://www.ibm.com/systems/support?cm_re=masthead-_-supdl-_-sbp-systems">Servers and systems</A></LI><LI><A href="http://www.ibm.com/systems/support/supportsite.wss/brandmain?brandind=5345868&cm_re=masthead-_-supdl-_-sbp-storage">System storage</A></LI><LI><A href="http://www.infoprintsolutionscompany.com/internet/wwsites.nsf/vwwebpublished/sm_home_us">Printing systems from InfoPrint</A></LI><LI><A href="http://www.lenovo.com/support/?cm_re=masthead-_-supdl-_-sbp-lenovo">Lenovo ThinkPads and ThinkCentres</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www.ibm.com/support/operations/us/en?cm_re=masthead-_-supdl-_-getadmin" id="gi-4532c1bc-trigger">Customer support</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-4532c1bc"><SPAN class="ibm-unav-menu-ehb" id="gi-4532c1bc-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/support/us/en/?cm_re=masthead-_-supdl-_-more" id="gi-52d4d348-trigger">More</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-52d4d348"><SPAN class="ibm-unav-menu-ehb" id="gi-52d4d348-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI></UL></DIV></LI><LI id="ibm-unav-myibm"><A href="http://www.ibm.com/account/us/en/" class=" ibm-unav-has-child">My IBM</A><DIV class="ibm-unav-menu" id="gi-1e972090"><SPAN class="ibm-unav-menu-ehb" id="gi-1e972090-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI class=" ibm-place-holder"><A href="http://www.ibm.com/account/myaccounts/us/en/?cm_re=masthead-_-myibm-_-myacct" id="gi-b8a4fc47-trigger">My accounts</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-b8a4fc47"><SPAN class="ibm-unav-menu-ehb" id="gi-b8a4fc47-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="https://www.ibm.com/account/myibm/profile.do?cc=us&lc=&cm_re=masthead-_-myibm-_-myprofile" id="gi-982be777-trigger">My profile</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-982be777"><SPAN class="ibm-unav-menu-ehb" id="gi-982be777-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-myinterest"><A href="https://www.ibm.com/account/myibm/myinterestView.do?cc=us&lc=en&cm_re=masthead-_-myibm-_-myinterests" id="gi-c9765cb3-trigger">My interests</A><DIV class="ibm-unav-menu ibm-myinterest" id="gi-c9765cb3"><SPAN class="ibm-unav-menu-ehb" id="gi-c9765cb3-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/account/mycommunity/us/en/" id="gi-25297154-trigger">My community spaces</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-25297154"><SPAN class="ibm-unav-menu-ehb" id="gi-25297154-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="https://www.ibm.com/systems/support/myview/subscription/css.wss/folders?methodName=listMyFolders" id="gi-3edc14dc-trigger">My technical support</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-3edc14dc"><SPAN class="ibm-unav-menu-ehb" id="gi-3edc14dc-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="javascript:void(0)" class=" ibm-unav-menu-has-child" id="gi-6494d60c-trigger">My customer support</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-6494d60c"><SPAN class="ibm-unav-menu-ehb" id="gi-6494d60c-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL><LI><A href="https://www-132.ibm.com/webapp/wcs/stores/servlet/OrderItemDisplay?langId=-1&storeId=1&catalogId=-840&krypto=g3mOZ2uZQalqnkMCJkVJ1Q%3D%3D&ddkey=OrderItemDisplay&cm_re=masthead-_-myibm-_-cs-cart">Shopping cart</A></LI><LI><A href="http://www.ibm.com/support/operations/us/en/contracts?cm_re=masthead-_-myibm-_-cs-contracts">Contracts</A></LI><LI><A href="http://www.ibm.com/support/operations/us/en/orderdelivery?cm_re=masthead-_-myibm-_-cs-orders">Orders and delivery</A></LI><LI><A href="http://www.ibm.com/support/operations/us/en/inventory?cm_re=masthead-_-myibm-_-cs-inventory">Inventory and maintenance</A></LI><LI><A href="http://www.ibm.com/support/operations/us/en/invoicespayments?cm_re=masthead-_-myibm-_-cs-invoices">Invoices and payments</A></LI><LI><A href="http://www.ibm.com/support/operations/us/en/learnmore3a?cm_re=masthead-_-myibm-_-cs-self">Self-service tools</A></LI><LI><A href="http://www.ibm.com/support/operations/us?cm_re=masthead-_-myibm-_-cs-more">More customer support</A></LI></UL></DIV></LI><LI class=" ibm-mhdyn-rule"><A href="http://www-931.ibm.com/bin/subscriptions/welcome.cgi?cl=usen&cm_re=masthead-_-myibm-_-subscriptions" id="gi-7d5ac7c0-trigger">Subscriptions</A><DIV class="ibm-unav-menu ibm-mhdyn-rule" id="gi-7d5ac7c0"><SPAN class="ibm-unav-menu-ehb" id="gi-7d5ac7c0-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI><LI class=" ibm-place-holder"><A href="http://www.ibm.com/account/us/en/?cm_re=masthead-_-myibm-_-more" id="gi-14946b74-trigger">More</A><DIV class="ibm-unav-menu ibm-place-holder" id="gi-14946b74"><SPAN class="ibm-unav-menu-ehb" id="gi-14946b74-ehb"><IMG alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"></SPAN><A class="ibm-access"></A><UL></UL></DIV></LI></UL></DIV></LI></UL>
+</DIV>
+</DIV>
+<!-- MASTHEAD_END -->
+
+<DIV id="ibm-pcon">
+
+<!-- CONTENT_BEGIN -->
+<DIV id="ibm-content">
+
+<!-- Navigation_Trail_BEGIN -->
+<!-- &nbsp; -->
+      <DIV id="ibm-content-head"><UL id="ibm-navigation-trail"><LI class="ibm-first"><A href="http://www.ibm.com/developerworks/">developerWorks</A></LI><LI><A href="http://www.ibm.com/developerworks/java/">Java technology</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/library.jsp">Technical library</A></LI></UL></DIV>
+<!-- Navigation_Trail_END -->
+
+<!-- dW_Summary Area_START -->
+<DIV id="dw-summary-article">
+
+<DIV class="dw-content-head">
+<H1>Control your test-environment with DbUnit and Anthill</H1><P><EM>Learn how DbUnit can ease your testing and build process</EM></P>
+</DIV>
+
+<DIV class="ibm-container-body ibm-two-column">
+
+<DIV class="ibm-column ibm-first">
+<DIV class="author"><A class="dwauthor" rel="#authortip1" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#author1">Philippe Girolami</A> (<A href="mailto:philippe.girolami@digiplug.com?subject=Control%20your%20test-environment%20with%20DbUnit%20and%20Anthill">philippe.girolami@digiplug.com</A>), Senior Software Developer, Digiplug</DIV><DIV id="authortip1" class="dwauthor-onload-state ibm-no-print" style="display: none; ">Philippe 
+Girolami was born in Paris, France. He holds an engineering degree from 
+Ecole Centrale de Lille, France, and a Master of Science from the 
+University of Texas at Austin. He is currently heading the development effort 
+of Digiplug's core content management, delivery, and provisioning 
+platform, delivering fine-tuned content to mobile phones across all formats, 
+delivery channels, and terminal capabilities. He was also a developer 
+at Ericsson's I-Lab in Paris and participated in the development of 
+Ericsson's multi-terminal portal offering, a carrier-grade J2EE server, and 
+mobile group-communication projects.</DIV>
+<P></P>
+<P><B>Summary:</B>&nbsp; The inception of the Extreme Programming methodology has brought test-driven development and continuous integration into mainstream Java development practices. Applying these techniques to Java server-side development can quickly become a nightmare if you don't have the right tools. In this article, software developer Philippe Girolami describes how to deal with continuous integration and how to use DbUnit in conjunction with JUnit to control the test environment end-to-end by setting up the state of the database before each test.</P>
+
+<DIV id="dw-tag-content" class="ibm-no-print"></DIV><DIV id="dw-moretags-access" class="ibm-access"></DIV>
+<P class="ibm-no-print"></P><DIV id="dw-tag-this" class="ibm-no-print"><A class="ibm-external-link" onclick="jQuery.launchTagThisWindow(); return false;" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#">Tag this!</A></DIV><DIV id="interestShow" class="ibm-no-print"><DIV id="dw-interest-anon"><A id="intAnonBtn" class="ibm-external-link" href="">Update My dW interests</A> (<A class="dw-interest" href="https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fjava%2Flibrary%2Fj-dbunit.html">Log in</A> | <A class="dw-interest" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#overlay" onclick="ibmCommon.Overlays.show(&#39;dwmyinterestadd&#39;, this);return false;">What's this?</A>) <A class="ibm-access" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#dwmyinterestaddhelp">Skip to help for Update My dW interests</A></DIV></DIV><P></P>
+</DIV>
+
+<DIV class="ibm-column ibm-second">
+
+<P class="leading"><B>Date:</B>&nbsp; 13 Apr  2004
+<BR><B>Level: </B>&nbsp;Intermediate
+
+<BR><B>Activity:</B>&nbsp; 4362 views
+<BR><B>Comments:</B> &nbsp; <SPAN id="nCmts">0&nbsp;(<A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#icomments">Add comments</A>)</SPAN>
+<!-- Rating_Area_Begin -->
+<!-- Ensure that div id is based on input id and ends with -widget -->	
+<INPUT id="art-rating" name="ratinga" type="hidden" value="4"></P><DIV id="art-rating-widget"><A href="javascript:void(0);"><IMG alt="1 star" title="Click to rate 1 star" height="20" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/avg-star-on.gif" width="20"></A><A href="javascript:void(0);"><IMG alt="2 stars" title="Click to rate 2 stars" height="20" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/avg-star-on.gif" width="20"></A><A href="javascript:void(0);"><IMG alt="3 stars" title="Click to rate 3 stars" height="20" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/avg-star-on.gif" width="20"></A><A href="javascript:void(0);"><IMG alt="4 stars" title="Click to rate 4 stars" height="20" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/avg-star-on.gif" width="20"></A><A href="javascript:void(0);"><IMG alt="5 stars" title="Click to rate 5 stars" height="20" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/star-off.gif" width="20"></A><SPAN id="rateTxt">  Average rating (based on 28 votes)</SPAN></DIV>
+<SCRIPT language="JavaScript" type="text/javascript">
+// <![CDATA[
+   // widget div id and article id as args
+   window.artRating.init('art-rating-widget');
+// ]]>
+</SCRIPT>
+<!-- Rating_Area_End -->
+<P></P>
+</DIV>
+
+</DIV>
+</DIV>
+<!-- dW_Summary_Area_END -->
+
+<!-- CONTENT_BODY -->
+<DIV id="ibm-content-body">
+
+<!-- MAIN_COLUMN_BEGIN -->
+<DIV id="ibm-content-main">
+
+<!-- Related_Searches_Area_And_Overlays_Begin -->
+<!-- Related_Searches_Area_Begin -->
+<SCRIPT type="text/javascript" language="javascript">
+	     capture_referrer();
+</SCRIPT>
+
+<DIV id="dw-related-searches-article" style="display:none">
+<DIV class="ibm-container ibm-alternate-two">
+<DIV class="ibm-container-body">
+
+<!--  START : HTML FOR ARTICLE SEARCH -->
+  <DIV id="article_results" style="display:block"></DIV>
+<!--  END : HTML FOR ARTICLE SEARCH -->
+
+</DIV>
+</DIV>
+</DIV>
+<!-- Related_Searches_Area_End -->
+<!-- MAIN_COLUMN_CONTAINER_BEGIN -->
+<DIV class="ibm-container">
+
+<!-- MAIN_COLUMN_CONTENT_BEGIN -->
+<P>One of the most important software practices is testing. Extreme 
+Programming (XP) has pushed this logic to its limit by recommending 
+test-first development and continuous integration, where tests are 
+automatically run as often as possible. However, most non-XP shops practice 
+testing in some form, whether they call it non-regression testing, blackbox 
+testing, functional testing, or another name. A lot of projects use a 
+relational database to store data, therefore any testing strategy needs to take 
+into account what happens to the database during each test: If a test 
+leaves a test database in an inconsistent state, all further tests are 
+likely to fail! One way around this is to set up the database state to a 
+known, coherent state before running each test. In this article, I will 
+explain how our team achieved this using DbUnit together with JUnit and 
+how we used Anthill to automate test report generation. Although it may 
+seem like a costly setup, it actually isn't, and has proved a valuable 
+tool.</P><P><A name="1.0"><SPAN class="atitle">Representing the contents of your database</SPAN></A></P><P>DbUnit is a JUnit extension that puts your database into a known 
+state between test runs, helping you avoid the problems that can occur 
+when one test corrupts the database and causes subsequent tests to fail or 
+give faulty results. It can read the contents of a table and store it 
+to XML using a <CODE>FlatXmlDataSet</CODE>, as shown in 
+Listing 1:</P><BR><A name="list1"><B>Listing 1. FlatXmlDataSet example</B></A><BR><TABLE width="75%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;dataset&gt;
+  &lt;OPERATOR 
+      ID='APC (Washington/Baltimore)' 
+      CODE='ABC5APC'
+      ENCODED_STRING='aabbcc'/&gt;
+  &lt;OPERATOR 
+      ID='ASA Ritabell'
+      CODE='ABC6ASA R'
+      ENCODED_STRING='bbccdd'/&gt;
+  &lt;OPERATOR 
+      ID='Advanced Info. Service PLC' 
+      CODE='ABC1Adva' 
+      ENCODED_STRING='ccddee'/&gt;
+  &lt;OPE_OPERATOR 
+      ID='Aerial Communications Inc.' 
+      CODE='ABC2Aeri' 
+      ENCODED_STRING='ddeeff'/&gt;
+&lt;/dataset&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><P>This dataset represents the three columns of the database table 
+named OPE_OPERATOR, which are described by the last three lines in Table 
+1:</P><BR><A name="table1"><B>Table 1. The table definition for the data in Listing 1</B></A><BR><TABLE border="1" cellpadding="3" cellspacing="0" class="ibm-data-table" width="10%"><TBODY><TR><TD align="center" colspan="3"><B>OPE_OPERATOR</B></TD></TR><TR><TD>ID</TD><TD>INT</TD></TR><TR><TD>CODE</TD><TD>VARCHAR</TD></TR><TR><TD>ENCODED_STRING</TD><TD>VARCHAR</TD></TR></TBODY></TABLE><P>Each XML entity identifies a table in the database, while each 
+attribute represents the value for a column.</P><DIV class="ibm-container ibm-alt-header dw-container-sidebar"><A name="sidebar1"></A><H2>Setting up DbUnit in your project</H2><DIV class="ibm-container-body"><P>Setting up DbUnit is simple. See the <A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#resources">Resources</A> section for information on downloading the project files. You can add all three JAR files to your project's build target for tests.</P><P>If you work in a multi-schema environment, you will want to set the 
+<CODE>DbUnit.qualified.table.names</CODE> property to 
+<CODE>true</CODE>. This is often the case for development 
+teams using Oracle: Each user has his own schema. This will save you from prefixing every 
+table name with the schema name and allows you to share test data across 
+the team.</P></DIV></DIV><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="2.0"><SPAN class="atitle">Querying the contents of a table</SPAN></A></P><P>DbUnit allows you to easily execute JDBC queries and retrieve values 
+from them. There are several reasons why you might use the DbUnit JDBC 
+wrapper rather than plain JDBC:</P><UL><LI>You can create a <CODE>Dataset</CODE> from a SQL 
+query and use DbUnit's assertion methods (described below). <BR><BR></LI><LI>You can create a <CODE>Dataset</CODE> from a SQL 
+query and save it to a <CODE>FlatXmlDataSet</CODE>. You can 
+then reload into the database at a later time.<BR><BR></LI><LI>You will be able to easily retrieve the contents of a column from 
+any of those rows without going through an iteration.</LI></UL><P>The code in Listing 2 creates a result ITable that contains the result of 
+the query. After I check that the row count is 1, I then check that 
+for the first row (counting from 0) the <CODE>FK_OTHER_ID</CODE> 
+column contains the number 1234.
+</P><BR><A name="list2"><B>Listing 2. DbUnit's querying functionality</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">String query = "SELECT * FROM MEDIA WHERE ID= "+id;
+ITable databaseData = 
+dbConnection.createQueryTable("EXPECTED_DATA",query);
+
+assertEquals(1, databaseData.getRowCount());
+
+BigDecimal foreignKey = (BigDecimal) databaseData.getValue(0, 
+"FK_OTHER_ID");
+assertEquals(new BigDecimal(1234)), foreignKey);
+</PRE></TD></TR></TBODY></TABLE><BR><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="3.0"><SPAN class="atitle">Using assert methods to check database contents</SPAN></A></P><P>DbUnit has assertions, such as those shown in Listing 3, that you 
+can use to compare two sets of data or two representations of a table. 
+You will typically use these if you want to check the exact contents of a 
+table after running a test rather than running multiple queries.</P><BR><A name="list3"><B>Listing 3. DbUnit's additional assertion methods</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">public static void assertEquals(ITable expected, ITable actual);
+public static void assertEquals(IDataSet expected, IDataSet actual);
+</PRE></TD></TR></TBODY></TABLE><BR><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="4.0"><SPAN class="atitle">Creating data</SPAN></A></P><P>Depending on the size of your database, how stable the schema is, 
+and how far along in development you are, you may want to create your 
+test data from scratch or extract it from a copy of a production database. 
+Listing 4 shows an example of how to extract the contents from a 
+pre-existing database (the <CODE>getConnection()</CODE> method 
+can be found in <A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#list6">Listing 6</A>):</P><BR><A name="list4"><B>Listing 4. Creating FlatXmlDataSets from 
+an existing database</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">public void extractTables(String targetDirectory,String[] tableNames)
+    throws Exception {
+    IDatabaseConnection connection = getConnection();
+
+    for (int i = 0; i &lt; tableNames.length; i++) {
+        String tableName = tableNames[i];
+
+        IDataSet partialDataSet = connection.createDataSet
+                                   (new String[] { tableName });
+        FlatXmlDataSet.write
+            (partialDataSet, new FileOutputStream
+              (targetDirectory + "/" + tableName + ".xml"));
+    }
+}
+</PRE></TD></TR></TBODY></TABLE><BR><P>If you export a full production database, you will probably have to 
+remove excessive rows -- or in this case use a query instead of 
+creating a data set directly from the connection. The extract itself may be 
+problematic for really big tables --  our team had to extract only parts 
+of some tables using a query. Removing rows from the tables has its 
+issues, too, mainly related to the difficulty in navigating all the 
+foreign keys and making sure the data is consistent.</P><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="5.0"><SPAN class="atitle">Adding test data</SPAN></A></P><P>Adding test data can be tedious at times. Our experience has been 
+that after an initial stage where we had trouble adding data correctly, 
+we reached a plateau where not only did it become easy, but our 
+understanding of the database structure improved dramatically.</P><P>Even though we were using Enterprise JavaBeans (EJB) technology to 
+hide the database, this first-hand knowledge was still very handy. 
+Debugging was made easier because developers understood the database better 
+and could therefore check its contents faster. This in turn helped us 
+greatly when refactoring the code and the database.</P><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="6.0"><SPAN class="atitle">Using DbUnit and JUnit to create a base class</SPAN></A></P><P>Good JUnit practice encourages developers to extend the base <CODE>TestCase</CODE> class to specialize behavior. DbUnit 
+provides its own specialization, <CODE>DatabaseTestCase</CODE>, which you can then specialize to fit your needs.</P><P>First, create a basic test case called <CODE>ProjectDatabaseTestCase</CODE> to add utility methods to, as shown in Listing 5. 
+Then, redefine <CODE>setUp()</CODE> and <CODE>teardown()</CODE> so they gracefully create and destroy a connection 
+to the database through DbUnit.</P><BR><A name="list5"><B>Listing 5. Base class definition and basic methods for database setup</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">public class ProjectDatabaseTestCase extends DatabaseTestCase 
+{        
+     /** Use this connection to perform database setup */    
+     protected IDatabaseConnection connection;        
+
+     public DatabaseTestCase (String s) 
+     {        
+          super(s);          
+     }    
+     
+     protected void setUp() throws Exception 
+     {        
+          super.setUp();        
+          connection = getDbUnitConnection();    
+     }    
+
+     protected void tearDown() throws Exception 
+     {        
+          connection.close();        
+          super.tearDown();    
+     }
+}
+</PRE></TD></TR></TBODY></TABLE><BR><P>Listing 6 shows various methods used inside the class by the preceding methods:</P><BR><A name="list6"><B>Listing 6. Various utility methods</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">/**     
+ * This method returns a DbUnit database connection    
+ * based on the schema name     
+ */    
+ private IDatabaseConnection getDbUnitConnection() throws Exception  
+ {                
+    IDatabaseConnection connection = new DatabaseConnection (getJDBCConnection(), getSchemaName());
+    return connection;    
+ }
+   
+ private IDataSet getFlatXmlDataSet(String tableName) throws Exception 
+ {        
+    URL url = DatabaseTestCase.class.getResource( "/"+ tableName + ".xml");        
+    if (url == null)            
+       throw new Exception("could not find file for " + tableName);
+      
+    File file = new File(url.getPath());
+    return new FlatXmlDataSet(file);
+ }
+   
+ /** Implement yourself */
+ private Connection getJDBCConnection() throws Exception 
+ {
+    /* Get your JDBC connection through a data source of JDBC itself */
+ }
+ * Implement yourself */
+ private Connection getSchemaName() throws Exception 
+ {
+ }
+</PRE></TD></TR></TBODY></TABLE><BR><P>Some considerations about the code above:</P><UL><LI>The <CODE>getJDBCConnection()</CODE> method is not 
+shown, as its implementation depends on how you wish to obtain the 
+JDBC connection: either through an application server's JNDI tree if its 
+<CODE>DataSource</CODE> is <CODE>Serializable</CODE>, or directly using JDBC.<BR><BR></LI><LI>The <CODE>getDbUnitConnection()</CODE> method returns 
+a connection to the database for DbUnit. The constructor for DbUnit's 
+<CODE>DatabaseConnection</CODE> can take a schema name. 
+That way, you don't have to prefix all the table names with the schema 
+name.<BR><BR></LI><LI>The <CODE>getFlatXmlDataSet()</CODE> method creates a 
+DbUnit dataset from the contents of an XML file located on the classpath.</LI></UL><P>Finally, it's time to actually insert the data into the test 
+tables. DbUnit allows for various database operations, of which I used 
+two:</P><UL><LI><CODE>DELETE_ALL</CODE>, which deletes all the rows 
+of a table</LI><LI><CODE>CLEAN_INSERT</CODE>, which deletes all the rows 
+of a table and inserts the rows from the dataset provided</LI></UL><P>The following four methods in the <CODE>ProjectDatabaseTestCase</CODE> are all you need:</P><UL><LI><B><CODE>insertFileIntoDb()</CODE></B>: Inserts a file 
+in the database</LI><LI><B><CODE>emptyTable()</CODE></B>: Cleans a database 
+table</LI><LI><B><CODE>insertAllFilesIntoDb()</CODE></B>: Inserts 
+all the files for your project</LI><LI><B><CODE>emptyAllTables()</CODE></B>: Cleans all the 
+tables for your project</LI></UL><P>Listing 7 shows these methods in action:</P><BR><A name="list7"><B>Listing 7. Methods used by underlying 
+tests to set up the database</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">/** A method to insert all tables into the database.    
+ *  Specify all tables to be inserted    
+ */    
+ protected void insertAllFilesIntoDb()  throws Exception 
+ {            
+    insertFileIntoDb("PRODUCT");     
+    (...)     
+    insertFileIntoDb("ACCOUNT");        
+ }         
+    
+ /**      
+  * This method inserts the contents of a FlatXmlDataSet file     
+  * into the connection     
+  */    
+  protected void insertFileIntoDb(String tableName) throws Exception 
+  {        
+     DatabaseOperation.CLEAN_INSERT.execute(connection,getFlatXmlDataSet(tableName));    
+  }           
+     
+  /** Empty a table */    
+  protected void emptyTable(String tableName) throws Exception 
+  {        
+     IDataSet dataSet = new DefaultDataSet(new DefaultTable(tableName));
+     DatabaseOperation.DELETE_ALL.execute(connection, dataSet);    
+  }    
+     
+  /** Empty all the tables from the database    */
+  protected void emptyAllTables() throws Exception 
+  {        
+     emptyTable("ACCOUNT");        
+     (...)      
+     emptyTable("PRODUCT");    
+  }
+</PRE></TD></TR></TBODY></TABLE><BR><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="7.0"><SPAN class="atitle">Putting it all together</SPAN></A></P><P>Once the base class is in place, it is easy to use DbUnit to set up 
+the database cleanly, execute a method, and check the return value, as shown in Listing 8:</P><BR><A name="list8"><B>Listing 8. Putting it all together in a real test case</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">public void setUp() throws Exception    
+{        
+   super.setUp();        
+   emptyAllTables();        
+   service = Service.getInstance();    
+}    
+    
+public void testFindProductByPrimaryKey() throws Exception     
+{        
+   insertFileIntoDb("PRODUCT");                
+   ProductDTO productDTO = service.findProductByPrimaryKey(new Integer(12));        
+   assertNotNull(productDTO);
+   assertEquals("product Name", productDTO.getName());
+}
+
+public void testCreateAProduct() throws Exception     
+{        
+   service.createProduct("newly created product name");
+
+   String query = "SELECT * FROM PRODUCT";
+   ITable databaseData = dbConnection.createQueryTable("EXPECTED_DATA",query);
+   assertEquals(1, databaseData.getRowCount());
+   String productName = (String) databaseData.getValue(0, "NAME");
+   assertEquals("newly created product name", productName);
+}
+</PRE></TD></TR></TBODY></TABLE><BR><P>In this test, I empty the database, insert the contents for one 
+table, and check that the finder method used to find a product by its 
+primary key works correctly by checking that it returns an element with the 
+correct attribute. I then test the object creation works and verify 
+the contents of the database using DbUnit's query facilities.</P><P>One important thing to notice here is how the cleaning of the 
+database takes place in the test setup and not at the end. I do not want to 
+depend on each test finishing cleanly.</P><P><A name="7.1"><SPAN class="smalltitle">Things to watch out for when inserting data</SPAN></A></P><P>Database integrity constraints force you to insert or delete data in 
+a given order. When you write your <CODE>insertAllFiles()</CODE> and 
+<CODE>emptyAllTables()</CODE> methods, you 
+will find that the order is not indiscriminate and is in fact imposed by 
+your integrity constraints.</P><P>Another potential pitfall is that some columns may appear not to be 
+inserted. This is almost always because the first row in your <CODE>FlatXmlDataSet</CODE> has a missing column. It seems like 
+DbUnit then fails to recognize this column in all other rows. For 
+example, inserting the dataset defined by Listing 9 results in table <CODE>ACC_ACCOUNT</CODE> containing two rows whose only non-null 
+columns will be the primary key <CODE>PK_ACC_ID</CODE>:</P><BR><A name="list9"><B>Listing 9. Column NAME of ACCOUNT's 
+second row will be missing</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;dataset&gt;
+   &lt;ACCOUNT ID='1' /&gt;  
+   &lt;ACCOUNT ID='2' NAME='first name' /&gt;
+&lt;/dataset&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><P>Always make sure your first row description contains all the table's 
+columns. If you need to insert a NULL value, make that row the second 
+row, as in Listing 10:</P><BR><A name="list10"><B>Listing 10. Column NAME of ACCOUNT's second row will not be missing</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;dataset&gt;
+   &lt;ACCOUNT ID='2' NAME='first name' /&gt;
+   &lt;ACCOUNT ID='1' /&gt;
+&lt;/dataset&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="8.0"><SPAN class="atitle">Organizing your test data</SPAN></A></P><P>DbUnit allows you to store your XML datasets in files. It even 
+allows you to store a whole database in one file. Listing 11 shows the 
+contents of the tables ACCOUNT and MEDIA:</P><BR><A name="list11"><B>Listing 11. A FlatXmlDataSet example for 
+two tables</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;dataset&gt;
+   &lt;ACCOUNT NAME='first name' /&gt;
+   &lt;ACCOUNT NAME='second name' /&gt;
+   
+   &lt;MEDIA ID='123' /&gt;
+   &lt;MEDIA ID='234' /&gt;
+&lt;/dataset&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><P>Deciding how you will store your test data is important. Will you 
+store the contents of each table in a separate file or will you store all 
+the rows of all the tables related to your system's main entities in 
+one file? Neither is a silver bullet.</P><P>In the first case, it is more difficult to ensure data consistency 
+across tables, but is easier to create queries from a database that 
+already exists. In the second case, it is easy to create test sets for each 
+test, but the fact that most systems aren't designed around one main 
+entity makes it all but impractical. Our approach was to have one file 
+per table.</P><DIV class="ibm-container ibm-alt-header dw-container-sidebar"><A name="sidebar2"></A><H2>Continuous integration with Anthill</H2><DIV class="ibm-container-body">
+Anthill is a free automated build tool (see <A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#resources">Resources</A>) that schedules your builds and publishes the results, helping 
+XP-versed teams practice continuous integration. A build consists of 
+checking out the source from a version control tool such as CVS, running 
+a build script, publishing the results, and notifying the users of the 
+results. It neatly integrates with ANT, allowing you to reuse your 
+usual build scripts.
+</DIV></DIV><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="9.0"><SPAN class="atitle">Running your testsuite in Anthill 
+and reporting the results</SPAN></A></P><P>Continuous integration has been recommended by XP experts as a way 
+to ensure that integration woes are mitigated: By integrating all the 
+code often enough, you are making sure that it is easy to trace problems 
+back to their source. Integrating can be a very time-consuming task -- 
+checking out, building, and deploying the code, then running the 
+acceptance tests. Luckily, most of this can be automated using tools such as 
+Anthill or CruiseControl. If you have not yet automated your build 
+process (using Ant, for example), you should. If your build process is 
+automated, you should add a test section to the build. If you're a diehard XP 
+user, those should be your acceptance tests. If you're like us, those 
+will be all the tests you have written -- whether unit, acceptance, or 
+anything else.</P><P>Our build process was based on Ant and scheduled using Anthill. The 
+main challenge for us was to make Anthill report the test failures and 
+still publish the test results. The catch with Anthill is that if the 
+build script fails, the publish script doesn't get executed, in which 
+case you have no way of making the test report available to the 
+developers. Our way around this was to make Anthill fail at the end of the 
+publish script by making it check whether a property is true or false.</P><P><A name="9.1"><SPAN class="smalltitle">Targets for running your tests</SPAN></A></P><P>The following is a quick rundown of how we ran our tests. We used 
+the batchtest method, but any method would work. The key points are:</P><UL><LI>The test must be forked to work correctly with classpaths 
+containing XML parsers in JDK 1.3.</LI><LI>The <CODE>testsuite.error</CODE> and <CODE>testsuite.failure</CODE> properties must be set to true if an error 
+or a failure occurs. If not, they are left untouched.</LI></UL><P>Listing 12 shows an example of how to run all the tests of a 
+specific module:</P><BR><A name="list12"><B>Listing 12. Running the tests for one module</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;target name="test-common"&gt;
+   &lt;mkdir dir = "${project.reports}/common"/&gt;
+   
+   &lt;junit fork="true" errorproperty="testsuite.error" failureproperty="testsuite.failure"&gt;
+      &lt;classpath&gt;
+         &lt;pathelement location="${out.classes.dir}"/&gt;
+         &lt;fileset dir = "${shared.lib.dir}"&gt;
+            &lt;patternset refid="necessary.jars"/&gt;
+         &lt;/fileset&gt;
+      &lt;/classpath&gt;
+      
+      &lt;formatter type="xml"/&gt;
+      &lt;batchtest todir="${project.reports}/common"&gt;
+         &lt;fileset dir="${out.src.dir}"&gt;
+            &lt;include name="**/Test*.java"/&gt;     
+         &lt;/fileset&gt;
+      &lt;/batchtest&gt;
+    &lt;/junit&gt;
+&lt;/target&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><P><A name="9.2"><SPAN class="smalltitle">Making the test results available 
+to the publish script</SPAN></A></P><P>Listing 13 shows how we ran all of our tests in our build 
+process:</P><BR><A name="list13"><B>Listing 13. Snippet of build.xml: Running all the tests and setting the results</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;target name = "all-tests" depends = "test-module1,test-module2"&gt;
+   &lt;property name="testsuite.error" value="false"/&gt;
+   &lt;property name="testsuite.failure" value="false"/&gt;
+   &lt;propertyfile file="${deployDir}/tests.results"&gt;
+      &lt;entry key="testsuite.error" value="${testsuite.error}"/&gt;
+      &lt;entry key="testsuite.failure"
+value="${testsuite.failure}"/&gt;
+   &lt;/propertyfile&gt;
+&lt;/target&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><P>An important Ant trick is to know that it sets a property's value 
+only if it does not already have a value. So when you run every test 
+target in turn, the <CODE>testsuite.error</CODE> and <CODE>testsuite.failure</CODE> properties can be true only if an 
+error or a failure occurred.</P><P>The difficulty here is to be able to report the outcome of the test 
+script to the main Ant script. Unfortunately, this is not trivial 
+because those are two separate Ant build files in Anthill's process and you 
+can't pass such parameters between build scripts in Ant. However, there 
+is a "simple" solution: Save the outcome of the tests to a file, which 
+the publish script then reads.</P><P>Using the same Ant trick, Listing 13 shows how to use the <CODE>&lt;property&gt;</CODE> command to make sure the <CODE>testsuite.error</CODE> and <CODE>testsuite.failure</CODE> properties always have a value at the end of the test script 
+and how to save it to a file.</P><P><A name="9.3"><SPAN class="smalltitle">Making the publish script fail at the 
+end if the tests failed</SPAN></A></P><P>Use Listing 14 to have the publish script fail if any test failed. 
+It's simply a matter of checking whether each of the properties saved in 
+the build script is true.</P><BR><A name="list14"><B>Listing 14. Making the publish script fail if there 
+were errors or failures</B></A><BR><TABLE width="100%" cellpadding="0" cellspacing="0" border="0"><TBODY><TR><TD class="code-outline"><PRE class="displaycode">&lt;condition property="must.fail"&gt;  
+  &lt;or&gt;    
+    &lt;istrue value="${testsuite.error}"/&gt;
+    &lt;istrue value="${testsuite.failure}"/&gt; 
+  &lt;/or&gt;
+&lt;/condition&gt;
+
+&lt;fail message="Tests didn't run 100%. Check the log and make 
+necessary changes!" if="must.fail"/&gt;
+</PRE></TD></TR></TBODY></TABLE><BR><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-ind-link ibm-back-to-top"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon" class="ibm-anchor-up-link">Back to top</A></P><P><A name="10.0"><SPAN class="atitle">Conclusion</SPAN></A></P><P>Our team successfully introduced DbUnit and Anthill at the beginning 
+of 2003. Since then, we've written and automated over a thousand 
+tests -- 75 percent of which involve setting up the database state. We run 
+these tests every hour and plan to run them even more often very soon. 
+They have caught unexpected bugs many times, making them indispensable 
+tools.</P><!-- CMA ID: 10934 --> <!-- Site ID: 1 --><!--XSLT stylesheet used to transform this file: dw-document-html-6.0.xsl-->
+<BR>
+<P><A name="resources"><SPAN class="atitle">Resources</SPAN></A></P><UL><LI>DbUnit can be found at the <A href="http://dbunit.sourceforge.net/">dbUnit Web site</A>.<BR><BR></LI><LI>Check out <A href="http://www.urbancode.com/projects/anthill/default.jsp">Urbancode</A> 
+for more on Anthill.<BR><BR></LI><LI>The <A href="http://ant.apache.org/">Apache Software Foundation</A> 
+is a clearinghouse for ANT-related information.<BR><BR></LI><LI>"<A href="http://www.ibm.com/developerworks/java/library/j-xp/">XP distilled</A>" by Roy Miller and Christopher Collins (<I>developerWorks</I>, March 2001) discusses Extreme Programming and its relationship to testing and continuous integration.<BR><BR></LI><LI>Of course, nothing is set in stone, and in this <A href="http://www.ibm.com/developerworks/java/library/j-xp0813/">updated look at XP</A> (<I>developerWorks</I>, August 2002), Roy Miller introduces new concepts and changes to the methodology.<BR><BR></LI><LI>For more information on the importance of unit and functional 
+testing, see "<A href="http://www.ibm.com/developerworks/java/library/j-test.html">Testing, fun? Really?</A>" by Jeff Canna (<I>developerWorks</I>, March 2001).<BR><BR></LI><LI>Information on database refactoring can be found at <A href="http://www.agilemodeling.com/">The Official Agile Modeling Site</A> and author, speaker, and consultant <A href="http://www.martinfowler.com/">Martin Fowler's Web site</A>.<BR><BR></LI><LI><A href="http://www.ibm.com/developerworks/apps/SendTo?bookstore=safari">Browse for books</A> on these and other technical topics.<BR><BR></LI><LI>You'll find hundreds of articles about every aspect of Java 
+programming in the IBM <I>developerWorks </I><A href="http://www.ibm.com/developerworks/java/">Java technology 
+zone</A>.<BR><BR></LI></UL>
+<P><A name="author"><SPAN class="atitle">About the author</SPAN></A></P><DIV class="ibm-container ibm-portrait-module ibm-alternate-two"><DIV class="ibm-container-body"><P><A name="author1"></A>Philippe 
+Girolami was born in Paris, France. He holds an engineering degree from 
+Ecole Centrale de Lille, France, and a Master of Science from the 
+University of Texas at Austin. He is currently heading the development effort 
+of Digiplug's core content management, delivery, and provisioning 
+platform, delivering fine-tuned content to mobile phones across all formats, 
+delivery channels, and terminal capabilities. He was also a developer 
+at Ericsson's I-Lab in Paris and participated in the development of 
+Ericsson's multi-terminal portal offering, a carrier-grade J2EE server, and 
+mobile group-communication projects.</P></DIV></DIV>
+<!-- MAIN_COLUMN_CONTENT_END -->
+
+<!-- INLINE_COMMENTS_START -->
+<P class="ibm-no-print"><SPAN class="atitle"><A name="icomments">Comments</A></SPAN></P>
+<DIV id="dw-icomments-container" class="ibm-no-print">
+<DIV class="ibm-alternate-rule"><HR></DIV>
+<DIV class="ibm-alternate-rule"><HR></DIV>
+<!-- Comment_Script -->
+<A id="comments" href="http://www.ibm.com/developerworks/java/library/comments"></A>
+<SCRIPT language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/insertcomment.js" type="text/javascript">//</SCRIPT>
+<DIV id="threadShow"><DIV id="cmtTog" style=""><P><SPAN id="numCmts">0</SPAN>&nbsp;comments <SPAN class="dw-bar">|</SPAN> <A class="loginLk" style="display: none; " href="https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fjava%2Flibrary%2Fj-dbunit.html%23icomments">Sign in</A><A id="addCmtLk" class="dw-icomment-link">Add comment</A><A class="dw-icomment-report" href="http://www-128.ibm.com/developerworks/forums/forum.jspa?forumID=1317">Report inappropriate content</A></P><DIV class="ibm-alternate-rule"><HR></DIV><DIV id="commentForm" style="display: none; "><DIV class="ibm-container"><H2>Add a comment</H2><DIV class="ibm-container-body"><P>The field indicated with an asterisk (<SPAN class="ibm-required">*</SPAN>) is required to complete this transaction.</P><SPAN id="infoCmt"></SPAN><DIV class="ibm-rule"><HR></DIV><FORM method="post" action="" class="ibm-column-form" enctype="multipart/form-data" focus="name" name="form"><P><LABEL for="newCmt">Comment:<SPAN class="ibm-required">*</SPAN></LABEL><BR><TEXTAREA name="newCmt" id="newCmt" cols="120" rows="4"></TEXTAREA></P><DIV class="ibm-alternate-rule"><HR></DIV><P class="ibm-buttons-row"><INPUT value="Post" type="button" name="postCmt" class="ibm-btn-arrow-sec" id="postCmt"><SPAN class="ibm-sep">&nbsp;</SPAN><INPUT value="Post anonymously" type="button" name="postAnonCmt" class="ibm-btn-arrow-sec" id="postAnonCmt"><SPAN class="ibm-sep">&nbsp;</SPAN><INPUT value="Clear comment" type="button" name="clearCmt" class="ibm-btn-cancel-sec" id="clearCmt"><SPAN class="ibm-sep">&nbsp;</SPAN><INPUT value="Cancel" type="button" name="cancelCmt" class="ibm-btn-cancel-sec" id="cancelCmt"></P></FORM></DIV></DIV></DIV><DIV id="cmtSect"><DIV class="comment"><DIV class="dw-icomment-container"><TABLE class="dw-icomment-body" cellpadding="0" cellspacing="0" width="100%"><TBODY><TR><TD><P>There is a problem in retrieving the comments.  Please refresh the page later.</P></TD></TR></TBODY></TABLE></DIV></DIV></DIV><DIV id="paging"><P><A id="lastCmts" class="dw-icomment-link" style="display: none; ">Show 5 most recent comments</A><SPAN id="cmtDivider" style="display: none; "> <SPAN class="dw-bar">|</SPAN> </SPAN><A id="nextCmts" class="dw-icomment-link" style="display: none; ">Show next 5 comments</A><SPAN id="cmtDivider2" style="display: none; "> <SPAN class="dw-bar">|</SPAN> </SPAN><A id="viewAllCmts" class="dw-icomment-link" style="display: none; ">Show all comments</A></P></DIV><P><A class="loginLk" style="display: none; " href="https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fjava%2Flibrary%2Fj-dbunit.html%23icomments">Sign in</A><A id="addCmtLk2" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#icomments">Add comment</A></P><DIV class="ibm-alternate-rule"><HR></DIV><DIV class="ibm-alternate-rule"><HR></DIV></DIV></DIV>
+<SCRIPT language="JavaScript" type="text/javascript">
+// <![CDATA[
+jQuery('threadShow').insertComment('95%',5,'nCmts','icomments');
+// ]]>
+</SCRIPT>
+</DIV>
+<!-- INLINE_COMMENTS_END -->
+
+<P class="ibm-ind-link ibm-back-to-top"><A class="ibm-anchor-up-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#ibm-pcon">Back to top</A></P>
+<P><A href="http://www.ibm.com/developerworks/ibm/trademarks/">Trademarks</A> &nbsp;|&nbsp; <A href="https://www.ibm.com/developerworks/mydeveloperworks/terms/">My developerWorks terms and conditions</A></P>
+
+<!-- Overlays -->
+<!-- Zone/Leaf_Interest_Overlay_Start -->
+<DIV class="ibm-common-overlay ibm-no-print" id="dwmyinterestadd">
+<DIV class="ibm-head"><P><A class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#close">Close [x]</A></P></DIV>
+<DIV class="ibm-body">
+<DIV class="ibm-main">
+<A class="ibm-access" name="dwmyinterestaddhelp">Help: Update or add to My dW interests</A>   
+<DIV class="ibm-title"><H1>What's this?</H1></DIV>
+<DIV class="ibm-container ibm-alternate">
+<P>This little timesaver lets you update your My developerWorks profile with just one click!  The general subject of this content (AIX and UNIX, Information Management, Lotus, Rational, Tivoli, WebSphere, Java, Linux, Open source, SOA and Web services, Web development, or XML) will be added to the interests section of your profile, if it's not there already.  You only need to be logged in to My developerWorks.</P>
+<P>And what's the point of adding your interests to your profile?  That's how you find other users with the same interests as yours, and see what they're reading and contributing to the community.  Your interests also help us recommend relevant developerWorks content to you.</P>
+<P><A href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</A></P>
+<P class="ibm-access"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#interestShow">Return from help</A></P>
+</DIV> 
+</DIV>
+</DIV>
+<DIV class="ibm-footer"></DIV>
+</DIV>
+
+<DIV class="ibm-common-overlay ibm-no-print" id="dwmyinterestremove">
+<DIV class="ibm-head"><P><A class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#close">Close [x]</A></P></DIV>
+<DIV class="ibm-body">
+<DIV class="ibm-main">
+<A class="ibm-access" name="dwmyinterestremovehelp">Help: Remove from My dW interests</A> 
+<DIV class="ibm-title"><H1>What's this?</H1></DIV>
+<DIV class="ibm-container ibm-alternate">
+<P>Removing this interest does not alter your profile, but rather removes this piece of content from a list of all content for which you've indicated interest.  In a future enhancement to My developerWorks, you'll be able to see a record of that content.</P>
+<P><A href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</A></P>
+<P class="ibm-access"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#interestShow">Return from help</A></P>
+</DIV> 
+</DIV>
+</DIV>
+<DIV class="ibm-footer"></DIV>
+</DIV>
+<!-- Zone/Leaf_Interest_Overlay_End --></DIV>
+<!-- MAIN_COLUMN_CONTAINER_END -->
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><DIV class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</DIV><DIV class="metavalue">SITE_ID=1</DIV><DIV class="metavalue">Zone=Java technology</DIV><DIV class="metavalue">ArticleID=10934</DIV><DIV class="metavalue">ArticleTitle=Control your test-environment with DbUnit and Anthill</DIV><DIV class="metavalue">publish-date=04132004</DIV><DIV class="metavalue">author1-email=philippe.girolami@digiplug.com</DIV><DIV class="metavalue">author1-email-cc=</DIV><SCRIPT language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href+'</div>');</SCRIPT><DIV class="metavalue">url=http://www.ibm.com/developerworks/java/library/j-dbunit.html</DIV><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</DIV>
+<!-- MAIN_COLUMN_END-->
+
+<!-- RIGHT_COLUMN_BEGIN -->
+<DIV id="ibm-content-sidebar">
+
+<!-- RIGHT_COLUMN_CONTENT_BEGIN --> 
+<DIV class="ibm-container"><H2>Table of contents</H2><DIV class="ibm-container-body"><IMG alt="" height="1" width="1" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/c.gif"><UL class="ibm-bullet-list"><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#1.0">Representing the contents of your database</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#2.0">Querying the contents of a table</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#3.0">Using assert methods to check database contents</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#4.0">Creating data</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#5.0">Adding test data</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#6.0">Using DbUnit and JUnit to create a base class</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#7.0">Putting it all together</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#8.0">Organizing your test data</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#9.0">Running your testsuite in Anthill 
+and reporting the results</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#10.0">Conclusion</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#resources">Resources</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#author">About the author</A></LI><LI><A class="ibm-feature-link" href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#icomments">Comments</A></LI></UL></DIV></DIV>
+<!--XSLT stylesheet used to transform this content: s-nextsteps.xsl--><DIV class="ibm-container"><H2>Next steps from IBM</H2><DIV class="ibm-container-body"><IMG width="188" height="58" border="0" alt="" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/spot-nextsteps.jpg"><P>Spring, JRuby, and Ajax development is easier with WebSphere Application Server - a smart Java 5 and J2EE Web services-based application server.</P><DIV class="ibm-rule"><HR></DIV><UL class="ibm-bullet-list"><LI><A href="http://www.ibm.com/developerworks/downloads/ws/wasce/learn.html?S_TACT=105AGY17&S_CMP=TECHSUG" class="ibm-feature-link">Try: The no-charge WebSphere Application Server Community Edition is a pre-integrated, lightweight Java 5 application server built on Apache Tomcat and other best-of-breed open source software such as OpenEJB, Apache Axis, and Apache Derby.</A></LI><LI><A href="http://www.ibm.com/developerworks/websphere/library/techarticles/0810_asplund/0810_asplund.html?S_TACT=105AGY17&S_CMP=TECHSUG" class="ibm-feature-link">Article: The article leverage the Spring Framework and the WebSphere Application Server to improve your J2EE project productivity.</A></LI><LI><A href="http://www.ibm.com/developerworks/edu/x-dw-x-jrorajax.html?S_TACT=105AGY17&S_CMP=TECHSUG" class="ibm-feature-link">Tutorial: See how the free WebSphere Application Server and XML can improve the efficiency of your JRuby on Rails and Ajax development.</A></LI><LI><A href="http://www.ibm.com/software/dre/h2b/buildh2bpage.wss?synkey=G394201N28809H35&S_TACT=105AGY17&S_CMP=TECHSUG" class="ibm-feature-link">Buy: WebSphere Application Server - Express</A></LI></UL></DIV></DIV>
+<!--XSLT stylesheet used to transform this content: s-community.xsl--><DIV class="ibm-container"><H2>My developerWorks community</H2><DIV class="ibm-container-body"><P>Interact, share, and communicate with developers worldwide.</P><DIV class="ibm-rule"><HR></DIV><UL class="ibm-bullet-list"><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/homepage/web/getuserpref?ca=dma-" class="ibm-feature-link">My Home</A></LI><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en&ca=dma-" class="ibm-feature-link">Profiles</A></LI><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/allcommunities?ca=dma-" class="ibm-feature-link">Groups</A></LI><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/?ca=dma-" class="ibm-feature-link">Blogs</A></LI><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/bookmarks/?ca=dma-" class="ibm-feature-link">Bookmarks</A></LI><LI><A href="https://www.ibm.com/developerworks/mydeveloperworks/activities/service/html/mainpage?ca=dma-" class="ibm-feature-link">Activities</A></LI><LI><A href="http://www.ibm.com/developerworks/spaces/?ca=dma-" class="ibm-feature-link">Spaces</A></LI><LI><A href="http://www.ibm.com/developerworks/forums/index.html?ca=dma-" class="ibm-feature-link">Forums</A></LI><LI><A href="http://www.ibm.com/developerworks/wikis/dashboard.action?ca=dma-" class="ibm-feature-link">Wikis</A></LI><LI><A href="http://www.ibm.com/developerworks/podcast/?ca=dma-" class="ibm-feature-link">Podcasts</A></LI><LI><A href="http://www.ibm.com/developerworks/exchange/dw_index.jspa?ca=dma-" class="ibm-feature-link">Exchange</A></LI></UL><DIV class="ibm-rule"><HR></DIV><P class="ibm-ind-link"><A href="https://www.ibm.com/developerworks/mydeveloperworks/?ca=dma-" class="ibm-forward-link">My developerWorks overview</A></P></DIV></DIV>
+<!-- Tagging_Start -->
+<DIV id="dw-tag-cloud-container" class="ibm-container"><H2>Tags</H2>
+<DIV id="dw-tag-help"><A class="dwauthor" rel="#tagtip" id="dwtagtip"><IMG alt="Help" height="16" width="16" align="top" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/help_icon.gif"></A></DIV>
+<DIV id="tagtip" class="dwauthor-onload-state ibm-no-print" style="display: none; ">Use the <STRONG>search field</STRONG> to find all types of content in My developerWorks with that tag.<P>Use the <STRONG>slider bar</STRONG> to see more or fewer tags.</P><P><STRONG>Popular tags</STRONG> shows the top tags for this particular type of content or application that you're viewing.</P><P><STRONG>My tags</STRONG> shows your tags for this particular type of content or application that you're viewing.</P></DIV>
+<DIV class="ibm-access">Use the search field to find all types of content in My developerWorks with that tag.  <EM>Popular tags</EM> shows the top tags for this particular type of content or application that you're viewing.  <EM>My tags</EM> shows your tags for this particular type of content or application that you're viewing.</DIV>
+<DIV class="ibm-container-body">
+<DIV class="dw-tag-search"><FORM action="http://www.ibm.com/developerworks/mydeveloperworks/bookmarks/html?lang=en" method="get" id="actualtagform" onsubmit="popupform(this, &#39;join&#39;)">
+<P><LABEL for="tagfield"><STRONG>Search all tags</STRONG></LABEL><INPUT id="tagfield" name="tag" type="text" maxlength="20" size="17">&nbsp;<INPUT src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/short-btn.gif" type="image" class="ibm-btn-view" alt="submit search" title="submit search" value="Search"></P></FORM></DIV>
+<DIV class="ibm-rule"><HR></DIV>
+<DIV id="dw-tag-select">
+<DIV id="dw-tag-select-popular"><P><STRONG>Popular article tags</STRONG>&nbsp;|&nbsp;<BR><A id="a-my" href="javascript:;">My article tags</A><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#dw-tag-access" class="ibm-access">Skip to tags list</A></P></DIV>
+<DIV id="dw-tag-select-my" class="dw-hidetag"><P><A id="a-popular" href="javascript:;">Popular article tags</A>&nbsp;|&nbsp;<BR><STRONG>My article tags</STRONG></P><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#dw-tag-access" class="ibm-access">Skip to tags list</A></DIV><DIV id="dw-tag-access" class="ibm-access"><H2>Popular article tags</H2><UL>
+					
+				<LI class="f1-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=2')">2</A>&nbsp;
+				</LI>
+					
+				<LI class="f2-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=_dogear')">_dogear</A>&nbsp;
+				</LI>
+					
+				<LI class="f3-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ai')">ai</A>&nbsp;
+				</LI>
+					
+				<LI class="f4-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aim')">aim</A>&nbsp;
+				</LI>
+					
+				<LI class="f5-42">
+					
+					<A title="6" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ajax')">ajax</A>&nbsp;
+				</LI>
+					
+				<LI class="f6-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=alerts')">alerts</A>&nbsp;
+				</LI>
+					
+				<LI class="f7-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=amazon')">amazon</A>&nbsp;
+				</LI>
+					
+				<LI class="f8-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=andrew_glover')">andrew_glover</A>&nbsp;
+				</LI>
+					
+				<LI class="f9-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aop')">aop</A>&nbsp;
+				</LI>
+					
+				<LI class="f10-53">
+					
+					<A title="9" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=apache')">apache</A>&nbsp;
+				</LI>
+					
+				<LI class="f11-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=apache_axis2')">apache_axis2</A>&nbsp;
+				</LI>
+					
+				<LI class="f12-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=api')">api</A>&nbsp;
+				</LI>
+					
+				<LI class="f13-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=app')">app</A>&nbsp;
+				</LI>
+					
+				<LI class="f14-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=application')">application</A>&nbsp;
+				</LI>
+					
+				<LI class="f15-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=architecture')">architecture</A>&nbsp;
+				</LI>
+					
+				<LI class="f16-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=articles')">articles</A>&nbsp;
+				</LI>
+					
+				<LI class="f17-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aws')">aws</A>&nbsp;
+				</LI>
+					
+				<LI class="f18-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=axis2')">axis2</A>&nbsp;
+				</LI>
+					
+				<LI class="f19-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=best')">best</A>&nbsp;
+				</LI>
+					
+				<LI class="f20-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=better_java')">better_java</A>&nbsp;
+				</LI>
+					
+				<LI class="f21-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=birthday')">birthday</A>&nbsp;
+				</LI>
+					
+				<LI class="f22-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=cache')">cache</A>&nbsp;
+				</LI>
+					
+				<LI class="f23-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=caching')">caching</A>&nbsp;
+				</LI>
+					
+				<LI class="f24-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=cloud')">cloud</A>&nbsp;
+				</LI>
+					
+				<LI class="f25-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=clustering')">clustering</A>&nbsp;
+				</LI>
+					
+				<LI class="f26-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=custom_plug_in')">custom_plug_in</A>&nbsp;
+				</LI>
+					
+				<LI class="f27-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=design')">design</A>&nbsp;
+				</LI>
+					
+				<LI class="f28-67">
+					
+					<A title="14" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=developerworks')">developerworks</A>&nbsp;
+				</LI>
+					
+				<LI class="f29-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=diagnostic')">diagnostic</A>&nbsp;
+				</LI>
+					
+				<LI class="f30-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ec2')">ec2</A>&nbsp;
+				</LI>
+					
+				<LI class="f31-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse')">eclipse</A>&nbsp;
+				</LI>
+					
+				<LI class="f32-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse_plug_in')">eclipse_plug_in</A>&nbsp;
+				</LI>
+					
+				<LI class="f33-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=facelet')">facelet</A>&nbsp;
+				</LI>
+					
+				<LI class="f34-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=frameworks')">frameworks</A>&nbsp;
+				</LI>
+					
+				<LI class="f35-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=google_app_engine')">google_app_engine</A>&nbsp;
+				</LI>
+					
+				<LI class="f36-37">
+					
+					<A title="5" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=grails')">grails</A>&nbsp;
+				</LI>
+					
+				<LI class="f37-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=groovlet')">groovlet</A>&nbsp;
+				</LI>
+					
+				<LI class="f38-59">
+					
+					<A title="11" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=groovy')">groovy</A>&nbsp;
+				</LI>
+					
+				<LI class="f39-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=handling')">handling</A>&nbsp;
+				</LI>
+					
+				<LI class="f40-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=health_center')">health_center</A>&nbsp;
+				</LI>
+					
+				<LI class="f41-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=hibernate')">hibernate</A>&nbsp;
+				</LI>
+					
+				<LI class="f42-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=holly_cummins')">holly_cummins</A>&nbsp;
+				</LI>
+					
+				<LI class="f43-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ibm_style')">ibm_style</A>&nbsp;
+				</LI>
+					
+				<LI class="f44-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=james_goodwill')">james_goodwill</A>&nbsp;
+				</LI>
+					
+				<LI class="f45-100">
+					
+					<A title="41" class="lotusF5 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=java')">java</A>&nbsp;
+				</LI>
+					
+				<LI class="f46-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=java_web_services')">java_web_services</A>&nbsp;
+				</LI>
+					
+				<LI class="f47-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jaxws')">jaxws</A>&nbsp;
+				</LI>
+					
+				<LI class="f48-46">
+					
+					<A title="7" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jpa')">jpa</A>&nbsp;
+				</LI>
+					
+				<LI class="f49-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jpql')">jpql</A>&nbsp;
+				</LI>
+					
+				<LI class="f50-53">
+					
+					<A title="9" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jsf')">jsf</A>&nbsp;
+				</LI>
+					
+				<LI class="f51-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=learning')">learning</A>&nbsp;
+				</LI>
+					
+				<LI class="f52-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=machine')">machine</A>&nbsp;
+				</LI>
+					
+				<LI class="f53-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=machine_learning')">machine_learning</A>&nbsp;
+				</LI>
+					
+				<LI class="f54-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=mahout')">mahout</A>&nbsp;
+				</LI>
+					
+				<LI class="f55-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=mastering_grails')">mastering_grails</A>&nbsp;
+				</LI>
+					
+				<LI class="f56-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=memcached')">memcached</A>&nbsp;
+				</LI>
+					
+				<LI class="f57-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=metamodel_api')">metamodel_api</A>&nbsp;
+				</LI>
+					
+				<LI class="f58-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=monitoring')">monitoring</A>&nbsp;
+				</LI>
+					
+				<LI class="f59-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=open_source')">open_source</A>&nbsp;
+				</LI>
+					
+				<LI class="f60-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=optimization')">optimization</A>&nbsp;
+				</LI>
+					
+				<LI class="f61-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=performance')">performance</A>&nbsp;
+				</LI>
+					
+				<LI class="f62-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=pinaki_poddar')">pinaki_poddar</A>&nbsp;
+				</LI>
+					
+				<LI class="f63-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=plugin')">plugin</A>&nbsp;
+				</LI>
+					
+				<LI class="f64-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=practically_groovy')">practically_groovy</A>&nbsp;
+				</LI>
+					
+				<LI class="f65-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=programming')">programming</A>&nbsp;
+				</LI>
+					
+				<LI class="f66-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=realtime')">realtime</A>&nbsp;
+				</LI>
+					
+				<LI class="f67-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=scott_davis')">scott_davis</A>&nbsp;
+				</LI>
+					
+				<LI class="f68-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=service')">service</A>&nbsp;
+				</LI>
+					
+				<LI class="f69-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=swing')">swing</A>&nbsp;
+				</LI>
+					
+				<LI class="f70-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=tdd')">tdd</A>&nbsp;
+				</LI>
+					
+				<LI class="f71-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=testing')">testing</A>&nbsp;
+				</LI>
+					
+				<LI class="f72-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=threads')">threads</A>&nbsp;
+				</LI>
+					
+				<LI class="f73-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=toby_corbin')">toby_corbin</A>&nbsp;
+				</LI>
+					
+				<LI class="f74-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=twitter')">twitter</A>&nbsp;
+				</LI>
+					
+				<LI class="f75-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=typesafe')">typesafe</A>&nbsp;
+				</LI>
+					
+				<LI class="f76-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=typesafe_queries')">typesafe_queries</A>&nbsp;
+				</LI>
+					
+				<LI class="f77-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web')">web</A>&nbsp;
+				</LI>
+					
+				<LI class="f78-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_development')">web_development</A>&nbsp;
+				</LI>
+					
+				<LI class="f79-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_programming')">web_programming</A>&nbsp;
+				</LI>
+					
+				<LI class="f80-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_services')">web_services</A>&nbsp;
+				</LI>
+					
+			</UL><P>End of Popular article tags</P><H2>My article tags</H2><DIV id="dw-tag-access-my" class="ibm-access"><CENTER>To access My Tags, please <A href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=auth&d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fjava%2Flibrary%2Fj-dbunit.html">sign in</A><P>Read Popular tags</P></CENTER><BR></DIV><P>End of My article tags</P></DIV>
+<DIV id="dw-tag-cloud">
+	<DIV id="dogearTagCloud">
+		<DIV id="content-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><A href="http://www.ibm.com/developerworks/java/library/j-dbunit.html#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%; "></A></DIV>
+		<DIV id="ui-slider-scale"><P><SPAN class="content-slider-more">More</SPAN><SPAN class="content-slider-less">Less</SPAN></P></DIV>
+	    <DIV id="cloud-container">
+			<UL>
+					
+				<LI class="f1-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=2')">2</A>&nbsp;
+				</LI>
+					
+				<LI class="f2-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=_dogear')">_dogear</A>&nbsp;
+				</LI>
+					
+				<LI class="f3-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ai')">ai</A>&nbsp;
+				</LI>
+					
+				<LI class="f4-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aim')">aim</A>&nbsp;
+				</LI>
+					
+				<LI class="f5-42">
+					
+					<A title="6" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ajax')">ajax</A>&nbsp;
+				</LI>
+					
+				<LI class="f6-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=alerts')">alerts</A>&nbsp;
+				</LI>
+					
+				<LI class="f7-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=amazon')">amazon</A>&nbsp;
+				</LI>
+					
+				<LI class="f8-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=andrew_glover')">andrew_glover</A>&nbsp;
+				</LI>
+					
+				<LI class="f9-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aop')">aop</A>&nbsp;
+				</LI>
+					
+				<LI class="f10-53">
+					
+					<A title="9" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=apache')">apache</A>&nbsp;
+				</LI>
+					
+				<LI class="f11-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=apache_axis2')">apache_axis2</A>&nbsp;
+				</LI>
+					
+				<LI class="f12-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=api')">api</A>&nbsp;
+				</LI>
+					
+				<LI class="f13-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=app')">app</A>&nbsp;
+				</LI>
+					
+				<LI class="f14-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=application')">application</A>&nbsp;
+				</LI>
+					
+				<LI class="f15-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=architecture')">architecture</A>&nbsp;
+				</LI>
+					
+				<LI class="f16-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=articles')">articles</A>&nbsp;
+				</LI>
+					
+				<LI class="f17-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aws')">aws</A>&nbsp;
+				</LI>
+					
+				<LI class="f18-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=axis2')">axis2</A>&nbsp;
+				</LI>
+					
+				<LI class="f19-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=best')">best</A>&nbsp;
+				</LI>
+					
+				<LI class="f20-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=better_java')">better_java</A>&nbsp;
+				</LI>
+					
+				<LI class="f21-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=birthday')">birthday</A>&nbsp;
+				</LI>
+					
+				<LI class="f22-1">
+					
+					<A title="1" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=cache')">cache</A>&nbsp;
+				</LI>
+					
+				<LI class="f23-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=caching')">caching</A>&nbsp;
+				</LI>
+					
+				<LI class="f24-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=cloud')">cloud</A>&nbsp;
+				</LI>
+					
+				<LI class="f25-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=clustering')">clustering</A>&nbsp;
+				</LI>
+					
+				<LI class="f26-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=custom_plug_in')">custom_plug_in</A>&nbsp;
+				</LI>
+					
+				<LI class="f27-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=design')">design</A>&nbsp;
+				</LI>
+					
+				<LI class="f28-67">
+					
+					<A title="14" class="lotusF4 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=developerworks')">developerworks</A>&nbsp;
+				</LI>
+					
+				<LI class="f29-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=diagnostic')">diagnostic</A>&nbsp;
+				</LI>
+					
+				<LI class="f30-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ec2')">ec2</A>&nbsp;
+				</LI>
+					
+				<LI class="f31-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse')">eclipse</A>&nbsp;
+				</LI>
+					
+				<LI class="f32-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=eclipse_plug_in')">eclipse_plug_in</A>&nbsp;
+				</LI>
+					
+				<LI class="f33-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=facelet')">facelet</A>&nbsp;
+				</LI>
+					
+				<LI class="f34-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=frameworks')">frameworks</A>&nbsp;
+				</LI>
+					
+				<LI class="f35-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=google_app_engine')">google_app_engine</A>&nbsp;
+				</LI>
+					
+				<LI class="f36-37">
+					
+					<A title="5" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=grails')">grails</A>&nbsp;
+				</LI>
+					
+				<LI class="f37-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=groovlet')">groovlet</A>&nbsp;
+				</LI>
+					
+				<LI class="f38-59">
+					
+					<A title="11" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=groovy')">groovy</A>&nbsp;
+				</LI>
+					
+				<LI class="f39-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=handling')">handling</A>&nbsp;
+				</LI>
+					
+				<LI class="f40-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=health_center')">health_center</A>&nbsp;
+				</LI>
+					
+				<LI class="f41-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=hibernate')">hibernate</A>&nbsp;
+				</LI>
+					
+				<LI class="f42-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=holly_cummins')">holly_cummins</A>&nbsp;
+				</LI>
+					
+				<LI class="f43-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ibm_style')">ibm_style</A>&nbsp;
+				</LI>
+					
+				<LI class="f44-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=james_goodwill')">james_goodwill</A>&nbsp;
+				</LI>
+					
+				<LI class="f45-100">
+					
+					<A title="41" class="lotusF5 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=java')">java</A>&nbsp;
+				</LI>
+					
+				<LI class="f46-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=java_web_services')">java_web_services</A>&nbsp;
+				</LI>
+					
+				<LI class="f47-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jaxws')">jaxws</A>&nbsp;
+				</LI>
+					
+				<LI class="f48-46">
+					
+					<A title="7" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jpa')">jpa</A>&nbsp;
+				</LI>
+					
+				<LI class="f49-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jpql')">jpql</A>&nbsp;
+				</LI>
+					
+				<LI class="f50-53">
+					
+					<A title="9" class="lotusF3 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=jsf')">jsf</A>&nbsp;
+				</LI>
+					
+				<LI class="f51-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=learning')">learning</A>&nbsp;
+				</LI>
+					
+				<LI class="f52-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=machine')">machine</A>&nbsp;
+				</LI>
+					
+				<LI class="f53-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=machine_learning')">machine_learning</A>&nbsp;
+				</LI>
+					
+				<LI class="f54-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=mahout')">mahout</A>&nbsp;
+				</LI>
+					
+				<LI class="f55-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=mastering_grails')">mastering_grails</A>&nbsp;
+				</LI>
+					
+				<LI class="f56-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=memcached')">memcached</A>&nbsp;
+				</LI>
+					
+				<LI class="f57-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=metamodel_api')">metamodel_api</A>&nbsp;
+				</LI>
+					
+				<LI class="f58-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=monitoring')">monitoring</A>&nbsp;
+				</LI>
+					
+				<LI class="f59-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=open_source')">open_source</A>&nbsp;
+				</LI>
+					
+				<LI class="f60-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=optimization')">optimization</A>&nbsp;
+				</LI>
+					
+				<LI class="f61-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=performance')">performance</A>&nbsp;
+				</LI>
+					
+				<LI class="f62-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=pinaki_poddar')">pinaki_poddar</A>&nbsp;
+				</LI>
+					
+				<LI class="f63-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=plugin')">plugin</A>&nbsp;
+				</LI>
+					
+				<LI class="f64-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=practically_groovy')">practically_groovy</A>&nbsp;
+				</LI>
+					
+				<LI class="f65-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=programming')">programming</A>&nbsp;
+				</LI>
+					
+				<LI class="f66-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=realtime')">realtime</A>&nbsp;
+				</LI>
+					
+				<LI class="f67-31">
+					
+					<A title="4" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=scott_davis')">scott_davis</A>&nbsp;
+				</LI>
+					
+				<LI class="f68-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=service')">service</A>&nbsp;
+				</LI>
+					
+				<LI class="f69-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=swing')">swing</A>&nbsp;
+				</LI>
+					
+				<LI class="f70-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=tdd')">tdd</A>&nbsp;
+				</LI>
+					
+				<LI class="f71-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=testing')">testing</A>&nbsp;
+				</LI>
+					
+				<LI class="f72-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=threads')">threads</A>&nbsp;
+				</LI>
+					
+				<LI class="f73-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=toby_corbin')">toby_corbin</A>&nbsp;
+				</LI>
+					
+				<LI class="f74-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=twitter')">twitter</A>&nbsp;
+				</LI>
+					
+				<LI class="f75-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=typesafe')">typesafe</A>&nbsp;
+				</LI>
+					
+				<LI class="f76-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=typesafe_queries')">typesafe_queries</A>&nbsp;
+				</LI>
+					
+				<LI class="f77-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web')">web</A>&nbsp;
+				</LI>
+					
+				<LI class="f78-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_development')">web_development</A>&nbsp;
+				</LI>
+					
+				<LI class="f79-23">
+					
+					<A title="3" class="lotusF2 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_programming')">web_programming</A>&nbsp;
+				</LI>
+					
+				<LI class="f80-14">
+					
+					<A title="2" class="lotusF1 my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=web_services')">web_services</A>&nbsp;
+				</LI>
+					
+			</UL>
+		</DIV>
+		<DIV class="ibm-rule"><HR></DIV><P>View as <STRONG>cloud</STRONG>&nbsp;| <A id="alist" class="lotusAction" href="javascript:;">list</A></P>
+		</DIV> 
+
+		
+			<DIV class="lotusChunk dw-hidetag" id="dogearTagList">
+			<DIV id="list-container">
+				<UL class="lotusList lotusEditable lotusTags lotusMeta">
+				
+			
+
+			
+				<LI>				
+					<A title="2" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=2')">2</A>
+					2
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="1" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=_dogear')">_dogear</A>
+					1
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="1" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ai')">ai</A>
+					1
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="1" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aim')">aim</A>
+					1
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="6" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=ajax')">ajax</A>
+					6
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="1" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=alerts')">alerts</A>
+					1
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="3" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=amazon')">amazon</A>
+					3
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="2" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=andrew_glover')">andrew_glover</A>
+					2
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="1" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=aop')">aop</A>
+					1
+				</LI>
+			
+			
+
+			
+				<LI>				
+					<A title="9" class="lotusLeft my" href="javascript:launchTagWindow('/developerworks/mydeveloperworks/bookmarks/html?tag=apache')">apache</A>
+					9
+				</LI>
+			
+				
+			</UL>
+			</DIV>		
+			<DIV class="ibm-rule"><HR></DIV><P>View as <A id="acloud" class="lotusAction" href="javascript:;">cloud</A>&nbsp;| <STRONG>list</STRONG></P>
+			</DIV></DIV>  
+</DIV>   
+</DIV>
+</DIV>
+<!-- Tagging_End -->
+<!-- Dig_Deeper -->
+<DIV class="ibm-container"><H2>Dig deeper into Java on developerWorks</H2><DIV class="ibm-container-body"><UL class="ibm-link-list"><LI class="ibm-first"><A href="http://www.ibm.com/developerworks/java/" class="ibm-forward-link">Overview</A></LI><LI><A href="http://www.ibm.com/developerworks/java/newto/" class="ibm-forward-link">New to Java programming</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/downloads.jsp" class="ibm-forward-link">Downloads and products</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/projects.jsp" class="ibm-forward-link">Open source projects</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/standards.jsp" class="ibm-forward-link">Standards</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/library.jsp" class="ibm-forward-link">Technical library (articles, tutorials, and more)</A></LI><LI><A href="http://www.ibm.com/developerworks/java/training/" class="ibm-forward-link">Training</A></LI><LI><A href="http://www.ibm.com/developerworks/forums/dw_jforums.jsp" class="ibm-forward-link">Forums</A></LI><LI><A href="http://www.ibm.com/developerworks/views/java/events.jsp" class="ibm-forward-link">Events</A></LI></UL></DIV></DIV>
+<!-- High_Visibility_Offer -->
+<!--XSLT stylesheet used to transform this content: s-highvisibilityoffer.xsl--><DIV class="ibm-container"><H2>Information-Led Transformation</H2><DIV class="ibm-container-body"><IMG width="188" height="70" border="0" alt="IOD 2009" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/hivis-w-iod092.jpg"><P class="ibm-ind-link"><A href="http://www-01.ibm.com/software/data/conf/?S_TACT=105AGY02&S_CMP=HIVIS&ca=dti-hivisIOD2009&ca=dth-i?S_CMP=HIVIS" class="ibm-forward-link">Information On Demand Global Conference 2009; 25-29 Oct, Las Vegas
+			</A></P></DIV></DIV>
+<!-- Special_Offers -->
+<DIV class="ibm-container"><H2>Special offers</H2><DIV class="ibm-container-body"><P class="dw-special-offers"><A href="http://www.ibm.com/developerworks/views/java/libraryview.jsp?type_by=Tutorials&ca=dti-tilejavatut&S_TACT=105AGX02&S_CMP=TILE&ca=dth-j"><IMG src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/tile_v16_learnfast-j.gif" width="158" height="50" border="0" alt="Learn fast with free IBM Java Tutorials"></A></P><P class="dw-special-offers"><A href="http://www.ibm.com/developerworks/views/opensource/libraryview.jsp?type_by=Tutorials&S_TACT=105AGX02&S_CMP=TILE&ca=dti-tileopensourcedemo&ca=dth-st"><IMG src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/tile_v16_osdemos.gif" width="158" height="50" border="0" alt="Demos for open source developers"></A></P><P class="dw-special-offers"><A href="http://www.ibmpressbooks.com/bookstore/product.asp?isbn=0138150400&S_TACT=105AGX02&S_CMP=TILE"><IMG src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/tile_v16_soatutdiscount.gif" width="158" height="50" border="0" alt="SOA Tutorials IBM Book + DVD 35% off: IBM0402"></A></P><DIV class="ibm-rule"><HR></DIV><P class="ibm-ind-link"><A href="http://www.ibm.com/developerworks/views/global/offers.jsp" class="ibm-forward-link">More offers</A></P></DIV></DIV>
+<!-- RIGHT_COLUMN_CONTENT_END -->
+
+</DIV>
+<!-- RIGHT_COLUMN_END -->
+
+<!-- CONTENT_BODY_END -->
+</DIV>
+
+</DIV>
+<!-- CONTENT_END -->
+
+ <!-- END_IBM-PCON -->
+</DIV>
+
+<!-- FOOTER_BEGIN -->
+<DIV id="ibm-page-tools">
+<!-- IBM page tools container -->
+<UL class="ibm-link-list"><LI class="ibm-first"><A href="javascript:void(0);" id="etplnk" class="ibm-email-link" onclick="displayFormLayer(event, 2);">E-mail this page</A></LI><LI><A href="javascript:print();" id="ptplnk" class="ibm-print-link">Print this page</A></LI><LI><A href="javascript:void(0);" onclick="ibmCommonDynamicNavBookmarkRun(&#39;http://digg.com/submit?phase=2&amp;&#39;, &#39;url&#39;, &#39;title&#39;);return false" id="ibmCommonDynamicNavDiggLink" hreflang="en" class="ibm-digg-link">Digg this</A></LI><LI><A href="javascript:void(0);" onclick="ibmCommonDynamicNavBookmarkRun(&#39;http://del.icio.us/post?&#39;, &#39;url&#39;, &#39;title&#39;);return false" id="ibmCommonDynamicNavDeliciousLink" hreflang="en" class="ibm-delicious-link">Save to del.icio.us</A></LI></UL></DIV>
+<DIV id="ibm-footer">
+<UL>
+<LI class="ibm-first"><A href="http://www.ibm.com/ibm/">About IBM</A></LI>
+<LI><A href="http://www.ibm.com/privacy/">Privacy</A></LI>
+<LI><A href="http://www.ibm.com/contact/">Contact</A></LI>
+<LI><A href="http://www.ibm.com/legal/">Terms of use</A></LI>
+<LI><A href="http://www.ibm.com/ibm/syndication/us/en/?cm_re=footer-_-ibmfeeds-_-top_level">IBM Feeds</A></LI><A href="http://www.ibm.com/ibm/syndication/us/en/?cm_re=footer-_-ibmfeeds-_-top_level"></A></UL>
+</DIV>
+<!-- FOOTER_END -->
+
+ <!-- END_IBM-TOP -->
+<DIV id="ibm-overlay-top"></DIV></DIV>
+ 
+ <!-- SCRIPTS_INCLUDE_BEGIN -->
+<!-- JQuery start -->
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/jquery.dimensions-1.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/jquery.hoverIntent.minified.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/jquery.cluetip.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/ui.core-1.7.1.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/ui.slider-1.7.1.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/dwjquerytags.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript">
+	jQuery.noConflict();     
+	// Put all your code in your document ready area
+	jQuery(document).ready(function(jQuery) {
+	// Do jQuery stuff using jQuery 
+	jQuery('a.dwauthor').cluetip({
+		local: true,
+		showTitle: false,
+		positionBy: 'bottomTop',
+		sticky: true,	
+		mouseOutClose: true,
+		closeText: '<img src="//www.ibm.com/developerworks/js/jquery/cluetip98/i/x.gif" alt="Close" />',
+		arrows: false,
+		dropShadow: true,
+		cluetipClass: 'dwbasic'
+		});   	
+	});
+ </SCRIPT>
+ <!-- JQuery end -->
+ <!-- Overlay js -->
+<SCRIPT language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/overlay.js" type="text/javascript"></SCRIPT>
+<!-- My dW Interest article -->
+<SCRIPT language="JavaScript" src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/showinterest.js" type="text/javascript">//</SCRIPT>
+<SCRIPT language="JavaScript" type="text/javascript">
+        // <![CDATA[
+			var contentId = '';
+			var contentAreas = '';
+			var caArr = [];
+			contentId = '10934';
+			contentAreas = 'java';
+			if(contentAreas != ''){caArr = contentAreas.split(',');}
+			var loginLink = 'https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=' + encodeURIComponent(window.location);jQuery('interestShow').showInterest(contentId,'dw-article',{'int_tops':[441],'int_prods':[], 'int_prod_fam':[],'int_cont_area':caArr},
+'<div id="dw-interest-anon"><a id="intAnonBtn" class="ibm-external-link" href="">Update My dW interests</a> (<a class="dw-interest" href="' + loginLink + '">Log in</a> | <a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Update My dW interests</a></div>',
+'<div id="dw-interest-add"><a id="intSelectBtn" class="ibm-external-link" href="">Add to My dW interests</a> (<a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Add to My dW interests</a></div>',
+'<div id="dw-interest-remove"><a id="intDeselectBtn" class="ibm-external-link" href="">Remove from My dW interests</a> (<a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestremove\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestremovehelp">Skip to help for Remove from My dW interests</a></div>'
+);
+// ]]>
+</SCRIPT>
+<!-- SCRIPTS_INCLUDE_END -->
+
+<DIV id="ibm-metrics">
+<SCRIPT src="./ControlyourtestenvironmentwithDbUnitandAnthill_files/stats.js" type="text/javascript">//</SCRIPT>
+</DIV>
+
+
+<DIV id="cluetip-waitimage" style="position: absolute; z-index: 95; display: none; "></DIV><DIV id="cluetip" style="display: none; position: absolute; z-index: 96; "><DIV style="z-index: 95; opacity: 0.1; top: 1px; left: 1px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 94; opacity: 0.1; top: 2px; left: 2px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 93; opacity: 0.1; top: 3px; left: 3px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 92; opacity: 0.1; top: 4px; left: 4px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 91; opacity: 0.1; top: 5px; left: 5px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 90; opacity: 0.1; top: 6px; left: 6px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV id="cluetip-outer" style="position: relative; z-index: 97; "><H3 id="cluetip-title"></H3><DIV id="cluetip-inner"></DIV></DIV><DIV id="cluetip-extra"></DIV><DIV id="cluetip-arrows" class="cluetip-arrows" style="z-index: 97; "></DIV></DIV></BODY></HTML>
