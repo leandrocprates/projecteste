@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)http://www.dbunit.org/bestpractices.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>DbUnit - The Dbunit Framework - Best Practices</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./DbUnit-TheDbunitFramework-BestPractices_files/print.css" type="text/css" media="print">
+        
+                                                    
+<LINK rel="icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                                                        
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                    </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://www.dbunit.org/" id="bannerLeft">
+    
+                                            <IMG src="./DbUnit-TheDbunitFramework-BestPractices_files/dbunit-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://www.sourceforge.net/projects/dbunit" id="bannerRight">
+    
+                                    <IMG src="./DbUnit-TheDbunitFramework-BestPractices_files/sflogo.php" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <DIV class="xleft">
+          
+                <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+                &gt;
+      
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+                  </DIV>
+            <DIV class="xright">            <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+            |
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+            
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <H5>Quick Links</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://maven-plugins.sourceforge.net/maven-dbunit-plugin/index.html" class="externalLink">Maven 1.x Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://mojo.codehaus.org/dbunit-maven-plugin/" class="externalLink">Maven 2 Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/project/showfiles.php?group_id=47439" class="externalLink">Download</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/changes-report.html">Changes</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/faq.html">FAQ</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://dbunit.wikidot.com/" class="externalLink">Wiki</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/support/getsupport.php?group_id=47439" class="externalLink">Get Support</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/source-repository.html">Get source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/xref/index.html">Browse source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/apidocs/index.html">JavaDocs</A>
+          </LI>
+          </UL>
+              <H5>Overview</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/index.html">About DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/intro.html">Database Testing</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/howto.html">Getting Started</A>
+          </LI>
+              
+    <LI class="none">
+              <STRONG>Best Practices</STRONG>
+        </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/components.html">Core Components</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/properties.html">Properties</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/anttask.html">Ant Task</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/migration.html">Migration Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/building.html">Building DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/devguide.html">Developers Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/resources.html">Resources</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/credits.html">Credits</A>
+          </LI>
+          </UL>
+                        <H5>Project Documentation</H5>
+            <UL>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-info.html">Project Information</A>
+                </LI>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-reports.html">Project Reports</A>
+                </LI>
+          </UL>
+                                           <A href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <IMG alt="Built by Maven" src="./DbUnit-TheDbunitFramework-BestPractices_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+    
+            <DIV id="lastPublished">
+        Last Published: 20-Sep-2009
+              </DIV>
+            </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        <DIV class="section"><H2><A></A>
+</H2>
+<H3>Best Practices</H3><OL type="1"><LI><A href="http://www.dbunit.org/bestpractices.html#onedbperdev">Use one database instance per developer</A>
+</LI>
+<LI><A href="http://www.dbunit.org/bestpractices.html#nocleanup">Good setup don't need cleanup!</A>
+</LI>
+<LI><A href="http://www.dbunit.org/bestpractices.html#smalldatasets">Use multiple small datasets </A>
+</LI>
+<LI><A href="http://www.dbunit.org/bestpractices.html#staledata">Perform setup of stale data once for entire test 
+          class or test suite</A>
+</LI>
+<LI><A href="http://www.dbunit.org/bestpractices.html#connections">Connection management strategies</A>
+</LI>
+</OL>
+<H3><A name="onedbperdev">Use one database instance per developer</A>
+</H3><P>Testing can be simplified if you can get your database in a known state 
+      before a test is run. A database should only be used for one test at a time; 
+      otherwise the database state cannot be guarantied. </P>
+<P>
+	So multiple developers working on the same project should have their own 
+	database instance to prevent data corruption. This also simplifies database 
+	cleanup, as you don't necessarily need needs to revert it to its initial state.
+</P>
+<H3><A name="nocleanup">Good setup don't need cleanup!</A>
+</H3><P>
+      You should always avoid creating tests that depends on results of preceding 
+      tests; thankfully this is the main purpose of DbUnit. 
+      </P>
+<P>
+      Don't be afraid to leave your trace after a test; principally if you are using 
+      <A href="http://www.dbunit.org/bestpractices.html#onedbperdev">one database instance per developer</A>
+. If you always put 
+      your database in a known state before a test execution, you usually don't need to 
+      clean it up.. This simplifies your tests maintenance and 
+      reduces the overhead taken by the cleanup procedure.
+      And sometimes, this is very helpful to manually verify the database state after 
+      executing a test that fails. 
+	</P>
+<H3><A name="smalldatasets"> Use multiple small datasets</A>
+</H3><P>
+      Most of your tests do not require the entire database to be re-initialized. 
+      So, instead of putting your entire database data in one large dataset, try 
+      to break it into many smaller chunks.
+      </P>
+<P>
+      These chunks could roughly corresponding to logical units, or components. 
+      This reduces the overhead caused by initializing your database for each 
+      test. This also facilitates team development since many developers working 
+      on different components can modify datasets independently.
+      </P>
+<P>
+      For integrated testing, you can still use the CompositeDataSet class      
+      to logically combine multiple datasets into a large one at run time.
+      </P>
+<H3><A name="staledata"> Perform setup of stale data once for entire test 
+        class or test suite</A>
+</H3><P>
+      If several tests are using the same read-only data, this data could be initialized 
+      once for an entire test class or test suite. You need to be cautious and 
+      ensure you never modify this data. This can reduce the time required to 
+      run your tests but also introduces more risk. <BR>
+</P>
+<H3><A name="connections"> Connection management strategies</A>
+</H3><P>
+      Here are the recommended connection management strategies depending whether 
+      you test from a remote client or an in-container strategy:
+      </P>
+<H4>Remote client with DatabaseTestCase</H4>
+<P>You should try to reuse the same connection for the entire test suite to reduce 
+        the overhead of creating a new connection for each test. 
+        Since version 1.1, DatabaseTestCase is closing every connection in setUp() 
+        and tearDown(). Override the closeConnection() method with an empty body 
+        to modify this behavior. </P>
+<H4>In-container with Cactus or JUnitEE</H4>
+<P>
+      If you use the in-container strategy you should use the DatabaseDataSourceConnection 
+      class to access the DataSource you configured for your application server. 
+      JDBC connections are requested on demand from the DataSource. So you can 
+      rely on the built-in connection pooling capability of your application server 
+      to achieve good performance.
+      </P><DIV class="source"><PRE>IDatabaseConnection connection = new DatabaseDataSourceConnection(
+      new InitialContext(), "jdbc/myDataSource");</PRE>
+</DIV>
+
+      An alternative since version 2.2 is to subclass JndiBasedDBTestCase and specify the JNDI lookup name.
+      <DIV class="source"><PRE>public class MyJNDIDatabaseTest extends JndiBasedDBTestCase {
+   protected String getLookupName(){
+      return "jdbc/myDatasource";
+   }
+   ...
+}</PRE>
+</DIV>
+You may also use JndiDatabaseTester if you can't subclass JndiBasedDBTestCase.
+      <P></P>
+</DIV>
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          2002-2009
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

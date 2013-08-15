@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.dbunit.org/components.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>DbUnit - Core Components</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./DbUnit-CoreComponents_files/print.css" type="text/css" media="print">
+        
+                                                    
+<LINK rel="icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                                                        
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                    </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://www.dbunit.org/" id="bannerLeft">
+    
+                                            <IMG src="./DbUnit-CoreComponents_files/dbunit-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://www.sourceforge.net/projects/dbunit" id="bannerRight">
+    
+                                    <IMG src="./DbUnit-CoreComponents_files/sflogo.php" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <DIV class="xleft">
+          
+                <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+                &gt;
+      
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+                  </DIV>
+            <DIV class="xright">            <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+            |
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+            
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <H5>Quick Links</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://maven-plugins.sourceforge.net/maven-dbunit-plugin/index.html" class="externalLink">Maven 1.x Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://mojo.codehaus.org/dbunit-maven-plugin/" class="externalLink">Maven 2 Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/project/showfiles.php?group_id=47439" class="externalLink">Download</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/changes-report.html">Changes</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/faq.html">FAQ</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://dbunit.wikidot.com/" class="externalLink">Wiki</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/support/getsupport.php?group_id=47439" class="externalLink">Get Support</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/source-repository.html">Get source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/xref/index.html">Browse source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/apidocs/index.html">JavaDocs</A>
+          </LI>
+          </UL>
+              <H5>Overview</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/index.html">About DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/intro.html">Database Testing</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/howto.html">Getting Started</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/bestpractices.html">Best Practices</A>
+          </LI>
+              
+    <LI class="none">
+              <STRONG>Core Components</STRONG>
+        </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/properties.html">Properties</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/anttask.html">Ant Task</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/migration.html">Migration Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/building.html">Building DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/devguide.html">Developers Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/resources.html">Resources</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/credits.html">Credits</A>
+          </LI>
+          </UL>
+                        <H5>Project Documentation</H5>
+            <UL>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-info.html">Project Information</A>
+                </LI>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-reports.html">Project Reports</A>
+                </LI>
+          </UL>
+                                           <A href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <IMG alt="Built by Maven" src="./DbUnit-CoreComponents_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+    
+            <DIV id="lastPublished">
+        Last Published: 20-Sep-2009
+              </DIV>
+            </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        <DIV class="section"><H2><A></A>
+</H2>
+<H3>Core Components</H3><P>This document attemps to give you an overview of the core classes that make up DbUnit. 
+      Following are the core interfaces or abstract classes:
+      
+      </P><TABLE class="bodyTable"><TBODY><TR class="a"><TH>Class</TH>
+<TH>Description</TH>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/components.html#databaseconnection">IDatabaseConnection</A>
+</TD>
+<TD>Interface representing a DbUnit connection to a database.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/components.html#dataset">IDataSet</A>
+</TD>
+<TD>Interface representing a collection of tables.</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/components.html#databaseoperation">DatabaseOperation</A>
+</TD>
+<TD>Abstract class representing an operation performed on the database before and after each test.</TD>
+</TR>
+</TBODY></TABLE>
+<P></P>
+<H3><A name="databaseconnection">IDatabaseConnection</A>
+</H3><P>The <A href="http://www.dbunit.org/apidocs/org/dbunit/database/IDatabaseConnection.html">IDatabaseConnection</A>
+ interface represents  
+        a DbUnit connection to a database. 
+        
+      </P><TABLE class="bodyTable"><TBODY><TR class="a"><TH>Class</TH>
+<TH>Description</TH>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/database/DatabaseConnection.html">DatabaseConnection</A>
+</TD>
+<TD>Wraps a JDBC connection.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/database/DatabaseDataSourceConnection.html">DatabaseDataSourceConnection</A>
+</TD>
+<TD>Wraps a JDBC DataSource.</TD>
+</TR>
+</TBODY></TABLE>
+<P></P>
+<H3><A name="dataset">IDataSet</A>
+</H3><P>The <A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/IDataSet.html">IDataSet</A>
+ interface represents is a collection 
+        of tables. This is the primary abstraction used by DbUnit to manipulate tabular data. 
+</P>
+<P>Most commonly used implemetations:       
+      </P><TABLE class="bodyTable"><TBODY><TR class="b"><TH>Implementation</TH>
+<TH>Description</TH>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/xml/FlatXmlDataSet.html">FlatXmlDataSet</A>
+</TD>
+<TD>      
+       Reads and writes flat XML dataset document. Each XML element corresponds to a table row. 
+        Each XML element name corresponds to a table name. The XML attributes 
+        correspond to table columns.<BR>
+
+      Flat XML dataset document sample:
+      <DIV class="source"><PRE>&lt;!DOCTYPE dataset SYSTEM "my-dataset.dtd"&gt;
+&lt;dataset&gt;
+    &lt;TEST_TABLE COL0="row 0 col 0" 
+                COL1="row 0 col 1"
+                COL2="row 0 col 2"/&gt; 
+    &lt;TEST_TABLE COL1="row 1 col 1"/&gt;
+    &lt;SECOND_TABLE COL0="row 0 col 0" 
+                  COL1="row 0 col 1" /&gt;
+    &lt;EMPTY_TABLE/&gt;
+&lt;/dataset&gt;</PRE>
+</DIV>
+<BR>
+
+      To specify null values, omit corresponding attribute. 
+      In the above example, missing COL0 and COL2 attributes of TEST_TABLE second row represents null values.
+      <BR>
+
+      Table metadata is deduced from the first row of each table by default, whereas it is possible to enable the
+      <I>column sensing</I>
+ feature as described in <A href="http://www.dbunit.org/faq.html#differentcolumnnumber">differentcolumnnumber</A>
+<B>Beware you may get a NoSuchColumnException if the first row of a table has one or more null values.</B>
+
+      Because of that, this is highly recommended to use DTD. DbUnit will use the 
+      columns declared in the DTD as table metadata. DbUnit only support external system URI. 
+      The URI can be absolute or relative.
+      <BR>
+
+      Another way to cope with this problem is to use the <A href="http://www.dbunit.org/components.html#replacementdataset">ReplacementDataSet</A>
+.
+     
+</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/xml/XmlDataSet.html">XmlDataSet</A>
+</TD>
+<TD>
+      Reads and writes original XML dataset document. This format 
+        is very verbose and must conform to the following DTD:
+      <DIV class="source"><PRE>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!ELEMENT dataset (table+) | ANY&gt;
+&lt;!ELEMENT table (column*, row*)&gt;
+&lt;!ATTLIST table
+    name CDATA #REQUIRED
+&gt;
+&lt;!ELEMENT column (#PCDATA)&gt;
+&lt;!ELEMENT row (value | null | none)*&gt;
+&lt;!ELEMENT value (#PCDATA)&gt;
+&lt;!ELEMENT null EMPTY&gt;
+</PRE>
+</DIV>
+<BR>
+<A name="originalxmlsample">XML dataset document sample:</A>
+<DIV class="source"><PRE>&lt;!DOCTYPE dataset SYSTEM "dataset.dtd"&gt;
+&lt;dataset&gt;
+    &lt;table name="TEST_TABLE"&gt;
+        &lt;column&gt;COL0&lt;/column&gt;
+        &lt;column&gt;COL1&lt;/column&gt;
+        &lt;column&gt;COL2&lt;/column&gt;
+        &lt;row&gt;
+            &lt;value&gt;row 0 col 0&lt;/value&gt;
+            &lt;value&gt;row 0 col 1&lt;/value&gt;
+            &lt;value&gt;row 0 col 2&lt;/value&gt;
+        &lt;/row&gt;
+        &lt;row&gt;
+            &lt;null/&gt;
+            &lt;value&gt;row 1 col 1&lt;/value&gt;
+            &lt;null/&gt;
+        &lt;/row&gt;
+    &lt;/table&gt;
+    &lt;table name="SECOND_TABLE"&gt;
+        &lt;column&gt;COLUMN0&lt;/column&gt;
+        &lt;column&gt;COLUMN1&lt;/column&gt;
+        &lt;row&gt;
+            &lt;value&gt;row 0 col 0&lt;/value&gt;
+            &lt;value&gt;row 0 col 1&lt;/value&gt;
+        &lt;/row&gt;
+    &lt;/table&gt;
+    &lt;table name='EMPTY_TABLE'&gt;
+        &lt;column&gt;COLUMN0&lt;/column&gt;
+        &lt;column&gt;COLUMN1&lt;/column&gt;
+    &lt;/table&gt;
+&lt;/dataset&gt;</PRE>
+</DIV>
+<BR>
+</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/database/StreamingDataSet.html">StreamingDataSet</A>
+</TD>
+<TD>Consumes a producer and expose its content as a dataset. Provides cursor like forward only access to it and only keeps the active row in memory. Can be used with FlatXmlProducer and XmlProvider.
+<BR>
+
+This is a very efficient way to load XML dataset document when working with forward only database operations (UPDATE, INSERT, REFRESH).
+<BR>
+
+Following sample shows how to load a flat XML dataset with the StreamingDataSet: 
+<DIV class="source"><PRE>    IDataSetProducer producer = new FlatXmlProducer(
+            new InputSource("dataset.xml"));
+    IDataSet dataSet = new StreamingDataSet(producer);
+</PRE>
+</DIV>
+</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/database/DatabaseDataSet.html">DatabaseDataSet</A>
+</TD>
+<TD>Adapter that provides access 
+      to a database instance as a dataset. This class is not usually instantiated 
+      directly but from the factory method <CODE>IDatabaseConnection.createDataSet()</CODE>.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/database/QueryDataSet.html">QueryDataSet</A>
+</TD>
+<TD>Holds collection of tables resulting from database queries.
+          <BR>
+
+          Following sample snippet creates a dataset containing two tables: FOO, resulting from specified query and BAR, resulting from generated query "SELECT * FROM BAR".
+<DIV class="source"><PRE>    QueryDataSet dataSet = new QueryDataSet(connection);
+    dataSet.addTable("FOO", "SELECT * FROM TABLE WHERE COL='VALUE'");
+    dataSet.addTable("BAR");
+</PRE>
+</DIV>
+</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/DefaultDataSet.html">DefaultDataSet</A>
+</TD>
+<TD>Uses to create datasets programmatically.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/CompositeDataSet.html">CompositeDataSet</A>
+</TD>
+<TD>Combines multiple datasets into a single logical dataset.</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/FilteredDataSet.html">FilteredDataSet</A>
+</TD>
+<TD>Decorator that exposes only some tables from decorated dataset. Can be used with different filtering strategies. Some strategies can include/exclude tables without altering their order while others expose tables with a different order.
+                <TABLE class="bodyTable"><TBODY><TR class="a"><TH>Strategy</TH>
+<TH>Description</TH>
+</TR>
+<TR class="b"><TD>IncludeTableFilter</TD>
+<TD>Exposes only matching tables pattern without modifying the original table order. Support wildcards. </TD>
+</TR>
+<TR class="a"><TD>ExcludeTableFilter </TD>
+<TD>Hides matching tables pattern without modifying the original table order. Support wildcards.</TD>
+</TR>
+<TR class="b"><TD>SequenceTableFilter </TD>
+<TD>Exposes a configured table sequence and can be used to reorder dataset table. This is the original filtering strategy from DbUnit 1.x. </TD>
+</TR>
+<TR class="a"><TD>DatabaseSequenceFilter</TD>
+<TD> Automatically determine the tables order using foreign/exported keys information. 
+          This strategy is vendor 
+          independent and should work with any JDBC driver that implement the 
+          <CODE>DatabaseMetaData.getExportedKeys()</CODE> method. 
+          <BR>
+
+		Support simple multi-level dependency like this:
+<DIV class="source"><PRE>   A
+  / \
+ B   C
+    / \
+   D   E
+</PRE>
+</DIV>
+</TD>
+</TR>
+</TBODY></TABLE>
+</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/excel/XlsDataSet.html">XlsDataSet</A>
+</TD>
+<TD>Read and writes MS Excel dataset documents. Each
+  sheet represents a table. The first row of a sheet defines the columns names
+  and remaining rows contains the data.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/ReplacementDataSet.html">ReplacementDataSet</A>
+</TD>
+<TD>Decorator that replaces placeholder objects from the decorated dataset with replacement objects. Substring substitution is also possible.
+          <BR>
+
+Interestingly this provides a new way to specify null values in flat XML datasets. For example you can use a placeholder value, like "[NULL]" in your flat XML dataset and replace it with <CODE>null</CODE> at runtime.
+
+<DIV class="source"><PRE>&lt;?xml version="1.0"?&gt;
+&lt;dataset&gt;
+    &lt;TEST_TABLE COL0="row 0 col 0" 
+                COL1="[null]"/&gt; 
+    &lt;TEST_TABLE COL1="row 1 col 0"
+                COL2="row 1 col 1"/&gt; 
+&lt;/dataset&gt;</PRE>
+</DIV>
+<BR>
+
+Loading the flat XML dataset:
+<DIV class="source"><PRE>ReplacementDataSet dataSet = new ReplacementDataSet(
+        new FlatXmlDataSet(…)); 
+dataSet.addReplacementObject("[NULL]", null);</PRE>
+</DIV>
+<BR>
+
+  You can choose to use a fail-fast replacement to ensure that all placeholders are actually set 
+  and no one is missing in the replacement map. If one is missing the replacement will fail immediately throwing an exception.
+  (Note that the default behaviour is to leave the non-replaced placeholder there and proceeding work silently):
+   <DIV class="source"><PRE>replacementDataSet.setStrictReplacement(true);</PRE>
+</DIV>
+<BR>
+</TD>
+</TR>
+</TBODY></TABLE>
+<P></P>
+<H3><A name="databaseoperation">DatabaseOperation</A>
+</H3><P><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/DatabaseOperation.html">DatabaseOperation</A>
+ is an abstract class that represents an operation performed on the database before and after each test. </P>
+<P>The two most usefull operations are <A href="http://www.dbunit.org/components.html#refresh">REFRESH</A>
+ and 
+        <A href="http://www.dbunit.org/components.html#cleanInsert">CLEAN_INSERT</A>
+. They 
+        are the ones you will deal usualy with. They represent two 
+        testing strategies with different benefits and tradeoffs. </P>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TH>Operation</TH>
+<TH>Description</TH>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/UpdateOperation.html">DatabaseOperation.UPDATE</A>
+</TD>
+<TD>This operation updates the database from the dataset contents. This operation 
+      assumes that table data already exists in the target database and fails 
+      if this is not the case.</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/InsertOperation.html">DatabaseOperation.INSERT</A>
+</TD>
+<TD>This operation inserts the dataset contents into the database. This operation 
+      assumes that table data does not exist in the target database and fails 
+      if this is not the case. To prevent problems with foreign keys, tables must 
+      be sequenced appropriately in the dataset.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/DeleteOperation.html">DatabaseOperation.DELETE</A>
+</TD>
+<TD>This operation deletes only the dataset contents from the database. This 
+      operation does not delete the entire table contents but only data that are 
+      present in the dataset.</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/DeleteAllOperation.html">DatabaseOperation.DELETE_ALL</A>
+</TD>
+<TD>Deletes all rows of tables present in the specified dataset. If the dataset does not contains a particular table, but that table exists in the database, the database table is not affected. Table are truncated in reverse sequence.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/TruncateTableOperation.html">DatabaseOperation.TRUNCATE</A>
+</TD>
+<TD>Truncate tables present in the specified dataset. If the dataset does not contains a particular table, but that table exists in the database, the database table is not affected. Table are truncated in reverse sequence. 
+
+</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/RefreshOperation.html">DatabaseOperation.REFRESH</A>
+</TD>
+<TD>This operation literally refreshes dataset contents into the target database. 
+      This means that data of existing rows are updated and non-existing row get 
+      inserted. Any rows which exist in the database but not in dataset stay unaffected. 
+      This approach is more appropriate for tests that assume other data may exist 
+      in the database.<BR>
+
+      if they are correctly written, tests using this strategy can even be performed 
+      on a populated database like a copy of a production database.</TD>
+</TR>
+<TR class="a"><TD><A name="cleanInsert">DatabaseOperation.CLEAN_INSERT</A>
+</TD>
+<TD>This composite operation performs a <A href="http://www.dbunit.org/components.html#deleteall">DELETE_ALL</A>
+ operation followed by an 
+      <A href="http://www.dbunit.org/components.html#insert">INSERT</A>
+ operation. This is the safest approach to ensure that the database 
+      is in a known state. This is appropriate for tests that require the database 
+      to only contain a specific set of data.</TD>
+</TR>
+<TR class="b"><TD>DatabaseOperation.NONE</TD>
+<TD>Empty operation that does absolutely nothing.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/CompositeOperation.html">CompositeOperation</A>
+</TD>
+<TD>This operation combines multiple operations into a single one.</TD>
+</TR>
+<TR class="b"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/operation/TransactionOperation.html">TransactionOperation</A>
+</TD>
+<TD>This operation decorates an operation and executes it within the context 
+        of a transaction.</TD>
+</TR>
+<TR class="a"><TD><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/mssql/InsertIdentityOperation.html">IdentityInsertOperation</A>
+</TD>
+<TD>This operation decorates an insert operation and disables the MS SQL 
+        Server automatic identifier generation (IDENTITY) during its execution. 
+        Use following constants InsertIdentityOperation.INSERT, InsertIdentityOperation.CLEAN_INSERT 
+        or InsertIdentityOperation.REFRESH instead of those defined in DatabaseOperation.</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          2002-2009
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

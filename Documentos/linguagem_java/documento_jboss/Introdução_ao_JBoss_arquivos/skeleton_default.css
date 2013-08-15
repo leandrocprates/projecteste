@@ -1,0 +1,27 @@
+#container {
+	BACKGROUND: url(../img/bg.gif) repeat-y center top; OVERFLOW: hidden; WIDTH: auto
+}
+#page {
+	BACKGROUND: url(../img/pageBg.gif) repeat-y center top; MARGIN: 0px auto; OVERFLOW: hidden; WIDTH: 1000px; POSITION: relative
+}
+#header {
+	OVERFLOW: hidden
+}
+#content {
+	OVERFLOW: hidden
+}
+#main {
+	LEFT: 175px; FLOAT: left; WIDTH: 825px; POSITION: relative
+}
+#area1 {
+	FLOAT: left; OVERFLOW: hidden; WIDTH: 601px; POSITION: relative
+}
+#area2 {
+	Z-INDEX: 100; RIGHT: 825px; FLOAT: left; OVERFLOW: hidden; WIDTH: 175px; POSITION: relative
+}
+#area3 {
+	Z-INDEX: 2; FLOAT: left; OVERFLOW: hidden; WIDTH: 224px; POSITION: relative
+}
+#footer {
+	CLEAR: both; OVERFLOW: hidden
+}

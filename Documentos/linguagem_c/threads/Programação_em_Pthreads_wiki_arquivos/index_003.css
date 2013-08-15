@@ -1,0 +1,46 @@
+/* Edite este arquivo para modificar a aparência de todo o sítio. */
+
+/* Título das prateleiras em [[Wikibooks:Biblioteca]] */
+
+.titulo_prateleira
+{
+text-align:center;
+font-weight: bold;
+font-size: 200%;
+}
+
+
+/* Título das prateleiras na Ajuda */
+
+.titulo_ajuda
+{
+text-align:center;
+font-weight: bold;
+font-size: 90%;
+background-color:#f6f6df;
+border: solid 1px #d6d6bf;
+}
+
+/* extra buttons for edit dialog (from tr:)*/
+ 
+.my-buttons {
+   padding: 0.5em;
+}
+.my-buttons a {
+   color: black;
+   background-color: #ccddee !important;
+   font-weight: bold;
+   font-size: 0.9em;
+   text-decoration: none;
+   border: thin #006699 outset;
+   padding: 0 0.1em 0.1em 0.1em;
+}
+.my-buttons a:hover, .my-buttons a:active {
+   background-color: #bbccdd;
+   border-style: inset;
+}
+
+/* Hover mouse da secção "Comunidade" do Portal comunitário */
+.linksPortalComunitario a:hover{
+background-color:#ECE9D8;
+}

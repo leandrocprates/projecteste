@@ -1,0 +1,180 @@
+
+#include <Poco/SAX/InputSource.h>
+#include <Poco/DOM/DOMParser.h>
+#include <Poco/DOM/Document.h>
+#include <Poco/AutoPtr.h>
+#include <Poco/DOM/NodeIterator.h>
+#include <Poco/DOM/NodeFilter.h>
+#include <Poco/DOM/Node.h>
+#include <Poco/SAX/SAXParser.h>
+#include <Poco/SAX/XMLReader.h>
+#include <Poco/XML/XMLWriter.h>
+#include <Poco/DOM/NodeList.h>
+
+#include <string>
+#include <iostream>
+#include <sstream>
+
+using Poco::XML::InputSource ; 
+using Poco::XML::DOMParser ; 
+using Poco::XML::Document ; 
+using Poco::AutoPtr;
+using Poco::XML::NodeIterator;
+using Poco::XML::NodeFilter;
+using Poco::XML::Node;
+using Poco::XML::SAXParser;
+using Poco::XML::XMLReader;
+using Poco::XML::XMLWriter;
+using Poco::XML::NodeList;
+
+
+using std::string;
+using std::istringstream;
+using std::ostringstream;
+
+/*
+int main()
+{
+
+istringstream str("<promocao><nome_promo>Pao de acucar</nome_promo></promocao>");
+ostringstream ostr;
+
+SAXParser parser ; 
+
+XMLWriter writer(ostr, XMLWriter::CANONICAL);
+parser.setContentHandler(&writer);
+parser.setDTDHandler(&writer);
+parser.setProperty(XMLReader::PROPERTY_LEXICAL_HANDLER, static_cast<Poco::XML::LexicalHandler*>(&writer));
+InputSource source(str);
+parser.parse(&source);
+std::cout<< "saida: " <<  ostr.str() << std::endl ;
+
+return 0 ; 
+}
+
+*/
+
+/*
+
+int main ()
+{
+	istringstream  xml("<promocao><nome_promo>Pao de acucar</nome_promo></promocao>");
+	InputSource input(xml);
+
+	DOMParser parser;
+	AutoPtr<Document> documento = parser.parse(&input);
+
+	NodeIterator it(documento ,NodeFilter::SHOW_ALL );
+	Node* pNode = it.nextNode();
+
+	while (pNode)
+	{
+		std::cout << pNode->nodeName() << ":" << pNode->nodeType() << pNode->nodeValue()  << std::endl;
+		pNode = it.nextNode();
+	}
+
+	return 0 ;
+
+}
+
+*/
+
+
+/*
+
+int main ()
+{
+	istringstream  xml("<promocao><nome_promo>Pao de acucar</nome_promo><id_serie><id_cupom>100000</id_cupom><id_cupom>210000</id_cupom></id_serie></promocao>");
+	InputSource input(xml);
+
+	DOMParser parser;
+	AutoPtr<Document> documento = parser.parse(&input);
+
+// pega node promocao
+	NodeList *list = documento->getElementsByTagName("promocao");
+	Node *node = list->item(0);
+	std::cout<< node->nodeName() << node->nodeValue() << std::endl ;
+
+// pega nome_promo
+	list = node->childNodes();
+	node = list->item(0);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+// pega id_serie
+	node = list->item(1);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+// pega id_cupom
+	list = node->childNodes();
+	node = list->item(0);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+
+	node = list->item(1);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+
+	return 0 ;
+}
+
+*/
+
+
+
+
+
+
+int main ()
+{
+	istringstream  xml("<promocao><nome_promo>Pao de acucar</nome_promo><id_serie>10</id_serie><id_cupom>100000</id_cupom></promocao>");
+	InputSource input(xml);
+
+	DOMParser parser;
+	AutoPtr<Document> documento = parser.parse(&input);
+
+// pega node promocao
+	NodeList *list = documento->getElementsByTagName("promocao");
+	Node *node = list->item(0);
+	std::cout<< node->nodeName() << node->nodeValue() << std::endl ;
+
+// pega nome_promo
+	list = node->childNodes();
+	node = list->item(0);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+// pega id_serie
+
+	node = list->item(1);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+// pega id_cupom
+	node = list->item(2);
+	std::cout << "NodeName: "  << node->nodeName() << " NodeValue: " << node->nodeValue() << " GetNodeValue: " << node->getNodeValue() 
+		<< " InnerText :" << node->innerText() << std::endl ;
+	
+	std::cout<< "local name : " << node->localName() << std::endl ;
+
+	return 0 ;
+}
+
+
+
+

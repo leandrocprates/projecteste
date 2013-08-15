@@ -1,0 +1,37 @@
+.//obj/Linux/i686/debug_static/httpget.o .//obj/Linux/i686/release_static/httpget.o .//obj/Linux/i686/debug_shared/httpget.o .//obj/Linux/i686/release_shared/httpget.o: src/httpget.cpp \
+  /usr/local/poco/Net/include/Poco/Net/HTTPClientSession.h \
+  /usr/local/poco/Net/include/Poco/Net/Net.h \
+  /usr/local/poco/Foundation/include/Poco/Foundation.h \
+  /usr/local/poco/Foundation/include/Poco/Config.h \
+  /usr/local/poco/Foundation/include/Poco/Platform.h \
+  /usr/local/poco/Foundation/include/Poco/Platform_POSIX.h \
+  /usr/local/poco/Foundation/include/Poco/Bugcheck.h \
+  /usr/local/poco/Foundation/include/Poco/Foundation.h \
+  /usr/local/poco/Foundation/include/Poco/Types.h \
+  /usr/local/poco/Net/include/Poco/Net/HTTPSession.h \
+  /usr/local/poco/Net/include/Poco/Net/StreamSocket.h \
+  /usr/local/poco/Net/include/Poco/Net/Socket.h \
+  /usr/local/poco/Net/include/Poco/Net/SocketImpl.h \
+  /usr/local/poco/Net/include/Poco/Net/SocketDefs.h \
+  /usr/local/poco/Net/include/Poco/Net/SocketAddress.h \
+  /usr/local/poco/Net/include/Poco/Net/IPAddress.h \
+  /usr/local/poco/Foundation/include/Poco/RefCountedObject.h \
+  /usr/local/poco/Foundation/include/Poco/Mutex.h \
+  /usr/local/poco/Foundation/include/Poco/Exception.h \
+  /usr/local/poco/Foundation/include/Poco/ScopedLock.h \
+  /usr/local/poco/Foundation/include/Poco/Mutex_POSIX.h \
+  /usr/local/poco/Foundation/include/Poco/Timespan.h \
+  /usr/local/poco/Foundation/include/Poco/Timestamp.h \
+  /usr/local/poco/Foundation/include/Poco/Exception.h \
+  /usr/local/poco/Net/include/Poco/Net/HTTPRequest.h \
+  /usr/local/poco/Net/include/Poco/Net/HTTPMessage.h \
+  /usr/local/poco/Net/include/Poco/Net/MessageHeader.h \
+  /usr/local/poco/Net/include/Poco/Net/NameValueCollection.h \
+  /usr/local/poco/Foundation/include/Poco/String.h \
+  /usr/local/poco/Net/include/Poco/Net/HTTPResponse.h \
+  /usr/local/poco/Net/include/Poco/Net/HTTPCookie.h \
+  /usr/local/poco/Foundation/include/Poco/Timestamp.h \
+  /usr/local/poco/Foundation/include/Poco/StreamCopier.h \
+  /usr/local/poco/Foundation/include/Poco/Path.h \
+  /usr/local/poco/Foundation/include/Poco/URI.h \
+  /usr/local/poco/Foundation/include/Poco/Exception.h

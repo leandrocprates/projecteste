@@ -1,0 +1,3768 @@
+
+<!-- saved from url=(0058)http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467 -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+
+
+
+<STYLE>
+#pop{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:600px;height:335px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplogin{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:125px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#popcoment{display:none;position:relative;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplink{display:none;position:absolute;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#pop_biblio{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:770px;height:400px;border:1px solid #d0d0d0;background-color:#C0C0C0;overflow:auto;}
+
+</STYLE>
+
+
+
+
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+<!--include file="../assgold/funcoes_assgold.asp" -->
+
+
+
+
+<META http-equiv="Expires" content="0">
+<META http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<META http-equiv="Pragma" content="no-cache">
+<META name="description" content="Portal para analistas, desenvolvedores de sistemas e webdesigners. Artigos, dicas e v&iacute;deo aulas sobre C#, Java, Visual Basic .NET, PHP, ASP, Delphi, Visual Basic, ColdFusion, Javascript, HTML, Oracle, SQL Server, InterBase, Firebird, e muito mais.">
+<META name="keywords" content="c#, visual basic .net, asp.net, java, php, programa&ccedil;&atilde;o, an&aacute;lise, web, apostilas, gratuito, gr&aacute;tis, projeto, engenharia de software, visual basic, delphi, sql, xml, asp, coldfusion, css, stylesheet, javascript, webmaster, ti, linux, windows, livros, empregos, oportunidades, aplicativos, componentes, tecnologia, desenvolvimento, eventos, software, downloads, artigos, cursos online, flash, interbase, fireworks, dreamweaver, xsql">
+
+
+
+  <TITLE>DevMedia - Java Magazine - Sockets com Java – Parte III</TITLE>
+
+<META name="ProgId" content="Word.Document"><META name="Generator" content="Microsoft Word 12"><META name="Originator" content="Microsoft Word 12"></HEAD><BODY>
+
+
+
+
+
+<LINK href="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/estilo.css" rel="stylesheet" type="text/css">
+<STYLE type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#busca {
+	z-index:2;
+}
+-->
+</STYLE>
+
+<STYLE type="text/css">
+<!--
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #D6EA9D;
+}
+
+a {}
+.menuDEV {
+}
+
+.menuDEV:visited {
+font-family:verdana;  COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:hover {
+font-family:verdana;  COLOR: #003300; font-size: 12.3pt;
+}
+
+a {}
+.menuDEV3 {
+}
+
+.menuDEV3:visited {
+font-family:verdana;  COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:hover {
+font-family:verdana;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.menuDEV2 {
+}
+.menuDEV2:visited {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:active {
+font-family:verdana;font-weight: bold;  COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:link {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:hover {
+font-family:verdana;font-weight: bold;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.linkDEV {
+}
+.linkDEV:visited {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:active {
+font-family:verdana;  COLOR: black; font-size: 9pt;
+}
+.linkDEV:link {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:hover {
+font-family:verdana;  COLOR: #1D6202; font-size: 9pt;
+}
+
+#fundoTransMenu{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=10);opacity:0.1;-khtml-opacity:0.1;}
+
+#menu_boxRevistas{display:none;position:absolute;top:67;left:187;z-index:701;}
+#popSubMenu1{background-color:green;width:90;}
+#popSubMenu1b{width:170;z-index:702;background-color:transparent;}
+
+#menu_boxCanais{display:none;position:absolute;top:67;left:285;z-index:701;}
+#popSubMenu2{background-color:green;width:75;}
+#popSubMenu2b{width:180;}
+
+#menu_boxCursos{display:none;position:absolute;top:67;left:366;z-index:701;}
+#popSubMenu3{background-color:green;width:75;}
+#popSubMenu3b{width:200;}
+
+#menu_boxServicos{display:none;position:absolute;top:67;left:686;z-index:701;}
+#popSubMenu4{background-color:green;width:100;}
+#popSubMenu4b{width:200;}
+
+#menu_boxForum{display:none;position:absolute;top:67;left:610;z-index:701;}
+#popSubMenu5{background-color:green;width:70;}
+#popSubMenu5b{width:200;}
+
+-->
+</STYLE>
+
+
+<SCRIPT type="text/javascript"> 
+document.onclick=evento; 
+
+function evento(e){ 
+var target = (e && e.target) || (event && event.srcElement); 
+var obj = document.getElementById('minhadiv'); 
+var obj2 = document.getElementById('clica'); 
+checkParent(target)?obj.style.display='none':null; 
+target==obj2?obj.style.display='block':null; 
+} 
+
+function checkParent(t){ 
+while(t.parentNode){ 
+if(t==document.getElementById('minhadiv')){ 
+return false 
+} 
+t=t.parentNode 
+} 
+return true 
+} 
+
+</SCRIPT> 
+
+
+
+
+<TABLE border="0" cellspacing="0" cellpadding="0" bgcolor="white">
+ <TBODY><TR>
+  <TD>
+
+<TABLE width="996" border="0" align="left" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD width="996" height="62">	
+	
+	<TABLE width="100%" height="65" border="0" cellpadding="0" cellspacing="0" id="busca">
+        <TBODY><TR> 
+          <TD width="150" height="65">
+		  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/devmedia2peq2B.PNG">
+		  <!--<img src="http://www.devmedia.com.br/include/logo_natal.PNG">-->
+		  </TD>
+		  <TD width="30">&nbsp;</TD>
+		  <TD width="475">
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+<SCRIPT src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/ban_exp_hospedix_468x60.js"></SCRIPT><STYLE>.aberto {position:absolute;width:468;height:60;z-index:1;clip:rect(auto,468,280,auto);}.fechado {position:absolute;width:468;height:60;z-index:1;clip:rect(auto,468,60,auto);}</STYLE><TABLE width="468" height="60" border="0" cellpadding="0" cellspacing="0"><TBODY><TR><TD valign="top"><DIV id="banner_hospedix" class="fechado" onmouseover="javascript:aberto()" onmouseout="javascript:fechado()"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="468" height="280"><PARAM name="movie" value="http://www.hospedix.com.br/banner/ban_exp_hospedix_468x60.swf"><PARAM name="quality" value="high"><PARAM name="wmode" value="transparent"><EMBED src="http://www.hospedix.com.br/banner/ban_exp_hospedix_468x60.swf" wmode="transparent" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="468" height="280"></OBJECT></DIV></TD></TR></TBODY></TABLE>	  
+          </TD>
+		  <TD width="110">
+
+			  <TABLE cellspacing="0" border="0" align="right" width="190">
+			  				<TBODY><TR>
+				 <TD valign="bottom">
+				 <FONT face="verdana" size="1"><B><A href="http://www.devmedia.com.br/whatsnew/default.asp?id=1">Whats new?</A> | <A href="http://www.devmedia.com.br/login/login.asp">Login</A> 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </B></FONT></TD>
+					</TR>
+
+				<TR>
+				 <TD valign="bottom">
+				 <FONT face="verdana" size="1"><B><A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Cadastre-se</A> | <A href="http://www.devmedia.com.br/mancad">Atendimento</A> | <A href="http://www.devmedia.com.br/feed">RSS</A>				 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </B></FONT></TD>
+					</TR>
+
+					
+					<TR valign="top">
+					 <TD>
+
+							<FORM method="GET" action="http://www.devmedia.com.br/articles/listcomp.asp" name="srctopo">
+							<TABLE border="0" cellspacing="0" align="right">
+							<TBODY><TR valign="top">
+							<TD align="right">
+							  <INPUT type="text" name="txtsearch" size="16" maxlength="255" value="">
+							</TD>
+							<TD>
+							  <INPUT type="submit" name="sa" value="Busca">
+							</TD>
+							</TR>
+							</TBODY></TABLE>
+							</FORM>		  
+					</TD>
+				</TR>
+				
+			</TBODY></TABLE>
+
+		</TD>
+		<TD width="10">&nbsp;</TD>
+		<TD width="105" align="right">	  
+				<TABLE cellspacing="0" cellpadding="0">
+				 <TBODY><TR><TD><CENTER><A href="http://twitter.com/devmedia"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/twitter_logo_s.png" border="0" height="15"></A></CENTER></TD></TR>
+				 <TR height="4"><TD></TR>
+				 <TR><TD>
+	            <A href="javascript: var e = window.open('https://e-chat.netwatts.com.br/devmedia.com.br/survey.aspx?siteid=devmedia.com.br&survey=PreChat',
+				'chatWindow','width=472,height=320,resizable=0,scrollbars=no,menuDEVbar=no,status=no');" onmouseout="top.status=&#39;&#39;; return true;" onmousedown="top.status=&#39;Atendimento em Tempo Real com a DevMedia&#39;;return true;" onmouseover="top.status=&#39;Atendimento em Tempo Real com a DevMedia&#39;;return true;">
+                    <IMG border="0" src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/suNETImage.ashx" alt="Live chat by Netwatts"></A>
+				</TD></TR></TBODY></TABLE>
+	  
+	  </TD>
+
+		
+		
+		</TR>
+      </TBODY></TABLE>
+	  
+	  
+	  
+	  </TD>
+	  
+	  </TR>
+  <TR> 
+    <TD> 
+
+	
+	<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+
+	</TD>
+	 </TR>
+    <TR> 
+    <TD> 
+
+	
+
+	<TABLE cellspacing="0" cellpadding="0" width="999" height="4"><TBODY><TR><TD></TR></TBODY></TABLE>
+	</TD>
+	 </TR>
+    <TR> 
+    <TD> 
+
+
+
+	<TABLE border="0" align="left" cellpadding="0" cellspacing="0">
+<TBODY><TR>
+<TD align="center" width="57"><FONT color="green"><A class="menuDEV" href="http://www.devmedia.com.br/portal/default.asp">Home</A></FONT><A class="menuDEV" href="http://www.devmedia.com.br/portal/default.asp"></A></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="132"><A class="menuDEV" href="http://www.devmedia.com.br/sobre"><FONT color="red">Entenda o site</FONT></A><FONT color="red"></FONT></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="97">
+<A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;">Revistas<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2.gif" border="0"></A>
+</TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="87"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">Canais<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="82"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;block&#39;;">Cursos<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2.gif" border="0"></A> </TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD> 
+<TD align="center" width="87"><A class="menuDEV" href="http://www.devmedia.com.br/auditorio">Palestras</A></TD>
+
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD> 
+
+<TD align="center" width="77"><A class="menuDEV" href="http://www.devmedia.com.br/consultoria_online">Suporte</A></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+
+
+<TD align="center" width="74"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">Fórum<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+
+<TD align="center" width="112"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">+Serviços<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+
+
+<TD align="center" width="67"><A class="menuDEV" href="http://www.devmedia.com.br/assine/"><FONT color="red">Assine</FONT></A><FONT color="red"></FONT></TD>
+<TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="147"><A class="menuDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=6"><FONT color="red">Compre Créditos</FONT></A><FONT color="red"></FONT></TD>
+</TR>
+</TBODY></TABLE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" height="4" width="100%"><TBODY><TR><TD> </TD></TR></TBODY></TABLE>
+</TD>
+</TR>
+<TR>
+<TD>
+
+<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+</TD></TR>
+</TBODY></TABLE>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+
+
+
+
+
+<DIV id="menu_boxRevistas">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR>
+    <TD>
+	<DIV id="popSubMenu1">
+	<TABLE>
+	 <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" class="menuDEV"><FONT color="white">Revistas<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu1b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="green" border="0" width="262">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="245" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+				<BR>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0"><A href="http://www.devmedia.com.br/assgold" class="linkDEV">&nbsp;Todas as revistas</A>&nbsp;<BR>
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+			<TABLE>
+			  <TBODY><TR>
+			   <TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=3" class="linkDEV">&nbsp;ClubeDelphi&nbsp;<BR>
+			</A></TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=1" class="linkDEV">&nbsp;.net Magazine</A>&nbsp;<BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=6" class="linkDEV">&nbsp;Java Magazine&nbsp;<BR>
+			</A></TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=5" class="linkDEV">&nbsp;webMobile Magazine&nbsp;</A><BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=2" class="linkDEV">&nbsp;SQL Magazine</A>&nbsp;<BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=48" class="linkDEV">&nbsp;Engenharia de Software Mag&nbsp;</A><BR>
+			</TD></TR></TBODY></TABLE>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png"><A href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">&nbsp;Edições anteriores impressas&nbsp;</A><BR><BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+<DIV id="menu_boxCanais">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu2">
+	<TABLE>
+	 <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" class="menuDEV"><FONT color="white">Canais<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+	 <DIV id="popSubMenu2b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;">&nbsp;</DIV>
+	</TD>
+  </TR>
+</TBODY></TABLE>
+
+
+
+<TABLE bgcolor="green" border="0" width="272">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/canais/default.asp">Todo conteúdo DevMedia</A>&nbsp;<BR>
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+	<TABLE>
+	 <TBODY><TR>
+	  <TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=36" class="linkDEV">Canal Delphi&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=34" class="linkDEV">Canal Java</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=35" class="linkDEV">Canal .net&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=37" class="linkDEV">Canal Banco de dados&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=38" class="linkDEV">Canal Mobile</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=39" class="linkDEV">Canal Ruby on Rails&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=44" class="linkDEV">Canal PHP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=45" class="linkDEV">Canal ASP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=40" class="linkDEV">Canal WebDesign</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=43" class="linkDEV">Canal Engenharia de Software</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=46" class="linkDEV">Canal Linux</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=58" class="linkDEV">Canal Scripting</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=42" class="linkDEV">Canal Outros</A>&nbsp;
+	</TD></TR></TBODY></TABLE>
+	<BR>
+
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+<DIV id="menu_boxCursos">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu3">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" class="menuDEV"><FONT color="white">Cursos<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu3b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="307">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="290" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+		<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/">Todos os cursos online</A>&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+	
+			<TABLE>
+			 <TBODY><TR><TD>
+	
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=38" class="linkDEV">Cursos de Java</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=39" class="linkDEV">Cursos .net&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=46" class="linkDEV">Cursos de  Banco de dados&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=62" class="linkDEV">Cursos de Delphi</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=81" class="linkDEV">Cursos de Engenharia de Software</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=85" class="linkDEV">Cursos de Ruby on Rails&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=86" class="linkDEV">Cursos de ASP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=87" class="linkDEV">Cursos de WebDesign</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=88" class="linkDEV">Cursos de PHP</A>&nbsp;	<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=89" class="linkDEV">Cursos de PalmOS</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=90" class="linkDEV">Cursos de Linux</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=91" class="linkDEV">Cursos de Scripting</A>&nbsp;
+	<BR>
+	</TD></TR></TBODY></TABLE>
+
+	<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			<TABLE>
+			 <TBODY><TR><TD>
+
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de Delphi</A>&nbsp;<BR>
+		</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de .net</A>&nbsp;<BR>
+		</TD></TR></TBODY></TABLE><BR>
+
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+<DIV id="menu_boxServicos">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu4">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" class="menuDEV"><FONT color="white">+Serviços<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu4b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="297">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="280" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/mapa/" class="linkDEV">Todos os links (mapa do site)</A>&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+	<TABLE>
+	 <TBODY><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/creditos" class="linkDEV">Sistema de Créditos</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/player" class="linkDEV">DevMedia Player&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/publish/publish_central.asp" class="linkDEV">Publique seu artigo&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3" class="linkDEV">Cadastre-se</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">Edições anteriores</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/developerads" class="linkDEV">DeveloperAds&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/paycontent" class="linkDEV">PayContent</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/feed" class="linkDEV">RSS</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/login/login.asp" class="linkDEV">Login</A>&nbsp;	<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/mancad" class="linkDEV">Atendimento</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/oportunidades" class="linkDEV">Oportunidades de trabalho</A>&nbsp;<BR>
+	</TD></TR>
+	<TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15682" class="linkDEV">FAQ Entrega de revistas</A>&nbsp;<BR>
+	</TD></TR>
+	<TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4668" class="linkDEV">FAQ Vídeo aulas</A>&nbsp;<BR>
+	</TD></TR>
+	<TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9272" class="linkDEV">FAQ DevMedia Player</A>&nbsp;<BR>
+	</TD></TR>
+	
+	</TBODY></TABLE>
+		<BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+<DIV id="menu_boxForum">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu5">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" class="menuDEV"><FONT color="white">Fórum<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu5b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="297">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="280" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+		<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<!-- <BR>
+			&nbsp;<img src='http://www.devmedia.com.br/sobre/rightarrow2.png' border=0>&nbsp;<a href='http://www.devmedia.com.br/forum' class='linkDEV'>Fórum NOVO</a>&nbsp;<BR>
+			&nbsp;<img src='http://www.devmedia.com.br/sobre/rightarrow2.png' border=0>&nbsp;<a href='http://forum.devmedia.com.br' class='linkDEV'>Fórum antigo</a>&nbsp; -->
+
+						 <TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<!--<tr height=1><td bgcolor=green ></td></tr>-->
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+
+
+
+	<TABLE>
+	 <TBODY><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/forum" class="linkDEV">Fórum NOVO</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://forum.devmedia.com.br/" class="linkDEV">Fórum antigo&nbsp;<BR>
+	</A></TD></TR>
+	
+	</TBODY></TABLE>
+		<BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+
+
+<DIV id="fundoTransMenu" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;">
+</DIV>
+
+
+
+<STYLE>
+#localiza_boxMain{display:none;position:absolute;top:93;left:118;z-index:701;}
+#localiza_boxCanais{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+#localiza_boxCursos{display:none;position:absolute;top:93;left:385;z-index:701;}
+
+
+#localiza_boxObjetos{display:none;position:absolute;top:92;left:718;z-index:701;}
+
+
+#localiza_boxRevistas{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+
+#fundoTrans{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=8);opacity:0.1;-khtml-opacity:0.1;}
+
+#popSub2{background-color:#EAEAEA;width:60;}
+#popSub2b{width:130;}
+
+#popSub3{background-color:#EAEAEA;width:170;}
+#popSub3b{width:100;}
+
+#popSub4{background-color:#E2E2E2;width:170;}
+#popSub4b{width:145;}
+
+#popSub5{background-color:#E2E2E2;width:60;}
+#popSub5b{width:212;}
+
+#popSub6{background-color:#EAEAEA;width:145;}
+#popSub6b{width:130;}
+
+</STYLE>
+
+<!-- #66CC99 -->
+
+<TABLE width="999" cellpadding="0" cellspacing="0" bgcolor="#D3D3D3" border="0">
+ <TBODY><TR>
+   <TD align="left">
+
+	<TABLE cellpadding="0" cellspacing="0" height="18"><TBODY><TR><TD width="600">
+	 
+	<TABLE border="0" cellpadding="0" cellspacing="0">
+	<TBODY><TR><TD width="10"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"> </TD>
+   <TD width="90"><FONT size="1" face="verdana"><B>Você está em:</B>
+	</FONT></TD>
+	
+	
+	<TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1" face="verdana">
+   /&nbsp;canal Java&nbsp;[artigos] </FONT></A><FONT size="1" face="verdana">
+   </FONT></TD>
+   <TD width="10">
+   
+
+	<TD width="20">
+	</TR>
+	</TBODY></TABLE>
+	</TD><TD>
+	
+	<TABLE cellpadding="0" cellspacing="0" border="0"><TBODY><TR>
+	<TD width="338" align="right"><FONT face="verdana" size="1">
+   	
+   &nbsp;&nbsp;&nbsp;<B>+ Java:</B>&nbsp;&nbsp;&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=1&site=34"><FONT face="verdana" size="1">artigos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=2&site=34"><FONT face="verdana" size="1">vídeos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><FONT face="verdana" size="1">cursos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   </FONT></FONT></FONT></FONT></TD>
+   <TD width="45"><FONT face="verdana" size="1">
+   <A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;block&#39;;">mais <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4b.gif"></A>
+   
+   </FONT></TD>
+  </TR>
+ </TBODY></TABLE>
+
+ </TD>
+	</TR>
+	</TBODY></TABLE>
+
+   </TD>
+  </TR>
+
+   
+</TBODY></TABLE>
+
+
+<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+<DIV id="localiza_boxMain">
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub2">
+	<TABLE><TBODY><TR height="13">   <TD>	
+	<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">canais<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+   </TD>   </TR>
+  </TBODY></TABLE>
+ </DIV>
+ </TD>  <TD>
+    <DIV id="popSub2b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#EAEAEA" border="0" width="202">
+<TBODY><TR height="5"><TD colspan="2"> </TR>
+<TR> <TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="185" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>	<TD>	
+	<TABLE width="99%">
+	  <TBODY><TR>	<TD width="2">
+		<TD><FONT face="verdana" size="1">
+			
+			&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			<FONT face="verdana" size="1">Outras seções:
+			<TABLE border="0">
+			<TBODY><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/"><FONT size="1">Home</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/sobre"><FONT size="1">Entenda o site</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/revistas"><FONT size="1">Revistas</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/canais/lista_canais.asp"><FONT size="1">Canais</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/cursos"><FONT size="1">Cursos&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/auditorio/"><FONT size="1">Palestras</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/servicos/"><FONT size="1">Suporte&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://forum.devmedia.com.br/"><FONT size="1">Fórum</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/jobfinder/lista.asp"><FONT size="1">Oportunidades</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR>
+			</TBODY></TABLE>
+			
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+			<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif">&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/mapa"><FONT size="1">Todos os links</FONT></A><FONT size="1">&nbsp;<BR><BR>
+		</FONT>
+		</FONT></FONT></TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+  </TBODY></TABLE>
+</DIV>
+
+
+<DIV id="localiza_boxCanais">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+   <TD>	
+
+<DIV id="popSub3">
+<TABLE>
+ <TBODY><TR height="13">
+   <TD>	
+	<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;">
+<FONT face="verdana" size="1" color="black">canal Java&nbsp;[artigos] <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+   </TD></TR></TBODY></TABLE>
+</DIV>
+ </TD>  <TD>
+    <DIV id="popSub3b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="#EAEAEA" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT face="verdana" size="1">&nbsp;Ir para o Canal Java </FONT></A><FONT face="verdana" size="1">&nbsp;<BR>
+	
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		
+		<FONT size="1">+Canais:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+<A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=36"><FONT size="1">Canal Delphi&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1">Canal Java</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=35"><FONT size="1">Canal .net&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=37"><FONT size="1">Canal Banco de dados&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=38"><FONT size="1">Canal Mobile</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=39"><FONT size="1">Canal Ruby on Rails&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=44"><FONT size="1">Canal PHP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=45"><FONT size="1">Canal ASP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=40"><FONT size="1">Canal WebDesign</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=43"><FONT size="1">Canal Engenharia de Software</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=46"><FONT size="1">Canal Linux</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=58"><FONT size="1">Canal Scripting</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=42"><FONT size="1">Canal Outros</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp"><FONT size="1">&nbsp;Todo conteúdo DevMedia</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="localiza_boxCursos">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub4">
+	<TABLE cellspacing="0" cellpadding="0" height="20">
+	 <TBODY><TR>
+	   <TD>
+		<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">&nbsp;&nbsp; cursos de Java  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD>  <TD>
+    <DIV id="popSub4b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#E2E2E2" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema="><FONT face="verdana" size="1">&nbsp;ver cursos de Java </FONT></A><FONT face="verdana" size="1">&nbsp;<BR>
+	
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		
+		<FONT size="1">+Cursos:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><FONT size="1">Cursos de Java</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=39"><FONT size="1">Cursos de .net&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=46"><FONT size="1">Cursos de Banco de dados&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=62"><FONT size="1">Cursos de Delphi</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=81"><FONT size="1">Cursos de Engenharia de Software</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=85"><FONT size="1">Cursos de Ruby on Rails&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=86"><FONT size="1">Cursos de ASP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=87"><FONT size="1">Cursos de WebDesign</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=88"><FONT size="1">Cursos de PHP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=89"><FONT size="1">Cursos de PalmOS</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=90"><FONT size="1">Cursos de Linux</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=91"><FONT size="1">Cursos de Scripting</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos/formacoes.asp"><FONT size="1">&nbsp;Formações completas</FONT></A><FONT size="1">&nbsp;<BR>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos"><FONT size="1">&nbsp;Todos os cursos</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<DIV id="localiza_boxObjetos">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR>
+   
+      <TD>
+    <DIV id="popSub5b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD>
+   <TD>
+	<DIV id="popSub5">
+	<TABLE cellspacing="0" cellpadding="0" height="20">
+	 <TBODY><TR>
+	   <TD><A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">&nbsp;&nbsp;mais <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+		
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD></TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="#E2E2E2" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD>
+
+		<TABLE><TBODY><TR height="2"> <TD colspan="2"> </TR></TBODY></TABLE>
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><FONT size="1">
+
+<A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1">Canal de conteúdo Java</FONT></A><FONT size="1">
+
+<BR></FONT></FONT></TD></TR><TR><TD>
+
+
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><FONT size="1">Revista Java Magazine<BR></FONT></A></TD></TR><TR><TD>
+
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/consultoria_online"><FONT size="1">Suporte Java</FONT></A><FONT size="1"><BR></FONT></TD></TR></TBODY></TABLE>
+
+			
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+
+		<TABLE><TBODY><TR><TD>
+
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=18&site=34"><FONT size="1">Palestras de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=9&site=34"><FONT size="1">E-books de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR><TR><TD>
+
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD>
+
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=10&site=34"><FONT size="1">Downloads de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR></TBODY></TABLE><FONT size="1">
+
+		<TABLE><TBODY><TR height="2"> <TD colspan="2"> </TR></TBODY></TABLE>
+
+		</FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="localiza_boxRevistas">
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub6">
+	<TABLE>
+	 <TBODY><TR height="13">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD>  <TD>
+    <DIV id="popSub6b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#EAEAEA" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			<FONT size="1"><BR>
+		<FONT size="1">+Revistas:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=3"><FONT size="1">ClubeDelphi</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=1"><FONT size="1">.net Magazine&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><FONT size="1">Java Magazine&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=5"><FONT size="1">webMobile Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=2"><FONT size="1">SQL Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=48"><FONT size="1">Engenharia de Software Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="https://seguro.devmedia.com.br/edicoes_anteriores.asp"><FONT size="1">&nbsp;Edições anteriores impressas</FONT></A><FONT size="1">&nbsp;<BR>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/revistas"><FONT size="1">&nbsp;Todas as revistas</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="fundoTrans" onclick="document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;">
+</DIV>
+
+
+ 
+
+
+
+
+ <TABLE border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD valign="top" width="27" bgcolor="#EFEFEF">
+		<BR>
+	</TD>
+    <!--<td width="651px" valign="top">-->
+	<TD width="671px" valign="top">
+		
+		<TABLE width="100%" cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD>
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+<STYLE type="text/css">
+<!--
+.linkrenov {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}	
+	
+.linkrenov:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+-->
+</STYLE>
+
+
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+		
+		
+		
+		 <TABLE bgcolor="#FFFF99" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+			<TBODY><TR><TD width="18">
+					 <TD>
+ 
+
+<DIV id="pop">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" onclick="document.getElementById(&#39;pop&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR>
+
+	<TABLE width="98%"><TBODY><TR><TD><FONT face="VErdana" size="2">Este post está disponível para quem é assinante da <B><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=6">Java Magazine</A></B> ou para quem possui <B><A href="http://www.devmedia.com.br/creditos/default.asp?p=1">Créditos DevMedia</A></B>. <FONT color="black" size="1"><BR><BR><TABLE width="100%" bgcolor="#000000" cellpadding="0" cellspacing="0"><TBODY><TR><TD></TR></TBODY></TABLE><BR><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/info.jpg">&nbsp;&nbsp;Conheça os planos de créditos DevMedia e visualize esse post agora mesmo!<FONT size="1"><BR><BR><TABLE><TBODY><TR><TD><FONT size="2"><B>Plano conveniência</B><FONT size="2" color="black"> – Neste plano este post custa <B>R$ 0,00 <A href="https://seguro.devmedia.com.br/buycredits.asp?comp=9467"><FONT color="#FF0000">(Compre agora)</FONT></A><FONT color="#FF0000"><FONT color="black"></FONT></FONT></B><FONT color="#FF0000"><FONT color="black"></FONT></FONT></FONT></FONT></TD></TR><TR><TD><FONT size="1">Esse plano permite que você compre somente um post, pagando por ele seu preço sem desconto.</FONT></TD></TR></TBODY></TABLE><BR><TABLE><TBODY><TR><TD><B><FONT size="2">Plano ocasional<FONT size="2" color="black"></FONT></FONT></B><FONT size="2"><FONT size="2" color="black">: Aqui este post custa: <B>R$ 0,00</B> (<FONT size="1">assinante<FONT size="2">) ou <B>R$ 0,00</B> (<FONT size="1">não-assinante<FONT size="2">)</FONT></FONT></FONT></FONT></FONT></FONT></TD></TR><TR><TD><FONT size="1">Este plano é ideal para quem tem interesse em mais de um post. Você compra um mínimo de R$ 50,00 em créditos e ganha, em média, 50% de desconto no preço do post. <A href="https://seguro.devmedia.com.br/buycredits.asp?v=0"><FONT size="2" color="#FF0000"><B>Compre Créditos agora!</B></FONT></A><FONT size="2" color="#FF0000"></FONT></FONT></TD></TR></TBODY></TABLE><BR>  <TABLE><TBODY><TR><TD><B><FONT size="2" color="black">Assinatura de Créditos</FONT></B><FONT size="2" color="black"> (Plano econômico)<FONT size="2" color="black"> – Aqui este post custa <B>R$ 0,00</B></FONT></FONT></TD></TR><TR><TD><FONT size="1">Este plano é ideal para quem tem interesse em muitos posts. Com esse plano você compra R$ 180,00 em créditos e ganha, em média, 80% de desconto no preço do post.<A href="https://seguro.devmedia.com.br/venda_prod.asp?id=372"> <FONT size="2" color="#FF0000"><B>Assine este plano agora!</B></FONT></A><FONT size="2" color="#FF0000"><B><BR><BR><FONT size="2"></FONT></B><FONT size="2"><A href="http://www.devmedia.com.br/creditos/default.asp?p=1">&gt; Saiba mais sobre o Sistema de Créditos DevMedia</A></FONT></FONT></FONT></TD></TR></TBODY></TABLE><BR></FONT></FONT></FONT></TD></TR></TBODY></TABLE></FONT></DIV><FONT face="verdana" size="2">
+		
+					 </FONT></TD>
+					</TR>
+				   </TBODY></TABLE>
+			
+		
+
+
+		<TABLE cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD>
+			   	
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+		
+
+
+
+	   <TABLE border="0" cellpadding="0" cellspacing="0">
+		
+
+		
+
+		<TBODY><TR>
+		 <TD>
+		   
+
+
+
+
+			<TABLE>
+			 <TBODY><TR>
+			   
+			   <TD>
+			   	 
+				 <A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" onclick="document.getElementById(&#39;poplogin&#39;).style.display=&#39;block&#39;;">
+				<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT-FEEDBACK.jpg" border="0"></A>
+			   </TD>
+			   <TD><A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=9467"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT-FAVORITOS.jpg" border="0"></A></TD>
+			  </TR>
+			 </TBODY></TABLE>
+
+
+				<FONT size="1"><BR>
+
+				
+
+				<TABLE bgcolor="#818181" width="100%"><TBODY><TR height="5"><TD></TR></TBODY></TABLE>
+
+
+			
+			<SPAN style="font-family: verdana, sans-serif; line-height:130%;font-size : 15pt">Sockets com Java – Parte III
+			<TABLE width="100%" bgcolor="#000000" cellpadding="0" cellspacing="0"><TBODY><TR><TD></TR></TBODY></TABLE>
+		     
+
+		 </SPAN></FONT></TD>
+		</TR>
+	    <TR>
+		  <TD>
+		   
+
+
+
+
+
+
+<LINK rel="File-List" href="http://www.devmedia.com.br/articles/Sockets%20com%20Java_arquivos/filelist.xml">
+<LINK rel="Edit-Time-Data" href="http://www.devmedia.com.br/articles/Sockets%20com%20Java_arquivos/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><O:SMARTTAGTYPE namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="metricconverter">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Eduardo Oliveira Spinola</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Eduardo Oliveira Spinola</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2008-06-28T00:41:00Z</o:Created>
+  <o:LastSaved>2008-06-28T00:42:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>826</o:Words>
+  <o:Characters>4466</o:Characters>
+  <o:Company>Home</o:Company>
+  <o:Lines>37</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5282</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<LINK rel="themeData" href="http://www.devmedia.com.br/articles/Sockets%20com%20Java_arquivos/themedata.thmx">
+<LINK rel="colorSchemeMapping" href="http://www.devmedia.com.br/articles/Sockets%20com%20Java_arquivos/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>PT-BR</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<STYLE>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1107304683 0 0 159 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627400839 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 2048 0 0 159 0;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:536881799 -2147483648 8 0 511 0;}
+@font-face
+	{font-family:DejaVuSans;
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:Monospace;
+	mso-font-alt:"MS Mincho";
+	mso-font-charset:128;
+	mso-generic-font-family:auto;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Monospace";
+	mso-font-charset:128;
+	mso-generic-font-family:auto;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:12.0pt;
+	font-family:"Times","serif";
+	mso-fareast-font-family:DejaVuSans;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:.5pt;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Texto de balão Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:DejaVuSans;
+	mso-font-kerning:.5pt;}
+span.NegritoTecnico
+	{mso-style-name:NegritoTecnico;
+	mso-style-unhide:no;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Arial Narrow","sans-serif";
+	mso-ascii-font-family:"Arial Narrow";
+	mso-hansi-font-family:"Arial Narrow";
+	mso-ansi-language:PT-BR;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;
+	mso-no-proof:yes;}
+p.ListagemCodigo, li.ListagemCodigo, div.ListagemCodigo
+	{mso-style-name:ListagemCodigo;
+	mso-style-unhide:no;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:9.0pt;
+	mso-line-height-rule:exactly;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	tab-stops:5.65pt 11.35pt 17.0pt 22.7pt 1.0cm 34.0pt 39.7pt 45.35pt 51.05pt 2.0cm;
+	font-size:8.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-fareast-language:AR-SA;}
+p.TtuloPortal, li.TtuloPortal, div.TtuloPortal
+	{mso-style-name:"Título Portal";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:14.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-fareast-font-family:DejaVuSans;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:.5pt;
+	font-weight:bold;}
+p.InterttuloPortal, li.InterttuloPortal, div.InterttuloPortal
+	{mso-style-name:"Intertítulo Portal";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-fareast-font-family:DejaVuSans;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:.5pt;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.CorpoPortal, li.CorpoPortal, div.CorpoPortal
+	{mso-style-name:"Corpo Portal";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-fareast-font-family:DejaVuSans;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:.5pt;}
+p.CdigoPortal, li.CdigoPortal, div.CdigoPortal
+	{mso-style-name:"Código Portal";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	text-autospace:ideograph-numeric;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:Monospace;
+	mso-bidi-font-family:Monospace;
+	color:#1F497D;
+	mso-font-kerning:.5pt;
+	mso-ansi-language:EN-US;
+	mso-bidi-font-weight:bold;}
+span.TextodebaloChar
+	{mso-style-name:"Texto de balão Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Texto de balão";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-fareast-font-family:DejaVuSans;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;
+	mso-font-kerning:.5pt;
+	mso-fareast-language:PT-BR;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:2128575023;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1499919476 68550657 68550659 68550661 68550657 68550659 68550661 68550657 68550659 68550661;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</STYLE>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Tabela normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:10.0pt;
+	mso-para-margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-fareast-language:EN-US;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+
+
+<DIV class="Section1">
+
+<P class="TtuloPortal">Sockets com Java – Parte III</P>
+
+<P class="InterttuloPortal">Aprenda a desenvolver aplicações em Java que
+comunicam-se via rede local ou internet</P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="InterttuloPortal">O protocolo UDP</P>
+
+<P class="CorpoPortal">Quando necessitamos de uma troca não confiável de
+informações podemos usar o protocolo <B style="">UDP</B>
+(<I style="">User Datagram Protocol</I>), pois este
+protocolo não garante a entrega dos pacotes (o <B style="">UDP</B> não espera uma mensagem de confirmação do host de destino). É
+de responsabilidade da aplicação receptora a remontagem dos pacotes na ordem
+correta e a solicitação de reenvio de pacotes que não foram recebidos. O <B style="">UDP</B> utiliza datagram sockets para a
+troca de mensagens. As principais aplicações do UDP são aplicações como
+transmissões de vídeo, skype, voip, etc... Para exemplificar imagine um serviço
+de voz sobre IP onde um pacote é perdido enquanto dois usuários conversam, não
+faz sentido reenviar o pacote pois o usuário da outra ponta precisaria saber
+que ainda faltam pacotes a receber. Veja uma simulação abaixo da conversa entre
+dois usuários: </P>
+
+<P class="CorpoPortal" style="margin-left: 36pt; text-indent: -18pt;"><!--[if !supportLists]--><SPAN style="font-family: Symbol;"><SPAN style="">·<SPAN style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN></SPAN><!--[endif]-->Erika: Ola Paulo</P>
+
+<P class="CorpoPortal" style="margin-left: 36pt; text-indent: -18pt;"><!--[if !supportLists]--><SPAN style="font-family: Symbol;"><SPAN style="">·<SPAN style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN></SPAN><!--[endif]-->Paulo: Ola Erika</P>
+
+<P class="CorpoPortal" style="margin-left: 36pt; text-indent: -18pt;"><!--[if !supportLists]--><SPAN style="font-family: Symbol;"><SPAN style="">·<SPAN style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN></SPAN><!--[endif]-->Erika: Como você está?</P>
+
+<P class="CorpoPortal" style="margin-left: 36pt; text-indent: -18pt;"><!--[if !supportLists]--><SPAN style="font-family: Symbol; color: red;"><SPAN style="">·<SPAN style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN></SPAN><!--[endif]--><SPAN style="color: red;">Paulo: Tudo bem e vc?
+(este pacote foi perdido)<O:P></O:P></SPAN></P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CorpoPortal">No exemplo acima o TCP enviaria novamente o pacote e o
+usuário da outra ponta deveria ficar esperando. Não faria nenhum sentido isso
+tratando-se de uma ligação telefônica. Este é um típico caso onde o UDP se
+aplica perfeitamente.</P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CorpoPortal">Os datagram sockets são mensagens que podem ser enviadas
+pela rede quando não existe a necessidade de confirmação de entrega, de tempo
+de entrega e nem mesmo garantia de conteúdo. Datagramas são úteis em aplicações
+que não necessitam do estabelecimento de uma conexão para o envio da mensagem.
+Um bom exemplo do seu uso é o envio de mensagens em broadcast para clientes de
+uma rede (o servidor pode enviar um datagrama para todos os clientes avisando
+que irá reiniciar, por exemplo). Em Java podemos trabalhar com datagramas
+utilizando as classes DatagramPacket e DatagramSocket do pacote java.net.</P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="InterttuloPortal">Um servidor UDP básico</P>
+
+<P class="CorpoPortal">Antes de mostramos como criar um servidor TCP capaz de
+receber várias conexões simultâneas, vamos mostrar como criar um servidor UDP. Como
+vimos, o UDP envia os pacotes sem esperar por uma resposta do receptor. Este
+protocolo pode ser útil em situações como o envio de pacotes multimídia, por
+exemplo, ou um serviço de voz sobre ip, o que é muito comum. </P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CorpoPortal">Nosso servidor UDP envia mensagens para os clientes de uma
+determinada rede local. Perceba neste exemplo que no UDP o cliente também
+aguarda mensagens que poderão ser enviadas pelo servidor, ou seja, mantém um <SPAN class="NegritoTecnico"><SPAN style="font-size: 12pt;">DatagramSocket</SPAN></SPAN><B style=""> </B>em uma determinada porta. Por exemplo,
+o seguinte trecho cria o <B style="">DatagramSocket</B>
+que irá esperar mensagens na porta 12346. </P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US">DatagramSocket serverdgram = new DatagramSocket(12346);</SPAN></P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CorpoPortal">Veja na <B style="">Listagem 3</B>
+o remetente UDP exemplo e na <B style="">Listagem 4</B>
+o código do receptor UDP, na <B style="">Figura 4</B>
+você pode ver a mensagem sendo enviada pelo remetente. Na <B style="">Figura 5</B> temos o receptor sendo inicializado para receber as
+mensagens e na <B style="">Figura <ST1:METRICCONVERTER productid="6 a" w:st="on">6<SPAN style="font-weight: normal;"> a</SPAN></ST1:METRICCONVERTER><SPAN style="font-weight: normal;"> mensagem recebida pelo receptor. Como estamos
+usando UDP neste caso o remetente sempre vai mostrar a mensagem indicando que a
+mensagem foi enviada, porém não existe a confirmação de que a mensagem foi
+recebida.</SPAN></B></P>
+
+<P class="CorpoPortal"><O:P>&nbsp;</O:P></P>
+
+<P class="CorpoPortal"><B style=""><SPAN style="" lang="EN-US">Listagem 3. </SPAN></B><SPAN style="" lang="EN-US">Classe RemetenteUDP<O:P></O:P></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US">public class RemetenteUDP {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;
+</SPAN>public static void main(String[] args) {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN>if(args.length != 3) {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>System.out.println("Uso correto:
+&lt;Nome da maquina&gt; &lt;Porta&gt; &lt;Mensagem&gt;");</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style=""> </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>System.exit(0);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN>}<SPAN style="">&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN>try {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN>//Primeiro argumento é o nome do host destino</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN>InetAddress addr = InetAddress.getByName(args[0]);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN>int port = Integer.parseInt(args[1]);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN>byte[] msg = args[2].getBytes();</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp;</SPAN><SPAN style="">&nbsp;</SPAN>//Monta o pacote a ser enviado</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>DatagramPacket pkg = new
+DatagramPacket(msg,msg.length, addr, port);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>// Cria o DatagramSocket que será responsável
+por enviar a mensagem</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>DatagramSocket ds = new DatagramSocket();</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>//Envia a mensagem </SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>ds.send(pkg);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>System.out.println("Mensagem enviada
+para: " + addr.getHostAddress() + "\n" + </SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>"Porta: " + port +
+"\n" + "Mensagem: " + args[2]);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>//Fecha o DatagramSocket</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;</SPAN>ds.close();<SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN>}<SPAN style=""> </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;
+</SPAN>catch(IOException ioe) {...}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp; </SPAN>}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US">}</SPAN></P>
+
+<P class="ListagemCodigo"><SPAN style="" lang="EN-US"><O:P>&nbsp;</O:P></SPAN></P>
+
+<P class="CorpoPortal"><B style=""><SPAN style="" lang="EN-US">Listagem 4. </SPAN></B><SPAN style="" lang="EN-US">Classe ReceptorUDP<O:P></O:P></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US">public class ReceptorUDP {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;
+</SPAN>public static void main(String[] args) {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN>if(args.length != 1) {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>System.out.println("Informe a porta a
+ser ouvida");</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>System.exit(0);<SPAN style=""> </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN>}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN>try {</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//Converte o argumento recebido para inteiro
+(numero da porta) <SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>int
+port = Integer.parseInt(args[0]);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//Cria
+o DatagramSocket para aguardar mensagens, neste momento o método fica
+bloqueando</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//até
+o recebimente de uma mensagem</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>DatagramSocket
+ds = new DatagramSocket(port);<SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;</SPAN><SPAN style="">&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>System.out.println("Ouvindo a porta:
+" + port);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//Preparando o buffer de recebimento da
+mensagem</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>byte[] msg = new byte[256];</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//Prepara o pacote de dados </SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>DatagramPacket pkg = new DatagramPacket(msg,
+msg.length);<SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>//Recebimento
+da mensagem</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>ds.receive(pkg);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>JOptionPane.showMessageDialog(null,new
+String(pkg.getData()).trim(), </SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN>"Mensagem recebida",1);</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp;</SPAN>ds.close();<SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN>}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp;&nbsp; </SPAN><SPAN style="">&nbsp;&nbsp; </SPAN>catch(IOException ioe) {...}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><SPAN style="">&nbsp; </SPAN>}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US">}</SPAN></P>
+
+<P class="CdigoPortal"><SPAN lang="EN-US"><O:P>&nbsp;</O:P></SPAN></P>
+
+<P class="MsoNormal"><SPAN style=""><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Imagem_x0020_1" o:spid="_x0000_i1027" type="#_x0000_t75"
+ style='width:482.25pt;height:142.5pt;visibility:visible;mso-wrap-style:square'
+ o:bordertopcolor="black" o:borderleftcolor="black" o:borderbottomcolor="black"
+ o:borderrightcolor="black">
+ <v:imagedata src="Sockets%20com%20Java_arquivos/image001.png" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><!--[if !vml]--><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pcsocketjmp1fig04.JPG" alt="pcsocketjmp1fig04.JPG" width="636" border="0" height="186"><BR><!--[endif]--></SPAN></P>
+
+<P class="CorpoPortal"><B style="">Figura 4. </B>Remetente
+UDP em ação (enviando mensagem ao receptor)</P>
+
+<P class="CorpoPortal"><I style=""><O:P>&nbsp;</O:P></I></P>
+
+<P class="MsoNormal"><SPAN style=""><!--[if gte vml 1]><v:shape
+ id="Imagem_x0020_2" o:spid="_x0000_i1026" type="#_x0000_t75" style='width:482.25pt;
+ height:90.75pt;visibility:visible;mso-wrap-style:square' o:bordertopcolor="black"
+ o:borderleftcolor="black" o:borderbottomcolor="black" o:borderrightcolor="black">
+ <v:imagedata src="Sockets%20com%20Java_arquivos/image003.png" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><!--[if !vml]--><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pcsocketjmp1fig05.JPG" alt="pcsocketjmp1fig05.JPG" width="636" border="0" height="186"><BR><!--[endif]--></SPAN></P>
+
+<P class="CorpoPortal"><B style="">Figura 5. </B>Receptor
+sendo inicializado para receber mensagens na porta 1234</P>
+
+<P class="CorpoPortal"><I style=""><O:P>&nbsp;</O:P></I></P>
+
+<P class="MsoNormal"><SPAN style=""><!--[if gte vml 1]><v:shape
+ id="Imagem_x0020_3" o:spid="_x0000_i1025" type="#_x0000_t75" style='width:190.5pt;
+ height:76.5pt;visibility:visible;mso-wrap-style:square' o:bordertopcolor="black"
+ o:borderleftcolor="black" o:borderbottomcolor="black" o:borderrightcolor="black">
+ <v:imagedata src="Sockets%20com%20Java_arquivos/image005.png" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><!--[if !vml]--><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pcsocketjmp1fig06.JPG" alt="pcsocketjmp1fig06.JPG" width="289" border="0" height="116"><BR><!--[endif]--></SPAN></P>
+
+<P class="MsoNormal"><B style="">Figura 6. </B>Mensagem
+UDP recebida pelo receptor</P>
+
+</DIV>
+
+</O:SMARTTAGTYPE>
+		  </TD>
+		</TR>	
+
+		
+		<TR>
+		  <TD>
+				
+
+
+				<TABLE bgcolor="#818181" width="100%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR></TBODY></TABLE>
+
+		  </TD>
+		</TR>
+	   
+	   
+	   	<TR>
+          <TD height="30"><BR>
+			
+		  <TABLE>
+		    <TBODY><TR>
+			  <TD valign="top">
+
+					
+
+			
+			  <DIV id="divBox_2" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px; HEIGHT: 355px; BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+
+				
+			 <TABLE>
+			   <TBODY><TR>
+			     <TD>
+				 <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT_PostsAutorAMARELO.jpg"></TD>
+				 <TD><A href="http://www.devmedia.com.br/space.asp?id=158574&post=2"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"><B></B>
+				 </FONT></TD>
+				</TR>
+			  </TBODY></TABLE>
+			  
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=10928"><SPAN class="font2-preto">Artigo SQL Magazine 58 - Consultas e transações distribuídas no SQL Server 2005
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9469"><SPAN class="font2-preto">Sockets com Java – Parte V
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9468"><SPAN class="font2-preto">Sockets com Java – Parte IV
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/DevMedia - Java Magazine - Sockets com Java – Parte III.html"><SPAN class="font2-preto">Sockets com Java – Parte III
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9466"><SPAN class="font2-preto">Sockets com Java – Parte II
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9465"><SPAN class="font2-preto">Sockets com Java – Parte I
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5452"><SPAN class="font2-preto">Recuperando um banco de dados SQL Server após um desastre
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4589"><SPAN class="font2-preto">Como acessar o Progress via JDBC
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4096"><SPAN class="font2-preto">Cuidados com o Backup do seu banco de dados SQL Server
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4076"><SPAN class="font2-preto">MySQL Connector/J
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+					
+			  </DIV>
+
+
+			  </TD>
+			  <TD width="10">
+			  <TD valign="top">
+			  <DIV id="divBox_3" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px;  HEIGHT: 355px;BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+			  
+			  <TABLE>
+			   <TBODY><TR>
+			     <TD>
+			  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT_CursosRelacionadosAMARELO.jpg"></TD>
+			  <TD><A href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&tipo=15&vis=-1&site=-1"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"><B></B></FONT></TD>
+			    </TR>
+			   </TBODY></TABLE>		  		
+
+		  		
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11320"><SPAN class="font2-preto">Desenvolvimento de aplicações Java Web no Eclipse
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9858"><SPAN class="font2-preto">Curso Online - iReport – Criando relatórios com Java para aplicações web
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=7404"><SPAN class="font2-preto">Curso online - Desenvolvendo uma aplicação completa com Struts 2
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=10653"><SPAN class="font2-preto">Java Web: Saiba como Desenvolver Aplicações utilizando Spring, Hibernate e JSF na Prática
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=10539"><SPAN class="font2-preto">Introdução do Desenvolvimento Java para Web: JSP, JSTL e Sevlets
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+
+
+
+
+
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11481"><SPAN class="font2-preto">Curso Online:UML(básico)-Completo-
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14274"><SPAN class="font2-preto">Curso Online-Joomla 1.5
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11643"><SPAN class="font2-preto">Introdução à Engenharia de Requisitos
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+
+
+
+
+
+
+				</DIV>
+
+			  </TD>
+			 </TR>
+			 <TR height="5">
+			   <TD colspan="2">
+			  </TR>
+			
+		    <TR>
+			  <TD valign="top">
+			  			  <DIV id="divBox_1" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px;  HEIGHT: 355px;BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+					
+					
+					<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT_PostsRelacionadosAMARELO.jpg">
+
+
+					
+
+			  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="0">
+
+	
+	<!-- inicio da noticia -->			
+				  <TBODY><TR> 
+					<TD><SPAN class="font2-preto"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9469">Sockets com Java – Parte V<BR>
+					  </A></SPAN><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9469"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+	<!-- inicio da noticia -->			
+				  <TR> 
+					<TD><SPAN class="font2-preto"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9468">Sockets com Java – Parte IV<BR>
+					  </A></SPAN><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9468"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+	<!-- inicio da noticia -->			
+				  <TR> 
+					<TD><SPAN class="font2-preto"><A href="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/DevMedia - Java Magazine - Sockets com Java – Parte III.html">Sockets com Java – Parte III<BR>
+					  </A></SPAN><A href="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/DevMedia - Java Magazine - Sockets com Java – Parte III.html"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+	<!-- inicio da noticia -->			
+				  <TR> 
+					<TD><SPAN class="font2-preto"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9466">Sockets com Java – Parte II<BR>
+					  </A></SPAN><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9466"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+	<!-- inicio da noticia -->			
+				  <TR> 
+					<TD><SPAN class="font2-preto"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9465">Sockets com Java – Parte I<BR>
+					  </A></SPAN><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9465"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+				</TBODY></TABLE>
+				  </DIV>
+
+
+			  </TD>
+			  <TD width="10">
+			  <TD valign="top">
+			  			  <DIV id="divBox_4" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px; HEIGHT: 355px; BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+
+			  <TABLE>
+			   <TBODY><TR>
+			     <TD><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/BOT_PostsDevMediaAMARELO.jpg"></TD>
+				 <TD valign="top">				 <A href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&tipo=0&vis=-1&site=-1"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"></FONT></TD>
+				</TR>
+			   </TBODY></TABLE>
+			  
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="0">
+            
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15886"><SPAN class="font2-preto">Desvendando o Struts 2 - Aula 11
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15884"><SPAN class="font2-preto">Desenvolvendo uma aplicação completa utilizando Swing - Aula 25 - Cadastro de Produtos
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15885"><SPAN class="font2-preto">Desenvolvendo uma aplicação completa utilizando Swing - Aula 26 - Cadastro de Produtos
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15883"><SPAN class="font2-preto">Desenvolvendo uma aplicação completa utilizando Swing - Aula 24 - Cadastro de Produtos
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15882"><SPAN class="font2-preto">Criacao Automatica de Stored Procedures 
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15881"><SPAN class="font2-preto">PHP E MYSQL - parte 7
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15880"><SPAN class="font2-preto">PHP E MYSQL - parte 6
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15879"><SPAN class="font2-preto">Propiedades de um WEB Form
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15868"><SPAN class="font2-preto">Revista WebMobile 28
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15877"><SPAN class="font2-preto">Design Patterns - Parte 11: Favorecimento de Composição sobre Herança
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15876"><SPAN class="font2-preto">Design Patterns - Parte 10: Favorecimento de Composição sobre Herança
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15873"><SPAN class="font2-preto">Curso Preparatório para a Certificação-Sun Certified Web Component Developer(SCWCD)-Parte 17-Jsp technology model-Parte 1
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15875"><SPAN class="font2-preto">Curso Preparatório para a Certificação-Sun Certified Web Component Developer(SCWCD)-Parte 18-Jsp technology model-Parte 2
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15872"><SPAN class="font2-preto">Componentes DevExpress-Parte 12-ASPxNewsControl(Permite criar rapidamente uma apresentação de notícias e novidades)
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15871"><SPAN class="font2-preto">Componentes DevExpress-Parte 11-ASPxCloudControl(Permite criar rapidamente nuvens de links)
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+   </TBODY></TABLE>
+
+
+			  
+			  
+			  </DIV>
+			  </TD>
+			 </TR>
+			
+		</TBODY></TABLE>
+
+
+		  
+
+	   </TD></TR></TBODY></TABLE>	
+	
+<BR>
+
+
+       <TABLE width="100%" cellspacing="0" cellpadding="0">
+
+
+		<TBODY><TR>
+		 <TD>
+		 </TD>
+		</TR>
+           
+		</TBODY></TABLE>
+
+
+
+    </TD>
+	<TD width="30">
+    <TD valign="top" width="250">
+
+				 	
+						<CENTER>
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+						<BR><BR></CENTER>
+
+					
+					<TABLE border="0">
+					<TBODY><TR>
+					  <TD>  
+						<TABLE border="0">
+						  <TBODY><TR valign="top">
+							<TD><CENTER>
+							  
+							     <A href="http://www.devmedia.com.br/space.asp?id=158574">
+								
+								 <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/PspDevMedia.bmp" width="150" onload="if(this.width &gt; 150){this.width = 150}" border="0">
+								 </A>
+							  
+							</CENTER></TD>
+							</TR>
+							<TR>
+							<TD><SPAN id="lblCurriculo"><SPAN class="font4-preto">
+							<A class="linkDEV" href="http://www.devmedia.com.br/space.asp?id=158574">
+							<CENTER>PAULO SéRGIO PEREIRA</CENTER><SPAN>
+							  <SPAN id="lblCurriculo"><SPAN class="font1-preto">Paulo Sergio Pereira (psergio.p@terra.com.br) Bacharel em Ciência da Computação pela Univap (Universidade do Vale do Paraíba) é desenvolvedor Java, Progress, Visual Basic, Visual C++.NET e ADVPL. É administrador de bancos de dados Progress, SQL Serve...</SPAN></SPAN></SPAN></A>
+							</SPAN></SPAN></TD>
+						  </TR>
+						</TBODY></TABLE>
+					  </TD>
+					</TR>
+					</TBODY></TABLE>
+					<CENTER><FONT face="verdana"><B><A href="http://www.devmedia.com.br/autor.asp?id=158574">Ver space do autor</A></B></FONT></CENTER><FONT face="verdana"><B></B><BR><BR>
+
+	  <TABLE bgcolor="#E1E1E1" width="100%">
+	    <TBODY><TR>
+		  <TD>
+
+				
+<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1">
+<TBODY><TR height="25">
+  <TD colspan="2" valign="top"><FONT face="verdana" size="2"><B>Estatísticas deste post:</B>
+</FONT></TD></TR>
+<TR>
+ <TD><FONT face="Verdana" size="2">Visualizações:</FONT></TD>
+ <TD><FONT face="Verdana" size="2">&nbsp;3067</FONT></TD>
+</TR>
+<TR>
+  <TD><FONT face="Verdana" size="2">Favoritado: </FONT></TD>
+  <TD><FONT face="Verdana" size="2">&nbsp;2 vez(es)</FONT></TD>
+</TR>
+<TR>
+ <TD colspan="2">&nbsp;</TD>
+</TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Conteúdo:
+  </FONT></TD>
+  <TD> <FONT face="Verdana" size="2"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_empty.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_empty.png">
+  </FONT></TD>
+ </TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Didática:
+  </FONT></TD>
+  <TD><FONT face="Verdana" size="2"> <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_full.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_empty.png"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/star_empty.png">
+  </FONT></TD>
+ </TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Utilidade:
+  </FONT></TD>
+  <TD>
+    <TABLE>
+	  <TBODY><TR>
+	    <TD>
+		  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/thumbUp.jpg"> 1
+		</TD>
+		<TD width="10">
+		<TD>
+		  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/thumbDown.jpg">  0
+		</TD>
+	  </TR>
+	 </TBODY></TABLE>
+
+  </TD>
+ </TR>
+
+
+ <TR>
+   <TD> <FONT face="Verdana" size="1">Feedbacks:
+   </FONT></TD>
+   <TD><FONT face="Verdana" size="1">1
+   </FONT></TD>
+ </TR>
+
+
+</TBODY></TABLE>
+
+				<BR>
+
+				<TABLE bgcolor="#E5E5E5" width="100%" cellpadding="0" cellspacing="0" border="0">
+			  <TBODY><TR height="20"><TD>&nbsp;</TD>
+			   <TD>
+				 <FONT face="Tahoma" size="2"><B>Central de Serviços:
+			   </B></FONT></TD>
+			  </TR>
+
+			  
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/caneta.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/publish/publish_central.asp"><FONT face="Tahoma" size="2">Inclua seu próprio artigo! </FONT></A><FONT face="Tahoma" size="2"><A class="linkDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=4"><FONT size="2">(ajuda)</FONT></A><FONT size="2"></FONT>
+				</FONT></TD>
+			  </TR>
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/comentario.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/addcomment.asp?idcomp=9467"><FONT face="Tahoma" size="2">Participe! Inclua um comentário</FONT></A>
+				</TD>
+			  </TR>
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/favorito.gif">
+				</TD>
+				<TD>
+						<A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=9467" class="linkDEV"><FONT face="Tahoma" size="2">Adicionar este post a Favoritos</FONT></A>
+				</TD>
+			  </TR>
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/finished.png">
+				</TD>
+				<TD>
+						<A href="http://www.devmedia.com.br/favorite/add_finished.asp?comp=9467" class="linkDEV"><FONT face="Tahoma" size="2">Marcar este post como lido/assistido</FONT></A>
+				</TD>
+			  </TR>
+
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/anotacoes.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/addnote.asp?idcomp=9467"><FONT face="Tahoma" size="2">Inclua uma anotação pessoal </FONT></A><FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5508" class="linkDEV"><FONT size="2">(ajuda)</FONT></A><FONT size="2"></FONT>
+				</FONT></TD>
+			  </TR>
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/feed.png">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/feed"><FONT face="Tahoma" size="2">RSS Feeds</FONT></A>
+				</TD>
+			  </TR>
+
+			  
+				 <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/printer.png">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/viewcomp_forprint.asp?comp=9467"><FONT face="Tahoma" size="2">Versão para impressão</FONT></A>
+				</TD>
+			  </TR>
+			 
+			</TBODY></TABLE>
+			
+
+		   </TD>
+		  </TR>
+		 </TBODY></TABLE>
+		 <BR>
+		 
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+<TABLE>
+ <TBODY><TR>
+
+  <TD>
+    <A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=9467" title="Adicione ao Favoritos DevMedia">
+	<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.devmedia.16.jpg" border="0">
+	</A>
+  </TD>
+
+  <TD>
+    <A href="http://del.icio.us/post?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Delicious">
+	<IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.delicious.16.gif" border="0">
+	</A>
+  </TD>
+
+  <TD><A href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&Description=&Url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&Title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Blink">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.blinklist.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://digg.com/submit?phase=2&url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Digg">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.digg.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://reddit.com/submit?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Reddit">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.reddit.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://www.newsvine.com/_tools/seed&save?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&h=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao newsvine">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.newsvine.16.gif" border="0"></A>
+  </TD>
+  <TD><A href="http://www.furl.net/storeIt.jsp?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&t=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Furl">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.furl.16.gif" border="0"></A>
+  </TD>
+    <TD><A href="http://blogmarks.net/my/new.php?mini=1&simple=1&url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Blogmarks">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.blogmarks.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://rec6.via6.com/link.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&titulo=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Rec6">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.rec6.16.gif" border="0"></A>
+  </TD>
+  <TD><A href="http://www.linkk.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&titulo=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Linkk">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.linkk.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://eucurti.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao Eu Curti!">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.eucurti.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://www.dzone.com/links/add.html?url=http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467&title=Sockets%20com%20Java%20%96%20Parte%20III" title="Adicione ao DZone">
+    <IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/share.dzone.16.gif" border="0"></A>
+  </TD>
+
+ </TR>
+</TBODY></TABLE>
+		 <BR><FONT size="4">
+		 
+
+
+     </FONT></FONT></TD>
+   </TR>
+</TBODY></TABLE>
+
+ <TABLE border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD valign="top" width="27" bgcolor="#EFEFEF">
+	<TD>
+
+
+    	
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+<BR>
+<TABLE bgcolor="#808080" width="675" cellpadding="0" cellspacing="0" border="0">
+  <TBODY><TR>
+    <TD>
+	  
+				  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=9467">
+			  
+
+			<FONT face="verdana" size="4" color="#FFFF5E">
+			   
+			        Participe! Inclua um comentário 
+					</FONT>
+				
+				</A>
+	</TD>
+  </TR>
+</TBODY></TABLE>
+	<DIV id="popcoment">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#coment" onclick="document.getElementById(&#39;popcoment&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	Este post é fechado - você precisa ter acesso ao post para incluir um comentário.<BR><BR>
+
+</FONT></DIV><FONT face="verdana" size="2">
+
+<BR>
+
+
+
+	</FONT></TD>
+   </TR>
+  </TBODY></TABLE>
+
+
+<DIV id="poplogin">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" onclick="document.getElementById(&#39;poplogin&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	
+		Você precisa estar logado para dar seu feedback.	
+	<BR><BR>
+	<A href="http://www.devmedia.com.br/login/login.asp?comp=9467">Clique aqui para efetuar o login</A><BR><BR>
+	<A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Caso não tenha um cadastro DevMedia, clique aqui para se cadastrar (gratuito)</A>
+	
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+
+<DIV id="poplink">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" onclick="document.getElementById(&#39;poplink&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	Este é um post fechado - Você precisa ter acesso ao post para habilitar os links de download.<BR><BR>
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+<DIV id="pop_biblio">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9467#" onclick="document.getElementById(&#39;pop_biblio&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR>
+	
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+
+		<TABLE width="600" cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD><!--include file="../include/box_renovaRodape.asp" -->
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+
+
+
+<TABLE>
+  <TBODY><TR><TD colspan="5" valign="top"><DIV align="left"><TABLE width="1000" border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR>
+    <TD width="7">&nbsp;</TD>
+	<TD bgcolor="#e9f0d4">
+
+	  <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+        <TBODY><TR> 
+          <TD width="17%"><!--<img src="http://www.devmedia.com.br/Imagens/logo2.gif" width="132" height="61">--></TD><TD width="1%"><IMG src="./DevMedia - Java Magazine - Sockets com Java – Parte III_files/line.gif" width="1" height="50"></TD>
+		  
+		  <TD width="82%">
+              <FONT face="verdana" size="1"> <B>DevMedia Group</B> -  Tel: (21) 3382-5038 - <A href="http://www.devmedia.com.br/">www.devmedia.com.br</A> <BR>2009 - Todos os Direitos Reservados 
+                a DevMedia Group</FONT></TD></TR>
+      </TBODY></TABLE>
+	  
+	  </TD>
+	  <TD width="8"></TR>
+</TBODY></TABLE>
+
+</DIV></TD></TR>
+</TBODY></TABLE>
+
+
+
+
+
+</FONT></FONT></FONT></BODY></HTML>

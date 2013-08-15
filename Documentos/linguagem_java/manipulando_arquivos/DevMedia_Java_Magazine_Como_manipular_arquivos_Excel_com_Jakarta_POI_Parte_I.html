@@ -1,0 +1,3496 @@
+
+<!-- saved from url=(0058)http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380 -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+
+
+
+<STYLE>
+#pop{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:600px;height:335px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplogin{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:125px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#popcoment{display:none;position:relative;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplink{display:none;position:absolute;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#pop_biblio{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:770px;height:400px;border:1px solid #d0d0d0;background-color:#C0C0C0;overflow:auto;}
+
+</STYLE>
+
+
+
+
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+<!--include file="../assgold/funcoes_assgold.asp" -->
+
+
+
+
+<META http-equiv="Expires" content="0">
+<META http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<META http-equiv="Pragma" content="no-cache">
+<META name="description" content="Portal para analistas, desenvolvedores de sistemas e webdesigners. Artigos, dicas e v&iacute;deo aulas sobre C#, Java, Visual Basic .NET, PHP, ASP, Delphi, Visual Basic, ColdFusion, Javascript, HTML, Oracle, SQL Server, InterBase, Firebird, e muito mais.">
+<META name="keywords" content="c#, visual basic .net, asp.net, java, php, programa&ccedil;&atilde;o, an&aacute;lise, web, apostilas, gratuito, gr&aacute;tis, projeto, engenharia de software, visual basic, delphi, sql, xml, asp, coldfusion, css, stylesheet, javascript, webmaster, ti, linux, windows, livros, empregos, oportunidades, aplicativos, componentes, tecnologia, desenvolvimento, eventos, software, downloads, artigos, cursos online, flash, interbase, fireworks, dreamweaver, xsql">
+
+
+
+  <TITLE>DevMedia - Java Magazine - Como manipular arquivos Excel com Jakarta POI – Parte I</TITLE>
+
+</HEAD><BODY>
+
+
+
+
+
+<LINK href="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/estilo.css" rel="stylesheet" type="text/css">
+<STYLE type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#busca {
+	z-index:2;
+}
+-->
+</STYLE>
+
+<STYLE type="text/css">
+<!--
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #D6EA9D;
+}
+
+a {}
+.menuDEV {
+}
+
+.menuDEV:visited {
+font-family:verdana;  COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:hover {
+font-family:verdana;  COLOR: #003300; font-size: 12.3pt;
+}
+
+a {}
+.menuDEV3 {
+}
+
+.menuDEV3:visited {
+font-family:verdana;  COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:hover {
+font-family:verdana;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.menuDEV2 {
+}
+.menuDEV2:visited {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:active {
+font-family:verdana;font-weight: bold;  COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:link {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:hover {
+font-family:verdana;font-weight: bold;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.linkDEV {
+}
+.linkDEV:visited {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:active {
+font-family:verdana;  COLOR: black; font-size: 9pt;
+}
+.linkDEV:link {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:hover {
+font-family:verdana;  COLOR: #1D6202; font-size: 9pt;
+}
+
+#fundoTransMenu{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=10);opacity:0.1;-khtml-opacity:0.1;}
+
+#menu_boxRevistas{display:none;position:absolute;top:67;left:187;z-index:701;}
+#popSubMenu1{background-color:green;width:90;}
+#popSubMenu1b{width:170;z-index:702;background-color:transparent;}
+
+#menu_boxCanais{display:none;position:absolute;top:67;left:285;z-index:701;}
+#popSubMenu2{background-color:green;width:75;}
+#popSubMenu2b{width:180;}
+
+#menu_boxCursos{display:none;position:absolute;top:67;left:366;z-index:701;}
+#popSubMenu3{background-color:green;width:75;}
+#popSubMenu3b{width:200;}
+
+#menu_boxServicos{display:none;position:absolute;top:67;left:686;z-index:701;}
+#popSubMenu4{background-color:green;width:100;}
+#popSubMenu4b{width:200;}
+
+#menu_boxForum{display:none;position:absolute;top:67;left:610;z-index:701;}
+#popSubMenu5{background-color:green;width:70;}
+#popSubMenu5b{width:200;}
+
+-->
+</STYLE>
+
+
+<SCRIPT type="text/javascript"> 
+document.onclick=evento; 
+
+function evento(e){ 
+var target = (e && e.target) || (event && event.srcElement); 
+var obj = document.getElementById('minhadiv'); 
+var obj2 = document.getElementById('clica'); 
+checkParent(target)?obj.style.display='none':null; 
+target==obj2?obj.style.display='block':null; 
+} 
+
+function checkParent(t){ 
+while(t.parentNode){ 
+if(t==document.getElementById('minhadiv')){ 
+return false 
+} 
+t=t.parentNode 
+} 
+return true 
+} 
+
+</SCRIPT> 
+
+
+
+
+<TABLE border="0" cellspacing="0" cellpadding="0" bgcolor="white">
+ <TBODY><TR>
+  <TD>
+
+<TABLE width="996" border="0" align="left" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD width="996" height="62">	
+	
+	<TABLE width="100%" height="65" border="0" cellpadding="0" cellspacing="0" id="busca">
+        <TBODY><TR> 
+          <TD width="150" height="65">
+		  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/devmedia2peq2B.PNG">
+		  <!--<img src="http://www.devmedia.com.br/include/logo_natal.PNG">-->
+		  </TD>
+		  <TD width="30">&nbsp;</TD>
+		  <TD width="475">
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="468" height="60">
+
+<PARAM name="movie" value="http://www.devmedia.com.br/imagens/banners/fullbanner468x60 (devmidia)-2.swf?clickTAG=http://www.devmedia.com.br/campanha/v.asp?i=29&amp;f=-1">
+<PARAM name="FlashVars" value="clickTAG=http://www.devmedia.com.br/campanha/v.asp?i=29&amp;f=-1">
+
+<PARAM name="quality" value="high">
+
+  <EMBED src="http://www.devmedia.com.br/imagens/banners/fullbanner468x60 (devmidia)-2.swf?clickTAG=http://www.devmedia.com.br/campanha/v.asp?i=29&amp;f=-1" width="468" height="60" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" flashvars="clickTAG=http://www.devmedia.com.br/campanha/v.asp?i=29&amp;f=-1">
+
+</OBJECT>
+
+
+
+	  	  
+          </TD>
+		  <TD width="110">
+
+			  <TABLE cellspacing="0" border="0" align="right" width="190">
+			  				<TBODY><TR>
+				 <TD valign="bottom">
+				 <FONT face="verdana" size="1"><B><A href="http://www.devmedia.com.br/whatsnew/default.asp?id=1">Whats new?</A> | <A href="http://www.devmedia.com.br/login/login.asp">Login</A> 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </B></FONT></TD>
+					</TR>
+
+				<TR>
+				 <TD valign="bottom">
+				 <FONT face="verdana" size="1"><B><A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Cadastre-se</A> | <A href="http://www.devmedia.com.br/mancad">Atendimento</A> | <A href="http://www.devmedia.com.br/feed">RSS</A>				 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </B></FONT></TD>
+					</TR>
+
+					
+					<TR valign="top">
+					 <TD>
+
+							<FORM method="GET" action="http://www.devmedia.com.br/articles/listcomp.asp" name="srctopo">
+							<TABLE border="0" cellspacing="0" align="right">
+							<TBODY><TR valign="top">
+							<TD align="right">
+							  <INPUT type="text" name="txtsearch" size="16" maxlength="255" value="">
+							</TD>
+							<TD>
+							  <INPUT type="submit" name="sa" value="Busca">
+							</TD>
+							</TR>
+							</TBODY></TABLE>
+							</FORM>		  
+					</TD>
+				</TR>
+				
+			</TBODY></TABLE>
+
+		</TD>
+		<TD width="10">&nbsp;</TD>
+		<TD width="105" align="right">	  
+				<TABLE cellspacing="0" cellpadding="0">
+				 <TBODY><TR><TD><CENTER><A href="http://twitter.com/devmedia"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/twitter_logo_s.png" border="0" height="15"></A></CENTER></TD></TR>
+				 <TR height="4"><TD></TR>
+				 <TR><TD>
+	            <A href="javascript: var e = window.open('https://e-chat.netwatts.com.br/devmedia.com.br/survey.aspx?siteid=devmedia.com.br&survey=PreChat',
+				'chatWindow','width=472,height=320,resizable=0,scrollbars=no,menuDEVbar=no,status=no');" onmouseout="top.status=&#39;&#39;; return true;" onmousedown="top.status=&#39;Atendimento em Tempo Real com a DevMedia&#39;;return true;" onmouseover="top.status=&#39;Atendimento em Tempo Real com a DevMedia&#39;;return true;">
+                    <IMG border="0" src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/suNETImage.ashx" alt="Live chat by Netwatts"></A>
+				</TD></TR></TBODY></TABLE>
+	  
+	  </TD>
+
+		
+		
+		</TR>
+      </TBODY></TABLE>
+	  
+	  
+	  
+	  </TD>
+	  
+	  </TR>
+  <TR> 
+    <TD> 
+
+	
+	<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+
+	</TD>
+	 </TR>
+    <TR> 
+    <TD> 
+
+	
+
+	<TABLE cellspacing="0" cellpadding="0" width="999" height="4"><TBODY><TR><TD></TR></TBODY></TABLE>
+	</TD>
+	 </TR>
+    <TR> 
+    <TD> 
+
+
+
+	<TABLE border="0" align="left" cellpadding="0" cellspacing="0">
+<TBODY><TR>
+<TD align="center" width="57"><FONT color="green"><A class="menuDEV" href="http://www.devmedia.com.br/portal/default.asp">Home</A></FONT><A class="menuDEV" href="http://www.devmedia.com.br/portal/default.asp"></A></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="132"><A class="menuDEV" href="http://www.devmedia.com.br/sobre"><FONT color="red">Entenda o site</FONT></A><FONT color="red"></FONT></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="97">
+<A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;">Revistas<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2.gif" border="0"></A>
+</TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="87"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">Canais<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="82"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;block&#39;;">Cursos<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2.gif" border="0"></A> </TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD> 
+<TD align="center" width="87"><A class="menuDEV" href="http://www.devmedia.com.br/auditorio">Palestras</A></TD>
+
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD> 
+
+<TD align="center" width="77"><A class="menuDEV" href="http://www.devmedia.com.br/consultoria_online">Suporte</A></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+
+
+<TD align="center" width="74"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">Fórum<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+
+<TD align="center" width="112"><A class="menuDEV" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" style="cursor:pointer; cursor:hand;" onmouseover="document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;">+Serviços<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2.gif" border="0"></A></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+
+
+<TD align="center" width="67"><A class="menuDEV" href="http://www.devmedia.com.br/assine/"><FONT color="red">Assine</FONT></A><FONT color="red"></FONT></TD>
+<TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line_menu.gif" width="1" height="10"></TD>
+<TD align="center" width="147"><A class="menuDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=6"><FONT color="red">Compre Créditos</FONT></A><FONT color="red"></FONT></TD>
+</TR>
+</TBODY></TABLE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" height="4" width="100%"><TBODY><TR><TD> </TD></TR></TBODY></TABLE>
+</TD>
+</TR>
+<TR>
+<TD>
+
+<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+</TD></TR>
+</TBODY></TABLE>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+
+
+
+
+
+<DIV id="menu_boxRevistas">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR>
+    <TD>
+	<DIV id="popSubMenu1">
+	<TABLE>
+	 <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" class="menuDEV"><FONT color="white">Revistas<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu1b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="green" border="0" width="262">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="245" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+				<BR>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0"><A href="http://www.devmedia.com.br/assgold" class="linkDEV">&nbsp;Todas as revistas</A>&nbsp;<BR>
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+			<TABLE>
+			  <TBODY><TR>
+			   <TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=3" class="linkDEV">&nbsp;ClubeDelphi&nbsp;<BR>
+			</A></TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=1" class="linkDEV">&nbsp;.net Magazine</A>&nbsp;<BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=6" class="linkDEV">&nbsp;Java Magazine&nbsp;<BR>
+			</A></TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=5" class="linkDEV">&nbsp;webMobile Magazine&nbsp;</A><BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=2" class="linkDEV">&nbsp;SQL Magazine</A>&nbsp;<BR>
+			</TD></TR><TR><TD>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">
+			</TD><TD><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=48" class="linkDEV">&nbsp;Engenharia de Software Mag&nbsp;</A><BR>
+			</TD></TR></TBODY></TABLE>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png"><A href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">&nbsp;Edições anteriores impressas&nbsp;</A><BR><BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+<DIV id="menu_boxCanais">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu2">
+	<TABLE>
+	 <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" class="menuDEV"><FONT color="white">Canais<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+	 <DIV id="popSubMenu2b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;block&#39;;">&nbsp;</DIV>
+	</TD>
+  </TR>
+</TBODY></TABLE>
+
+
+
+<TABLE bgcolor="green" border="0" width="272">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/canais/default.asp">Todo conteúdo DevMedia</A>&nbsp;<BR>
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+	<TABLE>
+	 <TBODY><TR>
+	  <TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=36" class="linkDEV">Canal Delphi&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=34" class="linkDEV">Canal Java</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=35" class="linkDEV">Canal .net&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=37" class="linkDEV">Canal Banco de dados&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=38" class="linkDEV">Canal Mobile</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=39" class="linkDEV">Canal Ruby on Rails&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=44" class="linkDEV">Canal PHP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=45" class="linkDEV">Canal ASP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=40" class="linkDEV">Canal WebDesign</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=43" class="linkDEV">Canal Engenharia de Software</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=46" class="linkDEV">Canal Linux</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=58" class="linkDEV">Canal Scripting</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/canais/default.asp?site=42" class="linkDEV">Canal Outros</A>&nbsp;
+	</TD></TR></TBODY></TABLE>
+	<BR>
+
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+<DIV id="menu_boxCursos">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu3">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" class="menuDEV"><FONT color="white">Cursos<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu3b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="307">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="290" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+		<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/">Todos os cursos online</A>&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+	
+			<TABLE>
+			 <TBODY><TR><TD>
+	
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=38" class="linkDEV">Cursos de Java</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=39" class="linkDEV">Cursos .net&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=46" class="linkDEV">Cursos de  Banco de dados&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=62" class="linkDEV">Cursos de Delphi</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=81" class="linkDEV">Cursos de Engenharia de Software</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=85" class="linkDEV">Cursos de Ruby on Rails&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=86" class="linkDEV">Cursos de ASP</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=87" class="linkDEV">Cursos de WebDesign</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=88" class="linkDEV">Cursos de PHP</A>&nbsp;	<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=89" class="linkDEV">Cursos de PalmOS</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=90" class="linkDEV">Cursos de Linux</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/default.asp?tema=91" class="linkDEV">Cursos de Scripting</A>&nbsp;
+	<BR>
+	</TD></TR></TBODY></TABLE>
+
+	<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			<TABLE>
+			 <TBODY><TR><TD>
+
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de Delphi</A>&nbsp;<BR>
+		</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de .net</A>&nbsp;<BR>
+		</TD></TR></TBODY></TABLE><BR>
+
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+<DIV id="menu_boxServicos">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu4">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" class="menuDEV"><FONT color="white">+Serviços<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu4b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="297">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="280" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<BR>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;<A href="http://www.devmedia.com.br/mapa/" class="linkDEV">Todos os links (mapa do site)</A>&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+	<TABLE>
+	 <TBODY><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/creditos" class="linkDEV">Sistema de Créditos</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/player" class="linkDEV">DevMedia Player&nbsp;<BR>
+	</A></TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/publish/publish_central.asp" class="linkDEV">Publique seu artigo&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3" class="linkDEV">Cadastre-se</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">Edições anteriores</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/developerads" class="linkDEV">DeveloperAds&nbsp;</A><BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/paycontent" class="linkDEV">PayContent</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/cursos/feed" class="linkDEV">RSS</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/login/login.asp" class="linkDEV">Login</A>&nbsp;	<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/mancad" class="linkDEV">Atendimento</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/oportunidades" class="linkDEV">Oportunidades de trabalho</A>&nbsp;<BR>
+	</TD></TR></TBODY></TABLE>
+		<BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+<DIV id="menu_boxForum">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+  <TD>
+	<DIV id="popSubMenu5">
+	  <TABLE>
+	  <TBODY><TR height="20">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" class="menuDEV"><FONT color="white">Fórum<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown2up.gif" border="0"></FONT></A><FONT color="white"></FONT>
+	   </TD>
+	   </TR>
+	  </TBODY></TABLE>
+	</DIV>
+  </TD>
+  <TD>
+    <DIV id="popSubMenu5b" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;">&nbsp;</DIV>
+  </TD>
+ </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="green" border="0" width="297">
+<TBODY><TR height="5">
+ <TD colspan="2">
+ </TR>
+<TR>
+ <TD width="1">
+ <TD>
+	 <TABLE bgcolor="white" width="280" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+		<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="3">
+		<TD><FONT face="verdana" size="2">
+			<!-- <BR>
+			&nbsp;<img src='http://www.devmedia.com.br/sobre/rightarrow2.png' border=0>&nbsp;<a href='http://www.devmedia.com.br/forum' class='linkDEV'>Fórum NOVO</a>&nbsp;<BR>
+			&nbsp;<img src='http://www.devmedia.com.br/sobre/rightarrow2.png' border=0>&nbsp;<a href='http://forum.devmedia.com.br' class='linkDEV'>Fórum antigo</a>&nbsp; -->
+
+						 <TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<!--<tr height=1><td bgcolor=green ></td></tr>-->
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+
+
+
+	<TABLE>
+	 <TBODY><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://www.devmedia.com.br/forum" class="linkDEV">Fórum NOVO</A>&nbsp;<BR>
+	</TD></TR><TR><TD>
+	&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow2.png" border="0">&nbsp;
+	</TD><TD><A href="http://forum.devmedia.com.br/" class="linkDEV">Fórum antigo&nbsp;<BR>
+	</A></TD></TR>
+	
+	</TBODY></TABLE>
+		<BR>
+		</FONT>
+		</TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+<TR height="3">
+ <TD colspan="2">
+ </TR>
+
+</TBODY></TABLE>
+
+</DIV>
+
+
+
+
+
+
+<DIV id="fundoTransMenu" onmouseover="document.getElementById(&#39;menu_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxForum&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTransMenu&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;menu_boxServicos&#39;).style.display=&#39;none&#39;;">
+</DIV>
+
+
+
+<STYLE>
+#localiza_boxMain{display:none;position:absolute;top:93;left:118;z-index:701;}
+#localiza_boxCanais{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+#localiza_boxCursos{display:none;position:absolute;top:93;left:385;z-index:701;}
+
+
+#localiza_boxObjetos{display:none;position:absolute;top:92;left:718;z-index:701;}
+
+
+#localiza_boxRevistas{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+
+#fundoTrans{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=8);opacity:0.1;-khtml-opacity:0.1;}
+
+#popSub2{background-color:#EAEAEA;width:60;}
+#popSub2b{width:130;}
+
+#popSub3{background-color:#EAEAEA;width:170;}
+#popSub3b{width:100;}
+
+#popSub4{background-color:#E2E2E2;width:170;}
+#popSub4b{width:145;}
+
+#popSub5{background-color:#E2E2E2;width:60;}
+#popSub5b{width:212;}
+
+#popSub6{background-color:#EAEAEA;width:145;}
+#popSub6b{width:130;}
+
+</STYLE>
+
+<!-- #66CC99 -->
+
+<TABLE width="999" cellpadding="0" cellspacing="0" bgcolor="#D3D3D3" border="0">
+ <TBODY><TR>
+   <TD align="left">
+
+	<TABLE cellpadding="0" cellspacing="0" height="18"><TBODY><TR><TD width="600">
+	 
+	<TABLE border="0" cellpadding="0" cellspacing="0">
+	<TBODY><TR><TD width="10"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"> </TD>
+   <TD width="90"><FONT size="1" face="verdana"><B>Você está em:</B>
+	</FONT></TD>
+	
+	
+	<TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1" face="verdana">
+   /&nbsp;canal Java&nbsp;[artigos] </FONT></A><FONT size="1" face="verdana">
+   </FONT></TD>
+   <TD width="10">
+   
+
+	<TD width="20">
+	</TR>
+	</TBODY></TABLE>
+	</TD><TD>
+	
+	<TABLE cellpadding="0" cellspacing="0" border="0"><TBODY><TR>
+	<TD width="338" align="right"><FONT face="verdana" size="1">
+   	
+   &nbsp;&nbsp;&nbsp;<B>+ Java:</B>&nbsp;&nbsp;&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=1&site=34"><FONT face="verdana" size="1">artigos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=2&site=34"><FONT face="verdana" size="1">vídeos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><FONT face="verdana" size="1">cursos</FONT></A><FONT face="verdana" size="1">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   </FONT></FONT></FONT></FONT></TD>
+   <TD width="45"><FONT face="verdana" size="1">
+   <A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;block&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;block&#39;;">mais <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4b.gif"></A>
+   
+   </FONT></TD>
+  </TR>
+ </TBODY></TABLE>
+
+ </TD>
+	</TR>
+	</TBODY></TABLE>
+
+   </TD>
+  </TR>
+
+   
+</TBODY></TABLE>
+
+
+<TABLE cellspacing="0" cellpadding="0" bgcolor="#336600" width="999" height="1"><TBODY><TR><TD></TR></TBODY></TABLE>
+<DIV id="localiza_boxMain">
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub2">
+	<TABLE><TBODY><TR height="13">   <TD>	
+	<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">canais<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+   </TD>   </TR>
+  </TBODY></TABLE>
+ </DIV>
+ </TD>  <TD>
+    <DIV id="popSub2b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#EAEAEA" border="0" width="202">
+<TBODY><TR height="5"><TD colspan="2"> </TR>
+<TR> <TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="185" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>	<TD>	
+	<TABLE width="99%">
+	  <TBODY><TR>	<TD width="2">
+		<TD><FONT face="verdana" size="1">
+			
+			&nbsp;<BR>
+						<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			<FONT face="verdana" size="1">Outras seções:
+			<TABLE border="0">
+			<TBODY><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/"><FONT size="1">Home</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/sobre"><FONT size="1">Entenda o site</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/revistas"><FONT size="1">Revistas</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/canais/lista_canais.asp"><FONT size="1">Canais</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/cursos"><FONT size="1">Cursos&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/auditorio/"><FONT size="1">Palestras</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/servicos/"><FONT size="1">Suporte&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://forum.devmedia.com.br/"><FONT size="1">Fórum</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+			<A class="linkDEV" href="http://www.devmedia.com.br/jobfinder/lista.asp"><FONT size="1">Oportunidades</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR>
+			</TBODY></TABLE>
+			
+			<TABLE width="85%" cellpadding="0" cellspacing="0">
+			<TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR>
+			<TR height="5"><TD></TR>
+			</TBODY></TABLE>
+
+			<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif">&nbsp;<A class="linkDEV" href="http://www.devmedia.com.br/mapa"><FONT size="1">Todos os links</FONT></A><FONT size="1">&nbsp;<BR><BR>
+		</FONT>
+		</FONT></FONT></TD>
+			</TR>
+		</TBODY></TABLE>
+
+		</TD>
+		</TR>
+	</TBODY></TABLE>  	  
+
+	</TD>
+	</TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+  </TBODY></TABLE>
+</DIV>
+
+
+<DIV id="localiza_boxCanais">
+
+<TABLE border="0" cellpadding="0" cellspacing="0">
+ <TBODY><TR>
+   <TD>	
+
+<DIV id="popSub3">
+<TABLE>
+ <TBODY><TR height="13">
+   <TD>	
+	<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;">
+<FONT face="verdana" size="1" color="black">canal Java&nbsp;[artigos] <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+   </TD></TR></TBODY></TABLE>
+</DIV>
+ </TD>  <TD>
+    <DIV id="popSub3b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="#EAEAEA" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT face="verdana" size="1">&nbsp;Ir para o Canal Java </FONT></A><FONT face="verdana" size="1">&nbsp;<BR>
+	
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		
+		<FONT size="1">+Canais:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+<A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=36"><FONT size="1">Canal Delphi&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1">Canal Java</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=35"><FONT size="1">Canal .net&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=37"><FONT size="1">Canal Banco de dados&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=38"><FONT size="1">Canal Mobile</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=39"><FONT size="1">Canal Ruby on Rails&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=44"><FONT size="1">Canal PHP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=45"><FONT size="1">Canal ASP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=40"><FONT size="1">Canal WebDesign</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=43"><FONT size="1">Canal Engenharia de Software</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=46"><FONT size="1">Canal Linux</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=58"><FONT size="1">Canal Scripting</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=42"><FONT size="1">Canal Outros</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp"><FONT size="1">&nbsp;Todo conteúdo DevMedia</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="localiza_boxCursos">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub4">
+	<TABLE cellspacing="0" cellpadding="0" height="20">
+	 <TBODY><TR>
+	   <TD>
+		<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">&nbsp;&nbsp; cursos de Java  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD>  <TD>
+    <DIV id="popSub4b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#E2E2E2" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema="><FONT face="verdana" size="1">&nbsp;ver cursos de Java </FONT></A><FONT face="verdana" size="1">&nbsp;<BR>
+	
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		
+		<FONT size="1">+Cursos:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><FONT size="1">Cursos de Java</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=39"><FONT size="1">Cursos de .net&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=46"><FONT size="1">Cursos de Banco de dados&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=62"><FONT size="1">Cursos de Delphi</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=81"><FONT size="1">Cursos de Engenharia de Software</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=85"><FONT size="1">Cursos de Ruby on Rails&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=86"><FONT size="1">Cursos de ASP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=87"><FONT size="1">Cursos de WebDesign</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=88"><FONT size="1">Cursos de PHP</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=89"><FONT size="1">Cursos de PalmOS</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=90"><FONT size="1">Cursos de Linux</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=91"><FONT size="1">Cursos de Scripting</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos/formacoes.asp"><FONT size="1">&nbsp;Formações completas</FONT></A><FONT size="1">&nbsp;<BR>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/cursos"><FONT size="1">&nbsp;Todos os cursos</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<DIV id="localiza_boxObjetos">
+
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR>
+   
+      <TD>
+    <DIV id="popSub5b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD>
+   <TD>
+	<DIV id="popSub5">
+	<TABLE cellspacing="0" cellpadding="0" height="20">
+	 <TBODY><TR>
+	   <TD><A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">&nbsp;&nbsp;mais <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+		
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD></TR>
+</TBODY></TABLE>
+
+
+<TABLE bgcolor="#E2E2E2" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD>
+
+		<TABLE><TBODY><TR height="2"> <TD colspan="2"> </TR></TBODY></TABLE>
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><FONT size="1">
+
+<A class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><FONT size="1">Canal de conteúdo Java</FONT></A><FONT size="1">
+
+<BR></FONT></FONT></TD></TR><TR><TD>
+
+
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><FONT size="1">Revista Java Magazine<BR></FONT></A></TD></TR><TR><TD>
+
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/consultoria_online"><FONT size="1">Suporte Java</FONT></A><FONT size="1"><BR></FONT></TD></TR></TBODY></TABLE>
+
+			
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			
+
+		<TABLE><TBODY><TR><TD>
+
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=18&site=34"><FONT size="1">Palestras de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=9&site=34"><FONT size="1">E-books de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR><TR><TD>
+
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD>
+
+<A class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=10&site=34"><FONT size="1">Downloads de Java</FONT></A><FONT size="1">
+
+<BR></FONT></TD></TR></TBODY></TABLE><FONT size="1">
+
+		<TABLE><TBODY><TR height="2"> <TD colspan="2"> </TR></TBODY></TABLE>
+
+		</FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="localiza_boxRevistas">
+  <TABLE border="0" cellpadding="0" cellspacing="0">
+   <TBODY><TR><TD>
+	<DIV id="popSub6">
+	<TABLE>
+	 <TBODY><TR height="13">
+	   <TD>	
+		<A style="cursor:pointer; cursor:hand;" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;">
+	<FONT face="verdana" size="1" color="black">  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/arrowdown4upB.gif" border="0"></FONT></A><FONT face="verdana" size="1" color="black"></FONT>
+	   </TD></TR></TBODY></TABLE>
+	</DIV>
+ </TD>  <TD>
+    <DIV id="popSub6b" onclick="document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;"><FONT size="1">&nbsp;</FONT></DIV>
+  </TD> </TR>
+</TBODY></TABLE>
+
+<TABLE bgcolor="#EAEAEA" border="0" width="272">
+<TBODY><TR height="5"><TD colspan="2"></TR>
+<TR><TD width="2">
+ <TD>
+	 <TABLE bgcolor="white" width="255" style="border-collapse: collapse; border-left: 1px solid #ACACAC;  border-bottom: 1px solid #ACACAC;border-top: 1px solid #ACACAC; border-right: 1px solid #ACACAC">
+	<TBODY><TR>
+	<TD>
+	<TABLE width="99%">
+	  <TBODY><TR>
+		<TD width="2">
+		<TD><FONT face="verdana" size="2">
+			<FONT size="1"><BR>
+		<FONT size="1">+Revistas:
+		<TABLE><TBODY><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=3"><FONT size="1">ClubeDelphi</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=1"><FONT size="1">.net Magazine&nbsp;<BR></FONT></A></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><FONT size="1">Java Magazine&nbsp;</FONT></A><FONT size="1"><BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=5"><FONT size="1">webMobile Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=2"><FONT size="1">SQL Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR><TR><TD>
+<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"></TD><TD><A class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=48"><FONT size="1">Engenharia de Software Magazine</FONT></A><FONT size="1">&nbsp;<BR></FONT></TD></TR></TBODY></TABLE>
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+			&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="https://seguro.devmedia.com.br/edicoes_anteriores.asp"><FONT size="1">&nbsp;Edições anteriores impressas</FONT></A><FONT size="1">&nbsp;<BR>
+
+			<TABLE width="85%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR>
+			<TR height="1"><TD bgcolor="green"></TR><TR height="5"><TD></TR>
+			</TBODY></TABLE>
+		&nbsp;<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/rightarrow.gif"><A class="linkDEV" href="http://www.devmedia.com.br/revistas"><FONT size="1">&nbsp;Todas as revistas</FONT></A><FONT size="1">&nbsp;<BR><BR>
+
+		</FONT></FONT></FONT></FONT></FONT></TD></TR>
+		</TBODY></TABLE>
+		</TD></TR>
+	</TBODY></TABLE>  	  
+	</TD></TR>
+	<TR height="4"> <TD colspan="2"> </TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<DIV id="fundoTrans" onclick="document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCursos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxObjetos&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxCanais&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxMain&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;localiza_boxRevistas&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;fundoTrans&#39;).style.display=&#39;none&#39;;">
+</DIV>
+
+
+
+
+
+ <TABLE border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD valign="top" width="27" bgcolor="#EFEFEF">
+		<BR>
+	</TD>
+    <!--<td width="651px" valign="top">-->
+	<TD width="671px" valign="top">
+		
+		<TABLE width="100%" cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD>
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+<STYLE type="text/css">
+<!--
+.linkrenov {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}	
+	
+.linkrenov:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+-->
+</STYLE>
+
+
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+		
+		
+		
+		 <TABLE bgcolor="#FFFF99" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+			<TBODY><TR><TD width="18">
+					 <TD>
+ 
+
+<DIV id="pop">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" onclick="document.getElementById(&#39;pop&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR>
+
+	<TABLE width="98%"><TBODY><TR><TD><FONT face="VErdana" size="2">Este post está disponível para quem é assinante da <B><A href="http://www.devmedia.com.br/assgold/listmag.asp?site=6">Java Magazine</A></B> ou para quem possui <B><A href="http://www.devmedia.com.br/creditos/default.asp?p=1">Créditos DevMedia</A></B>. <FONT color="black" size="1"><BR><BR><TABLE width="100%" bgcolor="#000000" cellpadding="0" cellspacing="0"><TBODY><TR><TD></TR></TBODY></TABLE><BR><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/info.jpg">&nbsp;&nbsp;Conheça os planos de créditos DevMedia e visualize esse post agora mesmo!<FONT size="1"><BR><BR><TABLE><TBODY><TR><TD><FONT size="2"><B>Plano conveniência</B><FONT size="2" color="black"> – Neste plano este post custa <B>R$ 0,00 <A href="https://seguro.devmedia.com.br/buycredits.asp?comp=5380"><FONT color="#FF0000">(Compre agora)</FONT></A><FONT color="#FF0000"><FONT color="black"></FONT></FONT></B><FONT color="#FF0000"><FONT color="black"></FONT></FONT></FONT></FONT></TD></TR><TR><TD><FONT size="1">Esse plano permite que você compre somente um post, pagando por ele seu preço sem desconto.</FONT></TD></TR></TBODY></TABLE><BR><TABLE><TBODY><TR><TD><B><FONT size="2">Plano ocasional<FONT size="2" color="black"></FONT></FONT></B><FONT size="2"><FONT size="2" color="black">: Aqui este post custa: <B>R$ 0,00</B> (<FONT size="1">assinante<FONT size="2">) ou <B>R$ 0,00</B> (<FONT size="1">não-assinante<FONT size="2">)</FONT></FONT></FONT></FONT></FONT></FONT></TD></TR><TR><TD><FONT size="1">Este plano é ideal para quem tem interesse em mais de um post. Você compra um mínimo de R$ 50,00 em créditos e ganha, em média, 50% de desconto no preço do post. <A href="https://seguro.devmedia.com.br/buycredits.asp?v=0"><FONT size="2" color="#FF0000"><B>Compre Créditos agora!</B></FONT></A><FONT size="2" color="#FF0000"></FONT></FONT></TD></TR></TBODY></TABLE><BR>  <TABLE><TBODY><TR><TD><B><FONT size="2" color="black">Assinatura de Créditos</FONT></B><FONT size="2" color="black"> (Plano econômico)<FONT size="2" color="black"> – Aqui este post custa <B>R$ 0,00</B></FONT></FONT></TD></TR><TR><TD><FONT size="1">Este plano é ideal para quem tem interesse em muitos posts. Com esse plano você compra R$ 180,00 em créditos e ganha, em média, 80% de desconto no preço do post.<A href="https://seguro.devmedia.com.br/venda_prod.asp?id=372"> <FONT size="2" color="#FF0000"><B>Assine este plano agora!</B></FONT></A><FONT size="2" color="#FF0000"><B><BR><BR><FONT size="2"></FONT></B><FONT size="2"><A href="http://www.devmedia.com.br/creditos/default.asp?p=1">&gt; Saiba mais sobre o Sistema de Créditos DevMedia</A></FONT></FONT></FONT></TD></TR></TBODY></TABLE><BR></FONT></FONT></FONT></TD></TR></TBODY></TABLE></FONT></DIV><FONT face="verdana" size="2">
+		
+					 </FONT></TD>
+					</TR>
+				   </TBODY></TABLE>
+			
+		
+
+
+		<TABLE cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD>
+			   	
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+		
+
+
+
+	   <TABLE border="0" cellpadding="0" cellspacing="0">
+		
+
+		
+
+		<TBODY><TR>
+		 <TD>
+		   
+
+
+
+
+			<TABLE>
+			 <TBODY><TR>
+			   
+			   <TD>
+			   	 
+				 <A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" onclick="document.getElementById(&#39;poplogin&#39;).style.display=&#39;block&#39;;">
+				<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT-FEEDBACK.jpg" border="0"></A>
+			   </TD>
+			   <TD><A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=5380"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT-FAVORITOS.jpg" border="0"></A></TD>
+			  </TR>
+			 </TBODY></TABLE>
+
+
+				<FONT size="1"><BR>
+
+				
+
+				<TABLE bgcolor="#818181" width="100%"><TBODY><TR height="5"><TD></TR></TBODY></TABLE>
+
+
+			
+			<SPAN style="font-family: verdana, sans-serif; line-height:130%;font-size : 15pt">Como manipular arquivos Excel com Jakarta POI – Parte I
+			<TABLE width="100%" bgcolor="#000000" cellpadding="0" cellspacing="0"><TBODY><TR><TD></TR></TBODY></TABLE>
+		     
+
+		 </SPAN></FONT></TD>
+		</TR>
+	    <TR>
+		  <TD>
+		   <P class="PortalTtulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana" size="4">Como manipular arquivos Excel com Jakarta POI – Parte I</FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">O Projeto POI é um aglomerado de APIs que tem como função manipular arquivos do tipo Microsoft OLE 2. Todo esse processo se dá na linguagem Java, o que facilita a nossa vida de mortais programadores. No entanto, vale lamentar que, atualmente, a API não está completa para todos os formatos. Somente a HSSF (formato Excel) disponibiliza grande parte dos comandos utilizados no Excel para a manipulação de planilhas. Para os outros programas, PowerPoint e Word, existem poucas opções de manipulação em termos de recurso. Falar do projeto POI-HSSF referente à leitura e escrita de arquivos Excel é o tema. </FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana">Configurando o ambiente </FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Utilizaremos o Eclipse como IDE:</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt; color: rgb(0, 0, 255);"><A href="http://www.eclipse.org/"><FONT face="Verdana" size="2">www.eclipse.org</FONT></A></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Download do Jakarta POI:</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt; color: rgb(0, 0, 255);"><SPAN style="" lang="EN-US"><A href="http://www.apache.org/dyn/closer.cgi/jakarta/poi/"><SPAN style="" lang="PT-BR"><FONT face="Verdana" size="2">http://www.apache.org/dyn/closer.cgi/jakarta/poi/</FONT></SPAN></A></SPAN></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Descompacte o arquivo poi-bin-3.0-alpha3-20061212.zip (versão com data deste artigo) e copie o arquivo poi-3.0-alpha3-20061212.jar para o classpath da sua aplicação. Pronto, o ambiente já está configurado para a criação da primeira planilha.</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana">Da criação de uma planilha</FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Para gerar um arquivo de planilha Excel, utilizaremos a classe HSSFWorkbook. Observe o conjunto de códigos abaixo:</FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);">package</SPAN></B><SPAN style="color: black;"> glaucioguerra.info.main;</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.FileOutputStream;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.IOException;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFWorkbook;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">class</SPAN></B><SPAN style="color: black;" lang="EN-US"> Main {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">static</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">void</SPAN></B><SPAN style="color: black;" lang="EN-US"> main(String[] args) </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">throws</SPAN></B><SPAN style="color: black;" lang="EN-US"> IOException {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFWorkbook wb = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> HSSFWorkbook();</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>FileOutputStream stream = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> FileOutputStream(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"c:/planilha.xls"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN style="color: black;">wb.write(stream);</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT size="2"><FONT face="Courier New"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></FONT></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT face="Courier New" size="2">}</FONT></SPAN></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">A classe Workbook necessita de um FileOutputStream para armazenar a planilha em disco, que foi gerada no raiz c:\planilha.xls, conforme figura:</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><V:SHAPETYPE id="_x0000_t75" stroked="f" filled="f" path="m@4@5l@4@11@9@11@9@5xe" o:preferrelative="t" o:spt="75" coordsize="21600,21600"><V:STROKE joinstyle="miter"></V:STROKE><V:FORMULAS><V:F eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F eqn="prod @3 21600 pixelWidth"></V:F><V:F eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:connecttype="rect" gradientshapeok="t" o:extrusionok="f"></V:PATH><O:LOCK aspectratio="t" v:ext="edit"></O:LOCK></V:SHAPETYPE><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/ggmejp1fig011.jpg" alt="ggmejp1fig011.jpg" border="0" height="387" width="640">&nbsp;</P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana">Adicionando planilhas ao Workbook</FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">É possível adicionar planilhas ou Sheets em um Workbook. A classe que representa um sheet é a HSSFSheet. No exemplo será adiciona à planilha três sheets. </FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);">package</SPAN></B><SPAN style="color: black;"> glaucioguerra.info.main;</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.FileOutputStream;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.IOException;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFSheet;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFWorkbook;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">class</SPAN></B><SPAN style="color: black;" lang="EN-US"> Main {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">static</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">void</SPAN></B><SPAN style="color: black;" lang="EN-US"> main(String[] args) </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">throws</SPAN></B><SPAN style="color: black;" lang="EN-US"> IOException {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFWorkbook wb = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> HSSFWorkbook();</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet1 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Um"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet2 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Dois"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet3 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Três"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>FileOutputStream stream = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> FileOutputStream(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"c:/planilha.xls"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN style="color: black;">wb.write(stream);</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT size="2"><FONT face="Courier New"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></FONT></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT face="Courier New" size="2">}</FONT></SPAN></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">O método createSheet recebe como parâmetro uma String para identificar o nome da planilha adicionada ao Workbook. O retorno desta função é do tipo HSSFSheet, que será utilizado para manipular as células pertencentes à planilha. A relação entre essas classes seria da seguinte forma:</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/ggmejp1fig021.jpg" alt="ggmejp1fig021.jpg" border="0" height="183" width="425">&nbsp;</P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">A figura ilustra o resultado do código acima, ao qual foram adicionados os Sheets Planilha Um, Planilha Dois e Planilha Três.</FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/ggmejp1fig031.jpg" alt="ggmejp1fig031.jpg" border="0" height="387" width="640">&nbsp;</P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><O:P><STRONG><FONT face="Verdana">&nbsp;</FONT></STRONG></O:P></P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana">Adicionando conteúdo nas células</FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Para adicionar um conteúdo em uma célula é necessário instanciar uma classe do tipo HSSFRow, na qual serão adicionadas as células que são representadas pela classe HSSFCell. </FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Segue o exemplo:</FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;;"><O:P><FONT color="#1f497d" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);">package</SPAN></B><SPAN style="color: black;"> glaucioguerra.info.main;</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.FileOutputStream;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> java.io.IOException;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFRow;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFSheet;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">import</SPAN></B><SPAN style="color: black;" lang="EN-US"> org.apache.poi.hssf.usermodel.HSSFWorkbook;</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">class</SPAN></B><SPAN style="color: black;" lang="EN-US"> Main {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="" lang="EN-US"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">public</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">static</SPAN></B><SPAN style="color: black;" lang="EN-US"> </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">void</SPAN></B><SPAN style="color: black;" lang="EN-US"> main(String[] args) </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">throws</SPAN></B><SPAN style="color: black;" lang="EN-US"> IOException {</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFWorkbook wb = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> HSSFWorkbook();</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet1 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Um"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet2 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Dois"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFSheet sheet3 = wb.createSheet(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Planilha Três"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>HSSFRow row = sheet1.createRow(0);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>row.createCell((</SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">short</SPAN></B><SPAN style="color: black;" lang="EN-US">) 0).<S>setCellValue</S>(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"Isto é uma String"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>FileOutputStream stream = </SPAN><B><SPAN style="color: rgb(127, 0, 85);" lang="EN-US">new</SPAN></B><SPAN style="color: black;" lang="EN-US"> FileOutputStream(</SPAN><SPAN style="color: rgb(42, 0, 255);" lang="EN-US">"c:/planilha.xls"</SPAN><SPAN style="color: black;" lang="EN-US">);</SPAN><SPAN style="" lang="EN-US"><O:P></O:P></SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Courier New"><SPAN style="color: black;" lang="EN-US"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN style="color: black;">wb.write(stream);</SPAN></FONT></FONT></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT size="2"><FONT face="Courier New"><SPAN style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></FONT></SPAN></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><O:P><FONT color="#1f497d" face="Courier New" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCdigo" style="margin: 0cm 0cm 0pt;"><SPAN style="color: black;"><FONT face="Courier New" size="2">}</FONT></SPAN></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT size="2"><FONT face="Verdana">O método createCell adiciona células à linha da planilha.<SPAN style="">&nbsp; </SPAN>Toda a instância da classe HSSFRow deve receber um inteiro como parâmetro na criação do objeto, que representa a posição da linha na planilha. A seqüência começa em zero conforme utilizada no exemplo.<SPAN style="">&nbsp; </SPAN></FONT></FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalInterttulo" style="margin: 0cm 0cm 0pt;"><STRONG><FONT face="Verdana">Resultado</FONT></STRONG></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2"></FONT></O:P><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/ggmejp1fig041.jpg" alt="ggmejp1fig041.jpg" border="0" height="387" width="640">&nbsp;</P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><V:OVAL id="_x0000_s1046" style="margin-top: 36.5pt; z-index: 251657728; margin-left: 0.75pt; width: 1in; position: absolute; height: 27pt;" filled="f" strokecolor="red"><FONT face="Verdana" size="2"></FONT></V:OVAL></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Na segunda parte deste tema será feito um panorama da criação de células do tipo data e suas formatações: cores, alinhamento e mesclagem de células. Acompanhe a seqüência dos próximos artigos, pois temos muito a falar nos mais diversos desdobramentos desse assunto. </FONT></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><O:P><FONT face="Verdana" size="2">&nbsp;</FONT></O:P></P>
+<P class="PortalCorpo" style="margin: 0cm 0cm 0pt;"><FONT face="Verdana" size="2">Até breve! </FONT></P>
+		  </TD>
+		</TR>	
+
+		
+		<TR>
+		  <TD>
+				
+
+
+				<TABLE bgcolor="#818181" width="100%" cellpadding="0" cellspacing="0"><TBODY><TR height="5"><TD></TR></TBODY></TABLE>
+
+		  </TD>
+		</TR>
+	   
+	   
+	   	<TR>
+          <TD height="30"><BR>
+			
+		  <TABLE>
+		    <TBODY><TR>
+			  <TD valign="top">
+
+					
+
+			
+			  <DIV id="divBox_2" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px; HEIGHT: 355px; BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+
+				
+			 <TABLE>
+			   <TBODY><TR>
+			     <TD>
+				 <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT_PostsAutorAMARELO.jpg"></TD>
+				 <TD><A href="http://www.devmedia.com.br/space.asp?id=160025&post=2"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"><B></B>
+				 </FONT></TD>
+				</TR>
+			  </TBODY></TABLE>
+			  
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9422"><SPAN class="font2-preto">Artigo Java Magazine 57 - Oracle BPEL: orquestra afinada de sistemas
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=10200"><SPAN class="font2-preto">Artigo Java Magazine 59 - Grails: mais inspiração, menos transpiração
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=8838"><SPAN class="font2-preto">Notícias – Adobe anuncia Flex 4 – fisl 9.0 – iPhone SDK para Download – Google lança AJAX Translation API
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=8389"><SPAN class="font2-preto">Notícias - Java SE 6 Developer Preview 9 - GWT-Ext 2.0 - Google Android - Grails 1.0.1 - J2EE Spider 1.0.0-M1
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5891"><SPAN class="font2-preto">Como manipular arquivos Excel com Jakarta POI – Parte II
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I.html"><SPAN class="font2-preto">Como manipular arquivos Excel com Jakarta POI – Parte I
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4876"><SPAN class="font2-preto">Alta performance na indexação com Apache Lucene – Parte II
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4681"><SPAN class="font2-preto">Possibilitando alta performance na indexação com o Apache Lucene - Parte I
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4495"><SPAN class="font2-preto">DB4Objects na Prática – Parte IV
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=4323"><SPAN class="font2-preto">DB4Objects – Parte III 
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+					
+			  </DIV>
+
+
+			  </TD>
+			  <TD width="10">
+			  <TD valign="top">
+			  <DIV id="divBox_3" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px;  HEIGHT: 355px;BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+			  
+			  <TABLE>
+			   <TBODY><TR>
+			     <TD>
+			  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT_CursosRelacionadosAMARELO.jpg"></TD>
+			  <TD><A href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&tipo=15&vis=-1&site=-1"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"><B></B></FONT></TD>
+			    </TR>
+			   </TBODY></TABLE>		  		
+
+		  		
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9862"><SPAN class="font2-preto">Curso Online - Desenvolvendo um software acadêmico para celular com Java ME
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11319"><SPAN class="font2-preto">Aprenda a persistir dados em suas aplicações Java utilizando Hibernate
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5109"><SPAN class="font2-preto">Curso online: Introdução ao desenvolvimento para celulares com J2ME
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=9859"><SPAN class="font2-preto">Introdução ao JBoss Seam
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11320"><SPAN class="font2-preto">Desenvolvimento de aplicações Java Web no Eclipse
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+
+
+
+
+
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="5">
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=7687"><SPAN class="font2-preto">Curso OnLine WebDesign - Desenvolvendo o layout de um WebSite passo a passo
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11482"><SPAN class="font2-preto">Curso Online:JavaScript(básico)
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=6409"><SPAN class="font2-preto">Curso de Administração do Microsoft SQL Server 
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+            </TBODY></TABLE>
+
+
+
+
+
+
+
+				</DIV>
+
+			  </TD>
+			 </TR>
+			 <TR height="5">
+			   <TD colspan="2">
+			  </TR>
+			
+		    <TR>
+			  <TD valign="top">
+			  			  <DIV id="divBox_1" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px;  HEIGHT: 355px;BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+					
+					
+					<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT_PostsRelacionadosAMARELO.jpg">
+
+
+					
+
+			  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="0">
+
+	
+	<!-- inicio da noticia -->			
+				  <TBODY><TR> 
+					<TD><SPAN class="font2-preto"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5891">Como manipular arquivos Excel com Jakarta POI – Parte II<BR>
+					  </A></SPAN><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5891"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+	<!-- inicio da noticia -->			
+				  <TR> 
+					<TD><SPAN class="font2-preto"><A href="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I.html">Como manipular arquivos Excel com Jakarta POI – Parte I<BR>
+					  </A></SPAN><A href="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I.html"></A></TD>					
+					<TD>
+				  </TR>
+				  <TR height="6"> 
+					<TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="2"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+	<!-- fim da noticia -->
+
+	
+				</TBODY></TABLE>
+				  </DIV>
+
+
+			  </TD>
+			  <TD width="10">
+			  <TD valign="top">
+			  			  <DIV id="divBox_4" style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; OVERFLOW: auto; BORDER-LEFT: 0px solid; WIDTH: 325px; HEIGHT: 355px; BORDER-BOTTOM: 0px solid; WHITE-SPACE: nowrap; ">
+
+			  <TABLE>
+			   <TBODY><TR>
+			     <TD><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/BOT_PostsDevMediaAMARELO.jpg"></TD>
+				 <TD valign="top">				 <A href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&tipo=0&vis=-1&site=-1"><FONT face="verdana" size="1" color="blue"><B>[Ver todos]</B></FONT></A><FONT face="verdana" size="1" color="blue"></FONT></TD>
+				</TR>
+			   </TBODY></TABLE>
+			  
+
+		  <TABLE width="97%" border="0" align="center" cellpadding="" cellspacing="0">
+            
+
+
+<!-- inicio da noticia -->			
+              <TBODY><TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15578"><SPAN class="font2-preto">Curso Preparatório para a Certificação-Sun Certified Web Component Developer(SCWCD)-Parte 12-Listeners dos eventos do Ciclo de vida das aplicações Web
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15577"><SPAN class="font2-preto">Curso Preparatório para a Certificação-Sun Certified Web Component Developer(SCWCD)-Parte 11-Informações sobre filtros e Wrappers 
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15576"><SPAN class="font2-preto">Curso Preparatório para a Certificação-Sun Certified Web Component Developer(SCWCD)-Parte 10-Modelo do Web Container 
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15575"><SPAN class="font2-preto">Curso Online-Controle de Chamados Técnicos com MultiCamadas (Desenvolvendo na prática interface Win32, Web e Mobile)-Parte 24-Continuando com a criação de StoredProcedures para a tabela Chamados_Resposta
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15574"><SPAN class="font2-preto">Curso Online-Controle de Chamados Técnicos com MultiCamadas (Desenvolvendo na prática interface Win32, Web e Mobile)-Parte 23-Iniciando a criação de StoredProcedures para a tabela Chamados_Resposta
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15573"><SPAN class="font2-preto">Curso Online-Controle de Chamados Técnicos com MultiCamadas (Desenvolvendo na prática interface Win32, Web e Mobile)-Parte 22-Finalizando a estrutura e implementação de  métodos da classe ArtigoDALClasse ArtigoDAL-Parte 3
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15569"><SPAN class="font2-preto">PHP E MYSQL - parte 2
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%">
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15568"><SPAN class="font2-preto">Curso Online-Programação e boas práticas com PHP-Parte 22-Smarty Template-Trabalhando com Banco de dados-Parte 3
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15567"><SPAN class="font2-preto">Curso Online-Programação e boas práticas com PHP-Parte 21-Smarty Template-Trabalhando com Banco de dados-Parte 2
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15566"><SPAN class="font2-preto">Curso Online-Aplicação Financeira em 3 Camadas utilizando dbExpress e DataSnap-Parte XVIII-Continuando a criar gráfico utilizando o componente DBChart
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15565"><SPAN class="font2-preto">Curso Online-Delphi Prism-Parte 28-Desenvolvimento Web-Comparativo VCL x ASP.NET-Passando dados entre forms usando PostbackURL
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15564"><SPAN class="font2-preto">Curso Online-Delphi Prism-Parte 27-Desenvolvimento Web-Comparativo VCL x ASP.NET-Passando dados entre forms usando QueryString
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15563"><SPAN class="font2-preto">Novidades do Visual Studio 2010-Parte 6-Novidades da Linguagem C# 4.0-Usando tipos dinâmicos (dynamic)
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15562"><SPAN class="font2-preto">Novidades do Visual Studio 2010-Parte 5-Novidades da Linguagem C# 4.0-Parâmetros nomeados e opcionais
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <TR> 
+                <TD width="82%"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=15561"><SPAN class="font2-preto">Componentes DevExpress-Parte 10-ASPxSpellChecker
+                  </SPAN></A></TD>
+				<TD width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></TD><TD width="6%"><DIV align="center"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/bullet_video_aula.gif" width="22" height="22"></DIV></TD>
+				
+				
+				
+			  </TR>
+              <TR height="6"> 
+                <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif" colspan="4"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+<!-- fim da noticia -->
+
+
+   </TBODY></TABLE>
+
+
+			  
+			  
+			  </DIV>
+			  </TD>
+			 </TR>
+			
+		</TBODY></TABLE>
+
+
+		  
+
+	   </TD></TR></TBODY></TABLE>	
+	
+<BR>
+
+
+       <TABLE width="100%" cellspacing="0" cellpadding="0">
+
+
+		<TBODY><TR>
+		 <TD>
+		 </TD>
+		</TR>
+           
+		</TBODY></TABLE>
+
+
+
+    </TD>
+	<TD width="30">
+    <TD valign="top" width="250">
+
+				 	
+						<CENTER>
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+						<BR><BR></CENTER>
+
+					
+					<TABLE border="0">
+					<TBODY><TR>
+					  <TD>  
+						<TABLE border="0">
+						  <TBODY><TR valign="top">
+							<TD><CENTER>
+							  
+							     <A href="http://www.devmedia.com.br/space.asp?id=160025">
+								
+								 <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/Col_160025_glauciog.jpg" width="150" onload="if(this.width &gt; 150){this.width = 150}" border="0">
+								 </A>
+							  
+							</CENTER></TD>
+							</TR>
+							<TR>
+							<TD><SPAN id="lblCurriculo"><SPAN class="font4-preto">
+							<A class="linkDEV" href="http://www.devmedia.com.br/space.asp?id=160025">
+							<CENTER>GLAUCIO GUERRA</CENTER><SPAN>
+							  <SPAN id="lblCurriculo"><SPAN class="font1-preto">Há cinco anos atuando com desenvolvimento de software, Glaucio Guerra (glaucioguerra@gmail.com) trabalha como Analista de Sistemas no ambiente Petrobras, no Rio de Janeiro, sendo bacharelando em Ciência da Computação. Atualmente, concentra seus proje...</SPAN></SPAN></SPAN></A>
+							</SPAN></SPAN></TD>
+						  </TR>
+						</TBODY></TABLE>
+					  </TD>
+					</TR>
+					</TBODY></TABLE>
+					<CENTER><FONT face="verdana"><B><A href="http://www.devmedia.com.br/autor.asp?id=160025">Ver space do autor</A></B></FONT></CENTER><FONT face="verdana"><B></B><BR><BR>
+
+	  <TABLE bgcolor="#E1E1E1" width="100%">
+	    <TBODY><TR>
+		  <TD>
+
+				
+<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1">
+<TBODY><TR height="25">
+  <TD colspan="2" valign="top"><FONT face="verdana" size="2"><B>Estatísticas deste post:</B>
+</FONT></TD></TR>
+<TR>
+ <TD><FONT face="Verdana" size="2">Visualizações:</FONT></TD>
+ <TD><FONT face="Verdana" size="2">&nbsp;36928</FONT></TD>
+</TR>
+<TR>
+  <TD><FONT face="Verdana" size="2">Favoritado: </FONT></TD>
+  <TD><FONT face="Verdana" size="2">&nbsp;8 vez(es)</FONT></TD>
+</TR>
+<TR>
+ <TD colspan="2">&nbsp;</TD>
+</TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Conteúdo:
+  </FONT></TD>
+  <TD> <FONT face="Verdana" size="2"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png">
+  </FONT></TD>
+ </TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Didática:
+  </FONT></TD>
+  <TD><FONT face="Verdana" size="2"> <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/star_full.png">
+  </FONT></TD>
+ </TR>
+
+ <TR>
+  <TD><FONT face="Verdana" size="2">Utilidade:
+  </FONT></TD>
+  <TD>
+    <TABLE>
+	  <TBODY><TR>
+	    <TD>
+		  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/thumbUp.jpg"> 18
+		</TD>
+		<TD width="10">
+		<TD>
+		  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/thumbDown.jpg">  0
+		</TD>
+	  </TR>
+	 </TBODY></TABLE>
+
+  </TD>
+ </TR>
+
+
+ <TR>
+   <TD> <FONT face="Verdana" size="1">Feedbacks:
+   </FONT></TD>
+   <TD><FONT face="Verdana" size="1">21
+   </FONT></TD>
+ </TR>
+
+
+</TBODY></TABLE>
+
+				<BR>
+			 <TABLE bgcolor="#E5E5E5" width="100%" cellpadding="0" cellspacing="0" border="0">
+			  <TBODY><TR height="20"><TD>&nbsp;</TD>
+			   <TD>
+				 <FONT face="Tahoma" size="2"><B>Central de Serviços:
+			   </B></FONT></TD>
+			  </TR>
+
+			  
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/caneta.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/publish/publish_central.asp"><FONT face="Tahoma" size="2">Inclua seu próprio artigo! </FONT></A><FONT face="Tahoma" size="2"><A class="linkDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=4"><FONT size="2">(ajuda)</FONT></A><FONT size="2"></FONT>
+				</FONT></TD>
+			  </TR>
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/comentario.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/addcomment.asp?idcomp=5380"><FONT face="Tahoma" size="2">Participe! Inclua um comentário</FONT></A>
+				</TD>
+			  </TR>
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/favorito.gif">
+				</TD>
+				<TD>
+						<A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=5380" class="linkDEV"><FONT face="Tahoma" size="2">Adicionar este post a Favoritos</FONT></A>
+				</TD>
+			  </TR>
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/finished.png">
+				</TD>
+				<TD>
+						<A href="http://www.devmedia.com.br/favorite/add_finished.asp?comp=5380" class="linkDEV"><FONT face="Tahoma" size="2">Marcar este post como lido/assistido</FONT></A>
+				</TD>
+			  </TR>
+
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/anotacoes.gif">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/addnote.asp?idcomp=5380"><FONT face="Tahoma" size="2">Inclua uma anotação pessoal </FONT></A><FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5508" class="linkDEV"><FONT size="2">(ajuda)</FONT></A><FONT size="2"></FONT>
+				</FONT></TD>
+			  </TR>
+
+			  <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/feed.png">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/feed"><FONT face="Tahoma" size="2">RSS Feeds</FONT></A>
+				</TD>
+			  </TR>
+
+			  
+				 <TR height="20">
+				<TD width="17">
+				  <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/printer.png">
+				</TD>
+
+				<TD>
+						<A class="linkDEV" href="http://www.devmedia.com.br/articles/viewcomp_forprint.asp?comp=5380"><FONT face="Tahoma" size="2">Versão para impressão</FONT></A>
+				</TD>
+			  </TR>
+			 
+			</TBODY></TABLE>
+			
+		   </TD>
+		  </TR>
+		 </TBODY></TABLE>
+		 <BR>
+		 
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+
+<TABLE>
+ <TBODY><TR>
+
+  <TD>
+    <A href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=5380" title="Adicione ao Favoritos DevMedia">
+	<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.devmedia.16.jpg" border="0">
+	</A>
+  </TD>
+
+  <TD>
+    <A href="http://del.icio.us/post?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Delicious">
+	<IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.delicious.16.gif" border="0">
+	</A>
+  </TD>
+
+  <TD><A href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&Description=&Url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&Title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Blink">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.blinklist.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://digg.com/submit?phase=2&url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Digg">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.digg.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://reddit.com/submit?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Reddit">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.reddit.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://www.newsvine.com/_tools/seed&save?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&h=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao newsvine">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.newsvine.16.gif" border="0"></A>
+  </TD>
+  <TD><A href="http://www.furl.net/storeIt.jsp?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&t=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Furl">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.furl.16.gif" border="0"></A>
+  </TD>
+    <TD><A href="http://blogmarks.net/my/new.php?mini=1&simple=1&url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Blogmarks">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.blogmarks.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://rec6.via6.com/link.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&titulo=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Rec6">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.rec6.16.gif" border="0"></A>
+  </TD>
+  <TD><A href="http://www.linkk.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&titulo=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Linkk">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.linkk.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://eucurti.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao Eu Curti!">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.eucurti.16.gif" border="0"></A>
+  </TD>
+
+  <TD><A href="http://www.dzone.com/links/add.html?url=http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380&title=Como%20manipular%20arquivos%20Excel%20com%20Jakarta%20POI%20%96%20Parte%20I" title="Adicione ao DZone">
+    <IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/share.dzone.16.gif" border="0"></A>
+  </TD>
+
+ </TR>
+</TBODY></TABLE>
+		 <BR><FONT size="4">
+		 
+
+
+     </FONT></FONT></TD>
+   </TR>
+</TBODY></TABLE>
+
+ <TABLE border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR> 
+    <TD valign="top" width="27" bgcolor="#EFEFEF">
+	<TD>
+
+
+    	
+
+<SCRIPT language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</SCRIPT>
+
+<BR>
+<TABLE bgcolor="#808080" width="675" cellpadding="0" cellspacing="0" border="0">
+  <TBODY><TR>
+    <TD>
+	  
+				  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380">
+			  
+
+			<FONT face="verdana" size="4" color="#FFFF5E">
+			   
+			        Participe! Inclua um comentário 
+					</FONT>
+				
+				</A>
+	</TD>
+  </TR>
+</TBODY></TABLE>
+	<DIV id="popcoment">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#coment" onclick="document.getElementById(&#39;popcoment&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	Este post é fechado - você precisa ter acesso ao post para incluir um comentário.<BR><BR>
+
+</FONT></DIV><FONT face="verdana" size="2">
+
+<BR>
+
+
+
+  <TABLE border="0" width="600" cellpadding="1" cellspacing="1">
+
+
+  <TBODY><TR bgcolor="#e5e5e5">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">GUSTAVO SANTOS</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		6/7/2007 17:41
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;Lamentável		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  Prezados,
+Diria que essa situação é no mínimo lamentável. O cara escreve um artigo na melhor das intenções para propagar informação e vem um cara numa atitude inusitada ofender. lastimável!!!!!
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Josmar Barbosa</B><BR>
+					  7/7/2007 12:48:31 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Artigo louvável.		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Parabéns pelo artigo, pelo trabalho de pesquisa e pela tradução bem feita. Você agiu como um facilitador e isto tem muito valor na divulgação do conhecimento.
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Glaucio Guerra</B><BR>
+					  7/9/2007 1:07:11 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Obrigado a todos		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Pessoal agradeço o apoio de todos! A segunda parte já está pode ser acessada ok?
+
+Um abraço!
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Enzo</B><BR>
+					  8/20/2007 2:00:07 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;problemas com POI		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Muito bom esse seu artigo. Porém, estou com um problema:Rodando pela classe main no IDE funciona, mas quando é gerado o .jar não funciona. O que será que acontece?
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Glaucio Guerra</B><BR>
+					  8/29/2007 12:08:55 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Como está gerando o Jar?		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Olá Enzo, como você está gerando o .jar? Posso te explicar melhor por email: glaucioguerra at gmail dot com. Um abraço!
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Markus</B><BR>
+					  9/18/2007 3:00:08 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Como abrir um arquivo do excel com  Java?		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Eu sou novo na área da computação, estou trabalhando com o Java recentemente... e gostaria de saber como fazer para abrir um documento feito em excel no Java... eu ficaria m uito agradecido..
+Obrigado
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Glaucio Guerra</B><BR>
+					  10/12/2007 6:01:32 AM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Neste artigo!		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Olá Markus, neste artigo demonstra como isso é feito! No primeiro código está um exemplo ok? Um abraço!
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3394">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+  <TR bgcolor="#D1D7DC">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">Andre Rocha</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		19/6/2007 12:31
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;Parabens pelo Plágio		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  Créditos deste tutorial devem ser dados à Samudra Gupta
+end.
+http://www.devx.com/Java/Article/17301/0
+Cara, você é a maior farça que já conheci. :)
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3172">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+				  <TR bgcolor="#D1D7DC">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Glaucio Guerra</B><BR>
+					  7/2/2007 5:01:21 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Você sabe o que é Plágio		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Caro André, seja mais educado com suas palavras. Primeiramente, você sabe o que é um Plágio? Eu me passei pelo autor deste artigo em algum momento? Eu me apropriei do artigo dele? Eu traduzi o que ele escreveu para Português e assinei em baixo? Eu copiei algum texto, imagem ou seja lá o que for do artigo do autor que você citou? Por favor, faça comentários que acrescentem alguma coisa para os leitores deste portal. Seja mais ético e prove o que diz. Leia bem os dois artigos e veja que ambos estão sendo baseados na API e nada mais.
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3172">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#D1D7DC">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>José Brandão</B><BR>
+					  7/4/2007 7:04:35 AM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;É um ignorante		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Glaucio, existem pessoas que são assim mesmo. Sentem inveja do trabalho do próximo. Eu li os dois artigos e vi que você não copiou absolutamente nada. Um grande abraço e obrigado pelas dicas!
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3172">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#D1D7DC">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Peam</B><BR>
+					  11/19/2007 3:17:52 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Seu trouxa		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Aí seu trouxa, larga a mão de ser babaca. O arqtigo do cara é muito bom, e não tem nada de plágio, não. Você deve estar tão acostumado a copiar códigos dos outros (CTRL C / CTRL V) que você acha que todo mundo é igual. Seu "papa-code" do caramba.
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3172">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+				  <TR bgcolor="#D1D7DC">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>MSCOSTA</B><BR>
+					  12/3/2007 1:53:16 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;André Rocha...Analfabeto		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					André Rocha..seu filádaputa do kralho...pelo menos aprenda a escrever..."farça" é com "s"...Vê se contribui com algo mais construtivo...seu viado....
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3172">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+  <TR bgcolor="#e5e5e5">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">joao</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		6/7/2007 11:24
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;Andre Rocha		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  Esse Andre Rocha é um otário, o artigo do cara é muito bom. Manda esse filho da puta desse Andre Rocha tomar no meio do cu.
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3385">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+				  <TR bgcolor="#e5e5e5">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Itamar Nunes</B><BR>
+					  3/21/2008 10:25:54 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Ótima matéria, era o que eu precisava.. :)		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Mto Bom!
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3385">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+  <TR bgcolor="#D1D7DC">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">joao</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		6/7/2007 11:24
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;Andre Rocha		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  Esse Andre Rocha é um otário, o artigo do cara é muito bom. Manda esse filho da puta desse Andre Rocha tomar no meio do cu.
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3386">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+				  <TR bgcolor="#D1D7DC">
+				    <TD width="120"><BR><BR>
+										
+					<FONT face="Tahoma" size="1">
+				      <B>Diogo</B><BR>
+					  4/30/2008 9:30:37 PM
+					</FONT></TD>
+					<TD>
+					<TABLE>
+						<TBODY><TR>
+						  <TD><FONT face="Tahoma" size="2">
+							  
+							  &nbsp;Artigo mto bom		
+						  </FONT></TD>
+						</TR>
+						<TR> <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD></TR>
+						<TR><TD><FONT face="Tahoma" size="2">
+					Joao, concordo com vc em relaçao ao Andre Rocha. André, mesmo que o kra tivesse traduzido o artigo isso seria de grande valia pois infelizmente existem muitas pessoas que nao sabem ler ingles. portanto pare de ser mané, escreva ou traduz um artigo e contribua para o crescimento profisional seu e de outras pessoas. Parabéns pelo artigo, muito bom.
+						  </FONT></TD>
+						</TR>
+					 </TBODY></TABLE>
+					</TD>
+					<TD><FONT face="Tahoma" size="2">
+					  
+     					  <A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=3386">Responder</A>
+					  
+					</FONT></TD>
+				   
+				  </TR>
+			  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+  <TR bgcolor="#e5e5e5">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">Lucas Fogaça</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		29/5/2008 01:37
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;Muito útil		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  Para mim foi bem útil, me ajudou bastante :), valeu.
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=7272">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+  <TR bgcolor="#D1D7DC">
+    <TD width="120">
+			
+
+
+      <B>  <FONT face="Tahoma" size="1">fabricio de souza farias</FONT></B><FONT face="Tahoma" size="1"><BR>
+
+		6/9/2008 10:11
+	  
+	</FONT></TD>
+	<TD>
+	  <TABLE>
+	    <TBODY><TR>
+		  <TD>		  <FONT face="Tahoma" size="2">
+		  
+        	  &nbsp;dúvida		
+          </FONT></TD>
+        </TR>
+		<TR> 
+            <TD background="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/pontilhado.gif"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/casper.gif" width="100%" height="1"></TD>
+		</TR>
+		<TR>
+		  <TD>
+		  <FONT face="Tahoma" size="2">
+		  	  
+Primeiramente parabenizo pelo artigo!<BR><BR>E em segundo lugar peço que se possível vc tire uma dúvida que surgiu...Bem tu ensinaste a criar uma planilia e modificar as celulas, mas se eu apenas quizesse carregar uma planilia já existente com dados e que meu programa tivesse a opção de escolher uma das abas da mesma como seria o código ? podes me auxiliar me enviando um exemplo ?<BR><BR>Não sei se fui claro, espero que sim!<BR><BR>desde já agradeço!<BR>
+         
+		  </FONT></TD>
+		</TR>
+	 </TBODY></TABLE>
+	</TD>
+	<TD>
+	  	
+     	  <FONT face="Tahoma" size="2"><A href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=5380&idco_pai=8248">Responder</A>
+	   
+
+	</FONT></TD>
+	
+  </TR>
+  
+	<TR height="35"> <TD colspan="2"></TR> 
+
+ </TBODY></TABLE>
+
+	</FONT></TD>
+   </TR>
+  </TBODY></TABLE>
+
+
+<DIV id="poplogin">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" onclick="document.getElementById(&#39;poplogin&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	
+		Você precisa estar logado para dar seu feedback.	
+	<BR><BR>
+	<A href="http://www.devmedia.com.br/login/login.asp?comp=5380">Clique aqui para efetuar o login</A><BR><BR>
+	<A href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Caso não tenha um cadastro DevMedia, clique aqui para se cadastrar (gratuito)</A>
+	
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+
+<DIV id="poplink">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" onclick="document.getElementById(&#39;poplink&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR><BR>
+	Este é um post fechado - Você precisa ter acesso ao post para habilitar os links de download.<BR><BR>
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+<DIV id="pop_biblio">
+<A href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5380#" onclick="document.getElementById(&#39;pop_biblio&#39;).style.display=&#39;none&#39;;"><FONT face="verdana" size="2"><B>[Fechar]</B></FONT></A><FONT face="verdana" size="2">
+<BR>
+	
+</FONT></DIV><FONT face="verdana" size="2">
+
+
+
+		<TABLE width="600" cellpadding="0" cellspacing="0">
+		  <TBODY><TR>
+		    <TD><!--include file="../include/box_renovaRodape.asp" -->
+			</TD>
+		  </TR>
+		</TBODY></TABLE>
+
+
+
+<TABLE>
+  <TBODY><TR><TD colspan="5" valign="top"><DIV align="left"><TABLE width="1000" border="0" cellpadding="0" cellspacing="0">
+  <TBODY><TR>
+    <TD width="7">&nbsp;</TD>
+	<TD bgcolor="#e9f0d4">
+
+	  <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+        <TBODY><TR> 
+          <TD width="17%"><!--<img src="http://www.devmedia.com.br/Imagens/logo2.gif" width="132" height="61">--></TD><TD width="1%"><IMG src="./DevMedia_Java_Magazine_Como_manipular_arquivos_Excel_com_Jakarta_POI_Parte_I_files/line.gif" width="1" height="50"></TD>
+		  
+		  <TD width="82%">
+              <FONT face="verdana" size="1"> <B>DevMedia Group</B> -  Tel: (21) 3382-5038 - <A href="http://www.devmedia.com.br/">www.devmedia.com.br</A> <BR>2009 - Todos os Direitos Reservados 
+                a DevMedia Group</FONT></TD></TR>
+      </TBODY></TABLE>
+	  
+	  </TD>
+	  <TD width="8"></TR>
+</TBODY></TABLE>
+
+</DIV></TD></TR>
+</TBODY></TABLE>
+
+
+
+
+
+</FONT></FONT></FONT></BODY></HTML>

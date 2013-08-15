@@ -1,0 +1,494 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Criando arquivos .jar, por Dayvid Lima</title>
+<link href="Criando-arquivos-.jar_arquivos/global.css" rel="stylesheet" type="text/css">
+<link href="Criando-arquivos-.jar_arquivos/materias.css" rel="stylesheet" type="text/css">
+<link href="Criando-arquivos-.jar_arquivos/HelpTip.css" type="text/css" rel="stylesheet">
+<script src="Criando-arquivos-.jar_arquivos/helpTip.js"></script>
+<script language="javascript" src="Criando-arquivos-.jar_arquivos/menu.js"></script><style type="text/css">#mn1Ct { visibility:hidden; left:170px; top:148px; overflow:hidden; }#mn1Ct, #mn1Ctt { position:absolute; width:206px; height:530px; clip:rect(0 206 530 0); }</style><style type="text/css">#mn2Ct { visibility:hidden; left:234px; top:148px; overflow:hidden; }#mn2Ct, #mn2Ctt { position:absolute; width:206px; height:530px; clip:rect(0 206 530 0); }</style><style type="text/css">#mn3Ct { visibility:hidden; left:354px; top:148px; overflow:hidden; }#mn3Ct, #mn3Ctt { position:absolute; width:206px; height:530px; clip:rect(0 206 530 0); }</style><style type="text/css">#mn4Ct { visibility:hidden; left:453px; top:148px; overflow:hidden; }#mn4Ct, #mn4Ctt { position:absolute; width:206px; height:530px; clip:rect(0 206 530 0); }</style><style type="text/css">#mn5Ct { visibility:hidden; left:529px; top:148px; overflow:hidden; }#mn5Ct, #mn5Ctt { position:absolute; width:206px; height:530px; clip:rect(0 206 530 0); }</style><style type="text/css">#mn6Ct { visibility:hidden; left:630px; top:148px; overflow:hidden; }#mn6Ct, #mn6Ctt { position:absolute; width:150px; height:530px; clip:rect(0 150 530 0); }</style>
+<meta name="Description" content="Plugmasters é um portal para webmasters">
+<meta name="Keywords" content="java jar arquivo compactar file">
+
+<link href="Criando-arquivos-.jar_arquivos/rico.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/prototype.js"></script>
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/rico.js"></script>
+
+<!-- Site  : http://www.plugmasters.com.br      -->
+<!-- Email : falecom(arroba)plugmasters.com.br  -->
+
+</head><body bgcolor="#e5e5e5">
+
+<!-- Start PageHeader -->
+<!--<iframe width="776" src="http://www.digirati.com.br/barra/barra.php?ref=plugmasters.com.br&bgcolor=FFFFFF&align=left&width=778" height=29 scrolling="no" frameborder=0 marginwidth=0 marginheight=0></iframe>-->
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><img src="Criando-arquivos-.jar_arquivos/barra_uol.gif" border="0" width="17" height="24"></td><td><script src="Criando-arquivos-.jar_arquivos/bpv2_m2.js"></script><style type="text/css">#uolhostbar_173lg3nC div, #uolhostbar_173lg3nC span, #uolhostbar_173lg3nC iframe, #uolhostbar_173lg3nC p, #uolhostbar_173lg3nC a, #uolhostbar_173lg3nC em,#uolhostbar_173lg3nC img, #uolhostbar_173lg3nC strong, #uolhostbar_173lg3nC b, #uolhostbar_173lg3nC i, #uolhostbar_173lg3nC center, #uolhostbar_173lg3nC dl,#uolhostbar_173lg3nC dt, #uolhostbar_173lg3nC dd, #uolhostbar_173lg3nC ol, #uolhostbar_173lg3nC ul, #uolhostbar_173lg3nC li, #uolhostbar_173lg3nC fieldset,#uolhostbar_173lg3nC form, #uolhostbar_173lg3nC label, #uolhostbar_173lg3nC table, #uolhostbar_173lg3nC caption, #uolhostbar_173lg3nC tbody,#uolhostbar_173lg3nC tfoot, #uolhostbar_173lg3nC thead, #uolhostbar_173lg3nC tr, #uolhostbar_173lg3nC th, #uolhostbar_173lg3nC td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }#uolhostbar_173lg3nC ol, #uolhostbar_173lg3nC ul { list-style: none; }#uolhostbar_173lg3nC input, #uolhostbar_173lg3nC select{ padding:0; margin:0; border:2px inset #D4D0C8; }#uolhostbar_173lg3nC :focus { outline: 0; }#uolhostbar_173lg3nC table { border-collapse: collapse; border-spacing: 0; }#uolhostbar_173lg3nC { width: 760px; height:24px; position:relative; background:url(http://barra.uolhost.com.br/img/uolhost/uolhost_barra_bg.gif) repeat-x left top; color:#1a1a1a; }#uolhostbar_173lg3nC a { text-transform:uppercase; font: normal 10px arial, helvetica, "bitstream vera sans", sans-serif; text-decoration:none; display:block; line-height:24px; width:100%; }#uolhostbar_173lg3nC a, #uolhostbar_173lg3nC a:link, #uolhostbar_173lg3nC a:visited, #uolhostbar_173lg3nC a:hover, #uolhostbar_173lg3nC ul li { color:#1a1a1a; }#uolhostbar_173lg3nC a:hover { text-decoration:underline; }#uolhostbar_173lg3nC ul { position:absolute; width:100%; height:100%; top:0; left:0; }#uolhostbar_173lg3nC ul li { position:absolute; top:0; text-align:center; font: normal 10px arial, helvetica, "bitstream vera sans", sans-serif; line-height:24px; }#uolhostbar_173lg3nC li#item1_173lg3nC { left:0; width:94px; }#uolhostbar_173lg3nC li#item2_173lg3nC { left:94px; width:158px; }#uolhostbar_173lg3nC li#item3_173lg3nC { left:252px; width:82px; }#uolhostbar_173lg3nC li#item4_173lg3nC { left:334px; width:117px; }#uolhostbar_173lg3nC li#item5_173lg3nC { left:451px; width:131px; }#uolhostbar_173lg3nC li#item6_173lg3nC { left:582px; width:30px; }#uolhostbar_173lg3nC li#item7_173lg3nC { left:612px; width:120px; }#uolhostbar_173lg3nC li#item8_173lg3nC { left:732px; width:28px; }#uolhostbar_173lg3nC li.border_173lg3nC { background:url(http://barra.uolhost.com.br/img/uolhost/uolhost_barra_border.gif) no-repeat right top; }#uolhostbar_173lg3nC #uolhostdomainname_173lg3nC { width:42px; font: normal 11px arial, helvetica, "bitstream vera sans", sans-serif; }#uolhostbar_173lg3nC #uolhostdomainextension_173lg3nC { width:72px; font: normal 11px arial, helvetica, "bitstream vera sans", sans-serif; }#uolhostbar_173lg3nC #zero800_173lg3nC { font-weight:bold; }</style><div id="uolhostbar_173lg3nC"><ul><li id="item1_173lg3nC"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:barra%20uol%20host;thm:plugmasters.com.br;link:logo&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://www.uolhost.com.br/"><img src="Criando-arquivos-.jar_arquivos/uolhost_barra_logo.gif" alt="UOL Host Hospedagem de sites" width="94" height="24"></a></li><li id="item2_173lg3nC" class="border_173lg3nC"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:barra%20uol%20host;thm:plugmasters.com.br;link:hospedagem&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://www.uolhost.com.br/hospedagem-de-sites.html">Hospedagem <span id="zero800_173lg3nC">0800 723 6000</span></a></li><li id="item3_173lg3nC" class="border_173lg3nC"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:barra%20uol%20host;thm:plugmasters.com.br;link:loja%20virtual&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://www.uolhost.com.br/loja-virtual/">Loja Virtual</a></li><li id="item4_173lg3nC" class="border_173lg3nC"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:barra%20uol%20host;thm:plugmasters.com.br;link:dedicado&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://www.uolhost.com.br/data-center/">Servidor Dedicado</a></li><li id="item5_173lg3nC"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:barra%20uol%20host;thm:plugmasters.com.br;link:registro-dominio&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://www.uolhost.com.br/registro-de-dominio.html">Registre seu domínio</a></li><li id="item6_173lg3nC">www.</li><li id="item7_173lg3nC"><!--<form id="uolhostdomainsearchform_173lg3nC" action="https://dominios.uol.com.br/search.html" method="get" onsubmit="location.href=formDomainUrl+'?domain='+document.getElementById('uolhostdomainname_173lg3nC').value+'%26extension='+document.getElementById('uolhostdomainextension_173lg3nC').value; return false;">--><div><label><input name="domain" id="uolhostdomainname_173lg3nC" type="text"></label><label><select name="extension" id="uolhostdomainextension_173lg3nC" onchange="uolhostChangeDomainExtension(this.value)"><option value=".com.br">.com.br</option><option value=".com" selected="selected">.com</option><option value=".net">.net</option></select></label></div><!--</form>--></li><li id="item8_173lg3nC"><a href="https://dominios.uol.com.br/" onclick="UOLHOSTSearchDomain(); return false;">ok</a></li></ul></div><noscript><div>UOL
+HOST: <a
+href="http://www.uolhost.com.br/hospedagem-de-sites.html">Hospedagem</a>
+de sites,<a href="http://www.uolhost.com.br/loja-virtual/">Loja
+Virtual</a>,<a
+href="http://www.uolhost.com.br/registro-de-dominio.html">Registro de
+domÃ­nios</a></div></noscript></td></tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="780">
+  <tbody><tr>
+    <td background="Criando-arquivos-.jar_arquivos/plug_topo_logo1.jpg" height="93"><p> </p>
+      <table border="0" cellpadding="5" cellspacing="0" width="780">
+        <tbody><tr>
+          <td><a href="http://www.plugmasters.com.br/sys"><img src="Criando-arquivos-.jar_arquivos/vazio.gif" border="0" width="225" height="58"></a></td>
+          <td width="620"><a href="http://www.beeahead.com.br/plugmaster_1-11/mkt"><img src="Criando-arquivos-.jar_arquivos/banner_beeahead_2.jpg"></a>
+                                                <center>
+
+ <script language="JavaScript" type="text/javascript" src="Criando-arquivos-.jar_arquivos/exibe.html">
+ </script><a href="http://systemas.plugmasters.com.br/sysbanners/clique.php?id=3754&amp;zona=468x60" target="_blank"><img src="Criando-arquivos-.jar_arquivos/1.html" border="0"></a><span id="isee1" style="position: absolute; width: 0px; height: 0px; top: -5px; visibility: hidden;"><img src="Criando-arquivos-.jar_arquivos/a.gif" border="0" width="1" height="1"></span>
+
+                                                </center>
+          </td>
+        </tr>
+      </tbody></table>      <p> </p></td>
+  </tr>
+  <tr>
+    <td background="Criando-arquivos-.jar_arquivos/plug_mn_bg_green.gif">
+        <a href="http://www.plugmasters.com.br/sys"><img src="Criando-arquivos-.jar_arquivos/plug_topo_logo2.jpg" border="0" width="174" height="26"></a><a href="#" onmouseover="yp.showMenu('mn1');" onmouseout="yp.hideMenu('mn1');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_design.gif" border="0" width="59" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="#" onmouseover="yp.showMenu('mn2');" onmouseout="yp.hideMenu('mn2');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_desenvolvimento.gif" border="0" width="119" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="#" onmouseover="yp.showMenu('mn3');" onmouseout="yp.hideMenu('mn3');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_programacao.gif" border="0" width="98" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="#" onmouseover="yp.showMenu('mn4');" onmouseout="yp.hideMenu('mn4');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_recursos.gif" border="0" width="75" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="#" onmouseover="yp.showMenu('mn5');" onmouseout="yp.hideMenu('mn5');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_scripts.gif" border="0" width="114" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="#" onmouseover="yp.showMenu('mn6');" onmouseout="yp.hideMenu('mn6');"><img src="Criando-arquivos-.jar_arquivos/plug_topo_mn_servicosonline.gif" border="0" width="108" height="26"></a></td>
+  </tr>
+</tbody></table>
+
+<!-- End PageHeader -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="780">
+  <tbody><tr>
+    <td width="156"><img src="Criando-arquivos-.jar_arquivos/plug_topo_logo3.jpg" align="absmiddle" width="156" height="22"></td>
+    <td bgcolor="#d3e2e7"><div id="caminho">&nbsp;<b>Conheça também:</b>&nbsp;<a href="http://www.onmasters.com.br/" title="Feeds de blogs sobre tecnologia">Onmasters</a>&nbsp;.&nbsp;<a href="http://www.ofertas.com.br/" title="Ofertas todo dia, Ofertas toda hora!">Ofertas</a>&nbsp;.&nbsp;<a href="http://www.divulgue.com/" title="Faça de seu site um SUCESSO na internet">Divulgue!</a>&nbsp;.&nbsp;<a href="http://www.vai.la/" title="Redirecionamento de sites no formato www.seunome.vai.la">Vai.la</a>&nbsp;.&nbsp;<a href="http://www.geraboleto.com.br/" title="Líder absoluto em cobranças por email">Geraboleto</a>&nbsp;.&nbsp;<a href="http://www.baixa.la/" title="Downloads e Uploads rápidos">Baixa.la</a>&nbsp;.&nbsp;<a href="http://www.assista.la/" title="Vídeos no formato www.seuvideo.assista.la">Assista.la</a>&nbsp;.&nbsp;<a href="http://www.bloghost.com.br/" title="Tenha seublog.bloghost.com.br, grátis!">Bloghost</a></div><!--<div id="caminho">&nbsp;
+<!-- Start GetTrailPanel -->
+» <a href="http://www.plugmasters.com.br/sys">Início</a> » <a href='http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/'>Programação</a> » <a href='http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Java/'>Java</a> » <b>Criando arquivos .jar</b>
+<!-- End GetTrailPanel -->
+</div>--></td>
+  </tr>
+</tbody></table>
+<table border="0" cellpadding="4" cellspacing="0" width="780">
+  <tbody><tr valign="top">
+    <td width="26">&nbsp;</td>
+    <td width="506">
+
+<!-- Start ViewArticlePanel -->
+<div id="artigoData">Avaliação<span class="RatingDisplay"><span class="Label">:</span><span class="Rating"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecI.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecI.gif"></span></span> | Publicado em: 29/07/2007</div>
+<div id="artigoTitulo">Criando arquivos .jar</div>
+<div id="artigoCurriculo"><a href="http://www.plugmasters.com.br/sys/colunistas/306/Dayvid-Lima"><b>Dayvid Lima</b></a><!-- <a href="mailto:">(email)</a>--><b></b>
+Desenvolvedor Java há mais de 5 anos, atualmente consultor java em
+empresa multinacional utilizando recursos avançados da tecnologia J2EE
+com servidores de aplicação em plataforma Solaris para gerenciamento de
+redes e integração de sistemas.</div>
+
+<br><center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8249397523904471";
+/* 468x60, criado 24/03/08 */
+google_ad_slot = "2581623685";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/show_ads.js">
+</script><script src="Criando-arquivos-.jar_arquivos/expansion_embed.js"></script><script src="Criando-arquivos-.jar_arquivos/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 60px; position: relative; visibility: visible; width: 468px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 60px; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="Criando-arquivos-.jar_arquivos/ads.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="468" frameborder="0" height="60"></iframe></ins></ins>
+</center>
+
+<br>
+<!-- <div id="artigoSubTitulo">
+
+                                        <div class="PageTitle">Criando arquivos .jar</div>
+
+                                </div> -->
+<div id="artigoConteudo">Olá a todos, em primeiro lugar gostaria mais uma vez agradecer o apoio, comentários e críticas de todos vocês. <br>Nem
+sempre consigo responder todos os emails e comentários, mas quero que
+saibam que todos são lidos e são de grande importância para mim, por
+tanto muito obrigado.<br><br>Muitas pessoas tem me perguntado sobre
+como trabalhar com arquivos compactados .jar, pois na maior parte das
+vezes a nossa aplicação java não se resume apenas a um arquivo .java, e
+sim, são compostas de vários arquivos, então como fazer para tornar a
+vida mais fácil na hora de um "deploy" ou mesmo no manuseio dos mesmo?
+A forma mais fácil é criar um arquivo .jar contendo todos os arquivos
+do nosso projeto, hoje veremos como fazer isso utilizando o comando
+"jar" para criar um pacote "executável" com os arquivos da nossa
+aplicação.<br><br>Gostaria de dedicar esse artigo ao meus amigos que
+tem me perguntado sobre arquivos .jar em especial ao Adriano, foi por
+causa de suas perguntas que escrevi esse artigo.<br><br>Agora sem mais
+demora vamos ao que interessa. Para esse artigo iremos precisar de
+alguns códigos .java para que possamos gerar o pacote da nossa
+aplicação, como o intuito é explicar como gerar o arquivo .jar, os
+códigos não serão comentados, são apenas dois códigos simples que
+escrevi para esta demonstração.<br><br>Vamos criar um diretório
+qualquer para o nosso projeto, eu criei um diretorio chamado
+"jarfiles", (que de agora em diante será chamado de diretório RAIZ) e
+dentro dele criaremos mais alguns diretórios:<br>&nbsp;&nbsp;&nbsp; src - diretório onde colocaremos nossos arquivos fonte<br>&nbsp;&nbsp;&nbsp; bin - diretório onde colocaremos os arquivos compilados<br><br>E
+dentro do diretorio "src" criaremos mais um diretório chamado "init", é
+um nome qualquer apenas para mostrar como fazer para rodar um arquivo
+que estará dentro dele, e para demostrar que é possível criar diversos
+diretórios e colocá-los todos no nosso .jar.<br><br>Agora que já temos os diretórios iremos criar duas classes dentro do diretório "src/init", são elas:<br><br><br>OlaMundo.java<br><br><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">package init;</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">/**</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;* @author Dayvid Lima</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;*/</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">public class OlaMundo {</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp; public void falaOla(){</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Olá mundo cruel!");</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp; }</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">}</span><br><br><br>UsaOlaMundo.java<br><br><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">package init;</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">/**</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;* @author Dayvid Lima</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;*/</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">public class UsaOlaMundo {</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp; &nbsp;</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp; public static void main(String[] args){</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OlaMundo om = new OlaMundo();</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; om.falaOla();</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">&nbsp;&nbsp;&nbsp; }</span><br style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);"><span style="color: rgb(25, 25, 112); background-color: rgb(245, 245, 245);">}</span><br><br><br>Prontinho,
+agora vamos compilar nossos códigos java para dentro do diretório bin,
+para isso uma vez estando dentro do diretório RAIZ no prompt do DOS ou
+em um terminal qualquer, vamos digitar:<br>&nbsp;&nbsp; &nbsp;javac src/init/*.java -d bin/<br>&nbsp;&nbsp; &nbsp;<br>Isso fará com que os arquivos .java que estão em /src/init/ sejam compilados e colocados em /bin/init/.<br><br>Para
+ver se está tudo ok iremos rodar nossa aplicação, primeiro entramos no
+diretório "bin", e então executamos nossa aplicação com o comando:<br>&nbsp;&nbsp; &nbsp;java init.UsaOlaMundo<br><br>Se tudo der certo veremos a mensagem "Olá mundo cruel!" na tela.<br><br>Bom
+agora que tudo está ok chegou a hora do que realmente interessa,
+compactar todos esses arquivos em um único arquivo .jar e rodar a
+aplicação a partir dele.<br><br>Para criar o arquivo .jar iremos fazer
+uso do comando "jar", existem diversas opções que podemos passar para o
+comando jar, iremos nesse artigo fazer uso das seguintes:<br>&nbsp;&nbsp;&nbsp; c - cria um novo arquivo<br>&nbsp;&nbsp;&nbsp; v - modo "verbose", mostra na tela o que está acontecendo<br>&nbsp;&nbsp;&nbsp; f ARQUIVO_JAR - especifica o nome que queremos para o arquivo .jar<br>&nbsp;&nbsp;&nbsp;
+m ARQUIVO_DE_MANIFESTO - inclue o arquivo informado como arquivo de
+manifesto (veremos isso na segunda parte da explicação)<br><br><br>Ainda dentro do diretório bin, tudo que temos que fazer para criar nosso .jar é executar o comando:<br>&nbsp;&nbsp;&nbsp; jar cvf Ola.jar init/*<br>&nbsp;<br>Pronto,
+com isso temos nossa aplicação agora dentro do arquivo Ola.jar, vamos
+então executá-la, para fazer isso devemos informar no classpath onde
+está nossa aplicação (no caso a classe init.UsaOlaMundo),<br>Podemos
+tanto colocar o arquivo Ola.jar no nosso classpath quanto informar esse
+parâmetro no momento da execução como no comando abaixo:<br>&nbsp;&nbsp;&nbsp; java -classpath Ola.jar init.UsaOlaMundo<br><br>Muito
+bom, meus parabéns, agora você tem a sua aplicação toda em um arquivo
+só, pois bem, vamos facilitar um pouco mais as coisas.<br><br>Se
+olharem dentro do arquivo Ola.jar (abram ele com um compactador
+qualquer como Winzip ou Winrar, pois ele é apenas um arquivo compactado
+sem utilizar compressão, isso mesmo, você poderia ter simplesmente
+criado um arquivo .zip ou .rar com o seu compactador preferido
+informando a ele para não utilizar compactação, apenas adicionar os
+arquivos e depois renomear o mesmo para .jar que ainda assim
+funcionaria.<br><br>Enfim, voltando a aplicação, veja que dentro dele
+temos um diretório META-INF contendo o arquivo MANIFEST.MF, pois bem,
+esse arquivo contém informações sobre a nossa aplicação, como não
+criamos esse arquivo, ele tem apenas algumas informações básica, vamos
+então criar o nosso MANIFEST.MF e ver em que ele pode nos ajudar.<br><br>Quando
+executamos nossa aplicação vocês se lembram que tivemos que infomar no
+classpath o arquivo Ola.jar para que fosse possível rodar a classe
+"init.UsaOlaMundo", agora iremos criar um arquivo de manifesto para que
+seja possível rodar nossa aplicação informando apenas o arquivo Ola.jar
+e não mais o nome da classe e pacote (init.UsaOlaMundo).<br><br>Para
+isso criaremos o nosso próprio MANIFEST.MF, salvem o código abaixo em
+um arquivo chamado MANIFEST.MT dentro do diretório "bin".<br><br>Manifest-Version: 1.0<br>Created-By: Dayvid Lima<br>Main-Class: init.UsaOlaMundo<br><br>O
+mais importante aqui é a última linha "Main-Class: init.OlaMundo", aqui
+eu digo qual classe será chamada quando o arquivo Ola.jar for executado.<br><br>Arquivo
+salvo, estamos prontos para continuar. Dentro do diretório bin vamos
+apagar o nosso antigo Ola.jar e criar um novo, agora informando qual
+arquivo de manifesto que iremos utilizar, <br>Para isso basta mudar um pouco nosso comando jar como no exemplo abaixo:<br>&nbsp;&nbsp;&nbsp; jar cvfm Ola.jar MANIFEST.MF init/*<br><br><br>Agora para rodar nossa aplicação precisamos apenas do comando abaixo:<br>&nbsp;&nbsp;&nbsp; java -jar Ola.jar<br><br>E o arquivo MANIFEST.MF se encarrega de dizer a virtual machine qual a classe que queremos que seja executada.<br><br>Anexo
+deixo para download o arquivo jarfiles.zip, contendo os arquivos
+citados nesse artigo para facilitar o trabalho de todos, mais uma vez
+espero que este artigo tenha sido satisfatório e que venha a ajudar,
+até o próximo.<br><br>Dayvid<br></div>
+
+<div id="artigoConteudoDivisor">
+
+                                                <div class="HorizontalRule"></div>
+                                                <div class="Heading"><b><b>Arquivos anexos ao artigo</b></b></div>
+                                                <ul>
+                                                                
+                                                                        <li>
+                                                                                <a href="http://www.plugmasters.com.br/sys/downloadattachment.php?aId=4c36647af614607d50bc78aaf5f877fa&amp;articleId=793">
+                                                                                        jarfiles.zip
+                                                                                </a>
+                                                                        </li>
+                                                                </ul>
+                                        </div>
+<div id="artigoConteudoDivisor">
+
+                                                <div class="HorizontalRule"></div>
+                                                <div class="Heading"><b>Artigos relacionados</b></div>
+                                                <ul>
+                                                
+                                                        <li>
+                                                                <a href="http://www.plugmasters.com.br/sys/materias/864/1/Tipos-gen%E9ricos-em-Java-%28Generics%29" target="_blank">
+                                                                        Tipos genéricos em Java (Generics)
+                                                                </a>
+                                                        </li>
+                                                
+                                                
+                                                        <li>
+                                                                <a href="http://www.plugmasters.com.br/sys/materias/712/1/Conex%E3o-com-banco-de-dados" target="_blank">
+                                                                        Conexão com banco de dados
+                                                                </a>
+                                                        </li>
+                                                
+                                                
+                                                        <li>
+                                                                <a href="http://www.plugmasters.com.br/sys/materias/617/1/Invoca%E7%E3o-de-M%E9todos-Remotos---RMI" target="_blank">
+                                                                        Invocação de Métodos Remotos - RMI
+                                                                </a>
+                                                        </li>
+                                                
+                                                
+                                                        <li>
+                                                                <a href="http://www.plugmasters.com.br/sys/materias/615/1/Conex%E3o-via-Sockets" target="_blank">
+                                                                        Conexão via Sockets
+                                                                </a>
+                                                        </li>
+                                                </ul>
+                                        </div>
+
+
+<br>
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8249397523904471";
+/* 468x60, criado 24/03/08 */
+google_ad_slot = "7171529275";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 60px; position: relative; visibility: visible; width: 468px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 60px; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="Criando-arquivos-.jar_arquivos/ads_002.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="468" frameborder="0" height="60"></iframe></ins></ins>
+</center>
+
+<div id="artigoConteudoDivisor"></div>
+ <div style="border-bottom: 1px solid rgb(31, 102, 155); margin-top: 0px; border-top-width: 1px; border-top-style: solid;" id="accordionExample">
+
+                                                <div id="panel1">
+                                                        <div style="background-color: rgb(99, 105, 156); color: rgb(255, 255, 255); font-weight: bold;" id="panel1header" class="accordionTabTitleBar"> Adriano &lt;<a href="mailto:adri_pinhal@hotmail.com">adri_pinhal@hotmail.com</a>&gt;</div>
+                                                        <div style="border-style: solid; border-color: rgb(31, 102, 155); border-width: 0px 1px; margin: 0px; overflow: auto; height: 60px;" id="panel1Content" class="accordionTabContentBox">Bom
+sem comentários, afinal este artigo sanou minhas duvidas nas quais
+acabei por dois dias "enchendo" o saco do meu amigo Dayvid. Valeu pela
+paciência e atenção, e na clareza das suas explicações.<br>
+<br>
+Adriano Pinhal 
+                                                        <span class="RatingDisplay">
+                                                                <span class="Label"></span><span class="Rating">
+                                                <img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"></span></span><br></div>
+                                                </div>
+                                        
+
+                                                <div id="panel2">
+                                                        <div style="background-color: rgb(107, 121, 165); color: rgb(206, 215, 239); font-weight: normal;" id="panel2header" class="accordionTabTitleBar"> Marcio &lt;<a href="mailto:marciokoelho@gmail.com">marciokoelho@gmail.com</a>&gt;</div>
+                                                        <div style="border-style: solid; border-color: rgb(31, 102, 155); border-width: 0px 1px; margin: 0px; overflow: hidden; height: 1px; display: none;" id="panel2Content" class="accordionTabContentBox">Poxa
+é muito complicado vc procuar alguma coisa de java, com POO naum tem
+nada, q poderiam melhorar seus conteudos q pouco ou nada ajuda. <span class="RatingDisplay">
+                                                                <span class="Label"></span><span class="Rating">
+                                                <img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecA.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecI.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecI.gif"><img src="Criando-arquivos-.jar_arquivos/blueRateSecI.gif"></span></span><br></div>
+                                                </div>
+                                        </div><script> new Rico.Accordion( 'accordionExample', {panelHeight:60} ); </script><br><center><a href="javascript:popup('http://www.plugmasters.com.br/sys/comentar.php?id=793','350','310','yes');"><img src="Criando-arquivos-.jar_arquivos/bt_comentario.gif" border="0"></a></center>
+
+<!-- End ViewArticlePanel -->
+
+
+
+<!-- Start AdvancedSearchPanel -->
+
+<!-- End AdvancedSearchPanel -->
+
+
+<!-- Start SearchResultsPanel -->
+
+<!-- End SearchResultsPanel -->
+
+
+<br><br><br><br>
+
+
+</td>
+    <td bgcolor="#f5f5f5" width="214">
+    
+<!-- PARTE DE CIMA DA TABELA DE BORDA CINZA -->
+<table bgcolor="#f5f5f5" border="0" cellpadding="8" cellspacing="0" width="100%" height="100%">
+  <tbody><tr>
+    <td bgcolor="#f5f5f5">
+<!-- FIM DA PARTE DE CIMA DA TABELA DE BORDA CINZA -->
+
+<!-- Start ArticleOptionsPanel -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-8249397523904471";
+/* 200x2000000 */
+google_ad_slot = "6463854236";
+google_ad_width = 200;
+google_ad_height = 200;
+//-->
+</script>
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 200px; position: relative; visibility: visible; width: 200px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 200px; position: relative; visibility: visible; width: 200px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame" src="Criando-arquivos-.jar_arquivos/ads_003.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="200" frameborder="0" height="200"></iframe></ins></ins>
+<br>
+
+<!-- End ArticleOptionsPanel -->
+
+<br>
+<div id="clicaSome_desativado" align="center">
+                          <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="198" height="130">
+                            <param name="movie" value="http://www.plugmasters.com.br/sys/templates/Plug/Images/banners/banner.swf">
+                            <param name="quality" value="high">
+                                                        <param name="wmode" value="transparent">
+                            <embed src="Criando-arquivos-.jar_arquivos/banner.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="198" height="130">
+                          </object>
+</div>
+                    <div id="ColunasArtigos">
+                          <ul>
+                            <!--<li><a href="http://www.plugmasters.com.br/sys/partner.php?section=articles&id=793"><b>Este espaço pode ser seu!</b> Patrocine este artigo, clique aqui!--><!--<img src="http://www.plugmasters.com.br/sys/templates/Plug/Images/Partners/Articles/793.gif" border=0>--><!--</a></li>-->
+                            <li><div id="Autor"><p><a href="http://www.plugmasters.com.br/sys/colunistas/306/Dayvid-Lima"><img src="Criando-arquivos-.jar_arquivos/efe03565ab59f841adddab270170c2c7.jpg" align="left">  &nbsp; &nbsp;<br><b>Dayvid Lima</b> Todas as matérias deste colunista &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></p></div></li>
+                            <li><a href="http://www.plugmasters.com.br/sys/colunistas/306/Dayvid-Lima"><b>Sobre o Autor:</b>
+Dayvid Lima Desenvolvedor Java há mais de 5 anos, atualmente consultor
+java em empresa multinacional utilizando recursos avançados da
+tecnologia J2EE com servidores de aplicação em plataforma Solaris para
+gerenciamento de redes e integração de sistemas.</a></li>
+                            <li><a href="javascript:popup('http://www.plugmasters.com.br/sys/comentar.php?id=793','350','310','yes');"><b>Comentários?</b> Clique aqui, e faça um comentário sobre este artigo!</a></li>
+                            <li><a><form action="" id="formAC" method="post" enctype="multipart/form-data"><p>Outros colunistas do portal: <select name="colunistas" id="selectArticulista" onchange="window.location=this.options[this.selectedIndex].value;"><option value="0">Selecione</option><option value="http://www.plugmasters.com.br/sys/colunistas/130/Adriano-Oliveira">Adriano Oliveira</option><option value="http://www.plugmasters.com.br/sys/colunistas/20/Alberto-Santos">Alberto Santos</option><option value="http://www.plugmasters.com.br/sys/colunistas/5/Alercio-Bressano">Alercio Bressano</option><option value="http://www.plugmasters.com.br/sys/colunistas/332/Alex-Camillo">Alex Camillo</option><option value="http://www.plugmasters.com.br/sys/colunistas/169/Alex-Estevam">Alex Estevam</option><option value="http://www.plugmasters.com.br/sys/colunistas/129/Alex-Moreira">Alex Moreira</option><option value="http://www.plugmasters.com.br/sys/colunistas/347/Alexandre-de-Luccia">Alexandre de Luccia</option><option value="http://www.plugmasters.com.br/sys/colunistas/409/Alexandre-Ferreira-Martins">Alexandre Ferreira Martins</option><option value="http://www.plugmasters.com.br/sys/colunistas/278/Alexandre-Rodrigues-Nettho">Alexandre Rodrigues Nettho</option><option value="http://www.plugmasters.com.br/sys/colunistas/182/Alfred-Reinold-Baudisch">Alfred Reinold Baudisch</option><option value="http://www.plugmasters.com.br/sys/colunistas/113/Allisson-Azevedo">Allisson Azevedo</option><option value="http://www.plugmasters.com.br/sys/colunistas/385/Ana-Paula-da-Silva">Ana Paula da Silva</option><option value="http://www.plugmasters.com.br/sys/colunistas/255/Andr%E9-Ponce">André Ponce</option><option value="http://www.plugmasters.com.br/sys/colunistas/165/Andr%E9-Rigueira">André Rigueira</option><option value="http://www.plugmasters.com.br/sys/colunistas/9/Andr%E9-Valle">André Valle</option><option value="http://www.plugmasters.com.br/sys/colunistas/296/Andrino-Coelho">Andrino Coelho</option><option value="http://www.plugmasters.com.br/sys/colunistas/196/Angelo-Belchior">Angelo Belchior</option><option value="http://www.plugmasters.com.br/sys/colunistas/208/Antonio-Alexandre-Alonso-de-Siqueira">Antonio Alexandre Alonso de Siqueira</option><option value="http://www.plugmasters.com.br/sys/colunistas/148/Ariel-Cugenotta">Ariel Cugenotta</option><option value="http://www.plugmasters.com.br/sys/colunistas/326/Augusto-Marchiori">Augusto Marchiori</option><option value="http://www.plugmasters.com.br/sys/colunistas/337/Breno-Oliveira">Breno Oliveira</option><option value="http://www.plugmasters.com.br/sys/colunistas/34/Bruno-Henrique">Bruno Henrique</option><option value="http://www.plugmasters.com.br/sys/colunistas/322/Bruno-Jaques">Bruno Jaques</option><option value="http://www.plugmasters.com.br/sys/colunistas/270/Bruno-Roque">Bruno Roque</option><option value="http://www.plugmasters.com.br/sys/colunistas/74/Carlos-Eduardo">Carlos Eduardo</option><option value="http://www.plugmasters.com.br/sys/colunistas/36/C%E9sar-Felipe-Alves">César Felipe Alves</option><option value="http://www.plugmasters.com.br/sys/colunistas/358/Christian-Benseler">Christian Benseler</option><option value="http://www.plugmasters.com.br/sys/colunistas/179/C%EDcero-Lopes-da-Silva-Filho">Cícero Lopes da Silva Filho</option><option value="http://www.plugmasters.com.br/sys/colunistas/245/Cid-Monteiro">Cid Monteiro</option><option value="http://www.plugmasters.com.br/sys/colunistas/123/Claudinei-Costa">Claudinei Costa</option><option value="http://www.plugmasters.com.br/sys/colunistas/174/Claudio-Nossa">Claudio Nossa</option><option value="http://www.plugmasters.com.br/sys/colunistas/407/Cristian-Romanelli">Cristian Romanelli</option><option value="http://www.plugmasters.com.br/sys/colunistas/144/Dailton-Commerce">Dailton Commerce</option><option value="http://www.plugmasters.com.br/sys/colunistas/126/Daniel-Batista-Lemes">Daniel Batista Lemes</option><option value="http://www.plugmasters.com.br/sys/colunistas/288/Daniel-Doria">Daniel Doria</option><option value="http://www.plugmasters.com.br/sys/colunistas/35/Daniel-Gomes">Daniel Gomes</option><option value="http://www.plugmasters.com.br/sys/colunistas/349/Daniel-Krug">Daniel Krug</option><option value="http://www.plugmasters.com.br/sys/colunistas/306/Dayvid-Lima">Dayvid Lima</option><option value="http://www.plugmasters.com.br/sys/colunistas/212/Deiver-Ceroni">Deiver Ceroni</option><option value="http://www.plugmasters.com.br/sys/colunistas/125/Dener-Patrick">Dener Patrick</option><option value="http://www.plugmasters.com.br/sys/colunistas/30/Diego-Melo">Diego Melo</option><option value="http://www.plugmasters.com.br/sys/colunistas/377/Diogo-Abreu">Diogo Abreu</option><option value="http://www.plugmasters.com.br/sys/colunistas/242/Dirceu-Pauka-J%FAnior">Dirceu Pauka Júnior</option><option value="http://www.plugmasters.com.br/sys/colunistas/279/Eder-Magalhaes">Eder Magalhaes</option><option value="http://www.plugmasters.com.br/sys/colunistas/353/Edson-Junior">Edson Junior</option><option value="http://www.plugmasters.com.br/sys/colunistas/68/Edson-Melo-de-Souza">Edson Melo de Souza</option><option value="http://www.plugmasters.com.br/sys/colunistas/346/Edson-Morato">Edson Morato</option><option value="http://www.plugmasters.com.br/sys/colunistas/415/Edson-Vagner">Edson Vagner</option><option value="http://www.plugmasters.com.br/sys/colunistas/422/Eduardo-Diego">Eduardo Diego</option><option value="http://www.plugmasters.com.br/sys/colunistas/354/Eduardo-Stuart">Eduardo Stuart</option><option value="http://www.plugmasters.com.br/sys/colunistas/263/Elton-Bernardo">Elton Bernardo</option><option value="http://www.plugmasters.com.br/sys/colunistas/94/Emanoel-Castro">Emanoel Castro</option><option value="http://www.plugmasters.com.br/sys/colunistas/133/Eneias-Rose">Eneias Rose</option><option value="http://www.plugmasters.com.br/sys/colunistas/104/Fabio-Akita">Fabio Akita</option><option value="http://www.plugmasters.com.br/sys/colunistas/400/F%E1bio-Assis">Fábio Assis</option><option value="http://www.plugmasters.com.br/sys/colunistas/293/Fabio-Stawinski">Fabio Stawinski</option><option value="http://www.plugmasters.com.br/sys/colunistas/12/Fabrizio-Gianfratti">Fabrizio Gianfratti</option><option value="http://www.plugmasters.com.br/sys/colunistas/135/Felipe-V">Felipe V</option><option value="http://www.plugmasters.com.br/sys/colunistas/229/Fernando-Espindola">Fernando Espindola</option><option value="http://www.plugmasters.com.br/sys/colunistas/254/Fernando-Mello-Filho">Fernando Mello Filho</option><option value="http://www.plugmasters.com.br/sys/colunistas/6/Francisco-Rodrigues">Francisco Rodrigues</option><option value="http://www.plugmasters.com.br/sys/colunistas/423/Fred-Jader">Fred Jader</option><option value="http://www.plugmasters.com.br/sys/colunistas/88/Frederico-Madeira">Frederico Madeira</option><option value="http://www.plugmasters.com.br/sys/colunistas/3/Gabriel-Manzano">Gabriel Manzano</option><option value="http://www.plugmasters.com.br/sys/colunistas/360/Gabriel-Sobrinho">Gabriel Sobrinho</option><option value="http://www.plugmasters.com.br/sys/colunistas/312/Gabriel-Teixeira">Gabriel Teixeira</option><option value="http://www.plugmasters.com.br/sys/colunistas/7/George-Leite-Junior">George Leite Junior</option><option value="http://www.plugmasters.com.br/sys/colunistas/289/Gerson-Rabelo">Gerson Rabelo</option><option value="http://www.plugmasters.com.br/sys/colunistas/16/Givanildo-Santana-do-Nascimento">Givanildo Santana do Nascimento</option><option value="http://www.plugmasters.com.br/sys/colunistas/145/Gustavo-Maia-Aguiar">Gustavo Maia Aguiar</option><option value="http://www.plugmasters.com.br/sys/colunistas/111/Henrique-Montserrat-Fernandez">Henrique Montserrat Fernandez</option><option value="http://www.plugmasters.com.br/sys/colunistas/29/Hugo-Doria">Hugo Doria</option><option value="http://www.plugmasters.com.br/sys/colunistas/200/Humberto-Rodrigues">Humberto Rodrigues</option><option value="http://www.plugmasters.com.br/sys/colunistas/396/Ian-Souto-Maior">Ian Souto Maior</option><option value="http://www.plugmasters.com.br/sys/colunistas/267/Igor-Herson">Igor Herson</option><option value="http://www.plugmasters.com.br/sys/colunistas/416/Ivan-Lessa">Ivan Lessa</option><option value="http://www.plugmasters.com.br/sys/colunistas/138/Jo%E3o-Henrique-Endler">João Henrique Endler</option><option value="http://www.plugmasters.com.br/sys/colunistas/41/Jo%E3o-Henrique-Firmino">João Henrique Firmino</option><option value="http://www.plugmasters.com.br/sys/colunistas/395/Jo%E3o-Paulo">João Paulo</option><option value="http://www.plugmasters.com.br/sys/colunistas/122/Jo%E3o-Seabra">João Seabra</option><option value="http://www.plugmasters.com.br/sys/colunistas/2/Johnatan-Oliveira">Johnatan Oliveira</option><option value="http://www.plugmasters.com.br/sys/colunistas/186/Jonas-Chaves">Jonas Chaves</option><option value="http://www.plugmasters.com.br/sys/colunistas/1/Jos%E9-de-Menezes">José de Menezes</option><option value="http://www.plugmasters.com.br/sys/colunistas/187/Jos%E9-Reginaldo-da-S-Neto">José Reginaldo da S Neto</option><option value="http://www.plugmasters.com.br/sys/colunistas/302/Jos%E9-Roberto-Gomes-da-Silva">José Roberto Gomes da Silva</option><option value="http://www.plugmasters.com.br/sys/colunistas/18/Juliano-Castro">Juliano Castro</option><option value="http://www.plugmasters.com.br/sys/colunistas/262/Juliano-JGC">Juliano JGC</option><option value="http://www.plugmasters.com.br/sys/colunistas/43/Juliano-Mesquita">Juliano Mesquita</option><option value="http://www.plugmasters.com.br/sys/colunistas/69/Karina-Guimaraes">Karina Guimaraes</option><option value="http://www.plugmasters.com.br/sys/colunistas/210/Landjunior-Passos">Landjunior Passos</option><option value="http://www.plugmasters.com.br/sys/colunistas/321/Lazaro-Fernandes-Lima">Lazaro Fernandes Lima</option><option value="http://www.plugmasters.com.br/sys/colunistas/227/Leo-Castagna">Leo Castagna</option><option value="http://www.plugmasters.com.br/sys/colunistas/117/Leonardo-L-Procopio">Leonardo L Procopio</option><option value="http://www.plugmasters.com.br/sys/colunistas/261/Leonardo-Libonati">Leonardo Libonati</option><option value="http://www.plugmasters.com.br/sys/colunistas/362/Luan-Ferreira">Luan Ferreira</option><option value="http://www.plugmasters.com.br/sys/colunistas/230/Lucas-de-Azevedo-Fernandes">Lucas de Azevedo Fernandes</option><option value="http://www.plugmasters.com.br/sys/colunistas/295/Luciano-Bianchi">Luciano Bianchi</option><option value="http://www.plugmasters.com.br/sys/colunistas/214/Luciano-Montelatto">Luciano Montelatto</option><option value="http://www.plugmasters.com.br/sys/colunistas/52/Luigui-Moterani">Luigui Moterani</option><option value="http://www.plugmasters.com.br/sys/colunistas/215/Luiz-Dias">Luiz Dias</option><option value="http://www.plugmasters.com.br/sys/colunistas/183/Maicon-Nazareth">Maicon Nazareth</option><option value="http://www.plugmasters.com.br/sys/colunistas/19/Marcell-Oliveira">Marcell Oliveira</option><option value="http://www.plugmasters.com.br/sys/colunistas/101/Marcelo-Barros">Marcelo Barros</option><option value="http://www.plugmasters.com.br/sys/colunistas/305/Marcelo-Castro">Marcelo Castro</option><option value="http://www.plugmasters.com.br/sys/colunistas/67/Marcelo-Diniz">Marcelo Diniz</option><option value="http://www.plugmasters.com.br/sys/colunistas/320/Marcelo-Duende">Marcelo Duende</option><option value="http://www.plugmasters.com.br/sys/colunistas/221/Marcelo-Meniquelli">Marcelo Meniquelli</option><option value="http://www.plugmasters.com.br/sys/colunistas/240/Marcio-Agnelo">Marcio Agnelo</option><option value="http://www.plugmasters.com.br/sys/colunistas/85/Marcio-Novelli">Marcio Novelli</option><option value="http://www.plugmasters.com.br/sys/colunistas/166/Marcos-Daniel-Petry">Marcos Daniel Petry</option><option value="http://www.plugmasters.com.br/sys/colunistas/114/Marcos-Nahr">Marcos Nahr</option><option value="http://www.plugmasters.com.br/sys/colunistas/72/Mauri-Celio-Goncalves">Mauri Celio Goncalves</option><option value="http://www.plugmasters.com.br/sys/colunistas/425/Mauricio-Aniche">Mauricio Aniche</option><option value="http://www.plugmasters.com.br/sys/colunistas/185/Maurivan-Luiz-Padilha">Maurivan Luiz Padilha</option><option value="http://www.plugmasters.com.br/sys/colunistas/417/Michael-Mafort">Michael Mafort</option><option value="http://www.plugmasters.com.br/sys/colunistas/339/Michel-Francisco">Michel Francisco</option><option value="http://www.plugmasters.com.br/sys/colunistas/136/Michel-Souza">Michel Souza</option><option value="http://www.plugmasters.com.br/sys/colunistas/33/Michell-Angelo">Michell Angelo</option><option value="http://www.plugmasters.com.br/sys/colunistas/150/Milton-Yukio-Matsumura">Milton Yukio Matsumura</option><option value="http://www.plugmasters.com.br/sys/colunistas/189/Oberaldo-Bull">Oberaldo Bull</option><option value="http://www.plugmasters.com.br/sys/colunistas/217/Ozi-Velho">Ozi Velho</option><option value="http://www.plugmasters.com.br/sys/colunistas/127/Patrick-Machado">Patrick Machado</option><option value="http://www.plugmasters.com.br/sys/colunistas/54/Paulino-Michelazzo">Paulino Michelazzo</option><option value="http://www.plugmasters.com.br/sys/colunistas/336/Rafael-Alencar">Rafael Alencar</option><option value="http://www.plugmasters.com.br/sys/colunistas/424/Rafael-Cavalhero">Rafael Cavalhero</option><option value="http://www.plugmasters.com.br/sys/colunistas/168/Rafael-Dal-Zotto">Rafael Dal Zotto</option><option value="http://www.plugmasters.com.br/sys/colunistas/137/Rafael-Eltz">Rafael Eltz</option><option value="http://www.plugmasters.com.br/sys/colunistas/294/Rafael-Leandro-Jr">Rafael Leandro Jr</option><option value="http://www.plugmasters.com.br/sys/colunistas/143/Rafael-Lemos">Rafael Lemos</option><option value="http://www.plugmasters.com.br/sys/colunistas/75/Rafael-Martin">Rafael Martin</option><option value="http://www.plugmasters.com.br/sys/colunistas/207/Rafael-Rossa">Rafael Rossa</option><option value="http://www.plugmasters.com.br/sys/colunistas/38/Renan-Lima">Renan Lima</option><option value="http://www.plugmasters.com.br/sys/colunistas/45/Renato-Fridschtein">Renato Fridschtein</option><option value="http://www.plugmasters.com.br/sys/colunistas/402/Renato-Moita">Renato Moita</option><option value="http://www.plugmasters.com.br/sys/colunistas/40/Renato-Vincoletto">Renato Vincoletto</option><option value="http://www.plugmasters.com.br/sys/colunistas/42/Rodolfo-Vasco">Rodolfo Vasco</option><option value="http://www.plugmasters.com.br/sys/colunistas/224/Rodrigo-Freitas">Rodrigo Freitas</option><option value="http://www.plugmasters.com.br/sys/colunistas/250/Rodrigo-Marini">Rodrigo Marini</option><option value="http://www.plugmasters.com.br/sys/colunistas/55/Rodrigo-Meirelles">Rodrigo Meirelles</option><option value="http://www.plugmasters.com.br/sys/colunistas/83/Rodrigo-Mendes">Rodrigo Mendes</option><option value="http://www.plugmasters.com.br/sys/colunistas/219/Sandro-Miccoli">Sandro Miccoli</option><option value="http://www.plugmasters.com.br/sys/colunistas/226/Sara-Margarido">Sara Margarido</option><option value="http://www.plugmasters.com.br/sys/colunistas/300/Saulo-Arruda">Saulo Arruda</option><option value="http://www.plugmasters.com.br/sys/colunistas/391/Sidney-Benetti">Sidney Benetti</option><option value="http://www.plugmasters.com.br/sys/colunistas/421/Silas-Administrador">Silas Administrador</option><option value="http://www.plugmasters.com.br/sys/colunistas/155/Thalis-Valle">Thalis Valle</option><option value="http://www.plugmasters.com.br/sys/colunistas/251/Thiago-Andr%E9-Rossi">Thiago André Rossi</option><option value="http://www.plugmasters.com.br/sys/colunistas/398/Thiago-Camilo">Thiago Camilo</option><option value="http://www.plugmasters.com.br/sys/colunistas/158/Thiago-Sciotta">Thiago Sciotta</option><option value="http://www.plugmasters.com.br/sys/colunistas/87/Thiago-Victorino">Thiago Victorino</option><option value="http://www.plugmasters.com.br/sys/colunistas/151/Tiago-Hillebrandt">Tiago Hillebrandt</option><option value="http://www.plugmasters.com.br/sys/colunistas/252/Tiago-Luz">Tiago Luz</option><option value="http://www.plugmasters.com.br/sys/colunistas/190/Tiago-Souza">Tiago Souza</option><option value="http://www.plugmasters.com.br/sys/colunistas/15/Valdomiro-Jr">Valdomiro Jr</option><option value="http://www.plugmasters.com.br/sys/colunistas/298/Ver%F4nica-Santos">Verônica Santos</option><option value="http://www.plugmasters.com.br/sys/colunistas/157/Victor-Ricardo">Victor Ricardo</option><option value="http://www.plugmasters.com.br/sys/colunistas/406/Walter-Brazolin">Walter Brazolin</option><option value="http://www.plugmasters.com.br/sys/colunistas/223/Wesley-Willians">Wesley Willians</option><option value="http://www.plugmasters.com.br/sys/colunistas/65/William-Duarte">William Duarte</option></select></p></form></a></li>
+                          </ul>
+                    </div><br>
+<a href="javascript:popup('http://www.plugmasters.com.br/newsletter/users/assinar.php','350','310','yes');"><img src="Criando-arquivos-.jar_arquivos/banner_newsletter.gif" border="0"></a>
+
+
+<!-- PARTE DE BAIXO DA TABELA DE BORDA CINZA -->        
+        </td>
+  </tr>
+</tbody></table>
+<!-- FIM DA PARTE DE BAIXO DA TABELA DE BORDA CINZA -->
+
+</td>
+  </tr>
+</tbody></table>
+
+
+<!-- Start PageFooter -->
+<table border="0" cellpadding="0" cellspacing="0" width="780">
+  <tbody><tr>
+    <td width="38"> </td> 
+    <td background="Criando-arquivos-.jar_arquivos/plug_mn_bg_green.gif">
+      <div align="right"><a href="http://www.plugmasters.com.br/fale.php"><img src="Criando-arquivos-.jar_arquivos/plug_rodape_mn_contato.gif" border="0" width="94" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="http://www.plugmasters.com.br/anuncie.php"><img src="Criando-arquivos-.jar_arquivos/plug_rodape_mn_publicidade.gif" border="0" width="88" height="26"></a><img src="Criando-arquivos-.jar_arquivos/plug_mn_separador_branco.gif" width="1" height="26"><a href="http://www.plugmasters.com.br/sobre.php"><img src="Criando-arquivos-.jar_arquivos/plug_rodape_mn_sobre.gif" border="0" width="140" height="26"></a></div></td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0" width="780" height="60">
+  <tbody><tr>
+    <td width="38"> </td>
+    <td><div align="left"><a href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:selologouolhost;thm:plugmasters&amp;msr=Cliques%20de%20Origem:1&amp;oper=7&amp;redir=http://www.uolhost.com.br/"><img src="Criando-arquivos-.jar_arquivos/plug_rodape.gif" width="304" height="47"></a></div></td>
+    <td><div align="right"><a href="http://www.plugmasters.com.br/sys/feeds/"><img src="Criando-arquivos-.jar_arquivos/rss.gif" border="0"></a></div></td>
+  </tr>
+</tbody></table>
+<table border="0" cellpadding="5" cellspacing="0" width="780">
+  <tbody><tr>
+    <td>
+<center>
+<!-- Hospedado por <a href="http://www.hostnet.com.br">Hostnet</a> - <a href="http://www.hostnet.com.br"><b>Hospedagem de Sites</b></a> -->
+</center>
+    </td>
+  </tr>
+</tbody></table>
+
+<div id="mn1Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn1Ctt">
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/3D/">3D</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/Fireworks/">Fireworks</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Flash/">Flash</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/Photoshop/">Photoshop</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/Corel-Draw-e-Vetoriais/">Corel Draw e Vetoriais</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/Teoria-do-Design/">Teoria do Design</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn1')" onmouseout="yp.hideMenu('mn1')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Design/Usabilidade/">Usabilidade</a></td></tr>
+</tbody></table>
+</div></div>
+
+<div id="mn2Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn2Ctt">
+
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Ajax/">Ajax</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Banco-de-dados-e-SQL/">Banco de dados e SQL</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Css-e-Tableless/">CSS e Tableless</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Desenvolv-de-Software/">Desenvolv. de Software</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Dreamweaver/">Dreamweaver</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Flash/">Flash</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Ger%EAncia-e-Mercado/">Gerência e Mercado</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Software-Livre/">Software Livre</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Redes-e-Seguran%C3%A7a/">Redes e Segurança</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Unix/">Unix</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn2')" onmouseout="yp.hideMenu('mn2')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Desenvolvimento/Webmarketing/">Webmarketing</a></td></tr>
+
+</tbody></table>
+</div></div>
+
+<div id="mn3Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn3Ctt">
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/ASP/">ASP</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/C-e-C%2B%2B/">C e C++</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/CGI-e-Perl/">CGI e Perl</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/ColdFusion/">ColdFusion</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Delphi/">Delphi</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Java/">Java</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Javascript/">Javascript</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/PHP/">PHP</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Plataforma%20DOT%20NET/">Plataforma .Net</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Ruby-on-Rails/">Ruby on Rails</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/UML/">UML</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Visual-Basic/">Visual Basic</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/XML/">XML</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn3')" onmouseout="yp.hideMenu('mn3')"><a id="rm" href="http://www.plugmasters.com.br/sys/categorias/Programa%E7%E3o/Python-e-Zope/">Python e Zope</a></td></tr>
+</tbody></table>
+</div></div>
+
+<div id="mn4Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn4Ctt">
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/16/Banco-de-Apostilas/">Banco de Apostilas</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/downloads/icones/">Banco de Ícones</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/3/Banco-de-Fontes">Banco de Fontes</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/297/Programas-Uteis">Programas úteis</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://forum.plugmasters.com.br/">Fórum</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://clicklogger.rm.uol.com.br/?prd=16&amp;grp=src:14;creative:selologouolhost;thm:plugmasters&amp;msr=Cliques%20de%20Origem:1&amp;oper=7&amp;redir=http://www.uolhost.com.br/">Hospedagem</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/noticias/">Notícias</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn4')" onmouseout="yp.hideMenu('mn4')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/4/Layouts-Prontos">Layouts prontos</a></td></tr>
+</tbody></table>
+</div></div>
+
+<div id="mn5Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn5Ctt">
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/5/Banco-de-Scripts/ASP">ASP</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/6/Banco-de-Scripts/ASP-Dot-Net">ASP.NET</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/7/Banco-de-Scripts/C-e-C++">C e C++</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/8/Banco-de-Scripts/CFML">CFML</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/9/Banco-de-Scripts/CGI-e-Perl">CGI e Perl</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/10/Banco-de-Scripts/Flash">Flash</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/356/Banco-de-Scripts/Java">Java</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/12/Banco-de-Scripts/JavaScript">JavaScript</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/13/Banco-de-Scripts/PHP">PHP</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/14/Banco-de-Scripts/Python">Python</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/391/Banco-de-Scripts/Ruby%20on%20Rails">Ruby on Rails</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn5')" onmouseout="yp.hideMenu('mn5')"><a id="rm" href="http://www.plugmasters.com.br/downloads/categoria/15/Banco-de-Scripts/XML">XML</a></td></tr>
+</tbody></table>
+</div></div>
+
+<div id="mn6Ct" style="z-index: 2; visibility: hidden;">
+<div style="top: -530px;" id="mn6Ctt">
+<table border="0" cellpadding="0" cellspacing="0" width="150">
+<tbody><tr><td bgcolor="#72a800" height="3"></td></tr>
+<tr><td onmouseover="yp.showMenu('mn6')" onmouseout="yp.hideMenu('mn6')"><a id="rm" href="javascript:popup('http://systemas.plugmasters.com.br/cadastro.php','725','450','yes');">Cadastre-se!</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn6')" onmouseout="yp.hideMenu('mn6')"><a id="rm" href="javascript:popup('http://systemas.plugmasters.com.br/painelbanners.php','725','450','yes');">Serviço de Banners</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn6')" onmouseout="yp.hideMenu('mn6')"><a id="rm" href="javascript:popup('http://systemas.plugmasters.com.br/painelbanners.php','725','450','yes');">Serviço de Contadores</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn6')" onmouseout="yp.hideMenu('mn6')"><a id="rm" href="javascript:popup('http://systemas.plugmasters.com.br/painelbanners.php','725','450','yes');">Serviço de Enquetes</a></td></tr>
+<tr><td onmouseover="yp.showMenu('mn6')" onmouseout="yp.hideMenu('mn6')"><a id="rm" href="javascript:popup('http://systemas.plugmasters.com.br/painelfeedback.php','725','450','yes');">Serviço de Feedback</a></td></tr>
+</tbody></table>
+</div></div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Criando-arquivos-.jar_arquivos/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-274669-2");
+pageTracker._trackPageview();
+</script>
+
+
+<div id="floater" style="position: absolute; height: 1000px; left: 788px; top: 8px;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8249397523904471";
+/* 160x600, criado 25/03/08 */
+google_ad_slot = "6346865335";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="Criando-arquivos-.jar_arquivos/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 600px; position: relative; visibility: visible; width: 160px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 600px; position: relative; visibility: visible; width: 160px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame4" marginheight="0" marginwidth="0" name="google_ads_frame" src="Criando-arquivos-.jar_arquivos/ads_004.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="160" frameborder="0" height="600"></iframe></ins></ins>
+</div>
+  
+
+
+<!-- End PageFooter -->
+
+</body></html>

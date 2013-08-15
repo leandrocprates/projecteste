@@ -1,0 +1,221 @@
+/* <source lang="css"> */
+
+/* Texto esborrando da tela */
+
+pre {
+  overflow: auto;
+}
+
+/* Noprint */
+/* Não imprime o link "Editar" das predefinições que usam a Predefinição:Ed
+   Não imprime certas classes que não devem aparecer no papel */
+
+@media print {
+   .editlink, .metadata, .dablink { display: none }
+   #bodyContent a[href ^="http://"] { background-image: none; padding-right: 0; }
+}
+
+/* Prettytable & wikitable */
+/* Classes para a formatação de tabelas */
+
+table.wikitable,
+table.prettytable {
+    margin: 1em 1em 1em 0;
+    background: #f9f9f9;
+    border: 1px #aaa solid;
+    border-collapse: collapse;
+}
+.wikitable th, .wikitable td,
+.prettytable th, .prettytable td {
+    border: 1px #aaa solid;
+    padding: 0.2em;
+}
+.wikitable th,
+.prettytable th {
+    background: #f2f2f2;
+    text-align: center;
+}
+.wikitable caption,
+.prettytable caption {
+    margin-left: inherit;
+    margin-right: inherit;
+    font-weight: bold;
+}
+
+/* Referências */
+/* Reduz o tamanho da lista de referências */
+
+ol.references {
+  font-size: 100%;
+}
+
+.references-small { font-size: 90%;}
+
+/* Realce a azul das referências ''clicadas'' para ajudar na navegação */
+
+ol.references > li:target {
+  background-color: #DEF;
+}
+
+/* Figura de fundo */
+
+#BG_wiki { background-image: url(http://upload.wikimedia.org/wikipedia/commons/8/8e/MP-open-book2.png);}
+
+/* Barra de navegação */
+
+div.Boxmerge,
+div.NavFrame {
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid #aaaaaa;
+        text-align: center;
+        border-collapse: collapse;
+        font-size: 95%;
+}
+div.Boxmerge div.NavFrame {
+        border-style: none;
+        border-style: hidden;
+}
+div.NavFrame + div.NavFrame {
+        border-top-style: none;
+        border-top-style: hidden;
+}
+div.NavPic {
+        background-color: #ffffff;
+        margin: 0px;
+        padding: 2px;
+        float: left;
+}
+div.NavFrame div.NavHead {
+        height: 1.6em;
+        font-weight: bold;
+        font-size: 100%;
+        background-color: #efefef;
+        position:relative;
+}
+div.NavFrame p {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent p {
+        font-size: 100%;
+}
+div.NavEnd {
+        margin: 0px;
+        padding: 0px;
+        line-height: 1px;
+        clear: both;
+}
+a.NavToggle {
+        position:absolute;
+        top:0px;
+        right:3px;
+        font-weight:normal;
+        font-size:smaller;
+}
+
+
+/* Não imprime elementos da barra de navegação */
+@media print{
+        .NavFrame {
+                display: none;
+        }
+        .BoxenVerschmelzen {
+                display: none;
+        }
+}
+
+/* Tabelas */
+
+#bodyContent .indent p { text-indent: 3em; }
+
+.collapseButton {        /* 'show'/'hide' buttons created dynamically by the */
+    float: right;        /* CollapsibleTables javascript in [[MediaWiki:Common.js]]*/
+    font-weight: normal; /* are styled here so they can be customised. */
+    text-align: right;
+    width: auto;
+}
+
+/* Página principal sem o título */
+
+body.page-Página_principal h1.firstHeading {
+    display: none !important;}
+
+/* Cores nas discussões */
+
+.ns-talk dd {
+margin:0;
+padding:0;
+}
+
+.ns-talk dl {
+border-top:solid 1px #DADAFF;
+border-left:solid 1px #DADAFF;
+padding-top:.5em;
+padding-left:.5em;
+margin-left:1em;
+}
+
+.ns-talk dl,
+.ns-talk dl dl dl,
+.ns-talk dl dl dl dl dl,
+.ns-talk dl dl dl dl dl dl dl,
+.ns-talk dl dl dl dl dl dl dl dl dl
+{ background:#DEECFF }
+
+.ns-talk dl dl,
+.ns-talk dl dl dl dl,
+.ns-talk dl dl dl dl dl dl,
+.ns-talk dl dl dl dl dl dl dl dl,
+.ns-talk dl dl dl dl dl dl dl dl dl dl
+{ background:#D2E0FF }
+
+/* Formatação das diferenças de edição */
+
+table.diff {
+   padding: 0.5em;
+}
+table.diff td {
+   vertical-align: top;
+}
+td.diff-addedline {
+   background:#D8E4F6;
+}
+td.diff-addedline span.diffchange {
+   background: #B0C0F0;
+   color: #001040;
+   font-weight: bold;
+}
+td.diff-deletedline {
+   background:#E4F6D8;
+}
+td.diff-deletedline span.diffchange {
+   background: #B0E897;
+   color: #104000;
+   font-weight: bold;
+}
+td.diff-context {
+   background:#FEFEFE;
+}
+
+/* Muda a cor do número de caracteres adicionados/removidos nas mudanças recentes */
+
+.mw-plusminus-pos { color:#00B000 }
+.mw-plusminus-neg { color:#FF2050 }
+.mw-plusminus-null { color:#999 }
+
+/* Altera a cor dos símbolos para "nova página" e "edição menor" na lista de vigiados e nas mudanças recentes */
+
+.newpage {
+   color:       green;
+   font-weight: bold
+}
+
+.minoredit,
+.minor {
+   color: gray;
+}
+
+/* </source> */

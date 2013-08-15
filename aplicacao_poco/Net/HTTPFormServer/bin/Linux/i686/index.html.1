@@ -1,0 +1,33 @@
+2C4
+<html>
+<head>
+<title>POCO Form Server Sample</title>
+</head>
+<body>
+<h1>POCO Form Server Sample</h1>
+<h2>GET Form</h2>
+<form method="GET" action="/form">
+<input type="text" name="text" size="31">
+<input type="submit" value="GET">
+</form>
+<h2>POST Form</h2>
+<form method="POST" action="/form">
+<input type="text" name="text" size="31">
+<input type="submit" value="POST">
+</form>
+<h2>File Upload</h2>
+<form method="POST" action="/form" enctype="multipart/form-data">
+<input type="file" name="file" size="31"> 
+<input type="submit" value="Upload">
+</form>
+<h2>Request</h2><p>
+Method: GET<br>
+URI: /<br>
+Accept: */*<br>
+Connection: Keep-Alive<br>
+Host: localhost:9990<br>
+User-Agent: Wget/1.10.2<br>
+</p></body>
+
+0
+

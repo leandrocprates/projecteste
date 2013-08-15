@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><!-- saved from url=(0022)http://internet.e-mail -->
+
+<style> <!-- 
+          A { text-decoration : none ;
+              color : "#FFFFFF";
+
+          } 
+
+          A:Hover {text-decoration : underline;
+                   color : "red";
+
+          }
+
+         -->
+
+</style>
+
+
+
+	<title>Tutorial Pthreads</title>
+</head><body>
+
+<font face="ms sans serif">	 
+
+<table cellpadding="4" cellspacing="4">
+
+<tbody><tr>
+       <td valign="top" width="20%" bgcolor="#330099">
+	   <font size="2">
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/inicio.html"><b>Inicio</b></a><br><br>
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/page1.html"><b>1. Programação em Pthreads</b></a><br><br>
+	   </font>
+   	   <font size="1" color="#ffffff">
+	   1.1. Introdução <br><br>
+	   1.2. Como compilar um programa com threads <br><br>
+	   1.3. Criação e manipulação de threads <br><br>
+	   1.4. Outras funções úteis da biblioteca pthread <br><br>
+	   </font>
+	   <br>
+   	   <font size="2">
+	   <a href="http://www.inf.ufrgs.br/procpar/disc/inf1151/trabalhos/sem2000-2/tutorial_pthreads/page2.html"><b>2. Problemas de concorrência com threads</b></a><br><br>
+	   </font>
+   	   <font size="1" color="#ffffff">
+	   2.1. Introdução <br><br>
+	   2.2. Mecanismos de prevenção em Pthreads <br><br>
+	   2.3. Problemas <br><br>
+	   </font> 		
+   	   </td>   	   		
+	   	   	  								  	  
+       <td>
+<font size="1">	   
+<b></b><p><b><font size="4">2. Problemas de concorrência com Pthreads</font><br>
+</b><br>
+<b><font size="2">2.1. Introdução</font><br><br>
+</b>Quando decidimos trabalhar com programas concorrentes um dos maiores<br>
+problemas dentre os que podemos encontrar, e que é inerente à concorrência,<br>
+é o acceso a variáveis e/ou estruturas compartilhadas ou globais:<br>
+Isto será melhor compreendido com um exemplo:<br>
+<br>
+Traço 1<br>
+void *funcao_traco_1(void *arg)<br>
+{ <br>
+int resultado; <br>
+... <br>
+<font color="#ff0000">
+if (i == valor_qualquer) { <br>
+... <br>
+resultado = i * (int)*arg; <br>
+... <br>
+} <br></font>
+pthread_exit(&amp;resultado);<br>
+} <br>
+<br>
+Traço 2<br>
+void *funcao_traco_2(void *arg) <br>
+{ <br>
+int outro_resultado; <br>
+... <br>
+if (funcao_sobre_arg(*arg) == 0) { <br>
+... <br>
+<font color="#ff0000">
+i = *arg; <br></font>
+... <br>
+} <br>
+pthread_exit(&amp;outro_resultado); <br>
+} <br>
+<br>
+Este código, no qual a variável 'i' é global, aparentemente é
+inofensivo, porém pode nos trazer muitos problemas se for executado em
+paralelo e certas condições ocorrerem. <br>
+Suponhamos que o Traço 1 começa a executar antes que o traço 2, e que
+casualmente se produz uma troca de contexto (o sistema operacional
+suspende a tarefa atual e passa a executar a seguinte) logo depois da
+linha que executa if (i==valor_qualquer). Se a condição deste if se
+satisfizer, que supomos que sim, a execuçao entrará no if. <br>
+Porém logo neste momento o sistema troca de contexto e passa a executar
+o traço 2, que executa rápido suficiente para executar a linha i =
+*arg. Em pouco tempo o traço 2 pára de executar e o processador volta a
+executar o traço 1, porém, qual é o valor de i agora? É o valor que o
+traço 1 está "supondo" que tem (ou seja, o mesmo que tinha ao entrar no
+if) ou é o valor que foi designado pelo traço 2? i tomou o valor que
+foi designado pelo traço 2, com o qual o traço 1 calculará o seu
+resultado (que será totalmente inválido e inesperado) e o devolverá
+gerando sérios problemas. <br>
+Claro que tudo isto pode não acontecer se o sistema tinha muito pouco
+processos neste momento (assim cada processo executaria por mais tempo)
+e se o código do traço 1 fosse suficientemente curto de modo a não
+ocorrer nenhuma troca de contexto durante sua execução... Porém NUNCA
+podemos fazer suposições destas, porque não saberemos aonde serão
+executados nossos programas e sempre é melhor prevenir. <br>
+O problema destes bugs é que são os mais difíceis de detectar no caso
+de não estarmos fixando a nossa atenção neles no dia que escrevemos o
+código. Pode acontecer em algumas vezes tudo saia perfeitamente e
+outras vezes tudo saia errado... Isto é conhecido como condições de
+corrida (Race Conditions) porque seja como for a coisa pode funcionar
+ou não. <br>
+<br>
+<b><font size="2">2.2. Mecanismos de prevenção em Pthreads:</font><br>
+</b><br>
+A biblioteca de Pthreads nos oferece alguns mecanismos básicos, mas ao
+mesmo tempo úteis, para definir isto. Estes mecanismos são chamados de
+semáforos binários, e são usados para implementar as chamadas regiões
+críticas (RC) ou zonas de exclusão mútua (ZE).<br>
+E o que é uma RC? Pois é então uma parte do nosso código que é
+susceptível a ser afetada por coisas como as do exemplo. Como regra
+geral, SEMPRE que haja variáveis ou estruturas globais que venham a ser
+atendidas por mais de uma thread por vez, o acesso a esta deverá ser
+considerado uma região crítica, e protegido uilizando os meios que
+vamos explicar na continuação. Inclusive quando estamos certos de que
+somente um traço de execução irá acessar uma determinada estrutura, não
+seria má idéia colocar este código em uma RC porque talvez no futuro
+podemos vir a ampliar nosso código e então não lembrar de que teríamos
+estes acessos por ai escondidos, representando risco de ocorrer bugs
+que eles possam proporcionar.<br>
+O que Pthreads nos oferece são os semáforos binários, semáforos mutex
+(ou simplesmene mutex, como cada um queira chamar). Um semáforo binário
+é uma estrutura de dados que atua como um semáforo porque pode ter dois
+estados: o aberto e o fechado. Quando o semáforo está aberto, a
+primeira thread que solicita um bloqueio reserva este bloqueio e não
+deixa mais nada passar por este semáforo. Enquanto o semáforo estiver
+fechado (porque alguma thread já o tinha bloqueado), a thread que
+solicitá-lo parará sua execução até que o subsídio solicitado seja
+liberado.<br>
+Só pode haver uma única thread com controle sobre o bloqueio do
+semáforo, enquanto que pode haver mais de um thread esperando para
+entrar na RC, enfileiradas na fila de espera do semáforo. Ou seja, as
+threads excluem-se mutuamente uma a outra para entrar na RC.<br>
+Então, como que, com um conceito tão simples, conseguimos implementar
+as RC: se pede o bloqueio do semáforo antes de entrar, este é repassado
+à primeira que chegar, enquanto as outras threads são postas bloqueadas
+esperando que a que entrou primeiro libere o bloqueio (ou exclusão).
+Uma vez que a que tinha entrado sai da RC, este fato deve ser
+notificado a biblioteca de pthreads para que se descubra se havia
+alguma outra thread esperando na fila. Se havia, passa-se o controle do
+bloqueio para o primeiro e deixa-se que sigam executando-se.<br>
+As funções que Pthread ofere para executar estas idéias:<br>
+</p>
+<p>int pthread_mutex_init(pthrad_mutex_t *mutex, conts pthrread_mutexattr_t * attr)<br>
+ <br>
+* Esta função inicializa um mutex. Deve-se chamá-la antes de usar qualquer função que trabalhe com mutex.<br>
+* mutex: É um ponteiro a um parâmetro do tipo pthread_mutex_t, que é o
+tipo de dado que a biblioteca Pthreads usa para controlar o mutex. <br>
+* attr: É um ponteiro a uma estrutura do tipo pthread_mutexattr_t, e
+serve para definir que tipo de mutex usaremos: normal, recursivo ou
+errorcheck (este será visto adiante) . Se este valor for NULL
+(recomendado), a biblioteca designará um valor por default.<br>
+A função devolve 0 se a criação do mutex é efetuada ou -1 se houve algum erro<br>
+<br>
+int pthread_mutex_lock(pthread_mutex_t *mutex) <br>
+<br>
+* Esta função pede o bloqueio para entrar em uma RC. Se queremos
+implementar uma RC, todos os threads tem que pedir o bloqueio sobre o
+mesmo semáforo. <br>
+* mutex: É um ponteiro sobre o mutex sobre o qual queremos pedir o
+bloqueio ou sobre o qual nos bloquearemos em caso de que haja alguém
+dentro da RC. <br>
+* Como resultado, devolve 0 se não houve erro, ou diferente de 0 se houve. <br>
+<br>
+int pthread_mutex_unlock(pthread_mutex_t *mutex)<br>
+ <br>
+* Esta é a função oposta a anterior. Libera o bloqueio que tínhamos sobre um semáforo. <br>
+* mutex: É o semáforo de onde temos o bloqueio e queremos liberar.<br>
+* Retorna 0 como resultado se não houve erro ou diferente de 0 se houve.<br>
+<br>
+int pthread_mutex_destroy(pthread_mutex_t *mutex)<br>
+* Isto diz para a biblioteca que o mutex indicado não será mais utilizado, e<br>
+que pode liberar toda a memória ocupada em suas estruturas internas por este<br>
+mutex.<br>
+* mutex: O mutex que queremos destruir.<br>
+* A função, como sempre, devolve 0 se não houve erro, ou diferente de 0 se<br>
+não houve.<br>
+<br>
+Estas são as funções mais básicas. Agora, reescrevemos o pseudocódigo do<br>
+exemplo anterior com o que vimos até agora.<br>
+Variáveis globais:<br>
+pthread_mutex_t mutex_acceso;<br>
+int i;<br>
+<br>
+Traço 1 (Versão correta)<br>
+void *função_traço_1(void *arg)<br>
+{ <br>
+int resultado; <br>
+... <br>
+<font color="#3333ff">
+pthread_mutex_lock(&amp;mutex_acceso); <br></font>
+<font color="#ff0000">
+if (i == valor_qualquer) { <br>
+... &lt; <br>
+resultado = i * (int)*arg; <br>
+... &lt; <br>
+} <br></font><font color="#3333ff">
+pthread_mutex_unlock(&amp;mutex_acceso); <br></font>
+pthread_exit(&amp;resultado); <br>
+} <br>
+<br>
+Traço 2 (Versão correta) <br>
+void *função_traço_2(void *arg) <br>
+{ <br>
+int outro_resultado; <br>
+... <br>
+if (função_sobre_arg(*arg) == 0) { <br>
+... <br><font color="#3333ff">
+pthread_mutex_lock(&amp;mutex_acceso); <br></font>
+<font color="#ff0000">
+i = *arg; <br></font><font color="#3333ff">
+pthread_mutex_unlock(&amp;mutex_acceso); <br></font>
+... <br>
+} <br>
+pthread_exit(&amp;outro_resultado); <br>
+} <br>
+<br>
+<br>
+int main(void) <br>
+{ <br>
+... <br><font color="#3333ff">
+pthread_mutex_init(&amp;mutex_acceso, NULL); <br></font>
+... <br>
+}<br>
+<br>
+Em azul estão coloridas as linhas que antes não existiam. <br>
+Como se pode ver a única coisa que tem que ser feita é a inicialização
+do semáforo, pedir o bloqueio antes das RC e libera-lo depois de sair
+da RC, o que requer um pouco de observação cuidadosa de vez em quando. <br>
+Quanto menores as nossas RC, mais concorrentes serão nossos programas,
+porque terão que esperar menos tempo no caso de terem que ser
+bloqueados. <br>
+<br>
+<font size="2"><b>2.3. Problemas... Mais problemas?</b></font><br>
+<br>
+Ao ponto que as threads solucionam o problema dos acessos concorrentes, também podem<br>
+nos trazer mais problemas.<br>
+<br>
+E eles aqui também tem nome: os Deadlocks. Os deadlocks se constituem
+quando uma thread se bloqueia esperando um recurso que tenha bloqueado
+outra thread que está esperando um recurso. Se o recurso para a segunda
+thread não ficar disponível nunca, as duas threads ficaram bloqueadas.<br>
+<br>
+Resultado: Nosso fantástico programa bloqueado. <br>
+<br>
+Solução? Apesar da biblioteca de Pthreads nos dar algum mecanismo para
+tentar evitar que isso aconteça, não há nenhum mecanismo 100% confiável
+para prevení-los.<br>
+<br>
+O modelo mais simples de deadlock, é o circular:<br>
+<br>
+Thread 1 <br>
+<br>
+void *linha_1(void *arg) <br>
+<br>
+{ <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+&nbsp;&nbsp;&nbsp; pthread_mutex_lock(&amp;mutex_1); <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+&nbsp;&nbsp;&nbsp; pthread_mutex_unlock(&amp;mutex_2); <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+} <br>
+<br>
+<br>
+<br>
+Thread 2 <br>
+<br>
+void *linha_2(void *arg) <br>
+<br>
+{ <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+&nbsp;&nbsp;&nbsp; pthread_mutex_lock(&amp;mutex_2); <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+&nbsp;&nbsp;&nbsp; pthread_mutex_unlock(&amp;mutex_1); <br>
+<br>
+&nbsp;&nbsp;&nbsp; ... <br>
+<br>
+} <br>
+<br>
+<br>
+Parece um pouco raro, porém pode acontecer.<br>
+<br>
+Mecanismos oferecidos pela biblioteca Pthreads:<br>
+<br>
+1. Semáforos recursivos:<br>
+<br>
+Estes semáforos só aceitaram um único pedido de bloqueio feito pela
+mesma thread. Com os semáforos normais, se a mesma thread fizer 10
+chamadas a pthread_mutex_lock, sobre o mesmo semáforo, consequentemente
+terá que fazer 10 chamadas a pthread_mutex_unlock, quer dizer, tantos
+quantas tenha feito a pthread_mutex_lock.<br>
+<br>
+Em vez disso, os semáforos de tipo recursivo só aceitaram uma única
+chamada a pthread_mutex_lock. As chamadas seguintes serão ignoradas.
+Com isso, eliminamos um tipo de deadlock.<br>
+<br>
+Para criar um semáforo recursivo, teremos que informar a
+pthread_mutex_init, indicando como atributo o resultado de uma chamada
+a pthread_mutexattr_settype. O procedimento é o seguinte:<br>
+<br>
+	- Definir uma variável do tipo pthread_mutexattr_t:<br>
+<br>
+	  pthread_mutexattr_t mutex_attr;<br>
+<br>
+	- Inicializá-la com a chamada a pthread_mutexattr_init:<br>
+<br>
+	  pthread_mutexattr_init(&amp;mutex_attr);<br>
+<br>
+	- Indicar o tipo explicitamente mediante pthread_mutexattr_settype:<br>
+<br>
+	  pthread_mutexattr_settype(&amp;mutex_attr,tipo);<br>
+<br>
+	  Onde tipo pode ser PTHREAD_MUTEX_NORMAL, PTHREAD_MUTEX_DEFAULT,<br>
+<br>
+PTHREAD_MUTEX_RECURSIVE, OU PTHREAD_MUTEX_ERRORCHECK.	<br>
+<br>
+2. Testar antes de entrar:<br>
+<br>
+Se acharmos que a chamada seguinte a pthread_mutex_lock vai ser
+bloqueante e pode provocar um deadlock, podemos usar uma função
+oferecida pela biblioteca de Pthreads para comprovar se isso é correto:
+pthread_mutex_trylock.<br>
+<br>
+	int pthread_mutex_trylock(pthread_mutex_t *mutex);<br>
+<br>
+	- mutex: É a variável que queremos testar.<br>
+<br> - A função devolve EBUSY se a thread que chamar se bloqueará, ou
+zero em caso contrário. Se o bloqueio não ocorre, a função atua como
+pthread_mutex_lock, adquirindo o bloqueio sobre o semáforo.<br>
+<br>
+ <br>
+</p>
+</font>	   
+    </td>
+</tr>
+
+</tbody></table>
+</font>
+
+</body></html>

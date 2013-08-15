@@ -1,0 +1,8 @@
+
+
+executar o comando : 
+
+gksu displayconfig-gtk  e alterar a resolucao
+
+
+

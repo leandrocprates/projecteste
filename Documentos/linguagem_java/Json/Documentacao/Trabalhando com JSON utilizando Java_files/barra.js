@@ -1,0 +1,1 @@
+document.write("<iframe src=\"http://olhardigital.com.br/barra/barra.html?parc="+ vParceiro +"\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" width=\"970\" height=\"25\" style=\"margin:0px;\"></iframe>");

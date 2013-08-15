@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+ <class name="Pessoa">
+  
+  <!-- Identificador da classe -->
+
+  <id name="id">
+   <generator class="increment"/>
+  </id>
+  
+  <!-- Propriedades da classe -->
+
+  <property name="nome"/>
+  <property name="telefone"/>
+  <property name="email"/>
+ 
+  <!-- Relacionamento da classe -->
+
+  <one-to-one name="endereco" class="Endereco" 	cascade="save-update"/>
+ 
+ </class>
+
+</hibernate-mapping>

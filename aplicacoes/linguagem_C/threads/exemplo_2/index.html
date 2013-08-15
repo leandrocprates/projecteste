@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+  
+    <title>Trabalho Prático 1</title>
+  </head><body>
+    <h1>Trabalho Prático 1</h1>
+
+<h2> Introdução </h2>
+
+O objectivo deste trabalho prático é a familiarização com as
+bibliotecas de processos leves compatíveis com a norma POSIX, normlamente
+conhecidas pelo nome de 'pthreads'. <p>
+
+Um processo leve (thread) é uma parte de um programa que é executado
+sequencialmente. A maior parte das vezes a um programa corrresponde
+apenas um fluxo de controle. Por outro lado, um programa pode ter
+várias partes que se executam "simultaneamente". A cada uma das partes
+corresponde um fluxo de controlo independente. Se este programa corre num
+multiprocessador, os processos leves executam em simultâneo, cada um no seu
+processador. Mesmo num monoprocessador o desempenho de uma aplicação pode ser
+melhorado usando esta técnica: se um dos processos se bloqueia numa chamada ao
+sistema, outro processo leve pode ocupar o processador.</p><p> 
+
+O uso de processos leves permite que o programador estruture o seu código
+num conjunto de actividades independentes e maximizar a concorrência interna.
+</p><p>
+No caso do UNIX (e do LINUX) em que difere um processo leve de um processo 
+"normal" criado através de um fork() ?
+
+</p><ul>
+<li> A criação e destruição de processos leves pode ser feita de
+várias maneiras, mas exige sempre muito menos tempo e atenção do
+sistema do que um processo normal; 
+
+</li><li> Todos os processo leves criados
+dentro de um processo usam os mesmos segmentos de código e dados; 
+
+</li><li>Se um processo leve altera uma variável global do processso, essa
+alteração torna-se visível a todos os outros processos leves do mesmo
+processo. Isto permite poupar efectuar operações de comunicação e
+sincronização entre processos muito eficazes.
+
+</li></ul>
+<hr>
+<h2> A norma Pthreads </h2>
+
+Existem várias interfaces (APIs) para a programação usando processos leves.
+A mais usada corresponde à norma POSIX 1003.1c. É a essa norma 
+conhecida por Pthreads que o resto do texto se refere.  
+<p>
+A um processo leve está associado:
+
+</p><ul>
+<li> um identificador único dentro do processso (threadId);
+</li><li> uma pilha de execução;
+</li><li> um conjunto de registos do CPU;
+</li><li> uma máscara de sinais;
+</li><li> uma prioridade;
+</li><li> uma zona de dados privativa;
+</li></ul>
+
+Para usar esta API é necessário incluir o ficheiro pthread.h.  
+O  comando a dar é: <p>
+</p><h3>
+gcc -D_REENTRANT  ...  -lpthread
+</h3>
+
+A definição -D_REENTRANT inclui a versão reentrante das bibliotecas de sistema.
+ 
+<hr>
+<h2> Parte 1 - Gestão de processos leves </h2>
+
+As principais funções relacionadas com a gestão de processos leves são: 
+<p>
+</p><ul>
+<li> Criação de um processo leve <em>pthread_create</em>
+</li><li> Terminação de um processo leve <em>pthread_exit</em>
+</li><li> Espera  por um processo leve <em>pthread_join</em>
+</li><li> Definição de propriedades de um processo leve <em>pthread_attr_init</em>,
+  <em>pthread_attr_destroy</em>
+</li><li> Terminação de um processo leve independente <em>pthread_detach</em>
+</li><li> Libertação do processador: <em>sched_yield()</em>
+
+</li></ul>
+
+Para ver detalhes use o comando <em>man</em>
+
+<h3> a) Um exemplo </h3> 
+Eis um exemplo de um processo com dois
+threads um que escreve "a"s e outro que escreve "b"s <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/ex1.c">
+ex1.c </a>. Estude o código do exemplo. Compile-o e execute-o.
+
+<h3> b) Tempos de criação de processos leves </h3>
+
+O programa seguinte <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/many-threads.c"> many-threads.c </a>
+cria N processos leves ( em que N é um argumento da linha de comando
+).  Ao executar este programa poderemos ter um ideia de quantos
+processos leves se podem criar e quanto demora a criar um processo
+leve. <p> Nesta alínea e nas seguintes, pode usar este <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/Makefile"> Makefile </a>.
+
+</p><h3> c) Comparação entre processos leves e processos pesados </h3>
+
+O programa <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/many-forks.c"> many-forks.c </a>   
+cria N processos UNIX ( em que N é um argumento da linha de comando ).  
+Ao executar este programa poderemos ter um ideia de quantos
+processos UNIX se podem criar e quanto demora a criar um processo UNIX. <p>
+
+O programa <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/many-forks-execs.c"> many-forks-execs.c </a> cria
+N processos UNIX , em que cada processo filho faz um exec().  Ao
+executar este programa poderemos ter um ideia quanto custa, em termos
+de tempo, o par fork/exec. </p><p>
+
+</p><h3> d) Comparação de tempos de comutação entre processos leves e processos pesados </h3>
+
+O programa <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/many-context-switches.c"> many-context-switches.c</a> 
+tenta medir o tempo de comutação entre processos leves e entre
+processos pesados. Se for compilado com a opção -DPROCESSES os tempos
+dizem respeito a processos UNIX. Caso contrário referem-se a processos
+leves.
+
+
+<hr>
+ 
+<h2>Parte 2 - Sincronização entre processos leves</h2>
+
+<p>Como os processos leves partilham variáveis precisam de métodos
+para sincronizar a sua acção. Para isso existem "mutex
+locks", semáforos e variáveis de condição.
+
+</p><ul>
+  <li>Mutex Locks 
+     <ul>
+      <li>Criação <em>pthread_mutex_init </em>
+      </li><li>Lock <em>pthread_mutex_lock</em> 
+      </li><li>Unlock <em>pthread_mutex_unlock</em>
+      </li><li>Teste <em>pthread_mutex_trylock</em>
+      </li><li>Destruição <em>pthread_mutex_destroy</em>
+    </li></ul>
+  </li><li>Variáveis de Condição 
+     <ul>
+      <li>Criação <em>pthread_cond_init</em>
+      </li><li>Espera por uma condição <em>pthread_cond_wait</em>
+      </li><li>Espera por condição com "timeout" 
+         <em>&gt;pthread_cond_timedwait</em>
+      </li><li>Libertação de um processo preso numa condição 
+          <em>pthread_cond_signal</em>
+      </li><li>Libertação de todos os processos presos numa condição 
+        <em>pthread_cond_broadcast</em>
+      </li><li>Destruição <em>pthread_cond_destroy</em>
+    </li></ul>
+  </li>
+  <li>Semáforos <ul>
+      <li>Criação <em>sem_init</em>
+      </li><li>V <em>sem_post</em>
+      </li><li>P <em>sem_wait</em>
+      </li><li>P não bloqueante <em>sem_trywait </em>
+      </li><li>Leitura do contador <em>sem_getvalue</em>
+      </li><li>Destruição <em>sem_destroy</em>
+    </li></ul>
+</li></ul>
+
+<h3>a) Um exemplo da necessidade de sincronização</h3>
+
+<p>Compile e execute o programa <a href="http://asc.di.fct.unl.pt/%7Epm/CPD-07-08/t01/Pthreads/ex3.c">ex3.c</a> várias
+vezes. Como poderia alterar o programa para que o resultado fosse
+sempre o desejado?</p>
+
+
+ 	<h3>b) Uma aplicação que usa processos leves para calcular o valor de
+	PI</h3>
+
+	<dl>
+	  <dt><strong>Objectivos:</strong></dt>
+	  <dd>Determinar o valor de PI.</dd>
+
+	  <dt><strong>Método a usar:</strong></dt>
+	  <dd>Métido estatístico que permite calcular o valor em causa por
+	  aproximação.</dd>
+
+	  <dt><strong>Algoritmo:</strong></dt>
+	  <dd><ol>
+		  <li>A área de uma circunferência é dada pela fórmula
+		``<em>A&nbsp;=&nbsp;PI&nbsp;*&nbsp;R<sup>2</sup></em>'', onde
+			<em>R</em> é o raio da circunferência;</li>
+		  <li>Se considerarmos um quarto de circunferência, de raio
+			R=1, a fórmula acima fica
+			``<em>A<sub>q</sub>&nbsp;=&nbsp;PI&nbsp;/&nbsp;4</em>'', ou
+			seja,
+			``<em>PI&nbsp;=&nbsp;4&nbsp;*&nbsp;A<sub>q</sub></em>''.
+			Determinando ``<em>A<sub>q</sub></em>'' determina-se
+			``<em>PI</em>'';</li>
+		  <li>Geram-se aleatoriamente dois números, <em>X</em> e
+			<em>Y</em>, entre 0 e 1;</li>
+		  <li>Considerando <em>X</em> e <em>Y</em> as coordenadas de
+			um ponto <em>P</em>, determine-se se este ponto está
+			<strong>dentro</strong> ou <strong>fora</strong> da
+			circunferência (ou melhor, do quarto de circunferência);</li>
+		  <li>Regista-se cada ocorrência de <em>P</em> dentro da
+			circunferência.</li>
+		  <li>Repete-se desde o ponto 3. um número de vezes <em>N</em>
+			grande;</li>
+		  <li>A probablidade de <em>P</em> estar dentro do quarto de
+		  circunferência é igual à sua área
+		  ``<em>A<sub>q</sub></em>''. Aplique-se a fórmula de 2. e
+		  obtém-se ``<em>PI</em>''!</li>
+		</ol>
+	  </dd>
+
+	  <dt><strong>Programa a desenvolver:</strong></dt>
+	  <dd><ol>
+		  <li>Implemente o algoritmo acima descrito, garantindo que os
+			passos 3. a 6. são executados por uma função
+			``<em>F()</em>'', que itera ``<em>N<sub>ITER</sub></em>'' vezes;</li>
+		  <li>Altere o programa de 1. para que ``<em>F()</em>''
+			seja executada por um processo leve;</li>
+		  <li>Altere o programa de 2. para que ``<em>F()</em>'' seja
+		  executada simultaneamente por ``<em>N<sub>T</sub></em>''
+		  processos leves, cada um iterando
+		  ``<em>N<sub>ITER</sub>&nbsp;/&nbsp;N<sub>T</sub></em>''
+		  vezes;</li>
+		</ol>
+	  </dd>
+	</dl>
+
+    <hr>
+
+    <address><a href="mailto:Joao.Lourenco@di.fct.unl.pt">João Lourenço</a> e <a href="mailto:pm@di.fct.unl.pt">Pedro Medeiros</a></address>
+
+</body></html>

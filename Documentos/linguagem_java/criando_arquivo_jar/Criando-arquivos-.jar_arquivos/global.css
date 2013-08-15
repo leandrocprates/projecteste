@@ -1,0 +1,251 @@
+h1, h2, h3, h4, h5, h6, form input, form, p
+{
+        margin:0px;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        padding:0px;
+}
+body
+{
+        background-image: url('http://www.plugmasters.com.br/sys/templates/Plug/Images/background.gif');
+        background-repeat: repeat-y;
+        background-color: #E5E5E5;
+        font-weight:normal;
+        font-size:10px;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        padding-bottom:5px;
+}
+td,th {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #000000;
+}
+.titulo {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+
+        color: #FFFFFF;
+        margin-left: 8px;
+        margin-top: 4px;
+        margin-right: 0px;
+        margin-bottom: 4px;
+}
+#caminho {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #22558E;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+}
+#caminho a:link {
+        color: #22558E;
+        text-decoration: none;
+}
+#caminho a:visited {
+        color: #22558E;
+        text-decoration: none;
+}
+#caminho a:hover {
+        color: #22558E;
+        text-decoration: underline;
+}
+#caminho a:active {
+        color: #22558E;
+        text-decoration: none;
+}
+#selectArticulista
+{
+        margin:10px 5px 0px 0px;
+        width:115px;
+        line-height:20px;
+        font: normal 10px Arial;
+}
+#botao {
+        margin                          :0px 0px 1px 0px;
+        font-family                 :Verdana, Arial, Helvetica, sans-serif;
+        font-size        : 10px;
+        color            : #333333;
+        border           : 1px solid;
+        border-color     : #F5F5F5 #737373 #737373 #F5F5F5;
+        background-color : #D2D2D2;
+        cursor           : pointer;
+}
+/*Menu*/
+#rm
+{
+        border-left: #72A800 1px solid;
+        border-right: #72A800 1px solid;
+        border-bottom:#72A800 1px solid;
+        padding:4px 0 4px 7px;
+        display: block;
+        background-color: #9CDD00;
+        font-family:verdana;
+        color:#000000
+        font-size:9px;
+        text-decoration:none;
+}
+#rm:hover
+{
+        background: #72A800;
+        font-family:verdana;
+        color:#000000;
+        font-size:9px;
+        font-weight:bold;
+        text-decoration:none;
+}
+/*Data*/
+#data
+{
+        width: 139px;
+        float:left; #0F96AC;
+}
+#data p
+{
+        padding-top:0px;
+        color:#000000;
+        font:bold 30px Verdana, Arial, Helvetica, sans-serif;
+        text-align:center;
+}
+#data p span {
+        color:#000000;
+        font: normal 11px Verdana, Arial, Helvetica, sans-serif;
+        letter-spacing:2px;
+}
+a:link {
+        color: #000000;
+        text-decoration: none;
+}
+a:visited {
+        color: #000000;
+        text-decoration: none;
+}
+a:hover {
+        color: #666666;
+        text-decoration: underline;
+}
+a:active {
+        color: #666666;
+        text-decoration: none;
+}
+/* web standards */
+#listagens img {
+        width: 40px;
+        height:40px;
+        margin-right:4px;
+        margin-left:0px;
+        margin-bottom:2px;
+        MARGIN-TOP:3px;
+}
+
+#listagens UL {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+                
+        margin-top              : 0px; 
+                margin-bottom    : 10px;
+                margin-left      : 0px;
+                margin-right     : 0px;
+        DISPLAY: block;
+        LIST-STYLE-TYPE: none;
+}
+#listagens UL LI {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        PADDING-BOTTOM: 0px;
+        PADDING-TOP: 0px;
+                
+        MARGIN: 0px;
+        FONT-SIZE: 10px;
+}
+#listagens UL LI A {
+        PADDING-RIGHT: 4px;
+        PADDING-LEFT: 4px;
+        PADDING-TOP: 4px;
+        PADDING-BOTTOM: 4px;
+                
+        margin-top       : 0px;
+        margin-bottom    : 0px;
+        margin-left      : 0px;
+        margin-right     : 0px;
+                
+        BORDER-BOTTOM    : #666666 1px dotted;
+        DISPLAY          : block;
+        TEXT-DECORATION  : none
+}
+#listagens UL LI A:hover {
+        BACKGROUND: #F9F9F9;
+        COLOR: #333333
+}
+#linkBotao A {
+        PADDING-RIGHT   : 5px;
+        PADDING-LEFT    : 5px;
+        PADDING-TOP     : 5px;
+        PADDING-BOTTOM  : 5px;
+        BORDER-TOP      : #CCCCCC 1px solid;
+        BORDER-RIGHT    : #CCCCCC 1px solid;
+        BORDER-LEFT     : #CCCCCC 1px solid;
+        BORDER-BOTTOM   : #CCCCCC 1px solid;
+        DISPLAY         : block;
+        TEXT-DECORATION : none;
+        BACKGROUND      : #F9F9F9
+}
+#linkBotao A:hover {
+        PADDING-RIGHT   : 5px;
+        PADDING-LEFT    : 5px;
+        PADDING-TOP     : 5px;
+        PADDING-BOTTOM  : 5px;
+        BORDER-TOP      : #CCCCCC 1px solid;
+        BORDER-RIGHT    : #CCCCCC 1px solid;
+        BORDER-LEFT     : #CCCCCC 1px solid;
+        BORDER-BOTTOM   : #CCCCCC 1px solid;
+        DISPLAY         : block;
+        TEXT-DECORATION : none;
+        BACKGROUND      : #F2F2F2
+}
+#authorPic {
+        PADDING-RIGHT    : 6px;
+        PADDING-LEFT     : 0px;
+        PADDING-TOP      : 0px;
+        PADDING-BOTTOM   : 3px;
+
+        margin-top       : 0px;
+        margin-bottom    : 0px;
+        margin-left      : 0px;
+        margin-right     : 0px;
+        
+        border           : 0px;
+        DISPLAY          : block;
+        TEXT-DECORATION  : none
+}
+
+input,select,textarea {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #333333;
+}
+
+input.botao {
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+        font-size        : 9px;
+        color            : #333333;
+        border           : 1px solid;
+        border-color     : #F5F5F5 #737373 #737373 #F5F5F5;
+        background-color : #D2D2D2;
+        cursor           : pointer;
+}
+
+#pixels table { border-collapse: collapse; }
+#pixels td { padding:0; }
+
+font.getpixelerror {
+    color: #FF6262;
+    font-weight: bold;
+}

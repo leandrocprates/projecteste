@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="Turma">
+
+        <id name="id">
+                <generator class="increment"/>
+        </id>
+
+        <property name="nome"/>
+
+        <!-- relacionameto muitos para um com Classe Professor -->
+        <many-to-one name="professor" class="Professor"	column="Professor_Pessoa_id"/>
+
+        <!-- relacionameto muitos para um com Classe Disciplina -->
+        <many-to-one name="disciplina"	class="Disciplina" column="Disciplina_id"/>
+
+        <set name="alunos" table="Turma_has_Aluno">
+          <!-- relaciona Turma com Turma_has_Aluno usando Turma.id=Turma_has_Aluno.Turma_id -->
+                <key column="Turma_id"/>
+                <many-to-many class="Aluno" column="Aluno_Pessoa_id"/>
+        </set>
+
+    </class>
+
+    <query name="buscarTurmasPeloNome">
+            <![CDATA[from Turma t where t.nome = :nome]]>
+    </query>
+
+</hibernate-mapping>

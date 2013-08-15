@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0040)http://www.j2eebrasil.com.br/mostrar/117 -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>JEEBrasil -- O site da comunidade Java EE no Brasil</TITLE>
+
+<SCRIPT type="text/javascript" src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/prototype.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/effects.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/validation.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/votacao.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/form.js"></SCRIPT>
+
+<LINK href="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/layout.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/rating.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/style.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/forms.css" rel="stylesheet" type="text/css">
+</HEAD><BODY>
+
+<DIV id="page">
+
+<!-- Cabeçalho -->
+<DIV id="header">
+
+	<DIV id="header-top">
+		<H1> <A href="http://www.j2eebrasil.com.br/">JEE<SPAN class="greenText">Brasil</SPAN></A> </H1>
+		<H2> O site da comunidade Java EE no Brasil </H2>
+	
+		<DIV id="encontre">
+			<H3> Encontre </H3>
+			<FORM action="http://www.j2eebrasil.com.br/find" method="post" id="buscaForm">
+				<P>
+				<INPUT id="campo" name="busca" type="text" size="26">
+				<A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="$(&#39;buscaForm&#39;).submit();"> Buscar </A>
+				</P>
+			</FORM>
+		</DIV>
+	</DIV>
+	
+	<DIV id="menu">
+		<UL>
+			<LI> <A href="http://www.j2eebrasil.com.br/">Home</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/noticias">Notícias</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/eventos">Eventos</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/artigos">Artigos</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/tutoriais">Tutoriais</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/tags">Tags</A> </LI>			
+			<LI> <A href="http://www.j2eebrasil.com.br/apresentacoes">Apresentações</A> </LI>
+			<LI> <A href="http://www.j2eebrasil.com.br/quemsomos">Quem Somos</A> </LI>	
+			<LI id="areaRestrita"> <A href="http://www.j2eebrasil.com.br/admin"><IMG src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/chave.gif" alt="Administra&ccedil;&atilde;o"></A></LI>			
+		</UL>
+	</DIV>
+	
+</DIV>
+
+<DIV id="content">
+
+
+	<DIV id="fullPanel">
+		<DIV id="rightPanel">
+			<H4 class="informacoes"> Informações </H4>
+			<TABLE>
+				<TBODY><TR>
+					<TH> Tipo: </TH>
+					<TD> Tutorial </TD>
+				</TR>
+				<TR>
+					<TH> Data de Publicação: </TH>
+					<TD> 04/12/2007 </TD>
+				</TR>
+				<TR>
+					<TH> Revisado em:</TH>
+					<TD> 04/12/2007 </TD>
+				</TR>
+			</TBODY></TABLE>
+			<H4 class="nota" id="user-note">
+				
+				Vote!
+				
+				
+			</H4>
+			<UL class="star-rating" id="voting">
+				<LI class="current-rating" id="current-rating" style="width: 107.74999999999999px">Currently 4,3/5 Stars.</LI>
+				
+				<LI><A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="javascript:votar(117,1, &#39;&#39;);" title="muito ruim" class="one-star">1</A></LI>
+				<LI><A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="javascript:votar(117,2, &#39;&#39;);" title="ruim" class="two-stars">2</A></LI>
+				<LI><A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="javascript:votar(117,3, &#39;&#39;);" title="mais ou menos" class="three-stars">3</A></LI>
+				<LI><A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="javascript:votar(117,4, &#39;&#39;);" title="bom" class="four-stars">4</A></LI>
+				<LI><A href="http://www.j2eebrasil.com.br/mostrar/117#" onclick="javascript:votar(117,5, &#39;&#39;);" title="muito bom" class="five-stars">5</A></LI>
+				
+			</UL>
+			
+			<H4 class="tagsRelacionadas">Tags Relacionadas</H4>
+			<P class="tags">
+				
+				<A href="http://www.j2eebrasil.com.br/tags/jsf">jsf</A>
+				
+				<A href="http://www.j2eebrasil.com.br/tags/ajax">ajax</A>
+				
+				<A href="http://www.j2eebrasil.com.br/tags/web">web</A>
+				
+			</P>
+			<H4 class="comentarios"><A href="http://www.j2eebrasil.com.br/mostrar/117#comentarios">Comentários ( 9 )</A></H4>
+			<H4 class="imprimir">Imprimir</H4>
+		</DIV>
+
+		<DIV id="tituloPublicacao">
+			<H3> JavaServer Faces + AJAX: Passo a Passo </H3>
+			<P class="autores">
+				por:<BR>
+				</P><P class="autor">
+				
+				Raquel do Carmo (raquelsilva2006@gmail.com)<BR>
+				
+				</P>
+			<P></P>
+
+			<P class="resumo">
+			Tutorial passo a passo para criação de aplicações com JavaServer Faces e AJAX utilizando a biblioteca RichFaces.
+			</P>
+
+			<H4>  </H4>
+		</DIV>
+
+		<DIV id="corpoPublicacao">
+			<H4>Objetivos do Tutorial</H4>
+
+<UL>
+<LI>Ajudar no desenvolvimento das primeiras aplicações utilizando JSF (JavaServer 
+Faces);</LI>
+<LI>Indicar uma sequência de passos a serem seguidos a fim de compreender os 
+principais mecanismos oferecidos por esse framework.</LI>
+</UL>
+
+<H4>Passo 1: Configurar o ambiente:</H4>
+
+<UL>
+<LI>JBoss AS 4.0.4 instalado</LI>
+<LI>Eclipse SDK, versão 3.2.2</LI>
+<LI>Download da biblioteca RichFaces que implementa componentes JSF com suporte a AJAX. Disponível em: <A href="http://labs.jboss.com/jbossrichfaces/downloads/">http://labs.jboss.com/jbossrichfaces/downloads/</A>, baixar arquivo: "richfaces-ui-3.1.1-GA-bin.zip". 
+</LI>
+</UL>
+
+<H4>Passo 2: Construir Projeto Web no Eclipse</H4>
+ 
+<UL>
+<LI>Crie um Dynamic Web Project</LI> 
+<LI>Modifique o Build Path do projeto para referenciar as APIS do JBOSS que estão 
+no diretório jboss-4.0.5.GA2\server\default\deploy\jbossweb-tomcat55.sar\jsf-libs. </LI>
+<LI>Adicione as APIs do Richfaces no caminho WebContent\WEB-INF\lib do seu 
+Projeto Web.</LI>
+</UL>
+
+<H4>Passo 3: Construir Entidade</H4>
+
+<PRE>public class Curso { 
+    
+    private Integer cod; 
+    private String nome; 
+    //.. getters e setters devem ser implementados 
+} 
+</PRE>
+<P class="legenda">Listagem 1: Entidade Curso</P>
+
+<H4>Passo 4: Construir componente Managed Bean </H4>
+ 
+<PRE>public class MBCadastrar { 
+    private Curso curso ; 
+    private String resultado; 
+    private List<CURSO> cursos; 
+
+    public MBCadastrar() { 
+        curso = new Curso(); 
+        resultado = "";
+        cursos  = new ArrayList&lt;Curso&gt;(); 
+    } 
+
+    //.. getters e setters devem ser implementados 
+    public String cadCurso(){ 
+        boolean existe=false; 
+    
+        for(Curso c : cursos){ 
+            if(c.getCod().equals(curso.getCod()) || 
+                c.getNome().equals(curso.getNome())) { 
+                resultado = "Curso já está cadastrado"; 
+                existe=true; 
+                break;
+            } 
+        } 
+
+        if(!existe){ 
+            cursos.add(curso); 
+            resultado="Curso cadastrado com sucesso!"; 
+        } 
+
+        curso = new Curso(); 
+        return "sucesso"; 
+    } 
+
+    public String removerCurso() throws Exception{ 
+        FacesContext facesContext = FacesContext.getCurrentInstance();  
+        Map map = facesContext.getExternalContext().getRequestParameterMap(); 
+        String codigoSelecionado=(String)map.get("codcurso"); 
+        int codSel = Integer.parseInt(codigoSelecionado); 
+
+        for(Curso c : cursos){ 
+            if(c.getCod().equals(codSel)){ 
+                cursos.remove(c); 
+                resultado = "Curso removido com sucesso"; 
+                break; 
+            } 
+        } 
+
+        return "sucesso"; 
+
+    }
+ 
+} 
+</CURSO></PRE>
+<P class="legenda">Listagem 2: Managed Bean para cadastro de cursos</P>
+
+<H5>Características de JSF</H5> 
+<P>Managed Bean é uma classe simples que expõe objetos de negócios para a 
+camada de apresentação.</P> 
+<P>FacesContext representa o contexto de processamento de uma requisição dentro do JSF e fornece acesso ao ambiente de aplicação web através de um ExternalContext.</P> 
+<P>Esse, por sua vez, fornece objetos do tipo java.util.Map para trabalharmos com 
+informações que não estão sofrendo gerenciamento do JSF. No exemplo, o método 
+facesContext.getExternalContext().GetRequestParameterMap()  retorna parâmetros passados pelo usuário.</P> 
+<P>O managed bean deve ser configurado no arquivo WEB-INF/faces-config.xml 
+(está disponibilizado no passo 6):</P>
+
+<PRE> 
+    &lt;managed-bean&gt; 
+        &lt;managed-bean-name&gt;mb&lt;/managed-bean-name&gt; 
+        &lt;managed-bean-class&gt;MBCadastrar&lt;/managed-bean-class&gt; 
+        &lt;managed-bean-scope&gt;session&lt;/managed-bean-scope&gt; 
+    &lt;/managed-bean&gt;
+</PRE>
+<P class="legenda">Listagem 3: Declaração do Managed Bean no faces-config.xml</P>
+
+<P>O elemento &lt;managed-bean-name&gt;  define o nome que será usado nas 
+expressões da página JSF para associar o conteúdo da página com o conteúdo dos 
+managed beans. </P>
+<P>O elemento &lt;managed-bean-scope&gt; define o escopo do managed bean. Nesse 
+escopo, a instância é gerada durante a validade de uma sessão do usuário no 
+container web. </P>
+
+<H4>Passo 5: Construir as páginas JSF </H4>
+
+<P>Essas páginas, devem ser criadas no diretório WebContent da sua aplicação. 
+</P><PRE>&lt;jsp:forward page="/home.jsf" /&gt; 
+</PRE>
+<P class="legenda">Listagem 4: Código da página index.jsp </P>
+
+<PRE> 
+ 
+ 
+&lt;html&gt; 
+&lt;head&gt; 
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt; 
+&lt;title&gt;SIGA - Sistema Integrado de Gestão Acadêmica 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;f:view&gt; 
+  &lt;h:form&gt; 
+    &lt;h:commandLink action="listarCursos" value="Cadastrar Curso"/&gt; 
+  &lt;/h:form&gt; 
+&lt;/f:view&gt;  
+&lt;/body&gt; 
+&lt;/html&gt; 
+</PRE>
+<P class="legenda">Listagem 5: Código da página home.jsp </P>
+
+<H5>Características de  JSF</H5> 
+<P>O elemento “taglib” configura as bibliotecas de tags JSF core, como prefixadas 
+com “f” (ex: &lt;f:view&gt;) e JSF html, prefixadas com “h” (ex : &lt;h:outputText&gt;). 
+As tags são familiares, pois geram códigos html e javascript que serão 
+interpretados pelo browser. </P>
+<P> A tag &lt;f:view&gt; é o nodo inicial e guarda todos os componentes. </P>
+<P> A tag &lt;h:form&gt; é um formulário comum. </P>
+<P> A tag &lt;h:commandLink&gt; é um componente de comando. O atributo “action” 
+está configurado com uma string de resultado. Essa string deve estar associada a uma regra de navegação no arquivo WEB-INF/faces-config.xml (que também registra o managed bean, mencionado anteriormente). Essa regra é estabelecida pelos elementos &lt;navigation-rule&gt; e &lt;navigation-case&gt;. A string é mencionada no 
+elemento &lt;from-outcome&gt; e a página de destino é mencionada através do &lt;to-view-id&gt;. </P>
+<PRE>    &lt;navigation-rule&gt;       
+        &lt;navigation-case&gt; 
+            &lt;from-outcome&gt;listarCursos&lt;/from-outcome&gt;
+            &lt;to-view-id&gt;/cadcurso.jsp&lt;to-view-id&gt; 
+        &lt;/navigation-case&gt; 
+    &lt;/navigation-rule&gt; 
+</PRE>
+<P class="legenda">Listagem 6: Configuração do fluxo de navegação no faces-config.xml</P>
+<PRE> 
+ 
+ 
+ 
+&lt;html&gt; 
+&lt;head&gt; 
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt; 
+&lt;title&gt;SIGA - Sistema Integrado de Gestão Acadêmica&lt;/title&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;f:view&gt; 
+&lt;h:form&gt; 
+&lt;h:panelGrid columns="5" cellpadding="5" align="center"&gt; 
+&lt;h:outputText value="Codigo"/&gt; 
+&lt;h:inputText value="#{mb.curso.cod}"/&gt; 
+&lt;h:outputText value="Nome"/&gt; 
+&lt;h:inputText value="#{mb.curso.nome}"/&gt; 
+&lt;h:commandButton value="Cadastrar" action="#{mb.cadCurso}"/&gt; 
+&lt;/h:panelGrid&gt; 
+&lt;h:outputText value="#{mb.resultado}" style="color:red; font-weight:bold"/&gt; 
+&lt;rich:dataTable var="c" id="listacursos" value="#{mb.cursos}" rows="10" 
+width="550px" align="center"&gt; 
+&lt;h:column &gt; 
+&lt;f:facet name="header"&gt;&lt;h:outputText value="Cod"/&gt;&lt;/f:facet&gt; 
+&lt;h:outputText value="#{c.cod}"/&gt; 
+&lt;/h:column&gt; 
+&lt;h:column&gt; 
+&lt;f:facet name="header"&gt;&lt;h:outputText value="Nome"/&gt;&lt;/f:facet&gt; 
+&lt;h:outputText value="#{c.nome}"/&gt; 
+&lt;/h:column&gt; 
+&lt;h:column&gt; 
+&lt;f:facet name="header"&gt;&lt;h:outputText value="Deletar"/&gt;&lt;/f:facet&gt; 
+&lt;h:commandLink action="#{mb.removerCurso}"&gt; 
+&lt;f:param name="codcurso" value="#{c.cod}"/&gt; 
+&lt;h:graphicImage value="img/apagar.gif" 
+style="border:none"/&gt; 
+&lt;/h:commandLink&gt; 
+&lt;/h:column&gt; 
+&lt;/rich:dataTable&gt; 
+&lt;/h:form&gt; 
+&lt;/f:view&gt; 
+&lt;/body&gt; 
+&lt;/html&gt; 
+</PRE>
+<P class="legenda">Listagem 7: cadcurso.jsp</P>
+
+<H5>Características de  JSF</H5> 
+<P>A tag &lt;h:panelGrid&gt; é usada apenas para formatação da página. É possível 
+configurar o número de colunas. Os elementos aninhados são distribuídos da esquerda para a direita.</P>
+<P>A tag &lt;h:outputText&gt; imprime na tela um valor. </P>
+<P>A tag &lt;h:inputText&gt; está associada a uma propriedade do managed bean 
+através da expressão definida por #{mb.curso.nome}. Essa expressão navega para 
+os elementos da instância do managed bean associado ao nome MBCadastrar. Esse 
+managed possui um atributo do tipo Curso. Esse possui também vários atributos. Essa tag pode ser configurada como required = true para indicar que o preenchimento é obrigatório. </P>
+<P>A tag &lt;h:commandButton&gt;, assim como o commandLink, é também um 
+componente de comando. Nesse exemplo, o “action” está associado a um método do managed bean que retorna uma string de resultado. </P>
+
+<H5> Características de  AJAX </H5>
+<P>O elemento “taglib” configura as bibliotecas de tags richfaces como prefixadas 
+com “rich” (ex: &lt;rich:dataTable&gt;). </P>
+<P>O componente &lt;rich:datatable&gt; exibe um array ou uma coleção de objetos. É orientado por colunas, o cabeçalho de cada uma é configurado através da tag 
+&lt;f:facet&gt; e a coleção é percorrida automaticamente pelo componente. No exemplo, a dataTable está vinculada ao managed bean pelo atributo “cursos”. É possível configurar sua identidade visual através de skins, que define o estilo da tabela. Essa configuração deve ser feita no arquivo WEB-INF/web.xml (está disponibilizado no passo 6): </P>
+
+<PRE>  &lt;context-param&gt; 
+    &lt;param-name&gt;org.ajax4jsf.SKIN&lt;/param-name&gt; 
+    &lt;param-value&gt;blueSky&lt;/param-value&gt; 
+  &lt;/context-param&gt; 
+</PRE>
+<P class="legenda">Listagem 8: Configuração do Skin no web.xml</P>
+
+<P>A tag &lt;f:facet&gt; define o estilo do cabeçalho e do rodapé, através dos atributos “header” e “footer”, respectivamente. </P>
+<P>A tag &lt;f:param&gt; define o parâmetro que poderá ser trabalhado no managed 
+bean através do FacesContext, que já foi mencionado anteriormente. </P>
+
+<H4>Passo 6 : Contruir os arquivos de configuração </H4>
+
+<P>Esses arquivos devem ser criados no diretório WebContent/Web-INF da sua 
+aplicação.</P> 
+
+<PRE>&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web- 
+app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5"&gt; 
+   &lt;display-name&gt;SigaEPT-web&lt;/display-name&gt; 
+   &lt;listener&gt; 
+      &lt;listener-class&gt;org.apache.myfaces.webapp.StartupServletContextListener&lt;/listener-class&gt; 
+   &lt;/listener&gt; 
+   
+   &lt;servlet&gt; 
+      &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt; 
+      &lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt; 
+      &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; 
+   &lt;/servlet&gt;
+
+   &lt;servlet-mapping&gt; 
+      &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt; 
+      &lt;url-pattern&gt;*.jsf&lt;/url-pattern&gt; 
+   &lt;/servlet-mapping&gt; 
+  
+   &lt;context-param&gt; 
+      &lt;param-name&gt;org.ajax4jsf.SKIN&lt;/param-name&gt; 
+      &lt;param-value&gt;blueSky&lt;/param-value&gt; 
+   &lt;/context-param&gt; 
+
+   &lt;filter&gt; 
+      &lt;display-name&gt;Ajax4jsf Filter&lt;/display-name&gt; 
+      &lt;filter-name&gt;ajax4jsf&lt;/filter-name&gt; 
+      &lt;filter-class&gt;org.ajax4jsf.Filter&lt;/filter-class&gt; 
+   &lt;/filter&gt; 
+
+   &lt;filter-mapping&gt; 
+      &lt;filter-name&gt;ajax4jsf&lt;/filter-name&gt; 
+      &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt; 
+      &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt; 
+      &lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt; 
+      &lt;dispatcher&gt;INCLUDE&lt;/dispatcher&gt; 
+   &lt;/filter-mapping&gt; 
+
+   &lt;welcome-file-list&gt; 
+      &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt; 
+   &lt;/welcome-file-list&gt; 
+
+&lt;/web-app&gt; 
+</PRE>
+<P class="legenda">Listagem 9: Arquivo web.xml</P>
+
+<H5>Características de JSF</H5> 
+<P>É necessário declarar dois componentes web : o  StartupServletContextListener 
+que ativa os componentes da implementação MyFaces e o FacesServlet que vai 
+receber todas as requisições que serão processadas no ciclo de funcionamento do JSF. </P>
+
+<H5>Características de AJAX</H5> 
+<P>É necessário declarar o componente do richfaces (org.ajax4jsf.Filter) que vai 
+trabalhar na aplicação. </P>
+
+<PRE>&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;!DOCTYPE faces-config PUBLIC 
+    "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" 
+    "http://java.sun.com/dtd/web-facesconfig_1_1.dtd"&gt; 
+&lt;faces-config&gt; 
+   &lt;managed-bean&gt; 
+      &lt;managed-bean-name&gt;mb&lt;/managed-bean-name&gt; 
+      &lt;managed-bean-class&gt;MBCadastrar&lt;/managed-bean-class&gt; 
+      &lt;managed-bean-scope&gt;session&lt;/managed-bean-scope&gt; 
+   &lt;/managed-bean&gt; 
+   
+   &lt;navigation-rule&gt; 
+      &lt;from-view-id&gt;/cadcurso.jsp&lt;/from-view-id&gt; 
+      &lt;navigation-case&gt; 
+         &lt;from-outcome&gt;sucesso&lt;/from-outcome&gt; 
+         &lt;to-view-id&gt;/cadcurso.jsp&lt;/to-view-id&gt; 
+      &lt;/navigation-case&gt; 
+   &lt;/navigation-rule&gt;
+   
+   &lt;navigation-rule&gt; 
+      &lt;from-view-id&gt;/home.jsp&lt;/from-view-id&gt; 
+      &lt;navigation-case&gt; 
+         &lt;to-view-id&gt;/cadcurso.jsp&lt;/to-view-id&gt; 
+      &lt;/navigation-case&gt; 
+   &lt;/navigation-rule&gt; 
+   
+   &lt;navigation-rule&gt;       
+        &lt;navigation-case&gt; 
+            &lt;from-outcome&gt;listarCursos&lt;/from-outcome&gt; 
+            &lt;to-view-id&gt;/cadcurso.jsp&lt;/to-view-id&gt; 
+        &lt;/navigation-case&gt; 
+    &lt;/navigation-rule&gt; 
+&lt;/faces-config&gt; 
+</PRE>
+<P class="legenda">Listagem 10: Arquivo faces-config.xml</P>
+
+<H4>Passo 7: Deploy do projeto</H4> 
+<P>Após ter criado o projeto, exporte para arquivo .war dentro do diretório 
+jboss-4.0.5.GA/server\default\deploy do JBOSS. </P>
+<P>Inicie o JBOSS e confira se o projeto foi “deployado” . </P>
+
+<H4>Passo 8: Navegando .... </H4>
+
+<P>Depois de “deployar” o projeto e iniciar o JBOSS, é só acessar 
+http://localhost:8080/nome-da-aplicacao. A porta de acesso vai depender da sua 
+configuração. </P>
+<P>Divirta-se!!!! :P </P>
+
+<H5>Páginas visualizadas </H5>
+
+<P align="center"><IMG src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/tela1.png"></P>
+<P class="legenda">Figura 1: Tela 1</P>
+
+<P align="center"><IMG src="./JEEBrasil -- O site da comunidade Java EE no Brasil_files/tela2.png"></P>
+<P class="legenda">Figura 2: Tela 2</P>
+
+<H4>Anexos</H4>
+
+Baixe o <A href="ftp://david:web@users.dca.ufrn.br/JSF_TUTO.rar">Código fonte do tutorial</A>
+		</DIV>
+
+		<A name="comentarios"></A>
+		
+		<DIV id="listaComentarios">
+		<H4> Comentários (9) </H4>
+			<DL>
+				
+				<DT>
+				Legal o tutorial. No remover não tem como saber o curso selecionado sem precisar acessar os parametros de request?
+				</DT>
+					<DD> postado por Eduardo em 12/12/2007 às 23:21</DD>
+				
+				<DT>
+				Legal o tutorial.
+Alguem poderia me passar o exemplo funcionando?
+Porque deu umas bixeiras aqui.
+Vlw abraço.
+				</DT>
+					<DD> postado por Luis Felipe em 08/01/2008 às 23:21</DD>
+				
+				<DT>
+				O tutorial foi muito bem explicado, mas poderia ter mais links no tutorial por exemplo: Download dos fontee e as apis usadas no exemplo. Abraços.
+				</DT>
+					<DD> postado por Walmir Rocha em 14/01/2008 às 23:21</DD>
+				
+				<DT>
+				Luis! problema resolvido! mandei o codigo fonte por e-mail :P
+e obrigada pelo elogio!
+
+				</DT>
+					<DD> postado por Raquel do Carmo em 15/01/2008 às 23:21</DD>
+				
+				<DT>
+				Oi Walmir! O Código fonte está sendo providenciado :P .
+Mas com relação ao link para as Apis usadas.. essa informação jah está no tutorial, no passo 1. Você precisa baixar o projeto RichFaces e, também, o JBOSS que já vem com algumas apis de JSF. 
+				</DT>
+					<DD> postado por Raquel do Carmo em 15/01/2008 às 23:21</DD>
+				
+				<DT>
+				Salve,
+
+Seguir todos os passos, não entendi as seguintes partes:
+
+"Características de JSF
+
+É necessário declarar dois componentes web : o StartupServletContextListener que ativa os componentes da implementação MyFaces e o FacesServlet que vai receber todas as requisições que serão processadas no ciclo de funcionamento do JSF. "
+
+e
+
+"Passo 7: Deploy do projeto
+
+Após ter criado o projeto, exporte para arquivo .war dentro do diretório jboss-4.0.5.GA/server\default\deploy do JBOSS.
+
+Inicie o JBOSS e confira se o projeto foi “deployado” . "
+
+Tenho o jBoos, descompactei e tal, usei as libs dele como foi informado no inicio, e quando fui testar dava:
+
+description The requested resource (/jeeBrasil/index.jsf) is not available.
+
+Mas em nenhum momento eu li falando para criar os arquivos .jsf ou algo do tipo.
+
+E no meu jBoss tem a pasta jboss-web.deployer mas não a jbossweb-tomcat55.sar.
+
+Sendo que a versão é a 4.2.2.GA.
+
+Valeu!
+				</DT>
+					<DD> postado por Silas Ribas em 25/03/2008 às 23:21</DD>
+				
+				<DT>
+				Segui o tutorial e deu tudo certo ao final. Esqueci de colocar gets e não tinha funcionado então quem vai copiar e colar atente a este detalhe :D
+				</DT>
+					<DD> postado por Diego H. Souza em 28/05/2008 às 23:21</DD>
+				
+				<DT>
+				Muito bom o tutorial !! Rodo aki blz !! 
+				</DT>
+					<DD> postado por claudio em 09/12/2008 às 23:21</DD>
+				
+				<DT>
+				Ótimo tutorial, parabéns. A muito pesquiso por um tutorial assim, bem simples, enxuto e de fácil entendimento. Muito bom mesmo! 
+				</DT>
+					<DD> postado por Cesimar em 19/03/2009 às 23:21</DD>
+				
+			</DL>
+		</DIV>
+		
+
+	<DIV id="comente">
+	<FORM action="http://www.j2eebrasil.com.br/comentario" id="form" method="post">
+	<FIELDSET>
+		<LEGEND>Comente!</LEGEND>
+		
+		
+
+		<DIV class="notes">
+      	<H4>Observações</H4>
+      	<P>Os campos em <STRONG>negrito</STRONG> são <STRONG>obrigatórios</STRONG>.</P>
+      	<P>Para evitar problemas, este espaço é moderado. Após o envio do comentário será
+      	necessário aguardar pela sua aprovação.</P>
+    	</DIV> 
+		
+		<DIV class="obrigatorio">
+		<LABEL for="nome">Nome:</LABEL> 
+		<INPUT type="text" id="nome" class="required" name="nome" size="58" value="">
+		</DIV>
+		
+		<DIV class="optional">
+		<LABEL for="email">E-Mail:</LABEL> 
+		<INPUT type="text" id="email" class="validate-email" name="email" size="58" value="">
+		</DIV>
+		
+		<DIV class="optional">
+		<LABEL for="site">Site:</LABEL> 
+		<INPUT type="text" id="site" class="validate-url" name="site" size="58" value="">
+		</DIV>
+		
+		<DIV class="obrigatorio">
+		<LABEL for="texto">Comentário:</LABEL> 
+		<TEXTAREA name="texto" id="texto" class="required" rows="5" cols="55"></TEXTAREA>
+		</DIV>
+		
+	    <P class="botoes">    
+			<INPUT type="submit" value="Enviar">
+    	</P>
+		
+	</FIELDSET>
+
+	<INPUT type="hidden" name="publicacao.id" value="117">
+	</FORM>
+	</DIV>
+	<A name="bottom">
+
+
+</A></DIV><A name="bottom"> <!-- fim de content -->
+
+<SCRIPT type="text/javascript">
+	var validForm = new Validation('form');
+</SCRIPT>
+
+</A></DIV><A name="bottom"> <!-- Fim de Content -->
+
+</A><DIV id="footer"><A name="bottom">
+	</A><A href="http://www.j2eebrasil.com.br/quemsomos"> Quem Somos </A> &nbsp;|&nbsp;
+	<A href="mailto:sugestoes@jeebrasil.com.br"> Fale Conosco</A>
+	<P>Copyright 2006 - JEEBrasil.</P>
+</DIV>
+
+</DIV> <!-- fim de page -->
+
+
+
+</BODY></HTML>

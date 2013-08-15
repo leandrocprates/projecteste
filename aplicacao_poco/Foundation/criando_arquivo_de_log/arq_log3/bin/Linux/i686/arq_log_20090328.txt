@@ -1,0 +1,12 @@
+2009-03-28 12:17:01 :Log:E:An error message
+2009-03-28 12:17:01 :Log:E:A warning message
+2009-03-28 12:17:01 :Log:I:An information message
+2009-03-28 12:17:01 :Log:I:Ver : agora 
+2009-03-28 12:19:00 :Log:E:An error message
+2009-03-28 12:19:00 :Log:E:A warning message
+2009-03-28 12:19:00 :Log:I:An information message
+2009-03-28 12:19:00 :Log:I:Ver : agora 
+2009-03-28 12:19:11 :Log:E:An error message
+2009-03-28 12:19:11 :Log:E:A warning message
+2009-03-28 12:19:11 :Log:I:An information message
+2009-03-28 12:19:11 :Log:I:Ver : agora 

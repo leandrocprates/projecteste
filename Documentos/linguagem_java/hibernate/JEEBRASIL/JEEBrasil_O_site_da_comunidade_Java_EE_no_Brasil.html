@@ -1,0 +1,820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0037)http://www.jspbrasil.com.br/mostrar/5 -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>JEEBrasil -- O site da comunidade Java EE no Brasil</TITLE>
+
+<SCRIPT type="text/javascript" src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/prototype.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/effects.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/validation.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/votacao.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/form.js"></SCRIPT>
+
+<LINK href="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/layout.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/rating.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/style.css" rel="stylesheet" type="text/css">
+<LINK href="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/forms.css" rel="stylesheet" type="text/css">
+</HEAD><BODY>
+
+<DIV id="page">
+
+<!-- Cabeçalho -->
+<DIV id="header">
+
+	<DIV id="header-top">
+		<H1> <A href="http://www.jspbrasil.com.br/">JEE<SPAN class="greenText">Brasil</SPAN></A> </H1>
+		<H2> O site da comunidade Java EE no Brasil </H2>
+	
+		<DIV id="encontre">
+			<H3> Encontre </H3>
+			<FORM action="http://www.jspbrasil.com.br/find" method="post" id="buscaForm">
+				<P>
+				<INPUT id="campo" name="busca" type="text" size="26">
+				<A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="$(&#39;buscaForm&#39;).submit();"> Buscar </A>
+				</P>
+			</FORM>
+		</DIV>
+	</DIV>
+	
+	<DIV id="menu">
+		<UL>
+			<LI> <A href="http://www.jspbrasil.com.br/">Home</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/noticias">Notícias</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/eventos">Eventos</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/artigos">Artigos</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/tutoriais">Tutoriais</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/tags">Tags</A> </LI>			
+			<LI> <A href="http://www.jspbrasil.com.br/apresentacoes">Apresentações</A> </LI>
+			<LI> <A href="http://www.jspbrasil.com.br/quemsomos">Quem Somos</A> </LI>	
+			<LI id="areaRestrita"> <A href="http://www.jspbrasil.com.br/admin"><IMG src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/chave.gif" alt="Administra&ccedil;&atilde;o"></A></LI>			
+		</UL>
+	</DIV>
+	
+</DIV>
+
+<DIV id="content">
+
+
+	<DIV id="fullPanel">
+		<DIV id="rightPanel">
+			<H4 class="informacoes"> Informações </H4>
+			<TABLE>
+				<TBODY><TR>
+					<TH> Tipo: </TH>
+					<TD> Tutorial </TD>
+				</TR>
+				<TR>
+					<TH> Data de Publicação: </TH>
+					<TD> 27/10/2005 </TD>
+				</TR>
+				<TR>
+					<TH> Revisado em:</TH>
+					<TD> 27/10/2005 </TD>
+				</TR>
+			</TBODY></TABLE>
+			<H4 class="nota" id="user-note">
+				
+				Vote!
+				
+				
+			</H4>
+			<UL class="star-rating" id="voting">
+				<LI class="current-rating" id="current-rating" style="width: 116.5px">Currently 4,7/5 Stars.</LI>
+				
+				<LI><A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="javascript:votar(5,1, &#39;&#39;);" title="muito ruim" class="one-star">1</A></LI>
+				<LI><A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="javascript:votar(5,2, &#39;&#39;);" title="ruim" class="two-stars">2</A></LI>
+				<LI><A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="javascript:votar(5,3, &#39;&#39;);" title="mais ou menos" class="three-stars">3</A></LI>
+				<LI><A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="javascript:votar(5,4, &#39;&#39;);" title="bom" class="four-stars">4</A></LI>
+				<LI><A href="http://www.jspbrasil.com.br/mostrar/5#" onclick="javascript:votar(5,5, &#39;&#39;);" title="muito bom" class="five-stars">5</A></LI>
+				
+			</UL>
+			
+			<H4 class="tagsRelacionadas">Tags Relacionadas</H4>
+			<P class="tags">
+				
+				<A href="http://www.jspbrasil.com.br/tags/hibernate">hibernate</A>
+				
+				<A href="http://www.jspbrasil.com.br/tags/framework">framework</A>
+				
+				<A href="http://www.jspbrasil.com.br/tags/persistencia">persistencia</A>
+				
+			</P>
+			<H4 class="comentarios"><A href="http://www.jspbrasil.com.br/mostrar/5#comentarios">Comentários ( 14 )</A></H4>
+			<H4 class="imprimir">Imprimir</H4>
+		</DIV>
+
+		<DIV id="tituloPublicacao">
+			<H3> Primeiro Exemplo com Hibernate </H3>
+			<P class="autores">
+				por:<BR>
+				</P><P class="autor">
+				
+				Raphaela Galhardo Fernandes (raphaela@jeebrasil.com.br)<BR>
+				
+				Gleydson Lima (gleydson@jeebrasil.com.br)<BR>
+				
+				</P>
+			<P></P>
+
+			<P class="resumo">
+			Este tutorial apresenta um primeiro exemplo utilizando o Hibernate . Será apresentado o arquivo de mapeamento de uma classe, juntamente com o arquivo de mapeamento para as configurações gerais do Hibernate . Por fim, serão mostradas manipulações de objetos persistentes, ou seja, como se criar, remover e atualizar objetos na base de dados utilizando o Hibernate . 
+
+
+			</P>
+
+			<H4>  </H4>
+		</DIV>
+
+		<DIV id="corpoPublicacao">
+			
+
+
+
+
+
+<H4>Primeiro Exemplo de Mapeamento com Hibernate</H4>
+
+<P>
+Inicialmente, o Hibernate precisa saber como carregar e armazenar objetos de classes persistentes. Para isso, existe um arquivo de mapeamento XML que informa que tabela do banco de dados deve ser acessada para uma dada classe persistente e quais colunas na tabela são referentes a quais atributos da classe. Qualquer classe pode ser mapeada desde que seja um POJO. É recomendável que as tabelas possuam chaves primárias, de forma que se possa aproveitar ao máximo as funcionalidades do Hibernate.
+</P>
+
+<P>
+Para a maioria dos exemplos a serem ilustrados ao longo dos tutoriais, considere o digrama UML mostrado na Figura 1. Nele, é apresentado o domínio simplificado de uma universidade. Como se pode observar, uma universidade é formada por um identificador (<STRONG>id</STRONG>), um nome, possui um endereço e um conjunto de centros. Cada centro também possui um identificador (<STRONG>id</STRONG>), um nome, uma universidade a que pertence e é formado por um conjunto de departamentos. Cada departamento associa-se a um conjunto de cursos, possui uma coleção de professores e possui um professor como sendo seu chefe, além do seu identificador <STRONG>id</STRONG> e de seus demais atributos nome e sigla. Um curso possui um identificador, um código, um nome, uma sigla, um professor como seu coordenador, associa-se a um ou mais departamentos e possui um conjunto de alunos. Um professor possui um identificador, uma matrícula, um nome, um cpf e um departamento onde é lotado. Por fim, um aluno possui um identificador, uma matrícula, um nome, um cpf e um curso a que pertence.
+</P>
+
+
+
+<P align="center">
+<IMG src="./JEEBrasil_O_site_da_comunidade_Java_EE_no_Brasil_files/img-01.jpg" alt="JSP" title="JSP">
+</P>
+
+<P class="legenda">
+Figura 1 - Diagrama UML: Domínio Universidade
+</P>
+
+<P>
+Neste primeiro exemplo, será apresentado o mapeamento da classe <STRONG>Aluno</STRONG> em um arquivo XML, que o Hibernate utiliza para saber que classe no banco de dados a representa. Os arquivos de mapeamentos XML entre classes e tabelas do banco de dados devem ser nomeados como <STRONG>*.hbm.xml</STRONG> (convenção definida pela comunidade de desenvolvedores do Hibernate). É nos arquivos com a extensão <STRONG>.hbm.xml</STRONG> que o Hibernate realiza o mapeamento objeto relacional. 
+</P>
+
+<P>
+A classe que representa a entidade <STRONG>Aluno</STRONG> do diagrama da Figura 1 está ilustrada na Listagem 1.
+</P>
+
+
+
+<PRE>package br.com.jeebrasil.dominio;
+
+public class Aluno {
+
+	private int id;
+	private int matricula;
+	private String nome;
+	private long cpf;
+	private Curso curso;
+	
+	public void Aluno(){}
+		
+	public long getCpf() {
+		return cpf;
+	}
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
+	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getMatricula() {
+		return matricula;
+	}
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}	
+}
+</PRE>
+<P class="legenda">
+Listagem 1 - Classe de Domínio: Aluno
+</P>
+
+<P>
+Todos os arquivos XML que mapeiam as classes para as tabelas de banco de dados no Hibernate possuem a estrutura básica mostrada na Listagem 2. O arquivo XML começa normalmente com as definições da DTD (Definição do Tipo do Documento) e da tag raiz, o <STRONG>&lt;hibernate-mapping&gt;</STRONG>, depois vem a tag que nos interessa neste caso, <STRONG>&lt;class&gt;</STRONG>.
+</P>
+
+<P>
+Os elementos para o mapeamento objeto relacional encontram-se entre as tags <STRONG>hibernate-mapping</STRONG>. 
+</P>
+
+
+
+<PRE>
+&lt;!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;
+    
+&lt;hibernate-mapping&gt;
+     ...
+&lt;/hibernate-mapping&gt;
+</PRE>
+<P class="legenda">
+Listagem 2 - Estrutura Básica do Arquivo <STRONG>*.hbm.xml</STRONG>
+</P>
+
+<P>
+Para a classe <STRONG>Aluno</STRONG> considere seu arquivo de mapeamento como sendo o <STRONG>Aluno.hbm.xml</STRONG>. A partir deste momento, o cabeçalho do arquivo XML será ocultado e o conteúdo entre as tags <STRONG>hibernate-mapping</STRONG> será apresentado. 
+</P>
+
+<P>
+O primeiro passo do mapeamento é informar que classe de domínio se refere a que tabela do banco de dados, através da tag <STRONG>&lt;class&gt;</STRONG>, como mostrado na Listagem 3. O único atributo obrigatório desta tag é o <STRONG>name</STRONG>, que contém o nome completo da classe. Se o nome da classe for diferente do nome da tabela a que se referencia, o nome da tabela é informado a partir do atributo <STRONG>table</STRONG>.
+</P>
+
+
+
+<PRE>&lt;hibernate-mapping&gt;
+
+    &lt;class name="br.com.jeebrasil.dominio.Aluno"  table="ALUNO"&gt;    
+        
+      ...
+		
+    &lt;/class&gt;
+
+&lt;/hibernate-mapping&gt; 
+</PRE>
+<P class="legenda">
+Listagem 3 - Aluno.hbm.xml 1
+</P>
+
+<P>
+Em seguida, mapeia-se a chave primária da tabela, como mostrado na Listagem 4. 
+</P>
+
+
+
+<PRE>&lt;hibernate-mapping&gt;
+    &lt;class name="br.com.jeebrasil.dominio.Aluno"  table="ALUNO"&gt;            
+        &lt;id name="id" column="ID_ALUNO" type="int"&gt;
+            &lt;generator class="sequence"&gt;
+            	&lt;param name="sequence"&gt;aluno_seq&lt;/param&gt;
+            &lt;/generator&gt;
+        &lt;/id&gt;          
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;    	
+</PRE>
+<P class="legenda">
+Listagem 4 - Aluno.hbm.xml 2
+</P>
+
+<P>
+A tag <STRONG>id</STRONG> identifica a chave primária. O atributo <STRONG>name="id"</STRONG> informa o nome do atributo da classe Java que se refere à chave primária da tabela. O Hibernate utiliza os métodos <EM>getter</EM> e <EM>setter</EM> para acessar este atributo. O atributo <STRONG>column</STRONG> informa ao Hibernate que coluna na tabela é a chave primária, no caso <STRONG>ID_ALUNO</STRONG>. O atributo <STRONG>generator</STRONG> informa qual a estratégia para a geração da chave primária, para esse exemplo, a estratégia utilizada foi <EM>sequence</EM>. Dessa forma, o nome da seqüência também deve ser informado (<STRONG>aluno_seq</STRONG>) através da tag <STRONG>param</STRONG>.
+</P>
+
+<P>
+Agora as declarações das propriedades persistentes das classes serão incluídas no arquivo de mapeamento. Por padrão, os atributos das classes não são considerados como persistentes. Para se tornarem, é necessário incluí-los no arquivo de mapeamento.
+</P>
+
+<P>
+Na Listagem 5, são incluídos os mapeamentos das propriedades persistentes através da tag <STRONG>property</STRONG>. Essas tags indicam propriedades simples dos objetos, como por exemplo, String, os tipos primitivos e seus <EM>wrappers</EM>, objetos <STRONG>Date</STRONG>, <STRONG>Calendar</STRONG>, entre outros.
+</P>
+
+
+<PRE>&lt;hibernate-mapping&gt;
+    &lt;class name="br.com.jeebrasil.dominio.Aluno"  table="ALUNO"&gt;         
+        &lt;id name="id" column="ID_ALUNO" type="int"&gt;
+            &lt;generator class="sequence"&gt;
+            	&lt;param name="sequence"&gt;aluno_seq&lt;/param&gt;
+            &lt;/generator&gt;
+        &lt;/id&gt;
+       &lt;property name="matricula" type="int" column="MATRICULA"/&gt;            
+       &lt;property name="nome"/&gt;                   
+       &lt;property name="cpf" type="long" column="CPF" 
+            not-null="false"/&gt;                   
+	 &lt;many-to-one name="curso" class="br.com.jeebrasil.dominio.Curso" 
+            column="ID_CURSO"/&gt;            
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;    
+</PRE>
+
+<P class="legenda">
+Listagem 5 - Aluno.hbm.xml  3
+</P>
+
+<P>
+Os nomes das propriedades da classe são definidos pelo atributo XML <STRONG>name</STRONG>, o tipo da propriedade pelo atributo <STRONG>type</STRONG> e a coluna da tabela a que se refere, por <STRONG>column</STRONG>. Observe que a propriedade nome não possui seu tipo e coluna a que se referenciam definidos. Se o atributo column não aparece no mapeamento da propriedade, o Hibernate considera que a coluna na tabela do banco de dados a que se referencia possui o mesmo nome que o definido pelo atributo <STRONG>name</STRONG>. Em relação ao atributo <STRONG>type</STRONG> não ser definido, o Hibernate também tenta, analisando o tipo da coluna na tabela, converter para o tipo adequado Java. 
+</P>
+
+<P>
+O atributo <STRONG>not-null</STRONG> presente no mapeamento do atributo <STRONG>cpf</STRONG> serve para informar se a coluna pode ser ou não nula na tabela. Se for <STRONG>true</STRONG>, não pode ser nula. Se for <STRONG>false</STRONG>, pode assumir valor nulo.
+</P>
+
+<P>
+A última tag do arquivo <STRONG>&lt;many-to-one&gt;</STRONG> define o relacionamento n-para-1 que a classe Aluno tem com a classe Curso. Uma descrição mais detalhada desta tag será feita no próximo tutorial.
+</P>
+
+<P>
+Depois de criar todas as classes persistentes com seus respectivos mapeamentos <STRONG>*.hbm.xml</STRONG>, deve-se realizar algumas configurações do Hibernate.
+</P>
+
+<H4>Configurando o Hibernate</H4>
+
+<P>
+Existem três maneiras distintas para se configurar o Hibernate:
+</P>
+
+<UL>
+	<LI>Instanciar um objeto de configuração (<STRONG>org.hibernate.cfg.Configuration</STRONG>) e inserir suas propriedades programaticamente;</LI>
+	<LI>Usar um arquivo <STRONG>.properties</STRONG> com as suas configurações e indicar os arquivos de mapeamento programaticamente;</LI>
+	<LI>Usar um arquivo XML (<STRONG>hibernate.cfg.xml</STRONG>) com as propriedades de inicialização e os caminhos dos arquivos de mapeamento. </LI>
+</UL>
+
+<P>
+Será apresentada a configuração a partir do arquivo <STRONG>hibernate.cfg.xml</STRONG>. Um exemplo deste arquivo de configuração pode ser visto na Listaegem 6. Vários parâmetros podem ser configurados. Basicamente, deve-se configurar: 
+</P>
+
+<UL>
+	<LI>A URL de conexão com o banco de dados;</LI>
+	<LI>Usuário e senha do banco de dados;</LI>
+	<LI>Números máximo e mínimo de conexões no pool;</LI>
+	<LI>Dialeto.</LI>
+</UL>
+
+
+
+<PRE>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"&gt;
+
+&lt;hibernate-configuration&gt;
+    &lt;!-- a SessionFactory instance listed as /jndi/name --&gt;
+    &lt;session-factory name="java:comp/env/hibernate/SessionFactory"&gt;
+
+        &lt;!-- properties --&gt;
+        &lt;property name="connection.driver_class"&gt;
+            org.postgresql.Driver
+        &lt;/property&gt;
+	    &lt;property name="connection.url"&gt;
+            jdbc:postgresql://localhost:5432/banco
+        &lt;/property&gt;
+        &lt;property name="dialect"&gt;
+            org.hibernate.dialect.PostgreSQLDialect
+        &lt;/property&gt;
+        &lt;property name="show_sql"&gt;true&lt;/property&gt;
+        &lt;property name="connection.username"&gt;postgres&lt;/property&gt;
+        &lt;property name="connection.password"&gt;postgres&lt;/property&gt;
+	    &lt;property name="connection.pool_size"&gt;10&lt;/property&gt;
+		
+        &lt;!-- mapping files --&gt;
+        &lt;mapping resource="br/com/jeebrasil/conf/Aluno.hbm.xml"/&gt;
+        &lt;mapping resource=" br/com/jeebrasil/Centro.hbm.xml"/&gt;
+        &lt;mapping resource=" br/com/jeebrasil/Curso.hbm.xml"/&gt;
+        &lt;mapping resource=" br/com/jeebrasil/Departamento.hbm.xml"/&gt;        
+        &lt;mapping resource=" br/com/jeebrasil/Professor.hbm.xml"/&gt;
+        &lt;mapping resource=" br/com/jeebrasil/Universidade.hbm.xml"/&gt;           
+
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+
+</PRE>
+<P class="legenda">
+Listagem 6 - hibernate.cfg.xml
+</P>
+
+<P>
+Resumindo as descrições das propriedades a serem configuradas:
+</P>
+
+<UL>
+	<LI><STRONG>hibernate.dialect: </STRONG>implementação do dialeto SQL específico do banco de dados a ser utilizado. Usado para identificar as particularidades do banco de dados;</LI>
+	<LI><STRONG>hibernate.connection.driver_class:  </STRONG>nome da classe do <EM>driver</EM> JDBC do banco de dados que está sendo utilizado;</LI>
+	<LI><STRONG>hibernate.connection.url: </STRONG> é a URL de conexão específica do banco que está sendo utilizado;</LI>
+	<LI><STRONG>hibernate.connection.username: </STRONG> é o nome de usuário com o qual o Hibernate deve se conectar ao banco;</LI>
+	<LI><STRONG>hibernate.connection.password: </STRONG> é a senha do usuário com o qual o Hibernate deve se conectar ao banco;</LI>
+	<LI><STRONG>hibernate.connection.pool_size:  </STRONG>tamanho do pool de conexões;</LI>
+	<LI><STRONG>hibernate.connection.isolation: </STRONG> define o nível de isolamento. Parâmetro opcional;</LI>
+	<LI><STRONG>hibernate.show_sql: </STRONG> utilizado para definir se os SQL’s gerados pelo Hibernate devem ou não ser exibidos (<STRONG>true </STRONG> | <STRONG>false </STRONG>).</LI>
+</UL>
+
+<P>
+O Hibernate trabalha com dialetos para um grande número de bancos de dados, tais como: <EM>DB2</EM>, <EM>MySQL</EM>, <EM>Oracle</EM>, <EM>Sybase</EM>, <EM>Progress</EM>, <EM>PostgreSQL</EM>, <EM>Microsoft SQL Server</EM>, <EM>Ingres</EM>, <EM>Informix</EM> entre outros. Possíveis valores para os dilates estão presentes na Listagem 7.
+</P>
+
+
+
+<PRE>	DB2 - org.hibernate.dialect.DB2Dialect
+	HypersonicSQL - org.hibernate.dialect.HSQLDialect 
+	Informix - org.hibernate.dialect.InformixDialect 
+	Ingres - org.hibernate.dialect.IngresDialect 
+	Interbase - org.hibernate.dialect.InterbaseDialect 
+	Pointbase - org.hibernate.dialect.PointbaseDialect 
+	PostgreSQL - org.hibernate.dialect.PostgreSQLDialect 
+	Mckoi SQL - org.hibernate.dialect.MckoiDialect 
+	Microsoft SQL Server - org.hibernate.dialect.SQLServerDialect 
+	MySQL - org.hibernate.dialect.MySQLDialect 
+	Oracle (any version) - org.hibernate.dialect.OracleDialect 
+	Oracle 9 - org.hibernate.dialect.Oracle9Dialect 
+	Progress - org.hibernate.dialect.ProgressDialect 
+	FrontBase - org.hibernate.dialect.FrontbaseDialect 
+	SAP DB - org.hibernate.dialect.SAPDBDialect 
+	Sybase - org.hibernate.dialect.SybaseDialect 
+	Sybase Anywhere - org.hibernate.dialect.SybaseAnywhereDialect	
+</PRE>
+<P class="legenda">
+Listagem 7 - Possíveis valores de dialetos
+</P>
+
+
+<P>
+O final do arquivo <STRONG>hibernate.cfg.xml</STRONG> é onde devem ser informados os arquivos de mapeamentos das classes que o Hibernate deve processar. Se algum arquivo de mapeamento não for definido neste local, a classe a que se refere não poderá ser persistida utilizando o Hibernate.
+</P>
+
+<H4>Manipulando Objetos Persistentes</H4>
+		
+<P>		
+O Hibernate utiliza objetos <STRONG>Session</STRONG> para persistir e recuperar objetos. Um objeto <STRONG>Session</STRONG> pode ser considerado como uma sessão de comunicação com o banco de dados através de uma conexão JDBC.
+</P>
+
+<P>
+O código fonte exibido na Tabela 8 mostra a criação e persistência de um objeto do tipo <STRONG>Aluno</STRONG>. 
+</P>
+
+
+
+<PRE>...
+1. try{
+2.   //SessionFactory deve ser criado uma única vez durante a execução
+3   //da aplicação
+4   SessionFactory sf = new  Configuration()
+5      .configure("/br/com/jeebrasil/conf/hibernate.cfg.xml")
+6.       .buildSessionFactory();
+7.
+8.   Session session = sf.openSession(); //Abre sessão
+9.   Transaction tx = session.beginTransaction(); //Cria transação
+10.
+11.   //Cria objeto Aluno
+12.   Aluno aluno = new Aluno();
+13.   aluno.setNome("Luis Eduardo Pereira Júnior");
+14.   aluno.setMatricula(200027803);
+15.   aluno.setCpf(1234567898);
+16.   aluno.setCurso(curso); //Considera-se que o objeto “curso” já 
+17.                          //havia gravado na base de dados e 
+18.                          //recuperado para ser atribuído neste
+19.                          // momento. 
+20.   session.save(aluno); //Realiza persistência
+21.   tx.commit(); //Fecha transação
+22.   session.close(); //Fecha sessão
+
+23. }catch(HibernateException e1){
+24.   e1.printStackTrace();
+25. }catch(SQLException e2){
+26.   e2.printStackTrace();
+27. }
+</PRE>
+<P class="legenda">
+Listagem 8 - Exemplo de Persistência
+</P>
+
+<P>
+O código presente nas linhas 4-6 deve ser chamado uma única vez durante a execução da aplicação. O objeto <STRONG>SessionFactory</STRONG> armazena os mapeamentos e configurações do Hibernate. É um objeto pesado e lento de se criar.
+</P>
+
+<P>
+A Tabela 1 apresenta alguns dos métodos que podem ser invocados a partir do objeto <STRONG>Session</STRONG>.
+</P>
+
+
+
+<P>
+</P><TABLE align="center" cellpadding="0" cellspacing="0" border="1">
+<TBODY><TR>
+	<TD>save(Object)</TD>	<TD>Inclui um objeto em uma tabela do banco de dados.</TD>
+</TR>
+<TR>
+	<TD>saveOrUpdate(Object)</TD>	<TD>Inclui um objeto na tabela caso ele ainda não exista (seja transiente) ou atualiza o objeto caso ele já exista (seja persistente).</TD>
+</TR>
+<TR>
+	<TD>delete(Object)</TD>	<TD>Apaga um objeto da tabela no banco de dados.</TD>
+</TR>
+<TR>
+	<TD>get(Class, Serializable id)</TD> <TD>	Retorna um objeto a partir de sua chave primária. A classe do objeto é passada como primeiro argumento e o seu identificador como segundo argumento.</TD>
+</TR>
+
+</TBODY></TABLE>
+<P></P>
+<P class="legenda">
+Tabela 1 - Métodos invocados a partir do objeto Session
+</P>
+
+<P>
+Em relação ao método <STRONG>saveOrUpdate</STRONG>, uma questão que se pode formular é "Como o Hibernate sabe se o objeto em questão já existe ou não no banco de dados, ou seja, se ele deve ser criado ou atualizado?". A resposta é simples: o desenvolvedor deve informar isso a ele. Essa informação é incluída no arquivo de configuração <STRONG>*.hbm.xml</STRONG> da classe na tag que define a chave primária. No caso da classe Aluno, a tag da chave primária no arquivo <STRONG>Aluno.hbm.xml</STRONG> deve ter o atributo <STRONG>&lt;unsaved-value&gt;</STRONG> adicionado, como mostrado na Listagem 9. Neste caso com o atributo <STRONG>unsaved-value="0"</STRONG> significa que, no momento da chamada ao método <STRONG>saveOrUpdate(Objetc obj)</STRONG>, se o atributo identificador do objeto estiver com valor 0 (zero) significa que ele deve ser criado na tabela do banco de dados. Dessa forma, se o seu valor for diferente de zero, o objeto deve ter sua linha na tabela atualizada (deve-se garantir que o valor do identificador do objeto se refere a um valor da chave primária da tabela).
+</P>
+
+
+<PRE>…
+&lt;id name="id" column="ID_ALUNO" type="int" unsaved-value="0"&gt;
+   &lt;generator class="sequence"&gt;
+      &lt;param name="sequence"&gt;aluno_seq&lt;/param&gt;
+   &lt;/generator&gt;
+&lt;/id&gt;  
+…
+</PRE>
+<P class="legenda">
+Listagem 9 - Trecho de Aluno.hbm.xml
+</P>
+
+<P>
+As Listagens 10 e 11 apresentam exemplos dos métodos invocados a partir do objeto <STRONG>Session</STRONG>.
+</P>
+
+
+<PRE>...
+   Session session = sf.openSession();
+   Transaction tx = session.beginTransaction(); 
+
+   //Busca objeto aluno da base de dados com chave primária = 1
+   <B>Aluno aluno = (Aluno) session.get(Aluno.class, 1);   </B>
+   //Atualiza informação de matrícula.      
+   aluno.setMatricula(200027807); 
+   //Como o identificador do objeto aluno é diferente de 0,
+   //a sua matrícula é atualizada já que foi alterada 
+   <B>session.saveOrUpdate(aluno); </B>
+   tx.commit();
+   session.close(); 
+...
+</PRE>
+<P class="legenda">
+Listagem 10 - Exemplo de Busca e Atualização de Objeto
+</P>
+
+
+
+
+<PRE>...
+   Session session = sf.openSession();
+   Transaction tx = session.beginTransaction();
+   
+   Aluno aluno = new Aluno();
+   //Existe linha na tabela aluno com chave primária = 2
+   aluno.setId(2);   
+   //Deleta aluno com id = 2 da tabela. 
+   //Somente necessária informação do seu identificador
+   <B>session.delete (aluno); </B>
+
+   tx.comiit();
+   session.close(); 
+...
+</PRE>
+<P class="legenda">
+Listagem 11 - Exemplo de Remoção de Objeto
+</P>
+
+<H4>Conclusões</H4>
+
+<P>
+Neste tutorial foi apresentado um primeiro exemplo de mapeamento e como ele pode ser manipulado de forma persistente. Pode ser que a primeira impressão ao se utilizar o Hibernate seja que a criação dos mapeamentos é um pouco difícil e trabalhosa, mas à medida que novos exemplos vão sendo feitos e que se adquire a prática, verifica-se que utilizar o Hibernate como framework de mapeamento objeto-relacional trará benefícios, principalmente no quesito de produtividade. 
+</P>
+
+<P>
+O próximo tutorial trará como mapear os relacionamentos entre as entidades utilizando o Hibernate.
+</P>
+
+<H4> Referências</H4>
+
+<OL>
+	
+<LI>Christian Bauer e Gavin King. Hibernate in Action. 2005.</LI>
+<LI>Grupo Hibernate. Hibernate Reference 	Documentation. Version 3.0.5. Obtido 
+     em http://www.hibernate.org</LI>
+<LI>Gleydson de Azevedo Ferreira Lima. Material Didático. 2005.</LI>
+<LI>Nick Heudecker. Introdução ao Hibernate.</LI>
+<LI>Maurício Linhares. Introdução ao Hibernate 3.</LI>
+<LI>Francesc Rosés Albiol. Introducción a Hibernate. 2003.</LI>
+<LI>Fabiano Kraemer, Jerônimo Jardel Vogt. Hibernate, um Robusto Framework de 
+     Persistência Objeto-Relacional. 2005.</LI>
+</OL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</DIV>
+
+		<A name="comentarios"></A>
+		
+		<DIV id="listaComentarios">
+		<H4> Comentários (14) </H4>
+			<DL>
+				
+				<DT>
+				material de qualidade, nao me refiro só a esse artigo, mas a todos q falam de Hibernate. Vejo q vc's tem compromisso com desenvolviemento do conhecimento.
+				</DT>
+					<DD> postado por Frank em 17/10/2006 às 23:21</DD>
+				
+				<DT>
+				É esse tipo de conteúdo que me enconraja a usar novas tecnologias em meus projetos. Muito bom, parabéns!
+				</DT>
+					<DD> postado por Roberval em 26/10/2006 às 23:21</DD>
+				
+				<DT>
+				Ola, gostaria de parabenizar vocês, realmente esse artigo foi toda a base do meu aprendizado.
+				</DT>
+					<DD> postado por Laverson Espíndola em 28/11/2006 às 23:21</DD>
+				
+				<DT>
+				Gostaria de parabenizar e agradecer pelo compromisso de ampliar o conhecimento. Parabens pelo material disponibilizado.
+				</DT>
+					<DD> postado por Julio Cesar M Silva em 02/01/2007 às 23:21</DD>
+				
+				<DT>
+				Gostei muito deste pequeno exemplo... Eu, que não tinha idéia alguma das "entranhas" do Hibernate, comecei a ver e entender as "idéias iniciais" do produto... Parabéns a vocês e espero que disponibilizaem mais materiais... 
+				</DT>
+					<DD> postado por Luis Palhares em 03/02/2007 às 23:21</DD>
+				
+				<DT>
+				Agora sim ficou mais claro em relação ao primeiro artigo. Nada como a prática. Parabéns. Muito bom.
+				</DT>
+					<DD> postado por Franklin Arruda em 08/02/2007 às 23:21</DD>
+				
+				<DT>
+				Ótimos os materiais apresentados por vocês; Estou querendo aprender a usar o hibernate, e colocar em prática estes artigos, gostaria de estar implementando-os no Netbeans 5.5 com o PostgreSQL. Gostaria de saber se vocês não chegaram a implementar tanto a parte (1,2) no Netbeans ou Eclipse. Caso tenha se puderem me enviar para estudar e refazer seria bom. Pergunto isto pois fiquei com dúvias no exemplo da Tabela 11 (Exemplo de Busca e Atualização de Objetos). Quando você passa o valor 1, você já sabe que o identificador la no banco para esta tabela tem o id = 1? E se caso eu tivesse a seguinte situacao: Tres tabelas (Cliente, Frete, Cidade) um modelinho de transportadora onde um mesmo cliente pudesse ter varios fretes, ou seja varias entradas na tabela frete e o identificador da tabela frete fosse um serial not null unique? como faria?
+
+				</DT>
+					<DD> postado por Julian Fernando de Almeida Cambraia em 05/03/2007 às 23:21</DD>
+				
+				<DT>
+				Muito bom mesmo, cheio de detalhes e informações que não encontras facilmente. Parabens!!!
+				</DT>
+					<DD> postado por Antônio Carlos da Silva em 12/05/2007 às 23:21</DD>
+				
+				<DT>
+				Endossando os comentários já postados. Parabens!!
+				</DT>
+					<DD> postado por Márcio Miguel em 12/07/2007 às 23:21</DD>
+				
+				<DT>
+				Grandes instruções!!!
+Parabéns.
+				</DT>
+					<DD> postado por Otílio Júnior em 06/08/2007 às 23:21</DD>
+				
+				<DT>
+				acho que o exemplo está muito bem conseguido, para quem não tem conhecimento nenhum acerca do hibernate (como eu) é uma boa ajuda para iniciar... parabéns!!!!!!
+				</DT>
+					<DD> postado por Cristóvão Neto em 02/04/2008 às 23:21</DD>
+				
+				<DT>
+				Um dos melhores tutoriais que ja vi , bem claro e elucidativo , parabens
+
+				</DT>
+					<DD> postado por Flávio Souza em 17/02/2009 às 23:21</DD>
+				
+				<DT>
+				Eu que não tinha visão alguma de como o hibernate era usado, aprendi nesse tutorial de forma clara e objetiva o seu uso! Cada vez mais me convenço que informática nunca foi e não é complexa, o que tem é muita gente sem didática alguma para explicar as coisas numa sequência lógica e objetiva como o material de vocês. Parabéns! Excelênte material.
+				</DT>
+					<DD> postado por Marcos Nobre em 21/08/2009 às 23:21</DD>
+				
+				<DT>
+				De fato, muito bom! Bem explicado, objetivo e ótimo pra quem está começando. Obrigada
+				</DT>
+					<DD> postado por Elyda em 05/09/2009 às 23:21</DD>
+				
+			</DL>
+		</DIV>
+		
+
+	<DIV id="comente">
+	<FORM action="http://www.jspbrasil.com.br/comentario" id="form" method="post">
+	<FIELDSET>
+		<LEGEND>Comente!</LEGEND>
+		
+		
+
+		<DIV class="notes">
+      	<H4>Observações</H4>
+      	<P>Os campos em <STRONG>negrito</STRONG> são <STRONG>obrigatórios</STRONG>.</P>
+      	<P>Para evitar problemas, este espaço é moderado. Após o envio do comentário será
+      	necessário aguardar pela sua aprovação.</P>
+    	</DIV> 
+		
+		<DIV class="obrigatorio">
+		<LABEL for="nome">Nome:</LABEL> 
+		<INPUT type="text" id="nome" class="required" name="nome" size="58" value="">
+		</DIV>
+		
+		<DIV class="optional">
+		<LABEL for="email">E-Mail:</LABEL> 
+		<INPUT type="text" id="email" class="validate-email" name="email" size="58" value="">
+		</DIV>
+		
+		<DIV class="optional">
+		<LABEL for="site">Site:</LABEL> 
+		<INPUT type="text" id="site" class="validate-url" name="site" size="58" value="">
+		</DIV>
+		
+		<DIV class="obrigatorio">
+		<LABEL for="texto">Comentário:</LABEL> 
+		<TEXTAREA name="texto" id="texto" class="required" rows="5" cols="55"></TEXTAREA>
+		</DIV>
+		
+	    <P class="botoes">    
+			<INPUT type="submit" value="Enviar">
+    	</P>
+		
+	</FIELDSET>
+
+	<INPUT type="hidden" name="publicacao.id" value="5">
+	</FORM>
+	</DIV>
+	<A name="bottom">
+
+
+</A></DIV><A name="bottom"> <!-- fim de content -->
+
+<SCRIPT type="text/javascript">
+	var validForm = new Validation('form');
+</SCRIPT>
+
+</A></DIV><A name="bottom"> <!-- Fim de Content -->
+
+</A><DIV id="footer"><A name="bottom">
+	</A><A href="http://www.jspbrasil.com.br/quemsomos"> Quem Somos </A> &nbsp;|&nbsp;
+	<A href="mailto:sugestoes@jeebrasil.com.br"> Fale Conosco</A>
+	<P>Copyright 2006 - JEEBrasil.</P>
+</DIV>
+
+</DIV> <!-- fim de page -->
+
+
+
+</BODY></HTML>

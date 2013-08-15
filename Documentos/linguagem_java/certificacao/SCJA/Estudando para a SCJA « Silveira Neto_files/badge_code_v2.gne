@@ -1,0 +1,12 @@
+var b_txt = '';
+
+// write the badge
+	
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/silveiraneto/2435984888/in/set-72157606630639959/"><img src="http://farm3.static.flickr.com/2335/2435984888_8bec23978d_m.jpg" alt="Uma foto no Flickr" title="Tasting mate" height="180" width="240"></a></td>'; b_txt+= '</tr>';
+
+
+b_txt += '<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&t=712920b1cc703096c7e1117211e7d79b&r=http%3A%2F%2Fsilveiraneto.net%2F2008%2F02%2F27%2Festudando-para-a-scja%2F&fl_ev=0&lang=pt&intl=br" width="0" height="0" alt="" /></span>';
+
+document.write(b_txt);

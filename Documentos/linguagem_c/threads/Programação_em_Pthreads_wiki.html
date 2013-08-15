@@ -1,0 +1,1215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="pt" xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.16alpha-wmf">
+		<meta name="keywords" content="Programação Paralela em Arquiteturas Multi-Core/Programação em Pthreads">
+		<link rel="alternate" type="application/x-wiki" title="Editar" href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit">
+		<link rel="edit" title="Editar" href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit">
+		<link rel="shortcut icon" href="http://pt.wikibooks.org/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://pt.wikibooks.org/w/opensearch_desc.php" title="Wikilivros (pt)">
+		<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+		<link rel="alternate" type="application/rss+xml" title="Feed RSS Wikilivros" href="http://pt.wikibooks.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Feed Atom Wikilivros" href="http://pt.wikibooks.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&amp;feed=atom">
+		<title>Programação Paralela em Arquiteturas Multi-Core/Programação em Pthreads - Wikilivros</title>
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/shared.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/commonPrint.css" type="text/css" media="print">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/main_002.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/main.css" type="text/css" media="handheld">
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE50Fixes.css?230" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE55Fixes.css?230" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins-1.5/monobook/IE60Fixes.css?230" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins-1.5/monobook/IE70Fixes.css?230" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index_002.css" type="text/css">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index.css" type="text/css" media="print">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index_005.css" type="text/css" media="handheld">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index_003.css" type="text/css">
+		<link rel="stylesheet" href="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index_004.css" type="text/css">
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?230"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type="text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins-1.5";
+		var wgArticlePath = "/wiki/$1";
+		var wgScriptPath = "/w";
+		var wgScript = "/w/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://pt.wikibooks.org";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Programação_Paralela_em_Arquiteturas_Multi-Core/Programação_em_Pthreads";
+		var wgTitle = "Programação Paralela em Arquiteturas Multi-Core/Programação em Pthreads";
+		var wgAction = "view";
+		var wgArticleId = "17746";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "pt";
+		var wgContentLanguage = "pt";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 127100;
+		var wgVersion = "1.16alpha-wmf";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = [",	.", " 	,"];
+		var wgDigitTransformTable = ["", ""];
+		var wgMWSuggestTemplate = "http://pt.wikibooks.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest";
+		var wgDBname = "ptwikibooks";
+		var wgSearchNamespaces = [0];
+		var wgMWSuggestMessages = ["com sugestões", "sem sugestões"];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/ajax.js"></script>
+		<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/mwsuggest.js"></script>
+		<script type="text/javascript">/*<![CDATA[*/
+		var wgNotice='';var wgNoticeLocal='';
+		/*]]>*/</script>
+		<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/centralnotice.js"></script><style type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</style>
+
+
+		<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index.php"><!-- site js --></script><style type="text/css">#interProject {display: none; speak: none;} #p-tb .pBody {padding-right: 0;}</style><script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/index_002.php"></script>
+	</head><body class="mediawiki ltr ns-0 ns-subject page-Programação_Paralela_em_Arquiteturas_Multi-Core_Programação_em_Pthreads skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script><div id="centralNotice" class="expanded anonnotice"><style type="text/css"> 
+/*
+Styles for Notices
+*/
+
+.notice-wrapper-boardvote-voting, .notice-collapsed-wrapper-boardvote-voting {
+    margin: 2px auto 0;
+    width: 100%;
+    padding: 0;
+    font-family: 'Arial','Helvetica','Tahoma',sans-serif;
+    color: #333;
+    background-color: #ddd;
+    font-size: .9em;
+    font-weight: 200;
+}
+
+.notice-wrapper-boardvote-voting
+{
+    border: 1px solid #bbb;
+    background-color: #fcfcfc;
+    text-align: left;
+    font-size: .9em;
+}
+
+.notice-wrapper-boardvote-voting a
+{
+    color: #006699;
+}
+
+.trans-box
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.toggle-box-boardvote-voting
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.notice-text-boardvote-voting
+{
+    margin: 0 auto 5px;
+    padding: 0 5px;
+    font-size: 1em;
+}
+
+.line-ht-fix
+{
+    line-height: 1em;
+}
+
+#centralNotice.anonnotice .siteNoticeUser 
+{
+    display:none !important;
+}
+
+#centralNotice.collapsed .siteNoticeUser
+{
+    display:none;
+}
+
+</style>
+
+<table class="siteNoticeUser notice-wrapper-boardvote-voting">
+<tbody><tr>
+ <td>
+  <div class="notice-text-boardvote-voting">
+  A eleição da Wikimedia Board of Trustees começou. <a href="http://pt.wikibooks.org/wiki/Special:SecurePoll/vote/17">Por favor, vota.</a>
+  </div>
+ </td>
+ <td class="line-ht-fix">
+   <span class="toggle-box-boardvote-voting">
+   [<a href="#" onclick="toggleNotice();return
+false">Esconder</a>]
+ </span><br>
+  <span class="trans-box">
+  [<a href="http://meta.wikimedia.org/wiki/Board_elections/2009/Translation">Ajuda-nos com as traduções!</a>]
+  </span>
+ </td>
+</tr>
+</tbody></table>
+<div class="siteNoticeSmallAnon notice-collapsed-wrapper-boardvote-voting">
+</div></div>
+</div>		<h1 id="firstHeading" class="firstHeading">Programação Paralela em Arquiteturas Multi-Core/Programação em Pthreads</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">De Wikilivros</h3>
+			<div id="contentSub"><span class="subpages">&lt; <a href="http://pt.wikibooks.org/wiki/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core" title="Programação Paralela em Arquiteturas Multi-Core">Programação Paralela em Arquiteturas Multi-Core</a></span></div>
+									<div id="jump-to-nav">Ir para: <a href="#column-one">navegação</a>, <a href="#searchInput">pesquisa</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Tabela de conteúdo">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Tabela de conteúdo</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">esconder</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Introdu.C3.A7.C3.A3o"><span class="tocnumber">1</span> <span class="toctext">Introdução</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Necessidade_de_processamento_massivo:_o_que_acarreta.3F"><span class="tocnumber">1.1</span> <span class="toctext">Necessidade de processamento massivo: o que acarreta?</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Necessidade_de_paralelismo"><span class="tocnumber">1.1.1</span> <span class="toctext">Necessidade de paralelismo</span></a></li>
+<li class="toclevel-3"><a href="#Necessidade_de_compartilhamento_f.C3.A1cil_de_mem.C3.B3ria"><span class="tocnumber">1.1.2</span> <span class="toctext">Necessidade de compartilhamento fácil de memória</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#O_que_s.C3.A3o_threads.3F"><span class="tocnumber">2</span> <span class="toctext">O que são threads?</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Defini.C3.A7.C3.B5es"><span class="tocnumber">2.1</span> <span class="toctext">Definições</span></a></li>
+<li class="toclevel-2"><a href="#Benef.C3.ADcios"><span class="tocnumber">2.2</span> <span class="toctext">Benefícios</span></a></li>
+<li class="toclevel-2"><a href="#Suporte_dos_sistemas_operacionais.5B4.5D"><span class="tocnumber">2.3</span> <span class="toctext">Suporte dos sistemas operacionais<sup>[4]</sup></span></a>
+<ul>
+<li class="toclevel-3"><a href="#Threads_do_Solaris_2"><span class="tocnumber">2.3.1</span> <span class="toctext">Threads do Solaris 2</span></a></li>
+<li class="toclevel-3"><a href="#Threads_do_Windows_2000"><span class="tocnumber">2.3.2</span> <span class="toctext">Threads do Windows 2000</span></a></li>
+<li class="toclevel-3"><a href="#Threads_do_Linux"><span class="tocnumber">2.3.3</span> <span class="toctext">Threads do Linux</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Modelos_de_programa.C3.A7.C3.A3o"><span class="tocnumber">2.4</span> <span class="toctext">Modelos de programação</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Pthreads"><span class="tocnumber">3</span> <span class="toctext">Pthreads</span></a>
+<ul>
+<li class="toclevel-2"><a href="#O_que_.C3.A9.3F"><span class="tocnumber">3.1</span> <span class="toctext">O que é?</span></a></li>
+<li class="toclevel-2"><a href="#Primitivas_b.C3.A1sicas"><span class="tocnumber">3.2</span> <span class="toctext">Primitivas básicas</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Gerenciamento"><span class="tocnumber">3.2.1</span> <span class="toctext">Gerenciamento</span></a></li>
+<li class="toclevel-3"><a href="#Exclus.C3.A3o_m.C3.BAtua"><span class="tocnumber">3.2.2</span> <span class="toctext">Exclusão mútua</span></a></li>
+<li class="toclevel-3"><a href="#Vari.C3.A1veis_condicionais"><span class="tocnumber">3.2.3</span> <span class="toctext">Variáveis condicionais</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Como_programar"><span class="tocnumber">3.3</span> <span class="toctext">Como programar</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Como_compilar"><span class="tocnumber">3.3.1</span> <span class="toctext">Como compilar</span></a></li>
+<li class="toclevel-3"><a href="#Exemplo_1:_.22Hello_World.22"><span class="tocnumber">3.3.2</span> <span class="toctext">Exemplo 1: "Hello World"</span></a></li>
+<li class="toclevel-3"><a href="#Exemplo_2:_Passagem_de_Par.C3.A2metros"><span class="tocnumber">3.3.3</span> <span class="toctext">Exemplo 2: Passagem de Parâmetros</span></a></li>
+<li class="toclevel-3"><a href="#Exemplo_3:_Execu.C3.A7.C3.A3o_paralela"><span class="tocnumber">3.3.4</span> <span class="toctext">Exemplo 3: Execução paralela</span></a></li>
+<li class="toclevel-3"><a href="#Exemplo_4:_Lock_e_Unlock_.28mutex.29"><span class="tocnumber">3.3.5</span> <span class="toctext">Exemplo 4: Lock e Unlock (mutex)</span></a></li>
+<li class="toclevel-3"><a href="#Exemplo_5:_Vari.C3.A1veis_Condicionais"><span class="tocnumber">3.3.6</span> <span class="toctext">Exemplo 5: Variáveis Condicionais</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Depura.C3.A7.C3.A3o_.28Debugging.29"><span class="tocnumber">3.4</span> <span class="toctext">Depuração (Debugging)</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Depurando_um_programa_em_Pthreads_.5B9.5D"><span class="tocnumber">3.4.1</span> <span class="toctext">Depurando um programa em Pthreads <sup>[9]</sup></span></a></li>
+<li class="toclevel-3"><a href="#Depurando_com_Eletric_Fence"><span class="tocnumber">3.4.2</span> <span class="toctext">Depurando com Eletric Fence</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Aplica.C3.A7.C3.B5es"><span class="tocnumber">3.5</span> <span class="toctext">Aplicações</span></a></li>
+<li class="toclevel-2"><a href="#Pr.C3.B3s_e_contras"><span class="tocnumber">3.6</span> <span class="toctext">Prós e contras</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Refer.C3.AAncias_Citadas"><span class="tocnumber">4</span> <span class="toctext">Referências Citadas</span></a></li>
+<li class="toclevel-1"><a href="#Refer.C3.AAncias_extras"><span class="tocnumber">5</span> <span class="toctext">Referências extras</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "mostrar"; var tocHideText = "esconder"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Introdu.C3.A7.C3.A3o" id="Introdu.C3.A7.C3.A3o"></a></p>
+<h3><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=1" title="Editar secção: Introdução">editar</a>]</span> <span class="mw-headline">Introdução</span></h3>
+<hr>
+<p><br>
+Nesse capítulo serão discutidos alguns pontos fundamentais para se
+entender a programação em Pthreads, passando pelas motivações, por
+definições e explicações de conceitos básicos e finalmente dando a
+diretiva inicial para o assunto abordado, ou seja, a iniciação na
+programação paralela em Pthreads.</p>
+<p><a name="Necessidade_de_processamento_massivo:_o_que_acarreta.3F" id="Necessidade_de_processamento_massivo:_o_que_acarreta.3F"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=2" title="Editar secção: Necessidade de processamento massivo: o que acarreta?">editar</a>]</span> <span class="mw-headline">Necessidade de processamento massivo: o que acarreta?</span></h4>
+<p>As necessidades de processamento massivo nos dias de hoje são
+muitas: cálculos matemáticos, empíricos, processamento de enormes
+quantidades de dados, números, arquivos, simulações de fenômenos
+naturais, aplicações gráficas cada vez mais requintadas, aplicações
+médicas, químicas e científicas em geral. Enfim, há uma infinitude de
+áreas que demandam a resolução de problemas cada vez mais complexos,
+com o envolvimento de uma enorme quantidade de operações, instruções e
+dados, e cada vez mais são necessários computadores e formas de
+processamento mais rápidas do que as atuais para tais aplicações.</p>
+<p><a name="Necessidade_de_paralelismo" id="Necessidade_de_paralelismo"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=3" title="Editar secção: Necessidade de paralelismo">editar</a>]</span> <span class="mw-headline">Necessidade de paralelismo</span></h5>
+<p>Vários fatores explicam a necessidade do processamento paralelo. O
+principal deles trata da busca por maior desempenho. As diversas áreas
+nas quais a computação se aplica, sejam científicas, industriais ou
+militares, requerem cada vez mais poder computacional, em virtude dos
+algoritmos complexos que são utilizados e do tamanho do conjunto de
+dados a ser processado.</p>
+<p>Além disso, várias aplicações são inerentemente paralelas, e
+perde-se desempenho pela necessidade de torná-las seqüenciais. O
+chamado "gargalo de von Neumann", segundo Almasi, tem diminuído a
+produtividade do programador, daí a necessidade de novas maneiras de
+organização do processamento computacional.</p>
+<p>Contudo, substituir uma filosofia computacional já firmemente
+estabelecida pelas várias décadas de existência da computação, como é a
+filosofia de von Neumann, é algo que representa um obstáculo de
+dimensões muito grandes, e que de certa maneira dificulta a difusão da
+computação paralela.</p>
+<p><a name="Necessidade_de_compartilhamento_f.C3.A1cil_de_mem.C3.B3ria" id="Necessidade_de_compartilhamento_f.C3.A1cil_de_mem.C3.B3ria"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=4" title="Editar secção: Necessidade de compartilhamento fácil de memória">editar</a>]</span> <span class="mw-headline">Necessidade de compartilhamento fácil de memória</span></h5>
+<p>A necessidade de processamento massivo e de paralelismo leva a uma
+outra questão, relativa ao compartilhamento de memória em sistemas
+paralelos. Como os diversos processadores utilizam uma mesma memória
+física, tal tarefa não é trivial e, em geral, limita a escalabilidade
+do sistema.</p>
+<p>Neles, a comunicação é realizada em hardware mediante a troca de
+mensagens. Isso fica bem claro no nível da aplicação quando o modelo de
+programação é orientado segundo essa lógica. Porém, embora tal linha de
+comunicação seja bastante natural, ela pode certamente se mostrar
+extremamente complicadas em diversas situações, como aquelas nas quais
+os padrões de interação e compartilhamento de dados são mais complexos
+e possuem escalas maiores. Além disso, tal lógica exige um maior nível
+de treinamento por parte dos programadores, o quem nem sempre acontece.</p>
+<p>De fato, quando passamos para a dimensão do software paralelo, temos
+dois paradigmas clássicos de programação paralela nesse sentido: o da <b>troca de mensagens</b>, mencionado anteriormente, e o <b>compartilhamento de memória</b>.</p>
+<p>A programação no paradigma de memória compartilhada é considerada
+mais simples, pois evita que o programador tenha que se preocupar com a
+comunicação entre processos, através da troca explícita de mensagens.
+Para realizar comunicação, um processo apenas escreve dados na memória
+para serem lidos por todos os outros. Para sincronização, seções
+críticas podem ser usadas, com a utilização de semáforos ou monitores
+para garantir exclusão mútua.</p>
+<p>No paradigma de troca de mensagens a comunicação é realizada através
+de primitivas que explicitamente controlam o deslocamento dos dados.
+Troca de mensagens apresenta várias dificuldades, entre elas controle
+de fluxo, mensagens perdidas, controle do buffer (<i>buffering</i>) e bloqueio (<i>blocking</i>). Embora várias soluções tenham sido propostas, programação com troca de mensagens permanece complicada.<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup></p>
+<p>Em resumo, os multicomputadores são simples de construir, mas
+difíceis de programar, enquanto os multiprocessadores são difíceis de
+construir mais simples de programar.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[2]</a></sup>
+Além disso, com a grande demanda por sistemas paralelos com capacidade
+de suportar grandes volumes de dados, torna-se evidente a necessidade
+de maneiras de tornar essa tarefa o mais simples possível para o
+programador.</p>
+<p><a name="O_que_s.C3.A3o_threads.3F" id="O_que_s.C3.A3o_threads.3F"></a></p>
+<h3><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=5" title="Editar secção: O que são threads?">editar</a>]</span> <span class="mw-headline">O que são threads?</span></h3>
+<hr>
+<p>Um thread, algumas vezes chamada um <b>processo peso leve</b>, é um
+fluxo seqüencial de controle dentro de um programa. Basicamente,
+consiste em uma unidade básica de utilização da CPU, compreendendo um
+ID, um contador de programa, um conjunto de registradores e uma pilha.
+Um processo tradicional tem um único thread de controle. Se o processo
+possui múltiplos threads de controle, ele pode realizar mais do que uma
+tarefa a cada momento. Essa possibilidade abre portas para um novo
+modelo de programação.</p>
+<p>Threads são diferentes de processos nos seguintes pontos<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[3]</a></sup>:
+Um processo é criado pelo sistema operacional como um conjunto de
+recursos físicos e lógicos para executar um programa. Um processo
+inclui:</p>
+<ul>
+<li>Memória de heap, estática e de código;</li>
+<li>Registradores para lidar com a execução do código;</li>
+<li>Uma pilha;</li>
+<li>Informação do ambiente, incluindo um diretório de trabalho e descritores de arquivos;</li>
+<li>IDs de processos, de grupos e de usuários;</li>
+<li>Ferramentas de comunicação entre processos e bibliotecas compartilhadas.</li>
+</ul>
+<p>Uma thread é o estado de execução de uma instância do programa,
+chamada algumas vezes de fluxo independente de controle. A thread é uma
+entidade escalonável. Ela tem propriedades que permitem que ela execute
+independentemente:</p>
+<ul>
+<li>Registradores para lidar com a execução do código;</li>
+<li>Uma pilha;</li>
+<li>Propriedades de escalonamento (como prioridade);</li>
+<li>Seu próprio conjunto de sinais;</li>
+<li>Algumas informações específicas de threads.</li>
+</ul>
+<p><a name="Defini.C3.A7.C3.B5es" id="Defini.C3.A7.C3.B5es"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=6" title="Editar secção: Definições">editar</a>]</span> <span class="mw-headline">Definições</span></h4>
+<p>Introduzem-se aqui termos e conceitos utilizados na programação multi-threaded.</p>
+<ul>
+<li><b>Escalonamento</b>: normalmente feito pelo sistema operacional, ele determina quais threads executam em determinado momento.</li>
+</ul>
+<ul>
+<li><b>Sincronização</b>: quando um programa pára em um ponto,
+esperando que determinadas threads terminem seu trabalho, diz-se que
+houve a sincronização entre as threads.</li>
+</ul>
+<ul>
+<li><b>Granularidade</b>: é o tamanho do trabalho atribuído a cada
+thread antes que elas se sincronizem. Um programa que seja dividido em
+partes pequenas entre as threads tem granularidade fina; um programa
+que faz com que suas threads tenham muito trabalho antes de se
+sincronizarem tem granularidade grossa.</li>
+</ul>
+<ul>
+<li><b>Zona crítica</b>: uma parte do código que tem comportamento
+indeterminado caso seja executada por mais de uma thread ao mesmo tempo
+é chamada de zona crítica.</li>
+</ul>
+<p>Um exemplo é quando duas threads tentam realizar, ao mesmo tempo, a
+incrementação de uma variável. Pode ser que uma execute apenas depois
+de a outra acabar de incrementar a variável, como pode ser que as duas
+comecem a incrementá-la ao mesmo tempo, dando um resultado incorreto.
+Esse caso de acesso à zona crítica é chamado de condição de corrida.</p>
+<ul>
+<li><b>Condição de corrida</b>: quando duas threads modificam uma
+variável ao mesmo tempo, ocorre uma condição de corrida; só que nessa
+corrida, a thread que modificar o valor por último é a que tem seu
+resultado armazenado. Ocorre em situações como a descrita no exemplo de
+zona crítica.</li>
+</ul>
+<ul>
+<li><b>Fechaduras (locks)</b>: utilizadas para garantir o acesso de uma
+única thread a determinada porção do código. Utilizadas normalmente
+para proteger zonas críticas. Quando uma thread atinge uma fechadura,
+ela confere se está trancada. Se não estiver, ele a tranca, e continua
+a executar o código. Todas as threads que chegarem à fechadura após
+isso esperarão que a fechadura seja destrancada, que ocorre quando a
+primeira thread atinge o comando de unlock. Quando isso ocorre, apenas
+uma das threads que estavam esperando consegue continuar, enquanto as
+outras esperam mais, e assim por diante.</li>
+</ul>
+<ul>
+<li><b>Semáforos</b>: semelhantes a locks. Impõem uma condição para que
+determinada sessão do código seja acessada. Por exemplo, a operação que
+realiza i = i + 1 só pode ocorrer se uma determinada variável s for
+igual a 0. Se isso ocorrer, o acesso é liberado para essa operação. Se
+não, todas as threads que chegarem ao semáforo esperam que a condição
+seja atingida.</li>
+</ul>
+<ul>
+<li><b>Deadlocks</b>: ocorrem quando determinada thread espera por um
+resultado de outra thread, e vice-versa. O que ocorre é que, como uma
+está esperando pela outra, nenhuma segue em frente para fornecer o
+resultado para outra, e o programa fica parado.</li>
+</ul>
+<p><a name="Benef.C3.ADcios" id="Benef.C3.ADcios"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=7" title="Editar secção: Benefícios">editar</a>]</span> <span class="mw-headline">Benefícios</span></h4>
+<p>Seguem as quatro categorias principais dos benefícios da programação com <i>multithreads</i>:</p>
+<ul>
+<li><b>Capacidade de Resposta:</b> A estruturação de uma aplicação intereativa em <i>multithreads</i>
+pode permitir a um programa continuar executando mesmo se parte dele
+estiver bloqueada ou realizando uma operação prolongada, aumentando
+desse modo a capacidade de resposta para o usuário. Por exemplo, um
+navegador de web <i>multithread</i> poderá permitir uma interação de usuário em <i>thread</i> enquanto uma imagem estará sendo armazenada em outro <i>thread</i>.</li>
+</ul>
+<ul>
+<li><b>Compartilhamento de Recursos:</b> Os <i>threads</i>
+compartilham, por padrão, a memória e os recursos do processo ao qual
+pertencem. A vantagem do compartilhamento de código é permitir que uma
+aplicação tenha diversos <i>threads</i> de atividade, todos dentro do mesmo espaço de endereçamento.</li>
+</ul>
+<ul>
+<li><b>Economia:</b> A alocação de memória e recursos para a criação de processos é custosa. Por outro lado, como os <i>threads</i> compartilham recursos do processo ao qual pertencem, é mais econômico criar <i>threads</i> e comutar seus contextos. Em geral, consome muito mais tempo criar e gerenciar processos do que <i>threads</i>.</li>
+</ul>
+<ul>
+<li><b>Utilização de Arquiteturas de Multiprocessadores:</b> As vantagens da criação de <i>multithreads</i> podem ser bastante aumentadas em uma arquitetura de multiprocessadores, onde cada <i>thread</i> pode ser executado em paralelo em um processador diferente. Um processo com um único <i>thread</i> pode executar somente em uma CPU, não importa quantas estejam disponíveis. A execução de <i>multithreads</i> em máquinas com múltiplas CPUs aumenta a concorrência.</li>
+</ul>
+<p><a name="Suporte_dos_sistemas_operacionais.5B4.5D" id="Suporte_dos_sistemas_operacionais.5B4.5D"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=8" title="Editar secção: Suporte dos sistemas operacionais[4]">editar</a>]</span> <span class="mw-headline">Suporte dos sistemas operacionais<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[4]</a></sup></span></h4>
+<p><a name="Threads_do_Solaris_2" id="Threads_do_Solaris_2"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=9" title="Editar secção: Threads do Solaris 2">editar</a>]</span> <span class="mw-headline">Threads do Solaris 2</span></h5>
+<div class="thumb tright">
+<div class="thumbinner" style="width: 302px;"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Solaris2threads.jpg" class="image" title="Threads do Solaris 2"><img alt="" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/300px-Solaris2threads.jpg" class="thumbimage" width="300" height="161"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Solaris2threads.jpg" class="internal" title="expandir"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/magnify-clip.png" alt="" width="15" height="11"></a></div>
+<i>Threads</i> do Solaris 2</div>
+</div>
+</div>
+<p>O Solaris 2 é uma versão do UNIX com suporte para threads nos níveis do <i>kernel</i> e do usuário, SMP e <i>scheduling</i> de tempo real. O Solaris 2 implementa a API Pthread, que será discutida em breve nesse capítulo, além de suportar <i>threads</i> de nível de usuário com uma biblioteca contendo APIs para criação e gerenciamento de <i>threads</i> (conhecida como <i>threads UI</i>). As diferenças entre essas duas bibliotecas são significativas. O Solaris 2 define também um nível intermediário de <i>threads</i>. Entre os <i>threads</i> de nível de usuário e de <i>kernel</i>, existem processos peso leve (LWPs). Cada processo contém pelo menos um LWP. A biblioteca de <i>threads</i> multiplexa <i>threads</i> de nível de usuário na cadeia de LWPs para o processo, e somente <i>threads</i>
+de nível de usuário conectados no momento a um LWP cumprem a tarefa. Os
+restantes ou ficam bloqueados ou aguardando por um LWP no qual possam
+executar. <a name="Threads_do_Windows_2000" id="Threads_do_Windows_2000"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=10" title="Editar secção: Threads do Windows 2000">editar</a>]</span> <span class="mw-headline">Threads do Windows 2000</span></h5>
+<p>O Windows 2000 implementa a API Win32, que é a API primária para a
+família de sistemas operacionais da Microsoft (Windows 95/98/NT e
+Windows 2000).</p>
+<p>Uma aplicação do Windows executa como um processo separado onde cada processo pode conter um ou mais <i>threads</i>. O Windows 2000 utilizava um mapeamento um-para-um, onde cada <i>thread</i> de nível de usuário mapeia para um <i>thread</i> de <i>kernel</i>
+associado. Entretanto, o Windows também fornece suporte para uma
+biblioteca de fibra, que oferece a funcionalidade do modelo
+muitos-para-muitos. Cada <i>thread</i> que pertence a um processo pode acessar o espaço de endereçamento virtual do processo.</p>
+<p>Os componentes gerais de um <i>thread</i> incluem:</p>
+<ul>
+<li>Um ID de <i>thread</i> identificando unicamente o <i>thread</i></li>
+<li>Um conjunto de registradores representando o estado do registrador</li>
+<li>Um pilha de usuário utilizada quando o <i>thread</i> está executando em modalidade de usuário. De modo semelhante, cada <i>thread</i> também tem uma pilha de <i>kernel</i> utilizada quando o <i>thread</i> está executando em modalidade de <i>kernel</i></li>
+<li>Uma área de armazenamento privada utilizada por várias bibliotecas de <i>run-time</i> e bibliotecas de links dinâmicos</li>
+</ul>
+<p>O conjunto de registradores, as pilhas e a área de armazenamento privada são conhecidas como o <i>contexto</i> do <i>thread</i>
+e são específicos, do ponto de vista da arquitetura, para o hardware no
+qual o sistema operacional está executando. As estruturas de dados
+primárias de um <i>thread</i> incluem:</p>
+<ul>
+<li>O ETHREAD (bloco de <i>thread</i> executivo)</li>
+<li>O KTHREAD (bloco de <i>thread</i> do <i>kernel</i>)</li>
+<li>O TEB (bloco do ambiente do <i>thread</i>)</li>
+</ul>
+<p>Os componentes-chave do ETHREAD incluem um ponteiro para o processo ao qual o thread pertence e o endereço da rotina na qual o <i>thread</i> inicia o controle. O ETHREAD também contém um ponteiro para o correspondente KTHREAD.</p>
+<p>O KTHREAD inclui informação de <i>scheduling</i> e sincronização para o <i>thread</i>. Além disso, o KTHREAD inclui a pilha do <i>kernel</i> (utilizada quando o <i>kernel</i> está executando em modalidade de <i>kernel</i>) e um ponteiro para o TEB.</p>
+<p>O ETHREAD e o KTHREAD existem inteiramente no espaço do <i>kernel</i>, o que significa que somente o <i>kernel</i> pode acessá-los. O TEB é uma estrutura de dados do espaço do usuário que é acessada quando o <i>thread</i> está executando em modalidade de usuário. Entre outros campos, o TEB contém uma pilha de modalidade de usuário e um <i>array</i> para dados específicos do <i>thread</i> (que o Windows chama de <i>memória local</i> do <i>thread</i>).</p>
+<p><a name="Threads_do_Linux" id="Threads_do_Linux"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=11" title="Editar secção: Threads do Linux">editar</a>]</span> <span class="mw-headline">Threads do Linux</span></h5>
+<p>O <i>kernel</i> do Linux introduziu os <i>threads</i> na versão 2.2. O Linux fornece uma chamada de sistema <b>fork</b> com a funcionalidade tradicional de duplicação de um processo. O Linux também oferece a chamada de sistema <b>clone</b> que é análoga à criação de um <i>thread</i>. O <b>clone</b> comporta-se como o <b>fork</b>,
+exceto que em vez de criar uma cópia do processo que realizou a
+chamada, ele cria um processo separado que compartilha o espaço de
+endereçamento daquele processo. É através deste compartilhamento do
+espaço de endereçamento do processo pai que uma tarefa clonada
+comporta-se como um <i>thread</i> separado.</p>
+<p>O compartilhamento do espaço de endereçamento é permitido por causa da representação de um processo no <i>kernel</i> do Linux. Existe uma única estrutura de dados de <i>kernel</i>
+para cada processo no sistema. Entretanto, em vez de armazenar os dados
+para cada processo nesta estrutura de dados, ele contém ponteiros para
+outras estruturas de dados onde estes dados são armazenados. Por
+exemplo, esta estrutura de dados por processo contém ponteiros para
+outras estruturas de dados que representam a lista de arquivos abertos,
+informação de manipulação de sinais e memória virtual. Quando <b>fork</b> é invocada, um novo processo é criado com uma <i>cópia</i> de todas as estruturas de dados associadas do processo pai. Quando a chamada de sistema <b>clone</b> é realizada, um novo processo é criado. Entretanto, em vez de copiar todas as estruturas de dados, o novo processo <i>aponta</i>
+para as estruturas de dados do processo pai, desse modo permitindo que
+o processo filho compartilhe a memória e outros recursos do processo
+pai. Um conjunto de <i>flags</i> é passado com um parâmetro para a chamada de sistema <b>clone</b>. Este conjunto de <i>flags</i> é utilizado para indicar quanto do processo pai é para ser compartilhado com o filho. Se nenhum dos <i>flags</i>
+for posicionado, não ocorrerá compartilhamento e ambas as chamadas de
+sistema mencionadas atuarão igualmente. Se todos os cinco <i>flags</i> forem posicionados, o processo filho irá compartilhar todos os recursos com o processo pai. Outras combinações de <i>flags</i> permitem vários níveis de compartilhamento entre estes dois extremos.</p>
+<p>Curiosamente, o Linux não faz distinção entre processos e <i>threads</i>. De fato, o Linux utiliza em geral o termo <i>tarefa</i> - em vez de processo ou <i>thread</i> - quando se refere a um fluxo de controle dentro de um programa. À parte o processo clonado, o Linux não suporta geração de <i>multithreads</i>, estruturas de dados separadas ou rotinas do <i>kernel</i>. Entretanto, várias implementações de Pthreads estão disponíveis para geração de <i>multithreads</i> de nível de usuário.</p>
+<p><a name="Modelos_de_programa.C3.A7.C3.A3o" id="Modelos_de_programa.C3.A7.C3.A3o"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=12" title="Editar secção: Modelos de programação">editar</a>]</span> <span class="mw-headline">Modelos de programação</span></h4>
+<p>Nessa sessão, serão apresentados alguns modelos de programação usando mais de uma thread.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[5]</a></sup></p>
+<ul>
+<li><b>Mestre/Escravo</b>: Uma única thread mestre recebe a entrada ou
+as requisições e distribui o trabalho entre as diversas threads
+escravas criadas por ela, determinando o que será feito por cada uma.</li>
+</ul>
+<ul>
+<li><b>Dividir para conquistar</b>: Várias threads individuais realizam trabalhos relacionados independentemente, sem uma thread mestre coordenando o trabalho.</li>
+</ul>
+<ul>
+<li><b>Pipelining</b>: O trabalho é dividido em algumas partes, de
+forma que quando uma thread termina seu serviço, ela o passa para a
+próxima thread e recebe o resultado da comutação da thread anterior,
+seguindo um modelo semelhante ao de uma linha de montagem.</li>
+</ul>
+<p><a name="Pthreads" id="Pthreads"></a></p>
+<h3><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=13" title="Editar secção: Pthreads">editar</a>]</span> <span class="mw-headline">Pthreads</span></h3>
+<hr>
+<p><a name="O_que_.C3.A9.3F" id="O_que_.C3.A9.3F"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=14" title="Editar secção: O que é?">editar</a>]</span> <span class="mw-headline">O que é?</span></h4>
+<p>Bibliotecas implementando o padrão de POSIX threads são normalmente
+chamadas de Pthreads. Elas são usadas normalmente em sistemas do tipo
+UNIX como Linux e Solaris, mas existem implementações para Windows.</p>
+<p>Historicamente, vendedores de hardware implementaram suas próprias
+versões proprietárias de threads. Essas implementações eram muito
+diferentes umas das outras, fazendo com que fosse difícil criar um
+programa com threads portável.</p>
+<p>Para usar todas as vantagens das capacidades das threads, era
+necessária uma interface padronizada. Para sistemas UNIX, essa
+interface foi especificada pelo padrão IEEE POSIX 1003.1c (1995).
+Implementações que aderem a esse padrão são chamadas de POSIX threads,
+ou Pthreads.</p>
+<p>Basicamente, Pthreads é um padrão que define uma interface para criação e manipulação de threads.</p>
+<p><a name="Primitivas_b.C3.A1sicas" id="Primitivas_b.C3.A1sicas"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=15" title="Editar secção: Primitivas básicas">editar</a>]</span> <span class="mw-headline">Primitivas básicas</span></h4>
+<p>Nessa sessão, serão explicadas algumas das funções mais importantes
+da API de threads. Será usado o padrão C para explicá-las, mas a
+interface é basicamente a mesma para as outras linguagens como C++.</p>
+<p><a name="Gerenciamento" id="Gerenciamento"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=16" title="Editar secção: Gerenciamento">editar</a>]</span> <span class="mw-headline">Gerenciamento</span></h5>
+<p>Serão citadas aqui algumas das funções usadas para se criar, destruir, e sincronizar threads.</p>
+<ul>
+<li>pthread_create(thread, attr, start_routine, arg):</li>
+</ul>
+<p>'thread': ponteiro estrutura previamente alocada que conterá os atributos da thread<br>
+'attr': estrutura contendo opções de criação para a thread (NULL usa os valores padrão)<br>
+'start_routine': função que será executada pela thread<br>
+'arg': argumento recebido pela função</p>
+<p>Essa função cria uma thread que executa a função por ela especificada.</p>
+<ul>
+<li>pthread_exit(retval)</li>
+</ul>
+<p>'retval': valor de retorno da thread</p>
+<p>Essa função termina a execução da thread.</p>
+<ul>
+<li>pthread_join(th, thread_return)</li>
+</ul>
+<p>'th': thread a ser esperada<br>
+'thread_return': valor de retorno da thread.</p>
+<p>Essa função faz com que a thread que a chamou espere até que a thread passada como parâmetro retorne.</p>
+<p><br></p>
+<p><a name="Exclus.C3.A3o_m.C3.BAtua" id="Exclus.C3.A3o_m.C3.BAtua"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=17" title="Editar secção: Exclusão mútua">editar</a>]</span> <span class="mw-headline">Exclusão mútua</span></h5>
+<p>Serão citadas aqui algumas das funções que implementam o conceito de
+fechadura, explicado anteriormente. Como criar, destruir, trancar e
+destrancar uma fechadura.</p>
+<ul>
+<li>pthread_mutex_init(mutex, mutexattr)</li>
+</ul>
+<p>'mutex': ponteiro para a estrutura previamente alocada que conterá o mutex.<br>
+'mutexattr': ponteiro para a estrutura contendo opções para a criação do mutex. Caso valha NULL, valores padrão serão usados.</p>
+<p>Essa função inicializa um mutex, que implementa o paradigma de fechadura, explicado anteriormente.</p>
+<ul>
+<li>pthread_mutex_lock(mutex)</li>
+</ul>
+<p>'mutex': o mutex que será usado como fechadura.</p>
+<p>Essa função é basicamente a fechadura explicada anteriormente: caso
+uma thread chegue a ela e ela esteja destrancada, ela a tranca e
+continua executando o código após ela. Se uma thread chega a ela e ela
+está trancada, ela pára sua execução, até que a fechadura seja
+eventualmente destrancada por outra thread.</p>
+<ul>
+<li>pthread_mutex_unlock(mutex)</li>
+</ul>
+<p>'mutex': fechadura a ser destrancada</p>
+<p>Essa função destranca um mutex.</p>
+<ul>
+<li>pthread_mutex_destroy(mutex)</li>
+</ul>
+<p>'mutex': estrutura que será destruída</p>
+<p>Essa função destrói um mutex, desalocando a memória que ele gasta.</p>
+<p><a name="Vari.C3.A1veis_condicionais" id="Vari.C3.A1veis_condicionais"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=18" title="Editar secção: Variáveis condicionais">editar</a>]</span> <span class="mw-headline">Variáveis condicionais</span></h5>
+<p>Serão citadas aqui algumas das funções de variáveis condicionais,
+que implementam o conceito de semáforos: threads param em um semáforo,
+e só avançam quando uma outra thread libere passagem para elas, algo
+que normalmente é feito sob uma condição.</p>
+<ul>
+<li>pthread_cond_init(cond, cond_attr)</li>
+</ul>
+<p>'cond': estrutura a ser inicializada<br>
+'attr': opções de criação. Caso NULL seja usado, opções padrão serão usadas</p>
+<p>Essa função inicializa a estrutura de condição de threads.</p>
+<ul>
+<li>pthread_cond_destroy(cond)</li>
+</ul>
+<p>'cond': estrutura a ser destruída</p>
+<p>Essa função desaloca a memória gasta por uma estrutura de condição inicializada.</p>
+<ul>
+<li>pthread_cond_wait(cond, mutex)</li>
+</ul>
+<p>'cond': variável de condição a ser sinalizada<br>
+'mutex': mutex a ser destrancado</p>
+<p>Essa função faz com que a thread que a chame destrave 'mutex' e espere até 'cond' ser sinalizada para continuar sua execução.</p>
+<ul>
+<li>pthread_cond_signal(cond)</li>
+</ul>
+<p>'cond': variável a ser sinalizada</p>
+<p>Essa função sinaliza 'cond', fazendo com que uma e apenas uma das
+threads que estejam paradas esperando por sua sinalização continue sua
+execução.</p>
+<ul>
+<li>pthread_cond_broadcast(cond)</li>
+</ul>
+<p>'cond': variável a ser sinalizada</p>
+<p>Semelhante à função anterior, mas faz com que todas as threads que estejam esperando por um sinal continuem sua execução.</p>
+<p><a name="Como_programar" id="Como_programar"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=19" title="Editar secção: Como programar">editar</a>]</span> <span class="mw-headline">Como programar</span></h4>
+<p>Essa sessão visa mostrar como programar usando pthreads, usando exemplos na linguagem C.</p>
+<p><a name="Como_compilar" id="Como_compilar"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=20" title="Editar secção: Como compilar">editar</a>]</span> <span class="mw-headline">Como compilar</span></h5>
+<p>Uma nota importante é que é necessário linkar a biblioteca de
+pthreads durante a compilação. Com o gcc, isso é feito da forma "gcc
+-lpthread programa.c".</p>
+<p><a name="Exemplo_1:_.22Hello_World.22" id="Exemplo_1:_.22Hello_World.22"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=21" title="Editar secção: Exemplo 1: &quot;Hello World&quot;">editar</a>]</span> <span class="mw-headline">Exemplo 1: "Hello World"</span></h5>
+<p>O exemplo abaixo faz o seguinte: ele imprime uma mensagem em main,
+cria uma thread, e espera que ela retorne, e termina. A segunda thread
+imprime outra mensagem e retorna. Ele mostra como usar as funções
+pthread_create, pthread_join e pthread_exit.</p>
+<p>É importante notar que a função passada para a thread deve retornar void * e receber como parâmetro void *.</p>
+<pre>#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+void *thread(void *vargp);
+
+int main() 
+{
+    pthread_t tid;
+    printf("Hello World da thread principal!\n");
+    pthread_create(&amp;tid, NULL, thread, NULL);
+    pthread_join(tid, NULL);
+    pthread_exit((void *)NULL);
+}
+
+void *thread(void *vargp)
+{
+    printf("Hello World da thread criada pela thread principal!\n"); 
+    pthread_exit((void *)NULL);
+}
+</pre>
+<p>O exemplo acima começa com uma thread, a principal, que cria uma
+segunda thread e espera que ela termine. A segunda thread imprime uma
+mensagem na tela e termina, e depois dela a principal.</p>
+<p><a name="Exemplo_2:_Passagem_de_Par.C3.A2metros" id="Exemplo_2:_Passagem_de_Par.C3.A2metros"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=22" title="Editar secção: Exemplo 2: Passagem de Parâmetros">editar</a>]</span> <span class="mw-headline">Exemplo 2: Passagem de Parâmetros</span></h5>
+<p>O exemplo a seguir já é um pouco mais elaborado: ele cria uma
+thread, usando uma função que necessita de dois parâmetros. Para tal, é
+necessário criar uma estrutura para acomodar os dois parâmetros:</p>
+<pre>#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+typedef struct
+{
+    int i;
+    int j;
+} thread_arg;
+
+void *thread(void *vargp);
+
+int main() 
+{
+    pthread_t tid;
+    thread_arg a;
+
+    a.i = 1;
+    a.j = 2;
+
+    pthread_create(&amp;tid, NULL, thread, (void *)&amp;a);
+    pthread_join(tid, NULL);
+    pthread_exit((void *)NULL);
+}
+
+void *thread(void *vargp)
+{
+    // Converte a estrutura recebida
+    thread_arg *a = (thread_arg *) vargp;
+    int i = a-&gt;i;
+    int j = a-&gt;j;
+
+    printf("Parametros recebidos: %d %d\n", i, j);
+
+
+    pthread_exit((void *)NULL);
+}
+</pre>
+<p>O exemplo acima começa com a thread princpal, que cria uma segunda
+thread e espera que ela termine. A segunda thread executa, imprime
+quais os argumentos recebidos e termina, e logo após a thread principal
+também</p>
+<p><a name="Exemplo_3:_Execu.C3.A7.C3.A3o_paralela" id="Exemplo_3:_Execu.C3.A7.C3.A3o_paralela"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=23" title="Editar secção: Exemplo 3: Execução paralela">editar</a>]</span> <span class="mw-headline">Exemplo 3: Execução paralela</span></h5>
+<p>O exemplo abaixo mostra duas threads executando ao mesmo tempo, realizando cada uma seu trabalho.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width: 402px;"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_paralelo.png" class="image" title="Possível fluxo de execução do exemplo abaixo"><img alt="" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/400px-Pthreads_paralelo.png" class="thumbimage" width="400" height="205"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_paralelo.png" class="internal" title="expandir"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/magnify-clip.png" alt="" width="15" height="11"></a></div>
+Possível fluxo de execução do exemplo abaixo</div>
+</div>
+</div>
+<pre>#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+typedef struct
+{
+    int id;
+} thread_arg;
+
+void *thread(void *vargp);
+
+int main() 
+{
+    pthread_t tid[2];
+    thread_arg a[2];
+    int i = 0;
+    int n_threads = 2;
+
+
+    //Cria as threads
+    for(i=0; i&lt;n_threads; i++)
+    {
+        a[i].id = i;
+        pthread_create(&amp;(tid[i]), NULL, thread, (void *)&amp;(a[i]));
+    }
+
+    // Espera que as threads terminem
+    for(i=0; i&lt;n_threads; i++)
+    {
+        pthread_join(tid[i], NULL);
+    }
+
+    pthread_exit((void *)NULL);
+}
+
+void *thread(void *vargp)
+{
+    int i = 0;
+    thread_arg *a = (thread_arg *) vargp;
+
+    printf("Comecou a thread %d\n", a-&gt;id);
+    // Faz um trabalho qualquer
+    for(i = 0; i &lt; 1000000; i++);
+    printf("Terminou a thread %d\n", a-&gt;id);
+
+    pthread_exit((void *)NULL);
+}
+
+</pre>
+<p>O exemplo acima começa com a thread principal, que cria duas outras
+threads e espera que elas terminem seu trabalho. Cada uma das threads
+realiza um trabalho, ao mesmo tempo, e elas terminam o trabalho
+aproximadamente no mesmo tempo. Depois, elas retornam, e a thread
+principal termina.</p>
+<p><a name="Exemplo_4:_Lock_e_Unlock_.28mutex.29" id="Exemplo_4:_Lock_e_Unlock_.28mutex.29"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=24" title="Editar secção: Exemplo 4: Lock e Unlock (mutex)">editar</a>]</span> <span class="mw-headline">Exemplo 4: Lock e Unlock (mutex)</span></h5>
+<p>Agora, será feita mais uma elaboração: duas threads serão criadas,
+usando a mesma função. No entanto, certa linha dessa função será
+protegida com o uso de um mutex, já que ela altera o valor de uma
+variável global (variáveis globais não devem ser usadas, isso é apenas
+um exemplo!). Essa é uma das técnicas normalmente utilizadas para se
+proteger zonas críticas do código.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width: 502px;"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_mutex.png" class="image" title="Possível fluxo de execução do exemplo abaixo"><img alt="" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/500px-Pthreads_mutex.png" class="thumbimage" width="500" height="208"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_mutex.png" class="internal" title="expandir"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/magnify-clip.png" alt="" width="15" height="11"></a></div>
+Possível fluxo de execução do exemplo abaixo</div>
+</div>
+</div>
+<p>Apesar de o uso de variáveis globais ser desaconselhado, normalmente
+os mutex são declarados globalmente, pois eles devem ser visíveis a
+todas as threads.</p>
+<pre>#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+typedef struct
+{
+    int id;
+} thread_arg;
+
+void *thread(void *vargp);
+
+pthread_mutex_t mutex;
+int var;
+
+int main() 
+{
+    pthread_t tid[2];
+    thread_arg a[2];
+    int i = 0;
+    int n_threads = 2;
+
+    var = 0;
+
+    // Cria o mutex
+    pthread_mutex_init(&amp;mutex, NULL);
+
+    //Cria as threads
+    for(i=0; i&lt;n_threads; i++)
+    {
+        a[i].id = i;
+        pthread_create(&amp;(tid[i]), NULL, thread, (void *)&amp;(a[i]));
+    }
+
+    // Espera que as threads terminem
+    for(i=0; i&lt;n_threads; i++)
+    {
+        pthread_join(tid[i], NULL);
+    }
+
+    // Destroi o mutex
+    pthread_mutex_destroy(&amp;mutex);
+
+    pthread_exit((void *)NULL);
+}
+
+void *thread(void *vargp)
+{
+    // Converte a estrutura recebida
+    thread_arg *a = (thread_arg *) vargp;
+
+    // Como vamos acessar uma variavel global, deve-se protege-la com uma fechadura
+    pthread_mutex_lock(&amp;mutex);
+    printf("Thread %d: valor de var antes da conta: %d\n", a-&gt;id+1, var);
+    var = var + a-&gt;id + 1;
+    printf("Thread %d: valor de var depois da conta: %d\n", a-&gt;id+1, var);
+    pthread_mutex_unlock(&amp;mutex);
+
+    pthread_exit((void *)NULL);
+}
+</pre>
+<p>O exemplo acima começa com a thread principal, que cria outras duas,
+e espera que elas terminem. Qual das duas threads chegam primeiro ao
+mutex é indeterminado, mas a que chegar trava o mutex, modifica var, e
+libera o mutex para que a outra faça o mesmo. Então, ambas terminam, e
+depois a principal também.</p>
+<p><a name="Exemplo_5:_Vari.C3.A1veis_Condicionais" id="Exemplo_5:_Vari.C3.A1veis_Condicionais"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=25" title="Editar secção: Exemplo 5: Variáveis Condicionais">editar</a>]</span> <span class="mw-headline">Exemplo 5: Variáveis Condicionais</span></h5>
+<div class="thumb tright">
+<div class="thumbinner" style="width: 502px;"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_cond.png" class="image" title="Fluxo de execução de pthreads usando variáveis condicionais"><img alt="" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/500px-Pthreads_cond.png" class="thumbimage" width="500" height="262"></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="http://pt.wikibooks.org/wiki/Ficheiro:Pthreads_cond.png" class="internal" title="expandir"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/magnify-clip.png" alt="" width="15" height="11"></a></div>
+Fluxo de execução de pthreads usando variáveis condicionais</div>
+</div>
+</div>
+<p>O código abaixo mostra um exemplo simples de como funciona o uso de
+variáveis condicionais. Assim como com os mutex, é comum declarar as
+variáveis condicionais globalmente, pois elas também devem ser visíveis
+a todas as threads.</p>
+<pre>#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+typedef struct
+{
+    int id;
+} thread_arg;
+
+void *thread(void *vargp);
+
+pthread_mutex_t mutex;
+pthread_cond_t cond;
+
+int main() 
+{
+    pthread_t tid[2];
+    thread_arg a[2];
+    int i = 0;
+    int n_threads = 2;
+
+    // Cria o mutex
+    pthread_mutex_init(&amp;mutex, NULL);
+
+    // Cria a variavel de condicao
+    pthread_cond_init(&amp;cond, NULL);
+
+    //Cria as threads
+    for(i=0; i&lt;n_threads; i++)
+    {
+        a[i].id = i;
+        pthread_create(&amp;(tid[i]), NULL, thread, (void *)&amp;(a[i]));
+    }
+
+    // Espera que as threads terminem
+    for(i=0; i&lt;n_threads; i++)
+    {
+        pthread_join(tid[i], NULL);
+    }
+
+    // Destroi o mutex
+    pthread_mutex_destroy(&amp;mutex);
+
+    // Destroi a variavel condicional
+    pthread_cond_destroy(&amp;cond);
+
+    pthread_exit((void *)NULL);
+}
+
+void *thread(void *vargp)
+{
+    // Converte a estrutura recebida
+    thread_arg *a = (thread_arg *) vargp;
+
+    if(a-&gt;id == 0)
+    {
+        printf("Thread %d: Esperando a outra thread\n", a-&gt;id);
+        pthread_cond_wait(&amp;cond, &amp;mutex);
+        printf("Thread %d: Acabou a espera\n", a-&gt;id);
+    }
+    else
+    {
+        sleep(3);
+        printf("Thread %d: Sinalizando a outra thread\n", a-&gt;id);
+        pthread_cond_signal(&amp;cond);
+    }
+
+    pthread_exit((void *)NULL);
+}
+</pre>
+<p>O exemplo acima começa com a thread principal, que cria duas outras
+threads, e espera que elas terminem. Depois, a primeira thread pára em
+um semáforo, e espera que a variável de condição seja sinalizada por
+outra thread. Isso só ocorre três segundos depois, quando a segunda
+thread sinaliza a condição e termina. Depois, a primeira thread também
+termina sua execução, e depois a thread principal.</p>
+<p><a name="Depura.C3.A7.C3.A3o_.28Debugging.29" id="Depura.C3.A7.C3.A3o_.28Debugging.29"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=26" title="Editar secção: Depuração (Debugging)">editar</a>]</span> <span class="mw-headline">Depuração (<i>Debugging</i>)</span></h4>
+<p>A depuração consiste em um processo metódico para se encontrar e
+reduzir o número de erros, ou problemas, em um programa de computador
+ou um componente de hardware, fazendo-o se comportar como o que foi
+especificado, aumentando a sua qualidade. A depuração tende a ser bem
+mais complexa quando vários subsistemas estão estreitamente acoplados,
+pois as modificações em um deles pode afetar outros.</p>
+<p>A questão ainda se complica. Depurar aplicações sequenciais já pode
+ser complicado, em função de erros, variáveis não inicializadas,
+apontadores e outros. Quando falamos em depuração de aplicações
+paralelas, o problema ganha múltiplas dimensões, tais como uma grande
+propensão para condições de corrida, eventos assíncronos e a
+dificuldade geral de se entender a execução de vários processos ao
+mesmo tempo. O problema sem dúvidas se torna formidável.</p>
+<p>Para facilitar essa árdua tarefa, algumas ferramentas de depuração
+oferecem abstrações para que o usuário possa controlar cada aspecto do
+seu processo. São os chamados depuradores. Outras ferramentas ainda
+oferecem um perfil de execução da aplicação que pode auxiliar o
+programador. Uma ferramenta pode ser conferida na referência <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[6]</a></sup>.
+De um certo modo, ela tenta modularizar a tarefa de depurar os erros de
+um programa. No entanto, essa biblioteca é um pouco complicada.
+Técnicas como colocar prints em locais estratégicos do código são mais
+simples, e possivelmente surtem um resultado tão bom quanto o dessas
+bibliotecas dependendo da aplicação, tendo sempre em mente que nos
+casos mais complexos se o programa não for modular e bem estruturado o
+programador pode se perder nessa difícil tarefa que é a depuaração.</p>
+<p>Além disso, o clássico <i>gdb</i>, oferece suporte à depuração de
+threads, mesmo que minimamente. As versões mais recentes têm tido uma
+preocupação cada vez maior com esse aspecto. Além disso, projetos da
+comunidade científica, como nas referências <sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[7]</a></sup>, <sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[8]</a></sup> tentam incrementar a ferramenta com um suporte maior ao uso de <i>Pthreads</i>.</p>
+<p>Em suma, diversas ferramentas se encontram disponíveis para
+facilitar a depuração de programas com múltiplas threads, que ajudam a
+reduzir a complexidade da construção e manutenção de aplicações
+paralelas.</p>
+<p><a name="Depurando_um_programa_em_Pthreads_.5B9.5D" id="Depurando_um_programa_em_Pthreads_.5B9.5D"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=27" title="Editar secção: Depurando um programa em Pthreads [9]">editar</a>]</span> <span class="mw-headline">Depurando um programa em Pthreads <sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[9]</a></sup></span></h5>
+<p>Para depurar o seu programa, compile-o com -g. Use o ddd, ou outro depurador gráfigo que te dê acesso ao console do gdb.</p>
+<p>Comandos úteis:</p>
+<p><b>info threads</b>, mostra quais threads estão rodando e onde cada uma está (a thread com um * é a que vc está):</p>
+<pre>(gdb) info threads
+  5 Thread -1234650192 (LWP 4313)  0xb7fcf199 in __lll_mutex_lock_wait () from /lib/tls/libpthread.so.0
+* 4 Thread -1226261584 (LWP 4312)  thread1 (ptr=0x80560d8) at bellmanford.c:42
+  3 Thread -1217872976 (LWP 4311)  thread1 (ptr=0x80560c8) at bellmanford.c:49
+  2 Thread -1209484368 (LWP 4310)  thread1 (ptr=0x80560b8) at bellmanford.c:42
+  1 Thread -1209481536 (LWP 4096)  0xb7fc97c0 in __nptl_create_event () from /lib/tls/libpthread.so.0
+(gdb)
+</pre>
+<p>O número após o LWP é o número do processo. Na pthread antiga, todas
+as threads apareciam no ps, mas na nova só a principal aparece:</p>
+<pre>[usuario@maquina]$ ps ux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+coutinho   449  0.0  0.1   6344  1048 ?        Ss   18:52   0:00 /usr/lib/WindowMaker/WindowMaker
+coutinho  2057  0.0  0.4   8196  4244 ?        Rs   21:19   0:00 xterm -sl 2048
+coutinho  2058  0.0  0.3   6192  3576 pts/14   Ss   21:19   0:00 bash
+coutinho  4090  0.0  0.8  13236  8516 pts/14   S    21:56   0:01 ddd principal
+coutinho  4092  0.0  0.3   5936  4028 pts/16   Ss+  21:56   0:00 gdb -q -fullname principal
+coutinho  4096  0.0  0.0  34428   596 pts/16   Tl   21:57   0:00 /home/speed/coutinho/grad/aeds3_tp2/principal -g entrada
+coutinho  4586  0.0  0.0   2248   960 pts/14   R+   22:57   0:00 ps ux
+[usuario@maquina]$
+</pre>
+<p><br>
+<b>thread 1</b>, vai para a thread número 1 mostrada no info threads</p>
+<p><b>info stack</b>, mostra a pilha da pthread:</p>
+<pre>(gdb) info stack
+#0  mybarrier (barreira=0x804aa60, myself=0) at barrier.c:40
+#1  0x08048fd0 in thread1 (ptr=0x80560b8) at bellmanford.c:62
+#2  0xb7fcaced in start_thread () from /lib/tls/libpthread.so.0
+#3  0xb7f5edee in clone () from /lib/tls/libc.so.6
+(gdb)
+</pre>
+<p><br>
+<b>frame 1</b>, quando vc está no topo da pilha, vc está no frame #0,
+vc pode ir para outros frames para ver com quais parâmetros uma função
+foi chamada, o valor das variáveis locais da função que chamou, etc.</p>
+<p><a name="Depurando_com_Eletric_Fence" id="Depurando_com_Eletric_Fence"></a></p>
+<h5><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=28" title="Editar secção: Depurando com Eletric Fence">editar</a>]</span> <span class="mw-headline">Depurando com Eletric Fence</span></h5>
+<p>Para compilar seu programa com electric fence, vc tem que "linkar" ele com a biblioteca -lefence:</p>
+<p>gcc ... -D_REENTRANT -lpthread -lefence</p>
+<p>A electric fence vai substituir as funções malloc(), realloc() e
+free(), por versões que colocam uma proteção após a área alocada. Se
+você tentar acessar um byte após o que foi alocado, vai ocorrer um
+segmentation fault na hora.</p>
+<p>Assim: compile seu programa com electric fence, rode ele no ddd sem
+colocar breakpoint e ele vai parar no momento exato que seu programa
+estiver fazendo um acesso inválido. Caso ele pare dentro de uma função
+da glibc, de info stack e frame X pra ver qual função sua chamou a
+função que ocasionou o segmentation fault.</p>
+<p>Atenção: às vezes o electric fence dá segmentation fault sozinho.
+Quando tomar um segmentation fault, veja a saida do programa. Se tiver
+algo como electric fence: internal error, o electric fence tomou
+segmentation fault sozinho.</p>
+<p>O electric fence tem um limite para alocação de memória (cerca de
+200MB), se você ultrapassar esse limite vai receber uma mensagem assim:</p>
+<p>ElectricFence Exiting: mprotect() failed: Cannot allocate memory</p>
+<p><a name="Aplica.C3.A7.C3.B5es" id="Aplica.C3.A7.C3.B5es"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=29" title="Editar secção: Aplicações">editar</a>]</span> <span class="mw-headline">Aplicações</span></h4>
+<p>Atualmente, todo tipo de aplicação requer uma versão paralelizada,
+pois a tendência é o uso de processadores multicore, sendo que em pouco
+tempo todos os processadores terão mais de um core. O padrão Pthread é
+uma das opções que permite o uso maximizado desses processadores, sendo
+que não existe, portanto um tipo específico de aplicação para Pthreads.
+É claro que em algumas, o seu uso é mais óbvio (como em servidores de
+web, que recebem múltiplas requisições ao mesmo tempo), mas toda ou
+quase toda aplicação pode ser paralelizada com o uso de Pthreads.</p>
+<p><a name="Pr.C3.B3s_e_contras" id="Pr.C3.B3s_e_contras"></a></p>
+<h4><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=30" title="Editar secção: Prós e contras">editar</a>]</span> <span class="mw-headline">Prós e contras</span></h4>
+<p>Vantagens de se programar utilizando threads:</p>
+<ul>
+<li>Utiliza melhor o potencial dos novos processadores multi-core que estão ficando cada vez mais comuns atualmente.</li>
+<li>O preço da troca de contextos entre threads é menos do que com processos, devido ao fato de as threads serem mais leves.</li>
+<li>Existem diversas aplicações com paralelismo inerente, como os
+grandes servidores da web, que atendem a múltiplas requisições ao mesmo
+tempo. Utilizar threads nesses contextos é simples.</li>
+</ul>
+<p>Desvantagens de se programar utilizando threads:</p>
+<ul>
+<li>O modelo de programação que utiliza threads é mais complexo do que o modelo seqüencial.</li>
+<li>Converter programas prontos para programas utilizando threads não é
+uma tarefa trivial, pois todo o programa pode ter de ser reescrito.</li>
+</ul>
+<p><a name="Refer.C3.AAncias_Citadas" id="Refer.C3.AAncias_Citadas"></a></p>
+<h2><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=31" title="Editar secção: Referências Citadas">editar</a>]</span> <span class="mw-headline">Referências Citadas</span></h2>
+<ol class="references">
+<li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a href="http://www.inf.unisinos.br/%7Eholo/publicacoes/trab.individuais/dsm.pdf" class="external free" title="http://www.inf.unisinos.br/~holo/publicacoes/trab.individuais/dsm.pdf" rel="nofollow">http://www.inf.unisinos.br/~holo/publicacoes/trab.individuais/dsm.pdf</a></li>
+<li id="cite_note-1"><a href="#cite_ref-1">↑</a> TANENBAUM, A. S. Distributed Operating Systems. Prentice Hall, New Jersey, 1995.</li>
+<li id="cite_note-2"><a href="#cite_ref-2">↑</a> <a href="http://www.llnl.gov/LCdocs/pthreads/index.jsp" class="external free" title="http://www.llnl.gov/LCdocs/pthreads/index.jsp" rel="nofollow">http://www.llnl.gov/LCdocs/pthreads/index.jsp</a></li>
+<li id="cite_note-3"><a href="#cite_ref-3">↑</a> Silberschatz, A. Galvin, P.B. and Gagne, G., "Fundamentos de Sistemas Operacionais, Sexta Edição."</li>
+<li id="cite_note-4"><a href="#cite_ref-4">↑</a> <a href="http://www.training.com.br/lpmaia/multithread.pdf" class="external free" title="http://www.training.com.br/lpmaia/multithread.pdf" rel="nofollow">http://www.training.com.br/lpmaia/multithread.pdf</a></li>
+<li id="cite_note-5"><a href="#cite_ref-5">↑</a> <a href="http://publib.boulder.ibm.com/infocenter/systems/index.jsp?topic=/com.ibm.aix.genprogc/doc/genprogc/multi-thread_program.htm" class="external free" title="http://publib.boulder.ibm.com/infocenter/systems/index.jsp?topic=/com.ibm.aix.genprogc/doc/genprogc/multi-thread_program.htm" rel="nofollow">http://publib.boulder.ibm.com/infocenter/systems/index.jsp?topic=/com.ibm.aix.genprogc/doc/genprogc/multi-thread_program.htm</a></li>
+<li id="cite_note-6"><a href="#cite_ref-6">↑</a> <a href="http://moss.csc.ncsu.edu/%7Emueller/TDI/" class="external free" title="http://moss.csc.ncsu.edu/~mueller/TDI/" rel="nofollow">http://moss.csc.ncsu.edu/~mueller/TDI/</a></li>
+<li id="cite_note-7"><a href="#cite_ref-7">↑</a> <a href="http://moss.csc.ncsu.edu/%7Emueller/TDI/TDI_intro.html" class="external free" title="http://moss.csc.ncsu.edu/~mueller/TDI/TDI_intro.html" rel="nofollow">http://moss.csc.ncsu.edu/~mueller/TDI/TDI_intro.html</a></li>
+<li id="cite_note-8"><a href="#cite_ref-8">↑</a> <a href="http://homepages.dcc.ufmg.br/%7Ecoutinho/pthreads/" class="external free" title="http://homepages.dcc.ufmg.br/~coutinho/pthreads/" rel="nofollow">http://homepages.dcc.ufmg.br/~coutinho/pthreads/</a></li>
+</ol>
+<p><a name="Refer.C3.AAncias_extras" id="Refer.C3.AAncias_extras"></a></p>
+<h2><span class="editsection">[<a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;section=32" title="Editar secção: Referências extras">editar</a>]</span> <span class="mw-headline">Referências extras</span></h2>
+<ul>
+<li><a href="http://sureco.grude.ufmg.br/moodle16/file.php/16430/programando_multicore.odp" class="external text" title="http://sureco.grude.ufmg.br/moodle16/file.php/16430/programando_multicore.odp" rel="nofollow">Apresentação de Pthreads no SBAC</a></li>
+<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html" class="external text" title="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html" rel="nofollow">Um tutorial de Pthreads</a></li>
+<li><a href="http://randu.org/tutorials/threads/" class="external text" title="http://randu.org/tutorials/threads/" rel="nofollow">Outro tutorial de Pthreads</a></li>
+<li><a href="http://users.actcom.co.il/%7Echoo/lupg/tutorials/multi-thread/multi-thread.html" class="external text" title="http://users.actcom.co.il/~choo/lupg/tutorials/multi-thread/multi-thread.html" rel="nofollow">Mais um tutorial</a></li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 170/1000000
+Post-expand include size: 25/2048000 bytes
+Template argument size: 0/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key ptwikibooks:pcache:idhash:17746-0!1!0!!pt!2 and timestamp 20090801181223 -->
+<div class="printfooter">
+Obtido em "<a href="http://pt.wikibooks.org/wiki/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads">http://pt.wikibooks.org/wiki/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://pt.wikibooks.org/wiki/Especial:Categorias" title="Especial:Categorias">Categoria</a>: <span dir="ltr"><a href="http://pt.wikibooks.org/wiki/Categoria:Programa%C3%A7%C3%A3o_paralela_em_arquiteturas_multicore" title="Categoria:Programação paralela em arquiteturas multicore">Programação paralela em arquiteturas multicore</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Acessos</h5>
+		<div class="pBody">
+			<ul xml:lang="pt" lang="pt">
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://pt.wikibooks.org/wiki/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads" title="Ver a página de conteúdo [alt-shift-c]" accesskey="c">módulo</a></li>
+				 <li id="ca-talk" class="new"><a href="http://pt.wikibooks.org/w/index.php?title=Discuss%C3%A3o:Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit&amp;redlink=1" title="Discussão sobre o conteúdo da página [alt-shift-t]" accesskey="t">Discussão</a></li>
+				 <li id="ca-edit"><a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=edit" title="Você pode editar esta página. Por favor, utilize o botão Mostrar Previsão antes de salvar. [alt-shift-e]" accesskey="e">Editar</a></li>
+				 <li id="ca-history"><a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;action=history" title="Edições anteriores desta página. [alt-shift-h]" accesskey="h">Histórico</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Ferramentas pessoais</h5>
+		<div class="pBody">
+			<ul xml:lang="pt" lang="pt">
+				<li id="pt-login"><a href="http://pt.wikibooks.org/w/index.php?title=Especial:Entrar&amp;returnto=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads" title="Você é encorajado a autenticar-se, apesar disso não ser obrigatório. [alt-shift-o]" accesskey="o">Entrar / criar conta</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikibooks/pt/b/bc/Wiki.png);" href="http://pt.wikibooks.org/wiki/P%C3%A1gina_principal" title="Visite a página principal [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div id="p-search" class="portlet">
+		<h5 xml:lang="pt" lang="pt"><label for="searchInput">Pesquisa</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/w/index.php" id="searchform"><div>
+				<input name="title" value="Especial:Busca" type="hidden">
+				<input autocomplete="off" id="searchInput" name="search" title="Pesquisar nesta wiki [alt-shift-f]" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Ir" title="Ir a uma página com este exato nome, caso exista" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Pesquisa" title="Procurar por páginas contendo este texto" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5 xml:lang="pt" lang="pt">Navegação</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage-description"><a href="http://pt.wikibooks.org/wiki/P%C3%A1gina_principal">Página principal</a></li>
+				<li id="n-Library"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Biblioteca">Biblioteca</a></li>
+				<li id="n-recentchanges"><a href="http://pt.wikibooks.org/wiki/Especial:Mudan%C3%A7as_recentes" title="A lista de mudanças recentes nesta wiki. [alt-shift-r]" accesskey="r">Mudanças recentes</a></li>
+				<li id="n-randompage"><a href="http://pt.wikibooks.org/wiki/Especial:Aleat%C3%B3ria" title="Carregar página aleatória [alt-shift-x]" accesskey="x">Página aleatória</a></li>
+				<li id="n-help"><a href="http://pt.wikibooks.org/wiki/Ajuda:Conte%C3%BAdos" title="Um local reservado para auxílio.">Ajuda</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donate/pt" title="Ajude-nos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Project">
+		<h5 xml:lang="pt" lang="pt">projecto</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-about"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Sobre">Sobre</a></li>
+				<li id="n-portal"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Portal_comunit%C3%A1rio" title="Sobre o projeto e coisas que você poder fazer aqui.">Portal comunitário</a></li>
+				<li id="n-Staff-lounge"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Staff_lounge">Esplanada</a></li>
+				<li id="n-Wikijunior"><a href="http://pt.wikibooks.org/wiki/Wikij%C3%BAnior">Wikijúnior</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-coll-create_a_book">
+		<h5 xml:lang="pt" lang="pt">Criar uma coleção</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li id="coll-add_page"><a href="http://pt.wikibooks.org/w/index.php?title=Especial:Livro/add_article/&amp;arttitle=Programa%C3%A7%C3%A3o+Paralela+em+Arquiteturas+Multi-Core%2FPrograma%C3%A7%C3%A3o+em+Pthreads&amp;oldid=0" title="Adicionar a página wiki atual ao seu livro" onclick="collectionCall('AddArticle', ['removepage', wgNamespaceNumber, wgTitle, 0]); return false;" rel="nofollow">Adicionar página ao livro</a></li><li id="coll-help_collections"><a href="http://pt.wikibooks.org/wiki/Ajuda:Livros" title="Mostrar ajuda sobre a ferramenta de livros">Ajuda sobre livros</a></li></ul><script type="text/javascript">/*<![CDATA[*/
+		var wgCollectionAddRemoveSate = "addpage";
+		/*]]>*/</script>
+<script type="text/javascript" src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/portlet.js"></script>		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5 xml:lang="pt" lang="pt">ferramentas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://pt.wikibooks.org/wiki/Especial:P%C3%A1ginas_afluentes/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads" title="Lista de todas as páginas que se ligam a esta [alt-shift-j]" accesskey="j">Páginas afluentes</a></li>
+				<li id="t-recentchangeslinked"><a href="http://pt.wikibooks.org/wiki/Especial:Novidades_relacionadas/Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads" title="Mudanças recentes em páginas relacionadas a esta [alt-shift-k]" accesskey="k">Alterações relacionadas</a></li>
+<li id="t-specialpages"><a href="http://pt.wikibooks.org/wiki/Especial:P%C3%A1ginas_especiais" title="Lista de páginas especiais [alt-shift-q]" accesskey="q">Páginas especiais</a></li>
+				<li id="t-print"><a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;printable=yes" rel="alternate" title="Versão para impressão desta página [alt-shift-p]" accesskey="p">Versão para impressão</a></li>				<li id="t-permalink"><a href="http://pt.wikibooks.org/w/index.php?title=Programa%C3%A7%C3%A3o_Paralela_em_Arquiteturas_Multi-Core/Programa%C3%A7%C3%A3o_em_Pthreads&amp;oldid=127100" title="Link permanente para esta versão desta página">Ligação permanente</a></li><li id="t-download-as-pdf"><a href="http://pt.wikibooks.org/w/index.php?title=Especial:Livro/render_article/&amp;arttitle=Programa%C3%A7%C3%A3o+Paralela+em+Arquiteturas+Multi-Core/Programa%C3%A7%C3%A3o+em+Pthreads&amp;oldid=127100&amp;writer=rl" rel="nofollow">Versão em PDF</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="Programa%C3%A7%C3%A3o_em_Pthreads_wiki_arquivos/wikimedia-button.png" alt="Wikimedia Foundation"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> Esta página foi modificada pela última vez às 20h08min de 27 de maio de 2009.</li>
+					<li id="copyright">O texto está disponível sob a licença <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution/Share-Alike License</a>; condições adicionais podem-se aplicar. Veja <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Condições de Uso</a> para detalhes.</li>
+					<li id="privacy"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Pol%C3%ADtica_de_privacidade" title="Wikilivros:Política de privacidade">Política de privacidade</a></li>
+					<li id="about"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Sobre" title="Wikilivros:Sobre">Sobre o Wikilivros</a></li>
+					<li id="disclaimer"><a href="http://pt.wikibooks.org/wiki/Wikilivros:Aviso_geral" title="Wikilivros:Aviso geral">Alerta de Conteúdo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served by srv83 in 0.496 secs. --></body></html>

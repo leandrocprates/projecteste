@@ -1,0 +1,17 @@
+
+CC=g++
+INCLUDE=-I./ -I/usr/include -I/home/leandro/programa/libdebug
+LIB=-L/usr/lib -lmysqlclient -L/home/leandro/programa/libdebug -lDebug
+EXECUTAVEL=principal
+OBJ=principal.o connect.o
+
+
+all:$(OBJ)
+	$(CC) $(LIB) -o $(EXECUTAVEL) $^
+
+%.o:%.cpp
+	$(CC) $(INCLUDE) -c $< -o $@
+
+clean:
+	rm principal *.o
+

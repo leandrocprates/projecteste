@@ -1,0 +1,2747 @@
+<html><head>
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+
+
+
+
+<style>
+#pop{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:600px;height:335px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplogin{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:125px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#popcoment{display:none;position:relative;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#poplink{display:none;position:absolute;top:50%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:590px;height:85px;border:1px solid #d0d0d0;background-color:#C0C0C0;}
+
+#pop_biblio{display:none;position:absolute;top:30%;left:10%;margin-left:50px;margin-top:-10px;padding:10px;width:770px;height:400px;border:1px solid #d0d0d0;background-color:#C0C0C0;overflow:auto;}
+
+</style>
+
+
+
+
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+<!--include file="../assgold/funcoes_assgold.asp" -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="Portal para analistas, desenvolvedores de sistemas e webdesigners. Artigos, dicas e vídeo aulas sobre C#, Java, Visual Basic .NET, PHP, ASP, Delphi, Visual Basic, ColdFusion, Javascript, HTML, Oracle, SQL Server, InterBase, Firebird, e muito mais.">
+<meta name="keywords" content="c#, visual basic .net, asp.net, java, php, programação, análise, web, apostilas, gratuito, grátis, projeto, engenharia de software, visual basic, delphi, sql, xml, asp, coldfusion, css, stylesheet, javascript, webmaster, ti, linux, windows, livros, empregos, oportunidades, aplicativos, componentes, tecnologia, desenvolvimento, eventos, software, downloads, artigos, cursos online, flash, interbase, fireworks, dreamweaver, xsql">
+
+
+
+  <title>DevMedia - Java Magazine - Dando vida nova ao seu código JDBC</title>
+
+</head><body>
+
+
+
+
+
+<link href="utilizando_CachedRowSet_arquivos/estilo.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#busca {
+	z-index:2;
+}
+-->
+</style>
+
+<style type="text/css">
+<!--
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #D6EA9D;
+}
+
+a {}
+.menuDEV {
+}
+
+.menuDEV:visited {
+font-family:verdana;  COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 12.3pt;
+}
+.menuDEV:hover {
+font-family:verdana;  COLOR: #003300; font-size: 12.3pt;
+}
+
+a {}
+.menuDEV3 {
+}
+
+.menuDEV3:visited {
+font-family:verdana;  COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:active {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:link {
+font-family:verdana; TEXT-DECORATION: none; COLOR: green; font-size: 7.5pt;
+}
+.menuDEV3:hover {
+font-family:verdana;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.menuDEV2 {
+}
+.menuDEV2:visited {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:active {
+font-family:verdana;font-weight: bold;  COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:link {
+font-family:verdana;font-weight: bold;  TEXT-DECORATION: none; COLOR: red; font-size: 7.5pt;
+}
+.menuDEV2:hover {
+font-family:verdana;font-weight: bold;  COLOR: #003300; font-size: 7.5pt;
+}
+
+
+a {}
+.linkDEV {
+}
+.linkDEV:visited {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:active {
+font-family:verdana;  COLOR: black; font-size: 9pt;
+}
+.linkDEV:link {
+font-family:verdana;  COLOR: black;TEXT-DECORATION: none; font-size: 9pt;
+}
+.linkDEV:hover {
+font-family:verdana;  COLOR: #1D6202; font-size: 9pt;
+}
+
+#fundoTransMenu{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=10);opacity:0.1;-khtml-opacity:0.1;}
+
+#menu_boxRevistas{display:none;position:absolute;top:67;left:189;z-index:701;}
+#popSubMenu1{background-color:green;width:89;}
+#popSubMenu1b{width:170;z-index:702;background-color:transparent;}
+
+#menu_boxCanais{display:none;position:absolute;top:67;left:287;z-index:701;}
+#popSubMenu2{background-color:green;width:75;}
+#popSubMenu2b{width:180;}
+
+#menu_boxCursos{display:none;position:absolute;top:67;left:371;z-index:701;}
+#popSubMenu3{background-color:green;width:75;}
+#popSubMenu3b{width:200;}
+
+#menu_boxServicos{display:none;position:absolute;top:67;left:682;z-index:701;}
+#popSubMenu4{background-color:green;width:100;}
+#popSubMenu4b{width:200;}
+-->
+</style>
+
+
+<script type="text/javascript"> 
+document.onclick=evento; 
+
+function evento(e){ 
+var target = (e && e.target) || (event && event.srcElement); 
+var obj = document.getElementById('minhadiv'); 
+var obj2 = document.getElementById('clica'); 
+checkParent(target)?obj.style.display='none':null; 
+target==obj2?obj.style.display='block':null; 
+} 
+
+function checkParent(t){ 
+while(t.parentNode){ 
+if(t==document.getElementById('minhadiv')){ 
+return false 
+} 
+t=t.parentNode 
+} 
+return true 
+} 
+
+</script> 
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="996">
+  <tbody><tr> 
+    <td width="996" height="62">	
+	
+	<table id="busca" border="0" cellpadding="0" cellspacing="0" width="100%" height="65">
+        <tbody><tr> 
+          <td width="150" height="65"><img src="utilizando_CachedRowSet_arquivos/devmedia2peq2B.PNG"></td>
+		  <td width="30">&nbsp;</td>
+		  <td width="475">
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="468" height="60">
+
+<param name="movie" value="http://www.devmedia.com.br/imagens/banners/banner_50.swf"> 
+
+<param name="quality" value="high">
+
+<embed src="utilizando_CachedRowSet_arquivos/banner_50.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="468" height="60">
+
+
+</object>
+
+
+
+	  	  
+          </td>
+		  <td width="110">
+
+			  <table align="right" border="0" cellspacing="0" width="190">
+			  				<tbody><tr>
+				 <td valign="bottom">
+				 <font size="1" face="verdana"><b><a href="http://www.devmedia.com.br/whatsnew/default.asp?id=1">Whats new?</a> | <a href="http://www.devmedia.com.br/login/login.asp">Login</a> 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </b></font></td>
+					</tr>
+
+				<tr>
+				 <td valign="bottom">
+				 <font size="1" face="verdana"><b><a href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Cadastre-se</a> | <a href="http://www.devmedia.com.br/mancad">Atendimento</a> | <a href="http://www.devmedia.com.br/feed">RSS</a>				 
+				 <!--<iframe width=150 height="35"  src="http://www.devmedia.com.br/usersonline.asp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>-->
+					  </b></font></td>
+					</tr>
+
+					
+					<tr valign="top">
+					 <td>
+
+							<form method="get" action="http://www.devmedia.com.br/articles/listcomp.asp" name="srctopo">
+							<table align="right" border="0" cellspacing="0">
+							<tbody><tr valign="top">
+							<td align="right">
+							  <input name="txtsearch" size="16" maxlength="255" value="" type="text">
+							</td>
+							<td>
+							  <input name="sa" value="Busca" type="submit">
+							</td>
+							</tr>
+							</tbody></table>
+							</form>		  
+					</td>
+				</tr>
+				
+			</tbody></table>
+
+		</td>
+		<td width="10">&nbsp;</td>
+		<td align="right" width="105">	  
+	            <a href="javascript:%20var%20e%20=%20window.open('https://e-chat.netwatts.com.br/devmedia.com.br/survey.aspx?siteid=devmedia.com.br&amp;survey=PreChat','chatWindow','width=472,height=320,resizable=0,scrollbars=no,menuDEVbar=no,status=no');" onmouseout="top.status=''; return true;" onmousedown="top.status='Atendimento em Tempo Real com a DevMedia';return true;" onmouseover="top.status='Atendimento em Tempo Real com a DevMedia';return true;">
+                    <img src="utilizando_CachedRowSet_arquivos/suNETImage.gif" alt="Live chat by Netwatts" border="0"></a>
+	  
+	  </td>
+
+		
+		
+		</tr>
+      </tbody></table>
+	  
+	  
+	  
+	  </td>
+	  
+	  </tr>
+  <tr> 
+    <td> 
+
+	
+	<table bgcolor="#336600" cellpadding="0" cellspacing="0" width="999" height="1"><tbody><tr><td></td></tr></tbody></table>
+
+	</td>
+	 </tr>
+    <tr> 
+    <td> 
+
+	
+
+	<table cellpadding="0" cellspacing="0" width="999" height="4"><tbody><tr><td></td></tr></tbody></table>
+	</td>
+	 </tr>
+    <tr> 
+    <td> 
+
+
+
+	<table align="left" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td align="center" width="57"><font color="green"><a class="menuDEV" href="http://www.devmedia.com.br/portal/default.asp">Home</a></font></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+<td align="center" width="132"><a class="menuDEV" href="http://www.devmedia.com.br/sobre"><font color="red">Entenda o site</font></a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+<td align="center" width="97">
+<a class="menuDEV" href="#" style="cursor: pointer;" onmouseover="document.getElementById('fundoTransMenu').style.display='block';document.getElementById('menu_boxRevistas').style.display='block';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';">Revistas<img src="utilizando_CachedRowSet_arquivos/arrowdown2.gif" border="0"></a>
+</td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+<td align="center" width="87"><a class="menuDEV" href="#" style="cursor: pointer;" onmouseover="document.getElementById('fundoTransMenu').style.display='block';document.getElementById('menu_boxCanais').style.display='block';document.getElementById('menu_boxCursos').style.display='none';">Canais<img src="utilizando_CachedRowSet_arquivos/arrowdown2.gif" border="0"></a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+<td align="center" width="82"><a class="menuDEV" href="#" style="cursor: pointer;" onmouseover="document.getElementById('fundoTransMenu').style.display='block';document.getElementById('menu_boxCursos').style.display='block';">Cursos<img src="utilizando_CachedRowSet_arquivos/arrowdown2.gif" border="0"></a> </td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td> 
+<td align="center" width="87"><a class="menuDEV" href="http://www.devmedia.com.br/auditorio">Palestras</a></td>
+
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td> 
+
+<td align="center" width="77"><a class="menuDEV" href="http://www.devmedia.com.br/consultoria_online">Suporte</a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+
+
+<td align="center" width="62"><a class="menuDEV" href="http://forum.devmedia.com.br/">Fórum</a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+
+<td align="center" width="112"><a class="menuDEV" href="#" style="cursor: pointer;" onmouseover="document.getElementById('fundoTransMenu').style.display='block';document.getElementById('menu_boxServicos').style.display='block';document.getElementById('menu_boxCursos').style.display='none';">+Serviços<img src="utilizando_CachedRowSet_arquivos/arrowdown2.gif" border="0"></a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+
+
+<td align="center" width="67"><a class="menuDEV" href="http://www.devmedia.com.br/assine/"><font color="red">Assine</font></a></td>
+<td><img src="utilizando_CachedRowSet_arquivos/line_menu.gif" width="1" height="10"></td>
+<td align="center" width="147"><a class="menuDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=6"><font color="red">Compre Créditos</font></a></td>
+
+
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="4"><tbody><tr><td> </td></tr></tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+
+<table bgcolor="#336600" cellpadding="0" cellspacing="0" width="999" height="1"><tbody><tr><td></td></tr></tbody></table>
+</td></tr>
+</tbody></table>
+  </td>
+ </tr>
+</tbody></table>
+
+
+
+
+<div id="menu_boxRevistas">
+
+  <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr>
+    <td>
+	<div id="popSubMenu1">
+	<table>
+	 <tbody><tr height="20">
+	   <td>	
+		<a style="cursor: pointer;" href="#" class="menuDEV"><font color="white">Revistas<img src="utilizando_CachedRowSet_arquivos/arrowdown2up.gif" border="0"></font></a><font color="white"></font>
+	   </td>
+	   </tr>
+	  </tbody></table>
+	</div>
+  </td>
+  <td>
+    <div id="popSubMenu1b" onmouseover="document.getElementById('menu_boxRevistas').style.display='none';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';document.getElementById('fundoTransMenu').style.display='block';">&nbsp;</div>
+  </td>
+ </tr>
+</tbody></table>
+
+
+<table bgcolor="green" border="0" width="262">
+<tbody><tr height="5">
+ <td colspan="2"></td>
+ </tr>
+<tr>
+ <td width="1"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="245">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="3"></td>
+		<td><font size="2" face="verdana">
+				<br>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0"><a href="http://www.devmedia.com.br/assgold" class="linkDEV">&nbsp;Todas as revistas</a>&nbsp;<br>
+			<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+			
+			<table>
+			  <tbody><tr>
+			   <td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=3" class="linkDEV">&nbsp;ClubeDelphi&nbsp;<br>
+			</a></td></tr><tr><td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=1" class="linkDEV">&nbsp;.net Magazine</a>&nbsp;<br>
+			</td></tr><tr><td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=6" class="linkDEV">&nbsp;Java Magazine&nbsp;<br>
+			</a></td></tr><tr><td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=5" class="linkDEV">&nbsp;webMobile Magazine&nbsp;</a><br>
+			</td></tr><tr><td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=2" class="linkDEV">&nbsp;SQL Magazine</a>&nbsp;<br>
+			</td></tr><tr><td>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">
+			</td><td><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=48" class="linkDEV">&nbsp;Engenharia de Software Mag&nbsp;</a><br>
+			</td></tr></tbody></table>
+
+			<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+			
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png"><a href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">&nbsp;Edições anteriores impressas&nbsp;</a><br><br>
+		</font>
+		</td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		</tr>
+	</tbody></table>  	  
+
+	</td>
+	</tr>
+<tr height="3">
+ <td colspan="2"></td>
+ </tr>
+
+</tbody></table>
+
+</div>
+
+
+
+
+<div id="menu_boxCanais">
+
+<table border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td>
+	<div id="popSubMenu2">
+	<table>
+	 <tbody><tr height="20">
+	   <td>	
+		<a style="cursor: pointer;" href="#" class="menuDEV"><font color="white">Canais<img src="utilizando_CachedRowSet_arquivos/arrowdown2up.gif" border="0"></font></a><font color="white"></font>
+	   </td>
+	   </tr>
+	  </tbody></table>
+	</div>
+  </td>
+  <td>
+	 <div id="popSubMenu2b" onmouseover="document.getElementById('menu_boxRevistas').style.display='none';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';document.getElementById('fundoTransMenu').style.display='block';">&nbsp;</div>
+	</td>
+  </tr>
+</tbody></table>
+
+
+
+<table bgcolor="green" border="0" width="272">
+<tbody><tr height="5">
+ <td colspan="2"></td>
+ </tr>
+<tr>
+ <td width="1"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="255">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="3"></td>
+		<td><font size="2" face="verdana">
+			<br>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;<a href="http://www.devmedia.com.br/canais/default.asp">Todo conteúdo DevMedia</a>&nbsp;<br>
+			<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+
+	<table>
+	 <tbody><tr>
+	  <td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=36" class="linkDEV">Canal Delphi&nbsp;<br>
+	</a></td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=34" class="linkDEV">Canal Java</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=35" class="linkDEV">Canal .net&nbsp;<br>
+	</a></td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=37" class="linkDEV">Canal Banco de dados&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=38" class="linkDEV">Canal Mobile</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=39" class="linkDEV">Canal Ruby on Rails&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=44" class="linkDEV">Canal PHP</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=45" class="linkDEV">Canal ASP</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=40" class="linkDEV">Canal WebDesign</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=43" class="linkDEV">Canal Engenharia de Software</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=46" class="linkDEV">Canal Linux</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=58" class="linkDEV">Canal Scripting</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/canais/default.asp?site=42" class="linkDEV">Canal Outros</a>&nbsp;
+	</td></tr></tbody></table>
+	<br>
+
+		</font>
+		</td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		</tr>
+	</tbody></table>  	  
+
+	</td>
+	</tr>
+<tr height="3">
+ <td colspan="2"></td>
+ </tr>
+
+</tbody></table>
+
+</div>
+
+
+
+<div id="menu_boxCursos">
+
+<table border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td>
+	<div id="popSubMenu3">
+	  <table>
+	  <tbody><tr height="20">
+	   <td>	
+		<a style="cursor: pointer;" href="#" class="menuDEV"><font color="white">Cursos<img src="utilizando_CachedRowSet_arquivos/arrowdown2up.gif" border="0"></font></a><font color="white"></font>
+	   </td>
+	   </tr>
+	  </tbody></table>
+	</div>
+  </td>
+  <td>
+    <div id="popSubMenu3b" onmouseover="document.getElementById('menu_boxRevistas').style.display='none';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';document.getElementById('fundoTransMenu').style.display='none';">&nbsp;</div>
+  </td>
+ </tr>
+</tbody></table>
+
+<table bgcolor="green" border="0" width="307">
+<tbody><tr height="5">
+ <td colspan="2"></td>
+ </tr>
+<tr>
+ <td width="1"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="290">
+	<tbody><tr>
+	<td>
+		<table width="99%">
+	  <tbody><tr>
+		<td width="3"></td>
+		<td><font size="2" face="verdana">
+			<br>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;<a href="http://www.devmedia.com.br/cursos/">Todos os cursos online</a>&nbsp;<br>
+						<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+	
+			<table>
+			 <tbody><tr><td>
+	
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=38" class="linkDEV">Cursos de Java</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=39" class="linkDEV">Cursos .net&nbsp;<br>
+	</a></td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=46" class="linkDEV">Cursos de  Banco de dados&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=62" class="linkDEV">Cursos de Delphi</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=81" class="linkDEV">Cursos de Engenharia de Software</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=85" class="linkDEV">Cursos de Ruby on Rails&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=86" class="linkDEV">Cursos de ASP</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=87" class="linkDEV">Cursos de WebDesign</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=88" class="linkDEV">Cursos de PHP</a>&nbsp;	<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=89" class="linkDEV">Cursos de PalmOS</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=90" class="linkDEV">Cursos de Linux</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/default.asp?tema=91" class="linkDEV">Cursos de Scripting</a>&nbsp;
+	<br>
+	</td></tr></tbody></table>
+
+	<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+			<table>
+			 <tbody><tr><td>
+
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;<a href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de Delphi</a>&nbsp;<br>
+		</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;<a href="http://www.devmedia.com.br/cursos/formacoes.asp" class="linkDEV">Formações de .net</a>&nbsp;<br>
+		</td></tr></tbody></table><br>
+
+		</font>
+		</td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		</tr>
+	</tbody></table>  	  
+
+	</td>
+	</tr>
+<tr height="3">
+ <td colspan="2"></td>
+ </tr>
+
+</tbody></table>
+
+</div>
+
+
+
+<div id="menu_boxServicos">
+
+<table border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td>
+	<div id="popSubMenu4">
+	  <table>
+	  <tbody><tr height="20">
+	   <td>	
+		<a style="cursor: pointer;" href="#" class="menuDEV"><font color="white">+Serviços<img src="utilizando_CachedRowSet_arquivos/arrowdown2up.gif" border="0"></font></a><font color="white"></font>
+	   </td>
+	   </tr>
+	  </tbody></table>
+	</div>
+  </td>
+  <td>
+    <div id="popSubMenu4b" onmouseover="document.getElementById('menu_boxRevistas').style.display='none';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';document.getElementById('menu_boxServicos').style.display='none';document.getElementById('fundoTransMenu').style.display='none';">&nbsp;</div>
+  </td>
+ </tr>
+</tbody></table>
+
+<table bgcolor="green" border="0" width="297">
+<tbody><tr height="5">
+ <td colspan="2"></td>
+ </tr>
+<tr>
+ <td width="1"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="280">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="3"></td>
+		<td><font size="2" face="verdana">
+			<br>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;<a href="http://www.devmedia.com.br/mapa/" class="linkDEV">Todos os links (mapa do site)</a>&nbsp;<br>
+						<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+
+	<table>
+	 <tbody><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/creditos" class="linkDEV">Sistema de Créditos</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/player" class="linkDEV">DevMedia Player&nbsp;<br>
+	</a></td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/publish/publish_central.asp" class="linkDEV">Publique seu artigo&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3" class="linkDEV">Cadastre-se</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="https://seguro.devmedia.com.br/edicoes_anteriores.asp" class="linkDEV">Edições anteriores</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/developerads" class="linkDEV">DeveloperAds&nbsp;</a><br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/paycontent" class="linkDEV">PayContent</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/cursos/feed" class="linkDEV">RSS</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/login/login.asp" class="linkDEV">Login</a>&nbsp;	<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/mancad" class="linkDEV">Atendimento</a>&nbsp;<br>
+	</td></tr><tr><td>
+	&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow2.png" border="0">&nbsp;
+	</td><td><a href="http://www.devmedia.com.br/oportunidades" class="linkDEV">Oportunidades de trabalho</a>&nbsp;<br>
+	</td></tr></tbody></table>
+		<br>
+		</font>
+		</td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		</tr>
+	</tbody></table>  	  
+
+	</td>
+	</tr>
+<tr height="3">
+ <td colspan="2"></td>
+ </tr>
+
+</tbody></table>
+
+</div>
+
+
+
+<div id="fundoTransMenu" onmouseover="document.getElementById('menu_boxRevistas').style.display='none';document.getElementById('menu_boxCursos').style.display='none';document.getElementById('menu_boxCanais').style.display='none';document.getElementById('fundoTransMenu').style.display='none';document.getElementById('menu_boxServicos').style.display='none';">
+</div>
+
+
+
+<style>
+#localiza_boxMain{display:none;position:absolute;top:93;left:118;z-index:701;}
+#localiza_boxCanais{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+#localiza_boxCursos{display:none;position:absolute;top:93;left:385;z-index:701;}
+
+
+#localiza_boxObjetos{display:none;position:absolute;top:92;left:718;z-index:701;}
+
+
+#localiza_boxRevistas{display:none;position:absolute;top:93;left:201;z-index:701;}
+
+
+#fundoTrans{display:none;position:absolute;background-color : black;top:0;left:0;width:100%;height:100%;overflow:auto;z-index:700;-moz-opacity:.1; filter:alpha(opacity=8);opacity:0.1;-khtml-opacity:0.1;}
+
+#popSub2{background-color:#EAEAEA;width:60;}
+#popSub2b{width:130;}
+
+#popSub3{background-color:#EAEAEA;width:170;}
+#popSub3b{width:100;}
+
+#popSub4{background-color:#E2E2E2;width:170;}
+#popSub4b{width:145;}
+
+#popSub5{background-color:#E2E2E2;width:60;}
+#popSub5b{width:212;}
+
+#popSub6{background-color:#EAEAEA;width:145;}
+#popSub6b{width:130;}
+
+</style>
+
+<!-- #66CC99 -->
+
+<table bgcolor="#d3d3d3" border="0" cellpadding="0" cellspacing="0" width="999">
+ <tbody><tr>
+   <td align="left">
+
+	<table cellpadding="0" cellspacing="0" height="18"><tbody><tr><td width="600">
+	 
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr><td width="10"><img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"> </td>
+   <td width="90"><font size="1" face="verdana"><b>Você está em:</b>
+	</font></td>
+	
+	
+	<td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><font size="1" face="verdana">
+   /&nbsp;canal Java&nbsp;[artigos] </font></a>
+<font size="1" face="verdana">   </font></td>
+   <td width="10"></td>
+   
+
+	<td width="20"></td>
+	</tr>
+	</tbody></table>
+	</td><td>
+	
+	<table border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+	<td align="right" width="338"><font size="1" face="verdana">
+   	
+   &nbsp;&nbsp;&nbsp;<b>+ Java:</b>&nbsp;&nbsp;&nbsp;<a class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=1&amp;site=34"><font size="1" face="verdana">artigos</font></a><font size="1" face="verdana">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=2&amp;site=34"><font size="1" face="verdana">vídeos</font></a><font size="1" face="verdana">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><font size="1" face="verdana">cursos</font></a><font size="1" face="verdana">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   </font></font></font></font></td>
+   <td width="45"><font size="1" face="verdana">
+   <a style="cursor: pointer;" onclick="document.getElementById('localiza_boxObjetos').style.display='block';document.getElementById('localiza_boxCanais').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxRevistas').style.display='none';document.getElementById('fundoTrans').style.display='block';">mais <img src="utilizando_CachedRowSet_arquivos/arrowdown4b.gif"></a>
+   
+   </font></td>
+  </tr>
+ </tbody></table>
+
+ </td>
+	</tr>
+	</tbody></table>
+
+   </td>
+  </tr>
+
+   
+</tbody></table>
+
+
+<table bgcolor="#336600" cellpadding="0" cellspacing="0" width="999" height="1"><tbody><tr><td></td></tr></tbody></table>
+<div id="localiza_boxMain">
+  <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr><td>
+	<div id="popSub2">
+	<table><tbody><tr height="13">   <td>	
+	<a style="cursor: pointer;" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';">
+	<font color="black" size="1" face="verdana">canais<img src="utilizando_CachedRowSet_arquivos/arrowdown4upB.gif" border="0"></font></a><font color="black" size="1" face="verdana"></font>
+   </td>   </tr>
+  </tbody></table>
+ </div>
+ </td>  <td>
+    <div id="popSub2b" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';"><font size="1">&nbsp;</font></div>
+  </td> </tr>
+</tbody></table>
+
+<table bgcolor="#eaeaea" border="0" width="202">
+<tbody><tr height="5"><td colspan="2"></td> </tr>
+<tr> <td width="2"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="185">
+	<tbody><tr>	<td>	
+	<table width="99%">
+	  <tbody><tr>	<td width="2"></td>
+		<td><font size="1" face="verdana">
+			
+			&nbsp;<br>
+						<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+			<font size="1" face="verdana">Outras seções:
+			<table border="0">
+			<tbody><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/"><font size="1">Home</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/sobre"><font size="1">Entenda o site</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/revistas"><font size="1">Revistas</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/canais/lista_canais.asp"><font size="1">Canais</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/cursos"><font size="1">Cursos&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/auditorio/"><font size="1">Palestras</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/servicos/"><font size="1">Suporte&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://forum.devmedia.com.br/"><font size="1">Fórum</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+			<a class="linkDEV" href="http://www.devmedia.com.br/jobfinder/lista.asp"><font size="1">Oportunidades</font></a><font size="1">&nbsp;<br></font></td></tr>
+			</tbody></table>
+			
+			<table cellpadding="0" cellspacing="0" width="85%">
+			<tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr>
+			<tr height="5"><td></td></tr>
+			</tbody></table>
+
+			<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif">&nbsp;<a class="linkDEV" href="http://www.devmedia.com.br/mapa"><font size="1">Todos os links</font></a><font size="1">&nbsp;<br><br>
+		</font>
+		</font></font></td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		</tr>
+	</tbody></table>  	  
+
+	</td>
+	</tr>
+	<tr height="4"> <td colspan="2"></td> </tr>
+  </tbody></table>
+</div>
+
+
+<div id="localiza_boxCanais">
+
+<table border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+   <td>	
+
+<div id="popSub3">
+<table>
+ <tbody><tr height="13">
+   <td>	
+	<a style="cursor: pointer;" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxCanais').style.display='none';">
+<font color="black" size="1" face="verdana">canal Java&nbsp;[artigos] <img src="utilizando_CachedRowSet_arquivos/arrowdown4upB.gif" border="0"></font></a><font color="black" size="1" face="verdana"></font>
+   </td></tr></tbody></table>
+</div>
+ </td>  <td>
+    <div id="popSub3b" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxCanais').style.display='none';"><font size="1">&nbsp;</font></div>
+  </td> </tr>
+</tbody></table>
+
+
+<table bgcolor="#eaeaea" border="0" width="272">
+<tbody><tr height="5"><td colspan="2"></td></tr>
+<tr><td width="2"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="255">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="2"></td>
+		<td><font size="2" face="verdana">
+			
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><font size="1" face="verdana">&nbsp;Ir para o Canal Java </font></a><font size="1" face="verdana">&nbsp;<br>
+	
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+		
+		<font size="1">+Canais:
+		<table><tbody><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+<a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=36"><font size="1">Canal Delphi&nbsp;<br></font></a></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><font size="1">Canal Java</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=35"><font size="1">Canal .net&nbsp;<br></font></a></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=37"><font size="1">Canal Banco de dados&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=38"><font size="1">Canal Mobile</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=39"><font size="1">Canal Ruby on Rails&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=44"><font size="1">Canal PHP</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=45"><font size="1">Canal ASP</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=40"><font size="1">Canal WebDesign</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=43"><font size="1">Canal Engenharia de Software</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=46"><font size="1">Canal Linux</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=58"><font size="1">Canal Scripting</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=42"><font size="1">Canal Outros</font></a><font size="1">&nbsp;<br></font></td></tr></tbody></table>
+
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+		&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp"><font size="1">&nbsp;Todo conteúdo DevMedia</font></a><font size="1">&nbsp;<br><br>
+
+		</font></font></font></font></td></tr>
+		</tbody></table>
+		</td></tr>
+	</tbody></table>  	  
+	</td></tr>
+	<tr height="4"> <td colspan="2"></td> </tr>
+</tbody></table>
+</div>
+
+
+
+
+<div id="localiza_boxCursos">
+
+  <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr><td>
+	<div id="popSub4">
+	<table cellpadding="0" cellspacing="0" height="20">
+	 <tbody><tr>
+	   <td>
+		<a style="cursor: pointer;" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxCursos').style.display='none';">
+	<font color="black" size="1" face="verdana">&nbsp;&nbsp; cursos de Java  <img src="utilizando_CachedRowSet_arquivos/arrowdown4upB.gif" border="0"></font></a><font color="black" size="1" face="verdana"></font>
+	   </td></tr></tbody></table>
+	</div>
+ </td>  <td>
+    <div id="popSub4b" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxCursos').style.display='none';"><font size="1">&nbsp;</font></div>
+  </td> </tr>
+</tbody></table>
+
+<table bgcolor="#e2e2e2" border="0" width="272">
+<tbody><tr height="5"><td colspan="2"></td></tr>
+<tr><td width="2"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="255">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="2"></td>
+		<td><font size="2" face="verdana">
+			
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema="><font size="1" face="verdana">&nbsp;ver cursos de Java </font></a><font size="1" face="verdana">&nbsp;<br>
+	
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+		
+		<font size="1">+Cursos:
+		<table><tbody><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=38"><font size="1">Cursos de Java</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=39"><font size="1">Cursos de .net&nbsp;<br></font></a></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=46"><font size="1">Cursos de Banco de dados&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=62"><font size="1">Cursos de Delphi</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=81"><font size="1">Cursos de Engenharia de Software</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=85"><font size="1">Cursos de Ruby on Rails&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=86"><font size="1">Cursos de ASP</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=87"><font size="1">Cursos de WebDesign</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=88"><font size="1">Cursos de PHP</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=89"><font size="1">Cursos de PalmOS</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=90"><font size="1">Cursos de Linux</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/cursos/default.asp?tema=91"><font size="1">Cursos de Scripting</font></a><font size="1">&nbsp;<br></font></td></tr></tbody></table>
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/cursos/formacoes.asp"><font size="1">&nbsp;Formações completas</font></a><font size="1">&nbsp;<br>
+
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+		&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/cursos"><font size="1">&nbsp;Todos os cursos</font></a><font size="1">&nbsp;<br><br>
+
+		</font></font></font></font></font></td></tr>
+		</tbody></table>
+		</td></tr>
+	</tbody></table>  	  
+	</td></tr>
+	<tr height="4"> <td colspan="2"></td> </tr>
+</tbody></table>
+</div>
+
+
+<div id="localiza_boxObjetos">
+
+  <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr>
+   
+      <td>
+    <div id="popSub5b" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxCursos').style.display='none';"><font size="1">&nbsp;</font></div>
+  </td>
+   <td>
+	<div id="popSub5">
+	<table cellpadding="0" cellspacing="0" height="20">
+	 <tbody><tr>
+	   <td><a style="cursor: pointer;" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxObjetos').style.display='none';">
+	<font color="black" size="1" face="verdana">&nbsp;&nbsp;mais <img src="utilizando_CachedRowSet_arquivos/arrowdown4upB.gif" border="0"></font></a><font color="black" size="1" face="verdana"></font>
+		
+	   </td></tr></tbody></table>
+	</div>
+ </td></tr>
+</tbody></table>
+
+
+<table bgcolor="#e2e2e2" border="0" width="272">
+<tbody><tr height="5"><td colspan="2"></td></tr>
+<tr><td width="2"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="255">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="2"></td>
+		<td>
+
+		<table><tbody><tr height="2"> <td colspan="2"></td> </tr></tbody></table>
+		<table><tbody><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><font size="1">
+
+<a class="linkDEV" href="http://www.devmedia.com.br/canais/default.asp?site=34"><font size="1">Canal de conteúdo Java</font></a>
+
+<font size="1"><br></font></font></td></tr><tr><td>
+
+
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><font size="1">Revista Java Magazine<br></font></a></td></tr><tr><td>
+
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/consultoria_online"><font size="1">Suporte Java</font></a><font size="1"><br></font></td></tr></tbody></table>
+
+			
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+			
+
+		<table><tbody><tr><td>
+
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+
+<a class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=18&amp;site=34"><font size="1">Palestras de Java</font></a>
+
+<font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+<a class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=9&amp;site=34"><font size="1">E-books de Java</font></a>
+
+<font size="1"><br></font></td></tr><tr><td>
+
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td>
+
+<a class="linkDEV" href="http://www.devmedia.com.br/articles/listcomp.asp?tipo=10&amp;site=34"><font size="1">Downloads de Java</font></a>
+
+<font size="1"><br></font></td></tr></tbody></table><font size="1">
+
+		<table><tbody><tr height="2"> <td colspan="2"></td> </tr></tbody></table>
+
+		</font></td></tr>
+		</tbody></table>
+		</td></tr>
+	</tbody></table>  	  
+	</td></tr>
+	<tr height="4"> <td colspan="2"></td> </tr>
+</tbody></table>
+</div>
+
+
+
+
+<div id="localiza_boxRevistas">
+  <table border="0" cellpadding="0" cellspacing="0">
+   <tbody><tr><td>
+	<div id="popSub6">
+	<table>
+	 <tbody><tr height="13">
+	   <td>	
+		<a style="cursor: pointer;" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxRevistas').style.display='none';">
+	<font color="black" size="1" face="verdana">  <img src="utilizando_CachedRowSet_arquivos/arrowdown4upB.gif" border="0"></font></a><font color="black" size="1" face="verdana"></font>
+	   </td></tr></tbody></table>
+	</div>
+ </td>  <td>
+    <div id="popSub6b" onclick="document.getElementById('fundoTrans').style.display='none';document.getElementById('localiza_boxRevistas').style.display='none';"><font size="1">&nbsp;</font></div>
+  </td> </tr>
+</tbody></table>
+
+<table bgcolor="#eaeaea" border="0" width="272">
+<tbody><tr height="5"><td colspan="2"></td></tr>
+<tr><td width="2"></td>
+ <td>
+	 <table style="border: 1px solid rgb(172, 172, 172); border-collapse: collapse;" bgcolor="white" width="255">
+	<tbody><tr>
+	<td>
+	<table width="99%">
+	  <tbody><tr>
+		<td width="2"></td>
+		<td><font size="2" face="verdana">
+			<font size="1"><br>
+		<font size="1">+Revistas:
+		<table><tbody><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=3"><font size="1">ClubeDelphi</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=1"><font size="1">.net Magazine&nbsp;<br></font></a></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=6"><font size="1">Java Magazine&nbsp;</font></a><font size="1"><br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=5"><font size="1">webMobile Magazine</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=2"><font size="1">SQL Magazine</font></a><font size="1">&nbsp;<br></font></td></tr><tr><td>
+<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"></td><td><a class="linkDEV" href="http://www.devmedia.com.br/assgold/listmag.asp?site=48"><font size="1">Engenharia de Software Magazine</font></a><font size="1">&nbsp;<br></font></td></tr></tbody></table>
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+			&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="https://seguro.devmedia.com.br/edicoes_anteriores.asp"><font size="1">&nbsp;Edições anteriores impressas</font></a><font size="1">&nbsp;<br>
+
+			<table cellpadding="0" cellspacing="0" width="85%"><tbody><tr height="5"><td></td></tr>
+			<tr height="1"><td bgcolor="green"></td></tr><tr height="5"><td></td></tr>
+			</tbody></table>
+		&nbsp;<img src="utilizando_CachedRowSet_arquivos/rightarrow.gif"><a class="linkDEV" href="http://www.devmedia.com.br/revistas"><font size="1">&nbsp;Todas as revistas</font></a><font size="1">&nbsp;<br><br>
+
+		</font></font></font></font></font></td></tr>
+		</tbody></table>
+		</td></tr>
+	</tbody></table>  	  
+	</td></tr>
+	<tr height="4"> <td colspan="2"></td> </tr>
+</tbody></table>
+</div>
+
+
+
+
+<div id="fundoTrans" onclick="document.getElementById('localiza_boxRevistas').style.display='none';document.getElementById('localiza_boxCursos').style.display='none';document.getElementById('localiza_boxObjetos').style.display='none';document.getElementById('localiza_boxCanais').style.display='none';document.getElementById('localiza_boxMain').style.display='none';document.getElementById('localiza_boxRevistas').style.display='none';document.getElementById('fundoTrans').style.display='none';">
+</div>
+
+
+
+
+
+ <table border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr> 
+    <td bgcolor="#efefef" valign="top" width="27">
+		<br>
+	</td>
+    <!--<td width="651px" valign="top">-->
+	<td valign="top" width="671">
+		
+		<table cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+		    <td>
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+
+<style type="text/css">
+<!--
+.linkrenov {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}	
+	
+.linkrenov:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+-->
+</style>
+
+
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+			</td>
+		  </tr>
+		</tbody></table>
+		
+		
+		
+		 <table bgcolor="#ffff99" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+			<tbody><tr><td width="18"></td>
+					 <td>
+ 
+
+<div id="pop">
+<a href="#" onclick="document.getElementById('pop').style.display='none';"><font size="2" face="verdana"><b>[Fechar]</b></font></a>
+<font size="2" face="verdana"><br>
+
+	<table width="98%"><tbody><tr><td><font size="2" face="VErdana">Este post está disponível para quem é assinante da <b><a href="http://www.devmedia.com.br/assgold/listmag.asp?site=6">Java Magazine</a></b> ou para quem possui <b><a href="http://www.devmedia.com.br/creditos/default.asp?p=1">Créditos DevMedia</a></b>. <font color="black" size="1"><br><br><table bgcolor="#000000" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td></td></tr></tbody></table><br><img src="utilizando_CachedRowSet_arquivos/info.jpg">&nbsp;&nbsp;Conheça os planos de créditos DevMedia e visualize esse post agora mesmo!<font size="1"><br><br><table><tbody><tr><td><font size="2"><b>Plano conveniência</b><font color="black" size="2"> &#8211; Neste plano este post custa <b>R$ 0,00 <a href="https://seguro.devmedia.com.br/buycredits.asp?comp=2243"><font color="#ff0000">(Compre agora)</font></a><font color="#ff0000"><font color="black"></font></font></b></font></font></td></tr><tr><td><font size="1">Esse plano permite que você compre somente um post, pagando por ele seu preço sem desconto.</font></td></tr></tbody></table><br><table><tbody><tr><td><b><font size="2">Plano ocasional<font color="black" size="2"></font></font></b><font size="2"><font color="black" size="2">: Aqui este post custa: <b>R$ 0,00</b> (<font size="1">assinante<font size="2">) ou <b>R$ 0,00</b> (<font size="1">não-assinante<font size="2">)</font></font></font></font></font></font></td></tr><tr><td><font size="1">Este
+plano é ideal para quem tem interesse em mais de um post. Você compra
+um mínimo de R$ 50,00 em créditos e ganha, em média, 50% de desconto no
+preço do post. <a href="https://seguro.devmedia.com.br/buycredits.asp?v=0"><font color="#ff0000" size="2"><b>Compre Créditos agora!</b></font></a></font></td></tr></tbody></table><br>  <table><tbody><tr><td><b><font color="black" size="2">Assinatura de Créditos</font></b><font color="black" size="2"> (Plano econômico)<font color="black" size="2"> &#8211; Aqui este post custa <b>R$ 0,00</b></font></font></td></tr><tr><td><font size="1">Este
+plano é ideal para quem tem interesse em muitos posts. Com esse plano
+você compra R$ 180,00 em créditos e ganha, em média, 80% de desconto no
+preço do post.<a href="https://seguro.devmedia.com.br/venda_prod.asp?id=372"> <font color="#ff0000" size="2"><b>Assine este plano agora!</b></font></a><font color="#ff0000" size="2"><b><br><br><font size="2"></font></b><font size="2"><a href="http://www.devmedia.com.br/creditos/default.asp?p=1">&gt; Saiba mais sobre o Sistema de Créditos DevMedia</a></font></font></font></td></tr></tbody></table><br></font></font></font></td></tr></tbody></table></font></div>
+<font size="2" face="verdana">		
+					 </font></td>
+					</tr>
+				   </tbody></table>
+			
+		
+
+
+		<table cellpadding="0" cellspacing="0">
+		  <tbody><tr>
+		    <td>
+			   	
+			</td>
+		  </tr>
+		</tbody></table>
+		
+
+
+
+	   <table border="0" cellpadding="0" cellspacing="0">
+		
+
+		
+
+		<tbody><tr>
+		 <td>
+		   
+
+
+
+
+			<table>
+			 <tbody><tr>
+			   
+			   <td>
+			   	 
+				 <a href="#" onclick="document.getElementById('poplogin').style.display='block';">
+				
+				<img src="utilizando_CachedRowSet_arquivos/BOT-FEEDBACK.jpg" border="0"></a>
+			   </td>
+			   <td><a href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=2243"><img src="utilizando_CachedRowSet_arquivos/BOT-FAVORITOS.jpg" border="0"></a></td>
+			  </tr>
+			 </tbody></table>
+				<font size="1"><br>
+
+				
+
+				<table bgcolor="#818181" width="100%"><tbody><tr height="5"><td></td></tr></tbody></table>
+
+
+			
+			<span style="font-family: verdana,sans-serif; line-height: 130%; font-size: 15pt;">Dando vida nova ao seu código JDBC
+			<table bgcolor="#000000" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td></td></tr></tbody></table>
+		     
+
+		 </span></font></td>
+		</tr>
+	    <tr>
+		  <td>
+		   <p class="MsoNormal" style="margin: 0cm 0cm 0pt 318.6pt; text-indent: -318.6pt;"><b style=""><span style="font-size: 14pt; font-family: Verdana;">Dando vida nova ao seu código JDBC<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Provavelmente quando você ouve falar de JDBC, você deve imaginar o seguinte código:<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';" lang="EN-US">Connection conn = getConnection();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';" lang="EN-US">PreparedStatetemt p = conn.prepareStatement("select * from AnyTable");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';" lang="EN-US">ResultSet rs = p.executeQuery();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';" lang="EN-US">while(rs.next()) {<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';">// mapeia o ResultSet para algum conjunto de objetos<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: 'Courier New';">}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Muita
+gente imagina que JDBC é apenas isso, o que é uma pena. E é uma pena
+pois ao Java SE 5.0 passou a suportar o JDBC 3.0 (sob o pacote
+javax.sql), oferecendo uma nova API para facilitar a vida dos
+desenvolvedores na manipulação e transformação de dados. Neste artigo,
+vamos ver como manipular os resultados de uma consulta de maneira
+desconectada do banco de dados, usando o CachedRowSet, e como
+transformar seus dados em XML e vice-versa, usando WebRowSet.<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><b style=""><span style="font-family: Verdana;">Ando meio desligado...</span></b><span style="font-size: 10pt; font-family: Verdana;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Manter
+uma conexão com o banco de dados aberta por muito tempo pode não ser
+uma boa estratégia em alguns casos, pois isso reduz a escalabilidade do
+banco de dados, uma vez que conexão é um recurso limitado. No entanto,
+algumas vezes é preciso que você manipule alguns dados durante um longo
+tempo e consista estas atualizações no seu repositório novamente (como
+pode ser o caso de uma aplicação rich client). Neste caso, trabalhar
+com o seu conjunto de dados de maneira desconectada do banco é a melhor
+solução. Contudo, usando a API clássica do JDBC, seria necessário
+mapear os dados retornados por uma consulta SQL em um ResultSet para
+objetos Java, desconectar-se do banco de dados, atualizar estes
+objetos, conectar-se ao banco novamente e reenviar os novos dados - uma
+tarefa muito trabalhosa e propensa a erros. Porém, se você utilizar um
+CachedRowSet, esta tarefa se torna "brincadeira de criança". <o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">A interface javax.sql.CachedRowSet, cuja principal implementação é feita pela Sun Microsystems (sob o pacote com.sun.rowset),<span style="">&nbsp; </span>representa
+um conjunto de dados resultantes de uma consulta, bem similar à
+interface java.sql.ResultSet, com uma sutil diferença: quando a conexão
+com o banco de dados é fechada, um CachedRowSet mantém uma cópia dos
+dados acessível offline, permitindo que você os manipule mesmo que você
+já esteja desconectado do seu servidor de banco de dados. Além disso, o
+CachedRowSet (como todo objeto que estende a interface
+javax.sql.RowSet) permite que você altere e navegue através do conjunto
+de dados que ele armazena.<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Para
+ilustrar o uso básico do CachedRowSet, abaixo temos um simples teste
+que mostra algumas de suas funcionalidades básicas, como iteração,
+atualização e removação de dados.<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">package org.nullability.rowset.demo;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import static java.lang.System.out;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.Connection;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.DriverManager;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.PreparedStatement;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.ResultSet;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.SQLException;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import javax.sql.rowset.CachedRowSet;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import com.sun.rowset.CachedRowSetImpl;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">public class CachedRowSetDemo {<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>public static void main(String... args) throws Exception{<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Connection conn = getConnection();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>PreparedStatement p = conn.prepareStatement("SELECT * FROM SOME_TABLE");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ResultSet rs = p.executeQuery();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>CachedRowSet wrs = new CachedRowSetImpl(); // criando nosso CachedRowSet<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">wrs.populate(rs); // preenchendo com dados da consulta<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">p.close();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>conn.close(); // fechando a conexão<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>while(wrs.next()){<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>out.printf("%s: %d - %s: %d \n",
+wrs.getMetaData().getColumnName(1), wrs.getInt(1),
+wrs.getMetaData().getColumnName(2), wrs.getInt(2));<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">wrs.updateInt(2,10); // atualiza a segunda coluna da linha atual com o valor "10"<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>wrs.updateRow(); // efetiva a atualização sobre o modelo<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>wrs.absolute(2); // posiciona o cursor sobre a segunda linha <o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>wrs.deleteRow(); // remove a linha para a qual o cursor está apontando<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>conn = getConnection();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>wrs.acceptChanges(conn); // efetiva as alterações no banco de dados<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">wrs.close();<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>conn.close();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>private static Connection getConnection() throws ClassNotFoundException, SQLException {<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">Class.forName("&lt;SEU DRIVER JDBC&gt;");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">Connection conn = DriverManager.getConnection("SUA STRING DE CONEXAO");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">return conn;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;">}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Pronto.
+Sem necessidade de fazer mapeamentos temporários, conseguimos manipular
+nossos dados e refletir estas alterações no banco de dados de maneira
+bem simples. Mas, e se quiséssemos exportar nossos dados para um outro
+formato, como XML?<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><b style=""><span style="color: black; font-family: Verdana;">Então você quer XML?</span></b><span style="font-size: 10pt; font-family: Verdana;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Então
+você vai precisar trabalhar com um WebRowSet. Assim como o
+CachedRowSet, o WebRowSet permite que você manipule dados de uma
+consulta de maneira desconectada do banco de dados. Adicionalmente, o
+WebRowSet permite que você exporte e importe dados para um formato XML
+pré-definido (a definição do schema está &lt;a
+href="http://java.sun.com/xml/ns/jdbc/webrowset.xsd"&gt;aqui&lt;/a&gt;),
+dividido em 3 partes: propriedades, meta-dados e dados. Abaixo, temos
+um exemplo simples de como exportar um conjunto de dados para XML a
+partir de um WebRowSet.<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">package org.nullability.rowset.demo;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.io.FileOutputStream;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.Connection;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.DriverManager;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.PreparedStatement;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.ResultSet;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import java.sql.SQLException;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import javax.sql.rowset.WebRowSet;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">import com.sun.rowset.WebRowSetImpl;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">public class WebRowSetDemo {<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="">&nbsp;</span>* @param args<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="">&nbsp;</span>*/<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>public static void main(String... args) throws Exception{<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Connection conn = getConnection();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>PreparedStatement p = conn.prepareStatement("SELECT * FROM SOME_TABLE");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ResultSet rs = p.executeQuery();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>WebRowSet wrs = new WebRowSetImpl();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>wrs.populate(rs);<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>p.close();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>conn.close();<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>wrs.writeXml(new FileOutputStream("output.xml"));<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">wrs.close();<span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">private static Connection getConnection() throws ClassNotFoundException, SQLException {<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">Class.forName("&lt;SEU DRIVER JDBC&gt;");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US">Connection conn = DriverManager.getConnection("SUA STRING DE CONEXAO");<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;" lang="EN-US"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size: 10pt; color: maroon; font-family: Verdana;">return conn;<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; color: maroon; font-family: Verdana;">}<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><b style=""><span style="font-family: Verdana;">Por que deveria usar?<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Os motivos principais para se usar tanto o CachedRowSet quanto o WebRowSet são:<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 18pt; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;"><span style="">·<span style="font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 10pt; font-family: Verdana;">Facilidade para manipulação de dados<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 18pt; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;"><span style="">·<span style="font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 10pt; font-family: Verdana;">Menor quantidade de atualizações sendo feitas diretamente no banco<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 18pt; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;"><span style="">·<span style="font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 10pt; font-family: Verdana;">Facilidade
+para transformação de dados para um outro formato, sendo possível
+utilizar um WebRowSet para a criação de RESTful Web Services simples<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Ainda assim, é preciso ficar atento a dois pontos:<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 18pt; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;"><span style="">·<span style="font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 10pt; font-family: Verdana;">Concorrência
+na atualização de dados, uma vez que, tanto no caso do CachedRowSet
+quanto no caso do WebRowSet, os dados são manipulados offline<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 18pt; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;"><span style="">·<span style="font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 10pt; font-family: Verdana;">Versão nova do JDK, uma vez que o suporte ao JDBC 3.0 só existe a partir do Java SE 5.0<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Bom, e por enquanto é isso. Até a próxima.<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">Contato: daniel@nullability.org<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;">URL: http://nullability.org<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt;"><span style="font-size: 10pt; font-family: Verdana;"><o:p>&nbsp;</o:p></span></p>
+		  </td>
+		</tr>	
+
+		
+		<tr>
+		  <td>
+				
+
+				<table bgcolor="#818181" cellpadding="0" cellspacing="0" width="100%"><tbody><tr height="5"><td></td></tr></tbody></table>
+
+		  </td>
+		</tr>
+	   
+	   	<tr>
+          <td height="30"><br>
+			
+		  <table>
+		    <tbody><tr>
+			  <td valign="top">
+
+					
+
+
+			  			  <div id="divBox_2" style="border: 0px solid ; overflow: auto; width: 325px; height: 355px; white-space: nowrap;">
+
+			 <table>
+			   <tbody><tr>
+			     <td>
+				 <img src="utilizando_CachedRowSet_arquivos/BOT_PostsAutorAMARELO.jpg"></td>
+				 <td><a href="http://www.devmedia.com.br/space.asp?id=156876&amp;post=2"><font color="blue" size="1" face="verdana"><b>[Ver todos]</b></font></a><font color="blue" size="1" face="verdana"><b></b>
+				 </font></td>
+				</tr>
+			  </tbody></table>
+			 
+
+		  <table align="center" border="0" cellpadding="" cellspacing="5" width="97%">
+
+
+<!-- inicio da noticia -->			
+              <tbody><tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=2243"><span class="font2-preto">Dando vida nova ao seu código JDBC
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=2078"><span class="font2-preto">Fazendo seus web services pegarem fogo com XFire
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+            </tbody></table>
+			  
+			  
+			  </div>
+
+			  </td>
+			  <td width="10"></td>
+			  <td valign="top">
+			  <div id="divBox_3" style="border: 0px solid ; overflow: auto; width: 325px; height: 355px; white-space: nowrap;">
+			  
+			  <table>
+			   <tbody><tr>
+			     <td>
+			  <img src="utilizando_CachedRowSet_arquivos/BOT_CursosRelacionadosAMARELO.jpg"></td>
+			  <td valign="top"><a href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&amp;tipo=15&amp;vis=-1&amp;site=-1"><font color="blue" size="1" face="verdana"><b>[Ver todos]</b></font></a><font color="blue" size="1" face="verdana"><b></b></font></td>
+			    </tr>
+			   </tbody></table>
+
+			  		
+
+		  		
+
+		  <table align="center" border="0" cellpadding="" cellspacing="5" width="97%">
+
+
+<!-- inicio da noticia -->			
+              <tbody><tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14139"><span class="font2-preto">Curso Online - Desenvolvendo uma aplicacao completa com Java EE 5
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=10365"><span class="font2-preto">Java ME e Banco de Dados
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=7404"><span class="font2-preto">Curso online - Desenvolvendo uma aplicação completa com Struts 2
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11318"><span class="font2-preto">Introdução a JavaServer Faces
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11642"><span class="font2-preto">Aplicação Completa Utilizando Hibernate 
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+            </tbody></table>
+
+
+
+
+
+
+
+		  <table align="center" border="0" cellpadding="" cellspacing="5" width="97%">
+
+
+<!-- inicio da noticia -->			
+              <tbody><tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=7687"><span class="font2-preto">Curso OnLine WebDesign - Desenvolvendo o layout de um WebSite passo a passo
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11481"><span class="font2-preto">Curso Online:UML(básico)-Completo-
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=11482"><span class="font2-preto">Curso Online:JavaScript(básico)
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+            </tbody></table>
+
+
+
+
+
+
+			  </div>
+
+			  </td>
+			 </tr>
+			 <tr height="5">
+			   <td colspan="2"></td>
+			  </tr>
+		    <tr>
+			  <td valign="top">
+			  			  <div id="divBox_1" style="border: 0px solid ; overflow: auto; width: 325px; height: 355px; white-space: nowrap;">
+					
+					
+					<img src="utilizando_CachedRowSet_arquivos/BOT_PostsRelacionadosAMARELO.jpg">
+
+
+					
+
+			  <table align="center" border="0" cellpadding="" cellspacing="0" width="97%">
+
+	
+	<!-- inicio da noticia -->			
+				  <tbody><tr> 
+					<td><span class="font2-preto"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=2243">Dando vida nova ao seu código JDBC<br>
+					  </a></span></td>					
+					<td></td>
+				  </tr>
+				  <tr height="6"> 
+					<td colspan="2" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+	<!-- fim da noticia -->
+
+	
+				</tbody></table>
+				  </div>
+
+
+			  </td>
+			  <td width="10"></td>
+			  <td valign="top">
+			  			  <div id="divBox_4" style="border: 0px solid ; overflow: auto; width: 325px; height: 355px; white-space: nowrap;">
+
+			  <table>
+			   <tbody><tr>
+			     <td><img src="utilizando_CachedRowSet_arquivos/BOT_PostsDevMediaAMARELO.jpg"></td>
+				 <td valign="top">				 <a href="http://www.devmedia.com.br/articles/listcomp.asp?txtsearch=&amp;tipo=0&amp;vis=-1&amp;site=-1"><font color="blue" size="1" face="verdana"><b>[Ver todos]</b></font></a></td>
+				</tr>
+			   </tbody></table>
+			  
+
+		  <table align="center" border="0" cellpadding="" cellspacing="0" width="97%">
+            
+
+
+<!-- inicio da noticia -->			
+              <tbody><tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14544"><span class="font2-preto">Dicas: C# 3.0/3.5 - Anonymous Types
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14543"><span class="font2-preto">Introdução a Banco de Dados - Conceitos Básicos Parte 01
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14542"><span class="font2-preto">Firewall no Linux-Parte XX-IPTables-Tabela de roteamento no Linux através do IPRoute2 e suas opções de caminho de roteamento
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14541"><span class="font2-preto">Curso
+Online-Programação e boas práticas com PHP-Parte 7-Como verificar se um
+comando INSERT foi executado com sucesso no banco de dados </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14540"><span class="font2-preto">Vantagens da utilização de stored procedures em aplicativos web para melhoria de performance e segurança.
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14539"><span class="font2-preto">Utilizando o Oracle SQL Developer &#8211; Migrando Banco de Dados do MySQL para o Oracle &#8211; Parte 02
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14538"><span class="font2-preto">Utilizando o Oracle SQL Developer &#8211; Migrando Banco de Dados do MySQL para o Oracle &#8211; Parte 01
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14537"><span class="font2-preto">Como
+validar se o usuário que está solicitando a sua senha realmente é
+cadastrado no site-Parte 3-Como trocar a senha do usuário e enviá-la
+por email (Final) </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14536"><span class="font2-preto">Como
+validar se o usuário que está solicitando a sua senha realmente é
+cadastrado no site-Parte 2-Como gerar uma nova senha para o usuário no
+site </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14535"><span class="font2-preto">Como validar se o usuário que está solicitando a sua senha realmente é cadastrado no site-Parte 1-Como validar o email informado
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14534"><span class="font2-preto">Curso
+online-OLAP com o SQL Server 2008-Parte 8-Ferramentas do Analysis
+Services(Management Studio)-Como visualizar os objetos armazenados
+dentro de um banco de dados do Analysis Services </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=8529"><span class="font2-preto">JMS - Trabalhando com tópicos 6 de 7
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=8530"><span class="font2-preto">JMS - Trabalhando com tópicos 7 de 7
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14533"><span class="font2-preto">MVC - FileUpload
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+<!-- inicio da noticia -->			
+              <tr> 
+                <td width="82%"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=14525"><span class="font2-preto">Curso Online-Aplicação Financeira com Delphi 2009 e MySQL-Parte 13-Recuperando ID de determinado registro no Mysql
+                  </span></a></td>
+				<td width="6%"><!--<div align="center"><img src="../imagens/bullet_top.gif" width="22" height="22"></div>--></td><td width="6%"><div align="center"><img src="utilizando_CachedRowSet_arquivos/bullet_video_aula.gif" width="22" height="22"></div></td>
+				
+				
+				
+			  </tr>
+              <tr height="6"> 
+                <td colspan="4" background="utilizando_CachedRowSet_arquivos/pontilhado.gif"><img src="utilizando_CachedRowSet_arquivos/casper.gif" width="100%" height="1"></td></tr>
+<!-- fim da noticia -->
+
+
+   </tbody></table>
+
+
+			  
+			  
+			  </div>
+			  </td>
+			 </tr>
+
+		</tbody></table>
+
+
+		  
+
+	   </td></tr></tbody></table>	
+	
+<br>
+
+
+       <table cellpadding="0" cellspacing="0" width="100%">
+
+
+		<tbody><tr>
+		 <td>
+		 </td>
+		</tr>
+           
+		</tbody></table>
+
+
+
+    </td>
+	<td width="30"></td>
+    <td valign="top" width="250">
+
+				 	
+						<center>
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+						<br><br></center>
+
+					
+					<table border="0">
+					<tbody><tr>
+					  <td>  
+						<table border="0">
+						  <tbody><tr valign="top">
+							<td><center>
+							  
+							     <a href="http://www.devmedia.com.br/space.asp?id=156876">
+								
+								 <img src="utilizando_CachedRowSet_arquivos/Col_156876_danielqo.jpg" onload="if(this.width > 150){this.width = 150}" border="0" width="150">
+								 </a>
+							  
+							</center></td>
+							</tr>
+							<tr>
+							<td><span id="lblCurriculo"><span class="font4-preto">
+							<a class="linkDEV" href="http://www.devmedia.com.br/space.asp?id=156876">
+							</a><center><a class="linkDEV" href="http://www.devmedia.com.br/space.asp?id=156876">DANIEL QUIRINO OLIVEIRA</a></center><span>
+<a class="linkDEV" href="http://www.devmedia.com.br/space.asp?id=156876">							  <span id="lblCurriculo"><span class="font1-preto">Daniel
+Quirino Oliveira ( daniel@nullability.org), 23 anos, faz Bacharelado em
+Informática pela Universidade de São Paulo (USP/ICMC) e é desenvolvedor
+Java há 8 anos, trabalhando atualmente como analista de sistemas para a
+EDS do Brasil, já tendo par...</span></span></a>
+							</span></span></span></td>
+						  </tr>
+						</tbody></table>
+					  </td>
+					</tr>
+					</tbody></table>
+					<center><font face="verdana"><b><a href="http://www.devmedia.com.br/autor.asp?id=156876">Ver space do autor</a></b></font></center><font face="verdana"><b></b><br><br>
+
+	  <table bgcolor="#e1e1e1" width="100%">
+	    <tbody><tr>
+		  <td>
+			 
+<table bgcolor="#e1e1e1" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr height="25">
+  <td colspan="2" valign="top"><font size="2" face="verdana"><b>Estatísticas deste post:</b>
+</font></td></tr>
+<tr>
+ <td><font size="2" face="Verdana">Visualizações:</font></td>
+ <td><font size="2" face="Verdana">&nbsp;15206</font></td>
+</tr>
+<tr>
+  <td><font size="2" face="Verdana">Favoritado: </font></td>
+  <td><font size="2" face="Verdana">&nbsp;6 vez(es)</font></td>
+</tr>
+<tr>
+ <td colspan="2">&nbsp;</td>
+</tr>
+
+ <tr>
+  <td><font size="2" face="Verdana">Conteúdo:
+  </font></td>
+  <td> <font size="2" face="Verdana"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png">
+  </font></td>
+ </tr>
+
+ <tr>
+  <td><font size="2" face="Verdana">Didática:
+  </font></td>
+  <td><font size="2" face="Verdana"> <img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_full.png"><img src="utilizando_CachedRowSet_arquivos/star_empty.png">
+  </font></td>
+ </tr>
+
+ <tr>
+  <td><font size="2" face="Verdana">Utilidade:
+  </font></td>
+  <td>
+    <table>
+	  <tbody><tr>
+	    <td>
+		  <img src="utilizando_CachedRowSet_arquivos/thumbUp.jpg"> 6
+		</td>
+		<td width="10"></td>
+		<td>
+		  <img src="utilizando_CachedRowSet_arquivos/thumbDown.jpg">  0
+		</td>
+	  </tr>
+	 </tbody></table>
+
+  </td>
+ </tr>
+
+
+ <tr>
+   <td> <font size="1" face="Verdana">Feedbacks:
+   </font></td>
+   <td><font size="1" face="Verdana">6
+   </font></td>
+ </tr>
+
+
+</tbody></table>
+
+				<br>
+				<table bgcolor="#e5e5e5" border="0" cellpadding="0" cellspacing="0" width="100%">
+			  <tbody><tr height="20"><td>&nbsp;</td>
+			   <td>
+				 <font size="2" face="Tahoma"><b>Central de Serviços:
+			   </b></font></td>
+			  </tr>
+
+			  
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/caneta.gif">
+				</td>
+
+				<td>
+						<a class="linkDEV" href="http://www.devmedia.com.br/publish/publish_central.asp"><font size="2" face="Tahoma">Inclua seu próprio artigo! </font></a><font size="2" face="Tahoma"><a class="linkDEV" href="http://www.devmedia.com.br/creditos/default.asp?p=4"><font size="2">(ajuda)</font></a><font size="2"></font>
+				</font></td>
+			  </tr>
+
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/comentario.gif">
+				</td>
+
+				<td>
+						<a class="linkDEV" href="http://www.devmedia.com.br/articles/addcomment.asp?idcomp=2243"><font size="2" face="Tahoma">Participe! Inclua um comentário</font></a>
+				</td>
+			  </tr>
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/favorito.gif">
+				</td>
+				<td>
+						<a href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=2243" class="linkDEV"><font size="2" face="Tahoma">Adicionar este post a Favoritos</font></a>
+				</td>
+			  </tr>
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/finished.png">
+				</td>
+				<td>
+						<a href="http://www.devmedia.com.br/favorite/add_finished.asp?comp=2243" class="linkDEV"><font size="2" face="Tahoma">Marcar este post como lido/assistido</font></a>
+				</td>
+			  </tr>
+
+
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/anotacoes.gif">
+				</td>
+
+				<td>
+						<a class="linkDEV" href="http://www.devmedia.com.br/articles/addnote.asp?idcomp=2243"><font size="2" face="Tahoma">Inclua uma anotação pessoal </font></a><font size="2" face="Tahoma"><a href="http://www.devmedia.com.br/articles/viewcomp.asp?comp=5508" class="linkDEV"><font size="2">(ajuda)</font></a><font size="2"></font>
+				</font></td>
+			  </tr>
+
+			  <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/feed.png">
+				</td>
+
+				<td>
+						<a class="linkDEV" href="http://www.devmedia.com.br/feed"><font size="2" face="Tahoma">RSS Feeds</font></a>
+				</td>
+			  </tr>
+
+			  
+				 <tr height="20">
+				<td width="17">
+				  <img src="utilizando_CachedRowSet_arquivos/printer.png">
+				</td>
+
+				<td>
+						<a class="linkDEV" href="http://www.devmedia.com.br/articles/viewcomp_forprint.asp?comp=2243"><font size="2" face="Tahoma">Versão para impressão</font></a>
+				</td>
+			  </tr>
+			 
+			</tbody></table>
+			
+		   </td>
+		  </tr>
+		 </tbody></table>
+		 <br>
+		 
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+
+<table>
+ <tbody><tr>
+
+  <td>
+    <a href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=2243" title="Adicione ao Favoritos DevMedia">
+	<img src="utilizando_CachedRowSet_arquivos/share.jpg" border="0">
+	</a>
+  </td>
+
+  <td>
+    <a href="http://del.icio.us/post?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Delicious">
+	<img src="utilizando_CachedRowSet_arquivos/share_002.gif" border="0">
+	</a>
+  </td>
+
+  <td><a href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Description=&amp;Url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;Title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Blink">
+    <img src="utilizando_CachedRowSet_arquivos/share_008.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://digg.com/submit?phase=2&amp;url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Digg">
+    <img src="utilizando_CachedRowSet_arquivos/share_007.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://reddit.com/submit?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Reddit">
+    <img src="utilizando_CachedRowSet_arquivos/share_004.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://www.newsvine.com/_tools/seed&amp;save?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;h=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao newsvine">
+    <img src="utilizando_CachedRowSet_arquivos/share_005.gif" border="0"></a>
+  </td>
+  <td><a href="http://www.furl.net/storeIt.jsp?u=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;t=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Furl">
+    <img src="utilizando_CachedRowSet_arquivos/share_003.gif" border="0"></a>
+  </td>
+    <td><a href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Blogmarks">
+    <img src="utilizando_CachedRowSet_arquivos/share_011.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://rec6.via6.com/link.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;titulo=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Rec6">
+    <img src="utilizando_CachedRowSet_arquivos/share_010.gif" border="0"></a>
+  </td>
+  <td><a href="http://www.linkk.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;titulo=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Linkk">
+    <img src="utilizando_CachedRowSet_arquivos/share_006.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://eucurti.com.br/submit.php?url=http%3A//www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao Eu Curti!">
+    <img src="utilizando_CachedRowSet_arquivos/share_009.gif" border="0"></a>
+  </td>
+
+  <td><a href="http://www.dzone.com/links/add.html?url=http://www.devmedia.com.br/articles/viewcomp.asp?comp=2243&amp;title=Dando%20vida%20nova%20ao%20seu%20codigo%20JDBC" title="Adicione ao DZone">
+    <img src="utilizando_CachedRowSet_arquivos/share.gif" border="0"></a>
+  </td>
+
+ </tr>
+</tbody></table>		
+		 <br><font size="4">
+		 
+
+
+     </font></font></td>
+   </tr>
+</tbody></table>
+
+ <table border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr> 
+    <td bgcolor="#efefef" valign="top" width="27"></td>
+	<td>
+
+
+    	
+
+<script language="JavaScript">
+
+function EmptyString(s) { 
+var Count; 
+var Nblank = 0; 
+if (s.length == 0) return (true); // empty string 
+// count the number of blank chars 
+for (Count = 0; Count < s.length; Count++) { 
+if (s.charAt(Count) == " ") Nblank++; 
+} 
+if (Nblank == s.length) 
+return (true); 
+else 
+return (false); 
+} 
+
+function ValidEmail(s) { 
+var Count; 
+var s2; 
+// empty or blank email 
+if (EmptyString(s) == true) return (false); 
+// email without @ 
+if (s.indexOf('@') == -1) return (false); 
+// email with @ as the 1st char 
+if (s.indexOf('@') == 0) return (false); 
+// email with @ as the last char 
+if ((s.indexOf('@')+1) == s.length) return (false); 
+// email without . 
+if (s.indexOf('.') == -1) return (false); 
+// email with . as the 1st char 
+if (s.indexOf('.') == 0) return (false); 
+// email with . as the last char 
+if ((s.indexOf('.')+1) == s.length) return (false); 
+
+// Now look for the first . after the first @ 
+// s2 = string after the first @ 
+s2=s.substring(s.indexOf('@')+1,s.length); 
+// email without a dot after the first @ 
+if (s2.indexOf('.') == -1) return (false); 
+// email dot right after the first @ 
+if (s2.indexOf('.') == 0) return (false); 
+return (true); 
+} 
+</script>
+
+<br>
+<table bgcolor="#808080" border="0" cellpadding="0" cellspacing="0" width="675">
+  <tbody><tr>
+    <td>
+	  
+				  <a href="http://www.devmedia.com.br/rte/addcomment.asp?idcomp=2243">
+			  
+
+			<font color="#ffff5e" size="4" face="verdana">
+			   
+			        Participe! Inclua um comentário 
+					</font>
+				
+				</a>
+	</td>
+  </tr>
+</tbody></table>
+	<div id="popcoment">
+<a href="#coment" onclick="document.getElementById('popcoment').style.display='none';"><font size="2" face="verdana"><b>[Fechar]</b></font></a>
+<font size="2" face="verdana"><br><br>
+	Este post é fechado - você precisa ter acesso ao post para incluir um comentário.<br><br>
+
+</font></div>
+
+<font size="2" face="verdana"><br>
+
+
+
+	</font></td>
+   </tr>
+  </tbody></table>
+
+
+<div id="poplogin">
+<a href="#" onclick="document.getElementById('poplogin').style.display='none';"><font size="2" face="verdana"><b>[Fechar]</b></font></a>
+<font size="2" face="verdana"><br><br>
+	
+		Você precisa estar logado para dar seu feedback.	
+	<br><br>
+	<a href="http://www.devmedia.com.br/login/login.asp?comp=2243">Clique aqui para efetuar o login</a><br><br>
+	<a href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Caso não tenha um cadastro DevMedia, clique aqui para se cadastrar (gratuito)</a>
+	
+</font></div>
+
+
+
+<div id="poplink">
+<font size="2" face="verdana"><a href="#" onclick="document.getElementById('poplink').style.display='none';"><font size="2" face="verdana"><b>[Fechar]</b></font></a>
+<font size="2" face="verdana"><br><br>
+	Este é um post fechado - Você precisa ter acesso ao post para habilitar os links de download.<br><br>
+</font></font></div>
+
+
+<div id="pop_biblio">
+<font size="2" face="verdana"><font size="2" face="verdana"><a href="#" onclick="document.getElementById('pop_biblio').style.display='none';"><font size="2" face="verdana"><b>[Fechar]</b></font></a>
+<font size="2" face="verdana"><br>
+	
+</font></font></font></div>
+
+
+
+<font size="2" face="verdana"><font size="2" face="verdana"><font size="2" face="verdana">		<table cellpadding="0" cellspacing="0" width="600">
+		  <tbody><tr>
+		    <td><!--include file="../include/box_renovaRodape.asp" -->
+			</td>
+		  </tr>
+		</tbody></table>
+
+
+
+<table>
+  <tbody><tr><td colspan="5" valign="top"><div align="left"><table border="0" cellpadding="0" cellspacing="0" width="1000">
+  <tbody><tr>
+    <td width="7">&nbsp;</td>
+	<td bgcolor="#e9f0d4">
+
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr> 
+          <td width="17%"><!--<img src="http://www.devmedia.com.br/Imagens/logo2.gif" width="132" height="61">--></td><td width="1%"><img src="utilizando_CachedRowSet_arquivos/line.gif" width="1" height="50"></td>
+		  
+		  <td width="82%">
+              <font size="1" face="verdana"> <b>DevMedia Group</b> -  Tel: (21) 3382-5038 - <a href="http://www.devmedia.com.br/">www.devmedia.com.br</a> <br>2009 - Todos os Direitos Reservados 
+                a DevMedia Group</font></td></tr>
+      </tbody></table>
+	  
+	  </td>
+	  <td width="8"></td></tr>
+</tbody></table>
+
+</div></td></tr>
+</tbody></table>
+
+
+</font></font></font></body></html>

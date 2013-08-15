@@ -1,0 +1,8 @@
+table.avatar_header tr.avatar_article  { padding-left:5px; }
+table.avatar_header tr td.avatar img { 1border:1px solid grey; }
+table.avatar_header tr td.contentheading { }
+table.avatar_header tr td.buttonheading { }
+table.avatar_header tr td span.content_section { }
+table.avatar_header tr td span.content_category { }
+table.avatar_header tr td.createdate { 1border-top:1px solid grey;}
+table.avatar_header tr td span.small { }

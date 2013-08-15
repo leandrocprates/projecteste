@@ -1,0 +1,609 @@
+
+<!-- saved from url=(0047)http://www.guj.com.br/article.show.logic?id=137 -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
+	
+
+
+
+
+<TITLE>GUJ - Implementando Design Patterns com Java</TITLE>
+<LINK href="./GUJ_Implementando_Design_Patterns_com_Java_files/guj3.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- OAS SETUP begin -->
+<SCRIPT language="JavaScript">
+<!--
+//configuration
+OAS_url = 'http://media.realmedia.com.br/RealMedia/ads/';
+OAS_listpos = 'Top,Right,x01,x04';
+OAS_query = '';
+OAS_sitepage = 'guj/internas';
+//end of configuration
+OAS_version = 10;
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+function OAS_NORMAL(pos) {
+	document.write('<A HREF="' + OAS_url + 'click_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" TARGET=_top>');
+	document.write('<IMG SRC="' + OAS_url + 'adstream_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" BORDER=0></A>');
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+OAS_version = 11;
+if (navigator.userAgent.indexOf('Mozilla/3') != -1)
+OAS_version = 10;
+if (OAS_version >= 11)
+document.write('<SCR'+ 'IPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url + 'adstream_mjx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + OAS_query + '"></SC'+'RIPT>');
+//-->
+</SCRIPT><SCRIPT language="JavaScript1.1" src="./GUJ_Implementando_Design_Patterns_com_Java_files/1198827611@Top,Right,x01,x04"></SCRIPT><SCRIPT language="JavaScript">
+<!-- 
+document.write('')
+function OAS_AD(pos) {
+if (OAS_version >= 11)
+	OAS_RICH(pos);
+else
+	OAS_NORMAL(pos);
+}
+//-->
+</SCRIPT>
+<!-- OAS SETUP end -->
+<!--[if IE]>
+<link href="/stylesheets/guj3-ie.css?20090222" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+<SCRIPT type="text/javascript" src="./GUJ_Implementando_Design_Patterns_com_Java_files/jquery-1.3.1.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./GUJ_Implementando_Design_Patterns_com_Java_files/jquery.dimensions.min.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+$().ready(function() {
+	$("#returnPath").val(document.location);
+});
+</SCRIPT>  
+<STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE></HEAD><BODY>
+  <DIV id="header">
+    <DIV class="container1">
+    	<DIV id="banner">
+<!--
+<iframe id='abc8adb3' name='abc8adb3' src='http://d1.openx.org/afr.php?zoneid=18786&amp;cb=INSERT_RANDOM_NUMBER_HERE' framespacing='0' frameborder='no' scrolling='no' width='728' height='90'><a href='http://d1.openx.org/ck.php?n=a32fe7cc&amp;cb=3948240248' target='_blank'><img src='http://d1.openx.org/avw.php?zoneid=18786&amp;cb=3948240248&amp;n=a32fe7cc' border='0' alt='' /></a></iframe>
+-->
+			<!-- OAS AD 'Top' begin -->
+			<SCRIPT language="JavaScript">
+			OAS_AD('Top');
+			</SCRIPT><A href="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/1944170059/Top/rmlanetwork/100322_guj_androide_ros_top/728X90fj57_GUJ.gif/62643465363163633462336462636430" target="_blank"><IMG src="./GUJ_Implementando_Design_Patterns_com_Java_files/728X90fj57_GUJ.gif" alt="" border="0"></A>
+			<!-- OAS AD 'Top' end -->
+    	</DIV>
+      <DIV class="container2">
+        <A href="http://www.guj.com.br/home.index.logic" id="logo">GUJ</A>
+        <H2>Notícias, artigos e o maior fórum brasileiro sobre Java</H2>
+      </DIV>
+    </DIV>
+  </DIV>
+
+  <DIV id="menu">
+    <UL>
+      <LI class="home">
+        <A href="http://www.guj.com.br/home.index.logic">home</A>
+      </LI>
+      <LI class="forum">
+        <A href="http://www.guj.com.br/forums/list.java">fórum</A>
+      </LI>
+      <LI class="artigos">
+        <A href="http://www.guj.com.br/article.list.logic">artigos</A>
+      </LI>
+      <LI class="noticias">
+        <A href="http://www.guj.com.br/forums/show/17.java">notícias</A>
+      </LI>
+      
+      <LI class="topics">
+        <A href="http://www.guj.com.br/recentTopics/list.java">tópicos recentes</A>
+      </LI>
+        
+      <LI class="empregos">
+		<A href="http://www.guj.com.br/jobs.list.logic">empregos</A>
+      </LI>
+    
+    	<!--
+      <li class="blogs">
+        <a href="/posts">blogs</a>
+      </li>
+      -->
+    </UL>
+    <FORM class="busca" method="GET" action="http://www.guj.com.br/jforum.java?module=search&action=search">
+		<INPUT type="hidden" name="module" value="search">
+		<INPUT type="hidden" name="action" value="search">
+		<INPUT class="campo rounded" name="search_keywords" value="Pesquisar" onfocus="if (this.value == &#39;Pesquisar&#39;) { this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) { this.value = &#39;Pesquisar&#39;;}" tabindex="1">
+      	<INPUT type="image" class="botao" style="border: 0px;" src="./GUJ_Implementando_Design_Patterns_com_Java_files/botao_ok.gif" tabindex="2">
+    </FORM>
+  </DIV>
+  
+  <DIV id="submenu">
+    <DIV class="container1">
+      <DIV class="container2">
+          
+      	
+      		
+      		
+	      		Bem vindo ao GUJ. <A href="http://www.guj.com.br/user/insert.java" style="color: #4382B0;">Crie seu login</A>, 
+	          	ou digite-o para logar no site.
+              
+	          	<FORM class="login" action="http://www.guj.com.br/jforum.java?module=user&action=validateLogin" method="POST">
+                    <INPUT type="hidden" name="returnPath" id="returnPath" value="http://www.guj.com.br/article.show.logic?id=137">
+	            	Usuário: <INPUT class="campo rounded" size="8" name="username" tabindex="3">
+					Senha: <INPUT class="campo rounded" type="password" size="8" name="password" tabindex="4">
+	            	<INPUT type="image" class="botao" src="./GUJ_Implementando_Design_Patterns_com_Java_files/botao_entrar.gif" tabindex="5" name="login" value="Login">
+	          	</FORM>
+      		
+      	
+      </DIV>
+    </DIV>
+  </DIV>
+
+  
+
+<LINK href="./GUJ_Implementando_Design_Patterns_com_Java_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+<STYLE type="text/css">@import url(/stylesheets/tagging.css);</STYLE>
+<SCRIPT src="./GUJ_Implementando_Design_Patterns_com_Java_files/shCore.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="./GUJ_Implementando_Design_Patterns_com_Java_files/shBrushJava.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+window.onload = function () {
+	dp.SyntaxHighlighter.HighlightAll('code');
+}
+</SCRIPT>
+
+<DIV id="content">
+<DIV class="box">
+<B class="spiffy"><B class="spiffy1"><B></B></B><B class="spiffy2"><B></B></B><B class="spiffy3"></B><B class="spiffy4"></B><B class="spiffy5"></B></B>
+	<DIV class="spiffyfg inner-content">
+  <SPAN class="article">
+    <H2><A href="http://www.guj.com.br/article.show.logic?id=137#">Implementando Design Patterns com Java</A>
+    </H2>
+  </SPAN>
+  
+  <DIV class="miolo">
+    <SPAN class="data">em 10/04/2004</SPAN>
+    <SPAN class="autor">, por <A href="mailto:danieldestro@gmail.com">Daniel Destro</A></SPAN>
+    <BR>
+  
+    
+	    <DIV style="float: left; padding: 10px;">
+			<SCRIPT type="text/javascript"><!--
+			google_ad_client = "pub-7098584793170190";
+			/* GUJ Quadrado Artigos */
+			google_ad_slot = "2113535366";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</SCRIPT> 
+			<SCRIPT type="text/javascript" src="./GUJ_Implementando_Design_Patterns_com_Java_files/show_ads.js"> 
+			</SCRIPT><SCRIPT src="./GUJ_Implementando_Design_Patterns_com_Java_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="300" height="250" frameborder="0" src="./GUJ_Implementando_Design_Patterns_com_Java_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+		</DIV>
+	      
+	      <SPAN class="content"><PAGE>
+<DIV id="subtitle"><B>Implementando Design Patterns com Java</B></DIV>
+
+O objetivo deste artigo é mostrar um pouco dos mais importantes <I>design patterns</I> existentes, explicando-os e exemplificando-os através de implementação de códigos em Java. É desejável um conhecimento um pouco avançado das técnicas de programação, da tecnologia Java e do paradígma OO, para um melhor aproveitamento.
+
+<DIV id="subtitle"><B>1) BREVE HISTÓRICO</B></DIV>
+
+A origem dos <I>Design Patterns</I> (Padrões de Desenho) vem do trabalho de um arquiteto chamado Christopher Alexander, no final da década de 70. Ele escreveu dois livros, inicialmente, A Pattern Language [Alex77] e A Timeless Way of Building [Alex79], nos quais ele exemplificava o uso e descrevia seu raciocínio para documentar os padrões.
+
+Em 1995, um grupo de quatro profissionais escreveu e lançou o livro "Design Patterns: Elements of Reusable Object-Oriented Software" [Gamma95], um catálogo com 23 padrões de desenho (design patterns). Ou autores: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, ficaram mais conhecidos como A Gangue dos Quatro (Gang Of Four ou GoF), considerados os maiores entusiastas dos Design Patterns.
+
+<DIV id="subtitle"><B>2) DESIGN PATTERNS</B></DIV>
+
+<DIV id="subtitle"><B>2.1) O QUE SÃO OS DESIGN PATTERNS?</B></DIV>
+
+Os <I>Design Patterns</I> são uma coleção de padrões de desenho de software, que são soluções para problemas conhecidos e recorrentes no desenvolvimento de software.
+
+Um <I>Pattern</I> descreve uma solução comprovada para um problema de desenho recorrente, dando ênfase particular no contexto e forçando a aproximação do problema, e as conseqüências e o impacto de sua solução.
+
+<I>Patterns</I> são dispositivos que permitem que os programas compartilhem conhecimento sobre o seu desenho. Quando programamos, nós encontramos muitos problemas que ocorrem, ocorreram e irão ocorrer novamente. A questão que nos perguntamos agora é como nós vamos solucionar este problema desta vez? Documentar um padrão (<I>pattern</I>) é uma maneira de você poder reusar e possivelmente compartilhar informação que você aprendeu sobre a melhor maneira de se resolver um problema de desenho de software.
+
+O catálogo de padrões do GoF (Gang Of Four), como dito, contém 23 padrões e está, basicamente, dividido em três seções:
+
+<LI><B>Creational (Criacional)</B>
+</LI><LI><B>Structural (Estrutural)</B>
+</LI><LI><B>Behavioral (Comportamental)</B>
+
+Neste artigo, estaremos apresentando todos os padrões de cada tipo e exemplificando alguns deles com diagramas UML e código Java.
+
+
+<DIV id="subtitle"><B>2.2) PORQUE USAR OS PATTERNS?</B></DIV>
+
+</LI><LI>Eles foram provados. Os padrões refletem a experiência, conhecimento e soluções dos desenvolvedores que tiveram sucesso usando esses padrões em seus trabalhos.
+</LI><LI>São reusáveis. Os padrões provêem uma solução pronta que pode ser aplicada à diferentes problemas.
+</LI><LI>São expressíveis. Os padrões provêem um vocabulário comum de soluções que podem expressar muitas soluções, sucintamente.
+
+É importante lembrar que os padrões, por si só, não garantem o sucesso do seu uso. A descrição do padrão indica quando ele pode ser aplicado, mas apenas a experiência pode proporcionar o entendimento de quando um padrão particular irá melhorar o desenho do sistema.
+
+<DIV id="subtitle"><B>2.3) DOCUMENTANDO UM PATTERN</B></DIV>
+
+A intenção e motivação de se criar um <I>Design Pattern</I> é poder abstrair um problema recorrente e criar uma solução viável, além do que poder compartilhar este conhecimento para que outras pessoas se beneficiem dele. A documentação de um <I>Design Pattern</I> é feita numa forma muito bem definida. A forma geral para se documentar um padrão inclui a definição dos seguintes itens:
+
+</LI><LI>A motivação ou o contexto que o padrão se aplica;
+</LI><LI>Pré-requisitos que devem ser satisfeitos antes de se decidir aplicar um padrão;
+</LI><LI>Uma descrição da estrutura do programa que o padrão será definido;
+</LI><LI>Uma lista dos participantes necessários para completar um padrão;
+</LI><LI>Conseqüências do uso do padrão, positivas e negativas;
+</LI><LI>Exemplos.
+
+<DIV id="subtitle"><B>3) EXPLICANDO E IMPLEMENTANDO OS DESIGN PATTERNS</B></DIV>
+
+<DIV id="subtitle"><B>3.1) CREATIONAL PATTERNS</B></DIV>
+
+Todos os padrões criacionais (Creational) lidam com a melhor forma de se criar instâncias dos objetos. Isto é importante porque seu programa não deveria depender de como os objetos são criados e arranjados. Em Java, a maneira mais simples de se criar um objeto é se usando o operador new.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>UmaClasse&nbsp;objeto&nbsp;=&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;UmaClasse(&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">UmaClasse objeto = new UmaClasse( );</TEXTAREA> <BR>
+
+No entanto, isto torna a criação de objetos no seu programa um tanto quanto imaleável, inflexível. Em muitos casos, a natureza dos objetos que são criados pode variar com as necessidades do programa e a abstração do processo de criação de objetos para uma classe especial de "criação" pode fazer seu programa mais flexível e geral.
+
+O catálogo da GoF apresentas os seguintes Creational Patterns:
+
+<B>Factory Method</B> - provê uma classe de decisão, na qual retorna uma das muitas possíveis subclasses de uma classe base abstrata, dependendo do dado fornecido. 
+
+<B>Abstract Factory Method</B> - provê uma interface para se criar e retornar uma de muitas famílias de objetos relacionados.
+
+<B>Singleton</B> - provê uma classe que não pode haver mais do que uma única instância, e proporciona um ponto comum e global para se acessar aquela instância.
+
+<B>Builder</B> - separa a construção de um objeto complexo de sua representação, para que de diferentes representações possam ser criadas dependendo das necessidades do programa.
+
+<B>Prototype</B> - começa com uma classe iniciada e instanciada que copia ou gera um clone dela para se fazer novas instâncias, ao invés de se criar novas instâncias.
+
+Vamos agora aos exemplos práticos de implementação de alguns padrões descritos acima.
+ 
+
+<PAGE>
+<DIV id="subtitle"><B>3.1.1) FACTORY METHOD</B></DIV>
+
+Este é um tipo bem comum de padrão utilizado nos programas orientados ao objeto. O padrão Factory Method é caracterizado por retornar uma instância dentre muitas possíveis classes, dependendo dos dados providos a ele. Geralmente, todas as classes que ele retorna têm uma classe pai e métodos em comum, mas cada um executa tarefas diferentes e é otimizado para diferentes tipos de dados.
+
+Para entender como o padrão Factory funciona, vamos dar uma olhada no diagrama e exemplo abaixo.
+
+<IMG src="./GUJ_Implementando_Design_Patterns_com_Java_files/897.java">
+
+No diagrama descrito acima, Carro é a classe base (pai) e as classes Vectra, Omega, Gol e Golf derivam dela (filhas). A classe CarroFactory é a classe Factory que decide qual das subclasses retornar, dependendo dos argumentos que você passar ao método factory dela. Nós definimos o método getCarro(), como o método factory que recebe um parâmetro (tipo) e retorna uma instância da classe Carro, representado no diagrama por <U>:carro</U>. Qual classe ele retorna, não importa ao programador, desde que todos eles tenham os mesmos métodos, mas diferentes implementações. Qual subclasse de Carro será retornada é estritamente decidido pela classe CarroFactory.
+
+Vamos considerar um caso simples onde nós podemos usar uma classe Factory. Suponha que nós temos um sistema de consulta de preços de veículos. Informamos qual carro queremos consultar o preço, então a classe factory nos retorna uma instância dele e então consultamos o preço.
+
+Vamos, então, dar uma olhada na implementação:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">abstract</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Carro&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">protected</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">float</SPAN><SPAN>&nbsp;valor;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">float</SPAN><SPAN>&nbsp;getPreco()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;valor;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Vectra&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Carro&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Vectra()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valor&nbsp;=&nbsp;<SPAN class="number">30000</SPAN><SPAN>.0f;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Omega&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Carro&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Omega()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valor&nbsp;=&nbsp;<SPAN class="number">50000</SPAN><SPAN>.0f;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Golf&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Carro&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Golf()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valor&nbsp;=&nbsp;<SPAN class="number">35000</SPAN><SPAN>.0f;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Gol&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Carro&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Gol()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valor&nbsp;=&nbsp;<SPAN class="number">20000</SPAN><SPAN>.0f;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+public abstract class Carro {
+	protected float valor;
+
+	public float getPreco() {
+		return valor;
+	}
+}
+
+public class Vectra extends Carro {
+	public Vectra() {
+		valor = 30000.0f;
+	}
+}
+
+public class Omega extends Carro {
+	public Omega() {
+		valor = 50000.0f;
+	}
+}
+
+public class Golf extends Carro {
+	public Golf() {
+		valor = 35000.0f;
+	}
+}
+
+public class Gol extends Carro {
+	public Gol() {
+		valor = 20000.0f;
+	}
+}
+</TEXTAREA> <BR>
+
+Agora nossa classe Factory, que é bem simples, e decide qual classe será instanciada, dependendo do parâmetro do tipo passado para o método getClass( ).
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;CarroFactory&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;Carro&nbsp;getCarro(&nbsp;String&nbsp;tipoCarro&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;tipoCarro&nbsp;==&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;tipoCarro.equals(</SPAN><SPAN class="string">"Vectra"</SPAN><SPAN>)&nbsp;)&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Vectra();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;tipoCarro.equals(</SPAN><SPAN class="string">"Omega"</SPAN><SPAN>)&nbsp;)&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Omega();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;tipoCarro.equals(</SPAN><SPAN class="string">"Golf"</SPAN><SPAN>)&nbsp;)&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Golf();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;tipoCarro.equals(</SPAN><SPAN class="string">"Gol"</SPAN><SPAN>)&nbsp;)&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Gol();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+public class CarroFactory {
+	public static Carro getCarro( String tipoCarro ) {
+		if( tipoCarro == null ) return null;
+		else if( tipoCarro.equals("Vectra") ) return new Vectra();
+		else if( tipoCarro.equals("Omega") ) return new Omega();
+		else if( tipoCarro.equals("Golf") ) return new Golf();
+		else if( tipoCarro.equals("Gol") ) return new Gol();
+		else return null;
+	}
+}
+</TEXTAREA> <BR>
+
+Vamos agora implementar a classe que se utiliza de todo este aparato do padrão Factory.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;FactoryExample&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;main(&nbsp;String&nbsp;args[]&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//parâmetro&nbsp;passado&nbsp;como&nbsp;argumento&nbsp;no&nbsp;console</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//pega&nbsp;a&nbsp;instância&nbsp;do&nbsp;tipo&nbsp;do&nbsp;carro</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carro&nbsp;carro&nbsp;=&nbsp;CarroFactory.getCarro(&nbsp;args[<SPAN class="number">0</SPAN><SPAN>]&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//mostra&nbsp;o&nbsp;valor</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;carro&nbsp;!=&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&nbsp;<SPAN class="string">"Preço:&nbsp;"</SPAN><SPAN>&nbsp;+&nbsp;carro.getPreco()&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+public class FactoryExample {
+	public static void main( String args[] ) {
+		//parâmetro passado como argumento no console
+		//pega a instância do tipo do carro
+		Carro carro = CarroFactory.getCarro( args[0] );
+		//mostra o valor
+		if( carro != null ) {
+			System.out.println( "Preço: " + carro.getPreco() );
+		}
+	}
+}
+</TEXTAREA> <BR>
+
+Compile todas as classes para que possamos executar o exemplo acima.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>&gt;&nbsp;javac&nbsp;*.java&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&gt;&nbsp;java&nbsp;FactoryExample&nbsp;Vectra&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+ > javac *.java
+ > java FactoryExample Vectra
+</TEXTAREA> <BR>
+Esse é o principio fundamental do padrão Factory Method. Você cria uma abstração, na qual se decide qual das opções de classe retornar. Então você apenas chama o método comum desta classe, sem sequer saber ou se preocupar qual classe você está realmente lhe dando.
+
+<B>Padrões relacionados:</B>
+
+</PAGE></LI><LI><B>Abstract Factory</B> - O padrão Factory é útil para se construir objetos individuais, para um propósito específico, sem que a construção requeira conhecimento das classes específicas sendo instanciadas. Se você precisar criar um grupo combinado de tais objetos, então o padrão Abstract Factory é o mais apropriado.
+</LI><LI><B>Template</B> - O padrão Factory é freqüentemente usando com o padrão Template.
+</LI><LI><B>Prototype</B> - O padrão Prototype provê uma alternativa para um objeto trabalhar com outros objetos sem que conheça os detalhes de construção.
+ 
+<PAGE>
+<DIV id="subtitle"><B>3.1.2) ABSTRACT FACTORY METHOD</B></DIV>
+
+O padrão Abstract Factory está a um nível de abstração maior do que o padrão Factory Method. Você pode usar este padrão quando deseja retornar uma das muitas classes de objetos relacionadas, cada qual pode retornar diferentes objetos se requisitado. Em outras palavras, o padrão Abstract Factory é uma fábrica de objetos que retorna uma das várias fábricas.
+
+Uma aplicação clássica do Abstract Factory é o caso onde o seu sistema precisa de suporte a múltiplos tipos de interfaces gráficas, como Windows, Motif ou MacIntosh. Você diz ao factory que quer que seu programa se pareça com o Windows e ele retorna a fábrica GUI que retorna os objetos relativos ao Windows. Então, quando você requisita um objeto específico como um botão, check-boxes e janelas, a fábrica de GUI retorna as instâncias desses componentes para o Windows.
+
+Para vermos o exemplo prático e entendermos o Abstract Factory, vamos utilizar o exemplo parecido com o anterior, porém estendido. Veja o diagrama:
+
+<IMG src="./GUJ_Implementando_Design_Patterns_com_Java_files/898.java">
+
+Agora, adicional ao diagrama anterior, temos a classe Fabricante e suas subclasses, e a estrutura estática do modelo mudou, com relação ao modelo anterior.
+
+Implementando o modelo proposto, temos os seguintes códigos-fonte adicionais:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">abstract</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Fabricante&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">protected</SPAN><SPAN>&nbsp;String&nbsp;name;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">abstract</SPAN><SPAN>&nbsp;Carro&nbsp;getCarro(&nbsp;String&nbsp;marca&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;Fabricante&nbsp;getInstance(&nbsp;String&nbsp;fabricante&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;fabricante&nbsp;==&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(fabricante.equals(</SPAN><SPAN class="string">"Chevrolet"</SPAN><SPAN>))&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Chevrolet();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(fabricante.equals(</SPAN><SPAN class="string">"Volkswagen"</SPAN><SPAN>))&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Volkswagen();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Chevrolet&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Fabricante&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Chevrolet()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;<SPAN class="string">"Chevrolet"</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Carro&nbsp;getCarro(&nbsp;String&nbsp;marca&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca&nbsp;==&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca.equals(</SPAN><SPAN class="string">"Vectra"</SPAN><SPAN>)&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Vectra();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca.equals(</SPAN><SPAN class="string">"Omega"</SPAN><SPAN>)&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Omega();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;Volkswagen&nbsp;</SPAN><SPAN class="keyword">extends</SPAN><SPAN>&nbsp;Fabricante&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Volkswagen()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;<SPAN class="string">"Volkswagen"</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Carro&nbsp;getCarro(&nbsp;String&nbsp;marca&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca&nbsp;==&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca.equals(</SPAN><SPAN class="string">"Gol"</SPAN><SPAN>)&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Gol();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">if</SPAN><SPAN>(&nbsp;marca.equals(</SPAN><SPAN class="string">"Golf"</SPAN><SPAN>)&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;Golf();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">else</SPAN><SPAN>&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+public abstract class Fabricante {
+	protected String name;
+
+	public abstract Carro getCarro( String marca );
+
+	public static Fabricante getInstance( String fabricante ) {
+		if( fabricante == null ) {
+			return null;
+		}
+		else if(fabricante.equals("Chevrolet")) {
+			return new Chevrolet();
+		}
+		else if(fabricante.equals("Volkswagen")) {
+			return new Volkswagen();
+		}
+		else {
+			return null;
+		}
+	}
+}
+
+public class Chevrolet extends Fabricante {
+	public Chevrolet() {
+		name = "Chevrolet";
+	}
+
+	public Carro getCarro( String marca ) {
+		if( marca == null ) {
+			return null;
+		}
+		else if( marca.equals("Vectra") ) {
+			return new Vectra();
+		}
+		else if( marca.equals("Omega") ) {
+			return new Omega();
+		}
+		else {
+			return null;
+		}
+	}
+}
+
+public class Volkswagen extends Fabricante {
+	public Volkswagen() {
+		name = "Volkswagen";
+	}
+
+	public Carro getCarro( String marca ) {
+		if( marca == null ) {
+			return null;
+		}
+		else if( marca.equals("Gol") ) {
+			return new Gol();
+		}
+		else if( marca.equals("Golf") ) {
+			return new Golf();
+		}
+		else {
+			return null;
+		}
+	}
+}
+</TEXTAREA> <BR>
+
+Veja agora, no nosso exemplo, como foram usadas as classes no Abstract Factory:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;AbstractFactoryExample&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;main(&nbsp;String&nbsp;args[]&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//parâmetro&nbsp;passado&nbsp;como&nbsp;argumento&nbsp;no&nbsp;console</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//pega&nbsp;a&nbsp;instância&nbsp;do&nbsp;fabricante</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fabricante&nbsp;fab&nbsp;=&nbsp;Fabricante.getInstance(&nbsp;args[<SPAN class="number">0</SPAN><SPAN>]&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//pega&nbsp;a&nbsp;instância&nbsp;do&nbsp;carro,&nbsp;de&nbsp;acordo&nbsp;com&nbsp;o&nbsp;fabricante</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carro&nbsp;carro&nbsp;=&nbsp;fab.getCarro(&nbsp;args[<SPAN class="number">1</SPAN><SPAN>]&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//mostra&nbsp;o&nbsp;valor</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;carro&nbsp;!=&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&nbsp;<SPAN class="string">"Preço:&nbsp;"</SPAN><SPAN>&nbsp;+&nbsp;carro.getPreco()&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+public class AbstractFactoryExample {
+	public static void main( String args[] ) {
+		//parâmetro passado como argumento no console
+		//pega a instância do fabricante
+		Fabricante fab = Fabricante.getInstance( args[0] );
+		//pega a instância do carro, de acordo com o fabricante
+		Carro carro = fab.getCarro( args[1] );
+		//mostra o valor
+		if( carro != null ) {
+			System.out.println( "Preço: " + carro.getPreco() );
+		}
+	}
+}
+</TEXTAREA> <BR>
+
+Compile todas as classes para que possamos executar o exemplo acima.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>&gt;&nbsp;javac&nbsp;*.java&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&gt;&nbsp;java&nbsp;AbstractFactoryExample&nbsp;Chevrolet&nbsp;Vectra&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+ > javac *.java
+ > java AbstractFactoryExample Chevrolet Vectra
+</TEXTAREA> <BR>
+
+<B>Padrões relacionados:</B>
+
+</PAGE></LI><LI><B>Factory Method</B> - O Abstract Factory pode usar o padrão Factory Method.
+</LI><LI><B>Singleton</B> - Classes Factory Concretas são usualmente implementadas como uma classe Singleton.
+ 
+
+<PAGE>
+<DIV id="subtitle"><B>3.1.3) SINGLETON</B></DIV>
+
+O padrão Singleton assegura que apenas uma única instância daquela classe vai existir. Por exemplo, seu sistema pode ter apenas um gerenciador de janelas, ou gerenciador de impressão, ou então um único ponto de acesso ao banco de dados.
+
+A maneira mais fácil de se fazer uma classe que possua uma única instância dela mesma é utilizar uma variável estática na classe, onde será guardada a referência para a instância corrente.
+
+No caso do Singleton, a classe dever ter um construtor private, ou seja, ela não poderá ser instanciada diretamente, mas sim fornecer um método comum para que a instância única da classe seja retornada. Cada vez que esse método for chamado, ele deve checar se já existe uma instância da classe e retorná-la, caso contrário ele deve instanciar a classe, guardar a referência ao objeto no atributo estático da classe e então retorná-lo.
+
+Vejamos um simples exemplo da implementação deste padrão:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=137#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="keyword">import</SPAN><SPAN>&nbsp;java.sql.Connection;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">class</SPAN><SPAN>&nbsp;DBConnectionPool&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">private</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;DBConnectionPool&nbsp;instance;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">private</SPAN><SPAN>&nbsp;DBConnectionPool()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;cria&nbsp;conexões&nbsp;para&nbsp;o&nbsp;banco&nbsp;de&nbsp;dados</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">synchronized</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">static</SPAN><SPAN>&nbsp;DBConnectionPool&nbsp;getInstance()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;instance&nbsp;==&nbsp;</SPAN><SPAN class="keyword">null</SPAN><SPAN>&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;DBConnectionPool();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;instance;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;Connection&nbsp;getConnection()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection&nbsp;conn&nbsp;=&nbsp;<SPAN class="keyword">null</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//pega&nbsp;uma&nbsp;conexão&nbsp;livre&nbsp;ou&nbsp;uma&nbsp;nova&nbsp;conexão</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;conn;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;releaseConnection(&nbsp;Connection&nbsp;conn&nbsp;)&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//libera&nbsp;a&nbsp;conexão&nbsp;de&nbsp;volta&nbsp;pro&nbsp;pool</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+import java.sql.Connection;
+
+public class DBConnectionPool {
+
+	private static DBConnectionPool instance;
+
+	private DBConnectionPool() {
+		// cria conexões para o banco de dados
+	}
+
+	public synchronized static DBConnectionPool getInstance() {
+		if( instance == null ) {
+			instance = new DBConnectionPool();
+		}
+		return instance;
+	}
+
+	public Connection getConnection() {
+		Connection conn = null;
+		//pega uma conexão livre ou uma nova conexão
+		return conn;
+	}
+
+	public void releaseConnection( Connection conn ) {
+		//libera a conexão de volta pro pool
+	}
+}
+</TEXTAREA> <BR>
+
+Atente aos métodos construtor e ao getInstance( ), que caracterizam o padrão Singleton. No construtor, neste exemplo, o DBConnectionPool cria as conexões do pool normalmente. Já no getInstance( ), ele verifica se já existe uma instância da classe, caso não, ele instancia e retorna o objeto.
+
+Em contrapartida, as classes que implementam o padrão Singleton tornam-se difíceis de serem estendidas, mas o seu uso, no geral, é muito benéfico quando necessário em seu programa.
+</PAGE>
+
+<PAGE>
+<DIV id="subtitle"><B>3.1.4) BUILDER</B></DIV>
+
+Nós já vimos que o padrão Factory Method retorna uma de diferentes subclasses, dependendo do dado passado como argumento aos métodos de criação. Mas,  suponha que você não queira apenas um algoritmo de computação, mas uma interface gráfica diferente, dependendo do dado que nós precisamos mostrar. Um exemplo típico pode ser sua agenda de e-mails. Você provavelmente tem pessoas e grupos de pessoas cadastradas, e você espera que a tela da agenda de e-mails seja tal para que tenha espaços para o nome, empresa, e-mail e fone. Por outro lado, se você estava mostrando um grupo de e-mails, você gostaria de ver o nome do grupo, seu propósito e uma lista com os membros deste grupo, com seus respectivos e-mails.
+
+Quando você clica em uma pessoa você tem uma tela, quando clica em um grupo você tem outra tela. Assumimos que todos os e-mails são mantidos em um objeto chamado Endereco e que pessoas e grupos são derivados desta classe base, como mostrado no diagrama.
+
+<IMG src="./GUJ_Implementando_Design_Patterns_com_Java_files/896.java">
+ 
+Dependendo do tipo do objeto Endereco que nós clicamos, nós gostaríamos de ver uma tela diferente das propriedades daquele objeto. Isto é um pouco mais do que uma simples classe Factory, porque nós não estamos retornando objetos que são simplesmente descendentes de um objeto base da tela, mas totalmente diferentes um do outro (telas diferentes). O padrão Builder constrói um número de objetos, como telinhas, de vários modos, dependendo dos dados. Java, então, é a linguagem ideal para se implementar o padrão Builder, pois você pode separar os dados dos seus métodos de apresentação em simples objetos.
+
+<B>Conseqüências do padrão Builder:</B>
+
+</PAGE></LI><LI>O Builder deixa você variar a representação interna do produto que ele cria. Ele também esconde os detalhes de como o produto é montado.
+</LI><LI>Cada Builder específico é independente de outros e do resto do programa. Isso melhora a modularidade e faz a adição de outros Builder relativamente simples.
+</LI><LI>Como cada Builder constrói o produto final passo-a-passo, dependendo dos dados, você tem mais controle sobre o produto final construído.
+ 
+O padrão Builder é algo como o Abstract Factory, na qual ambos retornam feitas de um número de métodos e objetos. A principal diferença é que enquanto o Abstract Factory retorna uma família de classes relacionadas, o Builder constrói um objeto complexo passo-a-passo, dependendo dos dados apresentados a ele.
+
+<B>Padrões Relacionados:</B>
+
+</LI><LI><B>Interface</B> - O padrão Builder usa o padrão Interface para esconder a classe atual do objeto que ela constrói.
+</LI><LI><B>Composite</B> - O objeto construído pelo Builder é tipicamente um Composite.
+</LI><LI><B>Factory Method</B> - O padrão Builder usa o padrão Factory para decidir que classe concreta instanciar para construir o tipo de objeto desejado.
+</LI><LI><B>Layered Initialization</B> - O padrão Builder usa o padrão Layered Initialization para cria objetos que constroem o tipo de objeto desejado.
+
+    
+
+    <SPAN class="pdf">
+    
+    </SPAN>
+  </LI></PAGE></SPAN></DIV>
+  </DIV>
+	<B class="spiffy"><B class="spiffy5"></B><B class="spiffy4"></B><B class="spiffy3"></B><B class="spiffy2"><B></B></B><B class="spiffy1"><B></B></B></B>
+</DIV>
+
+</DIV>
+
+
+<!-- OAS AD 'x01' begin -->
+<SCRIPT language="JavaScript">
+<!--
+//OAS_AD('x01');
+//-->
+</SCRIPT>
+<!-- OAS AD 'x01' end -->
+
+  <DIV id="footer">
+  	<P>Apoiado e desenvolvido por <A href="http://www.caelum.com.br/">Caelum Cursos Java</A> - Copyright © 2002-2009 <A href="mailto:guj@guj.com.br">GUJ</A> <!--<script type="text/javascript" src="http://widgets.amung.us/small.js"></script><script type="text/javascript">WAU_small('kwnaee1y3d4h')</script>--></P>
+  </DIV>
+ 
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./GUJ_Implementando_Design_Patterns_com_Java_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+var pageTracker = _gat._getTracker("UA-132222-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</SCRIPT>
+  
+
+
+</BODY></HTML>

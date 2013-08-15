@@ -1,0 +1,2130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0053)http://onjava.com/pub/a/onjava/2004/01/21/dbunit.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<TITLE>Effective Unit Testing with DbUnit - O'Reilly Media</TITLE>
+	<META name="keywords" content="Unit testing,DbUnit,Java,databases,JDBC,Andrew Glover,O&#39;Reilly Media,O&#39;Reilly author, oreilly.com,oreilly,o&#39;reilly">
+	<META name="description" content="Using DbUnit to fill in for a database to make unit testing more practical.">
+	<META name="date" content="Jan. 21, 2004">
+	<META name="search_date" content="2004-01-21">
+	<META name="pagename" content="Effective Unit Testing with DbUnit">
+	<META name="site" content="ONJava.com">
+	<META name="subtitle" content="">
+	<META name="author" content="Andrew Glover">
+<META name="target" content="">
+
+
+<!-- feed autodiscovery links -->
+<LINK rel="alternate" type="application/atom+xml" title="Java News and Articles" href="http://feeds2.feedburner.com/oreilly/java">
+
+<!-- sc/388 Common JavaScript -->
+<SCRIPT language="JavaScript" type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/common.js"></SCRIPT>
+
+<SCRIPT language="JavaScript" type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/common(1).js"></SCRIPT>
+
+<LINK rel="STYLESHEET" type="text/css" href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/main.css">
+<!-- path_info: /a/onjava/2004/01/21/dbunit.html -->
+<!-- table: a - ref_id: /onjava/2004/01/21/dbunit.html -->
+<!-- table: a - ref_id: /onjava/2004/01/21/dbunit.html -->
+<!-- table: a - ref_id: /onjava/2004/01/21/dbunit.html - cs_rid: 4364 -->
+<!-- 0 domain: www.onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 1 domain: www.onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 2 domain: www.onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 3 domain: www.onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 4 domain: onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 5 domain: onjava - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 6 domain: onjava - path_info: a/onjava/2004/01/21/dbunit.html s_channel: network -->
+<!-- 7 domain: onjava - path_info: a/onjava/2004/01/21/dbunit.html -->
+<!-- 8 domain: www.onjava.com - path_info: a/onjava/2004/01/21/dbunit.html -->
+
+<SCRIPT language="JavaScript" type="text/javascript"><!--
+var s_account="ornetwork,orglobal"
+//--></SCRIPT>
+<!-- SiteCatalyst code version: H.20.2. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com  -->
+<SCRIPT language="JavaScript" type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/s_code.js"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/javascript"><!--
+s.pageName="network:onjava:effective unit testing with dbunit"
+s.channel="network"
+s.prop1="network:onjava"
+s.prop2="network:onjava"
+s.prop3="network:onjava"
+s.prop4="article"
+s.prop5="effective unit testing with dbunit"
+s.prop6="n/a/4364"
+s.prop24="01/21/2004"
+s.prop21="andrew glover"
+s.hier1="network,onjava"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></SCRIPT>
+<!-- End SiteCatalyst code version: H.20.2. -->
+<!-- analytics.pl: 2009/10/12 5:42:15 -->
+
+
+
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/tabber.js"></SCRIPT>
+
+<!-- additional css -->
+<LINK rel="stylesheet" type="text/css" href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/articles.css">
+
+<LINK rel="stylesheet" type="text/css" href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/widget17.css" media="all"><LINK href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/sharethis.ba9f7a6c94677952fcaa1fc0ec7cfe79.css" rel="stylesheet" type="text/css"><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/2101530.js"></SCRIPT><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/7078812.js"></SCRIPT><LINK rel="stylesheet" href="data:text/css,@import%20url%28%27%20http%3A//api.aggregateknowledge.com/2007/01/15/css%20%27%29%3B"><LINK rel="stylesheet" href="data:text/css,@import%20url%28%27%20http%3A//api.aggregateknowledge.com/2007/01/15/css%20%27%29%3B"></HEAD><BODY id="onjava">
+<DIV id="page">
+<DIV id="header" class="noindex">
+<H1><A href="http://www.onjava.com/"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/onjava_logo.jpg" width="294" height="82" border="0" alt="ONJava.com -- The Independent Source for Enterprise Java" hspace="0" vspace="0"></A></H1>
+
+</DIV> 
+
+
+<!-- tabs 
+<csinclude record="sc/1097" field="html" />
+-->
+
+
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+<TBODY><TR>
+<TD align="right" valign="bottom">
+<A href="http://onjava.com/cs/user/login?x-redirect=/cs/user/home" class="tiny">Sign In/My Account</A>&nbsp;|&nbsp;<A href="http://epoch.oreilly.com/shop/cart.orm" class="tiny">View Cart</A>&nbsp;&nbsp;</TD>
+</TR></TBODY></TABLE>
+
+
+<DIV id="newheaders">
+
+<BR>
+<DIV id="newHead">
+
+
+<LINK rel="stylesheet" rev="stylesheet" href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/all.css" type="text/css">
+<LINK rel="stylesheet" rev="stylesheet" href="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/about-121707.css">
+
+<STYLE type="text/css">
+
+#search-box {
+background-color:#F6F6F6;
+border-bottom:1px solid #CCCCCC;
+padding-top:11px;
+text-align:center;
+}
+#search-form {
+margin:0pt auto;
+text-align:left;
+width:400px;
+}
+#search-title {
+color:#888888;
+display:block;
+float:left;
+font-size:17px;
+padding:5px 5px 4px 0pt;
+}
+#search-input {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_mid.gif) repeat-y scroll left top;
+display:block;
+float:left;
+padding:0pt 5px 0pt 0pt;
+width:260px;
+}
+#search-input-top {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_top.gif) no-repeat scroll left top;
+display:block;
+width:260px;
+}
+#search-input-bot {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_bot.gif) no-repeat scroll left bottom;
+display:block;
+width:260px;
+}
+#search-field {
+float:left;
+}
+#search-field input {
+background:transparent none repeat scroll 0%;
+border:0pt none;
+color:#990000;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size:16px;
+margin:0pt;
+padding:3px 0pt 4px 10px;
+width:215px;
+}
+#search-field input:focus {
+outline-color:invert;
+outline-style:none;
+outline-width:0pt;
+}
+#search-button {
+float:right;
+}
+#search-button input {
+font-size:0pt;
+height:18px;
+line-height:0pt;
+margin:4px 4px 2px 0pt;
+padding:0pt;
+width:28px;
+}
+#search-tips {
+display:block;
+float:left;
+font-size:10px;
+padding:6px 0pt 0pt;
+}
+#search label {
+text-transform:uppercase;
+}
+#search legend {
+display:none;
+}
+#search label {
+left:-9999px;
+position:absolute;
+}
+fieldset {
+border:0pt none;
+margin:0pt;
+padding:0pt;
+}
+.clear {
+display:block;
+line-height:0pt;
+}
+#wrapper {
+margin:1em 0pt 2em 19em;
+overflow:hidden;
+}
+#features {
+float:left;
+margin:0pt;
+padding:0pt 2em 0pt 0pt;
+width:41em;
+
+a{text-decoration:none;} 
+
+#search-box{
+
+padding-top: 11px;
+
+padding-bottom: 0pt;
+
+background-color: #f6f6f6;
+
+border-bottom-width: 1px;
+
+border-top-style: solid;
+
+border-top-width: 1px;
+
+border-top-color: #cccccc;
+
+border-bottom-style: solid;
+
+border-bottom-color: #cccccc;
+
+text-align: center;
+
+}
+
+</STYLE>
+
+
+<DIV id="nav" class="noindex">
+<UL>
+<LI><A href="http://oreilly.com/">O'Reilly Home</A></LI>
+<LI><A href="http://community.oreilly.com/">Community</A></LI>
+<LI><A href="http://oreilly.com/store/">Books &amp; Videos</A></LI>
+<LI><A href="http://safari.oreilly.com/?cid=orm-nav-global">Safari Books Online</A></LI>
+<LI><A href="http://conferences.oreillynet.com/">Conferences</A></LI>
+<LI><A href="http://training.oreilly.com/">Training</A></LI>
+<LI><A href="http://www.oreillylearning.com/">School of Technology</A></LI>
+<LI><A href="http://oreilly.com/about/">About</A></LI>
+
+</UL>
+<DIV class="clear"></DIV>
+</DIV><!-- /#nav -->
+
+
+
+
+
+
+
+<DIV id="newsearch">
+
+
+
+
+<STYLE type="text/css">
+
+#search-box {
+background-color:#F6F6F6;
+border-bottom:1px solid #CCCCCC;
+padding-top:11px;
+text-align:center;
+}
+#search-form {
+margin:0pt auto;
+text-align:left;
+width:400px;
+}
+#search-title {
+color:#888888;
+display:block;
+float:left;
+font-size:17px;
+padding:5px 5px 4px 0pt;
+}
+#search-input {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_mid.gif) repeat-y scroll left top;
+display:block;
+float:left;
+padding:0pt 5px 0pt 0pt;
+width:260px;
+}
+#search-input-top {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_top.gif) no-repeat scroll left top;
+display:block;
+width:260px;
+}
+#search-input-bot {
+background:transparent url(http://www.oreilly.com/images/oreilly/search_bar_bot.gif) no-repeat scroll left bottom;
+display:block;
+width:260px;
+}
+#search-field {
+float:left;
+}
+#search-field input {
+background:transparent none repeat scroll 0%;
+border:0pt none;
+color:#990000;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size:16px;
+margin:0pt;
+padding:3px 0pt 4px 10px;
+width:215px;
+}
+#search-field input:focus {
+outline-color:invert;
+outline-style:none;
+outline-width:0pt;
+}
+#search-button {
+float:right;
+}
+#search-button input {
+font-size:0pt;
+height:18px;
+line-height:0pt;
+margin:4px 4px 2px 0pt;
+padding:0pt;
+width:28px;
+}
+#search-tips {
+display:block;
+float:left;
+font-size:10px;
+padding:6px 0pt 0pt;
+}
+#search label {
+text-transform:uppercase;
+}
+#search legend {
+display:none;
+}
+#search label {
+left:-9999px;
+position:absolute;
+}
+fieldset {
+border:0pt none;
+margin:0pt;
+padding:0pt;
+}
+.clear {
+display:block;
+line-height:0pt;
+}
+#wrapper {
+margin:1em 0pt 2em 19em;
+overflow:hidden;
+}
+#features {
+float:left;
+margin:0pt;
+padding:0pt 2em 0pt 0pt;
+width:41em;
+
+a{text-decoration:none;} 
+
+#search-box{
+
+padding-top: 11px;
+
+padding-bottom: 0pt;
+
+background-color: #f6f6f6;
+
+border-bottom-width: 1px;
+
+border-top-style: solid;
+
+border-top-width: 1px;
+
+border-top-color: #cccccc;
+
+border-bottom-style: solid;
+
+border-bottom-color: #cccccc;
+
+text-align: center;
+
+}
+
+</STYLE>
+
+
+
+<DIV id="search-box">
+
+
+
+<DIV>
+
+
+
+<BR>
+<B>
+We've expanded our <A style="text-decoration:none" href="http://java.oreilly.com/">Java news coverage</A> and improved our search! </B> Search for all things Java across O'Reilly!
+
+<BR><BR>
+
+
+</DIV>
+
+ 
+            <FORM method="get" action="http://search.oreilly.com/" id="search-form" name="searchfield">
+                <FIELDSET>
+
+
+
+                    <SPAN id="search-title" style="color:#474747">Search</SPAN>
+                    <SPAN id="search-input">
+                        <SPAN id="search-input-top">
+                            <SPAN id="search-input-bot">
+                                <SPAN id="search-field"><INPUT style="//height: 25px;" id="q" name="q" type="text" maxlength="64" accesskey="s" value=""></SPAN>
+                                <SPAN id="search-button"><INPUT type="image" name="submit" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/search_bar_btn.gif" alt="Submit" onclick="return searchverif();"></SPAN>
+                                <SPAN class="clear"></SPAN>
+                            </SPAN>
+    </SPAN>
+                    </SPAN>
+                            <DIV id="autocomplete"></DIV>
+                                <SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/autocompletelist.js"></SCRIPT>
+                    
+                    <SPAN id="search-tips"><A href="http://www.oreillynet.com/search/tips.csp" target="_blank">Search Tips</A></SPAN>
+                </FIELDSET>
+            </FORM>
+
+<BR>
+        </DIV><!-- /#search-box -->
+
+</DIV>
+
+
+</DIV>
+
+</DIV>
+
+
+<!-- menubar
+<csinclude record="sc/1117" field="html" />
+-->
+<!--
+<csinclude record="sc/2032" field="html" />
+-->
+
+<DIV id="leaderboard">
+
+
+<IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ad-tag-vertical.gif" width="11" height="90" border="0" alt="advertisement" style="float:right;">
+
+
+<DIV style="width:728px;margin:0 auto;">
+
+<!--JavaScript Tag // Tag for network 5159: TechVertical // Website: OR - ONJava // Page: ONJava // Placement: ros_728x90 (425854) // created at: Oct 9, 2008 5:48:42 PM-->
+<SCRIPT language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/425854/0/225/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</SCRIPT><SCRIPT language="javascript1.1" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group]"></SCRIPT>
+
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/srad.js">
+</SCRIPT><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ad"></SCRIPT>
+
+<NOSCRIPT></NOSCRIPT>
+
+<!-- End of JavaScript Tag -->
+</DIV>
+
+</DIV> <!-- end leaderboard -->
+
+<DIV id="textbar"></DIV>
+<!-- </div>  end header -->
+
+
+<DIV id="page-content">
+<DIV id="article-onjava">
+
+<!-- feature bar ad : layout component 1894 -->
+
+<DIV align="center" style="visibility: hidden">
+<!-- begin ad tag -->
+
+<!--JavaScript Tag // Tag for network 5159: TechVertical // Website: O'ReillyNet // Page: O'ReillyNet // Placement: text (425846) // created at: Oct 9, 2008 6:10:33 PM-->
+<SCRIPT language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/425846/0/16/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</SCRIPT><SCRIPT language="javascript1.1" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group](1)"></SCRIPT><A href="http://adserver.adtechus.com/?adlink/5159/425846/0/16/AdId=188873;BnId=1;itime=361698108;key=key1+key2+key3+key4;" target="_blank"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/Ad188873St1Sz16Sq477944V0Id1.gif" border="0" alt=" " width="1" height="1"></A><NOSCRIPT></NOSCRIPT>
+<!-- End of JavaScript Tag -->
+
+
+<!-- End ad tag -->
+</DIV>
+
+<!-- end feature bar ad -->
+<BR>
+
+
+
+<A href="http://www.addthis.com/bookmark.php" onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);" target="_blank"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/button1-bm.gif" width="125" height="16" border="0" alt="AddThis Social Bookmark Button"></A> <SCRIPT type="text/javascript">var addthis_pub = 'odewahn';</SCRIPT><SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/widget.php"></SCRIPT>  
+
+<P>
+
+<!-- begin content-->
+
+
+
+
+
+
+
+
+
+<!-- begin  print-discuss-del.icio.us options -->
+</P><DIV style="margin: 0px 10px 0px 6px;">
+<DIV style="float: right; width: 170px;">
+
+
+
+<A target="_new" class="listen2" title="Listen to this page." href="http://asp2.readspeaker.net/cgi-bin/oreillyrsone?lang=us&voice=Paul&customerid=171&url=http://www.oreillynet.com/lpt/a/4364">Listen</A> 
+
+
+
+<A class="print" title="Go to a print-friendly version of this page." href="http://onjava.com/lpt/a/4364">Print</A>
+
+<A class="discuss" title="Join the talkback discussion about this article" href="http://onjava.com/pub/a/onjava/2004/01/21/dbunit.html?page=last#thread">Discuss</A>
+
+
+
+
+
+
+
+
+
+
+<A class="subscribe" title="Subscribe" href="http://www.oreillynet.com/pub/feed/7">Subscribe to ONJava</A>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<A class="newsletter" href="http://www.oreillynet.com/cs/nl/home">Subscribe to Newsletters</A>
+
+<DIV id="share-options" style="text-align:right;">
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/sharethis.js"></SCRIPT><SPAN id="sharethis_0"><A class="stbutton stico_rotate" title="ShareThis via email, AIM, social bookmarking and networking sites, etc." href="javascript:void(0)" st_page="home"><SPAN class="stbuttontext" st_page="home">ShareThis</SPAN></A></SPAN>
+</DIV>
+
+</DIV>
+</DIV>
+<!-- end  print-discuss-del.icio.us options -->
+
+
+
+
+
+<!-- content here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- mega preparse mp: -->
+<!--CS_PAGE_BREAK-->
+<H2>
+Effective Unit Testing with DbUnit</H2>
+by <A href="http://onjava.com/pub/au/1425">Andrew Glover</A><BR>
+01/21/2004
+
+
+<H3>Introducing DbUnit</H3>
+
+<P>Writing unit and component tests for objects with external dependencies, such as 
+databases or other objects, can prove arduous, as those dependencies may hinder isolation. 
+Ultimately, effective white-box tests isolate an object by controlling outside dependencies, 
+so as to manipulate its state or associated behavior. </P>
+
+<!--ONJava MPU Ad -->
+
+<DIV style="float:right;width:300px;padding-left:15px;">
+<!--JavaScript Tag // Tag for network 5159: TechVertical // Website: OR - ONJava // Page: ONJava // Placement: ros_300x250 (425855) // created at: Oct 9, 2008 5:48:41 PM-->
+<SCRIPT language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/425855/0/170/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</SCRIPT><SCRIPT language="javascript1.1" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group](2)"></SCRIPT>
+
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/srad(1).js">
+</SCRIPT><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ad(1)"></SCRIPT>
+
+<NOSCRIPT></NOSCRIPT>
+<!-- End of JavaScript Tag -->
+</DIV>
+
+<!-- me -->
+
+<P>Utilizing <A href="http://www.mockobjects.com/wiki/">mock objects</A> or stubs is one 
+strategy for controlling outside dependencies. Stubbing out associated database access classes, such as those found in <CODE>JDBC</CODE>, can be highly effective; however, the mock object solution may not be possible in application 
+frameworks where the underlying database access objects may be hidden, such as those
+utilizing <CODE>EJB</CODE>s with container-managed persistence (CMP) or Java Data Objects (JDO). </P>
+
+<P>The open source <A href="http://dbunit.sourceforge.net/">DbUnit framework</A>, created 
+by Manuel Laflamme, provides an elegant solution for controlling a database dependency 
+within applications by allowing developers to manage the state of a database throughout 
+a test.  With DbUnit, a database can be seeded with a desired data set before a test; 
+moreover, at the completion of the test, the database can be placed back into its pre-test state.  </P>
+
+<P>Automated tests are a critical facet of most successful software projects. DbUnit allows 
+developers to create test cases that control the state of a database during their life cycles; 
+consequently, those test cases are easily automatable, as they do not require manual intervention 
+between tests; nor do they entail manual interpretation of results.  </P>
+<!-- sidebar begins -->
+<!-- don't move sidebars -->
+<!-- sidebar ends -->
+
+
+<H3>Getting Started</H3>
+
+<P>The first step in configuring DbUnit involves the generation of a database schema definition 
+file. This file is an XML representation of database tables and the data found in them.  </P>
+
+<P>For example, a database table <CODE>EMPLOYEE</CODE> would be described in <CODE>SQL</CODE> as follows: </P>
+
+<P><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/desc-employee-sm.gif" alt="EMPLOYEE database table" width="389" height="159"></P>
+
+<P>Moreover, a sample data set found in <CODE>EMPLOYEE</CODE> could be:</P>
+
+<P><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/select-emp.gif" alt="EMPLOYEE sample data" width="453" height="103"></P>
+
+<P>DbUnit's representation of the table and the sample data in XML would then become: </P>
+
+<PRE><CODE>&lt;EMPLOYEE employee_uid='1' 
+          start_date='2001-11-01'			
+          first_name='Andrew' 
+          ssn='xxx-xx-xxxx' 
+          last_name='Glover' /&gt;</CODE></PRE>
+		  
+<P>This generated XML file becomes the sample template for any seed files utilized 
+in an application. </P>
+
+<P>Creating multiple seed files for associated test scenarios can be an effective strategy, as 
+one can segregate database states via the different database files. The multiple-seed-file
+strategy allows for the creation of succinct, targeted data files for specific database tables, 
+rather than the database as a whole. </P>
+
+<P>To seed the target database with three different employees, the XML representation would be 
+as follows:</P>
+
+<PRE><CODE>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;dataset&gt;
+  &lt;EMPLOYEE employee_uid='1' 
+            start_date='2001-01-01'			
+            first_name='Drew' ssn='000-29-2030' 
+            last_name='Smith' /&gt;
+
+  &lt;EMPLOYEE employee_uid='2' 
+            start_date='2002-04-04'			
+            first_name='Nick' ssn='000-90-0000' 
+            last_name='Marquiss' /&gt;
+
+  &lt;EMPLOYEE employee_uid='3' 
+            start_date='2003-06-03'			
+            first_name='Jose' ssn='000-67-0000' 
+            last_name='Whitson' /&gt;
+&lt;/dataset&gt;</CODE></PRE>
+
+<P>With DbUnit configured to work with the desired database schema, developers have two 
+options for employing DbUnit in testing: in code or through <CODE>ant</CODE>. </P>
+
+<H3>DbUnit in Code</H3>
+
+<P>The DbUnit framework provides a base abstract test-case class, 
+which extends <A href="http://www.junit.org/">JUnit</A>'s <CODE>TestCase</CODE> and is called 
+<CODE>DatabaseTestCase</CODE>. Think of this class as a template pattern for which one must provide 
+implementations of two hook methods: <CODE>getConnection()</CODE> and  <CODE>getDataSet()</CODE>.  </P>
+
+<P>The <CODE>getConnection()</CODE> method expects the creation of an 
+<CODE>IDatabaseConnection</CODE> object, which wraps a normal <CODE>JDBC</CODE> connection.   
+For example, the code below demonstrates the creation of an <CODE>IDatabaseConnection</CODE> for a 
+MySQL database. </P>
+
+<PRE><CODE>protected IDatabaseConnection getConnection() 
+  throws Exception {
+  
+   Class driverClass = 
+     Class.forName("org.gjt.mm.mysql.Driver");
+
+   Connection jdbcConnection = 
+	 DriverManager.getConnection(
+	  "jdbc:mysql://127.0.0.1/hr", "hr", "hr");
+        
+   return new DatabaseConnection(jdbcConnection);
+}</CODE></PRE>
+    
+<P>The <CODE>getDataSet()</CODE> method expects the creation of an 
+<CODE>IDataSet</CODE> object, which is essentially a representation of a 
+seed file containing the <CODE>XML</CODE> described earlier.  </P>
+
+<PRE><CODE>protected IDataSet getDataSet() throws Exception {
+   return new FlatXmlDataSet(
+      new FileInputStream("hr-seed.xml"));
+}</CODE></PRE>
+
+<P>With those two methods defined, DbUnit can function with default behavior; 
+however, the <CODE>DatabaseTestCase</CODE> class provides two fixture methods that 
+control the state of the database before and after a 
+test: <CODE>getSetUpOperation()</CODE> and <CODE>getTearDownOperation()</CODE>. </P>
+
+<P>An effective strategy is to have the <CODE>getSetUpOperation()</CODE> perform a 
+<CODE>REFRESH</CODE> operation, which updates the desired database with the data 
+found in the seed file. Consequently, the <CODE>getTearDownOperation()</CODE> 
+performs a <CODE>NONE</CODE> operation. </P>
+
+<PRE><CODE>protected DatabaseOperation getSetUpOperation() 
+  throws Exception {
+   return DatabaseOperation.REFRESH;
+ }
+
+protected DatabaseOperation getTearDownOperation() 
+  throws Exception {
+   return DatabaseOperation.NONE;
+}</CODE></PRE>
+
+<P>Another effective approach is to have the <CODE>getSetUpOperation()</CODE> method perform 
+a <CODE>CLEAN_INSERT</CODE>, which deletes all data found in tables specified in the 
+seed file and then inserts the file's data. This tactic provides precision 
+control of a database. </P>
+
+<H3>Code Example</H3>
+
+<P>In a J2EE human resources application, we would like to 
+automate a series of test cases for a Session Façade that handles 
+employee creation, retrieval, updating, and deletion.  The remote 
+interface contains the following business methods 
+(the <CODE>throws</CODE> clauses are removed for brevity's sake):</P>
+
+<PRE><CODE>public void 
+   createEmployee( EmployeeValueObject emplVo )
+
+public EmployeeValueObject 
+   getEmployeeBySocialSecNum( String ssn )
+
+public void 
+   updateEmployee( EmployeeValueObject emplVo )
+
+public void 
+   deleteEmployee( EmployeeValueObject emplVo )</CODE></PRE>
+
+<P>Testing the <CODE>getEmployeeBySocialSecNum()</CODE> method would require 
+seeding the database with an employee record. Additionally, testing 
+the <CODE>deleteEmployee()</CODE> and <CODE>updateEmployee()</CODE> would also 
+depend on a previously created database record. Lastly, the test suite 
+will create an employee from scratch, verifying that no exceptions were generated, 
+by utilizing the <CODE>createEmployee()</CODE> method.</P>
+
+<P>The following DbUnit seed file, named <CODE>employee-hr-seed.xml</CODE>, will be utilized:</P>
+
+<PRE><CODE>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;dataset&gt;
+  &lt;EMPLOYEE employee_uid='1' 
+            start_date='2001-01-01'			
+            first_name='Drew' ssn='333-29-9999' 
+            last_name='Smith' /&gt;
+  &lt;EMPLOYEE employee_uid='2' 
+            start_date='2002-04-04'			
+            first_name='Nick' ssn='222-90-1111' 
+            last_name='Marquiss' /&gt;
+  &lt;EMPLOYEE employee_uid='3' 
+            start_date='2003-06-03'			
+            first_name='Jose' ssn='111-67-2222' 
+            last_name='Whitson' /&gt;
+&lt;/dataset&gt;</CODE></PRE>
+
+<P>The test suite, <CODE>EmployeeSessionFacadeTest</CODE>, will extend 
+DbUnit's <CODE>DatabaseTestCase</CODE> and provide implementations 
+for both the <CODE>getConnection()</CODE> and <CODE>getDataSet()</CODE> 
+methods, where the <CODE>getConnection()</CODE> method obtains a 
+connection to the same database instance the <CODE>EJB</CODE> container 
+is utilizing, and the <CODE>getDataSet()</CODE> method reads in the 
+above <I>employee-hr-seed.xml</I> file. </P>
+
+<P>The test methods are quite simple, as DbUnit handles the complex database 
+lifecycle tasks for us.  To test the <CODE>getEmployeeBySocialSecNum()</CODE> 
+method, simply pass in a social security number from the seed file, 
+such as "333-29-9999." </P>
+
+<PRE><CODE>public void testFindBySSN() throws Exception{
+
+  EmployeeFacade facade = //obtain somehow
+		
+  EmployeeValueObject vo = 
+    facade.getEmployeeBySocialSecNum("333-29-9999");
+
+  TestCase.assertNotNull("vo shouldn't be null", vo);
+  TestCase.assertEquals("should be Drew", 
+     "Drew", vo.getFirstName());
+  TestCase.assertEquals("should be Smith", 
+     "Smith", vo.getLastName());
+}</CODE></PRE>
+
+<P>Ensuring the façade's create method works properly is as easy as 
+executing a <CODE>create</CODE> operation and verifying that no exceptions were thrown. 
+Additionally, the next step could be to attempt a <CODE>find</CODE> operation on 
+the newly created entity. </P>
+
+<PRE><CODE>public void testEmployeeCreate() throws Exception{
+  EmployeeValueObject empVo = 
+       new EmployeeValueObject();
+  empVo.setFirstName("Noah");
+  empVo.setLastName("Awan");
+  empVo.setSSN("564-55-5555");
+		
+  EmployeeFacade empFacade = //obtain from somewhere
+  empFacade.createEmployee(empVo);
+  
+  //perform a find by ssn to ensure existence
+
+}</CODE></PRE>
+
+<P>Testing <CODE>updateEmployee()</CODE> involves four steps. 
+First find the desired employee entity, and then update the object. 
+Next, re-find the same entity and test to ensure that the updated 
+values are properly reflected. </P>
+
+<PRE><CODE>public void testUpdateEmployee() throws Exception{
+  EmployeeFacade facade = //obtain façade
+
+  EmployeeValueObject vo = 
+   facade.getEmployeeBySocialSecNum("111-67-2222");
+		
+  TestCase.assertNotNull("vo was null", vo);
+  TestCase.assertEquals("first name should be Jose", 
+	"Jose", vo.getFirstName());
+
+  vo.setFirstName("Ramon");
+	
+  facade.updateEmployee(vo);
+		
+  EmployeeValueObject newVo = 
+   facade.getEmployeeBySocialSecNum("111-67-2222");
+  TestCase.assertNotNull("vo was null", newVo);
+
+  TestCase.assertEquals("name should be Ramon", 
+   "Ramon", newVo.getFirstName());
+}</CODE></PRE>
+
+<P>Guaranteeing the façade's deletion function properly works is similar to 
+the <CODE>testUpdateEmployee()</CODE> method, as there are three steps: 
+find an existing entity, remove it, and then attempt to find it again, 
+verifying that no entity could be found. </P>
+
+<PRE><CODE>public void testDeleteEmployee() throws Exception{
+  EmployeeFacade facade = //obtain façade
+
+  EmployeeValueObject vo = 
+	facade.getEmployeeBySocialSecNum("222-90-1111");
+		
+  TestCase.assertNotNull("vo was null", vo);
+			
+  facade.deleteEmployee(vo);
+	
+  try{	
+     EmployeeValueObject newVo = 
+      facade.getEmployeeBySocialSecNum("222-90-1111");
+     
+     TestCase.fail("returned removed employee");
+     
+     }catch(Exception e){
+      //ignore
+     }
+}</CODE></PRE>
+
+<P>The test suite code is simple and easy to follow, as the 
+code focuses on testing the desired object and not on any assorted 
+plumbing code to facilitate the test.  Additionally, the test case is 
+easily automated. </P>
+
+<H3>DbUnit in Ant</H3>
+
+<P>Rather than extending DbUnit's <CODE>DatabaseTestCase</CODE>, the DbUnit framework comes with 
+an <A href="http://ant.apache.org/"><CODE>ant</CODE></A> task, which allows the control of a database within an <CODE>Ant</CODE> build file. The task is quite powerful, as it provides a simplistic declarative strategy 
+for test cases.  For example, running <CODE>JUnit</CODE> tests in <CODE>Ant</CODE> is as easy as 
+defining a task as follows:</P>
+
+<PRE><CODE>&lt;junit printsummary="yes" haltonfailure="yes"&gt;
+  &lt;formatter type="xml"/&gt;
+  &lt;batchtest fork="yes" 
+           todir="${reports.tests}"&gt;
+    &lt;fileset dir="${src.tests}"&gt;
+      &lt;include name="**/*Test.java"/&gt;
+    &lt;/fileset&gt;
+  &lt;/batchtest&gt;
+&lt;/junit&gt;</CODE></PRE>
+
+<P>With DbUnit's task, controlling the state of the database before and after the 
+<CODE>JUnit</CODE> task involves creating a "setup" operation, in which the seed file's
+contents are inserted into a target database:</P>
+
+<PRE><CODE>&lt;taskdef name="dbunit" 
+    classname="org.dbunit.ant.DbUnitTask"/&gt;
+&lt;dbunit driver=" org.gjt.mm.mysql.Driver "
+        url=" jdbc:mysql://127.0.0.1/hr "
+        userid="hr"
+        password="hr"&gt;
+    &lt;operation type="INSERT" 
+            src="seedFile.xml"/&gt;
+&lt;/dbunit&gt;</CODE></PRE>
+
+<P>And a "tear down" operation, in which the same data is deleted from the target database:</P>
+
+<PRE><CODE>&lt;dbunit driver=" org.gjt.mm.mysql.Driver "
+        url=" jdbc:mysql://127.0.0.1/hr "
+        userid="hr"
+        password="hr"&gt;
+    &lt;operation type="DELETE" 
+           src="seedFile.xml"/&gt;
+&lt;/dbunit&gt;</CODE></PRE>
+
+<P>Wrapping the <CODE>JUnit</CODE> task with the above operations effectively 
+loads the target database before the batch test executes and then deletes 
+all loaded data when the tests complete. </P>
+
+<PRE><CODE>&lt;taskdef name="dbunit" 
+         classname="org.dbunit.ant.DbUnitTask"/&gt;
+
+&lt;!-- set up operation --&gt;
+&lt;dbunit driver=" org.gjt.mm.mysql.Driver "
+        url=" jdbc:mysql://127.0.0.1/hr "
+        userid="hr"
+        password="hr"&gt;
+    &lt;operation type="INSERT" 
+          src="seedFile.xml"/&gt;
+&lt;/dbunit&gt;
+
+&lt;!-- run all tests in the source tree --&gt;
+&lt;junit printsummary="yes" haltonfailure="yes"&gt;
+  &lt;formatter type="xml"/&gt;
+  &lt;batchtest fork="yes" todir="${reports.tests}"&gt;
+    &lt;fileset dir="${src.tests}"&gt;
+      &lt;include name="**/*Test*.java"/&gt;
+    &lt;/fileset&gt;
+  &lt;/batchtest&gt;
+&lt;/junit&gt;
+
+&lt;!-- tear down operation --&gt;
+&lt;dbunit driver=" org.gjt.mm.mysql.Driver "
+        url=" jdbc:mysql://127.0.0.1/hr "
+        userid="hr"
+        password="hr"&gt;
+    &lt;operation type="DELETE" 
+          src="seedFile.xml"/&gt;
+&lt;/dbunit&gt;</CODE></PRE>
+
+<H3>Conclusion</H3>
+
+<P>The DbUnit framework's ability to manage the state of a database 
+throughout a test's lifecycle enables rapid test-case creation and 
+adoption; furthermore, by controlling a major dependency, tests that 
+utilize the DbUnit framework are easily automated.  </P>
+
+<P>DbUnit's elegant design makes learning how to properly utilize its features a 
+breeze. Once it's in place as a part of an effective testing strategy, 
+overall code stability will increase dramatically, along with the collective 
+confidence of your development team.</P>
+
+<P><I>
+<A href="http://onjava.com/pub/au/1425">Andrew Glover</A> 
+is the founder and CTO 
+of <A href="http://www.vanwardtechnologies.com/">Vanward Technologies</A>, 
+a company specializing in 
+building automated testing frameworks.
+
+</I></P>
+
+<HR size="1" noshade="">
+
+<P>Return to <A href="http://www.onjava.com/">ONJava.com</A>.</P>
+
+
+
+
+
+<!-- end article content -->
+
+
+<!--  AK -->
+
+
+
+<!-- END AK -->
+
+<!-- end content -->
+
+
+<IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/trans.gif" alt=" " width="400" height="1"><BR>
+
+
+
+
+<DIV class="noindex">
+<A name="thread"></A>
+<DIV class="feedback">
+<DIV class="rbox"><!-- closed in cs_disc/thread_header.view -->
+<DIV class="rboxtop"><DIV></DIV></DIV>
+<DIV class="rbcontent"><!-- closed in cs_disc/thread_header.view -->
+<B class="headline">Does DbUnit solve your unit testing problems?</B><BR>
+<SPAN class="smalltext">You must be <A href="http://www.oreillynet.com/cs/user/login?x-redirect=http://onjava.com/pub/a/onjava/2004/01/21/dbunit.html">logged in</A> to the O'Reilly Network to post a talkback.</SPAN>
+<DIV class="clear"></DIV>
+<DIV class="tb_left"><A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_disc/5395&x-lr2=a/4364&page="><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/button_post.gif" border="0" width="118" height="20" alt="Post Comment"></A></DIV>
+
+<!-- thread_header.view -->
+<DIV class="tb_right">
+
+<A href="http://onjava.com/pub/a/onjava/2004/01/21/dbunit.html?page=last&x-maxdepth=0#thread"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/button_main_threads.gif" hspace="6" alt="Full Threads" title="Display main threads only" border="0"></A>
+<A href="http://onjava.com/pub/a/onjava/2004/01/21/dbunit.html?page=last&x-order=date#thread"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/button_old.gif" alt="Oldest First" title="Sort oldest posts first" border="0"></A>
+
+</DIV><!--end .tb_right -->
+
+<!-- this div is causing a problem on dm -->
+<!-- <div class="clear"></div> -->
+
+<!-- closing divs from a/print.view, et al -->
+
+
+</DIV> <!--end div.rbcontent -->
+<DIV class="rboxbot"><DIV></DIV></DIV>
+</DIV> <!--end div.rbox -->
+
+
+
+
+
+<P class="smalltext">Showing messages 1 through 21 of 21.
+
+</P>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_98254"></A>
+<SPAN class="headline">introduce another better DB UnitTest tool</SPAN><BR>
+<SPAN class="smalltext">
+2009-04-16 01:45:16&nbsp;<!-- begin conditional display of username -->
+
+AnyDbTest
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/98254&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/98254" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+I am glad to share one database unit testing tool. It is named as AnyDbTest (www.anydbtest.com (http://www.anydbtest.com) ). AnyDbTest Express edition is free of charge. <BR>
+<BR>
+ <BR>
+I know some guys are using DbUnit or other xUnit test framework to perform DB unit testing. I also tried to use them in my projects, but at last I had to give up these tools because I must keep focus on the database rather than switch to be as application developer.<BR>
+<BR>
+AnyDbTest is declarative style testing tool. We will not need to program at all. What we do is to express what we want to test, rather than how to test. We only need to configure an Xml test file to tell AnyDbTest what we want to test.  Rather than painstakingly writing test code for xUnit test framework. So AnyDbTest is the right choice for DBA or DB developers.   <BR>
+<BR>
+AnyDbTest also offers a visual dashboard. Success or failure of test is automatically computed and presented to us via an easy-to-understand red/green light display.  <BR>
+ <BR>
+Features specific to AnyDbTest: <BR>
+*Writing test case with Xml, rather than Java/C++/C#/VB test case code. <BR>
+*Many kinds of assertion supported, such as StrictEqual, SetEqual, IsSupersetOf, Overlaps, and RecordCountEqual etc.<BR>
+*Allows using Excel spreadsheet/Xml as the source of the data for the tests.<BR>
+*Supports Sandbox test model, if test will be done in sandbox, all database operations will be rolled back meaning any changes will be undone.<BR>
+*Unique cross-different-type-database testing, which means target and reference result set can come from two databases, even one is SQL Server, another is Oracle.<BR>
+
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_98722"></A>
+<SPAN class="headline">introduce another better DB UnitTest tool</SPAN><BR>
+<SPAN class="smalltext">
+2009-08-06 02:07:06&nbsp;<!-- begin conditional display of username -->
+
+luckygirl
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/98722&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/98722" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+My thesis is 'database testing',can you help me about process testing and method testing.<BR>
+thanks,<BR>
+Regard
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_97187"></A>
+<SPAN class="headline">DBUnit problem</SPAN><BR>
+<SPAN class="smalltext">
+2008-09-22 05:06:17&nbsp;<!-- begin conditional display of username -->
+
+winchetan
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/97187&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/97187" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+i get "org.dbunit.dataset.DataSetException: Line 2: The processing instruction target matching "[xX][mM][lL]" is not allowed."<BR>
+<BR>
+Error while running my dbunit java files,is there any solution please let me know.
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_95804"></A>
+<SPAN class="headline">DML statements in DBUnit testcase</SPAN><BR>
+<SPAN class="smalltext">
+2008-04-20 23:12:45&nbsp;<!-- begin conditional display of username -->
+
+joslin rogtao
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/95804&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/95804" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Hi!<BR>
+M testing DML statements in DBUnit testcases, the new values are reflected in the database but the testcase throws invalid sql statement exception, what shud i do?<BR>
+plz help me in this rgrd
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_95803"></A>
+<SPAN class="headline">DML statements in DBUnit testcase</SPAN><BR>
+<SPAN class="smalltext">
+2008-04-20 23:12:15&nbsp;<!-- begin conditional display of username -->
+
+joslin rogtao
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/95803&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/95803" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Hi!<BR>
+M testing DML statements in DBUnit testcases, the new values are reflected in the database but the testcase throws invalid sql statement exception, what shud i do?<BR>
+plz help me in this rgrd
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_90636"></A>
+<SPAN class="headline">how to work with DML statements and transactions</SPAN><BR>
+<SPAN class="smalltext">
+2007-04-30 04:37:43&nbsp;<!-- begin conditional display of username -->
+
+Nups
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/90636&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/90636" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+how to use dbUnit when we come across DML satements like insert,update and delete?<BR>
+Also how to work with stored procedures and transactions with DBUnit?<BR>
+While working with a query that involves Joining of two tables i made the seed XML file explicitly.the seed XML file contained the actual output of the join query.i think the approach is not correct.can anyone help me out with the actual solution.
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_86735"></A>
+<SPAN class="headline">how avoid indentity_insert problem</SPAN><BR>
+<SPAN class="smalltext">
+2006-11-14 21:45:41&nbsp;<!-- begin conditional display of username -->
+
+jothinst
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/86735&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/86735" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+<BR>
+<BR>
+     I having table which has identity_insert ON.so i cant give values explicitly for particular columns to that table.In that time how can i give values in the xml file to run dbunit.?help me soon..
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_86780"></A>
+<SPAN class="headline">how avoid indentity_insert problem</SPAN><BR>
+<SPAN class="smalltext">
+2006-11-16 13:17:05&nbsp;<!-- begin conditional display of username -->
+
+aglover
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/86780&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/86780" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Turn off identity insert, if possible via identity_insert_off
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_86734"></A>
+<SPAN class="headline">how avoid indentity_insert problem</SPAN><BR>
+<SPAN class="smalltext">
+2006-11-14 21:44:23&nbsp;<!-- begin conditional display of username -->
+
+jothinst
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/86734&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/86734" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+<BR>
+<BR>
+     I having table which has identity_insert on.so i cant give values explicitly.at that time how can i run dbunit.?help me soon..
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_78354"></A>
+<SPAN class="headline">how to test stored procedure</SPAN><BR>
+<SPAN class="smalltext">
+2006-01-13 05:32:37&nbsp;<!-- begin conditional display of username -->
+
+mkg1232000
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/78354&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/78354" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+I would like to know how the testing of stored procedures can be done using DBUnit. If the stored procedure returns multiple resultset then is it possible to test using DBUnit, if so please explain.<BR>
+<BR>
+Thanks<BR>
+Manoj
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_78525"></A>
+<SPAN class="headline">how to test stored procedure</SPAN><BR>
+<SPAN class="smalltext">
+2006-01-16 12:16:14&nbsp;<!-- begin conditional display of username -->
+
+aglover
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/78525&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/78525" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+DbUnit works best as a database seeding framework. If you’d like to test a stored proc, then use DbUnit to seed the database with a known set of data, then call the stored proc via your test case and assert that returns the desired result. 
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_80591"></A>
+<SPAN class="headline">how to test stored procedure</SPAN><BR>
+<SPAN class="smalltext">
+2006-03-02 07:32:14&nbsp;<!-- begin conditional display of username -->
+
+suman_s65
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/80591&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/80591" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+You may need to use the combination of DBUnit[to simulate different database states] with sqlunit[for testing stored procedures..http://sqlunit.sourceforge.net]
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_66928"></A>
+<SPAN class="headline">How about DbUnit for NUnit?</SPAN><BR>
+<SPAN class="smalltext">
+2005-08-02 01:43:18&nbsp;<!-- begin conditional display of username -->
+
+Tesuji
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/66928&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/66928" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+DbUnit sounds great, exactly what I'm looking for. However, I need it for a C#/.NET project. Does something like that exists?
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_79809"></A>
+<SPAN class="headline">How about DbUnit for NUnit?</SPAN><BR>
+<SPAN class="smalltext">
+2006-02-10 12:30:22&nbsp;<!-- begin conditional display of username -->
+
+aglover
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/79809&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/79809" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Check out www.ndbunit.org for a .NET project similar to DbUnit. 
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_62742"></A>
+<SPAN class="headline">code</SPAN><BR>
+<SPAN class="smalltext">
+2005-06-03 05:08:45&nbsp;<!-- begin conditional display of username -->
+
+krishnamishra
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/62742&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/62742" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+I would like to get the full implementation of the code.How the methods are tested.How its tested in IDE'S like eclipse.
+
+</DIV>
+</LI>
+
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_39003"></A>
+<SPAN class="headline">code</SPAN><BR>
+<SPAN class="smalltext">
+2004-05-04 04:59:34&nbsp;<!-- begin conditional display of username -->
+
+rockhopper
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/39003&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/39003" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Where is the download link for the examples code used in this article? Or do you expect use to type it in and take your word for it that it works?
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_50600"></A>
+<SPAN class="headline">code</SPAN><BR>
+<SPAN class="smalltext">
+2005-01-18 22:34:55&nbsp;<!-- begin conditional display of username -->
+
+jaymun
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/50600&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/50600" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+mail the link or zip file for code<BR>
+Thanks
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_84116"></A>
+<SPAN class="headline">code</SPAN><BR>
+<SPAN class="smalltext">
+2006-07-20 01:57:35&nbsp;<!-- begin conditional display of username -->
+
+DivyaAliceAjay
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/84116&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/84116" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+Please do let me know if you have got the code...this is very urgent for me<BR>
+<BR>
+thanks a ton
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_33426"></A>
+<SPAN class="headline">what about JTA?</SPAN><BR>
+<SPAN class="smalltext">
+2004-03-01 12:54:22&nbsp;<!-- begin conditional display of username -->
+
+cpfeifer
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/33426&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/33426" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+If you're using JTA and cannot test your code easily outside of a J2EE container, can you somehow use dbUnit with Cactus?
+
+</DIV>
+</LI>
+
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_33442"></A>
+<SPAN class="headline">what about JTA?</SPAN><BR>
+<SPAN class="smalltext">
+2004-03-02 08:01:40&nbsp;<!-- begin conditional display of username -->
+
+aglover
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/33442&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/33442" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+You could use DbUnit's Ant functionality to abstract the seeding out of your actual cactus test cases. That way, you could write your tests with cactus and then run them with an Ant target, which has preconditions (written with DbUnit's Ant tags) to put the DB into a known state.
+
+</DIV>
+</LI>
+
+</UL>
+</UL>
+<UL>
+
+
+
+<LI>
+
+
+
+
+<A name="id_31718"></A>
+<SPAN class="headline">Misleading Headline</SPAN><BR>
+<SPAN class="smalltext">
+2004-01-22 02:38:34&nbsp;<!-- begin conditional display of username -->
+
+chrisrimmer
+
+
+<!-- end conditional display of username -->
+
+<!-- csif cond="1" -->
+[<A href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_msg/31718&x-lr2=a/4364" class="smalltext" title="Reply to this message">Reply</A> | <A href="http://www.oreillynet.com//cs/user/view/cs_msg/31718" class="smalltext">View</A>]</SPAN><BR>
+
+<BR>
+<DIV class="commenttext">
+
+I think the headline on O'ReillyNet "Testing database code without a database" is a bit misleading.  It suggests that dbUnit is some kind of mock database.
+
+</DIV>
+</LI>
+
+</UL>
+<!-- thread_footer.view -->
+
+
+
+</DIV><!-- end div.feedback -->
+</DIV> <!-- end noindex -->
+
+
+
+<BR><BR>
+
+
+
+
+
+<!-- end content -->
+
+</DIV><!-- #article -->
+
+<DIV id="related">
+
+<!--Add Beautiful Code Feeds -->
+<DIV class="sidebar-item">
+<DIV class="sidebar-item-content">
+<A href="http://beautifulcode.oreillynet.com/">
+   <IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/beautiful_code_weblogs.gif" border="0"></A>
+<P class="secondary"><B><A href="http://beautifulcode.oreillynet.com/2008/04/resource_management_a_critical.php">Resource Management: A Critical Look at RAII</A></B> <EM>Michael Feathers</EM></P><P class="secondary"><B><A href="http://beautifulcode.oreillynet.com/2008/04/the_logs_that_bind_1.php">The Logs That Bind..</A></B> <EM>Michael Feathers</EM></P><P class="secondary"><B><A href="http://beautifulcode.oreillynet.com/2008/04/the_design_boundary.php">Outside the Design Boundary</A></B> <EM>Michael Feathers</EM></P><P class="secondary"><B><A href="http://beautifulcode.oreillynet.com/2008/04/can_a_program_lie_to_you_the_w.php">Can a program lie to you the way a story or essay can?</A></B> <EM>Andy Oram</EM></P>
+<P align="right" class="smalltext"><A href="http://beautifulcode.oreillynet.com/">&gt; More from Beautiful Code</A></P>
+</DIV>
+</DIV>
+
+
+<DIV class="sidebar-item">
+<H3>Tagged Articles</H3>
+<DIV class="sidebar-item-content tags">
+<P class="addtags"><A class="delicious" title="Post to del.icio.us." href="http://del.icio.us/post" onclick="window.open(&#39;http://del.icio.us/post?v=4&amp;partner=orn&amp;noui&amp;jump=close&amp;url=&#39;+encodeURIComponent(location.href)+&#39;&amp;title=&#39;+encodeURIComponent(document.title),&#39;delicious&#39;,&#39;toolbar=no,width=700,height=400&#39;); return false;">Post to del.icio.us</A><BR><BR>
+This article has been tagged:</P>
+
+<DIV class="tabberlive"><DIV class="tabcontainer"><UL class="tabbernav"><LI class="tabberactive">
+<A href="javascript:void(null);" title="java" id="undefinednav1">java</A></LI><LI class="">
+<A href="javascript:void(null);" title="testing" id="undefinednav2">testing</A></LI><LI class="">
+<A href="javascript:void(null);" title="database" id="undefinednav3">database</A></LI><LI class="">
+<A href="javascript:void(null);" title="junit" id="undefinednav4">junit</A></LI><LI class="">
+<A href="javascript:void(null);" title="dbunit" id="undefinednav5">dbunit</A></LI></UL></DIV>
+<DIV class="tabbertab " title=""><H2>java</H2> <P style="padding-top:5px;">Articles that share the tag <EM>java</EM>:</P><P><A href="http://www.onjava.com/pub/a/onjava/2006/08/16/profiling-with-eclipse-callisto.html">Profiling Your Applications with Eclipse Callisto</A> <SPAN class="tagcount">(113 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/09/14/what-is-a-portlet.html">What Is a Portlet</A> <SPAN class="tagcount">(101 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/01/12/xpath.html">Parsing an XML Document with XPath</A> <SPAN class="tagcount">(79 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/04/27/restweb.html">The REST of the Web</A> <SPAN class="tagcount">(75 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/02/09/eclipse.html">Eclipse Plugins Exposed, Part 1: A First Glimpse</A> <SPAN class="tagcount">(69 tags)</SPAN></P><P class="more"><A href="http://www.oreillynet.com/tags.csp?tag=java">View All</A></P></DIV><DIV class="tabbertab tabbertabhide" title=""><H2>testing</H2> <P style="padding-top:5px;">Articles that share the tag <EM>testing</EM>:</P><P><A href="http://www.onjava.com/pub/a/onjava/2006/08/16/profiling-with-eclipse-callisto.html">Profiling Your Applications with Eclipse Callisto</A> <SPAN class="tagcount">(49 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/01/12/mocquer.html">Mock Objects in Unit Tests</A> <SPAN class="tagcount">(27 tags)</SPAN></P><P><A href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">Test-Driven Development in Python</A> <SPAN class="tagcount">(20 tags)</SPAN></P><P><A href="http://www.perl.com/pub/a/2005/02/10/database_kata.html">Perl Code Kata: Testing Databases</A> <SPAN class="tagcount">(16 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2004/11/17/agileuser_1.html">Agile User Interface Development</A> <SPAN class="tagcount">(15 tags)</SPAN></P><P class="more"><A href="http://www.oreillynet.com/tags.csp?tag=testing">View All</A></P></DIV><DIV class="tabbertab tabbertabhide" title=""><H2>database</H2> <P style="padding-top:5px;">Articles that share the tag <EM>database</EM>:</P><P><A href="http://www.onlamp.com/pub/a/onlamp/2003/06/26/fulltext.html">MySQL FULLTEXT Searching</A> <SPAN class="tagcount">(54 tags)</SPAN></P><P><A href="http://www.onlamp.com/pub/a/onlamp/2005/06/16/MySQLian.html">Live Backups of MySQL Using Replication</A> <SPAN class="tagcount">(53 tags)</SPAN></P><P><A href="http://www.onlamp.com/pub/a/onlamp/2006/04/20/advanced-mysql-replication.html">Advanced MySQL Replication Techniques</A> <SPAN class="tagcount">(53 tags)</SPAN></P><P><A href="http://www.xml.com/pub/a/2005/09/21/atom-store-web-database.html">Dreaming of an Atom Store: A Database for the Web</A> <SPAN class="tagcount">(49 tags)</SPAN></P><P><A href="http://www.onlamp.com/pub/a/onlamp/2004/09/30/from_clauses.html">How to Misuse SQL's FROM Clause</A> <SPAN class="tagcount">(38 tags)</SPAN></P><P class="more"><A href="http://www.oreillynet.com/tags.csp?tag=database">View All</A></P></DIV><DIV class="tabbertab tabbertabhide" title=""><H2>junit</H2> <P style="padding-top:5px;">Articles that share the tag <EM>junit</EM>:</P><P><A href="http://www.onjava.com/pub/a/onjava/2004/02/04/juie.html">Using JUnit With Eclipse IDE</A> <SPAN class="tagcount">(21 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/01/12/mocquer.html">Mock Objects in Unit Tests</A> <SPAN class="tagcount">(18 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2005/07/13/pisces.html">Taking JUnit Out of the Box</A> <SPAN class="tagcount">(4 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2004/02/11/mocks.html">Approaches to Mocking</A> <SPAN class="tagcount">(2 tags)</SPAN></P><P><A href="http://www.onjava.com/pub/a/onjava/2004/01/21/dbunit.html">Effective Unit Testing with DbUnit</A> <SPAN class="tagcount">(2 tags)</SPAN></P><P class="more"><A href="http://www.oreillynet.com/tags.csp?tag=junit">View All</A></P></DIV><DIV class="tabbertab tabbertabhide" title=""><H2>dbunit</H2> <P style="padding-top:5px;">Articles that share the tag <EM>dbunit</EM>:</P><P><A href="http://www.onjava.com/pub/a/onjava/2004/01/21/dbunit.html">Effective Unit Testing with DbUnit</A> <SPAN class="tagcount">(2 tags)</SPAN></P><P class="more"><A href="http://www.oreillynet.com/tags.csp?tag=dbunit">View All</A></P></DIV></DIV></DIV></DIV>
+
+<!-- sponsored developer resources -->
+<DIV class="sidebar-item">
+<H3>Sponsored Resources</H3>
+<DIV class="sidebar-item-content">
+
+<UL style="margin: 0 0 0 1.2em;padding: 0;">
+<LI><A href="http://digitalmedia.oreilly.com/lightroom/">Inside Lightroom</A></LI>
+</UL>
+
+</DIV>
+</DIV>
+
+
+<!-- csperl file="article_related_to" topic="25" / -->
+
+
+
+<!-- ###### AK start ###### -->
+
+<!--
+<div class="sidebar-item">
+
+
+<div class="sidebar-item-content">
+-->
+
+<DIV>
+
+
+
+
+
+
+<A id="akAPI" style="text-decoration: none; font-weight: normal; "><!--
+    <link rel="stylesheet" HREF="http://api.aggregateknowledge.com/2007/01/15/css" TYPE="text/css" MEDIA=screen>
+-->
+    <SCRIPT agkn="agkn" type="text/javascript" id="akheaderscript">
+        if(document.createStyleSheet)
+        {
+            document.createStyleSheet('http://api.aggregateknowledge.com/2007/01/15/css');
+        } else {
+            var styles = "@import url(' http://api.aggregateknowledge.com/2007/01/15/css ');";
+            var akStylesheet = document.createElement('link');
+            akStylesheet.rel = 'stylesheet';
+            akStylesheet.href = 'data:text/css,' + escape(styles);
+            document.getElementsByTagName('head')[0].appendChild(akStylesheet);
+        }
+    </SCRIPT>
+<TABLE>
+	<TBODY><TR>
+		<TD>
+			<DIV class="sidebar-item">
+				<H3>Recommended for You</H3>
+				<DIV class="sidebar-item-content" style="text-align: center">
+                        				                        <P>
+		                        	<A href="http://api.aggregateknowledge.com/cp?t=training.oreilly.com%2Fandroidapps%2F%3fCMP%3dAFC-ak_training%26ATT%3dO%2527Reilly%2bTraining%253A%2bDeveloping%2bAndroid%2bApplications%253A%2bBuild%252c%2bCompile%252c%2band%2bTest%2bYour%2bFirst%2bAndroid%2bApplication&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=0&s=DE&rt=RECOMMENDATION&i=443"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/icon_android.png" border="0" alt="O&#39;Reilly Training: Developing Android Applications: Build, Compile, and Test Your First Android Application" style="padding-bottom: 6px;"></A>
+	                        		<BR>
+	                        												<A href="http://api.aggregateknowledge.com/cp?t=training.oreilly.com%2Fandroidapps%2F%3fCMP%3dAFC-ak_training%26ATT%3dO%2527Reilly%2bTraining%253A%2bDeveloping%2bAndroid%2bApplications%253A%2bBuild%252c%2bCompile%252c%2band%2bTest%2bYour%2bFirst%2bAndroid%2bApplication&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=0&s=DE&rt=RECOMMENDATION&i=443"><STRONG>O'Reilly Training: Developing Android Applications: Build, Compile, and Test Your First Android Application</STRONG></A>
+										<BR>
+																		                        		</P>
+                        		                        			<HR> <!-- 2 -->
+		                        		                        <P>
+		                        	<A href="http://api.aggregateknowledge.com/cp?t=www.web2expo.com%2Fwebexny2009%2Fpublic%2Fschedule%2Fdetail%2F9864%3fCMP%3dAFC-ak_conference%26ATT%3dWeb%253AJava%2bin%2bWeb%2b2.0&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=1&s=DE&rt=RECOMMENDATION&i=443"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/webexny2009_logo_ak.png" border="0" alt="" style="padding-bottom: 6px;"></A>
+	                        		<BR>
+	                        												<A href="http://api.aggregateknowledge.com/cp?t=www.web2expo.com%2Fwebexny2009%2Fpublic%2Fschedule%2Fdetail%2F9864%3fCMP%3dAFC-ak_conference%26ATT%3dWeb%253AJava%2bin%2bWeb%2b2.0&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=1&s=DE&rt=RECOMMENDATION&i=443"><STRONG>Java in Web 2.0</STRONG></A>
+																		                        		</P>
+                        		                        			<HR> <!-- 3 -->
+		                        		                        <P>
+		                        	<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780596002398%3fCMP%3dAFC-ak_book%26ATT%3dDreamweaver%2bin%2ba%2bNutshell%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=2&s=DE&rt=RECOMMENDATION&i=443"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/bkt.gif" border="0" alt="Dreamweaver in a Nutshell," style="padding-bottom: 6px;"></A>
+	                        		<BR>
+	                        												<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780596002398%3fCMP%3dAFC-ak_book%26ATT%3dDreamweaver%2bin%2ba%2bNutshell%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=2&s=DE&rt=RECOMMENDATION&i=443"><STRONG>Dreamweaver in a Nutshell,</STRONG></A>
+										<BR>
+										 Format: Print, 
+																												$29.95
+									                        		</P>
+                        		                        			<HR> <!-- 4 -->
+		                        		                        <P>
+		                        	<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780596510237%3fCMP%3dAFC-ak_book%26ATT%3dChecking%2bJava%2bPrograms%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=3&s=DE&rt=RECOMMENDATION&i=443"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/bkt(1).gif" border="0" alt="Checking Java Programs," style="padding-bottom: 6px;"></A>
+	                        		<BR>
+	                        												<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780596510237%3fCMP%3dAFC-ak_book%26ATT%3dChecking%2bJava%2bPrograms%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=3&s=DE&rt=RECOMMENDATION&i=443"><STRONG>Checking Java Programs,</STRONG></A>
+										<BR>
+										 Format: Ebook, 
+																												$9.99
+									                        		</P>
+                        		                        			<HR> <!-- 5 -->
+		                        		                        <P>
+		                        	<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780978739218%3fCMP%3dAFC-ak_book%26ATT%3dRelease%2bIt!%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=4&s=DE&rt=RECOMMENDATION&i=443"><IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/bkt(2).gif" border="0" alt="Release It!," style="padding-bottom: 6px;"></A>
+	                        		<BR>
+	                        												<A href="http://api.aggregateknowledge.com/cp?t=oreilly.com%2Fcatalog%2F9780978739218%3fCMP%3dAFC-ak_book%26ATT%3dRelease%2bIt!%252c&f=www.onjava.com%2Fpub%2Fa%2Fonjava%2F2004%2F01%2F21%2Fdbunit.html&rg=979&sid=0&rid=1&a=9561&p=4&s=DE&rt=RECOMMENDATION&i=443"><STRONG>Release It!,</STRONG></A>
+										<BR>
+										 Format: Print, 
+																												$34.95
+									                        		</P>
+																						</DIV>	
+			</DIV>
+		</TD>
+	</TR>
+</TBODY></TABLE>
+
+
+
+</A>
+
+<SCRIPT type="text/javascript">
+
+    var akApiKey = 'RecEngine-49CCF850-02C7-B730-5489-DB7D929405CD';
+
+    var akTarget = 'http://www.onjava.com/pub/a/onjava/2004/01/21/dbunit.html';
+
+    var akDescription = 'Effective Unit Testing with DbUnit';
+
+    var akThumbnailUrl = 'http://oreilly.com/images/oreilly/java.png';
+
+    var akTargetType = 'article';
+    var akRegion = 'OnJavaArticle';
+    var akIntent = 'VIEW';
+    var akKeywords = 'publishDate:20040121';
+
+    var akScript = document.createElement('script');
+
+    akScript.setAttribute('src','http://api.aggregateknowledge.com/2007/01/15/js/'  + (new Date()).valueOf() % 3600000 + '.js');
+
+   document.getElementsByTagName('head')[0].appendChild(akScript);
+
+</SCRIPT>
+
+
+
+
+
+<!--
+</div>
+-->
+</DIV>
+
+<!-- ####### AK end ###### -->
+
+<!--Hirereach Widget -->
+<DIV style="text-align:center; padding-bottom:20px;">
+
+
+<SCRIPT type="text/javascript"><!--//<![CDATA[ 
+var m3_u = (location.protocol=='https:')?'https://jobs.hrkspjbs.com/js.ashx':'http://jobs.hrkspjbs.com/js.ashx'; 
+var m3_r = Math.floor(Math.random()*99999999999); 
+document.write ("<sc"+"ri"+"pt type='text/javascript' src='"+m3_u); 
+document.write ("?pid=2B9C484E4C084CE1A90E33EB9CE8FE7B"); 
+document.write ("&amp;tl=" + m3_r); 
+document.write ("&amp;did=a4364"); 
+document.write ("&amp;loc=" + escape(window.location)); 
+if (document.referrer) document.write ("&amp;referer=" +
+escape(document.referrer)); 
+if (document.context) document.write ("&context=" +
+escape(document.context)); 
+document.write ("'></sc"+"ri"+"pt>");
+//]]>--></SCRIPT><SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/js.ashx"></SCRIPT>
+
+
+
+</DIV>
+
+<DIV style="text-align:center;background-color:#eee;padding-top:10px;padding-bottom:10px;">
+<IMG src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/advertisement.gif" alt="Advertisement" style="padding-bottom:10px;"><BR>
+
+<DIV align="center">
+<!--JavaScript Tag // Tag for network 5159: TechVertical // Website: OR - ONJava // Page: ONJava // Placement: ros_160x600 (425852) // created at: Oct 9, 2008 5:48:40 PM-->
+<SCRIPT language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/425852/0/154/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</SCRIPT><SCRIPT language="javascript1.1" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group](3)"></SCRIPT>
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/tags.js">
+</SCRIPT><CENTER><SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/j.ad"></SCRIPT><SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-4136420132070439";
+/* 160x600, created 12/5/08 */
+google_ad_slot = "3167763228";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/show_ads.js">
+</SCRIPT><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/expansion_embed.js"></SCRIPT><SCRIPT src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><INS style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><INS style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><IFRAME allowtransparency="true" frameborder="0" height="600" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/ads.htm" style="left:0;position:absolute;top:0" vspace="0" width="160"></IFRAME></INS></INS></CENTER>
+
+<NOSCRIPT></NOSCRIPT>
+
+<!-- End of JavaScript Tag --></DIV>
+
+
+</DIV>
+
+
+</DIV><!-- #related -->
+
+</DIV><!-- #page-content -->
+
+<BR clear="all">
+
+<!-- footer -->
+<DIV id="footer" class="noindex">
+
+<TABLE border="0" style="padding-top: 20px; padding-bottom: 20px">
+
+<TBODY>
+
+
+<TR><TD valign="top" align="left" width="25%" style="padding-left: 20px; padding-right: 20px;">
+<A href="http://oreilly.com/"><IMG width="155" height="35" border="0" alt="O&#39;Reilly Media" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/oreilly-logo-footer.gif"></A>
+<BR><BR>
+©2009, O'Reilly Media, Inc.<BR>(707) 827-7000 / (800) 998-9938<BR> All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners. </TD>
+
+<TD class="footercol1" valign="top">
+<STRONG>About O'Reilly</STRONG>
+<BR>
+
+<A href="http://oreilly.com/academic/">Academic Solutions</A><BR>
+<A href="http://oreilly.com/authors/">Authors</A>
+<BR>
+<A href="http://oreilly.com/contact.html">Contacts</A>
+<BR>
+
+<A href="http://oreilly.com/oreilly/cs/">Customer Service</A>
+
+<BR>
+<A href="http://oreilly.com/jobs/">Jobs</A>
+<BR>
+<A href="http://elists.oreilly.com/">Newsletters</A>
+<BR>
+<A href="http://labs.oreilly.com/">O'Reilly Labs</A>
+<BR>
+
+<A href="http://press.oreilly.com/">Press Room</A>
+<BR>
+<A href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</A>
+<BR>
+<A href="http://oreilly.com/feeds/">RSS Feeds</A>
+<BR>
+<A href="http://oreilly.com/terms/">Terms of Service</A>
+
+<BR>
+
+<A href="http://ug.oreilly.com/">User Groups</A>
+<BR>
+<A href="http://oreilly.com/oreilly/author/intro.csp">Writing for
+O'Reilly</A>
+<BR>
+
+</TD>
+
+<TD class="footercol2" valign="top">
+<STRONG>Content Archive</STRONG><BR>
+<A href="http://oreilly.com/content/business-technology.shtml">Business Technology</A> <BR>
+<A href="http://oreilly.com/content/computer-technology.shtml">Computer Technology</A> <BR>
+
+<A href="http://oreilly.com/content/google.shtml">Google</A> <BR>
+<A href="http://oreilly.com/content/microsoft.shtml">Microsoft</A> <BR>
+<A href="http://oreilly.com/content/mobile.shtml">Mobile</A> <BR>
+<A href="http://oreilly.com/content/network.shtml"> Network</A> <BR>
+<A href="http://oreilly.com/content/operating-system.shtml">Operating System</A> <BR>
+<A href="http://oreilly.com/content/digital-photography.shtml">Digital Photography</A> <BR>
+
+<A href="http://oreilly.com/content/programming.shtml">Programming</A> <BR>
+<A href="http://oreilly.com/content/software.shtml">Software</A> <BR>
+<A href="http://oreilly.com/content/web.shtml">Web</A>
+<BR>
+<A href="http://oreilly.com/content/web-design.shtml">Web Design</A><BR>
+
+</TD>
+
+<TD class="footercol3" valign="top">
+
+<STRONG>More O'Reilly Sites</STRONG>
+
+<BR>
+<A href="http://radar.oreilly.com/">O'Reilly Radar</A>
+<BR>
+<A href="http://ignite.oreilly.com/">Ignite</A>
+<BR>
+<A href="http://toc.oreilly.com/">Tools of Change for Publishing</A>
+
+<BR>
+<A href="http://digitalmedia.oreilly.com/">Digital Media</A>
+
+<BR>
+<A href="http://digitalmedia.oreilly.com/iphone/?CMP=ILC-orm_sponsor_footer_links&ATT=iphone">Inside iPhone</A>
+<BR>
+<A href="http://fyi.oreilly.com/">O'Reilly FYI</A>
+<BR>
+<A href="http://makezine.com/">makezine.com</A>
+<BR>
+<A href="http://craftzine.com/">craftzine.com</A>
+
+<BR>
+<A href="http://hackszine.com/">hackszine.com</A>
+<BR>
+<A href="http://perl.com/">perl.com</A>
+
+<BR>
+<A href="http://xml.com/">xml.com</A>
+<BR><BR>
+<STRONG>Partner Sites</STRONG>
+
+<BR>
+
+<A href="http://insideria.com/?CMP=ILC-orm_sponsor_footer_links&ATT=ria">InsideRIA</A>
+<BR>
+<A href="http://java.net/?CMP=ILC-orm_sponsor_footer_links&ATT=java">java.net</A>
+<BR>
+<A href="http://www.forbes.com/oreillyinsights/">O'Reilly Insights on Forbes.com</A><BR>
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</DIV>
+
+<!-- #footer -->
+</DIV><!-- #page -->
+
+
+
+
+<IFRAME id="_atssh" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; left: 0px; top: 0px; " height="1" width="1" src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/sh04.htm"></IFRAME><DIV id="stwrapper" class="stwrapper" style="visibility: hidden; top: -999px; left: -999px; "><DIV class="stclose"></DIV><IFRAME allowtransparency="true" id="stframe" class="stframe" name="stframe" frameborder="0" scrolling="no" width="353px" height="598px" style="top: 0px; left: 0px; " src="./EffectiveUnitTestingwithDbUnit-OReillyMedia_files/lightbox.ecc0a58a588e8a897ad27390d905e7db.htm"></IFRAME></DIV></BODY></HTML>

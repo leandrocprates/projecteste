@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.dbunit.org/properties.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>DbUnit - Configurable Features and Properties</TITLE>
+    <STYLE type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </STYLE>
+    <LINK rel="stylesheet" href="./DbUnit-ConfigurableFeaturesandProperties_files/print.css" type="text/css" media="print">
+        
+                                                    
+<LINK rel="icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                                                        
+<LINK rel="shortcut icon" type="image/x-icon" href="http://www.dbunit.org/images/favicon.ico">
+                    </HEAD><BODY class="composite">
+    <DIV id="banner">
+                  <A href="http://www.dbunit.org/" id="bannerLeft">
+    
+                                            <IMG src="./DbUnit-ConfigurableFeaturesandProperties_files/dbunit-logo.jpg" alt="">
+    
+            </A>
+                        <A href="http://www.sourceforge.net/projects/dbunit" id="bannerRight">
+    
+                                    <IMG src="./DbUnit-ConfigurableFeaturesandProperties_files/sflogo.php" alt="">
+    
+            </A>
+            <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <DIV class="xleft">
+          
+                <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+                &gt;
+      
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+                  </DIV>
+            <DIV class="xright">            <A href="http://www.junit.org/index.htm" class="externalLink">JUnit</A>
+            |
+                <A href="http://www.dbunit.org/" class="externalLink">DBUnit</A>
+            
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+    <DIV id="leftColumn">
+      <DIV id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <H5>Quick Links</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://maven-plugins.sourceforge.net/maven-dbunit-plugin/index.html" class="externalLink">Maven 1.x Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://mojo.codehaus.org/dbunit-maven-plugin/" class="externalLink">Maven 2 Plugin</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/project/showfiles.php?group_id=47439" class="externalLink">Download</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/changes-report.html">Changes</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/faq.html">FAQ</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://dbunit.wikidot.com/" class="externalLink">Wiki</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://sourceforge.net/support/getsupport.php?group_id=47439" class="externalLink">Get Support</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/source-repository.html">Get source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/xref/index.html">Browse source</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/apidocs/index.html">JavaDocs</A>
+          </LI>
+          </UL>
+              <H5>Overview</H5>
+            <UL>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/index.html">About DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/intro.html">Database Testing</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/howto.html">Getting Started</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/bestpractices.html">Best Practices</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/components.html">Core Components</A>
+          </LI>
+              
+    <LI class="none">
+              <STRONG>Properties</STRONG>
+        </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/anttask.html">Ant Task</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/migration.html">Migration Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/building.html">Building DbUnit</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/devguide.html">Developers Guide</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/resources.html">Resources</A>
+          </LI>
+              
+    <LI class="none">
+                    <A href="http://www.dbunit.org/credits.html">Credits</A>
+          </LI>
+          </UL>
+                        <H5>Project Documentation</H5>
+            <UL>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-info.html">Project Information</A>
+                </LI>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <LI class="collapsed">
+                    <A href="http://www.dbunit.org/project-reports.html">Project Reports</A>
+                </LI>
+          </UL>
+                                           <A href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <IMG alt="Built by Maven" src="./DbUnit-ConfigurableFeaturesandProperties_files/maven-feather.png">
+          </A>
+                       
+  
+
+  
+    
+  
+  
+    
+            <DIV id="lastPublished">
+        Last Published: 20-Sep-2009
+              </DIV>
+            </DIV>
+    </DIV>
+    <DIV id="bodyColumn">
+      <DIV id="contentBox">
+        <DIV class="section"><H2><A></A>
+</H2>
+<H3>Configurable features and properties</H3><P>DbUnit does not use System properties anymore since version 2.0. DbUnit 
+        use a configuration object, <CODE>DatabaseConfig</CODE>, to query 
+        and set feature flags and property values for a <CODE>IDatabaseConnection</CODE>. 
+        It is possible to change DbUnit behaviors, such as using batched statements 
+        or not, using the <CODE>getFeature</CODE>, <CODE>setFeature</CODE>, 
+        <CODE>getProperty</CODE>, and <CODE>setProperty</CODE> methods 
+        of <CODE>DatabaseConfig</CODE>. </P>
+<P>While feature flags are always boolean, property values are arbitrary objects.
+         Note that starting with dbunit 2.4.6 features can also be set using the setProperty method.</P>
+<P>The following sample displays the <CODE>batched statement</CODE> feature status:
+      </P><DIV class="source"><PRE>  String id = "http://www.dbunit.org/features/batchedStatements"; 
+  DatabaseConfig config = connection.getConfig(); 
+  if (config.getFeature(id)) 
+  { 
+    System.out.println("Batched statements is enabled."); 
+  } 
+  else 
+  { 
+    System.out.println("Batched statements is disabled."); 
+  } 
+</PRE>
+</DIV>
+<P></P>
+<BR>
+<BR>
+<H3>Feature Flags</H3><A name="batchstatement"></A>
+<H4>Batched statements</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Feature ID</TD>
+<TD>http://www.dbunit.org/features/batchedStatements</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>false</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Enable or disable usage of JDBC batched statement by DbUnit. </TD>
+</TR>
+</TBODY></TABLE>
+<A name="casesensitivetablenames"></A>
+<H4>Case sensitive table names</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>Feature ID</TD>
+<TD>http://www.dbunit.org/features/caseSensitiveTableNames</TD>
+</TR>
+<TR class="a"><TD>Default</TD>
+<TD>false</TD>
+</TR>
+<TR class="b"><TD>Description</TD>
+<TD>Enable or disable case sensitive table names. If enabled, Dbunit handles all
+            table names in a case sensitive way.</TD>
+</TR>
+</TBODY></TABLE>
+<A name="qualifiedtablenames"></A>
+<H4>Qualified table names</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Feature ID</TD>
+<TD>http://www.dbunit.org/features/qualifiedTableNames</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>false</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Enable or disable multiple schemas support. If enabled, Dbunit access 
+            tables with names fully qualified by schema using this format: SCHEMA.TABLE.</TD>
+</TR>
+<TR class="b"><TD>Note</TD>
+<TD>This feature is not compatible with the <A href="http://www.dbunit.org/properties.html#escapepattern">escape pattern</A>
+ property.</TD>
+</TR>
+</TBODY></TABLE>
+<A name="typewarning"></A>
+<H4>DataType warning</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Feature ID</TD>
+<TD>http://www.dbunit.org/features/datatypeWarning</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>true</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Enable or disable the warning message displayed when DbUnit encounter an unsupported data type.</TD>
+</TR>
+</TBODY></TABLE>
+<A name="skiporaclereyclebintables"></A>
+<H4>Skip Oracle 10g Recyclebin tables</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>Feature ID</TD>
+<TD>http://www.dbunit.org/features/skipOracleRecycleBinTables</TD>
+</TR>
+<TR class="a"><TD>Default</TD>
+<TD>false</TD>
+</TR>
+<TR class="b"><TD>Description</TD>
+<TD>Enable or disable the processing of oracle recycle bin tables (tables starting with BIN$).
+          Oracle 10g recyle bin tables may break DbUnit's assumption of tables name uniqueness within a schema
+          since these table are case sensitive. Enable this feature for Oracle 10g databases until the
+          bug in the oracle driver is fixed, which incorrectly reports this system tables to DbUnit.</TD>
+</TR>
+</TBODY></TABLE>
+<BR>
+<BR>
+<H3>Properties</H3><H4><A name="escapepattern">Escape pattern</A>
+</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/escapePattern</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD><I>none</I>
+</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Allows schema, table and column names escaping. The property value 
+            is an escape pattern where the ? is replaced by the name. For example, 
+            the pattern "[?]" is expanded as "[MY_TABLE]" for a table named "MY_TABLE". 
+            The most common escape pattern is "\"?\"" which surrounds the table name
+            with quotes (for the above example it would result in "\"MY_TABLE\"").
+            <BR>
+
+            As a fallback if no questionmark is in the given String and its length is one
+            it is used to surround the table name on the left and right side. For example
+            the escape pattern "\"" will have the same effect as the escape pattern "\"?\"".
+          </TD>
+</TR>
+<TR class="b"><TD>Note</TD>
+<TD>This property is not compatible with the <A href="http://www.dbunit.org/properties.html#qualifiedtablenames">qualified 
+            table names</A>
+ feature.
+          </TD>
+</TR>
+</TBODY></TABLE>
+<H4><A name="tabletype">Table Type</A>
+</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/tableType</TD>
+</TR>
+<TR class="b"><TD>Type</TD>
+<TD>String[]</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Used to configure the list of table types recognized by DbUnit. 
+            See <A href="http://java.sun.com/j2se/1.3/docs/api/java/sql/DatabaseMetaData.html#getTables(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String%5B%5D)" class="externalLink">java.sql.DatabaseMetaData.getTables</A>
+ 
+            for possible values.</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>String[]{"TABLE"}</TD>
+</TR>
+</TBODY></TABLE>
+<A name="typefactory"></A>
+<H4>DataType factory</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/datatypeFactory</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>org.dbunit.dataset.datatype.DefaultDataTypeFactory</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Used to configure the DataType factory. You can replace the default 
+            factory to add support for non-standard database vendor data types. 
+            The Object must implement <A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/datatype/IDataTypeFactory.html">org.dbunit.dataset.datatype.IDataTypeFactory</A>
+.</TD>
+</TR>
+<TR class="b"><TD>Note</TD>
+<TD>The following factories are currently available:
+            <UL><LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/db2/Db2DataTypeFactory.html">org.dbunit.ext.db2.Db2DataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/h2/H2DataTypeFactory.html">org.dbunit.ext.h2.H2DataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/hsqldb/HsqldbDataTypeFactory.html">org.dbunit.ext.db2.HsqldbDataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/mssql/MsSqlDataTypeFactory.html">org.dbunit.ext.mssql.MsSqlDataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/mysql/MySqlDataTypeFactory.html">org.dbunit.ext.mysql.MySqlDataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/oracle/OracleDataTypeFactory.html">org.dbunit.ext.oracle.OracleDataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/oracle/Oracle10DataTypeFactory.html">org.dbunit.ext.oracle.Oracle10DataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/postgresql/PostgresqlDataTypeFactory.html">org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/netezza/NetezzaDataTypeFactory.html">org.dbunit.ext.netezza.NetezzaDataTypeFactory</A>
+</LI>
+</UL>
+
+            When you want to create your own data type factory you may also want to look at the generic base implementation at
+            <A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/datatype/DefaultDataTypeFactory.html">org.dbunit.dataset.datatype.DefaultDataTypeFactory</A>
+</TD>
+</TR>
+</TBODY></TABLE>
+<A name="statementfactory"></A>
+<H4>Statement factory</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/statementFactory</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>org.dbunit.database.statement.PreparedStatementFactory</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Used to configure the statement factory. The Object must implement 
+              <A href="http://www.dbunit.org/apidocs/org/dbunit/database/statement/IStatementFactory.html">
+              org.dbunit.database.statement.IStatementFactory</A>
+.
+          </TD>
+</TR>
+</TBODY></TABLE>
+<A name="resultsettablefactory"></A>
+<H4>ResultSetTable factory</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/resultSetTableFactory</TD>
+</TR>
+<TR class="a"><TD>Default</TD>
+<TD>org.dbunit.database.CachedResultSetTableFactory</TD>
+</TR>
+<TR class="b"><TD>Description</TD>
+<TD>Used to configure the ResultSet table factory. The Object must implement 
+              <A href="http://www.dbunit.org/apidocs/org/dbunit/database/IResultSetTableFactory.html">
+              org.dbunit.database.IResultSetTableFactory</A>
+.
+          </TD>
+</TR>
+</TBODY></TABLE>
+<A name="primarykeysfilter"></A>
+<H4>Primary keys filter</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/primaryKeyFilter</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD><I>none</I>
+</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Use to override primary keys detection. The Object must implement 
+              <A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/filter/IColumnFilter.html">
+              org.dbunit.dataset.filter.IColumnFilter</A>
+.
+          </TD>
+</TR>
+</TBODY></TABLE>
+<A name="identitycolumnfilter"></A>
+<H4>MS SQL Server IDENTITY column filter</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/mssql/identityColumnFilter</TD>
+</TR>
+<TR class="a"><TD>Default</TD>
+<TD><I>none</I>
+</TD>
+</TR>
+<TR class="b"><TD>Description</TD>
+<TD>Use to override IDENTITY column detection. The Object must implement 
+              <A href="http://www.dbunit.org/apidocs/org/dbunit/dataset/filter/IColumnFilter.html">
+              org.dbunit.dataset.filter.IColumnFilter</A>
+.
+          </TD>
+</TR>
+</TBODY></TABLE>
+<A name="batchsize"></A>
+<H4>Batch Size</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/batchSize</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD><I>100</I>
+</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Integer object giving the size of batch updates.</TD>
+</TR>
+</TBODY></TABLE>
+<A name="fetchsize"></A>
+<H4>Fetch Size</H4>
+<TABLE class="bodyTable"><TBODY><TR class="b"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/fetchSize</TD>
+</TR>
+<TR class="a"><TD>Default</TD>
+<TD><I>100</I>
+</TD>
+</TR>
+<TR class="b"><TD>Description</TD>
+<TD>Integer object giving the statement fetch size for loading data into a result set table.</TD>
+</TR>
+</TBODY></TABLE>
+<A name="metadatahandler"></A>
+<H4>Metadata Handler</H4>
+<TABLE class="bodyTable"><TBODY><TR class="a"><TD>Property ID</TD>
+<TD>http://www.dbunit.org/properties/metadataHandler</TD>
+</TR>
+<TR class="b"><TD>Default</TD>
+<TD>org.dbunit.database.DefaultMetadataHandler</TD>
+</TR>
+<TR class="a"><TD>Description</TD>
+<TD>Used to configure the handler used to control database metadata related methods. 
+            The Object must implement 
+              <A href="http://www.dbunit.org/apidocs/org/dbunit/database/IMetadataHandler.html">
+              org.dbunit.database.IMetadataHandler</A>
+.
+          </TD>
+</TR>
+<TR class="b"><TD>Note</TD>
+<TD>The following RDBMS specific handlers are currently available:
+            <UL><LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/mysql/MySqlMetadataHandler.html">org.dbunit.ext.mysql.MySqlMetadataHandler</A>
+</LI>
+<LI><A href="http://www.dbunit.org/apidocs/org/dbunit/ext/netezza/NetezzaMetadataHandler.html">org.dbunit.ext.netezza.NetezzaMetadataHandler</A>
+</LI>
+</UL>
+
+            For all others the default handler should do the job:
+            <A href="http://www.dbunit.org/apidocs/org/dbunit/database/DefaultMetadataHandler.html">org.dbunit.database.DefaultMetadataHandler</A>
+</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+      </DIV>
+    </DIV>
+    <DIV class="clear">
+      <HR>
+    </DIV>
+    <DIV id="footer">
+      <DIV class="xright">©  
+          2002-2009
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </DIV>
+      <DIV class="clear">
+        <HR>
+      </DIV>
+    </DIV>
+  
+
+</BODY></HTML>

@@ -1,0 +1,458 @@
+
+<!-- saved from url=(0047)http://www.guj.com.br/article.show.logic?id=140 -->
+<HTML><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
+	
+
+
+
+
+<TITLE>GUJ - Tutorial sobre JTable do Swing - parte I</TITLE>
+<LINK href="./GUJ - Tutorial sobre JTable do Swing - parte I_files/guj3.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- OAS SETUP begin -->
+<SCRIPT language="JavaScript">
+<!--
+//configuration
+OAS_url = 'http://media.realmedia.com.br/RealMedia/ads/';
+OAS_listpos = 'Top,Right,x01,x04';
+OAS_query = '';
+OAS_sitepage = 'guj/internas';
+//end of configuration
+OAS_version = 10;
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+function OAS_NORMAL(pos) {
+	document.write('<A HREF="' + OAS_url + 'click_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" TARGET=_top>');
+	document.write('<IMG SRC="' + OAS_url + 'adstream_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" BORDER=0></A>');
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+OAS_version = 11;
+if (navigator.userAgent.indexOf('Mozilla/3') != -1)
+OAS_version = 10;
+if (OAS_version >= 11)
+document.write('<SCR'+ 'IPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url + 'adstream_mjx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + OAS_query + '"></SC'+'RIPT>');
+//-->
+</SCRIPT><SCRIPT language="JavaScript1.1" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/1583131239@Top,Right,x01,x04"></SCRIPT><SCRIPT language="JavaScript">
+<!-- 
+document.write('')
+function OAS_AD(pos) {
+if (OAS_version >= 11)
+	OAS_RICH(pos);
+else
+	OAS_NORMAL(pos);
+}
+//-->
+</SCRIPT>
+<!-- OAS SETUP end -->
+<!--[if IE]>
+<link href="/stylesheets/guj3-ie.css?20090222" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+<SCRIPT type="text/javascript" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/jquery-1.3.1.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/jquery.dimensions.min.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+$().ready(function() {
+	$("#returnPath").val(document.location);
+});
+</SCRIPT>  
+<STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE><STYLE type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</STYLE></HEAD><BODY>
+  <DIV id="header">
+    <DIV class="container1">
+    	<DIV id="banner">
+<!--
+<iframe id='abc8adb3' name='abc8adb3' src='http://d1.openx.org/afr.php?zoneid=18786&amp;cb=INSERT_RANDOM_NUMBER_HERE' framespacing='0' frameborder='no' scrolling='no' width='728' height='90'><a href='http://d1.openx.org/ck.php?n=a32fe7cc&amp;cb=3948240248' target='_blank'><img src='http://d1.openx.org/avw.php?zoneid=18786&amp;cb=3948240248&amp;n=a32fe7cc' border='0' alt='' /></a></iframe>
+-->
+			<!-- OAS AD 'Top' begin -->
+			<SCRIPT language="JavaScript">
+			OAS_AD('Top');
+			</SCRIPT><A href="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/1646713805/Top/rmlanetwork/091201_guj_mundojava_top/banner728x90_ed38.gif/62643465363163633462336462636430" target="_blank"><IMG src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/banner728x90_ed38.gif" alt="" border="0"></A>
+			<!-- OAS AD 'Top' end -->
+    	</DIV>
+      <DIV class="container2">
+        <A href="http://www.guj.com.br/home.index.logic" id="logo">GUJ</A>
+        <H2>Notícias, artigos e o maior fórum brasileiro sobre Java</H2>
+      </DIV>
+    </DIV>
+  </DIV>
+
+  <DIV id="menu">
+    <UL>
+      <LI class="home">
+        <A href="http://www.guj.com.br/home.index.logic">home</A>
+      </LI>
+      <LI class="forum">
+        <A href="http://www.guj.com.br/forums/list.java">fórum</A>
+      </LI>
+      <LI class="artigos">
+        <A href="http://www.guj.com.br/article.list.logic">artigos</A>
+      </LI>
+      <LI class="noticias">
+        <A href="http://www.guj.com.br/forums/show/17.java">notícias</A>
+      </LI>
+      
+      <LI class="topics">
+        <A href="http://www.guj.com.br/recentTopics/list.java">tópicos recentes</A>
+      </LI>
+        
+      <LI class="empregos">
+		<A href="http://www.guj.com.br/jobs.list.logic">empregos</A>
+      </LI>
+    
+    	<!--
+      <li class="blogs">
+        <a href="/posts">blogs</a>
+      </li>
+      -->
+    </UL>
+    <FORM class="busca" method="GET" action="http://www.guj.com.br/jforum.java?module=search&action=search">
+		<INPUT type="hidden" name="module" value="search">
+		<INPUT type="hidden" name="action" value="search">
+		<INPUT class="campo rounded" name="search_keywords" value="Pesquisar" onfocus="if (this.value == &#39;Pesquisar&#39;) { this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) { this.value = &#39;Pesquisar&#39;;}" tabindex="1">
+      	<INPUT type="image" class="botao" style="border: 0px;" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/botao_ok.gif" tabindex="2">
+    </FORM>
+  </DIV>
+  
+  <DIV id="submenu">
+    <DIV class="container1">
+      <DIV class="container2">
+          
+      	
+      		
+      		
+	      		Bem vindo ao GUJ. <A href="http://www.guj.com.br/user/insert.java" style="color: #4382B0;">Crie seu login</A>, 
+	          	ou digite-o para logar no site.
+              
+	          	<FORM class="login" action="http://www.guj.com.br/jforum.java?module=user&action=validateLogin" method="POST">
+                    <INPUT type="hidden" name="returnPath" id="returnPath" value="http://www.guj.com.br/article.show.logic?id=140">
+	            	Usuário: <INPUT class="campo rounded" size="8" name="username" tabindex="3">
+					Senha: <INPUT class="campo rounded" type="password" size="8" name="password" tabindex="4">
+	            	<INPUT type="image" class="botao" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/botao_entrar.gif" tabindex="5" name="login" value="Login">
+	          	</FORM>
+      		
+      	
+      </DIV>
+    </DIV>
+  </DIV>
+
+  
+
+<LINK href="./GUJ - Tutorial sobre JTable do Swing - parte I_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+<STYLE type="text/css">@import url(/stylesheets/tagging.css);</STYLE>
+<SCRIPT src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/shCore.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/shBrushJava.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+window.onload = function () {
+	dp.SyntaxHighlighter.HighlightAll('code');
+}
+</SCRIPT>
+
+<DIV id="content">
+<DIV class="box">
+<B class="spiffy"><B class="spiffy1"><B></B></B><B class="spiffy2"><B></B></B><B class="spiffy3"></B><B class="spiffy4"></B><B class="spiffy5"></B></B>
+	<DIV class="spiffyfg inner-content">
+  <SPAN class="article">
+    <H2><A href="http://www.guj.com.br/article.show.logic?id=140#">Tutorial sobre JTable do Swing - parte I</A>
+    </H2>
+  </SPAN>
+  
+  <DIV class="miolo">
+    <SPAN class="data">em 25/05/2004</SPAN>
+    <SPAN class="autor">, por <A href="mailto:aebrlima@uol.com.br">Bruno Rios Lima</A></SPAN>
+    <BR>
+  
+    
+	    <DIV style="float: left; padding: 10px;">
+			<SCRIPT type="text/javascript"><!--
+			google_ad_client = "pub-7098584793170190";
+			/* GUJ Quadrado Artigos */
+			google_ad_slot = "2113535366";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</SCRIPT> 
+			<SCRIPT type="text/javascript" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/show_ads.js"> 
+			</SCRIPT><SCRIPT src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="300" height="250" frameborder="0" src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+		</DIV>
+	      
+	      <SPAN class="content"><PAGE>
+<DIV id="subtitle"><B>Tutorial do JTable do Swing</B></DIV>
+
+Com esse tutorial voce aprenderá a criar desde uma JTable simples, até uma complexa, 
+utilizando as princpais classes ( editor, renderer, model, etc ).
+
+Este tutorial estará subdividindo em diversos capitlos, aumentando sua complexidade
+a medida que entrarmos em um novo capítulo.
+
+
+<B>CAPITULO 1 - Construindo uma JTable Simples</B>
+
+<B><I>Introdução:</I></B>
+
+A classe JTable é utilizada para vizualizar dados em grid no Swing e é um dos componentes mais complexos desse pacote. Alias o JTable possui até um pacote especial, que contém diversas classes para sua utilização: javax.swing.table.
+
+A JTable é um componente MVC: o seu trabalho é dividido em 3 partes:
+
+<B> Model:</B> É a parte que cuida dos dados, quem controla e distribui os dados na jtable. É implementado pela interface TableModel ( AbstractTableModel e DefaultTableModel ). Ela é responsavel por fornecedor os dados para a tabela, a qual requisitará os dados atraves do método getValueAt, informando a linha e a coluna. Este método retorna um Object, ou seja, um objeto qualquer, que pode ser um Integer, uma String ou uma outra classe que você tenha implementado.
+
+<B> View:</B> É a parte que cuida da apresentação. É implementado pela interface CellRenderer. É como a apresentação é dada celula a celula na tabela, o renderer deve ser fornecedido para uma celula especifica. Na Jtable é possivel fornecer tanto um renderer para a tabela inteira como para uma coluna especifica. Assim como na tablemodel requisitará o valor na linha e coluna especifica, aqui ele requisitara o objeto que ira apresentar o dados, passando como parametro a linha, a coluna o valor (object), a tabela (jtable), se esta celula esta selecionada e se  ela celula possui o foco. Este método é o getCellRendererComponent, que irá retornar um JComponent. O DefaultCellRenderer implementa o JLabel para apresentar os dados, que é a forma de apresentação mais comum para um valor.
+
+<B> Controller:</B> É a parte que controla a apresentação dos dados na view. É a própria JTable.
+
+Como a JTable ja vem implementada para usar os tipos defaults existentes e implementados, para criar uma jtable simples não é tão complicado. O unico problema é que voce acaba se engessando quando precisar de algum recurso mais "completo".
+
+</PAGE>
+<PAGE>
+<DIV id="subtitle"><B>Criando uma JTable</B></DIV>
+
+Vamos agora conhecer uma forma de contruir uma JTable, simplesmente fornecedor os dados que quero exibir nela.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>String[]&nbsp;colunas&nbsp;=&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;String&nbsp;[]{</SPAN><SPAN class="string">"Estado"</SPAN><SPAN>,</SPAN><SPAN class="string">"Cidade"</SPAN><SPAN>};&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>String[][]&nbsp;dados&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;String&nbsp;[][]&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"SP"</SPAN><SPAN>,</SPAN><SPAN class="string">"Sao&nbsp;Paulo"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"RJ"</SPAN><SPAN>,</SPAN><SPAN class="string">"Rio&nbsp;de&nbsp;Janeiro"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"RN"</SPAN><SPAN>,</SPAN><SPAN class="string">"Rio&nbsp;Grande&nbsp;do&nbsp;Norte"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"PR"</SPAN><SPAN>,</SPAN><SPAN class="string">"Parana"</SPAN><SPAN>}&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>};&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>JTable&nbsp;jtable&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;JTable(dados,&nbsp;colunas);&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+ String[] colunas = new String []{"Estado","Cidade"};
+ String[][] dados = new String [][] {
+        {"SP","Sao Paulo"},
+        {"RJ","Rio de Janeiro"},
+        {"RN","Rio Grande do Norte"},
+        {"PR","Parana"}
+ };
+		
+ JTable jtable = new JTable(dados, colunas);  
+</TEXTAREA> <BR>
+
+O exemplo acima cria uma instância da classe JTable passando como argumentos as variáveis dados e colunas. Existem diversos contrutores para a JTable, e um deles é a passagem de arrays (linhas e colunas) como argumentos. Este é o modo mais simples de fornecer à JTable os dados que deseja exibir. Ela utliza toda a estrutura default para exibição deste codigo.
+
+<IMG src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/jtable.jpg">
+
+<B>Trabalhando com a JTable: DefaultTableModel()</B>
+
+Tendo nossa JTable criada, podemos trabalhar em cima do modelo (TableModel) que ela criou. Para obtermos o modelo dessa JTable criada, basta chamarmos o método getModel() que retorna uma instância de classe que implementa o TableModel. Como o argumento para criação de nossa JTable foi uma coleção, o modelo utilizado internamente foi o DefaultTableModel. O DefaultTableModel é uma classe de javax.swing.table e implementa a interface TableModel, fornecedo-nos todo o controle dos dados da JTable. Claro que é uma classe com métodos básicos para trabalhar com os dados da JTable.
+
+ - getValueAt(): obtem o valor de uma determinada linha e coluna na JTable.
+ - setValueAt(): seta o valor em uma determinada linha e coluna na JTable.
+ - addRow(): adiciona uma nova linha na JTable. Recebe um array simples.
+ - addColumn(): adiciona uma nova coluna no modelo.
+
+Com base no exemplo anterior, digamos que seria necessario adicionar outras linhas apos a criação da nossa JTable. Vamos alterar nosso codigo para tirarmos o peso de controlar os dados da própria JTable e jogar esse trabalho pro DefaultTableModel:
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>String[][]&nbsp;dados&nbsp;=&nbsp;</SPAN><SPAN class="keyword">new</SPAN><SPAN>&nbsp;String&nbsp;[][]{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"SP"</SPAN><SPAN>,</SPAN><SPAN class="string">"Sao&nbsp;Paulo"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"RJ"</SPAN><SPAN>,</SPAN><SPAN class="string">"Rio&nbsp;de&nbsp;Janeiro"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"RN"</SPAN><SPAN>,</SPAN><SPAN class="string">"Rio&nbsp;Grande&nbsp;do&nbsp;Norte"</SPAN><SPAN>},&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<SPAN class="string">"PR"</SPAN><SPAN>,</SPAN><SPAN class="string">"Parana"</SPAN><SPAN>}&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>};&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>String[]&nbsp;colunas&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;String&nbsp;[]{</SPAN><SPAN class="string">"Estado"</SPAN><SPAN>,</SPAN><SPAN class="string">"Cidade"</SPAN><SPAN>};&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="comment">//&nbsp;Ao&nbsp;inves&nbsp;de&nbsp;passar&nbsp;direto,&nbsp;colocamos&nbsp;os&nbsp;dados&nbsp;em&nbsp;um&nbsp;modelo</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>DefaultTableModel&nbsp;modelo&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;DefaultTableModel(dados,&nbsp;colunas);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="comment">//&nbsp;e&nbsp;passamos&nbsp;o&nbsp;modelo&nbsp;para&nbsp;criar&nbsp;a&nbsp;jtable</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>JTable&nbsp;jtable&nbsp;=&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;JTable(&nbsp;modelo&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+ String[][] dados = new String [][]{
+               {"SP","Sao Paulo"},
+               {"RJ","Rio de Janeiro"},
+               {"RN","Rio Grande do Norte"},
+               {"PR","Parana"}
+ };
+ String[] colunas = new String []{"Estado","Cidade"};
+ // Ao inves de passar direto, colocamos os dados em um modelo
+ DefaultTableModel modelo = new DefaultTableModel(dados, colunas);
+ // e passamos o modelo para criar a jtable
+ JTable jtable = new JTable( modelo );
+</TEXTAREA> <BR>
+
+O que fizemos foi pegar as colunas e os dados, e jogá-los em alguém para cuidar deles: no caso um TableModel, que é o responsavel por controlar os dados de uma JTable.
+</PAGE>
+<PAGE>
+Agora que criamos uma JTable passando um TableModel que controla os dados, podemos trabalhar em cima desse modelo. Uma coisa que devemos ter em mente é sempre saber que modelo tal JTable está usando, pois assim podemos pega-lo de volta e trabalhar em cima dele.
+
+ - addRow()
+ 
+Digamos que, na nossa tela, colocamos um novo botão para incluir novas linhas nessa minha JTable. E para tal, criamos o método adicionaLinha(), chamado pelo ActionPerformed deste botão. Este método irá obter o nosso modelo, quem controla os dados, e incluirá uma nova linha em branco.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="comment">/**</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;Método&nbsp;para&nbsp;adicionar&nbsp;uma&nbsp;nova&nbsp;linha&nbsp;na&nbsp;JTable</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*/</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;adicionaLinha()&nbsp;{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;<SPAN class="comment">//&nbsp;Obtem&nbsp;o&nbsp;modelo&nbsp;da&nbsp;JTable</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;DefaultTableModel&nbsp;modelo&nbsp;=&nbsp;(DefaultTableModel)getTabela().getModel();&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;<SPAN class="comment">//&nbsp;Adiciona&nbsp;uma&nbsp;nova&nbsp;linha&nbsp;em&nbsp;branco&nbsp;no&nbsp;modelo</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;modelo.addRow(&nbsp;<SPAN class="keyword">new</SPAN><SPAN>&nbsp;String&nbsp;[]&nbsp;{</SPAN><SPAN class="string">""</SPAN><SPAN>,&nbsp;</SPAN><SPAN class="string">""</SPAN><SPAN>}&nbsp;);&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+ /**
+  * Método para adicionar uma nova linha na JTable
+  */
+ public void adicionaLinha() {
+  // Obtem o modelo da JTable
+  DefaultTableModel modelo = (DefaultTableModel)getTabela().getModel();
+  // Adiciona uma nova linha em branco no modelo
+  modelo.addRow( new String [] {"", ""} );
+ }
+</TEXTAREA> <BR>
+
+ - removeRow()
+
+A mesmo coisa poderia ser feito se quisermos deletar uma determinada linha. Digamos que vamos excluir a linha atualmente selecionada. Para saber qual linha está selecionada, devemos perguntar a JTable, que é o controlador. O método utilizado é o getSelectedRow() e retorna um int, a linha selecionada. Se nao houver linhas selecionadas, o retorno é -1.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="comment">/**</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;Remove&nbsp;a&nbsp;linha&nbsp;do&nbsp;modelo.</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*&nbsp;@param&nbsp;linha</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*/</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;removeLinha(</SPAN><SPAN class="keyword">int</SPAN><SPAN>&nbsp;linha){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Obtem&nbsp;o&nbsp;modelo&nbsp;da&nbsp;JTable</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;DefaultTableModel&nbsp;modelo&nbsp;=&nbsp;(DefaultTableModel)getTabela().getModel();&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Remove&nbsp;a&nbsp;linha&nbsp;</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;modelo.removeRow(linha);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">/**</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;Obtem&nbsp;a&nbsp;linha&nbsp;selecionada&nbsp;e&nbsp;chama&nbsp;o&nbsp;método&nbsp;para&nbsp;remover</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*&nbsp;do&nbsp;modelo</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*/</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">void</SPAN><SPAN>&nbsp;removeLinha(){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Obtem&nbsp;a&nbsp;linha&nbsp;selecionada&nbsp;na&nbsp;tabela&nbsp;e&nbsp;chama&nbsp;o&nbsp;método</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;para&nbsp;excluir&nbsp;a&nbsp;linha</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">int</SPAN><SPAN>&nbsp;linhaSelecionada&nbsp;=&nbsp;getTabela().getSelectedRow();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Verificamos&nbsp;se&nbsp;existe&nbsp;realmente&nbsp;alguma&nbsp;linha&nbsp;selecionada</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;linhaSelecionada&nbsp;&lt;&nbsp;</SPAN><SPAN class="number">0</SPAN><SPAN>&nbsp;){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}<SPAN class="keyword">else</SPAN><SPAN>{&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Remove&nbsp;a&nbsp;linha&nbsp;do&nbsp;modelo</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeLinha(linhaSelecionada);&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+	/**
+	 * Remove a linha do modelo.
+	 * @param linha
+	 */
+	public void removeLinha(int linha){
+		
+		// Obtem o modelo da JTable
+		DefaultTableModel modelo = (DefaultTableModel)getTabela().getModel();
+		
+		// Remove a linha 
+		modelo.removeRow(linha);
+
+	}
+	
+	/**
+	 * Obtem a linha selecionada e chama o método para remover
+	 * do modelo
+	 */
+	public void removeLinha(){
+		
+		// Obtem a linha selecionada na tabela e chama o método
+		// para excluir a linha
+		int linhaSelecionada = getTabela().getSelectedRow();
+		
+		// Verificamos se existe realmente alguma linha selecionada
+		if( linhaSelecionada < 0 ){
+			return;
+		}else{
+			// Remove a linha do modelo
+			removeLinha(linhaSelecionada);
+		}
+		
+
+	}
+</TEXTAREA> <BR>
+
+ - ListSeleciont
+
+Trabalhar com seleção de linhas e colunas na JTable tambem é um trabalho a parte. Existem métodos para obter nao só a linha, mas o numero de linhas selecionadas, as linhas selecionadas ( que retorna um array de int[] ). Assim como as linhas, os mesmos métodos se encontram para obter as colunas seleciondas. Vale a pena dar uma olhada na API da JTable para conferir estes métodos. Para setar o modo de seleção no qual sua JTable irá trabalahar, vamos permitir somente a seleção de linhas ( unicas ) e nao multiplas.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);&nbsp;&nbsp;</SPAN></SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+    .setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+</TEXTAREA> <BR>
+ 
+ - getValueAt e setValueAt
+
+ Em algum ponto de sua aplicação, voce pode querer substituir o conteúdo de uma celula, ou de várias linhas em uma determinada coluna. Com os métoso getValueAt e setValueAt podemos obter e setar o valor em uma determinada coluna e linha.
+
+Vamos criar um método para subtituir um determinado valor por outro, em uma coluna especifica.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN class="comment">/**</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;Método&nbsp;para&nbsp;subtituir&nbsp;um&nbsp;valor&nbsp;por&nbsp;outro&nbsp;em&nbsp;uma&nbsp;determinada</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*&nbsp;coluna.</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;@param&nbsp;oldValue</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*&nbsp;@param&nbsp;newValue</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*&nbsp;@param&nbsp;column</SPAN>&nbsp;</SPAN></LI><LI class="alt"><SPAN><SPAN class="comment">&nbsp;*&nbsp;@return&nbsp;Numero&nbsp;de&nbsp;substituições</SPAN>&nbsp;</SPAN></LI><LI class=""><SPAN><SPAN class="comment">&nbsp;*/</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN><SPAN class="keyword">public</SPAN><SPAN>&nbsp;</SPAN><SPAN class="keyword">int</SPAN><SPAN>&nbsp;substituirValor(String&nbsp;oldValue,&nbsp;String&nbsp;newValue,&nbsp;</SPAN><SPAN class="keyword">int</SPAN><SPAN>&nbsp;column){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Flag&nbsp;para&nbsp;saber&nbsp;se&nbsp;algum&nbsp;valor&nbsp;foi</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">int</SPAN><SPAN>&nbsp;total&nbsp;=&nbsp;</SPAN><SPAN class="number">0</SPAN><SPAN>;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Obtem&nbsp;o&nbsp;modelo&nbsp;da&nbsp;JTable</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;DefaultTableModel&nbsp;modelo&nbsp;=&nbsp;(DefaultTableModel)getTabela().getModel();&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Faz&nbsp;um&nbsp;looping&nbsp;em&nbsp;cima&nbsp;das&nbsp;linhas&nbsp;do&nbsp;modelo</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">for</SPAN><SPAN>(&nbsp;</SPAN><SPAN class="keyword">int</SPAN><SPAN>&nbsp;linha=</SPAN><SPAN class="number">0</SPAN><SPAN>;&nbsp;linha&lt;modelo.getRowCount();&nbsp;linha++){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Obtem&nbsp;o&nbsp;valor&nbsp;atual&nbsp;na&nbsp;coluna</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;valorAtual&nbsp;=&nbsp;(String)modelo.getValueAt(linha,&nbsp;column);&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">if</SPAN><SPAN>(&nbsp;valorAtual.equals(oldValue)&nbsp;){&nbsp;&nbsp;</SPAN></SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Substitui&nbsp;pelo&nbsp;novo&nbsp;valor&nbsp;na&nbsp;linha&nbsp;e&nbsp;coluna</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modelo.setValueAt(newValue,&nbsp;linha,&nbsp;column);&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="comment">//&nbsp;Adiciona&nbsp;mais&nbsp;um&nbsp;no&nbsp;numero&nbsp;de&nbsp;linhas&nbsp;atualizadas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN>&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total++;&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class=""><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</SPAN></LI><LI class="alt"><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;<SPAN class="keyword">return</SPAN><SPAN>&nbsp;total;&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>}&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+	/**
+	 * Método para subtituir um valor por outro em uma determinada
+	 * coluna.
+	 * @param oldValue
+	 * @param newValue
+	 * @param column
+	 * @return Numero de substituições
+	 */
+	public int substituirValor(String oldValue, String newValue, int column){
+		// Flag para saber se algum valor foi
+		int total = 0;
+		// Obtem o modelo da JTable
+		DefaultTableModel modelo = (DefaultTableModel)getTabela().getModel();
+		// Faz um looping em cima das linhas do modelo
+		for( int linha=0; linha<modelo.getRowCount(); linha++){
+			// Obtem o valor atual na coluna
+			String valorAtual = (String)modelo.getValueAt(linha, column);
+			if( valorAtual.equals(oldValue) ){
+				// Substitui pelo novo valor na linha e coluna
+				modelo.setValueAt(newValue, linha, column);
+				// Adiciona mais um no numero de linhas atualizadas			
+				total++;
+			}
+		}
+		return total;
+	}
+</TEXTAREA> <BR>
+
+Poderiamos ter utilizado o Iterator para trabalhar em cima dos dados, basta obter o iterator do vetor de linhas dos dados retornado pelo modelo e obter os valor por meio de array de strings.
+
+<BR> <DIV class="dp-highlighter"><DIV class="bar"><DIV class="tools"><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</A><A href="http://www.guj.com.br/article.show.logic?id=140#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</A></DIV></DIV><OL start="1" class="dp-j"><LI class="alt"><SPAN><SPAN>Iterator&nbsp;i&nbsp;=&nbsp;modelo.getDataVector().iterator();&nbsp;&nbsp;</SPAN></SPAN></LI><LI class=""><SPAN>String&nbsp;[]&nbsp;row&nbsp;=&nbsp;i.next();&nbsp;&nbsp;</SPAN></LI></OL></DIV><TEXTAREA name="code" class="java" cols="60" rows="10" style="display: none; ">
+		Iterator i = modelo.getDataVector().iterator();
+		String [] row = i.next();
+</TEXTAREA> <BR>
+</PAGE>
+<PAGE>
+<DIV id="subtitle"><B>Implementando meu próprio TableModel</B></DIV>
+
+Para implementar o TableModel, existem diversos pontos que devemos cobrir - devemos tratar o controle dos dados ( colunas e linhas ). Uma opção simples para começarmos, será a de estender a classe AbstractTableModel que fornece diversos métodos já sobrescritos exceto aqueles que retornam dados:
+
+ - public Object getValueAt( int row, int col )
+ - public int getRowCount()
+ - public int getColumnCount()
+
+Esta classe também já implementa 7 métodos de atualização da JTable ( TableModelEvents ). Estes métodos são utilizados para informar as alterações ocorridas dentro de um modelo. Exemplo seria a inclusão de uma nova linha, que dispara o método fireTableRowsInserted. Durante a criação dos métodos para trabalhar com os dados, iremos ver estes eventos.
+
+Mas este assunto vamos tratar na próxima  parte do artigo.
+
+Até lá!
+</PAGE></SPAN>
+    
+
+    <SPAN class="pdf">
+    
+    </SPAN>
+  </DIV>
+  </DIV>
+	<B class="spiffy"><B class="spiffy5"></B><B class="spiffy4"></B><B class="spiffy3"></B><B class="spiffy2"><B></B></B><B class="spiffy1"><B></B></B></B>
+</DIV>
+
+</DIV>
+
+
+<!-- OAS AD 'x01' begin -->
+<SCRIPT language="JavaScript">
+<!--
+//OAS_AD('x01');
+//-->
+</SCRIPT>
+<!-- OAS AD 'x01' end -->
+
+  <DIV id="footer">
+  	<P>Apoiado e desenvolvido por <A href="http://www.caelum.com.br/">Caelum Cursos Java</A> - Copyright © 2002-2009 <A href="mailto:guj@guj.com.br">GUJ</A> <!--<script type="text/javascript" src="http://widgets.amung.us/small.js"></script><script type="text/javascript">WAU_small('kwnaee1y3d4h')</script>--></P>
+  </DIV>
+ 
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./GUJ - Tutorial sobre JTable do Swing - parte I_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+var pageTracker = _gat._getTracker("UA-132222-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</SCRIPT>
+  
+
+
+</BODY></HTML>

@@ -1,0 +1,961 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0040)http://www.htmlstaff.org/ver.php?id=7616 -->
+<HTML lang=pt xml:lang="pt" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Introdução ao JBoss</TITLE>
+<META 
+content="JBoss é hoje, sem dúvida nenhuma o servidor de aplicação que mais vem chamando a atenção no mundo J2EE. Várias características fazem dele uma opção inteligente. Neste artigo vamos mostrar um pouco de sua história, vamos mostrar como instalá-lo...." 
+name=description>
+<META content="jboss, Java, Introdução, ao, JBoss" name=keywords>
+<META http-equiv=content-type content="text/html; charset=iso-8859-1">
+<META http-equiv=pragma content=no-cache>
+<META content=htmlstaff.org name=title>
+<META content=http://www.htmlstaff.org name=url>
+<META content="Conteúdo sob licença Creative Commons 2.5" name=copyright>
+<META content=pt-br name=language>
+<META content=general name=rating>
+<META content=all name=robots>
+<META content="1 days" name=revisit-after>
+<META content=Completed name=doc-class>
+<META content=Public name=doc-rights><LINK 
+href="Introdução_ao_JBoss_arquivos/components.css" type=text/css rel=STYLESHEET><!--[if lte IE 7]><LINK media=screen 
+href="Introdução_ao_JBoss_arquivos/components_ie.css" type=text/css 
+rel=stylesheet><![endif]--><LINK 
+href="Introdução_ao_JBoss_arquivos/skeleton_default.css" type=text/css 
+rel=STYLESHEET><LINK media=print 
+href="Introdução_ao_JBoss_arquivos/style_print.css" type=text/css 
+rel=stylesheet><LINK title=RSS href="http://www.htmlstaff.org/rss.php" 
+type=application/rss+xml rel=alternate><LINK 
+href="http://www.htmlstaff.org/favicon.ico" rel="shortcut icon">
+<SCRIPT type=text/javascript>
+window.defaultStatus = "htmlstaff.org";
+</SCRIPT>
+
+<SCRIPT src="Introdução_ao_JBoss_arquivos/jquery.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+$(document).ready(function() {
+	$('#menu > li > a').bind('click',function() {
+		var $next = $(this).next();
+		if($next.is(':visible')) {
+			$next.slideToggle();
+			return false;
+		}
+		else {
+			$(this).parent().parent().find('li > ul:visible').slideUp('normal');
+			$next.slideDown('normal');
+			return false;
+		}
+	});
+});
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY>
+<DIV id=container>
+<DIV style="TEXT-ALIGN: center"><IFRAME style="MARGIN-LEFT: 4px" marginWidth=0 
+marginHeight=0 src="Introdução_ao_JBoss_arquivos/barra.htm" frameBorder=0 
+width=1004 scrolling=no height=29></IFRAME></DIV>
+<DIV id=page><!-- header -->
+<DIV id=header>
+<DIV class=header><!-- logo -->
+<H1 class=logo><A href="http://www.htmlstaff.org/"><IMG 
+title="htmlstaff.org - Há 8 anos (2001-2009) no ar!" alt=htmlstaff.org 
+src="Introdução_ao_JBoss_arquivos/logo.gif"></A></H1><!-- fim logo --><!-- componente bannerHeader -->
+<DIV class=bannerHeader>
+<SCRIPT type=text/javascript><!--
+google_ad_client = "pub-6654694818223278";
+/* 468x60, criado 05/07/08 */
+google_ad_slot = "3936295862";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</SCRIPT>
+
+<SCRIPT src="Introdução_ao_JBoss_arquivos/show_ads.js" 
+type=text/javascript>
+</SCRIPT>
+</DIV><!-- fim componente bannerHeader --><!-- componente search -->
+<SCRIPT type=text/javascript>
+function validar_18() {
+<!--
+	var buscar = document.form_busca_interna.buscar.value;
+	if(buscar=="") {
+		alert("É necessário o preenchimento deste campo.");
+		document.form_busca_interna.buscar.focus();
+		return false;
+	}
+	if(document.form_busca_interna.buscar.value.length < 3) {
+		alert("A sua busca deve conter pelo menos 3 caracteres.");
+		document.form_busca_interna.buscar.focus();
+		return false;
+	}
+}
+//-->
+</SCRIPT>
+
+<FORM id=form_busca_interna name=form_busca_interna 
+onsubmit="return validar_18();" action=buscar.php method=post>
+<FIELDSET class=search><LABEL>Busca:</LABEL><INPUT 
+onfocus="if(this.value=='Procurar por...') this.value='';" maxLength=30 
+value="Procurar por..." name=buscar><INPUT type=hidden value=1 
+name=radio_escolhido><BUTTON name=submit 
+type=submit><SPAN>ok</SPAN></BUTTON></FIELDSET></FORM><!-- fim componente search --></DIV></DIV><!-- fim header --><!-- content -->
+<DIV id=content><!-- main -->
+<DIV id=main>
+<DIV id=area1><!-- componente breadcrumbs -->
+<DIV class=breadcrumbs>
+<P>Você está em: <A href="http://www.htmlstaff.org/">Home</A> &gt; <A 
+href="http://www.htmlstaff.org/secao.php?id=13">Java</A> &gt; 
+<STRONG>Visualizando artigo</STRONG></P><SPAN><IMG 
+title="Brasileiro com orgulho!" alt=Brasil! 
+src="Introdução_ao_JBoss_arquivos/iconBrasil.gif"></SPAN></DIV><!-- fim componente breadcrumbs --><!-- mainContent -->
+<DIV class=principal id=mainContent>
+<H1 class=titulo>Introdução ao JBoss</H1><BR>Autor/fonte: Antonio Kantek e 
+Kentaro Takahashi<BR>E-mail/Url: <A 
+title="Visualizar a fonte original deste artigo" 
+href="http://www.mundooo.com.br/php/modules.php?name=MOOArtigos&amp;pa=showpage&amp;pid=4" 
+target=_blank>http://www.mundooo.com.br/php/modules.php?name=MOOArtigos&amp;pa=showpage&amp;pid=4</A><BR>Tags: 
+[ <A title="Listar todos itens relacionados a jboss" 
+href="http://www.htmlstaff.org/buscar.php?tags=jboss">jboss</A> ] <BR><BR>
+<DIV id=null>
+<SCRIPT type=text/javascript><!--
+google_ad_client = "pub-6654694818223278";
+/* 336x280, criado 05/07/08 */
+google_ad_slot = "5843517607";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</SCRIPT>
+
+<SCRIPT src="Introdução_ao_JBoss_arquivos/show_ads.js" 
+type=text/javascript>
+</SCRIPT>
+</DIV><BR>
+<DIV id=null align=center>[ <A 
+href="http://www.htmlstaff.org/indicar.php?id=7616">Indicar a um amigo</A> ] [ 
+<A 
+href="http://translate.google.com/translate?hl=en&amp;sl=pt&amp;u=http://www.htmlstaff.org/ver.php?id=7616">Translate 
+to english</A> ] [ <A href="http://www.htmlstaff.org/imprimir.php?id=7616" 
+target=_blank rel=nofollow>Imprimir</A> ]</DIV><BR><BR>
+<DIV id=HOTWordsTxt>
+<DIV class=artigo>JBoss é hoje, sem dúvida nenhuma o servidor de aplicação que 
+mais vem chamando a atenção no mundo J2EE. Várias características fazem dele uma 
+opção inteligente. Neste artigo vamos mostrar um pouco de sua história, vamos 
+mostrar como instalá-lo, configurá-lo além de alguns exemplos.<BR><BR>O JBoss 
+existe desde 1999. No começo ele se chamava EJBoss ou EJB Open Source Server. 
+Mas por motivos legais, seu nome ficou apenas JBoss (que na minha opinião é 
+muito melhor). Ele é desenvolvido por um time de primeira liderado pelo francês 
+Marc Fleury (estamos falando do JBoss Group). Vamos ver os primeiros passos 
+necessários para implantármos nele um componente EJB. A nova arquitetura é toda 
+baseada em JMX (Java Management Extension). Ao contrário da maioria de seus 
+concorrentes que são implementados em um gingantesco bloco monolítico, o JBoss 
+possui um microkernel baseado em JMX. Cada componente do servidor de aplicação é 
+um componente JMX (ou melhor, um MBean). Originalmente criado para gerênciar 
+redes, o JMX permite o mapeamento de componentes através de nomes. Os 
+componentes são mapeados por nomes em um servidor de MBeans. A chamada de um 
+método de um MBean deve ser feita indicando-se o nome do MBean, o nóme do método 
+e os parâmetros. Um pequeno exemplo da vantagem de um servidor de aplicação 
+baseado em JMX e open source é a facilidade de substituição de um 
+componente.<BR><BR>Instalação<BR><BR>Podemos baixar o JBoss de dois lugares: do 
+próprio site do <A href="http://www.jboss.org/" target=_blank 
+rel=nofollow>JBoss</A> ou podemos baixá-lo do <A 
+href="http://www.sourceforge.net/jboss" target=_blank 
+rel=nofollow>SourceForge</A> onde ele está hospedado. No SourceForge podemos 
+encontrar ainda slides de apresentações da JBossOne (evento realizado pelos 
+desenvolvedores do JBoss, o JBossGroup), quickstarts, códigos fonte e patchs . 
+Sugerimos ao leitor que baixe em seu computador o JBoss 3.0.x, pois são as 
+versões quem implementam a especificação J2EE 1.3 (que contém a especificação 
+EJB 2.0). Atualize a sua variável de ambiente CLASSPATH com os arquivos jar 
+contido em $JBOSS_DIST/client ($JBOSS_DIST é utilizado para simbolizar o 
+diretório onde foi descompactado o JBoss). Esses novos arquivos jar adicionados 
+na variável CLASSPATH contém todas classes necessárias para que o usuário 
+utilize este servidor de aplicação.<BR><BR>O JBoss vem com um banco de dados 
+relacional escrito em Java, o Hypersonic SQL. Isso facilita a vida do 
+desenvolvedor na hora de testar seus Entity Beans, eliminando assim o trabalho 
+de configurar uma nova base de dados. Instalar uma nova base de dados no JBoss é 
+extramemente fácil. A configuração e instalação de uma base de dados é feita 
+através de um arquivo xml. No diretório $JBOSS_DIST/docs/examples/jca existem 
+vários moldes de arquivos de configuração.<BR><BR>Para WebContainer podemos 
+optar entre Tomcat e Jetty. A grande sugestão fica por conta do Jetty (também um 
+MBean) que possue uma ótima integração com o JBoss, ambos podem rodar na mesma 
+Java Virtual Machine.<BR><BR>Configurando e iniciando<BR><BR>Para iniciarmos o 
+JBoss, basta ir no diretório $JBOSS_DIST/bin e executar o arquivo de lote run. 
+Para os usuários do Windows a linha de comando é %JBOSS_DIST%\bin\run.bat e para 
+os usuários do Linux a linha é $JBOSS_DIST/bin/run.sh . Para visualizarmos o 
+estado dos componentes do JBoss (os MBeans), devemos abrir um browser no 
+endereço http://localhost:8082. O endereço padrão do WebServer (Jetty ou Tomcat) 
+é http://localhost:8080. Na versão 3.0.2 em diante o endereço para visualisármos 
+os componentes JMX é http://localhost:8080/jmx-console.<BR><BR>Podemos escolher 
+a configuração do servidor escolhendo uma padrão ou criando uma personalizada. O 
+JBoss vem com três configurações padrão: mínima (minimal), padrão (default) e 
+completa (all). Estas configurações estão em $JBOSS_DIST/server. O usuário pode 
+criar ainda a sua própria configuração, bastando para isso apenas criar um novo 
+diretório junto com as outras configurações. É sempre melhor criar a sua própria 
+configuração, pois isso facilita manutenção.<BR><BR>A configuração mínima contém 
+apenas os serviços mais básicos como log e servidor de nomes (JNDI). Nesta 
+configuração não há EJB Container, serviço de mensagens (MOM Message Oriented 
+Middleware) ou clustering. Na configuração padrão (default), todos os serviços 
+estão disponíveis (transação, mensagens, EJB Container etc) exceto clustering e 
+RMI-IIOP (Remote Method Invocation over Internet Inter-ORB Protocol, o protocolo 
+utilizado pelo CORBA). Ou seja, na configuração padrão, os serviços CORBA não 
+estão disponíveis. E para finalizar, na configuração completa (all), todos os 
+serviços especificados pelo J2EE v1.3 estão disponíveis.<BR><BR>Para iniciarmos 
+o JBoss com alguma configuração desejada basta passarmos o nome da configuração 
+como parâmetro do arquivo run. Por exemplo: run.sh -c 
+nome_da_configuração.<BR><BR>Criando um componente EJB HelloWorld<BR><BR>Vamos 
+fazer uma rápida revisão de EJB antes de mostrarmos o exemplo “Hello World”. 
+Grandes aplicações necessitam de certos serviços de middleware como: objetos 
+distribuídos (possibilidade de um objeto se comunicar com outro objeto em outra 
+máquina), balanceamento de carga (distribuir os processos de forma que nenhum 
+servidor trabalhe mais que outros), transparência a falhas (caso um servidor 
+falhe, outro deve imediatamente responder por ele) e pool de objetos 
+(reaproveitamento do mesmo objeto por vários usuários para economia de memória). 
+O desenvolvedor de componentes EJB deve se preocupar apenas com regras de 
+negócios e não com serviços de middleware. Pois quem se responsabiliza por este 
+último é o servidor de aplicação.<BR><BR>Os componentes EJB vivem em EJB 
+Containers. Os EJB Containers são responsáveis pelo ciclo de vida dos 
+componentes EJB, além disso, eles também controlam os serviços de middleware 
+como iniciar transação ou verificar direitos (segurança). Existem basicamente 3 
+tipos de componentes EJB: Session Beans (podem ser com ou sem estado), Entity 
+Beans (componentes que representam entidades persistentes do sistema) e 
+MessageDriven Beans (componentes que são executados apartir de mensagens). Os 
+Session Beans representam ações no sistema, essas ações podem conter estado 
+(Session Bean Stateful) ou não (Session Bean Stateless). Um exemplo de um 
+Session Bean com estado é o famoso carrinho de compras de um sistema de comércio 
+eletrônico. E um exemplo de um Session Bean sem estado é um componente que 
+cataloga um novo usuário no sistema. Os Entity Beans representam as entidades do 
+sistema, os sujeitos. São persistentes e sua persistência pode ser gerenciada 
+pelo Container (Entity Bean CMP - Container Managed Persistence) ou não, ou 
+seja, quem vai se responsabilizar pela persistência é o próprio componente 
+(Entity Bean BMP - Bean Managed Persistence). Os MessageDriven Beans são 
+componentes EJB parecidos com os Session Beans Stateless, porém eles são movidos 
+a mensagens, ou seja, eles apenas processam mensagens. Essas mensagens podem ser 
+mensagens JMS (Java Message Service) ou futuramente mensagens enviadas via 
+WebServices (Especificação EJB 2.1). Todo componente EJB deve possuir pelo menos 
+um nome JNDI para que este possa ser localizado. O serviço de nomes JNDI mapeia 
+um recurso dado um nome. Podemos mapear um diretório, um arquivo, um componente 
+EJB, um DataSource (configuração de banco de dados) ou ainda uma conexão com um 
+serviço de mensagens.<BR><BR>A anatomia de um componente EJB é composta de uma 
+Component e Home interface, um EnterpriseBean Object, chave primária se for um 
+Entity Bean, o deployment descriptor (arquivo xml com todas as configurações do 
+componente) e arquivos específicos de cada servidor de aplicação. A exceção fica 
+por conta dos MessageDriven Beans que possuem apenas o EnterpriseBean Object (a 
+implementação).<BR><BR>A Component e a Home interface podem ser locais (apenas 
+acessíveis por objetos que estão rodando na mesma máquina Java) ou remotos 
+(acessíveis por qualquer objeto via RMI-IIOP). O EnterpriseBean Object é o 
+objeto que implementa (não diretamente) as interfaces Component e Home. A chave 
+primária pode ser um tipo simples como Integer, Double, Long ou BigDecimal ou um 
+tipo composto. O tipo composto é implementado por um objeto Java que possui os 
+atributos necessários para a chave composta além dos métodos hashCode e equals 
+implementados, este objeto deve implementar a interface java.io.Serializable, ou 
+seja, tem que ser um objeto serializável.<BR><BR>Não existe exemplo introdutório 
+mais didático ao aprendermos uma tecnologia (linguagem ou ferramenta) nova do 
+que o famoso “Hello World”. Na listagem 1 é mostrado o código da Component 
+interface (remota) do componente EJB. Esta interface contém apenas a assinatura 
+dos métodos de negócio. A classe que irá implementar diretamente esta interface 
+será providenciada pelo EJB Container, o trabalho desta classe é chamar os 
+serviços de middleware ( como transação e segurança ) antes de chamar a 
+implementação verdadeira, que no nosso caso é o código que a implementação do 
+método de negócio hello que está na classe HelloWorldBean. Esta interface pode 
+ser considerada um proxy para o EnterpriseBean Object. Na listagem 2 temos a 
+implementação (o EnterpriseBean Object) do EJB HelloWorld, além desta classe 
+implementar os métodos descritos na interface SessionBean, ela ainda possui a 
+implementação dos métodos da Component e da Home interface. A Home interface 
+possui apenas a descrição de um método que cria componentes EJB HelloWorld. O 
+deployment descriptor (listagem 4) é o mesmo para todos os servidores de 
+aplicação. Nele nós descrevemos característica como transação, tipo de 
+persistência, segurança e relacionamento entre os componentes EJB. Aqui neste 
+exemplo estamos apenas indicando quais são as classes utilizadas pelo componente 
+EJB e o tipo de transação. Neste exemplo estamos utilizando a configuração 
+Container, ou seja, a persistência vai ser gerenciada pelo container e não pelo 
+componente (transação declarativa). O arquivo jboss.xml (listagem 5) é um 
+arquivo específico do JBoss e nele nós estamos dando um nome JNDI para o nosso 
+componente HelloWorld. Em seguida (listagem 6) nós temos um código cliente que 
+imprime no console o resultado do método hello. E por último (listagem 7), temos 
+um arquivo de propriedades com os dados necessários para localizarmos uma 
+instância do JBoss residente Na mesma máquina do cliente.<BR><BR>Executando o 
+método hello do componente HelloWorld<BR><BR>O JBoss permite comunicação através 
+de RMI puro ao invés de RMI-IIOP. Isso é uma vantagem quando o código cliente é 
+um programa Java. O ORB (Object Request Broker) do JBoss na versão 3.x é o <A 
+href="http://www.jacorb.org/" target=_blank rel=nofollow>JacORB</A>, sendo este 
+também open source. O ORB é utilizado pelos objetos distribuídos para que estes 
+se localizem e se comuniquem entre si. Através do JacORB, o JBoss também permite 
+comunicação por RMI-IIOP (Entenda RMI-IIOP como interface RMI implementada pelo 
+protocolo de comunicação IIOP ( o utilizando no CORBA). Essencial quando 
+necessitamos de performance ou quando o nosso cliente não é Java. Além disso, a 
+especificação J2EE não é flexível, ela exige que a comunicão seja feita por 
+RMI-IIOP. O JBoss permite comunicação por RMI simples.<BR><BR>Aqui neste exemplo 
+utilizaremos RMI simples. Vamos criar o arquivo jar com os códigos compilados. 
+Podemos criar este arquivo através do Ant. O Ant (uma ferramenta para geração de 
+builds) permite entre outras tarefas, empacotar classes em arquivos jar. A 
+grande novidade fica por conta do diretório META-INF. Além do arquivo 
+MANIFEST.MF, este terá os arquivos ejb-jar.xml (descritor de implantação ou 
+deployment descriptor) e o arquivo específico do JBoss, o 
+jboss.xml.<BR><BR>Pronto, agora temos o nosso arquivo jar prontinho para ser 
+instalado no JBoss. Para fazermos um deploy no JBoss (instalar algum componente 
+no servidor de aplicação), basta apenas iniciar o servidor com a configuração 
+desejada (devemos lembrar o leitor que a configuração só não pode ser a minimal, 
+pois esta não possue EJB Container) e em seguida arrastar e soltar o arquivo jar 
+no seguinte diretório: $JBOSS_DIST/server/ configuração_desejada.<BR><BR>Para 
+executarmos o método hello do componente EJB HelloWorld, basta acessarmos o 
+serviço de nomes JNDI do JBoss através das propriedades mostradas na figura 7. 
+Em seguida localizamos o componente (operação de lookup) através de seu nome. A 
+parte do componente que é mapeada é a Home interface. Repare que para fazermos o 
+casting do objeto recuperado para HelloWorldHome, utilizamos o método narrow da 
+classe PortableRemoteObject. Isso se deve ao fato que a especificação EJB diz 
+que a comunicação deve ser feita por IIOP. É dessa forma que fazemos castings. 
+Para saber mais sobre IIOP ou CORBA, visite <A href="http://www.omg.org/" 
+target=_blank rel=nofollow>http://www.omg.org/</A>. A Object Management Group é 
+organização que define as especificações do CORBA.<BR><BR>Localizada a Home 
+interface (ou melhor o objeto fornecido pelo EJB Container que implementa 
+diretamente a Home interface), é hora de criarmos um componente HelloWorld 
+através do método create. Feito isso podemos executar o método hello do nosso 
+componente HelloWorld. E por último, é aconselhado chamar o método remove de 
+Session Beans.<BR><BR>Para saber mais<BR><BR>Existem algumas ferramentas 
+excelentes para a construção de aplicações J2EE. A seguir:<BR><BR>- <A 
+href="http://jakarta.apache.org/ant" target=_blank rel=nofollow>Ant</A>: para 
+criação do projeto (compilação, geração de stubs, geração de arquivos JAR 
+etc);<BR>- <A href="http://www.sf.net/projects/xdoclet" target=_blank 
+rel=nofollow>Xdoclet</A>: cria arquivos redundantes como os arquivos de 
+configuração do servidor de aplicação, as Component e Home interfaces, value 
+objects (objetos com todos os atributos do entity bean, utilizado para diminuir 
+o tráfego na rede) e chaves primárias. Estes arquivos são criados através da 
+implementação do componente EJB (EnterpriseBean Object) e de tags específicas 
+inseridas nos comentários (javadocs);<BR>- <A 
+href="http://jakarta.apache.org/junit" target=_blank rel=nofollow>JUnit</A>: 
+utilizado para testes;<BR>- <A href="http://www.jedit.org/" target=_blank 
+rel=nofollow>JEdit</A>: poderoso editor grátis com código fonte disponível. O 
+forte do JEdit são seus plugins que permitem entre outros: editar/navegar em 
+arquivos XML, executar comandos SQL em um banco de dados relacional, Class 
+Browser para visualizar todas as classes carregadas e o Code Aid para mostrar 
+todos os métodos disponíveis da classe ou do objeto.<BR><BR>Os códigos fontes 
+das listagens a seguir podem ser obtidos <A 
+href="http://www.mundooo.com.br/php/modules/MOOArtigos/helloworld.jar" 
+target=_blank rel=nofollow>aqui</A>.<BR><BR>Listagem 1 - Component interface 
+para o componente EJB HelloWorld:<BR><BR><PRE>import java.rmi.RemoteException;
+import javax.ejb.EJBObject;
+
+ /**
+ * Exemplo básico de Session Bean.
+ * Imprime no console a frase 'Hello World'
+ */
+
+public interface HelloWorld extends EJBObject {
+       String helloWorld() throws RemoteException;
+}
+</PRE><BR>Listagem 2 - Implementação do Session BeanHello World:<BR><BR><PRE>import javax.ejb.CreateException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+
+ /**
+ * EnterpriseBean Object para o EJB HelloWorld
+ */
+
+public class HelloWorldBean implements SessionBean {
+       protected SessionContext ctx;
+
+       public void setSessionContext(SessionContext ctx) {
+              this.ctx = ctx;
+       }
+
+       public void ejbCreate() throws CreateException {
+       }
+
+       public void ejbActivate() {
+       }     
+
+       public void ejbPassivate() {
+       }
+
+       public void ejbRemove() {
+       }
+
+       public String helloWorld() {
+              return “HelloWorld”;
+       }
+}
+</PRE><BR>Listagem 3 - Implementação do Home interface para o componente EJB 
+HelloWorld:<BR><BR><PRE>import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
+import java.rmi.RemoteException;
+
+/**
+ * Home interface para o EJB HelloWorld
+ */
+
+public interface HelloWorldHome extends EJBHome {
+       HelloWorld create() throws CreateException;
+}
+</PRE><BR>Listagem 4 - Listagem do deployment descriptor para esta 
+aplicação:<BR><BR><PRE>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ejb-jar&gt;
+     &lt;description&gt;Hello World, o meu primeiro EJB!!!&lt;/description&gt;
+     &lt;display-name&gt;HelloWorld&lt;/display-name&gt;
+     &lt;enterprise-beans&gt;
+       &lt;session&gt;
+         &lt;ejb-name&gt;HelloWorld&lt;/ejb-name&gt;
+         &lt;home&gt;HelloWorldHome&lt;/home&gt;
+         &lt;remote&gt;HelloWorld&lt;/remote&gt;
+         &lt;ejb-class&gt;HelloWorldBean&lt;/ejb-class&gt;
+         &lt;session-type&gt;Stateless&lt;/session-type&gt;
+         &lt;transaction-type&gt;Container&lt;/transaction-type&gt;
+       &lt;/session&gt;
+      &lt;/enterprise-beans&gt;
+&lt;/ejb-jar&gt;
+</PRE><BR>Listagem 5 - Listagem do arquivo jboss.xml, arquivo específico do 
+JBoss que contém entre outros a configuração dos nomes jndi para os componentes 
+EJB:<BR><BR><PRE>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;jboss&gt;
+  &lt;enterprise-beans&gt;
+    &lt;session&gt;
+      &lt;ejb-name&gt;HelloWorld&lt;/ejb-name&gt;
+      &lt;jndi-name&gt;HelloWorld&lt;/jndi-name&gt;
+    &lt;/session&gt;
+  &lt;/enterprise-beans&gt;
+</PRE><BR>Listagem 6 - Listagem de um código cliente:<BR><BR><PRE>import java.util.Properties;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject; 
+
+public class HelloWorldClient {
+       public static void main(String[] args) throws Exception {
+              Properties props = new Properties();
+              props.load( HelloWorldClient.class.getResourceAsStream("jboss.jndi") );
+              Context ctx = new InitialContext( props ); 
+              Object ref = ;
+              HelloWorldHome home = (HelloWorldHome) PortableRemoteObject.narrow( ctx.lookup("HelloWorld"), server.HelloWorldHome.class  );
+              HelloWorld helloWorld = home.create();
+              System.out.println( helloWorld.hello() );
+              helloWorld.remove();
+       }
+}
+</PRE><BR>Listagem 7 - Propriedades necessárias para localizar o JBoss e seu 
+serviço de nomes (arquivo jboss.jndi):<BR><BR><PRE>java.naming.factory.initial=org.jnp.interfaces.NamingContextFactory
+
+java.naming.provider.url=localhost:1099
+
+java.naming.factory.url.pkgs=org.jboss.naming
+</PRE><BR>Considerações finais<BR><BR>Existem inúmeras razões para adotarmos um 
+servidor de aplicação distribuído pela licença LGPL (<A 
+href="http://www.gnu.org/" target=_blank rel=nofollow>http://www.gnu.org/</A> 
+para saber mais sobre esta licença), mas a principal razão é: qualquer um pode 
+participar deste projeto (reportando bugs, fazendo sugestões ou ainda enviando 
+códigos) isso faz com que o projeto sempre esteja disponível. Centenas de 
+desenvolvedores no mundo inteiro estão trabalhando nele. Diferente de produtos 
+comerciais, onde a existência do produto depende de uma só empresa. Se esta 
+desistir dele, ninguém mais dará suporte.<BR><BR>Já existem casos de sucesso 
+onde a adoção do JBoss foi fundamental para a sobrevivência da empresa. Se 
+formos ver bem, os servidores de aplicação não custam tão caro assim, se 
+levarmos em conta o que eles fazem. Mas não podemos negar que o JBoss é uma 
+opção muito mais realista para o mercado Brasileiro.<BR><BR>E para finalizar, o 
+JBoss é um servidor de aplicação muito fácil de utilizar, ainda mais se 
+compararmos com seus concorrentes. É muito fácil instalar componentes EJB ou 
+recursos J2EE como DataSources (arquivos de configuração de banco de dados) e 
+isso graças ao seu Hot Deployer. Por exemplo, basta um drag'n'drop de um arquivo 
+jar com componentes EJB que estes já estão funcionando.</DIV><BR></DIV>
+<DIV id=null><BR>
+<SCRIPT type=text/javascript><!--
+google_ad_client = "pub-6654694818223278";
+/* 336x280, criado 05/07/08 */
+google_ad_slot = "5843517607";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</SCRIPT>
+
+<SCRIPT src="Introdução_ao_JBoss_arquivos/show_ads.js" 
+type=text/javascript>
+</SCRIPT>
+<BR><BR><A 
+href="http://rec6.via6.com/link.php?url=http://www.htmlstaff.org/ver.php?id=7616&amp;titulo=Introdução ao JBoss" 
+target=_blank><IMG title="Recomende este artigo no Rec6!" alt=Rec6 
+src="Introdução_ao_JBoss_arquivos/img_rec6.gif" border=0></A> <A 
+href="http://digg.com/submit?url=http://www.htmlstaff.org/ver.php?id=7616&amp;title=Introdução ao JBoss&amp;bodytext=JBoss é hoje, sem dúvida nenhuma o servidor de aplicação que mais vem chamando a atenção no mundo J2EE. Várias características fazem dele uma opção inteligente. Neste artigo vamos mostrar um pouco de sua história, vamos mostrar como instalá-lo..." 
+target=_blank><IMG title="Recomende este artigo no Digg!" alt=Digg 
+src="Introdução_ao_JBoss_arquivos/img_digg.gif" border=0></A> <A 
+onclick="void(window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url=' + encodeURIComponent('http://www.htmlstaff.org/ver.php?id=7616') + '&amp;title=' + encodeURIComponent('Introdução ao JBoss') + '&amp;notes=' + encodeURIComponent('JBoss é hoje, sem dúvida nenhuma o servidor de aplicação que mais vem chamando a atenção no mundo J2EE. Várias características fazem dele uma opção inteligente. Neste artigo vamos mostrar um pouco de sua história, vamos mostrar como instalá-lo...'), 'delicious','toolbar=no,width=700,height=400'))" 
+href="javascript:void(0);"><IMG 
+title="Adicione este artigo nos seus favoritos no del.icio.us!" alt=del.icio.us 
+src="Introdução_ao_JBoss_arquivos/img_del.icio.us.png" 
+border=0></A><BR><BR>Enviado por <A 
+href="http://www.htmlstaff.org/membro.php?id=1">xKuRt</A> em 13/05/2007 às 
+19:47<BR><BR>
+<HR>
+<STRONG>Itens relacionados</STRONG><BR><BR><A 
+href="http://www.htmlstaff.org/ver.php?id=22597">Instalação do Jboss no Fedora 
+8</A><BR>
+<HR>
+<STRONG>Avaliação</STRONG><BR><BR>
+<P class=simpleText>Esta publicação ainda não foi avaliada!</P><BR>
+<FORM id=avaliar name=avaliar>
+<FIELDSET><STRONG>Avaliar:</STRONG> <SELECT size=1 name=avaliar><OPTION 
+  value=10 selected>10</OPTION><OPTION value=7>7</OPTION><OPTION 
+  value=5>5</OPTION><OPTION value=3>3</OPTION><OPTION 
+value=0>0</OPTION></SELECT><BUTTON disabled name=submit 
+type=submit>Ok!</BUTTON></FIELDSET></FORM><BR><BR>
+<P class=simpleText>A avaliação de publicações é restrita a membros cadastrados 
+e logados no nosso site.</P><BR>
+<HR>
+<A name=comentarios></A><STRONG>Comentários</STRONG><BR><BR>
+<P class=simpleText>Este artigo ainda não foi comentado ou o(s) comentário(s) 
+que foi(ram) enviado(s) a ele ainda não foi(ram) publicado(s).</P><BR>
+<P class=simpleText>Envio de comentário:</P><BR>
+<FORM id=form name=form>
+<FIELDSET><TEXTAREA name=DfComentario rows=8 readOnly cols=90>O envio de comentários é restrito a membros cadastrados e logados no nosso site.</TEXTAREA><BR><BR><BUTTON 
+disabled name=submit type=submit>Enviar</BUTTON>&nbsp;&nbsp;<BUTTON disabled 
+name=reset type=reset>Redefinir</BUTTON></FIELDSET></FORM></DIV><BR><!-- componente iconLinks -->
+<UL class=iconLinks>
+  <LI><A href="http://www.apache.org/" target=_blank><IMG 
+  title="Utilizamos e apoiamos o Apache" alt=Apache 
+  src="Introdução_ao_JBoss_arquivos/iconLinkApache.gif"></A> 
+  <LI><A href="http://www.php.net/" target=_blank><IMG 
+  title="Utilizamos e apoiamos o PHP" alt=PHP 
+  src="Introdução_ao_JBoss_arquivos/iconLinkPhp.gif"></A> 
+  <LI><A href="http://www.mysql.com/" target=_blank><IMG 
+  title="Utilizamos e apoiamos o MySQL" alt=MySQL 
+  src="Introdução_ao_JBoss_arquivos/iconLinkMysql.gif"></A> 
+  <LI><A href="http://creativecommons.org/licenses/by-nc-sa/2.5/br/deed.pt" 
+  target=_blank><IMG title="Conteúdo sob licença Creative Commons" 
+  alt="Creative Commons" src="Introdução_ao_JBoss_arquivos/iconLinkCc.gif"></A> 
+  <LI><A href="http://portuguese-83528966545.spampoison.com/" target=_blank><IMG 
+  title="Ajude a combater o spam! Clique aqui!" alt="Spam Poison" 
+  src="Introdução_ao_JBoss_arquivos/iconLinkSpamPoison.gif"></A></LI></UL><!-- fim componente iconLinks --><!-- componente pageCompiled -->
+<P class=pageCompiled>Página compilada em 1.16 segundo(s)</P><!-- fim componente pageCompiled --></DIV><!-- fim mainContent --></DIV>
+<DIV id=area3>
+<DIV class=area3><!-- data -->
+<P class=date>Domingo, 06 de Dezembro de 2009</P><!-- fim data --><!-- componente iconLinks -->
+<UL class=iconLinks>
+  <LI><A href="http://www.htmlstaff.org/rss.php"><IMG 
+  title="Link do feed RSS com os últimos artigos postados no nosso site" alt=RSS 
+  src="Introdução_ao_JBoss_arquivos/iconLinkRss.gif"></A> 
+  <LI><A href="http://www.htmlstaff.org/atom.php"><IMG 
+  title="Link do feed Atom com os últimos artigos postados no nosso site" 
+  alt=Atom src="Introdução_ao_JBoss_arquivos/iconLinkAtom.gif"></A></LI></UL><!-- fim componente iconLinks --><!-- componente login -->
+<DIV class=login>
+<H3 class=first>Área restrita</H3>
+<SCRIPT type=text/javascript>
+function validar_10()
+{
+<!--
+var login = document.form_login.login.value
+if (login==""){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_login.login.focus()
+	return false
+	}
+var senha = document.form_login.senha.value
+if (senha==""){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_login.senha.focus()
+	return false
+	}
+}
+//-->
+</SCRIPT>
+
+<FORM id=form_login name=form_login onsubmit="return validar_10();" 
+action=checar_dados.php method=post>
+<FIELDSET>
+<UL>
+  <LI><LABEL>Login</LABEL><INPUT name=login>
+  <LI><LABEL>Senha</LABEL><INPUT type=password name=senha></LI>
+  <LI class=button><BUTTON name=submit 
+  type=submit><SPAN>Logar</SPAN></BUTTON></LI></UL></FIELDSET></FORM>
+<DIV class=signupForgetPass>
+<P>Não é membro ainda?</P><A class=signup 
+href="http://www.htmlstaff.org/cadastrar_membro.php">Cadastre-se e tenha acesso 
+total ao nosso site!</A><A class=forget 
+href="http://www.htmlstaff.org/lembrete_senha.php">Não lembra o seu 
+login/senha?</A><A class=validation 
+href="http://www.htmlstaff.org/reenviar_chave_validacao.php">Não recebeu a chave 
+de validação?</A></DIV></DIV><!-- fim componente login --><!-- componente livros -->
+<DIV>
+<H3>Leitura recomendada</H3>
+<P class=simpleText align=center><A 
+onmouseover="window.status='Amplie seu conhecimento com este livro!'; return true" 
+title="Amplie seu conhecimento com este livro!" 
+href="http://www.submarino.com.br/produto/1/194806?franq=260173" 
+target=_blank>Projeto de banco de dados com XML</A></P></DIV><!-- fim componente livros --><!-- componente publicidade -->
+<DIV class=lastNews>
+<H3>Tempo Real Eventos<BR>Cursos Mão na Massa</H3>
+<P class=simpleText align=left>
+<P>Aprenda fazendo, 1 Profissional por computador, 7 horas de 
+treinamento.</P><BR><BR>
+<UL>
+  <LI class=last><A title="Clique aqui para maiores informações" 
+  href="http://www.temporealeventos.com.br/?area=75" target=_blank>Seminário PHP 
+  - Produtividade e Performance</A>
+  <LI class=last><A title="Clique aqui para maiores informações" 
+  href="http://www.temporealeventos.com.br/?area=139" target=_blank>Mão na Massa 
+  - PHP Orientado a Objetos</A>
+  <LI class=last><A title="Clique aqui para maiores informações" 
+  href="http://www.temporealeventos.com.br/?area=132" target=_blank>Mão na Massa 
+  - jQuery</A>
+  <LI class=last><A title="Clique aqui para maiores informações" 
+  href="http://www.temporealeventos.com.br/?area=66" target=_blank>Mão na Massa 
+  - Webservice em PHP</A></LI></UL><BR>
+<P>Outras iniciativas, consulte <A href="http://www.temporealeventos.com.br/" 
+target=_blank>Tempo Real Eventos</A> e maiores informações: (11) 3487-6046.</P>
+<P></P></DIV><!-- fim componente publicidade --><!-- componente lastNews -->
+<DIV class=lastNews>
+<H3>Últimas publicações</H3>
+<UL>
+  <LI class=last><A href="http://www.htmlstaff.org/ver.php?id=24642">Setor de 
+  tecnologia da informação terá carência de 140 mil profissionais em 2013, diz 
+  relatório</A>
+  <LI class=last><A href="http://www.htmlstaff.org/ver.php?id=24641">Projeto 
+  quer que Estado regule serviços de banda larga</A>
+  <LI class=last><A href="http://www.htmlstaff.org/ver.php?id=24640">Brasil terá 
+  165 milhões de acessos à internet banda larga até 2018, prevê ANATEL</A>
+  <LI class=last><A href="http://www.htmlstaff.org/ver.php?id=24639">Brasil é o 
+  país que mais cresce em número de spam</A>
+  <LI class=last><A href="http://www.htmlstaff.org/ver.php?id=24638">PHPSPCast 
+  #5a: PEAR e PECL – Pêras e Pepinos</A></LI></UL></DIV><!-- fim componente lastNews --><!-- componente topMembers -->
+<DIV class=topMembers>
+<H3>Top 5 membros</H3>
+<UL class=topList>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=11541">Jotah</A><SPAN>191 
+  pts</SPAN></LI>
+  <LI><A 
+  href="http://www.htmlstaff.org/membro.php?id=4142">fbinasco</A><SPAN>163 
+  pts</SPAN></LI>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=1783">fredbcn</A><SPAN>117 
+  pts</SPAN></LI>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=20">Nando</A><SPAN>93 
+  pts</SPAN></LI>
+  <LI><A 
+  href="http://www.htmlstaff.org/membro.php?id=8314">andersonop</A><SPAN>78 
+  pts</SPAN></LI></UL></DIV><!-- fim componente lastNews --><!-- componente lastOnline -->
+<DIV class=lastOnline>
+<H3>Últimos membros online</H3>
+<UL class=topList>
+  <LI><A 
+  href="http://www.htmlstaff.org/membro.php?id=17947">adrianozanela</A><SPAN>em 
+  06/12 às 02:18</SPAN></LI>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=17946">chico</A><SPAN>em 
+  05/12 às 23:37</SPAN></LI>
+  <LI><A 
+  href="http://www.htmlstaff.org/membro.php?id=13673">Darklady</A><SPAN>em 05/12 
+  às 22:37</SPAN></LI></UL></DIV><!-- fim componente lastOnline --><!-- componente lastNewMembers -->
+<DIV class=lastNewMembers>
+<H3>Últimos membros cadastrados</H3>
+<UL class=topList>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=17948">divani</A><SPAN>em 
+  06/12</SPAN></LI>
+  <LI><A 
+  href="http://www.htmlstaff.org/membro.php?id=17947">adrianozanela</A><SPAN>em 
+  06/12</SPAN></LI>
+  <LI><A href="http://www.htmlstaff.org/membro.php?id=17946">chico</A><SPAN>em 
+  05/12</SPAN></LI></UL></DIV><!-- fim componente lastNewMembers --><!-- componente newsletter -->
+<DIV class=newsletter>
+<H3>Newsletter</H3>
+<SCRIPT type=text/javascript>
+function validar_11()
+{
+<!--
+var DfEmailNewsletter = document.form_newsletter.DfEmailNewsletter.value
+if (DfEmailNewsletter=="Seu@E-mail"){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_newsletter.DfEmailNewsletter.focus()
+	return false
+	}
+if (DfEmailNewsletter==""){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_newsletter.DfEmailNewsletter.focus()
+	return false
+	}
+if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.form_newsletter.DfEmailNewsletter.value))){
+	alert("É necessário o preenchimento de um endereço de e-mail válido.");
+	document.form_newsletter.DfEmailNewsletter.focus()
+	return false
+    }
+}
+//-->
+</SCRIPT>
+
+<FORM id=form_newsletter name=form_newsletter onsubmit="return validar_11();" 
+action=newsletter.php method=post>
+<FIELDSET>
+<UL>
+  <LI><LABEL>Seu e-mail</LABEL><INPUT 
+  onfocus="if(this.value=='Seu@E-mail') this.value='';" maxLength=100 
+  value=Seu@E-mail name=DfEmailNewsletter>
+  <LI class=radio><SPAN class=first><INPUT type=radio CHECKED value=Cadastrar 
+  name=newsletter><LABEL>Cadastrar</LABEL></SPAN><SPAN class=last><INPUT 
+  type=radio value=Descadastrar 
+  name=newsletter><LABEL>Descadastrar</LABEL></SPAN></LI>
+  <LI class=button><BUTTON name=submit 
+  type=submit><SPAN>Enviar</SPAN></BUTTON></LI></UL></FIELDSET></FORM></DIV><!-- fim componente newsletter --><!-- componente indicar -->
+<DIV class=newsletter>
+<H3>Indique o site para um amigo</H3>
+<SCRIPT type=text/javascript>
+function validar_12()
+{
+<!--
+var DfSeuNomeIndicar = document.form_indicar.DfSeuNomeIndicar.value
+if (DfSeuNomeIndicar=="Digite seu nome"){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_indicar.DfSeuNomeIndicar.focus()
+	return false
+	}
+if (DfSeuNomeIndicar==""){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_indicar.DfSeuNomeIndicar.focus()
+	return false
+	}
+var DfEmailAmigoIndicar = document.form_indicar.DfEmailAmigoIndicar.value
+if (DfEmailAmigoIndicar=="Digite@E-mail_do_seu_amigo"){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_indicar.DfEmailAmigoIndicar.focus()
+	return false
+	}
+if (DfEmailAmigoIndicar==""){
+	alert("É necessário o preenchimento deste campo.");
+	document.form_indicar.DfEmailAmigoIndicar.focus()
+	return false
+	}
+if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.form_indicar.DfEmailAmigoIndicar.value))){
+	alert("É necessário o preenchimento de um endereço de e-mail válido.");
+	document.form_indicar.DfEmailAmigoIndicar.focus()
+	return false
+    }
+}
+//-->
+</SCRIPT>
+
+<FORM id=form_indicar name=form_indicar onsubmit="return validar_12();" 
+action=indicar_site.php method=post>
+<FIELDSET>
+<UL>
+  <LI><LABEL>Seu nome</LABEL><INPUT 
+  onfocus="if(this.value=='Digite o seu nome') this.value='';" maxLength=100 
+  value="Digite o seu nome" name=DfSeuNomeIndicar>
+  <LI><LABEL>E-mail do seu amigo</LABEL><INPUT 
+  onfocus="if(this.value=='E-mail do seu amigo') this.value='';" maxLength=100 
+  value="E-mail do seu amigo" name=DfEmailAmigoIndicar></LI>
+  <LI class=button><BUTTON name=submit 
+  type=submit><SPAN>Enviar</SPAN></BUTTON></LI></UL></FIELDSET></FORM></DIV><!-- fim componente indicar --></DIV></DIV></DIV><!-- fim main --><!-- area2 -->
+<DIV id=area2>
+<DIV class=area2><!-- menu -->
+<UL class=menu id=menu>
+  <UL>
+    <LI><A href="http://www.htmlstaff.org/index.php">Principal</A></LI></UL>
+  <UL>
+    <LI><A href="http://www.htmlstaff.org/enviar_artigo.php">Enviar 
+    artigo</A></LI></UL>
+  <UL>
+    <LI><A 
+    href="http://www.htmlstaff.org/cadastrar_membro.php">Cadastrar-se</A></LI></UL>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Desenvolvimento</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=53">ActionScript</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=2">ASP/ASP.NET</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=3">Banco de 
+dados</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=4">C/C++/C#</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=5">CGI</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=6">Clipper</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=7">Cold Fusion</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=8">CSS</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=9">Delphi</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=11">HTML/XHTML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=12">IRC/IRC 
+    Scripting</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=13">Java</A></LI>
+    <LI><A 
+    href="http://www.htmlstaff.org/secao.php?id=14">Javascript/AJAX/DHTML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=15">JSP</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=23">Lua</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=25">Miscelânea ling., 
+    prog. etc</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=16">MSP</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=17">Perl</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=18">PHP</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=50">Python</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=49">Ruby/Ruby on 
+    Rails</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=19">SOAP</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=56">UML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=20">Visual 
+    Basic/VB.NET</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=21">VRML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=22">WAP/WML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=24">XML</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Criação, soluções e etc</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=26">CorelDRAW</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=27">Dreamweaver</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=28">E-business</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=29">Fireworks</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=30">Flash</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=31">FrontPage</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=32">FTP</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=34">Hardware</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=10">Illustrator</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=46">Miscelânea prog., 
+    sol. etc</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=35">Montagem e manutenção 
+    PCs</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=36">Photoshop</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=37">Redes</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=54">Retorno 
+    financeiro</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=38">Segurança</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=51">SEO/SEM</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=40">Web 
+  servers</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Sistemas Operacionais</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=55">BSD</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=33">GNU/Linux</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=52">Mac OS</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=39">Unix</A></LI>
+    <LI><A 
+  href="http://www.htmlstaff.org/secao.php?id=41">Windows</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Informe-se</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=47">Entrevistas</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=48">Eventos e 
+    cursos</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=44">Jogos</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=42">Notícias</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=1">Novidades</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=45">Off-topic</A></LI>
+    <LI><A href="http://www.htmlstaff.org/secao.php?id=43">Vírus e 
+    segurança</A></LI></UL></LI>
+  <LI class=sub_menu><A href="http://www.htmlstaff.org/ver.php?id=7616#">Cursos, 
+  apostilas e livros</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/cursos_e_apostilas/asp_aspnet.php" 
+    target=_blank>ASP/ASP.NET</A></LI>
+    <LI><A href="http://www.htmlstaff.org/cursos_e_apostilas/css.php" 
+    target=_blank>CSS</A></LI>
+    <LI><A href="http://www.htmlstaff.org/cursos_e_apostilas/html_xhtml.php" 
+    target=_blank>HTML/XHTML</A></LI>
+    <LI><A 
+    href="http://www.htmlstaff.org/cursos_e_apostilas/javascript_ajax_dhtml.php" 
+    target=_blank>Javascript/AJAX/DHTML</A></LI>
+    <LI><A href="http://www.htmlstaff.org/cursos_e_apostilas/php.php" 
+    target=_blank>PHP</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Cartilhas e manuais</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.htmlstaff.org/cartilhaseguranca/cartilha-index.html" 
+    target=_blank>Cartilha de segurança</A></LI>
+    <LI><A href="http://www.htmlstaff.org/css2manual/cover.html" 
+    target=_blank>CSS manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/htmlmanual/cover.html" 
+    target=_blank>HTML manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/mysqlmanual/manual_toc.html" 
+    target=_blank>MySQL manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/postgresqlmanual/index.html" 
+    target=_blank>PostgreSQL manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/soapmanual/cover.htm" 
+    target=_blank>SOAP manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/xhtmlmanual/Cover.html" 
+    target=_blank>XHTML manual</A></LI>
+    <LI><A href="http://www.htmlstaff.org/xmlmanual/cover.htm" target=_blank>XML 
+    manual</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Serviços</A>
+  <UL class=subMenu>
+    <LI><A 
+    href="http://www.htmlstaff.org/servico_criptografador.php">Criptografador</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servicos/contador/" 
+    target=_blank>Contador</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servico_gera_janela_popup.php">Gerar 
+    janela popup</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servico_gera_meta_tags.php">Gerar meta 
+    tags</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servicos/mural/" 
+    target=_blank>Mural</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servicos/news/" 
+    target=_blank>News</A></LI>
+    <LI><A href="http://www.htmlstaff.org/servico_tabela_cores.php" 
+    target=_blank>Tabela de cores</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Interatividade</A>
+  <UL class=subMenu>
+    <LI><A href="http://forum.htmlstaff.org/" target=_blank>Forum</A></LI>
+    <LI><A href="http://lista.htmlstaff.org/" target=_blank>Lista</A></LI>
+    <LI><A href="http://www.orkut.com/Community.aspx?cmm=113667" 
+    target=_blank>Orkut</A></LI>
+    <LI><A href="http://twitter.com/htmlstaff" 
+  target=_blank>Twitter</A></LI></UL></LI>
+  <LI class=sub_menu><A 
+  href="http://www.htmlstaff.org/ver.php?id=7616#">Parceiros</A>
+  <UL class=subMenu>
+    <LI><A href="http://www.codigofonte.net/" 
+    target=_blank>CodigoFonte.net</A></LI>
+    <LI><A href="http://www.tutoriaisclube.com/" target=_blank>Tutoriais 
+    Clube</A></LI>
+    <LI><A href="http://www.guanabara.info/" 
+    target=_blank>Guanabara.info</A></LI>
+    <LI><A href="http://www.phpmg.com/" target=_blank>PHP MG</A></LI>
+    <LI><A href="http://www.tutoriais.org/" target=_blank>Tutoriais.org</A></LI>
+    <LI><A href="http://www.vivaolinux.com.br/" target=_blank>Viva o 
+    Linux</A></LI>
+    <LI><A href="http://www.zoomdigital.org/" target=_blank>Zoom 
+Digital</A></LI>
+    <LI><A href="http://www.mxmasters.com.br/" target=_blank>MX Masters: Video 
+    aulas</A></LI>
+    <LI><A href="http://www.webartz.com.br/" target=_blank>webARTz</A></LI>
+    <LI><A href="http://www.logado.info/" target=_blank>Logado</A></LI>
+    <LI><A href="http://www.comerciomuriae.com.br/" target=_blank>Comércio 
+    Muriaé</A></LI>
+    <LI><A href="http://www.apostilasnaweb.com/" target=_blank>Apostilas na 
+    Web</A></LI>
+    <LI><A href="http://www.techlider.com.br/" target=_blank>Techlider</A></LI>
+    <LI><A href="http://www.mundoti.info/" target=_blank>Mundo TI</A></LI></UL>
+  <UL>
+    <LI><A 
+href="http://www.htmlstaff.org/contato.php">Contato</A></LI></UL></LI></UL><BR><BR>
+<DIV align=center>
+<TABLE cellSpacing=0 cellPadding=0 width=140 align=center bgColor=#2b5775 
+border=0>
+  <TBODY>
+  <TR align=middle>
+    <TD width=140><A 
+      href="http://www.submarino.com.br/produto/1/6284?franq=260173" 
+      target=_blank><IMG title="Clique aqui e veja mais sobre este produto" 
+      height=140 alt="Capa do livro" src="Introdução_ao_JBoss_arquivos/6284.gif" 
+      width=130 border=0></A><BR><A 
+      title="Clique aqui e veja mais sobre este produto" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" 
+      href="http://www.submarino.com.br/produto/1/6284?franq=260173" 
+      target=_blank ?>Aprenda em 1 semana Dynamic HTML 
+</A></TD></TR></TBODY></TABLE><BR><BR><A 
+href="http://www.digirati.com.br/marketing/?site=hostnet&amp;tipo=selo&amp;ref=htmlstaff.org" 
+target=_blank><IMG title="Somos hospedados pela Hostnet" alt=Hostnet 
+src="Introdução_ao_JBoss_arquivos/hostnet.gif" border=0></A><BR><BR><A 
+href="http://www.digirati.com.br/marketing/?site=imd&amp;tipo=selo&amp;ref=htmlstaff.org" 
+target=_blank><IMG title="Somos auditados pelo IMD" alt=IMD 
+src="Introdução_ao_JBoss_arquivos/imd.gif" 
+border=0></A></DIV><!-- fim menu --></DIV></DIV><!-- fim area2 --></DIV><!-- fim content --><!-- footer -->
+<DIV id=footer>
+<DIV class=footer>
+<P>Hospedado por Hospedado por <A href="http://www.hostnet.com.br/" 
+target=_blank rel=nofollow>Hostnet</A> <A href="http://www.hostnet.com.br/" 
+target=_blank rel=nofollow>Hospedagem de Sites</A>. Design: <A 
+href="http://www.willpower.art.br/" target=_blank 
+rel=nofollow>willpower.art.br</A></P>
+<P><SPAN>2001-2009 htmlstaff.org. <A 
+href="http://www.htmlstaff.org/ver.php?id=17210">Política de privacidade</A>. 
+Conteúdo sob licença <A 
+href="http://www.creativecommons.org/licenses/by-nc-sa/2.5/br/deed.pt" 
+target=_blank rel=nofollow>Creative Commons</A>.</SPAN></P></DIV></DIV><!-- fim footer --></DIV></DIV>
+<SCRIPT src="Introdução_ao_JBoss_arquivos/urchin.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+_uacct = "UA-742902-1";
+urchinTracker();
+</SCRIPT>
+
+<SCRIPT src="Introdução_ao_JBoss_arquivos/show.jsp"></SCRIPT>
+</BODY></HTML>

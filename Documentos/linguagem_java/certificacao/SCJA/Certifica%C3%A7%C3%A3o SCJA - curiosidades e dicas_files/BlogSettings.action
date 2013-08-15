@@ -1,0 +1,11 @@
+//exec:12
+var OB_srcId = 511903;
+var OB_PC_enable=true;
+
+var OB_self_posts = true;
+ 
+var OB_time_counter = "0|10000|0";
+var OB_showRec = true;
+var OB_location_string = "<span class='rec-src-link'> (<span class='rec-src-at'></span>$SOURCE_NAME)</span>";
+var OB_defaultRecNumber = 4;
+outbrain_customSettings.blogSettingsCB( true );

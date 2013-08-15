@@ -1,0 +1,79 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+
+#sfondobarra {
+   background: url('images/sfondo.png') bottom left repeat-x #fff;
+   background-position: 0px 0px;
+}
+
+#barra {
+   position:relative;
+   background: url('images/logo.png') no-repeat transparent;
+   border-style: solid;
+   border-width: 0;
+   color: #dbba75;
+   height: 80px;
+}
+
+#pulsante {
+   position:absolute;
+   bottom:0px;
+	right: 0px;
+}
+		  
+#pulsante ul {
+   display:inline;
+   margin:0;
+   padding:10px 10px 0 1px;
+   list-style:none;
+}
+		  
+#pulsante li {
+   float:left;
+   background:url("images/tab_off_ns1.gif") no-repeat left top;
+   margin:0;
+   padding:0 0 0 5px;
+}
+
+#pulsante a {
+   float:left;
+   display:block;
+   background:url("images/tab_off_ns2.gif") no-repeat right top;
+   padding:10px 15px 3px 8px;
+/*   font-size:105%; */
+   font: 12px Verdana, Arial, Helvetica, Sans-Serif;
+   text-decoration:none;
+   font-weight:bold;
+   margin:0;
+   color:#444;
+}
+
+#pulsante a {
+   float:none;
+}
+
+#pulsante a:hover {
+   color:#333;
+}
+
+#pulsante li:hover, #pulsante li:hover a {
+   background-position:0% -163px;
+   color:#000;
+}
+
+#pulsante li:hover a {
+   background-position:100% -163px;
+   color:#000;
+}
+
+#pulsante #current {
+   background:url("images/tab_on_ns1.gif") no-repeat left top;		  
+}
+
+#pulsante #current a {
+   background:url("images/tab_on_ns2.gif") no-repeat right top;		  
+   color:#000;
+   padding-bottom:4px;
+}

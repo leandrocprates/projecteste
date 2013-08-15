@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://dbunit.wikidot.com/demoimportexport -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 	<TITLE>DbUnit: DemoImportExport</TITLE>
+ 	
+ 	<SCRIPT type="text/javascript" src="./DemoImportExport_files/init.combined.js"></SCRIPT>
+ 	<SCRIPT type="text/javascript">
+ 		var URL_HOST = 'www.wikidot.com';
+		var URL_DOMAIN = 'wikidot.com';
+ 		// global request information
+ 		
+ 		var WIKIREQUEST = {};
+ 		WIKIREQUEST.info = {};
+ 		
+ 		WIKIREQUEST.info.domain = "dbunit.wikidot.com";
+ 		WIKIREQUEST.info.siteId = 40420;
+ 		WIKIREQUEST.info.categoryId = 225088;
+ 		WIKIREQUEST.info.themeId = 2437;
+ 		WIKIREQUEST.info.requestPageName = "demoimportexport";
+ 		OZONE.request.timestamp = 1255384528;
+ 		OZONE.request.date = new Date();
+ 		WIKIREQUEST.info.lang = 'en';
+ 		 		WIKIREQUEST.info.pageUnixName = "demoimportexport";
+ 		WIKIREQUEST.info.pageId = 2323376;
+ 		 		WIKIREQUEST.info.lang = "en";
+ 		OZONE.lang = "en";
+// 		window.onload = WikidotInit();
+ 	</SCRIPT>
+ 	
+ 	
+         	<META http-equiv="content-language" content="en">
+ 		<SCRIPT type="text/javascript" src="./DemoImportExport_files/WIKIDOT.combined.js"></SCRIPT>
+	
+	
+	
+	
+   	<STYLE type="text/css">
+body {
+  background-position: center 24px;
+}
+</STYLE>
+<STYLE type="text/css" id="internal-style"> 
+ @import url(http://static.wikidot.com/v--01e3bd22dbff/common--modules/css/wiki/pagestagcloud/PagesTagCloudModule.css);
+@import url(http://static.wikidot.com/v--01e3bd22dbff/common--modules/css/monetize/textlinkads/MonetizeTextLinkAdsModule.css);
+ 
+ 
+   		
+   		   			@import url(http://static.wikidot.com/v--01e3bd22dbff/common--theme/base/css/style.css?0);
+   		   			@import url(http://static.wikidot.com/v--01e3bd22dbff/common--theme/webbish2/css/style.css?0);
+   		   		
+     </STYLE>
+    
+    <LINK rel="shortcut icon" href="http://dbunit.wikidot.com/local--favicon/favicon.gif">
+    <LINK rel="icon" type="image/gif" href="http://dbunit.wikidot.com/local--favicon/favicon.gif">
+    
+            <LINK rel="alternate" type="application/wiki" title="Edit this page!" href="javascript:WIKIDOT.page.listeners.editClick()">
+    
+<SCRIPT type="text/javascript" src="./DemoImportExport_files/NewPageHelperModule.js"></SCRIPT></HEAD><BODY id="html-body">
+  <DIV id="navi-bar">
+  <A class="logo" href="http://www.wikidot.com/">
+    <SPAN>Wikidot.com</SPAN>
+  </A>
+  
+  
+  
+  <DIV class="new-site">
+    <FORM method="get" action="http://www.wikidot.com/new-site">
+      <INPUT class="text empty" type="text" name="address" value="site-name">.wikidot.com
+    </FORM>
+  </DIV>
+  
+    <DIV class="share">
+    <SPAN>Share on</SPAN>
+    <A class="twitter" target="_blank" rel="nofollow" href="http://twitter.com/home?status=DbUnit%3A%20DemoImportExport+http%3A%2F%2Fdbunit.wikidot.com%2Fdemoimportexport" title="Share on Twitter"><IMG src="./DemoImportExport_files/twitter.png" alt="twitter"></A>  
+    <A class="facebook" target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdbunit.wikidot.com%2Fdemoimportexport&t=DbUnit%3A%20DemoImportExport" title="Share on Facebook"><IMG src="./DemoImportExport_files/facebook.gif" alt="Facebook"></A>  
+    <A class="delicious" target="_blank" rel="nofollow" href="http://delicious.com/save" title="Share on Delicious"><IMG src="./DemoImportExport_files/delicious.png" alt="Delicious"></A>
+    <A class="digg" target="_blank" rel="nofollow" href="http://digg.com/submit?url=http%3A%2F%2Fdbunit.wikidot.com%2Fdemoimportexport&title=DbUnit%3A%20DemoImportExport" title="Post to Digg"><IMG src="./DemoImportExport_files/digg.png" alt="Digg"></A>
+    <A class="reddit" href="http://www.reddit.com/submit?url=http%3A%2F%2Fdbunit.wikidot.com%2Fdemoimportexport" rel="nofollow" target="_blank" title="Post to Reddit"><IMG src="./DemoImportExport_files/reddit.png" alt="Reddit" border="0"></A>
+    <A class="stumbleupon" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fdbunit.wikidot.com%2Fdemoimportexport" rel="nofollow" target="_blank" title="Post to StumbleUpon"><IMG src="./DemoImportExport_files/stumble.png" alt="Reddit" border="0"></A>
+  </DIV>
+    
+      <A class="join" href="javascript:;" onclick="WIKIDOT.page.listeners.join(event, &#39;apply&#39;)">Join this site</A>
+    
+    
+  <A class="random-site" href="http://dbunit.wikidot.com/random-site.php" title="Go to a random Wikidot site.">Explore »</A>
+    </DIV>
+<DIV id="navi-bar-shadow">&nbsp;</DIV>
+
+
+<SCRIPT type="text/javascript">
+  //<![CDATA[
+  $j(function(){
+    var uri = window.location.href;
+    var title = document.title
+    
+    $j('#navi-bar .share a').each(function(){
+      $t = $j(this);
+      var u = $t.attr('href');
+      u = u.replace(/TITLE/, encodeURIComponent(title)).replace(/URI/, encodeURIComponent(uri));
+      $t.attr('href', u);
+    });
+    
+    $j('#navi-bar .share .facebook').click(function(e){
+      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(uri)+'&t='+encodeURIComponent(title),'sharer','toolbar=0,status=0,width=626,height=436');
+      e.preventDefault();
+    });
+    $j('#navi-bar .share .delicious').click(function(e){
+      window.open('http://delicious.com/save?v=5&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550');
+      e.preventDefault();
+    });
+  });
+  
+	$j('#navi-bar .new-site form').submit(function(e){
+	  e.preventDefault();
+	  var $i = $j('#navi-bar .new-site form input.text');
+	  if($i.hasClass('empty')){
+	    	var w = new OZONE.dialogs.ErrorDialog();
+  			w.content = "You need to enter a valid web address for your new wiki.";
+  			w.show();
+  			return;
+    }
+    var siteName = $i.attr('value');
+    siteName = siteName.replace(/^\s+/, '').replace(/\s+$/,'');
+		var p = {};
+		p.action = 'wiki/special/NewWikiWidgetAction';
+		p.event = 'newWiki';
+		p.siteName = siteName;
+		OZONE.ajax.requestModule(null, p, function(r){
+		  if(r.status == 'site_exists'){
+		    window.location.href = 'http://' + siteName + '.' + URL_DOMAIN;
+		    return;
+		  }
+		  if(!WIKIDOT.utils.handleError(r)) {return;}
+  		// seems fine.
+  		window.location.href='http://'+URL_HOST+'/new-site/address/'+r.unixName;
+		});
+	});
+	$j('#navi-bar .new-site form input.text').focus(function(){
+	  var $t = $j(this);
+	  if($t.hasClass('empty')){
+	    $t.removeClass('empty');
+	    $t.attr('value', '');
+	  }
+	});
+	//]]>
+</SCRIPT>
+
+
+  <DIV id="container-wrap-wrap">
+	<DIV id="container-wrap">
+		<DIV id="container">
+		  	<DIV id="header">
+		  		<H1><A href="http://dbunit.wikidot.com/"><SPAN>DbUnit</SPAN></A></H1>
+		  				  		
+		  		<!-- google_ad_section_start(weight=ignore) -->
+		  		
+		  		<DIV id="search-top-box">
+		  			<FORM id="search-top-box-form" action="http://dbunit.wikidot.com/dummy">
+			  			<INPUT id="search-top-box-input" class="text empty" type="text" size="15" name="query" value="search this site" onfocus="if(YAHOO.util.Dom.hasClass(this, &#39;empty&#39;)){YAHOO.util.Dom.removeClass(this,&#39;empty&#39;); this.value=&#39;&#39;;}"><INPUT class="button" type="submit" name="search" value="search">
+				 	</FORM>
+	  			</DIV>
+		  		
+		  					  		<DIV id="top-bar">
+			  			
+
+<UL><LI><A href="javascript:;">example menu</A><UL><LI><A class="newpage" href="http://dbunit.wikidot.com/example-item-1">example item 1</A></LI><LI><A class="newpage" href="http://dbunit.wikidot.com/example-item-2">example item 2</A></LI></UL></LI><LI><A href="http://dbunit.wikidot.com/contact">contact</A></LI></UL>
+
+			  		</DIV>
+		  				  		<DIV id="login-status"><A href="javascript:;" onclick="WIKIDOT.page.listeners.createAccount(event)">Create account</A> or <A href="javascript:;" onclick="WIKIDOT.page.listeners.loginClick(event)">Sign in</A> </DIV>
+		  		<DIV id="header-extra-div-1"><SPAN></SPAN></DIV><DIV id="header-extra-div-2"><SPAN></SPAN></DIV><DIV id="header-extra-div-3"><SPAN></SPAN></DIV>
+		  	</DIV>
+		  	
+			<DIV id="content-wrap">
+									<DIV id="side-bar">
+															
+
+												
+
+<UL><LI><A href="http://dbunit.wikidot.com/start">Welcome page</A></LI></UL><UL><LI><A href="http://dbunit.wikidot.com/what-is-a-wiki-site">What is a Wiki Site?</A></LI><LI><A href="http://dbunit.wikidot.com/how-to-edit-pages">How to edit pages?</A></LI></UL><UL><LI><A href="http://dbunit.wikidot.com/system:join">How to join this site?</A></LI><LI><A href="http://dbunit.wikidot.com/system:members">Site members</A></LI></UL><UL><LI><A href="http://dbunit.wikidot.com/system:recent-changes">Recent changes</A></LI><LI><A href="http://dbunit.wikidot.com/system:list-all-pages">List all pages</A></LI><LI><A href="http://dbunit.wikidot.com/system:page-tags-list">Page Tags</A></LI></UL><UL><LI><A href="http://dbunit.wikidot.com/admin:manage">Site Manager</A></LI></UL><H2><SPAN>Page tags</SPAN></H2>
+	<P>
+		It seems you have no tags attached to pages. To attach a tag simply click on the <EM>tags</EM> 
+		button at the bottom of any page.	</P>
+
+<H2><SPAN>Add a new page</SPAN></H2>
+
+<DIV class="new-page-box" style="text-align: center; margin: 1em 0">
+	<FORM action="http://dbunit.wikidot.com/dummy.html" method="get" onsubmit="WIKIDOT.modules.NewPageHelperModule.listeners.create(event)">
+		<INPUT class="text" name="pageName" type="text" size="15" maxlength="60" style="margin: 1px"><INPUT type="submit" class="button" value="new page" style="margin: 1px">
+												
+	</FORM>
+</DIV>
+
+<P style="text-align: center;"><SPAN style="font-size:80%;"><A href="http://dbunit.wikidot.com/nav:side">edit this panel</A></SPAN></P>
+
+															
+
+											</DIV>
+								
+				<!-- google_ad_section_end -->
+				
+				<DIV id="main-content">
+					<DIV id="action-area-top"></DIV>
+					
+					<!-- google_ad_section_start -->
+					
+										<DIV id="page-title">
+					DemoImportExport					</DIV>
+															
+												
+
+										
+					<DIV id="page-content">
+					
+															
+
+												 	
+					 										
+
+												
+												
+
+<P>A self contained program demonstrating export and import with DBUnit.</P>
+<P>The export is exercised by calling main. The import is demonstrated as unit test. It is assumed the table already exists.</P>
+<P>There is a problem with the table compare <TT>Assertion.assertEquals</TT> if a column is empty for all rows. I have no fix for this.</P>
+<DIV class="code">
+<PRE><CODE>package test;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.dbunit.Assertion;
+import org.dbunit.DatabaseUnitException;
+import org.dbunit.database.DatabaseConnection;
+import org.dbunit.database.DatabaseSequenceFilter;
+import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.DataSetException;
+import org.dbunit.dataset.FilteredDataSet;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.ITable;
+import org.dbunit.dataset.filter.ITableFilter;
+import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.operation.DatabaseOperation;
+
+import org.junit.Test;
+
+public class DemoDBUnit {
+    private static String _testDir        = "testData";
+    private static String _dbFile         = "dbDump.xml";
+    private static String _driverClass    = "org.apache.derby.jdbc.EmbeddedDriver";
+    private static String _jdbcConnection = "jdbc:derby:testdb";
+    private static String _testTableName  = "person";
+
+    public static void main(String[] args) throws     ClassNotFoundException,
+                                                    DatabaseUnitException, 
+                                                    IOException, 
+                                                    SQLException {
+
+        fullDatabaseExport(new File(_testDir, _dbFile));
+    }
+
+    public static void fullDatabaseExport(File file) throws     ClassNotFoundException,
+                                                                DatabaseUnitException,
+                                                                DataSetException,
+                                                                IOException, 
+                                                                SQLException {
+        IDatabaseConnection connection = getConnection();
+
+        ITableFilter filter = new DatabaseSequenceFilter(connection);
+        IDataSet dataset    = new FilteredDataSet(filter, connection.createDataSet());
+        FlatXmlDataSet.write(dataset, new FileOutputStream(file));
+    }
+
+    @Test
+    public void test5_Test() throws ClassNotFoundException, 
+                                    DatabaseUnitException, 
+                                    IOException, 
+                                    SQLException {
+        fullDatabaseImport(new File(_testDir, _dbFile));
+        ITable actualTable = getConnection().createDataSet().getTable(_testTableName);
+
+        IDataSet expectedDataSet = new FlatXmlDataSet(new File(_testDir, _dbFile));
+        ITable expectedTable = expectedDataSet.getTable(_testTableName);
+        Assertion.assertEquals(expectedTable, actualTable);
+    }
+
+    public static void fullDatabaseImport(File file) throws     ClassNotFoundException, 
+                                                                DatabaseUnitException, 
+                                                                IOException,
+                                                                SQLException {
+        IDatabaseConnection connection = getConnection();
+        IDataSet dataSet = new FlatXmlDataSet(file, true);
+
+        DatabaseOperation.CLEAN_INSERT.execute(connection, dataSet);
+    }
+
+    public static IDatabaseConnection getConnection() throws     ClassNotFoundException, 
+                                                                DatabaseUnitException, 
+                                                                SQLException {
+        // database connection
+        Class driverClass = Class.forName(_driverClass);
+        Connection jdbcConnection = DriverManager.getConnection(_jdbcConnection);
+        return new DatabaseConnection(jdbcConnection);
+    }
+}</CODE>
+</PRE></DIV>
+
+					</DIV>
+					
+												
+
+										
+										
+					<!-- google_ad_section_end -->
+					
+					<!-- google_ad_section_start(weight=ignore) -->
+					
+					<DIV id="page-info-break"></DIV>
+																				
+										
+					<DIV id="action-area" style="display: none"></DIV>
+				</DIV>
+			</DIV>
+			
+			
+			
+	 		<DIV id="footer" style="display: block; visibility: visible;">
+	 					 			<DIV class="options" style="display: block; visibility: visible;">
+			 			<A href="http://www.wikidot.com/doc" id="wikidot-help-button">
+				 			help				 		</A>
+			 			|
+				 		<A href="http://www.wikidot.com/legal:terms-of-service" id="wikidot-tos-button">
+				 			terms of service				 		</A>
+			 			|
+				 		<A href="http://www.wikidot.com/legal:privacy-policy" id="wikidot-privacy-button">
+				 			privacy				 		</A>
+			 			|
+				 		<A href="javascript:;" id="bug-report-button" onclick="WIKIDOT.page.listeners.pageBugReport(event)">
+				 			report a bug				 		</A>
+			 			|
+				 		<A href="javascript:;" id="abuse-report-button" onclick="WIKIDOT.page.listeners.flagPageObjectionable(event)">
+				 			flag as objectionable				 		</A>
+		 			</DIV>
+			 				 				Hosted by <A href="http://www.wikidot.com/">Wikidot.com</A> — 
+		 						 					<A href="http://www.wikidot.com/new-site">get your free wiki now!</A>
+		 						 					 					 			 		</DIV>
+	 				 		<DIV id="license-area" class="license-area">
+		 									Unless stated otherwise Content of this page is licensed under <A rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</A>
+														</DIV>
+						
+									
+
+						
+			
+			<DIV id="extrac-div-1"><SPAN></SPAN></DIV><DIV id="extrac-div-2"><SPAN></SPAN></DIV><DIV id="extrac-div-3"><SPAN></SPAN></DIV>
+			
+						  				
+  				 	</DIV>
+	 	
+	</DIV>
+	<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+	<DIV id="extra-div-1"><SPAN></SPAN></DIV><DIV id="extra-div-2"><SPAN></SPAN></DIV><DIV id="extra-div-3"><SPAN></SPAN></DIV>
+	<DIV id="extra-div-4"><SPAN></SPAN></DIV><DIV id="extra-div-5"><SPAN></SPAN></DIV><DIV id="extra-div-6"><SPAN></SPAN></DIV>
+	</DIV>
+ 	
+ 	 	
+ 	<DIV id="page-options-bottom-tips" style="display: none">
+ 		<DIV id="edit-button-hovertip">
+ 			Click here to edit contents of this page. 		</DIV>
+ 	</DIV>
+ 	<DIV id="page-options-bottom-2-tips" style="display: none">
+ 		<DIV id="edit-sections-button-hovertip">
+	 		Click here to toggle editing of individual sections of the page (if possible).
+	 		Watch headings for an "edit" link when available. 		</DIV>
+ 		<DIV id="edit-append-button-hovertip">
+ 			Append content without editing the whole page source. 		</DIV>
+ 		<DIV id="history-button-hovertip">
+ 			Check out how this page has evolved in the past. 		</DIV>
+ 		<DIV id="discuss-button-hovertip">
+ 			If you want to discuss contents of this page - this is the easiest way to do it. 		</DIV>
+ 		<DIV id="files-button-hovertip">
+ 			View and manage file attachments for this page. 		</DIV>
+ 		<DIV id="site-tools-button-hovertip">
+ 			A few useful tools to manage this Site. 		</DIV>
+ 		<DIV id="backlinks-button-hovertip">
+ 				See pages that link to and include this page. 		</DIV>
+ 		<DIV id="rename-move-button-hovertip">
+ 			Change the name (also URL address, possibly the category) of the page. 		</DIV>
+ 		<DIV id="view-source-button-hovertip">
+ 			View wiki source for this page without editing. 		</DIV>
+ 		<DIV id="parent-page-button-hovertip">	
+ 			View/set parent page (used for creating breadcrumbs and structured layout). 		</DIV>
+ 			 		
+	 		
+	 		
+	 		
+	 		
+ 		 	</DIV>
+ 	
+ 	<!-- google_ad_section_end -->
+ 	
+ 	<DIV id="account-notifications-dummy" style="display:none"></DIV>
+ 	
+ 	<DIV style="display:none" id="dummy-ondomready-block"></DIV>
+
+		
+	<SCRIPT src="./DemoImportExport_files/urchin.js" type="text/javascript"></SCRIPT>
+	<SCRIPT type="text/javascript">
+		_uff = false;
+		_uacct = "UA-68540-5";
+		_udn="wikidot.com"; 
+		urchinTracker();
+	</SCRIPT>
+	
+
+<!-- Start Quantcast tag -->
+<SCRIPT type="text/javascript">
+_qoptions={
+qacct:"p-edL3gsnUjJzw-"
+};
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./DemoImportExport_files/quant.js"></SCRIPT>
+<NOSCRIPT></NOSCRIPT>
+<!-- End Quantcast tag -->
+
+
+	
+	  
+
+<DIV id="odialog-hovertips" style="position: absolute; z-index: 100; top: 0px; width: 100%; "><DIV id="abuse-report-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; "><DIV class="content">
+	 				Notify administrators if there is objectionable content in this page.	 		</DIV></DIV><DIV id="bug-report-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; "><DIV class="content">
+				Something does not work as expected? Find out what you can do.	 		</DIV></DIV><DIV id="wikidot-help-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; "><DIV class="content">
+	 			General Wikidot.com documentation and help section.	 		</DIV></DIV><DIV id="wikidot-tos-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; "><DIV class="content">
+	 			Wikidot.com Terms of Service - what you can, what you should not etc.	 		</DIV></DIV><DIV id="wikidot-privacy-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; "><DIV class="content">
+	 				Wikidot.com Privacy Policy. 			
+	 		</DIV></DIV></DIV></BODY></HTML>

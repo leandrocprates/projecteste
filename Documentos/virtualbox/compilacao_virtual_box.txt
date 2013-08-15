@@ -1,0 +1,81 @@
+
+1) O virtual box tem um erro e e necessario compilar o programa  instalado no ubuntu 8.0.4 
+para depois roda-lo 
+
+2) site com as informacoes necessarias para  compilacao
+
+http://ubuntuforum-pt.org/index.php/topic,45325.0.html
+
+Em seguida, use o comando "uname -r" para verificar qual é a versão do Kernel em uso e instale a versão correspondente do pacote "virtualbox-ose-modules", como em:
+
+$ uname -r 2.6.24-16-generic
+
+$ sudo apt-get install virtualbox-ose-modules-2.6.24-19-generic (colocar a versao do kernel da maquina)
+
+Se, por acaso, você estiver usando um Kernel personalizado, ou não houver um módulo com a versão correta, você pode fazer a instalação do módulo usando o module-assistant, que se encarregará de compilar um módulo sob medida. Comece instalando o pacote, juntamente com o build-essential, que contém os compiladores básicos:
+
+$ sudo apt-get install module-assistant build-essential
+
+Em seguida, gere o módulo usando o comando "m-a a-i" (versão abreviada do comando "module-assistant auto-install"), como em:
+
+$ sudo m-a a-i virtualbox-ose-source
+
+Isso compilará e instalará o módulo automaticamente. Se houver algum erro nesse ponto, verifique se o pacote "build-essential" foi corretamente instalado e se você não deletou acidentalmente os headers do Kernel, que são armazenados na pasta "/usr/src".
+
+
+3) Executar as seguintes instrucoes abaixo apos a compilacao: 
+
+modprobe vboxdrv // para nao ter que recompilar
+
+sudo /etc/init.d/vboxdrv stop
+
+sudo /etc/init.d/vboxdrv start
+
+sudo chmod 777 /dev/vboxdrv
+
+executar o virtualbox : ./virtualbox
+
+
+Pacotes instalados em minha maquina: 
+
+ii  linux-image-2.6.24-24-virtual              2.6.24-24.56                           Linux kernel image for version 2.6.24 on x86
+ii  virtualbox-ose                             1.5.6-dfsg-6ubuntu1                    x86 virtualization solution - binaries
+ii  virtualbox-ose-modules-2.6.24-19-386       24.0.4                                 virtualbox-ose module for linux-image-2.6.24
+ii  virtualbox-ose-modules-2.6.24-19-server    1.5.6-dfsg-6ubuntu1+2.6.24-19.41       VirtualBox modules for Linux (kernel 2.6.24-
+ii  virtualbox-ose-modules-2.6.24-24-generic   24.0.10                                virtualbox-ose module for linux-image-2.6.24
+ii  virtualbox-ose-modules-2.6.24-24-server    24.0.10                                virtualbox-ose modules for linux-image-2.6.2
+ii  virtualbox-ose-modules-2.6.24-24-virtual   24.0.10                                virtualbox-ose module for linux-image-2.6.24
+ii  virtualbox-ose-modules-generic             24.0.10                                virtualbox-ose module for linux-image-generi
+ii  virtualbox-ose-modules-server              24.0.10                                virtualbox-ose module for linux-image-server
+ii  virtualbox-ose-modules-virtual             24.0.10                                virtualbox-ose module for linux-image-virtua
+ii  virtualbox-ose-source                      1.5.6-dfsg-6ubuntu1                    x86 virtualization solution - kernel module
+
+
+ps virtual box 
+
+amazon   12359     1  0 18:52 ?        00:00:00 /usr/lib/virtualbox//VBoxSVC --automate
+amazon   13337  5946  0 19:11 ?        00:00:00 konsole [kdeinit]
+amazon   13339 13337  0 19:11 pts/1    00:00:00 /bin/bash
+amazon   13355 13339  1 19:11 pts/1    00:00:00 /usr/lib/virtualbox/VirtualBox
+amazon   13359 13355  0 19:11 pts/1    00:00:00 /usr/lib/virtualbox/VBoxXPCOMIPCD
+amazon   13364     1  1 19:11 ?        00:00:00 /usr/lib/virtualbox//VBoxSVC --automate
+amazon   13375 13364 42 19:11 ?        00:00:14 /usr/lib/virtualbox/VirtualBox -comment WindowsXP -startvm b5753f73-7e54-4b71-abb1-20f3835eaef8
+amazon   13404  5946  2 19:11 ?        00:00:00 konsole [kdeinit]
+amazon   13411 13404  0 19:11 pts/2    00:00:00 /bin/bash
+amazon   13437 13411  0 19:12 pts/2    00:00:00 ps -ef
+
+
+libxine1-misc-plugins
+
+
+
+
+
+
+
+
+
+
+
+
+

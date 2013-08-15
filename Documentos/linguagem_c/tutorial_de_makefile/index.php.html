@@ -1,0 +1,1026 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="description" content="Tutorial: Aprenda a criar seu próprio makefile">
+	<meta name="keywords" content="Ubuntu, Ubuntu-BR, Ubuntu-PT, linux, forum, fórum">
+	<script language="JavaScript" type="text/javascript" src="index.php_files/script.js"></script>
+<!-- FaBMak -->
+<script language="JavaScript" type="text/javascript" src="index.php_files/ubuntu-br.js"></script>
+<!-- FaBMak -->
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://ubuntuforum-br.org/Themes/human";
+		var smf_images_url = "http://ubuntuforum-br.org/Themes/human/images";
+		var smf_scripturl = "http://ubuntuforum-br.org/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Tutorial: Aprenda a criar seu próprio makefile</title>
+	<link rel="shortcut icon" href="http://ubuntuforum-br.org/Themes/human/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="http://ubuntuforum-br.org/Themes/human/images/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" type="text/css" href="index.php_files/style.css">
+	<link rel="stylesheet" type="text/css" href="index.php_files/ubuntu-pt.css">
+	<link rel="stylesheet" type="text/css" href="index.php_files/print.css" media="print">
+	<link rel="help" href="http://ubuntuforum-br.org/index.php?action=help" target="_blank">
+	<link rel="search" href="http://ubuntuforum-br.org/index.php?action=search">
+	<link rel="contents" href="http://ubuntuforum-br.org/index.php">
+	<link rel="alternate" type="application/rss+xml" title="Fórum Ubuntu Linux - PT - RSS" href="http://ubuntuforum-br.org/index.php?type=rss;action=.xml">
+	<link rel="prev" href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=prev">
+	<link rel="next" href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=next">
+	<link rel="index" href="http://ubuntuforum-br.org/index.php?board=12.0"><link rel="search" type="application/opensearchdescription+xml" title="Fórum Ubuntu Linux - PT" href="http://ubuntuforum-pt.org/search/ubuntu.xml">
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			document.cookie = "upshrink=" + (mode ? 1 : 0);
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+
+	<!-- nCode Image Resizer -->
+	<script type="text/javascript" src="index.php_files/ncode_imageresizer.js"></script>
+	<style type="text/css">
+	<!--
+	table.ncode_imageresizer_warning, table.ncode_imageresizer_warning td
+	{
+		background-color: #fefee1; /* the bgcolor behind the text and image */
+	}
+	table.ncode_imageresizer_warning {
+		color: #000000; /* the font color */
+		border: 1px solid #CCCDCD; /* the border around the whole thing */
+		cursor: pointer;
+	}
+	table.ncode_imageresizer_warning td {
+		font-size: 10px;
+		vertical-align: middle;
+		text-decoration: none;
+	}
+
+	table.ncode_imageresizer_warning td.td1 {
+		padding: 5px;
+	}
+	-->
+	</style>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+	NcodeImageResizer.BBURL = "http://ubuntuforum-br.org/Themes/human/images";
+	NcodeImageResizer.MODE = "newwindow";
+	NcodeImageResizer.MAXWIDTH = "350";
+	NcodeImageResizer.MAXHEIGHT = "350";
+	vbphrase = new Array();
+	vbphrase['ncode_imageresizer_warning_small'] = 'Clique na barra para aumentar a imagem.';
+	vbphrase['ncode_imageresizer_warning_filesize'] = 'Esta imagem foi redimensionada. Clique na barra para aumentar a imagem. A imagem original &eacute; calibrada% sx% 1 $ 2 $ s% 3 $ e pesa SKB.';
+	vbphrase['ncode_imageresizer_warning_no_filesize'] = 'Esta imagem foi redimensionada. Clique na barra para aumentar a imagem. A imagem original &eacute; calibrada% sx% 1 $ 2 $ s.';
+	vbphrase['ncode_imageresizer_warning_fullsize'] = 'Clique na barra para reduzir a imagem.';
+	// ]]></script>
+</head><body>	<div id="sfondobarra">		<div id="barra">  <script type="text/javascript">pulsanti("forum")</script><div id="pulsante"><ul>    <li id="plain"><a href="http://www.ubuntu.com/">Ubuntu</a></li>    <li id="plain"><a href="http://www.ubuntu-br.org/">Ubuntu-BR</a></li>    <li id="plain"><a href="http://www.ubuntu-pt.org/">Ubuntu-PT</a></li>    <li id="current"><a href="http://ubuntuforum-br.org/">Fórum</a></li>    <li id="plain"><a href="http://planeta.ubuntu-br.org/">Planeta</a></li></ul></div>		</div>	</div>
+	<div class="tborder">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana,sans-serif; font-size: 140%;">Fórum Ubuntu Linux - PT</span>
+				</td>
+<!--
+                                <td align="right" class="catbg">
+                                        <img src="http://ubuntuforum-br.org/Themes/human/images/smflogo.gif" style="margin: 2px;" alt="" />
+                                </td>
+-->
+			</tr>
+		</tbody></table>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td class="titlebg2" align="right" height="32">
+					<span class="smalltext">10 de Janeiro de 2009, 06:51</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="index.php_files/upshrink.gif" alt="*" title="Comprimir ou expandir o cabeçalho." style="margin: 0pt 1ex;" align="bottom"></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td colspan="2" valign="top">
+					<table class="bordercolor" style="margin-top: 1px;" width="100%" border="0" cellpadding="8" cellspacing="1">
+						<tbody><tr>
+							<td colspan="2" class="windowbg2" valign="top" width="100%"><span class="middletext">Olá, <b>Visitante</b>. Faça o <a href="http://ubuntuforum-br.org/index.php?action=login">login</a> ou <a href="http://ubuntuforum-br.org/index.php?action=register">registre-se</a>.<br>Perdeu o seu <a href="http://ubuntuforum-br.org/index.php?action=activate">e-mail de ativação?</a>				</span>
+								<script language="JavaScript" type="text/javascript" src="index.php_files/sha1.js"></script>
+
+								<form action="http://ubuntuforum-br.org/index.php?action=login2" method="post" accept-charset="ISO-8859-1" class="middletext" style="margin: 3px 1ex 1px 0pt;" onsubmit="hashLoginPassword(this, '71dc0292e04f6ce970a69835f334acba');">
+									<input name="user" size="10" type="text"> <input name="passwrd" size="10" type="password">
+									<select name="cookielength">
+										<option value="60">1 Hora</option>
+										<option value="1440">1 Dia</option>
+										<option value="10080">1 Semana</option>
+										<option value="43200">1 Mês</option>
+										<option value="-1" selected="selected">Para sempre</option>
+									</select>
+									<input value="Login" type="submit"><br>
+									<span class="middletext">Login com nome de usuário, senha e duração da sessão</span>
+									<input name="hash_passwrd" value="" type="hidden">
+								</form>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+		<table id="upshrinkHeader2" width="100%" border="0" cellpadding="4" cellspacing="0">
+			<tbody><tr>
+				<td class="titlebg2" width="90%">
+					<span class="smalltext"><b>Notícias</b>: <a href="http://ubuntuforum-br.org/index.php/topic,43147.0.html">Sejam todos bem-vindos e fiquem atentos às novas regras de utilização do fórum.</a></span>
+				</td>
+				<td class="titlebg2" valign="top" align="right" nowrap="nowrap">
+					<form action="http://ubuntuforum-br.org/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0pt;">
+						<a href="http://ubuntuforum-br.org/index.php?action=search;advanced"><img src="index.php_files/filter.gif" style="margin: 0pt 1ex;" alt="" align="middle"></a>
+						<input name="search" value="" style="width: 190px;" type="text">&nbsp;
+	<select name="search_selection">
+			<option value="entireforum" selected="selected">Fórum </option>
+			<option value="thisbrd">Sub-Fórum </option>
+			<option value="thistopic">Tópico </option>
+			<option value="members">Membros </option>
+			<option value="entiresite">Site </option>
+	</select>&nbsp;<input name="submit" value="Pesquisa" style="width: 11ex;" type="submit">
+						<input name="advanced" value="0" type="hidden">
+						<input name="acttopic" value="21155" type="hidden">
+						<input name="actbrd" value="12" type="hidden">
+					</form>
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+			<table style="margin-left: 10px;" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td class="maintab_first">&nbsp;</td><td class="maintab_active_first">&nbsp;</td>
+				<td class="maintab_active_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php">Home</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td class="maintab_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php?action=help">Ajuda</a>
+				</td>
+				<td class="maintab_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php?action=rules">Regras</a>
+				</td>
+				<td class="maintab_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php?action=search">Pesquisa</a>
+				</td>
+				<td class="maintab_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php?action=login">Login</a>
+				</td>
+				<td class="maintab_back" valign="top">
+					<a href="http://ubuntuforum-br.org/index.php?action=register">Registre-se</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</tbody></table>
+	<div style="margin-left: 0px; margin-right: 0px; padding-top: 20px;">
+		<div style="border: 1px solid black;">
+			<div style="margin: 1px; background-color: rgb(129, 102, 72); text-align: left; height: 25px;"><div style="color: rgb(242, 233, 213); font-size: 0.99em; font-family: verdana,sans-serif; font-weight: bold; height: 22px; padding-top: 3px; padding-left: 15px;">Anúncios</div></div>
+			<div style="padding-top: 10px; padding-bottom: 10px; background-color: rgb(247, 242, 233); text-align: center;">
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-9597800215644553";
+			google_ad_width = 728;
+			google_ad_height = 90;
+			google_ad_format = "728x90_as";
+			google_ad_type = "text_image";
+			google_ad_channel = "";
+			google_color_border = "f7f2e9";
+			google_color_bg = "f7f2e9";
+			google_color_link = "000000";
+			google_color_text = "803d0d";
+			google_color_url = "f6ddb1";
+			//-->
+			</script>
+			<script type="text/javascript" src="index.php_files/show_ads.js">
+			</script><script src="index.php_files/test_domain.js"></script><script>window.google_render_ad();</script><iframe name="google_ads_frame" src="index.php_files/ads.html" http:="" www.fsf.org="" width="728" frameborder="0" height="90">Free
+Software Foundation&lt;/a&gt;, Inc. &lt;br&gt; Gnash comes with NO
+WARRANTY, to the extent permitted by law. You may redistribute copies
+of Gnash under the terms of the &lt;a
+href="http://www.gnu.org/licenses/gpl.html"&gt;GNU General Public
+License&lt;/a&gt;. For more information about Gnash, see &lt;a
+href="http://www.gnu.org/software/gnash/"&gt;
+http://www.gnu.org/software/gnash&lt;/a&gt;. Compatible Shockwave Flash
+8.0
+r99.&amp;u_h=800&amp;u_w=1280&amp;u_ah=800&amp;u_aw=1280&amp;u_cd=24&amp;u_tz=-120&amp;u_his=4&amp;u_java=true&amp;u_nplug=11&amp;u_nmime=73&amp;dtd=280"
+marginwidth="0" marginheight="0" vspace="0" hspace="0"
+allowtransparency="true" scrolling="no"&gt;</iframe>
+			</div>
+		</div>
+	</div>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex;">
+<a name="top"></a>
+<a name="msg114500"></a>
+<div><div class="nav" style="margin: 2ex 0pt; font-size: smaller;"><b><a href="http://ubuntuforum-br.org/index.php" class="nav">Fórum Ubuntu Linux - PT</a></b>&nbsp;&gt;&nbsp;<b><a href="http://ubuntuforum-br.org/index.php#1" class="nav">Suporte Técnico</a></b>&nbsp;&gt;&nbsp;<b><a href="http://ubuntuforum-br.org/index.php?board=12.0" class="nav">Programação e Scripts</a></b>&nbsp;&gt;&nbsp;<b><a href="http://ubuntuforum-br.org/index.php?topic=21155.0" class="nav">Tutorial: Aprenda a criar seu próprio makefile</a></b></div></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td class="middletext" style="padding-bottom: 4px;" valign="bottom">Páginas: [<b>1</b>] </td>
+		<td style="padding-right: 1ex;" align="right">
+			<div class="nav" style="margin-bottom: 2px;"> <a href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=prev#new">« anterior</a> <a href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=next#new">próximo »</a></div>
+			<table cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					
+		<td class="mirrortab_first">&nbsp;</td>
+		<td class="mirrortab_back"><a href="http://ubuntuforum-br.org/index.php?action=printpage;topic=21155.0" target="_blank">Imprimir</a></td>
+		<td class="mirrortab_last">&nbsp;</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<table class="tborder" style="border-bottom: 0pt none;" width="100%" border="0" cellpadding="3" cellspacing="0">
+		<tbody><tr class="catbg3">
+				<td style="padding-left: 6px;" valign="middle" width="2%">
+						<img src="index.php_files/normal_post.gif" alt="" align="bottom">
+				</td>
+				<td width="13%"> Autor</td>
+				<td style="padding-left: 6px;" id="top_subject" valign="middle" width="85%">
+						Tópico: Tutorial: Aprenda a criar seu próprio makefile &nbsp;(Lida 1382 vezes)
+				</td>
+		</tr>
+</tbody></table>
+<form action="http://ubuntuforum-br.org/index.php?action=quickmod2;topic=21155.0" method="post" accept-charset="ISO-8859-1" name="quickModForm" id="quickModForm" style="margin: 0pt;" onsubmit="return in_edit_mode == 1 ? modify_save('71dc0292e04f6ce970a69835f334acba') : confirm('Tem a certeza que deseja continuar?');">
+<table class="bordercolor" width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr><td style="padding: 1px 1px 0pt;">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=168" title="Ver o perfil de Darcamo">Darcamo</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 875<br>
+								<br>
+								
+								
+								
+								<br>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg114500#msg114500"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_114500">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg114500#msg114500">Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b> em:</b> 08 de Junho de 2007, 06:34 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">Eu
+estava acostumado a sempre deixar a IDE criar o makefile pra mim e
+nunca liguei muito pra ele, mas recentemente precisei aprender a criar
+meu próprio makefile. Embora na internet tenha toda a documentação que
+você possa precisar com milhares de tutoriais sobre o make além do
+próprio manual dele, é informação demais (quase tudo em inglês) e
+demorei um dia todo para aprender e criar um makefile que funcione do
+jeito que eu queria. Dessa forma resolvi escrever esse pequeno tutorial
+que preferi postar aqui ao invés de no Dicas e Truques por ser algo
+muito particular a programação.<br><br><br><b><span style="font-size: 12pt; line-height: 1.3em;">O que é o programa make</span></b><br><br>O
+programa make é uma maneira muito conveniente de gerenciar grandes
+programas ou grupos de programas. Quando se começa a escrever programas
+cada vez maiores e visível a diferença de tempo necessário para
+recompilar esses programas em comparação com programas menores. Por
+outro lado, normalmente se trabalha apenas em uma pequena parte do
+programa (tal como uma simples função que você está debugando), e
+grande parte do resto do programa permanece inalterada.<br><br>O
+programa make ajuda na manutenção desses programas observando quais
+partes do programa foram mudadas desde a última compilação e
+recompilando apenas essas partes.<br><br>Para isso, é necessário que se
+escreva um &#8220;makefile&#8221;, que é um arquivo de texto responsável por dizer
+ao programa make &#8220;o que fazer&#8221; e contém o relacionamento entre os
+arquivos fonte, objeto e executáveis.<br><br>Outras informações úteis
+colocadas no makefile são os &#8220;flags&#8221; que precisam ser passados para o
+compilador e o linkador, como diretórios onde encontrar arquivos de
+cabeçalho (arquivos .h), com quais bibliotecas o programa deve ser
+linkado, etc. Isso evita que se precise escrever enormes linhas de
+comando incluindo essas informações para compilar o programa.<br><br><br><b><span style="font-size: 12pt; line-height: 1.3em;">Escrevendo um makefile</span></b><br><br>Um
+makefile contém essencialmente atribuições de variáveis, comentários e
+regras (targets). Comentários são iniciados com o caractere &#8220;#&#8221;,
+enquanto que as regras possuem a forma<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;"> target1 target2 ... : dependencia1 dependencia2 ...<br>&nbsp; &nbsp; &lt;TAB&gt; comando1<br>&nbsp; &nbsp; &lt;TAB&gt; comando2<br>	 ...<br></pre></div>Um
+target (alvo) é geralmente o nome de um arquivo que será gerado com a
+execução do(s) comando(s) associados ao target. Exemplos comuns são
+arquivos executáveis e arquivos objeto. Um target também pode ser o
+nome de uma ação a ser efetuada, tal como &#8220;clean&#8221; (limpar).<br><br>Como
+exemplo, usarei um programa composto de 3 arquivos .cpp (chamados
+Fraction.cpp, fractiontest.cpp e ftest.cpp) e 2 arquivos.h (Fraction.h
+e fractiontest.h). Para compilar esse programa também é necessário
+linkar com uma biblioteca (cppunit). Para quem estiver curioso esse
+programa é um exemplo que achei na internet sobre como usar a
+biblioteca para automação de testes cppunit. A organização das
+dependências do programa é a seguinte: ftest.cpp inclui apenas arquivos
+da biblioteca cppunit; Fraction.h não inclui ninguém; fractiontest.h
+inclui Fraction.h e arquivos da biblioteca cppunit e, por fim, os
+arquivos .cpp incluem apenas seus respectivos arquivos .h.<br><br>Para compilar esse programa é necessário digitar na linha de comando <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">g++ Fraction.h Fraction.cpp fractiontest.h fractiontest.cpp ftest.cpp -I/diretorio_onde_se_encontram_os_arquivos_.h_da_biblioteca -L/diretorio_onde_se_encontra_a_biblioteca_cppunit -lcppunit -o ftest</pre></div><br>Para
+fazer o mesmo com usando o comando make, vamos escrever um arquivo
+chamado Makefile no diretório onde estão os sources do programa. O
+conteúdo do arquivo será (Footnote 1)<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">all<br>&nbsp; &nbsp; &lt;TAB&gt; g++ Fraction.h Fraction.cpp fractiontest.h fractiontest.cpp ftest.cpp -I/diretorio_onde_encontrar_os_arquivos_.h_da_biblioteca -L/diretorio_onde_encontrar_a_biblioteca_cppunit -lcppunit -o ftest<br></pre></div><br>Agora podemos compilar o programa apenas digitando make (Footnote 2).<br><br>Isso
+evita a enorme linha de comando para recompilar o programa, mas ainda
+temos o problema de precisar compilar todos os arquivos com menor
+modificação em um deles. Isso é porque no nosso makefile ainda não
+dizemos para o make quem depende de quem.<br><br>Vamos então modificar nosso makefile para <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;"> <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: ftest.o Fraction.o fractiontest.o<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -o ftest ftest.o Fraction.o fractiontest.o -L/diretorio_onde_encontrar_a_biblioteca_cppunit -lcppunit<br>&nbsp;<br>&nbsp; &nbsp; Fraction.o: Fraction.cpp Fraction.h<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c Fraction.cpp -I/diretorio_onde_encontrar_os_arquivos_.h_da_biblioteca<br>&nbsp;<br>&nbsp; &nbsp; fractiontest.o: fractiontest.h fractiontest.cpp Fraction.h<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c fractiontest.cpp -I/diretorio_onde_encontrar_os_arquivos_.h_da_biblioteca<br>&nbsp;<br>&nbsp; &nbsp; ftest.o: ftest.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c ftest.cpp -I/diretorio_onde_encontrar_os_arquivos_.h_da_biblioteca<br>&nbsp;<br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; -rm -f *.o ftest *~<br></pre></div><br>Agora,
+o target all não possui mais nenhum comando e apenas depende do target
+ftest, que por sua vez depende dos targets Fraction.o, fractiontest.o e
+ftest.o. Se modificarmos apenas o arquivo ftest.cpp, então o target
+ftest.o será refeito seguido do target ftest. Se modificarmos o arquivo
+fractiontest.h então fractiontest.o será refeito, seguido de ftest e
+assim por diante. Note que criamos também um target chamado &#8220;clean&#8221; que
+não depende de ninguém e não cria nenhum arquivo. Ele apenas executa o
+comando que &#8220;rm -f *.o ftest *~&#8221; que é bastante conveniente quando
+queremos apagar esses arquivos (bastando digitar make clean) (Footnote
+3).<br><br>Note que repetimos algumas coisas em vários targets
+diferentes. Isso é trabalhoso e pode levar a erros. No entanto o make
+nos fornece um recurso interessante que é a utilização de variáveis (ou
+macros). Assim, podemos reescrever nosso makefile como <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp; CPPUNIT_PATH=/diretorio_onde_esta_o_cppunit<br>&nbsp; &nbsp; INCLUDE_DIR=$CPPUNIT_PATH)/include&nbsp; # supondo que os arquivos .h da biblioteca estejam no diretório include e a biblioteca<br>&nbsp; &nbsp; LIB_DIR=$(CPPUNIT_PATH)/lib&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# esteja em um diretório lib ambos dentro do diretório raiz onde se encontra o cppunit<br>&nbsp; &nbsp; LIBS=-lcppunit<br>&nbsp;<br>&nbsp; &nbsp; CPPFLAGS=-I$(INCLUDE_DIR)<br>&nbsp; &nbsp; LDFLAGS=-L$(LIB_DIR) $(LIBS)&nbsp; &nbsp; <br>&nbsp; &nbsp; <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: ftest.o Fraction.o fractiontest.o<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -o ftest ftest.o Fraction.o fractiontest.o $(LDFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; Fraction.o: Fraction.cpp Fraction.h<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c Fraction.cpp $(CPPFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; fractiontest.o: fractiontest.h fractiontest.cpp Fraction.h<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c fractiontest.cpp $(CPPFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; ftest.o: ftest.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c ftest.cpp $(CPPFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; -rm -f *.o ftest *~<br></pre></div>Agora
+temos um makefile organizado e nosso programa pode ser corretamente
+compilado observando as dependências entre os arquivos para não
+compilar o que não é necessário.<br><br><br><b><span style="font-size: 12pt; line-height: 1.3em;">Melhorando o makefile</span></b><br><br>No
+makefile anterior podemos ver que o comando para compilar os arquivos
+.cpp em arquivos .o é sempre o mesmo. E se precisarmos criar mais
+arquivos no projeto, o que fazer? A resposta curta é: criar outro
+target e atualizar as dependências dos demais targets se necessário,
+mas isso está longe de ser a solução ideal. Não é nada agradável ficar
+criando novos targets para cada arquivo incluído e, principalmente,
+saber quem depende de quem.<br><br>Quando o número de arquivos cresce
+fica bastante complicado organizar todas as dependências. Você precisa
+atualizar o makefile não apenas quando inclui ou exclui um arquivo,
+como também quando inclui ou exclui um &#8220;#include&#8221; em um dos arquivos.<br><br>Vamos resolver o primeiro problema! Para isso, modificamos nosso makefile para <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp; CPPUNIT_PATH=/diretorio_onde_esta_o_cppunit<br>&nbsp; &nbsp; INCLUDE_DIR=$CPPUNIT_PATH)/include<br>&nbsp; &nbsp; LIB_DIR=$(CPPUNIT_PATH)/lib<br>&nbsp; &nbsp; LIBS=-lcppunit<br>&nbsp;<br>&nbsp; &nbsp; CPPFLAGS=-I$(INCLUDE_DIR)<br>&nbsp; &nbsp; LDFLAGS=-L$(LIB_DIR) $(LIBS)<br>&nbsp;<br>&nbsp; &nbsp; CPPSOURCES = $(wildcard *.cpp)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: $(CPPSOURCES:.cpp=.o)<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -o $@ $^ $(LDFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; %.o: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c $&lt; $(CPPFLAGS) -o $@<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; -rm -f *.o ftest *~<br>&nbsp;<br>&nbsp; &nbsp; remade:<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE) clean<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE)<br></pre></div><br>A linha<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">CPPSOURCES = $(wildcard *.cpp)</pre></div>atribui
+a variável CPPSOURCES todos os arquivos com a extensão .cpp no
+diretório atual separados por espaço. Usamos então a variável
+CPPSOURCES como dependência do target ftest, mas com a substituição da
+extensão .cpp por .o (já que ftest depende dos arquivos objeto e não
+dos arquivos fonte).<br><br>No comando do target ftest encontramos uma
+variável especial, o &#8220;$^&#8221;. Essa variável é substituída por todas as
+dependências do target. Dessa forma, o target ftest tem o mesmo efeito
+que no makefile anterior, mas se acrescentarmos algum novo arquivo .cpp
+no projeto não precisaremos mudar nada para o target ftest.<br><br>O
+target clean continua o mesmo enquanto que o target remade que
+acrescentei é apenas uma maneira conveniente de recompilar todo o
+projeto se desejado. Note que eu não uso o comando make diretamente,
+mas sim a variável especial $(MAKE). Isso garante que se eu usar alguma
+opção de linha de comando para o make quando executar esse makefile que
+estamos criando, os &#8220;makes internos&#8221; também usaram as mesmas opções.
+Então, sempre que chamarem o make dentro de algum comando no makefile
+usem a variável $(MAKE) ao invés de chamar o make diretamente.<br><br>Já
+o target %.o é o que considero o mais interessante. Com esse target
+estamos &#8220;ensinando&#8221; ao make como compilar qualquer arquivo .cpp em um
+arquivo objeto .o. Dessa forma não precisamos nos preocupar quando
+acrescentamos novos arquivos no projeto pois o make saberá como
+compilá-los. Note que no comando usamos duas variáveis especiais
+(também chamadas de variáveis automáticas). A variável $&lt; é
+substituída pela primeira dependência do target e nosso target genérico
+%.o depende apenas de seu arquivo .cpp correspondente. Já a variável $@
+é substituída pelo nome do target. Com isso, o make compilará o arquivo
+Fraction.cpp em um arquivo objeto chamado Fraction.o, fractiontest.cpp
+em fractiontest.o e assim por diante. Como nosso target ftest depende
+de todos os arquivos.o (um para cada arquivo .cpp), então sempre que o
+make precisar do ftest ele vai antes recompilar todos os targets .o
+necessários.<br><br>E quais arquivos .o devem ser recompilados? Eis o
+único problema de nosso target genérico %.o. Ele depende apenas do
+arquivo .cpp correspondente. Ou seja, se modificarmos Fraction.h, o
+target Fraction.o não será recompilado pois não estamos dizendo para o
+make que Fraction.o também depende de Fraction.h. Como podemos deixar
+então esse gerenciamento de dependências correto e automático?<br><br>Para
+resolver esse problema pediremos ajuda aos universitários..., quer
+dizer, ao compilador. Afinal, quem melhor que ele para nos dizer de
+qual arquivo um certo .cpp depende? Para isso usaremos as opções -MM e
+-MD do g++. Se executarmos o comando <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">g++ Fraction.cpp -MM $(CPPFLAGS)<br></pre></div>o g++ retorna a linha<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">Fraction.o: Fraction.cpp Fraction.h</pre></div><br>Olha
+aí! Já está até com o &#8220;look&#8221; de um target de makefile. Acrescentando a
+opção -MD, ao invés do g++ imprimir essa informação no terminal ele
+criará um arquivo chamado Fraction.d contendo exatamente essa linha.
+Podemos então incluir esse arquivo no nosso makefile para que o make
+saiba de quais arquivos o target Fraction.o depende. Com posse dessa
+nossa nova arma, nosso makefile se torna<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp; CPPUNIT_PATH=/diretorio_onde_esta_o_cppunit<br>&nbsp; &nbsp; INCLUDE_DIR=$CPPUNIT_PATH)/include<br>&nbsp; &nbsp; LIB_DIR=$(CPPUNIT_PATH)/lib<br>&nbsp; &nbsp; LIBS=-lcppunit<br>&nbsp;<br>&nbsp; &nbsp; CPPFLAGS=-I$(INCLUDE_DIR)<br>&nbsp; &nbsp; LDFLAGS=-L$(LIB_DIR) $(LIBS)<br>&nbsp;<br>&nbsp; &nbsp; CPPSOURCES = $(wildcard *.cpp)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: $(CPPSOURCES:.cpp=.o)<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -o $@ $^ $(LDFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; %.o: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c $&lt; $(CPPFLAGS) -o $@<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; -rm -f *.o ftest *~<br>&nbsp;<br>&nbsp; &nbsp; remade:<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE) clean<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE)<br>&nbsp;<br>&nbsp; &nbsp; -include $(CPPSOURCES:.cpp=.d)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; %.d: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ $&lt; -MM -MD $(CPPFLAGS)<br></pre></div><br>Ensinamos
+então ao make como criar os arquivos .d e incluímos esses arquivos
+(lembrando que o sinal &#8220;-&#8221; antes do include diz para o make ignorar
+erros, ou seja, caso o arquivo .d ainda não tenha sido criado).<br><br>Agora
+o make sabe de quais arquivos cada .o depende e se modificarmos
+Fraction.h o target Fraction.o será corretamente recompilado.<br><br>Mas
+e se modificarmos o Fraction.h e acrescentarmos a linha &#8220;#include
+nova_dependencia.h&#8221;? Claro que o target Fraction.o será recompilado,
+mas o arquivo Fraction.d não será atualizado com a nova dependência,
+pois na nossa regra para criar os arquivos .d dizemos que ele depende
+apenas do arquivo .cpp correspondente. Para resolver esse último
+problema vamos novamente pedir ajuda ao compilador. O ideal mesmo seria
+se ao invés de o arquivo Fraction.d conter a linha <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">Fraction.o: Fraction.cpp Fraction.h<br></pre></div>ele contivesse a linha<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">Fraction.o Fraction.d : Fraction.cpp Fraction.h<br></pre></div><br>Ou
+seja, dizer que o arquivo .d também depende de todas as dependências do
+arquivo .o. No manual do make existe um exemplo que usa o sed para
+fazer essa modificação, mas descobri que existe uma opção do g++ bem
+mais prática. Vamos modificar nosso target para arquivos .d como segue<br><br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">%.d: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ $&lt; -MM -MT '$*.o $*.d ' -MD $(CPPFLAGS)<br></pre></div><br>A
+opção -MT nos permite especificar o nome do target que o g++ gera (ao
+invés do padrão arquivo.o), enquanto que a variável especial $* é
+substituída pelo que foi &#8220;casado&#8221; pelo % na nossa regra no makefile (ou
+seja, o nome do target sem a extensão .o). Com isso os nossos arquivos
+.d gerados terão a forma<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">arquivo.o arquivo.d : dependências<br></pre></div>e nosso problema estará resolvido.<br><br>Agora
+temos um makefile bastante genérico que pode ser usado em outro projeto
+modificando apenas umas poucas linhas e que gerencia automaticamente
+todas as dependências.<br><br>Nosso makefile completo é <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp; CPPUNIT_PATH=/diretorio_onde_esta_o_cppunit<br>&nbsp; &nbsp; INCLUDE_DIR=$CPPUNIT_PATH)/include<br>&nbsp; &nbsp; LIB_DIR=$(CPPUNIT_PATH)/lib<br>&nbsp; &nbsp; LIBS=-lcppunit<br>&nbsp;<br>&nbsp; &nbsp; CPPFLAGS=-I$(INCLUDE_DIR)<br>&nbsp; &nbsp; LDFLAGS=-L$(LIB_DIR) $(LIBS)<br>&nbsp;<br>&nbsp; &nbsp; CPPSOURCES = $(wildcard *.cpp)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: $(CPPSOURCES:.cpp=.o)<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -o $@ $^ $(LDFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; %.o: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ -c $&lt; $(CPPFLAGS) -o $@<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; -rm -f *.o ftest *~<br>&nbsp;<br>&nbsp; &nbsp; remade:<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE) clean<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE)<br>&nbsp;<br>&nbsp; &nbsp; -include $(CPPSOURCES:.cpp=.d)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; %.d: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; g++ $&lt; -MM -MT '$*.o $*.d ' -MD $(CPPFLAGS)<br></pre></div><br>Tudo
+isso é apenas uma parte do poder do make, mas é o suficiente pra se
+fazer muita coisa. É possível, por exemplo, criar um target para gerar
+a documentação do programa com o doxygen, ou usar o make para trabalhar
+com o latex e bibtex, etc..<br><br>Agora você não precisa de uma IDE
+completa para programar. Mesmo usando apenas o gedit será possível
+compilar facilmente um programa composto de vários arquivos de dentro
+do gedit (ele apenas chama o make para compilar).<br><br>Para quem
+ainda não cansou, tem mais uma dica que pode ser útil. Por padrão
+quando se roda o make ele imprime ("echoa") na tela os comandos que
+estão sendo executados, o que pode resultar em mais informação do que
+você gostaria. Para resolver esse problema basta acrescentar @ antes
+dos comandos que você não quer que sejam impressos. Podemos então
+reescrever o makefile como <br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp;CPPUNIT_PATH=/diretorio_onde_esta_o_cppunit<br>&nbsp; &nbsp; INCLUDE_DIR=$CPPUNIT_PATH)/include<br>&nbsp; &nbsp; LIB_DIR=$(CPPUNIT_PATH)/lib<br>&nbsp; &nbsp; LIBS=-lcppunit<br>&nbsp;<br>&nbsp; &nbsp; CPPFLAGS=-I$(INCLUDE_DIR)<br>&nbsp; &nbsp; LDFLAGS=-L$(LIB_DIR) $(LIBS)<br>&nbsp;<br>&nbsp; &nbsp; CPPSOURCES = $(wildcard *.cpp)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; all: ftest<br>&nbsp;<br>&nbsp; &nbsp; ftest: $(CPPSOURCES:.cpp=.o)<br>&nbsp; &nbsp; &lt;TAB&gt; @echo Criando arquivo executável: $@<br>&nbsp; &nbsp; &lt;TAB&gt; @g++ -o $@ $^ $(LDFLAGS)<br>&nbsp;<br>&nbsp; &nbsp; %.o: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; @echo Compilando arquivo objeto: $@<br>&nbsp; &nbsp; &lt;TAB&gt; @g++ -c $&lt; $(CPPFLAGS) -o $@<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; clean<br>&nbsp; &nbsp; &lt;TAB&gt; @echo Limpando arquivos<br>&nbsp; &nbsp; &lt;TAB&gt; -@rm -f *.o ftest *~<br>&nbsp;<br>&nbsp; &nbsp; remade:<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE) clean<br>&nbsp; &nbsp; &lt;TAB&gt; $(MAKE)<br>&nbsp;<br>&nbsp; &nbsp; -include $(CPPSOURCES:.cpp=.d)<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; %.d: %.cpp<br>&nbsp; &nbsp; &lt;TAB&gt; @g++ $&lt; -MM -MT '$*.o $*.d ' -MD $(CPPFLAGS)<br></pre></div><br>Assim, ao compilar o programa inteiro o make apenas escreverá<br><div class="codeheader">Código:</div><div class="code"><pre style="margin-top: 0pt; display: inline;">&nbsp; &nbsp; Compilando arquivo objeto: Fraction.o<br>&nbsp; &nbsp; Compilando arquivo objeto: fractiontest.o<br>&nbsp; &nbsp; Compilando arquivo objeto: ftest.o<br>&nbsp; &nbsp; Criando arquivo executável: ftest<br></pre></div><br>________________________________________________________<br>Footnotes:<br>1: Todo comando em um target deve ser iniciado com um TAB então cuidado com espaços em branco.<br>2: Na verdade é &#8220;make nome do target&#8221;, mas por$padrão se não for especificado um target o make executa o target &#8220;all&#8221;.<br>3: O &#8220;-&#8221; antes do comando rm diz para o make ignorar erros, como é o caso quando não há arquivos para apagar.</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_114500" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg114504"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg2">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=9161" title="Ver o perfil de mdea">mdea</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 90<br>
+								<br>
+								
+								
+								
+								<br>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg114504#msg114504"><img src="index.php_files/thumbup.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_114504">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg114504#msg114504">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #1 em:</b> 08 de Junho de 2007, 09:20 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">muito bom, parabens pela dica!!!</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_114504" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="signature">Os principais males que atacam o homem vêm da ignorância - Voltaire</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116646"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=3693" title="Ver o perfil de a13x">a13x</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 119<br>
+								<br>
+								<div style="overflow: auto; width: 100%;"><img src="index.php_files/5360541.jpg" alt="" class="avatar" width="110" border="0" height="110"></div><br>
+								
+								
+								
+								<br>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116646#msg116646"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116646">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116646#msg116646">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #2 em:</b> 19 de Junho de 2007, 08:53 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">cara, perfeito esse tutorial<br>merece ficar fixo nesse fórum<br>parabéns</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116646" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116693"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg2">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=11398" title="Ver o perfil de Eunir Augusto">Eunir Augusto</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 861<br>
+								<br>
+								Embaixador do Projeto Fedora Brasil<br>
+								<br>
+								
+								
+								
+								<br>
+								<a href="http://www.pclinuxos.com.br/" title="Comunidade PCLinuxOS Brasil" target="_blank"><img src="index.php_files/www_sm.gif" alt="WWW" border="0"></a>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116693#msg116693"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116693">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116693#msg116693">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #3 em:</b> 19 de Junho de 2007, 11:01 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">mandou bem, Darcamo!!! Parabens<br><br>Envia para o time de documentação pq ficou perfeito. funcionou redondinho aqui<br><br>obrigado<br><br>[ ]s</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116693" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="signature"><a href="http://www.pclinuxos.com.br/" target="_blank">Comunidade PCLinuxOS Brasil</a> - Assinatura modificada a pedido do grande amigo Ricardo (rjbgbo)</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116851"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=168" title="Ver o perfil de Darcamo">Darcamo</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 875<br>
+								<br>
+								
+								
+								
+								<br>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116851#msg116851"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116851">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116851#msg116851">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #4 em:</b> 19 de Junho de 2007, 20:50 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">Valeu cara.<br>Não teria problema nenhum em utilizar isso na documentação, mas não sei quem faz parte do time.<br><br>Na
+verdade também incluí isso na wiki do laboratório do qual faço parte na
+universidade então eu já tenho até mesmo o texto no formato de wiki se
+for preciso.</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116851" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116940"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg2">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=10781" title="Ver o perfil de anakimsk">anakimsk</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 57<br>
+								<br>
+								
+								
+								
+								<br>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116940#msg116940"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116940">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116940#msg116940">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #5 em:</b> 20 de Junho de 2007, 02:19 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">mt bom, fixem nesse forum plz.</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116940" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116950"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=9480" title="Ver o perfil de unrater">unrater</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 294<br>
+								<br>
+								I'm ubuntued<br>
+								<br>
+								
+								
+								
+								<br>
+								<a href="http://www.ubuntued.info/" title="UBUNTUED" target="_blank"><img src="index.php_files/www_sm.gif" alt="WWW" border="0"></a>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116950#msg116950"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116950">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116950#msg116950">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #6 em:</b> 20 de Junho de 2007, 07:02 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post">eu diria para fixar também, e da mesma forma que fizeram um wiki para os comandos do firefox, deviam fazer um wiki com isto!</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116950" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="signature"><div align="center"><a href="http://www.ubuntued.info/" target="_blank"><img src="index.php_files/ubuntu-blogger.png" alt="" onload="NcodeImageResizer.createOn(this);" border="0"><br>www.ubuntued.info</a></div></div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 1px 1px 0pt;">
+		<a name="msg116965"></a>
+		<table width="100%" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr><td class="windowbg2">
+				<table style="table-layout: fixed;" width="100%" cellpadding="5" cellspacing="0">
+					<tbody><tr>
+						<td rowspan="2" style="overflow: hidden;" valign="top" width="16%">
+							<b><a href="http://ubuntuforum-br.org/index.php?action=profile;u=11398" title="Ver o perfil de Eunir Augusto">Eunir Augusto</a></b>
+							<div class="smalltext">
+								Usuário Ubuntu<br>
+								<img src="index.php_files/star.gif" alt="*" border="0"><br>
+								<img src="index.php_files/useroff.gif" alt="Deslogado" style="margin-top: 2px;" border="0"><span class="smalltext"> Deslogado</span><br><br>
+								Mensagens: 861<br>
+								<br>
+								Embaixador do Projeto Fedora Brasil<br>
+								<br>
+								
+								
+								
+								<br>
+								<a href="http://www.pclinuxos.com.br/" title="Comunidade PCLinuxOS Brasil" target="_blank"><img src="index.php_files/www_sm.gif" alt="WWW" border="0"></a>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tbody><tr>
+								<td valign="middle"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116965#msg116965"><img src="index.php_files/xx.gif" alt="" border="0"></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_116965">
+										<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116965#msg116965">Re: Tutorial: Aprenda a criar seu próprio makefile</a>
+									</div>
+									<div class="smalltext">« <b>Responder #7 em:</b> 20 de Junho de 2007, 08:52 »</div></td>
+								<td style="font-size: smaller;" valign="bottom" align="right" height="20">
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="post"><div class="quoteheader"><a href="http://ubuntuforum-br.org/index.php?topic=21155.msg116950#msg116950">Citação de: unrater em 20 de Junho de 2007, 07:02</a></div><div class="quote">eu diria para fixar também, e da mesma forma que fizeram um wiki para os comandos do firefox, deviam fazer um wiki com isto!<br></div><br>concordo com o unrater</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="smalltext" valign="bottom" width="85%">
+							<table style="table-layout: fixed;" width="100%" border="0"><tbody><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td class="smalltext" id="modified_116965" valign="bottom">
+								</td>
+								<td class="smalltext" valign="bottom" align="right">
+									<img src="index.php_files/ip.gif" alt="" border="0">
+									Registrado
+								</td>
+							</tr></tbody></table>
+							<hr class="hrcolor" size="1" width="100%">
+							<div class="signature"><a href="http://www.pclinuxos.com.br/" target="_blank">Comunidade PCLinuxOS Brasil</a> - Assinatura modificada a pedido do grande amigo Ricardo (rjbgbo)</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td></tr>
+		</tbody></table>
+	</td></tr>
+	<tr><td style="padding: 0pt 0pt 1px;"></td></tr>
+</tbody></table>
+<a name="lastPost"></a>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td class="middletext">Páginas: [<b>1</b>] </td>
+		<td style="padding-right: 1ex;" align="right">
+			<table cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					
+		<td class="maintab_first">&nbsp;</td>
+		<td class="maintab_back"><a href="http://ubuntuforum-br.org/index.php?action=printpage;topic=21155.0" target="_blank">Imprimir</a></td>
+		<td class="maintab_last">&nbsp;</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<script language="JavaScript" type="text/javascript" src="index.php_files/xml_topic.js"></script>
+<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+	quickReplyCollapsed = true;
+
+	smf_topic = 21155;
+	smf_start = 0;
+	smf_show_modify = 1;
+
+	// On quick modify, this is what the body will look like.
+	var smf_template_body_edit = '<div id="error_box" style="padding: 4px; color: red;"></div><textarea class="editor" name="message" rows="12" style="width: 94%; margin-bottom: 10px;">%body%</textarea><br /><input type="hidden" name="sc" value="71dc0292e04f6ce970a69835f334acba" /><input type="hidden" name="topic" value="21155" /><input type="hidden" name="msg" value="%msg_id%" /><div style="text-align: center;"><input type="submit" name="post" value="Salvar" onclick="return modify_save(\'71dc0292e04f6ce970a69835f334acba\');" accesskey="s" />&nbsp;&nbsp;<input type="submit" name="cancel" value="Cancelar" onclick="return modify_cancel();" /></div>';
+
+	// And this is the replacement for the subject.
+	var smf_template_subject_edit = '<input type="text" name="subject" value="%subject%" size="60" style="width: 99%;"  maxlength="80" />';
+
+	// Restore the message to this after editing.
+	var smf_template_body_normal = '%body%';
+	var smf_template_subject_normal = '<a href="http://ubuntuforum-br.org/index.php?topic=21155.msg%msg_id%#msg%msg_id%">%subject%</a>';
+	var smf_template_top_subject = "T&#243;pico: %subject% &nbsp;(Lida 1382 vezes)"
+
+
+
+
+	if (window.XMLHttpRequest)
+		showModifyButtons();
+// ]]></script>
+<table style="margin-bottom: 1ex;" width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+				<td class="nav" valign="top" align="right"> <a href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=prev#new">« anterior</a> <a href="http://ubuntuforum-br.org/index.php?topic=21155.0;prev_next=next#new">próximo »</a></td>
+		</tr>
+</tbody></table>
+	<table style="margin-left: 1ex;" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody></table>
+</form>
+<div class="tborder"><div class="titlebg2" style="padding: 4px;" align="right">
+	<form action="http://ubuntuforum-br.org/index.php" method="get" accept-charset="ISO-8859-1" style="margin: 0pt; padding: 0pt;">
+		<span class="smalltext">Ir para:</span>
+		<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl + this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf('?') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != '?' ? 0 : 1);">
+			<option value="">Selecione um destino:</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#8">Área para Iniciantes</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=20.0"> =&gt; Iniciantes</option>
+			<option value="?board=8.0"> =&gt; Dicas e Truques</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#1">Suporte Técnico</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=4.0"> =&gt; Instalação e Atualização</option>
+			<option value="?board=3.0"> =&gt; Hardware e Periféricos</option>
+			<option value="?board=28.0"> ===&gt; Notebooks e Handhelds</option>
+			<option value="?board=23.0"> ===&gt; Power PC</option>
+			<option value="?board=24.0"> ===&gt; 64-bit</option>
+			<option value="?board=6.0"> =&gt; Aplicativos</option>
+			<option value="?board=22.0"> ===&gt; Áudio e Vídeo</option>
+			<option value="?board=16.0"> =&gt; Internet, Redes e Segurança</option>
+			<option value="?board=43.0"> =&gt; Servidores</option>
+			<option value="?board=18.0"> =&gt; Jogos e Diversão</option>
+			<option value="?board=5.0"> =&gt; Sistema</option>
+			<option value="?board=12.0" selected="selected"> =&gt; Programação e Scripts</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#17">Ambientes Gráficos (Ubuntu, Kubuntu, Xubuntu, Edubuntu)</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=21.0"> =&gt; Gnome</option>
+			<option value="?board=25.0"> =&gt; KDE</option>
+			<option value="?board=29.0"> =&gt; XFCE</option>
+			<option value="?board=47.0"> =&gt; Outros Ambientes Gráficos</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#5">Espaço da Comunidade</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=7.0"> =&gt; Notícias</option>
+			<option value="?board=45.0"> =&gt; Depoimentos</option>
+			<option value="?board=2.0"> =&gt; Screenshots</option>
+			<option value="?board=44.0"> =&gt; Projetos da Comunidade</option>
+			<option value="?board=15.0"> =&gt; Traduções: PT e PT-BR</option>
+			<option value="?board=39.0"> =&gt; Café com Ubuntu</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#7">Sobre o Forum</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=11.0"> =&gt; Anúncios Administrativos</option>
+			<option value="?board=9.0"> =&gt; Críticas e Sugestões</option>
+			<option value="?board=46.0"> =&gt; Quarentena</option>
+		</select>&nbsp;
+		<input value="OK" onclick="if (this.form.jumpto.options[this.form.jumpto.selectedIndex].value) window.location.href = 'http://ubuntuforum-br.org/index.php' + this.form.jumpto.options[this.form.jumpto.selectedIndex].value;" type="button">
+	</form>
+</div></div><br>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table width="100%" align="center" border="0" cellpadding="3" cellspacing="0">
+			<tbody><tr>
+				<td valign="bottom" width="28%" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="index.php_files/powered-mysql.gif" alt="Powered by MySQL" style="margin: 2px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" width="80" height="15"></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="index.php_files/powered-php.gif" alt="Powered by PHP" style="margin: 2px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" width="80" height="15"></a>
+				</td>
+				<td style="padding-bottom: 6px; white-space: nowrap;" valign="middle" align="center">
+					<span class="smalltext">
+						Tema desenvolvido por <a href="http://ubuntuforum-br.org/index.php?action=profile;u=94">FaBMak</a> e <a href="http://ubuntuforum-br.org/index.php?action=profile;u=524">n3t0</a><br>
+						
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana,Arial,sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by SMF 1.1.7</a> | 
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF © 2006-2008, Simple Machines LLC</a>
+		</span><br>
+						© 2009 <a href="http://www.canonical.com/">Canonical Ltd.</a> Ubuntu e Canonical são marcas registradas da Canonical Ltd.</span>
+				</td>
+				<td valign="bottom" width="28%" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="index.php_files/valid-xhtml10.gif" alt="XHTML 1.0 válido!" style="margin: 2px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" width="80" height="15"></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="index.php_files/valid-css.gif" alt="CSS válido!" style="margin: 2px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" width="80" height="15"></a>
+				</td>
+			</tr>
+		</tbody></table>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			window.addEventListener("load", smf_codeFix, false);
+			function smf_codeFix()
+			{
+				var codeFix = document.getElementsByTagName ? document.getElementsByTagName("div") : document.all.tags("div");
+
+				for (var i = 0; i < codeFix.length; i++)
+				{
+					if (codeFix[i].className == "code" && (codeFix[i].scrollWidth > codeFix[i].clientWidth || codeFix[i].clientWidth == 0))
+						codeFix[i].style.overflow = "scroll";
+				}
+			}
+		// ]]></script>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Carregando...</div>
+	<script src="index.php_files/urchin.js" type="text/javascript">
+	</script>
+	<script type="text/javascript">
+	_uacct = "UA-1988548-1";
+	urchinTracker();
+	</script>
+	</body></html>

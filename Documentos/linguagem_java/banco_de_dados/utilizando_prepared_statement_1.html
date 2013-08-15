@@ -1,0 +1,419 @@
+<html><head>
+
+
+
+
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+	
+
+
+
+
+<title>GUJ - Retirando o SQL do seu código Java</title>
+<link href="utilizando_prepared_statement_1_arquivos/guj3.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- OAS SETUP begin -->
+<script language="JavaScript">
+<!--
+//configuration
+OAS_url = 'http://media.realmedia.com.br/RealMedia/ads/';
+OAS_listpos = 'Top,Right,x01,x04';
+OAS_query = '';
+OAS_sitepage = 'guj/internas';
+//end of configuration
+OAS_version = 10;
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+function OAS_NORMAL(pos) {
+	document.write('<A HREF="' + OAS_url + 'click_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" TARGET=_top>');
+	document.write('<IMG SRC="' + OAS_url + 'adstream_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + OAS_query + '" BORDER=0></A>');
+}
+//-->
+</script>
+<script language="JavaScript">
+<!--
+OAS_version = 11;
+if (navigator.userAgent.indexOf('Mozilla/3') != -1)
+OAS_version = 10;
+if (OAS_version >= 11)
+document.write('<SCR'+ 'IPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url + 'adstream_mjx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + OAS_query + '"></SC'+'RIPT>');
+//-->
+</script><script language="JavaScript1.1" src="utilizando_prepared_statement_1_arquivos/1518837093TopRightx01x04.js"></script><script language="JavaScript">
+<!-- 
+document.write('')
+function OAS_AD(pos) {
+if (OAS_version >= 11)
+	OAS_RICH(pos);
+else
+	OAS_NORMAL(pos);
+}
+//-->
+</script>
+<!-- OAS SETUP end -->
+<!--[if IE]>
+<link href="/stylesheets/guj3-ie.css?20090222" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="text/javascript" src="utilizando_prepared_statement_1_arquivos/jquery-1.js"></script>
+<script type="text/javascript" src="utilizando_prepared_statement_1_arquivos/jquery.js"></script>
+<script type="text/javascript">
+$().ready(function() {
+	$("#returnPath").val(document.location);
+});
+</script>  
+<style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style></head><body>
+  <div id="header">
+    <div class="container1">
+    	<div id="banner">
+<!--
+<iframe id='abc8adb3' name='abc8adb3' src='http://d1.openx.org/afr.php?zoneid=18786&amp;cb=INSERT_RANDOM_NUMBER_HERE' framespacing='0' frameborder='no' scrolling='no' width='728' height='90'><a href='http://d1.openx.org/ck.php?n=a32fe7cc&amp;cb=3948240248' target='_blank'><img src='http://d1.openx.org/avw.php?zoneid=18786&amp;cb=3948240248&amp;n=a32fe7cc' border='0' alt='' /></a></iframe>
+-->
+			<!-- OAS AD 'Top' begin -->
+			<script language="JavaScript">
+			OAS_AD('Top');
+			</script><script type="text/javascript">
+ var OAS_width = '728';
+ var OAS_height = '90';
+ var OAS_banner_flash = 'super_banner.swf';
+ var OAS_camp = '090331_calhau_guj_pages1_top';
+ var clickTag = 'oas';
+
+var WMODE = 'opaque';
+var BGCOLOR = '#FFFFFF';
+ 
+var PAGE = 'guj/internas';
+var RAND = '840133585';
+var POS  = 'Top';
+var CAMP = 'rmlanetwork/090331_calhau_guj_pages1_top';
+var IMAGE= '090331_calhau_guj_pages5_top.html';
+var USER = '62643465373665343461383830363430';
+var adServer = 'www.icover.com.br';
+var accountId = 'rmlanetwork';
+
+var localBannerFlash = 'http://' + adServer + '/RealMedia/ads/Creatives/' + accountId + '/' + OAS_camp + '/' + OAS_banner_flash + '';
+ 
+document.write("<scr" + "ipt src='http://www.icover.com.br/RealMedia/ads/Creatives/rmlanetwork/javascript/flashestatico_flash6_as1.js'>" + "</scr" + "ipt>");
+
+</script><script src="utilizando_prepared_statement_1_arquivos/flashestatico_flash6_as1.js"></script><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="728" height="90"><param name="movie" value="http://www.icover.com.br/RealMedia/ads/Creatives/rmlanetwork/090331_calhau_guj_pages1_top/super_banner.swf?oas=http://www.icover.com.br/RealMedia/ads/click_lx.ads/guj/internas/840133585/Top/rmlanetwork/090331_calhau_guj_pages1_top/090331_calhau_guj_pages5_top.html/62643465373665343461383830363430"><param name="allowScriptAccess" value="always"><param name="loop" value="true"><param name="menu" value="false"><param name="wmode" value="opaque"><param name="quality" value="high"><embed src="utilizando_prepared_statement_1_arquivos/super_banner.swf" loop="true" menu="false" quality="high" bgcolor="#FFFFFF" swliveconnect="FALSE" allowscriptaccess="always" type="application/x-shockwave-flash" wmode="opaque" width="728" height="90"></object>
+			<!-- OAS AD 'Top' end -->
+    	</div>
+      <div class="container2">
+        <a href="http://www.guj.com.br/home.index.logic" id="logo">GUJ</a>
+        <h2>Notícias, artigos e o maior fórum brasileiro sobre Java</h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="menu">
+    <ul>
+      <li class="home">
+        <a href="http://www.guj.com.br/home.index.logic">home</a>
+      </li>
+      <li class="forum">
+        <a href="http://www.guj.com.br/forums/list.java">fórum</a>
+      </li>
+      <li class="artigos">
+        <a href="http://www.guj.com.br/article.list.logic">artigos</a>
+      </li>
+      <li class="noticias">
+        <a href="http://www.guj.com.br/forums/show/17.java">notícias</a>
+      </li>
+      
+      <li class="topics">
+        <a href="http://www.guj.com.br/recentTopics/list.java">tópicos recentes</a>
+      </li>
+        
+      <li class="empregos">
+		<a href="http://www.guj.com.br/jobs.list.logic">empregos</a>
+      </li>
+    
+    	<!--
+      <li class="blogs">
+        <a href="/posts">blogs</a>
+      </li>
+      -->
+    </ul>
+    <form class="busca" method="get" action="/jforum.java?module=search&amp;action=search">
+		<input name="module" value="search" type="hidden">
+		<input name="action" value="search" type="hidden">
+		<input class="campo rounded" name="search_keywords" value="Pesquisar" onfocus="if (this.value == 'Pesquisar') { this.value = '';}" onblur="if (this.value == '') { this.value = 'Pesquisar';}" tabindex="1">
+      	<input class="botao" style="border: 0px none ;" src="utilizando_prepared_statement_1_arquivos/botao_ok.gif" tabindex="2" type="image">
+    </form>
+  </div>
+  
+  <div id="submenu">
+    <div class="container1">
+      <div class="container2">
+          
+      	
+      		
+      		
+	      		Bem vindo ao GUJ. <a href="http://www.guj.com.br/user/insert.java" style="color: rgb(67, 130, 176);">Crie seu login</a>, 
+	          	ou digite-o para logar no site.
+              
+	          	<form class="login" action="/jforum.java?module=user&amp;action=validateLogin" method="post">
+                    <input value="http://www.guj.com.br/article.show.logic?id=115" name="returnPath" id="returnPath" type="hidden">
+	            	Usuário: <input class="campo rounded" size="8" name="username" tabindex="3">
+					Senha: <input class="campo rounded" size="8" name="password" tabindex="4" type="password">
+	            	<input class="botao" src="utilizando_prepared_statement_1_arquivos/botao_entrar.gif" tabindex="5" name="login" value="Login" type="image">
+	          	</form>
+      		
+      	
+      </div>
+    </div>
+  </div>
+
+  
+
+<link href="utilizando_prepared_statement_1_arquivos/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+<style type="text/css">@import url(/stylesheets/tagging.css);</style>
+<script src="utilizando_prepared_statement_1_arquivos/shCore.js" type="text/javascript"></script>
+<script src="utilizando_prepared_statement_1_arquivos/shBrushJava.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+window.onload = function () {
+	dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+
+<div id="content">
+<div class="box">
+<b class="spiffy"><b class="spiffy1"><b></b></b><b class="spiffy2"><b></b></b><b class="spiffy3"></b><b class="spiffy4"></b><b class="spiffy5"></b></b>
+	<div class="spiffyfg inner-content">
+  <span class="article">
+    <h2><a href="#">Retirando o SQL do seu código Java</a>
+    </h2>
+  </span>
+  
+  <div class="miolo">
+    <span class="data">em 29/10/2002</span>
+    <span class="autor">, por <a href="mailto:paulo@paulo.com.br">Paulo Silveira</a></span>
+    <br>
+  
+    
+	    <div style="padding: 10px; float: left;">
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-7098584793170190";
+			/* GUJ Quadrado Artigos */
+			google_ad_slot = "2113535366";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script> 
+			<script type="text/javascript" src="utilizando_prepared_statement_1_arquivos/show_ads.js"> 
+			</script><script src="utilizando_prepared_statement_1_arquivos/expansion_embed.js"></script><script src="utilizando_prepared_statement_1_arquivos/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 250px; position: relative; visibility: visible; width: 300px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 250px; position: relative; visibility: visible; width: 300px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="utilizando_prepared_statement_1_arquivos/ads.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="300" frameborder="0" height="250"></iframe></ins></ins>
+		</div>
+	      
+	      <span class="content"><page>
+<div id="subtitle"><b>Introdução</b></div>
+Uma das boas práticas de programação, não só em java, é diminuir ao
+máximo o uso de Strings literais no seu código fonte, técnica conhecida
+como "hardcoding". Um "antipadrão" de programação.
+Porque isto é ruim? Bem, primeiro que você fica dependendo de
+recompilar o código se precisar mudar alguma coisa. Segundo que fica
+difícil você achar um mispelling (erro na hora de digitar) de uma
+String literal, e terceiro que é terrível ler Strings e magic numbers
+no código de uma pessoa. O que é Magic Number?
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span class="keyword">if</span><span>&nbsp;(</span><span class="keyword">this</span><span>.codigo&nbsp;==&nbsp;</span><span class="number">47</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;faca&nbsp;algo</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">if (this.codigo == 47) {
+	// faca algo
+}
+</textarea> <br>
+
+O número 47 não representa nada para ninguém, e esse código fica difícil de ser lido. Imagine agora com uma constante:
+
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span class="keyword">if</span><span>&nbsp;(</span><span class="keyword">this</span><span>.codigo&nbsp;==&nbsp;DATABASE_ACCESS_ERROR)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;faca&nbsp;algo</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">if (this.codigo == DATABASE_ACCESS_ERROR) {
+	// faca algo
+}
+</textarea> <br>O mesmo acontece para Strings literais. Claro que em
+java você utilizaria Exceptions ao invés de código de erros, isto foi
+apenas um exemplo.
+Neste tutorial, aprenderemos a tirar as strings SQLs "hardcodadas" no
+seu .java, de maneira elegante e eficiente. Para isto, é necessário
+você ter um conhecimento básico de JDBC e conhecer a <i>java.util.Properties</i>
+(ou leia a API!).
+Uma vantagem enorme de retirar o seu SQL do .java, é que assim você
+torna a sua aplicação quase que indepedente de banco de dados (se você
+tomar bastante cuidado, vira 100% independente). Voce pode mudar em um
+arquivo de configuracao as SQLs, por exemplo, de TOP para LIMITm
+diferença clássica entre alguns banco de dados!
+</page>
+<page>
+<div id="subtitle"><b>PreparedStatement</b></div>
+<i>java.sql.PreparedStatement</i> é uma interface que extende a interface <i>Statement</i>.
+A grande maioria dos drivers JDBCs atuais suportam a utilização desta
+interface. O que ela faz? Bem, vamos dar um exemplo concreto, para
+irmos explicando:
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>Connection&nbsp;conn&nbsp;=&nbsp;DriverManager.getConnection(</span><span class="string">"jdbc:banco..."</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>PreparedStatement&nbsp;pstmt&nbsp;=&nbsp;con.prepareStatement(<span class="string">"UPDATE&nbsp;EMPLOYEES&nbsp;SET&nbsp;SALARY&nbsp;=&nbsp;?&nbsp;WHERE&nbsp;ID&nbsp;=&nbsp;?"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>pstmt.setBigDecimal(<span class="number">1</span><span>,&nbsp;</span><span class="number">153833.00</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span>pstmt.setInt(<span class="number">2</span><span>,&nbsp;</span><span class="number">110592</span><span>)&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">Connection conn = DriverManager.getConnection("jdbc:banco...");
+
+PreparedStatement pstmt = con.prepareStatement("UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?");
+
+pstmt.setBigDecimal(1, 153833.00)
+pstmt.setInt(2, 110592)
+</textarea> <br>Este é o exemplo que está na própria API. O que ele
+faz? Primeiro ele pega uma conexão com o banco de dados, exatamente
+como sempre fizemos.
+Depois, ele devolve um <i>PreparedStatement</i> a partir de um SQL
+meio estranho: ele possui pontos de interrogação onde queremos
+reutilizar a SQL query. Para substituir esses pontos de interrogação,
+basta usar um dos vários métodos <i>setters</i> que a interface <i>PreparedStatement</i>
+lhe oferece. Lembre-se que o setter recebe um inteiro, indicando qual
+ponto de interrogação será utilizado: o primeiro vale 1, diferente de
+indices de arrays que começam com 0 em java.
+Chamado o setter, o driver JDBC vai dar um jeito de traduzir aquele
+objeto/valor primitivo para dentro da SQL. Se você colocar uma String,
+não precisa por as aspas!!! Porque? Pois o driver JDBC cuida disso:
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>PreparedStatement&nbsp;pstmt&nbsp;=&nbsp;con.prepareStatement(</span><span class="string">"select&nbsp;*&nbsp;from&nbsp;usuario&nbsp;where&nbsp;name&nbsp;=&nbsp;?"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span><span class="comment">//&nbsp;não&nbsp;precisa&nbsp;de&nbsp;escape&nbsp;no&nbsp;'</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>pstmt.setString(<span class="number">1</span><span>,</span><span class="string">"Joãozinho&nbsp;D'a&nbsp;Silva"</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">PreparedStatement pstmt = con.prepareStatement("select * from usuario where name = ?");
+
+// não precisa de escape no '
+pstmt.setString(1,"Joãozinho D'a Silva");
+</textarea> <br>
+
+Uma maneira muito comum de utilizar o <i>PreparedStatement</i>, é usar o método <i>setObject</i>. Este método vai fazer vários <b>instanceof</b> e descobrir como deve colocar esse valor na sua SQL. Caso ele não descubra, ele vai chamar o <i>toString</i> deste método. Continuando o primeiro caso:
+
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>pstmt.setObject(</span><span class="number">1</span><span>,&nbsp;</span><span class="keyword">new</span><span>&nbsp;Long(</span><span class="number">5000</span><span>));&nbsp;&nbsp;</span></span></li><li class=""><span>pstmt.setObject(<span class="number">2</span><span>,&nbsp;</span><span class="keyword">new</span><span>&nbsp;Integet(</span><span class="number">333</span><span>));&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">pstmt.setObject(1, new Long(5000));
+pstmt.setObject(2, new Integet(333));
+</textarea> <br>Se você tentar setar um índice que não exista vai
+receber uma RuntimeException. Por exemplo, no nosso caso,
+setObject(3,...) iria resultar em uma RuntimeException, indicando que
+não existe o 3o ponto de interrogação na SQL dada!
+Para executar o <i>PreparedStatement</i>, é idêntnico ao <i>Statement</i>. Lembre-se de "setar" tudo antes de executá-lo, ou você receberá uma exceção:
+
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>ResultSet&nbsp;rs&nbsp;=&nbsp;pstmt.executeQuery();&nbsp;</span><span class="comment">//&nbsp;sem&nbsp;passar&nbsp;argumento!</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">ResultSet rs = pstmt.executeQuery(); // sem passar argumento!
+</textarea> <br>
+
+O que mais o <i>PreparedStatement</i> é responsável por fazer?
+<li> Fazer o escape das aspas, aspas simples, e do próprio caractere de escape - isso é muito útil;
+</li><li> Traduzir muitos objetos para o formato String correspondente
+com o do banco de dados, como o java.util.Date por exemplo, e o
+java.io.InputStream, que eu considero o mais útil de todos: fica muito
+fácil utilizar um campo Blob com um <i>PreparedStatement</i>.
+
+Antes que alguém pergunte, o driver de JDBC para o mysql tem sim, suporte a <i>PreparedStatement</i>. Aliás, o GUJ usa e abusa deste recurso, inclusive para guardar as imagens no banco de dados em BLOBs.
+
+Aqui você já tem uma idéia legal de como aproveitar o <i>PreparedStatement</i>, mas sugiro que você conheça a api dele, <a href="http://guj.com.br/api/j2se.html?api=java.sql,PreparedStatement" target="_blank">clicando aqui</a>.
+
+</li></page>
+<page>
+<div id="subtitle"><b>Arquivo de Configuração</b></div>
+Após aprendermos a usar o <i>PreparedStatement</i>,
+vamos fazer algo para retira-los do seu .java. Para isso, vamos passar
+todas as Strings que representam uma SQL para um arquivo de Properties,
+algo do tipo:
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>usuario.selectByName=select&nbsp;*&nbsp;from&nbsp;usuario&nbsp;where&nbsp;name&nbsp;=&nbsp;?&nbsp;&nbsp;</span></span></li><li class=""><span>usuario.selectByEmail=select&nbsp;*&nbsp;from&nbsp;usuario&nbsp;where&nbsp;email&nbsp;=&nbsp;?&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">usuario.selectByName=select * from usuario where name = ?
+usuario.selectByEmail=select * from usuario where email = ?
+</textarea> <br> Então, ao invés de criarmos o PreparedStatement a
+partir de um String literal, nós pegamos ele a partir deste arquivo
+Properties. Um esboço:
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>Properties&nbsp;queries&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;Properties();&nbsp;&nbsp;</span></span></li><li class=""><span>queries.load(<span class="string">"arquivoMysql.txt"</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">Properties queries = new Properties();
+queries.load("arquivoMysql.txt");
+</textarea> <br>
+
+Na hora de criar um PreparedStatement, você faz assim:
+
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>PreparedStatement&nbsp;ps&nbsp;=&nbsp;connection.prepareStatement(queries.getProperty(USUARIO_SELECT_BY_NAME));&nbsp;&nbsp;</span></span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">PreparedStatement ps = connection.prepareStatement(queries.getProperty(USUARIO_SELECT_BY_NAME));
+</textarea> <br>Onde USUARIO_SELECT_BY_NAME é uma constante: uma String
+static final e pública. Porque isso? evitar o hardcoding e erros de
+execução.
+Com isso, você não terá mais nenhum SQL dentro do seu .java, o que é um
+grande passo. Vamos melhorar nosso esboço de como controlar essa
+properties que contém os SQLs.
+</page>
+<page>
+<div id="subtitle"><b>O Singleton que controla tudo</b></div>Vamos
+criar aqui uma classe (esboço novamente) para controlar essa properties
+que tem as SQLs. Não podemos ficar lendo do arquivo texto toda vez que
+pegarmos uma SQL, precisamos de uma classe (instância dela) para fazer
+isso. Você não precisa saber o que é um Singleton. É basicamente uma
+solução para você não fazer uma classe que tenha tudo static, desta
+maneira, você perderia a orientação a objetos.
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;QueryManager&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span><span>&nbsp;Properties&nbsp;queries;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;nao&nbsp;deveria&nbsp;estar&nbsp;hardcodado:</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;queryManager&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;Querymanager(</span><span class="string">"arquivoMysql.txt"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;QueryManager(String&nbsp;arquivo)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;queries&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;Properties();&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;le&nbsp;as&nbsp;sqls&nbsp;e&nbsp;guarda!</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;queries.load(<span class="keyword">new</span><span>&nbsp;FileInputStream(arquivo));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">public class QueryManager {
+
+	protected Properties queries;
+
+	// nao deveria estar hardcodado:
+	protected static queryManager = new Querymanager("arquivoMysql.txt");
+
+	private QueryManager(String arquivo) {
+		queries = new Properties();
+		// le as sqls e guarda!
+		queries.load(new FileInputStream(arquivo));
+	}
+
+	...
+
+}
+</textarea> <br>Até aqui temos o padrão singleton implementado, mas
+vamos adicionar o método que retorna um PreparedStatement, dado uma
+conexão e o nome do statement que você quer!
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;PreparedStatement&nbsp;getPreparedStatement(Connection&nbsp;conn,&nbsp;String&nbsp;queryName)&nbsp;</span><span class="keyword">throws</span><span>&nbsp;SQLException&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;query&nbsp;=&nbsp;<span class="keyword">this</span><span>.queries.getProperty(queryname);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;conn.prepareStatement(query);&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">
+	public PreparedStatement getPreparedStatement(Connection conn, String queryName) throws SQLException {
+		String query = this.queries.getProperty(queryname);
+		return conn.prepareStatement(query);
+	}
+</textarea> <br>
+
+Cuidado: este método pode dar NullPointerException no caso da query requerida não existir no arquivo de configuração!
+
+Para utilizar esta classe:
+
+<br> <div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-j" start="1"><li class="alt"><span><span>QueryManager&nbsp;manager&nbsp;=&nbsp;QueryManager.getQueryManager();&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>PreparedStatement&nbsp;ps&nbsp;=&nbsp;manager.getPreparedStatement(conn,&nbsp;USUARIO_SELECT_BY_NAME);&nbsp;&nbsp;</span></li><li class=""><span>ps.setString(<span class="number">1</span><span>,&nbsp;</span><span class="string">"Joaozinho"</span><span>);&nbsp;</span><span class="comment">//&nbsp;poderia&nbsp;ser&nbsp;setObject,&nbsp;recomendo!</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>ResultSet&nbsp;rs&nbsp;=&nbsp;ps.executeQuery();&nbsp;&nbsp;</span></li></ol></div><textarea style="display: none;" name="code" class="java" cols="60" rows="10">QueryManager manager = QueryManager.getQueryManager();
+
+PreparedStatement ps = manager.getPreparedStatement(conn, USUARIO_SELECT_BY_NAME);
+ps.setString(1, "Joaozinho"); // poderia ser setObject, recomendo!
+ResultSet rs = ps.executeQuery();
+</textarea> <br>Simples não? Não tenha medo do singleton, a única coisa
+que ele faz é impedir que exista mais de uma instância desta classe por
+ClassLoader.
+<div id="subtitle"><b>Conclusão</b></div>Este tutorial foi realizado
+devido a muitos pedidos de como retirar o SQL do codigo java. Você pode
+refinar o processo, utilizando XML no caso que você tenha uma
+hierarquia entre as SQLs. O problema seria escrever um parser apenas
+para este arquivo de configurações.
+Você ainda pode melhorar essa solução: utilizando alguma
+biblioteca/ferramenta que possibilite o "mapeamento objeto relacional".
+Usar uma ConnectioPool também é muito útil!
+Espero que tenha ficado claro a melhoria que você ganha a partir do
+momento que para de lidar com literais: maior reuso do código, melhor
+leitura, maior adaptação e facilidade de reescrita. E é claro: quem não
+gosta de um arquivinho de configurações :).
+</page></span>
+    
+
+    <span class="pdf">
+    
+    </span>
+  </div>
+  </div>
+	<b class="spiffy"><b class="spiffy5"></b><b class="spiffy4"></b><b class="spiffy3"></b><b class="spiffy2"><b></b></b><b class="spiffy1"><b></b></b></b>
+</div>
+
+</div>
+
+
+<!-- OAS AD 'x01' begin -->
+<script language="JavaScript">
+<!--
+//OAS_AD('x01');
+//-->
+</script>
+<!-- OAS AD 'x01' end -->
+
+  <div id="footer">
+  	<p>Apoiado e desenvolvido por <a href="http://www.caelum.com.br/">Caelum Cursos Java</a> - Copyright © 2002-2009 <a href="mailto:guj@guj.com.br">GUJ</a> <!--<script type="text/javascript" src="http://widgets.amung.us/small.js"></script><script type="text/javascript">WAU_small('kwnaee1y3d4h')</script>--></p>
+  </div>
+ 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="utilizando_prepared_statement_1_arquivos/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-132222-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+  
+</body></html>

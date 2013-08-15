@@ -1,0 +1,846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0063)http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/ -->
+<HTML xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<TITLE>How to Parse JSON in Java - O'Reilly Answers</TITLE>
+		<LINK rel="shortcut icon" href="http://answers.oreilly.com/favicon.ico">
+                <LINK rel="apple-touch-icon" href="http://answers.oreilly.com/apple-touch-icon.png" type="image/png">
+		
+	
+				
+	
+
+				
+	
+
+				
+			<LINK rel="stylesheet" type="text/css" media="print" href="./How_to_Parse_JSON_in_Java_files/ipb_print.css">
+		
+	
+
+				
+	
+
+				
+	
+	
+		<LINK rel="stylesheet" type="text/css" media="screen" href="./How_to_Parse_JSON_in_Java_files/index.php">
+	
+
+<!--[if lte IE 7]>
+	<link rel="stylesheet" type="text/css" title='Main' media="screen" href="http://answers.oreilly.com/public/style_css/css_6/ipb_ie.css" />
+<![endif]-->
+
+<LINK rel="stylesheet" href="./How_to_Parse_JSON_in_Java_files/chrome.css" type="text/css">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=7" />-->
+		
+	
+	<META name="description" content="Use json-lib, a library which adds JSON support to any Java program.    json-lib can take a String and turn it into a JSONObject which can then be used to retrieve specific attributes.  1. Add this dependency to your project: &amp;#60;dependency...">
+	
+
+	<META name="keywords" content="java,json">
+	
+
+	<META name="identifier-url" content="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/">
+	
+
+		<SCRIPT type="text/javascript">
+			jsDebug = 1; /* Must come before JS includes */
+			USE_RTE = 0;
+		</SCRIPT>
+		
+		<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/index(1).php"></SCRIPT>
+	
+	<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/index(2).php" charset="UTF-8"></SCRIPT>
+
+<!-- MyBuys libraries and style sheet -->
+<LINK href="./How_to_Parse_JSON_in_Java_files/mbstyles.css" type="text/css" rel="stylesheet" id="mybuysstyles">
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/mybuys3.js"></SCRIPT><STYLE type="text/css">.mblistrowleft{ cssFloat:;text-align:;} .mblistrowright{ cssFloat:;text-align:;} .mbsalerowleft{ cssFloat:;text-align:;} .mbsalerowright{ cssFloat:;text-align:;} .mbpricerowleft{ cssFloat:;text-align:;} .mbpricerowright{ cssFloat:;text-align:;} .mbdiscrowleft{ cssFloat:;text-align:;} .mbdiscrowright{ cssFloat:;text-align:;} </STYLE>
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/setup.js"></SCRIPT><STYLE type="text/css">.mbpricerowleft{ cssFloat:;} .mbpricerowright{ cssFloat:;} .mbzone{ width:100%;padding:0 10px;} .mbitem{ width:100%;padding-right:0px;padding-left:0px;padding-top:5px;} .mbnamelink:link{ color:#0000ff;font-size:11px;font-weight:bold;text-decoration:none;font-family:verdana, arial, helvetica;} .mbnamelink:visited{ font-family:verdana, arial, helvetica;color:#551A8B;font-size:11px;font-weight:bold;text-decoration:none;} .mbnamelink:hover{ font-family:verdana, arial, helvetica;color:#0000ff;font-size:11px;font-weight:bold;text-decoration:none;} .mbnamerowspan{ margin-top:5px;} .mbpricelink:link{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelink:visited{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelink:hover{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricerowspan{ text-align:center;} .mbpricelinklabel:link{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelinklabel:visited{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelinklabel:hover{ font-family:verdana, arial, helvetica;color:#222222;font-size:11px;font-weight:normal;text-decoration:none;} } .mbpricerowleft_content1{ cssFloat:none;text-align:right;height:12px;} .mbpricerowright_content1{ cssFloat:none;text-align:center;height:12px;} .mbitem_content1{ font-size:11px;width:100%;padding-bottom:26px;text-align:left;} .mbnamerowspan_content1{ text-align:left;cssFloat:left;width:100%;display:block;} .mbpricerowspan_content1{ text-align:left;cssFloat:left;width:100%;display:block;height:16px;} .mbpricelink_content1:link{ font-family:verdana, arial, helvetica, sans-serif;color:#000000;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelink_content1:visited{ font-family:verdana, arial, helvetica, sans-serif;color:#000000;font-size:11px;font-weight:normal;text-decoration:none;} .mbpricelink_content1:hover{ font-family:verdana, arial, helvetica, sans-serif;color:#000000;font-size:11px;font-weight:normal;text-decoration:none;} </STYLE>
+<!-- End MyBuys libraries and style sheet -->
+
+<!--Autocomplete-->
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/autocomplete.js"></SCRIPT>
+<LINK rel="stylesheet" type="text/css" href="./How_to_Parse_JSON_in_Java_files/autocompletestyles.css">
+ <!--Autocomplete-->
+		<SCRIPT type="text/javascript">
+			Loader.boot();
+		</SCRIPT>
+                <SCRIPT type="text/javascript">var _sf_startpt=(new Date()).getTime()</SCRIPT>
+		<LINK rel="alternate feed" type="application/rss+xml" title="O&#39;Reilly Answers" href="http://feeds.feedburner.com/OreillyAnswers">
+<LINK rel="alternate feed" type="application/rss+xml" title="O&#39;Reilly Answers - Open Questions" href="http://feeds.feedburner.com/OreillyAnswers/OpenQuestions">
+
+	
+		
+			
+			
+			
+				<LINK rel="canonical" href="./How_to_Parse_JSON_in_Java_files/How_to_Parse_JSON_in_Java.html">
+			
+		
+
+			
+			
+			
+				<LINK rel="up" href="http://answers.oreilly.com/forum/2-clever-hacks-creative-ideas-innovative-solutions-ask-answer-share/">
+			
+		
+
+			
+			
+			
+				<LINK rel="author" href="http://answers.oreilly.com/user/45-tmo9d/">
+			
+		
+	
+
+		
+			
+			
+			
+		
+	
+
+	
+
+<SCRIPT type="text/javascript">
+	var isRTL	= false;
+	var rtlIe	= '';
+	var rtlFull	= '';
+</SCRIPT>
+
+		
+		<SCRIPT type="text/javascript">
+	//<![CDATA[
+		/* ---- URLs ---- */
+		ipb.vars['base_url'] 			= 'http://answers.oreilly.com/index.php?';
+		ipb.vars['board_url']			= 'http://answers.oreilly.com';
+		ipb.vars['loading_img'] 		= 'http://answers.oreilly.com/public/style_images/master/loading.gif';
+		ipb.vars['active_app']			= 'forums';
+		ipb.vars['upload_url']			= 'http://answers.oreilly.com/uploads';
+		/* ---- Member ---- */
+		ipb.vars['member_id']			= parseInt( 0 ),
+		ipb.vars['is_supmod']			= parseInt( 0 ),
+		ipb.vars['is_admin']			= parseInt( 0 ),
+		ipb.vars['secure_hash'] 		= '880ea6a14ea49e853634fbdc5015a024';
+		ipb.vars['session_id']			= '81176c5af0043ba31b36ff2c7087ae96';
+		ipb.vars['can_befriend']		= true;
+		/* ---- cookies ----- */
+		ipb.vars['cookie_id'] 			= 'answers_';
+		ipb.vars['cookie_domain'] 		= '.oreilly.com';
+		ipb.vars['cookie_path']			= '/';
+		/* ---- Rate imgs ---- */
+		ipb.vars['rate_img_on']			= 'http://answers.oreilly.com/public/style_images/master/bullet_star.png';
+		ipb.vars['rate_img_off']		= 'http://answers.oreilly.com/public/style_images/master/bullet_star_off.png';
+		ipb.vars['rate_img_rated']		= 'http://answers.oreilly.com/public/style_images/master/bullet_star_rated.png';
+		/* ---- Uploads ---- */
+		ipb.vars['swfupload_swf']		= 'http://answers.oreilly.com/public/js/3rd_party/swfupload/swfupload.swf';
+		ipb.vars['swfupload_enabled']	= true;
+		ipb.vars['use_swf_upload']		= ( '' == 'flash' ) ? true : false;
+		ipb.vars['swfupload_debug']		= false; /* SKINNOTE: Turn off for production */
+		/* ---- other ---- */
+		ipb.vars['use_live_search'] 	= 0;
+		ipb.vars['live_search_limit'] 	= 4;
+		ipb.vars['highlight_color']		= "#ade57a";
+		ipb.vars['charset']				= "UTF-8";
+		ipb.vars['use_rte']				= 1;
+		ipb.vars['image_resize']		= 50;
+		ipb.vars['seo_enabled']			= 1;
+		
+		ipb.vars['seo_params']			= {"start":"-","end":"\/","varBlock":"\/page__","varSep":"__"};
+		
+		/* Templates/Language */
+		ipb.templates['ajax_loading'] 	= "<div id='ajax_loading'>" + ipb.lang['loading'] + "</div>";
+		ipb.templates['close_popup']	= "<img src='http://answers.oreilly.com/public/style_images/master/close_popup.png' alt='x' />";
+		ipb.templates['rss_shell']		= new Template("<ul id='rss_menu'>#{items}</ul>");
+		ipb.templates['rss_item']		= new Template("<li><a href='#{url}' title='#{title}'>#{title}</a></li>");
+		ipb.templates['resized_img']	= new Template("<span>Resized to #{percent}% (was #{width} x #{height}) - Click image to enlarge</span>");
+		ipb.templates['m_add_friend']	= new Template("<a href='http://answers.oreilly.com/index.php?app=members&amp;module=profile&amp;section=friends&amp;do=add&amp;member_id=#{id}' title='Add as Friend'><img src='http://answers.oreilly.com/public/style_images/master/user_add.png' alt='Add as Friend' /></a>");
+		ipb.templates['m_rem_friend']	= new Template("<a href='http://answers.oreilly.com/index.php?app=members&amp;module=profile&amp;section=friends&amp;do=remove&amp;member_id=#{id}' title='Remove Friend'><img src='http://answers.oreilly.com/public/style_images/master/user_delete.png' alt='Remove Friend' /></a>");
+		ipb.templates['autocomplete_wrap'] = new Template("<ul id='#{id}' class='ipb_autocomplete' style='width: 250px;'></ul>");
+		ipb.templates['autocomplete_item'] = new Template("<li id='#{id}'><img src='#{img}' alt='' width='#{img_w}' height='#{img_h}' />&nbsp;&nbsp;#{itemvalue}</li>");
+		ipb.templates['page_jump']		= new Template("<div id='#{id}_wrap' class='ipbmenu_content'><h3 class='bar'>Jump to page</h3><input type='text' class='input_text' id='#{id}_input' size='8' /> <input type='submit' value='Go' class='input_submit add_folder' id='#{id}_submit' /></div>");
+	//]]>
+	</SCRIPT>
+	</HEAD><BODY id="answers">
+		<P id="content_jump"><A id="top"></A><A href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#j_content" title="Jump to content" accesskey="m">Jump to content</A></P>
+	
+		
+		<DIV id="page">
+                   <DIV id="header-09">
+                      <DIV id="navbar">	
+                        <UL id="nav">
+                        <LI id="home"><A href="http://oreilly.com/" accesskey="h">Home</A>
+                           <UL>
+                           <LI><A href="http://oreilly.com/community/index.html">Community</A></LI>
+                            <LI><A href="http://oreilly.com/events/index.html">Events</A></LI>
+                            <LI><A href="http://oreilly.com/webcasts/index.html">Webcasts</A></LI>
+                            <LI><A href="http://elists.oreilly.com/">Newsletters</A></LI>
+                            </UL>
+                          </LI>	
+                        <LI><A href="http://oreilly.com/store/index.html">Books &amp; Videos</A>
+                            <UL>
+                            <LI><A href="http://oreilly.com/store/newreleases.html">New</A></LI>
+                            <LI><A href="http://oreilly.com/store/upcoming.html">Upcoming</A></LI>
+                            <LI><A href="http://oreilly.com/store/bestsellers.html">Bestselling</A></LI>
+                            <LI><A href="http://oreilly.com/store/complete.html">Complete List</A></LI>
+                            <LI><A href="http://oreilly.com/store/publisher.html">By Publisher</A></LI>
+                            <LI><A href="http://oreilly.com/roughcuts/index.html">Rough Cuts</A></LI>
+                            <LI><A href="http://oreilly.com/ebooks/index.html">Ebooks</A></LI>
+                            <LI><A href="http://oreilly.com/videos/index.html">Videos</A></LI>
+                            <LI><A href="http://oreilly.com/store/order.html">Order Info</A></LI>
+                            </UL>
+                         </LI>
+                         <LI class="selected"><A href="http://answers.oreilly.com/">Answers</A>
+                         </LI>
+                        <LI><A href="http://oreilly.com/archive.html">News &amp; Commentary</A>
+                            <UL>
+                            <LI><A href="http://oreilly.com/archive.html">Most Recent</A></LI>
+                            <LI><A href="http://oreilly.com/archiveaudio.html">Audio</A></LI>
+                            <LI><A href="http://oreilly.com/archivevideo.html">Video</A></LI>
+                            <LI><A href="http://oreilly.com/archivetags.html">Popular Tags</A></LI>
+                            </UL>
+                        </LI>
+
+			<LI><A href="http://safari.oreilly.com/?cid=orm-nav-global">Safari Books Online</A>
+				<UL>
+					<LI><A href="http://my.safaribooksonline.com/home?cid=orm-nav-global&portal=oreilly">Safari Home</A></LI>
+					<LI><A href="http://my.safaribooksonline.com/subscribe?cid=orm-nav-global&portal=oreilly">Subscribe</A></LI>
+					<LI><A href="http://my.safaribooksonline.com/trial?cid=orm-nav-global&portal=oreilly">Free Trial</A></LI>
+					<LI><A href="http://my.safaribooksonline.com/books?cid=orm-nav-global&portal=oreilly">Books</A></LI>
+					<LI><A href="http://my.safaribooksonline.com/video?cid=orm-nav-global&portal=oreilly">Videos</A></LI>
+				</UL>
+			</LI>
+                         <LI><A href="http://conferences.oreillynet.com/">Conferences</A></LI>
+                         <LI><A href="http://training.oreilly.com/">Training</A></LI>
+                         <LI><A href="http://www.oreillyschool.com/">School of Technology</A>
+                            <UL>
+                            <LI><A href="https://oreillyschool.com/enroll/">Enroll</A></LI>
+                            <LI><A href="https://oreillyschool.com/career/">Your Career</A></LI>
+                            <LI><A href="https://oreillyschool.com/why/">Why OST</A></LI>
+                            <LI><A href="https://oreillyschool.com/courses/">Courses&nbsp;&amp;&nbsp;Certificates</A></LI>
+                            <LI><A href="https://oreillyschool.com/contact.php">Contact</A></LI>
+                            <LI><A href="https://oreillyschool.com/student/">Student Sign In</A></LI>
+                            </UL>
+                         </LI>
+                         </UL>
+                         <UL id="account-actions">
+                         
+                         <LI><A href="https://members.oreilly.com/" class="acct">My Account</A></LI>
+                         <LI><A href="https://epoch.oreilly.com/shop/cart.orm" class="cart">View Cart</A></LI>
+                         </UL>
+                      </DIV>
+                      <DIV id="header">	
+                         <A href="http://answers.oreilly.com/"><H1>O'Reilly Answers</H1></A>
+                         <DIV id="tagline">Clever Hacks. Creative Ideas. Innovative Solutions.</DIV>
+                         <DIV id="search-box" class="yui-skin-sam">
+                            <FORM method="get" action="http://search.oreilly.com/" id="search-form" name="searchform">
+                               <FIELDSET>
+                                  <SPAN id="search-input">
+                                  <SPAN id="search-field"><INPUT style="//height: 18px;" id="q" name="q" type="text" maxlength="64" accesskey="s" value="" class="yui-ac-input" autocomplete="off"></SPAN>
+                                  <SPAN id="search-button">
+                                  <INPUT class="button" type="submit" value="SEARCH" onclick="return searchverif();">
+                                  </SPAN>
+                                  </SPAN>
+                                  <SPAN class="clear"></SPAN>
+                                  <DIV id="autocomplete" class="yui-ac-container"><DIV class="yui-ac-content" style="display: none; "><DIV class="yui-ac-hd" style="display: none; "></DIV><DIV class="yui-ac-bd"><UL><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "><LI style="display: none; "></UL></DIV><DIV class="yui-ac-ft" style="display: none; "></DIV></DIV></DIV>
+                               </FIELDSET>
+                            </FORM>
+                         </DIV>
+                      </DIV>
+<DIV id="subnav">
+	
+	<UL>
+		<LI style="border-right:none;padding-left:10px;"><SPAN style="color:#990000;">Trending Topics:</SPAN></LI>
+		<LI><A href="http://answers.oreilly.com/tag/iphone/">iphone</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/javascript/">javascript</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/android/">android</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/programming/">programming</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/ipad/">ipad</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/microsoft/">microsoft</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/ebook/">ebook</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/Project%20Management/">Project Management</A></LI>
+<LI><A href="http://answers.oreilly.com/tag/photoshop/">photoshop</A></LI>
+		<LI style="border-right:none;"><A href="http://answers.oreilly.com/tags/">More...</A></LI>
+	</UL>
+	
+	<DIV class="right"><A href="http://answers.oreilly.com/index.php?app=forums&module=post&section=post&do=new_post&type=k&f=2">Share your knowledge</A></DIV>
+</DIV>
+
+                  </DIV> <!-- /#header-09 -->
+                  <DIV id="content-09">
+			<DIV id="wrapper" style="margin-left:1em;">
+				<DIV id="sidebar" class="noindex">
+					<DIV id="user_navigation">
+					
+						<DIV class="oreillyBoxHeader">
+							Welcome
+						</DIV>
+                                                <HR class="clear" style="background: none;border-color: #ccc;border-style: none none dashed;border-width: 1px;margin:2px 0;">
+						<DIV class="oreillyBoxBody">
+                                                        <DIV class="quicklinks">
+							<UL>
+								<LI><A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login" title="Sign In">Sign In</A></LI>
+                                                        </UL>
+                                                        </DIV>
+                                                        <DIV class="quicklinks">
+							<UL>
+								<LI><A href="http://answers.oreilly.com/index.php?app=core&module=help" title="View help" rel="help" accesskey="6"><IMG src="./How_to_Parse_JSON_in_Java_files/userhelp.png" alt="Help"> Help</A></LI>
+							</UL>
+                                                        </DIV>
+                                                        <BR style="clear:both;">
+						</DIV>
+                                                <DIV style="clear:both;color:#444;font-size:0.92em;padding:8px;line-height:16px;background-color:#eee;-webkit-border-bottom-left-radius: 12px;-webkit-border-bottom-right-radius: 12px;-moz-border-radius-bottomleft:12px;-moz-border-radius-bottomright:12px;">O'Reilly Answers is a community site for sharing knowledge, asking questions, and providing answers that brings together our customers, authors, editors, conference speakers, and Foo (Friends of O'Reilly). <A href="http://broadcast.oreilly.com/2009/11/announcing-oreilly-answers.html">More »</A><BR>
+                                                  <DIV style="padding-top:8px;line-height:24px;"><IMG src="./How_to_Parse_JSON_in_Java_files/email_trans.png" alt="Email icon" align="top"><A href="mailto:answers@oreilly.com"> Send us feedback</A><BR>
+                                                  <IMG src="./How_to_Parse_JSON_in_Java_files/rss_trans.png" alt="Feed icon" align="top"> <A href="http://feeds.feedburner.com/OreillyAnswers">O'Reilly Answers Feed</A><BR>
+                                                  <IMG src="./How_to_Parse_JSON_in_Java_files/twitter2.png" alt="Twitter icon" align="top"> <A href="http://twitter.com/oreillyanswers">@oreillyanswers</A>
+                                                  </DIV>
+                                                </DIV>
+                                              
+					  </DIV>
+<DIV class="sidebar-item">
+	<H3>Earn Rewards, Reputation, and Badges</H3>
+	<DIV class="sidebar-item-content">
+        <P>Redeem the reputation points you've earned from participating in O'Reilly Answers for O'Reilly ebooks, videos, courses, and conferences. <BR>
+<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10">Learn more »</A></P>
+        </DIV>
+</DIV>
+
+
+
+
+<DIV class="sidebar-item">
+	<H3>Related Questions</H3>
+	<DIV class="sidebar-item-content">
+		
+		<UL id="relatedQuestions_list">
+			
+				<LI>
+					<P><A id="tid-link-577" href="http://answers.oreilly.com/topic/577-h264-video-streamingseeking-via-java-servlet/" title=" 1257376700" class="topic_title">H.264 video streaming/seeking via Java servlet</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-663" href="http://answers.oreilly.com/topic/663-streaming-video-online-j2ee/" title=" 1258029767" class="topic_title">streaming video online - j2ee</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-686" href="http://answers.oreilly.com/topic/686-gdata-error-intermittent-%e2%80%9cinvalid-root-element%e2%80%9d/" title=" 1258157311" class="topic_title">GData Error: Intermittent “Invalid root element”</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-584" href="http://answers.oreilly.com/topic/584-xml-processing/" title=" 1257430982" class="topic_title">xml processing</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-1865" href="http://answers.oreilly.com/topic/1865-looking-for-replacement-for-couchdb-that-has-rest-json-api-and-good-query-support/" title=" 1280903589" class="topic_title">Looking for replacement for CouchDB that has REST / JSON API and good query support</A></P>
+				</LI>
+			
+		</UL>
+		
+	</DIV>
+</DIV>
+
+<DIV class="sidebar-item">
+	<H3>Related Posts</H3>
+	<DIV class="sidebar-item-content">
+		
+		<UL id="relatedSubmissions_list">
+			
+				<LI>
+					<P><A id="tid-link-257" href="./How_to_Parse_JSON_in_Java_files/How_to_Parse_JSON_in_Java.html" title=" 1253737511" class="topic_title">How to Parse JSON in Java</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-436" href="http://answers.oreilly.com/topic/436-how-to-compute-the-distance-between-two-points-given-longitude-and-latitude/" title=" 1256589384" class="topic_title">How to compute the distance between two points, given longitude and latitude</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-425" href="http://answers.oreilly.com/topic/425-how-to-install-java-in-ubuntu/" title=" 1256440539" class="topic_title">How to Install Java in Ubuntu</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-374" href="http://answers.oreilly.com/topic/374-reacting-to-wave-conversations-and-inserting-wave-gadgets-with-a-wave-robot/" title=" 1254761011" class="topic_title">Reacting to Wave Conversations and Inserting Wave Gadgets with a Wave Robot</A></P>
+				</LI>
+			
+
+				<LI>
+					<P><A id="tid-link-258" href="http://answers.oreilly.com/topic/258-how-to-create-a-new-maven-project-from-the-command-line/" title=" 1253738655" class="topic_title">How to Create a New Maven Project from the Command Line</A></P>
+				</LI>
+			
+		</UL>
+		
+	</DIV>
+</DIV>
+
+
+
+
+
+<DIV id="user_navigation">
+<DIV class="oreillyBoxHeader">
+<DIV class="sidebar-item">
+  <H3>Recommended for You</H3>
+  <DIV class="sidebar-item-content">
+    <!-- MyBuys Web Recommendation Zone -->
+    <DIV mybuyszone="5" id="mybuyspagezone5"><TABLE cellpadding="0" cellspacing="0" border="0" class="mbzone"> <TBODY><TR>            <TD valign="top"><DIV class="mbitem"> <SPAN class="mbrowspan"><SPAN class="mbimgspan"> <A rel="nofollow" class="mbimglink" href="http://www.oreillyschool.com/courses/java1/?green=13439771516&cmp=af-mybuy-OST118.IP"><IMG class="mbimg" height="91" width="85" alt="Java Programming 1: Introduction to Java and the Eclipse Development Environment" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=9376845374&amp;wrid=2509609017017&#39;)" src="./How_to_Parse_JSON_in_Java_files/bkt.gif"></A></SPAN></SPAN> <SPAN class="mbnamerowspan"> <A rel="nofollow" class="mbnamelink" href="http://www.oreillyschool.com/courses/java1/?green=13439771516&cmp=af-mybuy-OST118.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=9376845374&amp;wrid=2509609017017&#39;)">Java Programming 1: Introduction to Java and the Eclipse Development Environment</A></SPAN> <SPAN>  </SPAN>                    	  		<SPAN name="mbdbgspan" cl="OREILLY" cp="" cc="" pr="OST118.IP" re="5078018" po="4975356" cr="4975348" style="display:none;"></SPAN>	 </DIV></TD>            </TR> <TR>            <TD valign="top"><DIV class="mbitem"> <SPAN class="mbrowspan"><SPAN class="mbimgspan"> <A rel="nofollow" class="mbimglink" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP"><IMG class="mbimg" height="112" width="85" alt="JavaScript Cookbook" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)" src="./How_to_Parse_JSON_in_Java_files/bkt(1).gif"></A></SPAN></SPAN> <SPAN class="mbnamerowspan"> <A rel="nofollow" class="mbnamelink" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)">JavaScript Cookbook</A></SPAN> <SPAN>  </SPAN>         <SPAN class="mbpricerowspan">      <SPAN class="mbpricerowleft"><A rel="nofollow" class="mbpricelinklabel" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)">Print:</A>&nbsp;</SPAN>      <SPAN class="mbpricerowright"><A rel="nofollow" class="mbpricelink" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)">$49.99</A></SPAN>    </SPAN>        <SPAN class="mbpricerowspan">      <SPAN class="mbpricerowleft"><A rel="nofollow" class="mbpricelinklabel" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)">Ebook:</A>&nbsp;</SPAN>      <SPAN class="mbpricerowright"><A rel="nofollow" class="mbpricelink" href="http://oreilly.com/catalog/9780596806149?green=13439771516&cmp=af-mybuy-9780596806149.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8934150360&amp;wrid=2509609017017&#39;)">$39.99</A></SPAN>    </SPAN>               	  		<SPAN name="mbdbgspan" cl="OREILLY" cp="" cc="" pr="9780596806149.IP" re="5078018" po="4975356" cr="4942348" style="display:none;"></SPAN>	 </DIV></TD>            </TR> <TR>            <TD valign="top"><DIV class="mbitem"> <SPAN class="mbrowspan"><SPAN class="mbimgspan"> <A rel="nofollow" class="mbimglink" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP"><IMG class="mbimg" height="112" width="85" alt="Regular Expressions Cookbook" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)" src="./How_to_Parse_JSON_in_Java_files/bkt(2).gif"></A></SPAN></SPAN> <SPAN class="mbnamerowspan"> <A rel="nofollow" class="mbnamelink" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)">Regular Expressions Cookbook</A></SPAN> <SPAN>      <DIV align="center">          <A rel="nofollow" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)" style="text-decoration: none; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; font-weight: normal; font-style:plain; text-align:center;">          <IMG border="0" src="./How_to_Parse_JSON_in_Java_files/STARS-4-5.gif" alt="4.5 out of 5" title="4.5 out of 5" style="padding-top:5px">           </A></DIV>  </SPAN>         <SPAN class="mbpricerowspan">      <SPAN class="mbpricerowleft"><A rel="nofollow" class="mbpricelinklabel" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)">Print:</A>&nbsp;</SPAN>      <SPAN class="mbpricerowright"><A rel="nofollow" class="mbpricelink" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)">$44.99</A></SPAN>    </SPAN>        <SPAN class="mbpricerowspan">      <SPAN class="mbpricerowleft"><A rel="nofollow" class="mbpricelinklabel" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)">Ebook:</A>&nbsp;</SPAN>      <SPAN class="mbpricerowright"><A rel="nofollow" class="mbpricelink" href="http://oreilly.com/catalog/9780596520694?green=13439771516&cmp=af-mybuy-9780596520694.IP" onmousedown="mybuys.track(&#39;http://t.p.mybuys.com/webrec/wrClick.do?client=OREILLY&amp;consumerId=13439771516&amp;pid=8933869079&amp;wrid=2509609017017&#39;)">$31.99</A></SPAN>    </SPAN>               	  		<SPAN name="mbdbgspan" cl="OREILLY" cp="" cc="" pr="9780596520694.IP" re="5078018" po="4975356" cr="4942348" style="display:none;"></SPAN>	 </DIV></TD>            </TR></TBODY></TABLE></DIV>
+    <!-- End MyBuys Web Recommendation Zone -->
+
+    <!-- MyBuys Page Parameters -->
+    <SCRIPT type="text/javascript">
+    mybuys.setPageType("CONTENT_ITEM");
+    mybuys.set("categoryid","http://purl.oreilly.com/resource-center/java");
+    </SCRIPT>
+    <!-- End MyBuys Page Parameters -->
+  </DIV>
+</DIV>
+</DIV>
+</DIV>
+
+
+				</DIV>
+				<DIV id="container">
+				<!--INVISION START-->
+					<DIV id="content-1st" style="width:100%">			
+						<A id="j_content"></A>
+						<SCRIPT type="text/javascript">
+   function post_toggle(id){
+	var e = document.getElementById(id);
+	if(e.style.display == 'block')
+	e.style.display = 'none';
+	else
+	e.style.display = 'block';
+   }
+</SCRIPT>
+
+
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+	ipb.topic.inSection = 'topicview';
+	ipb.topic.topic_id  = 257;
+	ipb.topic.forum_id  = 2;
+	ipb.topic.start_id  = 0;
+	//Search Setup
+	ipb.vars['search_type']			= 'forum';
+	ipb.vars['search_type_id']		= 2;
+	ipb.vars['search_type_2']		= 'topic';
+	ipb.vars['search_type_id_2']	= 257;
+//]]>
+</SCRIPT>
+
+
+
+<DIV class="topic hfeed">
+	<H1>How to Parse JSON in Java</H1>
+	
+	
+
+<!-- skinnote: Posts by ignored users are not hidden, check _ignored -->
+	
+		<!--Begin Msg Number 302-->
+<SCRIPT language="JavaScript" type="text/javascript"><!--
+var s_account="ororeilly,orglobal"
+//--></SCRIPT>
+<!-- SiteCatalyst code version: H.20.2. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com  -->
+<SCRIPT language="JavaScript" type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/s_code.js"></SCRIPT>
+<SCRIPT language="JavaScript" type="text/javascript"><!--
+s.pageName="oreilly:answers:how to parse json in java"
+s.channel="oreilly"
+s.prop1="oreilly:answers"
+s.prop2="oreilly:answers:answers"
+s.prop3="oreilly:answers:answers:answers"
+s.prop4="answers-share"
+s.prop5="how to parse json in java"
+s.prop6="257"
+s.prop24="09/23/2009"
+s.hier1="oreilly,answers,answers,answers"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></SCRIPT>
+<!-- End SiteCatalyst code version: H.20.2. -->
+		<DIV class="post_block hentry clearfloat  with_rep" id="post_id_302">
+			<A id="entry302"></A>
+			
+			
+			<DIV class="post_wrap rounded" id="question">
+				<DIV class="post_header">
+                
+                                <DIV class="rep_bar clearfloat right" id="rep_post_302">
+                                
+                                    <A href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#" onclick="post_toggle(&#39;login-to-vote-pos_302&#39;);return false;"><IMG src="./How_to_Parse_JSON_in_Java_files/thumbsup.png"></A>
+                                    
+                                    
+                                        <SPAN class="vote-count" title="Reputation">+
+                                    
+                                    
+                                    3
+                                        </SPAN>
+                                    <A href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#" onclick="post_toggle(&#39;login-to-vote-neg_302&#39;);return false;"><IMG src="./How_to_Parse_JSON_in_Java_files/thumbsdown.png"></A>
+                                </DIV>
+				        <DIV style="display:none;" class="login-to-vote" id="login-to-vote-pos_302"><P>Please <A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login">sign in or register</A> to vote.</P></DIV>
+				        <DIV style="display:none;" class="login-to-vote" id="login-to-vote-neg_302"><P>Please <A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login">sign in or register</A> to vote.</P></DIV>
+				        <DIV style="display:none;" class="cant-self-vote" id="cant-self-vote-pos_302"><P>Voting for yourself is not allowed.</P></DIV>
+				        <DIV style="display:none;" class="cant-self-vote" id="cant-self-vote-neg_302"><P>Voting for yourself is not allowed.</P></DIV>
+                        <SCRIPT type="text/javascript">
+                            ipb.global.registerReputation( 'rep_post_302', { app: 'forums', type: 'pid', typeid: '302' }, parseInt('3') );
+                        </SCRIPT>
+                        &nbsp;
+
+				
+						<IMG src="./How_to_Parse_JSON_in_Java_files/photo-45.jpg" alt="tmo9d&#39;s Photo" width="38" height="50" class="photo">
+					
+					<SPAN class="postAuthor"><SPAN class="postAuthorShift">Submitted by</SPAN>
+							
+						<A class="url fn" href="http://people.oreilly.com/tmo9d">tmo9d</A>
+						
+								
+									<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10"><IMG class="badge" src="./How_to_Parse_JSON_in_Java_files/badgeAuthor18.png" alt="O&#39;Reilly Author"></A>
+								
+
+									<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10"><IMG class="badge" src="./How_to_Parse_JSON_in_Java_files/badgeEarlyBird18.png" alt="Answers Early Bird"></A>
+								
+
+									<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10"><IMG class="badge" src="./How_to_Parse_JSON_in_Java_files/badgeBlogger18.png" alt="Blogger"></A>
+								
+
+									<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10"><IMG class="badge" src="./How_to_Parse_JSON_in_Java_files/badgeFoo18.png" alt="Foo"></A>
+								
+
+									<A href="http://answers.oreilly.com/index.php?app=core&module=help&do=01&HID=10"><IMG class="badge" src="./How_to_Parse_JSON_in_Java_files/badgePeacock18.png" alt="Peacock"></A>
+								
+						
+					</SPAN>
+					<BR><SPAN class="desc">Posted <ABBR class="published" title="2009-09-23T20:25:11+00:00">Sep 23 2009 12:25 PM</ABBR></SPAN><BR>
+                                                
+						
+					<!--<p class='posted_info'>
+						
+						
+					</p>-->	
+				</DIV>
+				
+					<HR class="dashed" style="clear:left;">
+				
+				<DIV class="post_body">
+					<DIV class="post entry-content" id="">
+						<!--cached-Tue, 10 Aug 2010 03:51:59 +0000-->Use json-lib, a library which adds JSON support to any Java program.    json-lib can take a String and turn it into a JSONObject which can then be used to retrieve specific attributes.<BR>
+<BR>
+1. Add this dependency to your project:<BR>
+<PRE class="prettyprint"><SPAN class="tag">&lt;dependency&gt;</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; </SPAN><SPAN class="tag">&lt;groupId&gt;</SPAN><SPAN class="pln">net.sf.json-lib</SPAN><SPAN class="tag">&lt;/groupId&gt;</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; </SPAN><SPAN class="tag">&lt;artifactId&gt;</SPAN><SPAN class="pln">json-lib</SPAN><SPAN class="tag">&lt;/artifactId&gt;</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; </SPAN><SPAN class="tag">&lt;version&gt;</SPAN><SPAN class="pln">2.3</SPAN><SPAN class="tag">&lt;/version&gt;</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; </SPAN><SPAN class="tag">&lt;scope&gt;</SPAN><SPAN class="pln">compile</SPAN><SPAN class="tag">&lt;/scope&gt;</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="tag">&lt;/dependency&gt;</SPAN></PRE><BR>
+<BR>
+What does this mean?  See How to Add a Dependency to a Java Project<BR>
+<BR>
+2. Put the following JSON sample in your classpath:<BR>
+<PRE class="prettyprint"><SPAN class="pun">{</SPAN><SPAN class="str">'foo'</SPAN><SPAN class="pun">:</SPAN><SPAN class="str">'bar'</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"><BR>&nbsp;</SPAN><SPAN class="str">'coolness'</SPAN><SPAN class="pun">:</SPAN><SPAN class="lit">2.0</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"><BR>&nbsp;</SPAN><SPAN class="str">'altitude'</SPAN><SPAN class="pun">:</SPAN><SPAN class="lit">39000</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"><BR>&nbsp;</SPAN><SPAN class="str">'pilot'</SPAN><SPAN class="pun">:{</SPAN><SPAN class="str">'firstName'</SPAN><SPAN class="pun">:</SPAN><SPAN class="str">'Buzz'</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="str">'lastName'</SPAN><SPAN class="pun">:</SPAN><SPAN class="str">'Aldrin'</SPAN><SPAN class="pun">},</SPAN><SPAN class="pln"><BR>&nbsp;</SPAN><SPAN class="str">'mission'</SPAN><SPAN class="pun">:</SPAN><SPAN class="str">'apollo 11'</SPAN><SPAN class="pun">}</SPAN></PRE><BR>
+<BR>
+3. Load the resource from the classpath and parse this JSON as follows:<BR>
+<PRE class="prettyprint"><SPAN class="kwd">package</SPAN><SPAN class="pln"> com</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">discursive</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">answers</SPAN><SPAN class="pun">;</SPAN><SPAN class="pln"><BR><BR></SPAN><SPAN class="kwd">import</SPAN><SPAN class="pln"> java</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">io</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">InputStream</SPAN><SPAN class="pun">;</SPAN><SPAN class="pln"><BR><BR></SPAN><SPAN class="kwd">import</SPAN><SPAN class="pln"> net</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">sf</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">json</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">JSONObject</SPAN><SPAN class="pun">;</SPAN><SPAN class="pln"><BR></SPAN><SPAN class="kwd">import</SPAN><SPAN class="pln"> net</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">sf</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">json</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">JSONSerializer</SPAN><SPAN class="pun">;</SPAN><SPAN class="pln"><BR><BR></SPAN><SPAN class="kwd">import</SPAN><SPAN class="pln"> org</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">apache</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">commons</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">io</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">IOUtils</SPAN><SPAN class="pun">;</SPAN><SPAN class="pln"><BR><BR></SPAN><SPAN class="kwd">public</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">class</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">JsonParsing</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">{</SPAN><SPAN class="pln"><BR><BR>&nbsp; &nbsp; </SPAN><SPAN class="kwd">public</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">static</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">void</SPAN><SPAN class="pln"> main</SPAN><SPAN class="pun">(</SPAN><SPAN class="typ">String</SPAN><SPAN class="pun">[]</SPAN><SPAN class="pln"> args</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">throws</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">Exception</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">{</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">InputStream</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">is</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">JsonParsing</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">class</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getResourceAsStream</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"sample-json.txt"</SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">String</SPAN><SPAN class="pln"> jsonTxt </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">IOUtils</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">toString</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">is</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">JSONObject</SPAN><SPAN class="pln"> json </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">(</SPAN><SPAN class="typ">JSONObject</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">JSONSerializer</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">toJSON</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> jsonTxt </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"> &nbsp; &nbsp; &nbsp; &nbsp;<BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">double</SPAN><SPAN class="pln"> coolness </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> json</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getDouble</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"coolness"</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">int</SPAN><SPAN class="pln"> altitude </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> json</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getInt</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"altitude"</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">JSONObject</SPAN><SPAN class="pln"> pilot </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> json</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getJSONObject</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">"pilot"</SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">String</SPAN><SPAN class="pln"> firstName </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> pilot</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getString</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">"firstName"</SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">String</SPAN><SPAN class="pln"> lastName </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> pilot</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">getString</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">"lastName"</SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">System</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">out</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">println</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"Coolness: "</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">+</SPAN><SPAN class="pln"> coolness </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">System</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">out</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">println</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"Altitude: "</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">+</SPAN><SPAN class="pln"> altitude </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="typ">System</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">out</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">println</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">"Pilot: "</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">+</SPAN><SPAN class="pln"> lastName </SPAN><SPAN class="pun">);</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="pun">}</SPAN><SPAN class="pln"><BR></SPAN><SPAN class="pun">}</SPAN></PRE><BR>
+<BR>
+Note that JSONSerializer returns a JSON object.   This is a general object which could be a JSONObject or a JSONArray depending on the JSON you are trying to parse.    In this example, since I know that the JSON is a JSONObject, I can cast the result directly to a JSONObject.   If you are dealing with JSON that could return a JSONArray, you'll likely want to check the type of the object that is returned by toJSON.<BR>
+<BR>
+This sample project is available on GitHub here: <A href="http://github.com/tobrien/sample-json-parsing" class="bbc_url" title="External link" rel="nofollow">http://github.com/to...le-json-parsing</A><BR>
+<BR>
+For more information about the json-lib project, see <A href="http://json-lib.sourceforge.net/" class="bbc_url" title="External link" rel="nofollow">JSON-LIB project page</A><BR>
+<BR>
+<DIV class="bookpromo">
+
+<A href="http://oreilly.com/catalog/9780596521134?cmp=il-orm-ans-learnmore-9780596521134"><IMG src="./How_to_Parse_JSON_in_Java_files/thumb.gif" alt="Cover of Java Web Services: Up and Running" class="book-cover"></A>
+
+<DIV class="description">
+<SPAN class="learn-more">Learn more about this topic from <STRONG><A href="http://oreilly.com/catalog/9780596521134?cmp=il-orm-ans-learnmore-9780596521134">Java Web Services: Up and Running</A></STRONG>.</SPAN>&nbsp; <SPAN><P>This quick, practical, and thorough introduction to Java web services -- the JAX-WS and JAX-RS APIs -- offers a mix of architectural overview, complete working code examples, and short yet precise instructions for compiling, deploying, and executing a sample application. You'll not only learn how to write web services from scratch, but also how to integrate existing services into your Java applications.</P></SPAN></DIV>
+
+<A href="http://oreilly.com/catalog/9780596521134?cmp=il-orm-ans-learnmore-9780596521134" class="button"><IMG src="./How_to_Parse_JSON_in_Java_files/btn_learn-more.gif" alt="Learn More"></A>
+
+    <A href="http://my.safaribooksonline.com/9780596157708?portal=oreilly&cid=orm-ans-readnow-9780596157708" class="button"><IMG src="./How_to_Parse_JSON_in_Java_files/btn_safari.gif" alt="Read Now on Safari"></A>
+
+</DIV>
+
+						
+							
+						
+						
+						<BR>
+	
+						
+					</DIV>
+					
+				</DIV>
+				<SCRIPT type="text/javascript">
+					// Show multiquote for JS browsers
+					//$('multiq_302').show();
+					
+					if( $('toggle_post_302') )
+					{
+						$('toggle_post_302').show();
+					}
+				</SCRIPT>
+				
+				<!-- END OF FIRST POST IN LINEAR+, SHOW BUTTONS AND NEW TITLE -->
+				<DIV class="topic_controls">
+				<HR class="dashed">
+					Tags: <UL class="tagList"><LI><A href="http://answers.oreilly.com/tag/java">java</A></LI><LI> <A href="http://answers.oreilly.com/tag/json">json</A></LI></UL>
+				<HR class="dashed">
+				                    <DIV id="subscribe" style="float:left;width:90px;height:22px;font-weight:bold;">
+                                        
+								       0 <A onclick="post_toggle(&#39;login-to-subscribe&#39;);"><IMG src="./How_to_Parse_JSON_in_Java_files/subscribe.png" alt="Subscribe"></A>
+								        
+                                       </DIV>
+				        <DIV id="email" style="float:left;width:60px;height:22px;">
+				                    
+                                         <A onclick="post_toggle(&#39;login-to-email&#39;);"><IMG src="./How_to_Parse_JSON_in_Java_files/email_icon2.gif"></A>
+                                         
+                                        </DIV>
+                                        <DIV id="tweetmeme" style="float:left;width:80px;height:22px;padding-top:1px;">
+                                        <SCRIPT type="text/javascript">
+                                        tweetmeme_style = 'compact';
+                                        tweetmeme_source = 'oreillyanswers';
+                                        </SCRIPT>
+                                        <SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/button.js"></SCRIPT><IFRAME src="./How_to_Parse_JSON_in_Java_files/button.html" height="20" width="90" frameborder="0" scrolling="no"></IFRAME>
+					                    </DIV>
+                                        <DIV id="facebook" style="float:left;width:70px;height:22px;">
+                                        <IFRAME src="./How_to_Parse_JSON_in_Java_files/like.html" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:70px; height:22px"></IFRAME>
+                                        </DIV>
+                                        
+                                        
+                                        
+                        <BR style="clear:left;">
+                        <DIV style="display:none;" id="login-to-subscribe"><P>Please <A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login">sign in or register</A> to subscribe.</P></DIV>
+                        <DIV style="display:none;" id="login-to-email"><P>Please <A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login">sign in or register</A> to email.</P></DIV>
+                    		
+					
+					
+
+					<!--<li class='top hide'><a href='#top' class='top' title='Back to top'>Back to top</a></li>
+					
+					
+						<li class='multiquote' id='multiq_302' style='display: none'>
+					
+							<a href="http://answers.oreilly.com/index.php?app=forums&amp;module=post&amp;section=post&amp;do=reply_post&amp;f=2&amp;t=257&amp;qpid=302" title="Quote this post with Multi-Quote"><img src='http://answers.oreilly.com/public/style_images/master/comment_add.png' alt='Reply Icon' /> MultiQuote</a>
+						</li>
+					<li><a href="http://answers.oreilly.com/index.php?app=forums&amp;module=post&amp;section=post&amp;do=reply_post&amp;f=2&amp;t=257&amp;qpid=302" title="Reply directly to this post"><img src='http://answers.oreilly.com/public/style_images/master/comment_add.png' alt='Reply Icon' /> Reply</a></li> -->
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+                    		
+
+               <A name="comment"></A>
+				</DIV>
+			<!-- /if -->
+			<!-- /div -->
+		<!-- </if> -->			
+		</DIV>
+		
+		
+		<BR class="clear">
+		<H2 class="maintitle" style="margin: 8px 0 0 0 !important"> 0 Replies</H2>        
+		<DIV style="float:right;">
+						
+				                <A onclick="post_toggle(&#39;login-to-answer&#39;);"><IMG src="./How_to_Parse_JSON_in_Java_files/submitReply.png"></A>
+                             
+                        <DIV style="display:none;" id="login-to-answer"><P>Please <A href="http://answers.oreilly.com/index.php?app=core&module=global&section=login">sign in or register</A> to reply.</P></DIV>
+        </DIV>
+		<!-- 
+			
+				<script type='text/javascript'>
+				//<![CDATA[
+					if( $('watch_opts_menucontent') ){
+						$('watch_opts_menucontent').hide();
+					}
+				//]]>
+				</script>
+			
+									<ul class='sorting'>
+				<li>
+					
+					<strong><a href='http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/page__sortKey__recent__sortBy__desc'>Date Posted <img src='http://answers.oreilly.com/public/style_images/master/dropdown.png' alt='sort desc' /></a></strong>
+					
+				</li>
+				<li>
+					
+					<a href='http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/page__sortKey__answers__sortBy__desc'>Answers <img src='http://answers.oreilly.com/public/style_images/master/dropdown.png' alt='sort decending' /></a>
+					
+				</li>
+				<li>
+					
+					<a href='http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/page__sortKey__comments__sortBy__desc'>Comments <img src='http://answers.oreilly.com/public/style_images/master/dropdown.png' alt='sort decending' /></a>
+					
+				</li>
+			</ul>
+			<span class='right'>filter by:&nbsp;</span>
+		</div -->
+	
+
+
+<!-- MOD LINKS -->
+
+<!-- REPUTATION FILTERS -->
+
+<!--<div class='moderation_bar rounded' id='topic_search_jump'>
+	<form method='post' action='http://answers.oreilly.com/index.php?app=core&amp;module=search&amp;do=quick_search&amp;search_filter_app[forums]=1' id='context_search' class='left'>
+		<fieldset>
+			<input type='hidden' name='type_2' value='topic' />
+			<input type='hidden' name='type_id_2' value='257' />
+			<label for='topic_search'>Search Topic</label>
+			<input type='text' id='topic_search' name='search_term' class='input_text' size='20' tabindex='8' />
+ 			<input type='submit' class='input_submit alt' value='Go' />
+		</fieldset>
+	</form>
+	
+		
+	
+</div>-->
+<!-- THREADED MODE -->
+
+<UL class="topic_jump right clearfloat">
+	<LI class="previous"><A href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/page__view__old">← Previous Topic</A></LI>
+	<LI><STRONG><A href="http://answers.oreilly.com/forum/2-clever-hacks-creative-ideas-innovative-solutions-ask-answer-share/" title="Return to Clever Hacks, Creative Ideas, Innovative Solutions. Ask, Answer, Share">O'Reilly Answers Home</A></STRONG></LI>
+	<LI class="next"><A href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/page__view__new">Next Topic →</A></LI>
+</UL>
+<!-- BOTTOM BUTTONS -->
+<!-- Close topic -->
+</DIV>
+
+
+
+	<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/prettify.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/lang-sql.js"></SCRIPT>
+	<!-- By default we load generic code, php, css, sql and xml/html; load others here if desired -->
+	<SCRIPT type="text/javascript">
+	//<![CDATA[
+		Event.observe( window, 'load', function(e){ prettyPrint() });
+	//]]>
+	</SCRIPT>
+						<BR class="clear">
+						<!-- __FOOTER__ -->
+						<!-- /__FOOTER__ -->
+						
+						
+						<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/lightbox.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+	// Lightbox Configuration
+	LightboxOptions = Object.extend({
+	    fileLoadingImage:        'http://answers.oreilly.com/public/style_images/master/lightbox/loading.gif',     
+	    fileBottomNavCloseImage: 'http://answers.oreilly.com/public/style_images/master/lightbox/closelabel.gif',
+	    overlayOpacity: 0.8,   // controls transparency of shadow overlay
+	    animate: true,         // toggles resizing animations
+	    resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
+	    borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
+		// When grouping images this is used to write: Image # of #.
+		// Change it for non-english localization
+		labelImage: "Image",
+		labelOf: "of"
+	}, window.LightboxOptions || {});
+//]]>
+</SCRIPT>
+					</DIV>
+				<!--INVISION END-->
+				</DIV>
+                               </DIV>
+				<!-- start footer -->
+<DIV id="footer" class="noindex" style="clear:both;">
+<TABLE style="padding-top: 20px; padding-bottom: 20px;" border="0">
+<TBODY><TR><TD style="padding-left: 20px; padding-right: 20px;" align="left" valign="top" width="25%">
+<A href="http://oreilly.com/"><IMG alt="O&#39;Reilly Media" src="./How_to_Parse_JSON_in_Java_files/oreilly-logo-footer.gif" border="0" height="35" width="155"></A>
+<BR><BR>
+©2010, O'Reilly Media, Inc.<BR>(707) 827-7000 / (800) 998-9938<BR> All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners. 
+</TD>
+<TD class="footercol1" valign="top">
+<STRONG>About O'Reilly</STRONG><BR>
+<A href="http://oreilly.com/academic/">Academic Solutions</A><BR>
+<A href="http://oreilly.com/authors/">Authors</A><BR>
+<A href="http://oreilly.com/contact.html">Contacts</A><BR>
+<A href="http://oreilly.com/oreilly/cs/">Customer Service</A><BR>
+<A href="http://oreilly.com/jobs/">Jobs</A><BR>
+<A href="http://elists.oreilly.com/">Newsletters</A><BR>
+<A href="http://labs.oreilly.com/">O'Reilly Labs</A><BR>
+<A href="http://press.oreilly.com/">Press Room</A><BR>
+<A href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</A><BR>
+<A href="http://oreilly.com/feeds/">RSS Feeds</A><BR>
+<A href="http://oreilly.com/terms/">Terms of Service</A><BR>
+<A href="http://ug.oreilly.com/">User Groups</A><BR>
+<A href="http://oreilly.com/oreilly/author/intro.csp">Writing for O'Reilly</A><BR>
+</TD>
+<TD class="footercol2" valign="top">
+<STRONG>Content Archive</STRONG><BR>
+<A href="http://oreilly.com/content/business-technology.shtml">Business Technology</A><BR>
+<A href="http://oreilly.com/content/computer-technology.shtml">Computer Technology</A><BR>
+<A href="http://oreilly.com/content/google.shtml">Google</A><BR>
+<A href="http://oreilly.com/content/microsoft.shtml">Microsoft</A><BR>
+<A href="http://oreilly.com/content/mobile.shtml">Mobile</A><BR>
+<A href="http://oreilly.com/content/network.shtml"> Network</A><BR>
+<A href="http://oreilly.com/content/operating-system.shtml">Operating System</A><BR>
+<A href="http://oreilly.com/content/digital-photography.shtml">Digital Photography</A><BR>
+<A href="http://oreilly.com/content/programming.shtml">Programming</A><BR>
+<A href="http://oreilly.com/content/software.shtml">Software</A><BR>
+<A href="http://oreilly.com/content/web.shtml">Web</A><BR>
+<A href="http://oreilly.com/content/web-design.shtml">Web Design</A><BR>
+</TD>
+<TD class="footercol3" valign="top">
+<STRONG>More O'Reilly Sites</STRONG><BR>
+<A href="http://radar.oreilly.com/">O'Reilly Radar</A><BR>
+<A href="http://ignite.oreilly.com/">Ignite</A><BR>
+<A href="http://toc.oreilly.com/">Tools of Change for Publishing</A><BR>
+<A href="http://digitalmedia.oreilly.com/">Digital Media</A><BR>
+<A href="http://digitalmedia.oreilly.com/iphone/?CMP=ILC-orm_sponsor_footer_links&ATT=iphone">Inside iPhone</A><BR>
+<A href="http://makezine.com/">makezine.com</A><BR>
+<A href="http://craftzine.com/">craftzine.com</A><BR>
+<A href="http://hackszine.com/">hackszine.com</A><BR>
+<A href="http://perl.com/">perl.com</A><BR>
+<A href="http://xml.com/">xml.com</A>
+<BR><BR>
+<STRONG>Partner Sites</STRONG><BR>
+<A href="http://insideria.com/?CMP=ILC-orm_sponsor_footer_links&ATT=ria">InsideRIA</A><BR>
+<A href="http://java.net/?CMP=ILC-orm_sponsor_footer_links&ATT=java">java.net</A><BR>
+<A href="http://www.forbes.com/oreillyinsights/">O'Reilly Insights on Forbes.com</A><BR>
+</TD>
+</TR>
+</TBODY></TABLE>
+</DIV> <!-- /footer -->
+</DIV><!-- this is in footer -->
+</DIV><!-- this is in footer -->
+
+</DIV> <!-- /content-09 -->
+
+ <!-- /page -->
+
+<!-- autocomplete scripts -->
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/utilities.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/datasource-min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/autocomplete-min.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/autocomplete_data.js"></SCRIPT>
+
+<!-- MyBuys Page Initialization -->
+<SCRIPT type="text/javascript">
+mybuys.initPage();
+</SCRIPT><SPAN id="mybuyscontainer" style="display:none"><SCRIPT type="text/javascript" id="mbTransportScript" src="./How_to_Parse_JSON_in_Java_files/wr.do"></SCRIPT></SPAN>
+<!-- End MyBuys Page Initialization -->
+
+<SCRIPT type="text/javascript">
+var _sf_async_config={uid:1632,domain:"answers.oreilly.com"};
+(function(){
+ function loadChartbeat() {
+   window._sf_endpt=(new Date()).getTime();
+   var e = document.createElement('script');
+   e.setAttribute('language', 'javascript');
+   e.setAttribute('type', 'text/javascript');
+   e.setAttribute('src',
+      (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+      "static.chartbeat.com/js/chartbeat.js");
+   document.body.appendChild(e);
+ }
+ var oldonload = window.onload;
+ window.onload = (typeof window.onload != 'function') ?
+    loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+
+</SCRIPT>
+	
+<DIV id="overlay" style="display: none; "></DIV><DIV id="lightbox" style="display: none; "><DIV id="outerImageContainer" style="width: 250px; height: 250px; "><DIV id="imageContainer"><IMG id="lightboxImage"><DIV id="hoverNav"><A id="prevLink" href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#"></A><A id="nextLink" href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#"></A></DIV><DIV id="loading"><A id="loadingLink" href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#"><IMG src="./How_to_Parse_JSON_in_Java_files/loading.gif"></A></DIV></DIV></DIV><DIV id="imageDataContainer"><DIV id="imageData"><DIV id="imageDetails"><SPAN id="caption"></SPAN><SPAN id="numberDisplay"></SPAN></DIV><DIV id="bottomNav"><A id="bottomNavClose" href="http://answers.oreilly.com/topic/257-how-to-parse-json-in-java/#"><IMG src="./How_to_Parse_JSON_in_Java_files/closelabel.gif"></A></DIV></DIV></DIV></DIV><SCRIPT language="javascript" type="text/javascript" src="./How_to_Parse_JSON_in_Java_files/chartbeat.js"></SCRIPT></BODY></HTML>

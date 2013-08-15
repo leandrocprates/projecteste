@@ -1,0 +1,851 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0068)http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/ -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" class=" webkit chrome linux js"><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<TITLE>Exemplo fácil de JTable - Almedson Ferreira - Java</TITLE>
+	<META name="resource-types" content="document">
+	<META http-equiv="pragma" content="no-cache">
+	<META name="revisit-after" content="4">
+	<META name="classification" content="Internet">
+	
+	<META name="Description" content="Inicialmente os programadores Java tem grande dificuldade em trabalhar com o JTable. O uso do JTable &eacute; muito simples, n&atilde;o tem mist&eacute;rios.">
+	<META name="Keywords" content="">
+	<META name="robots" content="ALL">
+	<META name="distribution" content="Global">
+	<META name="rating" content="General">
+	<META name="author" content="Almedson Ferreira">
+	<META name="language" content="pt-br">
+	<META name="doc-class" content="Completed">
+	<META name="doc-rights" content="Public">
+	<LINK rel="shortcut icon" href="http://imasters.uol.com.br/favicon.ico">
+	<LINK rel="alternate" type="application/rss+xml" title="iMasters" href="http://imasters.uol.com.br/feed/">
+	<LINK rel="search" type="application/opensearchdescription+xml" href="http://imasters.uol.com.br/opensearch/" title="Busca iMasters">
+	
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/reset.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/topo.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/interna.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/artigo.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/strconteudo.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/conteudo_comentario.css">
+	<LINK rel="stylesheet" media="screen" type="text/css" href="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/prettify.css">
+		
+		<!--[if lte IE 7]>
+	<link rel="stylesheet" media="screen" type="text/css" href="http://static.imasters.uol.com.br/imasters/css/topo.ie.css" />
+			<![endif]-->
+	
+	<SCRIPT type="text/javascript">
+	
+		var im = {
+			dominio: 'http://imasters.uol.com.br/',
+			meudominio: 'http://meu.imasters.uol.com.br/',
+			staticdominio: 'http://static.imasters.uol.com.br/',
+			conteudodominio: 'http://conteudo.imasters.uol.com.br/'
+		}
+
+		var conf = {
+			domain: {
+				static: "http://static.imasters.uol.com.br/",
+meu: "http://meu.imasters.uol.com.br/",
+blog: "http://blog.imasters.uol.com.br/",
+forum: "http://forum.imasters.uol.com.br/",
+multimidia: "http://multimidia.imasters.uol.com.br/",
+imasters: "http://imasters.uol.com.br/",
+imasters_old: "http://imasters.uol.com.br/",
+eventos: "http://imasters.uol.com.br/eventos/",
+mercado: "http://mercado.imasters.uol.com.br/",
+pro: "http://pro.imasters.uol.com.br/",
+shop: "http://shop.imasters.uol.com.br/",
+sispag: "http://sispag.imasters.uol.com.br/",
+code: "http://code.imasters.uol.com.br/",
+tv: "http://tv.imasters.uol.com.br/",
+editor: "http://editor.imasters.uol.com.br/",
+curso: "http://pro.imasters.uol.com.br/online/"
+			}
+		}
+		
+	</SCRIPT>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/flash.js"></SCRIPT>
+	    <SCRIPT src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/flash(1).js" type="text/javascript"></SCRIPT>
+	<SCRIPT src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/fonte.js" type="text/javascript"></SCRIPT>
+	
+</HEAD><BODY>
+<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/publicidade.js"></SCRIPT>		<DIV id="geral">
+		<DIV id="barra_uol">
+			<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/bpv1.js"></SCRIPT><STYLE>.buol {position:relative;font-size:10px;width:98.8em;}.buol.auto {width:auto;margin:0 auto;}.buol .buolbg {height:2.4em;overflow:hidden;}.buol .buolbg img{width:100%;height:15.9em;}.buol .ico {overflow:hidden;position:absolute;top:0;left:0.3em;z-index:2;width:2em}.buoli li a.ico, .buoli li a.ico:visited {margin:0;padding:0;position:absolute;}.buol .ico img{width:5.1em;height:15.9em;border:0;}.buoli {height:2.4em;width:98.8em;overflow:hidden;margin:0 auto;font:normal 1em arial,sans-serif;color:#fff;position:relative;position:absolute;top:0;left:0;z-index:1;}.buol.auto .buoli{left:50%;margin-left:-49.4em}.buoli form{display:inline}.buoli .busca form .it,.buoli .busca form .tb,.buoli .indice select {font:normal 1em arial,sans-serif}.buoli ul {margin:0;padding:0;list-style:none;width:98.8em;}.buoli ul li {margin:0;padding:0;float:left;padding:0;border-right:0.1em solid #02264b;border-left:0.1em solid #486d92;position:relative;height:2.4em;}.buoli .assine {padding:0 1.1em}.buoli a, .buoli a:visited{font-size:1em !important; color:#fff !important;text-decoration:none !important;display:block;padding:0.5em 0.4em 0.6em 0.4em;height:2.4em;float:left;}.buoli a:hover{text-decoration:underline !important;}.buoli .p {border-left:none;}.buoli .u {border-right :none;}.buoli .logo {position:relative;width:6.1em;}.buoli .logo a {padding:2.5em 0 0 0;width:6.1em;position:absolute;top:0;left:0;z-index:3;}.buol .buoli .logo .ico {width:5.5em}.buoli .logo .ico {left:0.4em;}.buoli .logo .ico img {margin-top:-2.4em;}.buoli .busca {padding:0.3em 0.5em 0.4em 0.5em;}.buol .buoli .busca .ico {left:16em;top:.4em;padding:0;width:1.6em;cursor:default;}.buoli .busca .ico img{margin-top:-14.4em}.buoli .busca form .it {border:0.1em solid #50728e;float:left;margin:0.1em 0.4em 0 0;_margin-right:0.1em;width:14.8em;*width:14.7em;overflow:hidden;padding:0;}.buoli .busca form .tb {color:#fff;height:1.7em;border-top:0.1em solid #b3cbe1;border-right:0.1em solid #000;border-bottom:0.1em solid #000;border-left:0.1em solid #b3cbe1;background-color:#50728e;margin:0;padding-left:1.5em;*padding-left:.8em;width:7.1em;*width:7.2em;}.buoli .messenger .t, .buoli .messenger .t:visited {padding-left:2.3em;position:relative;}.buoli .messenger .ico img{margin-top:-4.8em}.buoli .voip .t, .buoli .voip .t:visited {padding-left:2.2em;}.buoli .voip .ico img{margin-top:-7.2em}.buoli .email .t, .buoli .email .t:visited {padding-left:2.1em;}.buoli .email .ico img{margin-top:-9.6em}.buoli .shop .t, .buoli .shop .t:visited {padding-left:3.2em;}.buoli .shop .ico {width:2.7em;}.buoli .shop .ico img{margin-top:-12em}.buoli .indice {height:2.4em;}.buoli .indice select {background-color:#50728e;color:#fff;border:0.1em solid #7f9db9;margin:0.3em 0 0 0.5em;height:1.7em;width:13.8em;overflow:hidden;} #copyright { width:98.8em;color:black;text-align:center;margin:0.5em; }</STYLE><DIV id="barrauol" class="buol auto"><DIV class="buolbg"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imgs1024v3.gif" width="1" height="1" border="0">&gt;</DIV><DIV class="buoli"><UL><LI class="p logo"><DIV class="ico"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imgs1024v3.gif" width="1" height="1" border="0"></DIV><A href="http://click.uol.com.br/?rf=barrageral&u=http://www.uol.com.br/" target="_top" title="UOL">UOL</A></LI><LI class="assine"><A href="http://click.uol.com.br/?rf=barrageral&u=http://clicklogger.rm.uol.com.br/?prd=1&grp=src:10;creative:barrauol&msr=Cliques%20de%20Origem:1&oper=11&redir=http://assine.uol.com.br/index.htm?eos=yes&promo=117570810&sg=300016192&sa=UOL-barra-assine&promochild=PROMOCOMBIAVSS" class="t" target="_top">ASSINE 0800 703 3000</A></LI><LI><A href="http://click.uol.com.br/?rf=barrageral&u=http://batepapo.uol.com.br/" class="t" target="_top">BATE-PAPO</A></LI><LI><A href="http://click.uol.com.br/?rf=barrageral&u=http://email.uol.com.br/" class="t" target="_top">E-MAIL</A></LI><LI><A href="http://click.uol.com.br/?rf=barrageral&u=https://sac.uol.com.br/" class="t" target="_top">SAC</A></LI><LI class="busca"><FORM action="http://busca.uol.com.br/www/index.html" method="get" target="_blank" name="formbbuol" onsubmit="buscaClick()"><INPUT type="hidden" name="ad" value="on"><INPUT type="hidden" name="ref" value="nomedosite"><INPUT type="hidden" value="barrauol" name="origem"><INPUT type="text" name="q" class="it"><INPUT type="submit" class="tb" value="BUSCAR"></FORM></LI><LI class="voip"><A href="http://clicklogger.rm.uol.com.br/?prd=5&grp=src:13;chn:103;creative:link_voip;pos:barra&msr=Cliques%20de%20Origem:1&oper=7&redir=http://voip.uol.com.br/" class="ico"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imgs1024v3.gif" width="1" height="1" border="0"></A><A href="http://click.uol.com.br/?rf=barrageral&u=http://clicklogger.rm.uol.com.br/?prd=5&grp=src:13;chn:103;creative:link_voip;pos:barra&msr=Cliques%20de%20Origem:1&oper=7&redir=http://voip.uol.com.br/" class="t" target="_top">VOIP</A></LI><LI class="email"><A href="http://www.bol.uol.com.br/" class="ico"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imgs1024v3.gif" width="1" height="1" border="0"></A><A href="http://click.uol.com.br/?rf=barrageral&u=http://www.bol.uol.com.br/" class="t" target="_top">E-MAIL GRÁTIS</A></LI><LI class="shop"><A href="http://shopping.uol.com.br/?&rtrk=src:13;sze:18;chn:103;creative:link_fixo;thm:barra_navegacao" class="ico"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imgs1024v3.gif" width="1" height="1" border="0"></A><A href="http://click.uol.com.br/?rf=barrageral&u=http://shopping.uol.com.br/?&rtrk=src:13;sze:18;chn:103;creative:link_fixo;thm:barra_navegacao" class="t" target="_top">SHOPPING</A></LI><LI class="u indice"><FORM name="fm_uol" target="_top"><SELECT onchange="barraUol.openEs(this)"><OPTION value="0">ÍNDICE PRINCIPAL</OPTION><OPTION value="fotos.uol.com.br/">Álbum de Fotos</OPTION><OPTION value="seguranca.uol.com.br/">Antivírus e Firewall</OPTION><OPTION value="ferramentas.uol.com.br/">Aplicativos</OPTION><OPTION value="assistenciatecnica.uol.com.br/">Assistência Técnica</OPTION><OPTION value="diversao.uol.com.br/bandalarga/">Banda Larga</OPTION><OPTION value="batepapo.uol.com.br/">Bate-papo UOL</OPTION><OPTION value="televisao.uol.com.br/bbb/bbb10/">BBB 10</OPTION><OPTION value="estilo.uol.com.br/beleza/">Beleza</OPTION><OPTION value="biblioteca.uol.com.br/">Biblioteca</OPTION><OPTION value="bichos.uol.com.br/">Bichos</OPTION><OPTION value="blog.uol.com.br/">Blogosfera</OPTION><OPTION value="busca.uol.com.br/">Busca</OPTION><OPTION value="carros.uol.com.br/">Carros</OPTION><OPTION value="carros.uol.com.br/fipe/">&nbsp;&nbsp;- Tabela Fipe</OPTION><OPTION value="compare.carros.uol.com.br/">&nbsp;&nbsp;- Comparar Carros</OPTION><OPTION value="cartoes.uol.com.br/">Cartões</OPTION><OPTION value="celebridades.uol.com.br/">Celebridades</OPTION><OPTION value="celular.uol.com.br/">Celular</OPTION><OPTION value="cienciaesaude.uol.com.br/">Ciência e Saúde</OPTION><OPTION value="cinema.uol.com.br/">Cinema e Filmes</OPTION><OPTION value="clube.uol.com.br/">Clube UOL</OPTION><OPTION value="shopping.uol.com.br/?&amp;rtrk=src:13;size:18;chn:0;creative:link_fixo;thm:shopping_menu;">Comparar Preços</OPTION><OPTION value="criancas.uol.com.br/">Crianças</OPTION><OPTION value="downloads.uol.com.br/">Downloads</OPTION><OPTION value="economia.uol.com.br/">Economia</OPTION><OPTION value="economia.uol.com.br/cotacoes/">&nbsp;&nbsp;- Cotações</OPTION><OPTION value="economia.uol.com.br/impostoderenda/">&nbsp;&nbsp;- Imposto de Renda</OPTION><OPTION value="uolinvest.economia.uol.com.br/">&nbsp;&nbsp;- UOL Invest</OPTION><OPTION value="educacao.uol.com.br/">Educação</OPTION><OPTION value="educacao.uol.com.br/dicionarios/">&nbsp;&nbsp;- Dicionários</OPTION><OPTION value="educacao.uol.com.br/portugues/acordoortografico.jhtm">&nbsp;&nbsp;- Nova ortografia</OPTION><OPTION value="vestibular.uol.com.br/">&nbsp;&nbsp;- Vestibular</OPTION><OPTION value="email.uol.com.br/">E-Mail</OPTION><OPTION value="noticias.uol.com.br/empregos/">Empregos</OPTION><OPTION value="empregocerto.uol.com.br/">&nbsp;&nbsp;- Enviar currículo</OPTION><OPTION value="entretenimento.uol.com.br/">Entretenimento</OPTION><OPTION value="guia.uol.com.br/">&nbsp;&nbsp;- Guia Cultural SP</OPTION><OPTION value="esporte.uol.com.br/">Esporte</OPTION><OPTION value="copadomundo.uol.com.br">&nbsp;&nbsp;- Copa do Mundo</OPTION><OPTION value="esporte.uol.com.br/f1/">&nbsp;&nbsp;- Fórmula 1</OPTION><OPTION value="esporte.uol.com.br/futebol/">&nbsp;&nbsp;- Futebol</OPTION><OPTION value="estilo.uol.com.br/">Estilo</OPTION><OPTION value="estilo.uol.com.br/moda/">&nbsp;&nbsp;- Moda</OPTION><OPTION value="www.folha.uol.com.br/">Folha Online</OPTION><OPTION value="fotoblog.uol.com.br/">Fotoblog</OPTION><OPTION value="gay.uol.com.br/">Gay</OPTION><OPTION value="clicklogger.rm.uol.com.br/?prd=29&amp;grp=src:28;chn:0;creative:menu-home-gay&amp;msr=Cliques%20de%20Origem:1&amp;oper=11&amp;redir=http://mig.uol.com.br/?skin=mig">&nbsp;&nbsp;- Namoro gay</OPTION><OPTION value="horoscopo.uol.com.br/">Horóscopo</OPTION><OPTION value="humor.uol.com.br/">Humor</OPTION><OPTION value="indice.uol.com.br/">Índice</OPTION><OPTION value="jogos.uol.com.br">Jogos</OPTION><OPTION value="jogos.uol.com.br/loja/">&nbsp;&nbsp;- Loja de jogos</OPTION><OPTION value="noticias.uol.com.br/jornais/">Jornais</OPTION><OPTION value="noticias.uol.com.br/internacional/">&nbsp;&nbsp;- Internacionais</OPTION><OPTION value="jovem.uol.com.br">Jovem</OPTION><OPTION value="mapas.uol.com.br/">Mapas</OPTION><OPTION value="musica.uol.com.br/">Música</OPTION><OPTION value="megastore.uol.com.br/">&nbsp;&nbsp;- Loja de música</OPTION><OPTION value="namoro.uol.com.br/">Namoro</OPTION><OPTION value="noticias.uol.com.br/">Notícias</OPTION><OPTION value="noticias.uol.com.br/cotidiano/">&nbsp;&nbsp;- Cotidiano</OPTION><OPTION value="noticias.uol.com.br/internacional/">&nbsp;&nbsp;- Internacional</OPTION><OPTION value="noticias.uol.com.br/jornais/">&nbsp;&nbsp;- Jornais</OPTION><OPTION value="noticias.uol.com.br/politica/">&nbsp;&nbsp;- Política</OPTION><OPTION value="noticias.uol.com.br/tabloide/">&nbsp;&nbsp;- Tabloide</OPTION><OPTION value="noticias.uol.com.br/ultnot/noticias.jhtm">&nbsp;&nbsp;- Últimas Notícias</OPTION><OPTION value="musica.uol.com.br/radiouol/">Rádio UOL</OPTION><OPTION value="beta.radio.uol.com.br/">&nbsp;&nbsp;- Nova rádio</OPTION><OPTION value="receitas.uol.com.br/">Receitas</OPTION><OPTION value="noticias.uol.com.br/revistas/">Revistas</OPTION><OPTION value="sac.uol.com.br/">SAC</OPTION><OPTION value="servicos.uol.com.br/">Serviços</OPTION><OPTION value="sexo.uol.com.br/">Sexo</OPTION><OPTION value="sites.uol.com.br/">Sites Pessoais</OPTION><OPTION value="tecnologia.uol.com.br/">Tecnologia</OPTION><OPTION value="televisao.uol.com.br/">Televisão</OPTION><OPTION value="televisao.uol.com.br/a-fazenda/2/">&nbsp;&nbsp;- A Fazenda 2</OPTION><OPTION value="televisao.uol.com.br/novelas.jhtm">&nbsp;&nbsp;- Novelas</OPTION><OPTION value="televisao.uol.com.br/programacao/">&nbsp;&nbsp;- Programação</OPTION><OPTION value="www3.uol.com.br/tempo/">Tempo e Trânsito</OPTION><OPTION value="tvuol.uol.com.br/">TV UOL</OPTION><OPTION value="uolk.uol.com.br/">UOL K</OPTION><OPTION value="mais.uol.com.br/">UOL Mais</OPTION><OPTION value="viagem.uol.com.br/">Viagem</OPTION><OPTION value="tvuol.uol.com.br/">Vídeos</OPTION><OPTION value="voip.uol.com.br/">Voip</OPTION><OPTION value="wifi.uol.com.br/">Wi-Fi</OPTION></SELECT></FORM></LI></UL></DIV></DIV><DIV style="clear: left;"></DIV>
+		</DIV>		<DIV id="publicidade">
+            <DIV class="maxWidth">
+                <DIV class="super"><SCRIPT type="text/javascript">
+   var m3_u = (location.protocol=='https:'?'https://adserver.dialhost.com.br/www/delivery/ajs.php':'http://adserver.dialhost.com.br/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=15");
+   document.write ('&cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+   document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   document.write ("&loc=" + escape(window.location));
+   if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&mmm_fo=1");
+   document.write ("'></scr"+"ipt>");
+</SCRIPT><SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ajs.php"></SCRIPT><DIV id="ox_b388b2032662e5e7b279b8ffac7aa5c7" style="display: inline;"><EMBED type="application/x-shockwave-flash" src="http://adserver.dialhost.com.br/www/images/2f1ae431b47f02f704fd6e827fb20781.swf" width="728" height="90" style="undefined" id="Planos DialHost" name="Planos DialHost" quality="high" allowscriptaccess="always" flashvars="clickTARGET=_blank&amp;clickTAG=http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D5__zoneid%3D15__cb%3D97ca9f6d8c__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br"></DIV>
+<SCRIPT type="text/javascript"><!--// <![CDATA[
+var ox_swf = new FlashObject('http://adserver.dialhost.com.br/www/images/2f1ae431b47f02f704fd6e827fb20781.swf', 'Planos DialHost', '728', '90', '8');
+ox_swf.addVariable('clickTARGET', '_blank');
+ox_swf.addVariable('clickTAG', 'http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D5__zoneid%3D15__cb%3D97ca9f6d8c__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br');
+ox_swf.addParam('allowScriptAccess','always');
+ox_swf.write('ox_b388b2032662e5e7b279b8ffac7aa5c7');
+if (ox_swf.installedVer.versionIsValid(ox_swf.getAttribute('version'))) { document.write("<div id='beacon_97ca9f6d8c' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://adserver.dialhost.com.br/www/delivery/lg.php?bannerid=5&amp;campaignid=2&amp;zoneid=15&amp;loc=http%3A%2F%2Fimasters.uol.com.br%2Fartigo%2F2103%2Fjava%2Fexemplo_facil_de_jtable%2F&amp;referer=http%3A%2F%2Fwww.google.com.br%2Fsearch%3Faq%3D0%26oq%3Djtable%26sourceid%3Dchrome%26ie%3DUTF-8%26q%3Djtable+java&amp;cb=97ca9f6d8c' width='0' height='0' alt='' style='width: 0px; height: 0px;' /></div>"); }
+// ]]> --></SCRIPT><DIV id="beacon_97ca9f6d8c" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></DIV>
+<NOSCRIPT></NOSCRIPT></DIV>
+                <DIV class="small"><SCRIPT type="text/javascript">
+	var banner = new Flash("http://static.imasters.com.br/anuncio/locaweb/adm-Locaweb-Dez-01br-70x90-lan.swf", "player", "70", "90"); 
+	banner.write(); 
+</SCRIPT><!--[if !IE]> <--> <OBJECT type="application/x-shockwave-flash" data="http://static.imasters.com.br/anuncio/locaweb/adm-Locaweb-Dez-01br-70x90-lan.swf" id="player" name="player" width="70" height="90"> <PARAM name="pluginurl" value="http://www.macromedia.com/go/getflashplayer"> <PARAM name="movie" value="http://static.imasters.com.br/anuncio/locaweb/adm-Locaweb-Dez-01br-70x90-lan.swf"> <PARAM name="flashVars" value="">  </OBJECT> <!--> <![endif]--></DIV>
+            </DIV>
+        </DIV>
+		       		<DIV id="navegacaoGlobal">
+            <UL class="maxWidth">
+                <LI><A href="http://imasters.uol.com.br/" class="ativo">Canais</A></LI>
+                <LI><A href="http://forum.imasters.uol.com.br/">Fóruns</A></LI>
+                <LI><A href="http://multimidia.imasters.uol.com.br/">Multimídia</A></LI>
+                <LI><A href="http://blog.imasters.uol.com.br/">Blogs</A></LI>
+                <LI><A href="http://shop.imasters.uol.com.br/">Loja Virtual</A></LI>
+                <LI><A href="http://imasters.uol.com.br/evento/">Eventos</A></LI>
+                <LI><A href="http://mercado.imasters.uol.com.br/">Banco de Currículos</A></LI>
+            </UL>
+        </DIV>        <DIV id="topo">
+            <DIV class="fundo">
+                <DIV class="maxWidth">
+                    <H1>
+                        <A href="http://imasters.uol.com.br/">
+                        <DIV class="logo"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/logo.png" alt="iMasters"></DIV>
+                        <SPAN>Por uma internet mais criativa e dinâmica</SPAN>
+                        </A>
+                    </H1>
+
+                    <DIV id="accountArea">
+                                                <A href="http://meu.imasters.uol.com.br/" id="doLogin" class="botao"><SPAN class="expansor">Faça Login</SPAN></A>
+                        <SPAN class="texto">ou</SPAN>
+                        <A href="http://imasters.uol.com.br/cadastro/" class="botao">Cadastre-se</A>
+
+                        <DIV id="loginPopup">
+                            <FORM action="" method="post">
+                                <DIV>
+                                    <LABEL for="strEmailLogin">E-mail:</LABEL>
+                                    <INPUT type="text" name="strEmail" id="strEmailLogin" class="campo">
+
+                                    <LABEL for="strSenhaLogin">Senha:</LABEL>
+                                    <INPUT type="password" name="strSenha" id="strSenhaLogin" class="campo">
+
+                                    <INPUT class="submit" type="submit" value="Entrar">
+
+                                    <INPUT name="indLogin" id="indLoginMeu" type="hidden" value="meu">
+
+                                    <LABEL class="manterConectado"><INPUT type="checkbox" name="ckbxLembreme">Manter conectado</LABEL>
+                                </DIV>
+                            </FORM>
+                            <A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#">Esqueci a senha</A>
+                        </DIV>
+                                            </DIV>
+
+                    <FORM id="formBusca" action="http://imasters.uol.com.br/busca/" method="get">
+                        <DIV>
+                            <INPUT type="text" id="q" name="q" value="" class="vazio">
+                        </DIV>
+                    </FORM>
+                </DIV>
+            </DIV>
+        </DIV>
+		        <DIV id="navegacaoSecao">
+        <UL class="maxWidth">
+                                    <LI><A href="http://imasters.uol.com.br/canal/criacao">Arquitetura e Design</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/3dsmax/">3ds max</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/acessibilidade/">Acessibilidade</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/ai/">Arquitetura da Informação</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/fireworks/">Fireworks</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/flash/">Flash</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/lightwave3d/">Lightwave 3D</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/photoshop/">Photoshop</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/suite_corel/">Suite Corel</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/teoria/">Teoria/Design</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/usabilidade/">Usabilidade</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/bancodedados">Banco de Dados</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/access/">Access</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/db2/">DB2</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/interbase/">Interbase</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/mysql/">MySQL</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/oracle/">Oracle</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/postgresql/">PostgreSQL</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/sql_server/">SQL Server</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/carreira">Carreira</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/certificacoes/">Certificações</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/mercado/">Mercado</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/tendencias/">Tendências</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/cms">CMS e Framework</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/cakephp/">CakePHP</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/django/">Django</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/drupal/">Drupal</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/joomla/">Joomla</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/ruby/">Ruby on Rails</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/sistemasecommerce/">Sistemas de E-commerce</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/wordpress/">Wordpress</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/zend/">Zend Framework</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/desenvolvimento">Desenvolvimento</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/ajax/">Ajax</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/aplicativosmoveis/">Aplicativos móveis</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/dreamweaver/">Dreamweaver</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/flash/">Flash</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/flex/">Flex</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/gerenciadeprojetos/">Gerência de Projetos</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/seo/">SEO</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/livre/">Software Livre</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/visual_foxpro/">Visual FoxPro</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/visual_studio/">Visual Studio</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/webstandards/">Web Standards</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/webservices/">WebServices</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/gerencia">Gerência de TI</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/bi/">B. Intelligence</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/forense/">Computação Forense</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/direito/">Direito e Web</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/egov/">E-Gov</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/governanca/">Governança de TI</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/mercado/">Mercado</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/programacao" class="ativo">Linguagens</A>
+                            <UL>
+                                                              <LI class="expandivel"><A href="http://imasters.uol.com.br/canal/dotnet/">.NET</A>
+                       <UL>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/adonet/">ADO.NET</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/aspnet/">ASP.NET</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/csharp/">C#.NET</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/vbnet/">VB.NET</A></LI>
+                                                    </UL>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/actionscript/">ActionScript</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/asp/">ASP</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/coldfusion/">ColdFusion</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/css/">CSS</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/delphi/">Delphi</A>
+                                            </LI>
+                                                              <LI class="expandivel"><A href="http://imasters.uol.com.br/secao/java/">Java</A>
+                       <UL>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/javamobile/">Java para Mobile</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/javaweb/">Java para web</A></LI>
+                                                    </UL>
+                                            </LI>
+                                                              <LI class="expandivel"><A href="http://imasters.uol.com.br/secao/javascript/">Javascript</A>
+                       <UL>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/ajax/">Ajax</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/jquery/">JQuery</A></LI>
+                                                        <LI><A href="http://imasters.uol.com.br/secao/prototype/">Prototype</A></LI>
+                                                    </UL>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/perl/">Perl</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/php/">PHP</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/ruby/">Ruby on Rails</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/uml/">UML</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/visual_basic/">Visual Basic</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/xhtml/">XHTML</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/xml/">XML</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/midia">Mídia e Marketing Digital</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/ecommerce/">E-commerce</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/elearning/">E-Learning</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/email_marketing/">E-mail Marketing</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/midiasocial/">Mídia Social</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/mobile/">Mobile Marketing</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/publicidade/">Publicidade Online</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/seo/">SEO</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/webanalytics/">Web Analytics</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/webmarketing/">Web Marketing</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/webwriting/">Web Writing</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/redes">Redes e Servidores</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/apache/">Apache</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/cisco/">Cisco</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/linux/">Linux</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/seguranca/">Segurança</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/servidores_windows/">Windows Server</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                                    <LI><A href="http://imasters.uol.com.br/canal/tecnologia">Tecnologia</A>
+                            <UL>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/gadgets/">Gadgets</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/tvdigital/">TV Digital</A>
+                                            </LI>
+                                                               <LI><A href="http://imasters.uol.com.br/secao/voip/">VoIP</A>
+                                            </LI>
+                                </UL>
+            </LI>
+                    </UL>
+        </DIV>
+    <DIV id="tituloSecao">
+        <DIV class="maxWidth variasSecoes">
+            <H2><STRONG><A href="http://imasters.uol.com.br/secao/java/">Java</A></STRONG>
+                                        </H2>
+
+            <DIV class="listaDeIcones">
+                <A href="http://imasters.uol.com.br/feed/secao/java">
+                    <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/iconeFeeds.png" alt=" ">
+                    Feeds
+                </A>
+
+                <A href="http://meu.imasters.uol.com.br/newsletter/">
+                    <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/iconeNewsletter.png" alt=" ">
+                    Newsletter
+                </A>
+            </DIV>
+        </DIV>
+    </DIV>
+
+    <DIV id="conteudo">
+		
+		<DIV style="margin-top:5px; margin-bottom:-5px;">
+		<SCRIPT type="text/javascript"><!--
+		google_ad_client = "pub-5061030065646759";
+		/* 468x15, criado 08/01/10 */
+		google_ad_slot = "7630004521";
+		google_ad_width = 468;
+		google_ad_height = 15;
+		//-->
+		</SCRIPT>
+		<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/show_ads.js">
+		</SCRIPT><SCRIPT src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="468" height="15" frameborder="0" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+		</DIV>
+		
+		<DIV id="tituloDestaque">
+            <DIV class="data">Quarta-feira, 26 de maio de 2004 às 01h59</DIV>
+			<H1>Exemplo fácil de JTable</H1>
+		</DIV>
+		
+		<DIV id="artigo">
+			<DIV id="strConteudo" class="strConteudo">
+                		
+                                
+				<P class="texto">Inicialmente os programadores Java tem grande dificuldade 
+                em trabalhar com o JTable, que pode ser utilizado em uma aplicação 
+                de diversas formas, mas aqui mostrarei uma forma simples e eficiente.</P>
+              <P class="texto">O uso do JTable é muito simples, não 
+                tem mistérios. O grande segredo está na criação 
+                do objeto JTable:</P>
+              <P class="texto"><FONT color="#0066CC">table.setModel(new javax.swing.table.DefaultTableModel(<BR>
+                new Object [][] { },<BR>
+                new String [] {<BR>
+                //aqui adiciona-se as colunas e seus respectivos nomes<BR>
+                " ","Nome", "Telefone","email","Sexo"<BR>
+                }<BR>
+                ){}</FONT></P>
+              <P class="texto">Setamos aqui um setModel() no objeto do JTable 
+                e como parâmetro passamos dinâmicamente um objeto 
+                javax.swing.table.DefaultTableModel com o nome de todas as colunas.</P>
+              <P class="texto">Depois podemos usar esses comandos para inserir 
+                linhas vazias</P>
+              <P class="texto"><FONT color="#0066CC">javax.swing.table.DefaultTableModel 
+                dtm =<BR>
+                (javax.swing.table.DefaultTableModel)table.getModel();<BR>
+                //lembre-se um "" para cada coluna na tabela<BR>
+                dtm.addRow(new Object[]{"","","","",""});</FONT></P>
+              <P class="texto">E este para apagar qualquer linha da tabela</P>
+              <P class="texto"><FONT color="#0066CC">int[] l = table.getSelectedRows();//captura 
+                as linhas selecionadas</FONT></P>
+              <P class="texto"><FONT color="#0066CC">//pega o DefaultTableModel 
+                da tabela<BR>
+                javax.swing.table.DefaultTableModel dtm =<BR>
+                (javax.swing.table.DefaultTableModel)table.getModel();</FONT></P>
+              <P class="texto"><FONT color="#0066CC">for(int i = (l.length-1); 
+                i &gt;= 0; --i) {<BR>
+                dtm.removeRow(l[i]);//remove todas as linhas selecionadas<BR>
+                }</FONT></P>
+              <P class="texto">Como não podemos adicionar ou remover diretamente 
+                na tabela temos que criar um objeto DefaultTableModel que possa 
+                receber o objeto.</P>
+              <P class="texto"><FONT color="#0066CC">javax.swing.table.DefaultTableModel 
+                dtm = (javax.swing.table.DefaultTableModel)table.getModel();</FONT></P>
+              <P class="texto">Nosso objeto passa a ser o dtm só para ser 
+                usado em adições e exclusões de linhas, mas 
+                para setar valores e pegar valores podemos usar os métodos 
+                da classe Jtable mesmo (ex: table.getValueAt(1,3)).</P>
+              <P class="texto">Para dar uma tamanho pré-definido e para 
+                cada coluna usamos o seguinte comando, onde getColumn() recebe 
+                o index da coluna e o setPreferredWidth() recebe o tamanho que 
+                terá a coluna escolhida:</P>
+              <P class="texto"><FONT color="#0066CC">table.getColumnModel().getColumn(1).setPreferredWidth(150);</FONT></P>
+              <P class="texto">Outro curiosidade que gostaria de mostrar é 
+                o fato de se poder adicionar qualquer objeto em uma célula 
+                de um Jtable, seja imagem, botões, radio buttons, list, 
+                enfim, quase tudo. Para demonstrar isso inserir um JcomboBox na 
+                última coluna com o seguinte comando:</P>
+              <P class="texto"><FONT color="#0066CC">table.getColumn(table.getColumnName(1)).setCellEditor(<BR>
+                new javax.swing.DefaultCellEditor(scmbSexo));</FONT></P>
+              <P class="texto">Bem, aqui estão apenas os conceitos básicos, 
+                por isso deixo bem claro que com o JTable pode-se fazer milhares 
+                de combinações com ele, pois é completo.</P>
+              <P class="texto"><STRONG>Resultado</STRONG></P>
+              <P class="texto">Vejam como ficou o resultado do <A href="http://conteudo.imasters.com.br/2103/exemplo.zip">Exemplo</A> 
+                que preparei para este artigo.</P>
+              <P class="texto"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/jtable01.jpg" width="450" height="269"></P>
+              <P class="texto"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/jtable02.jpg" width="450" height="267">
+			</P></DIV>
+				
+			<DIV id="painelInteracao">
+				<H2 class="tituloInformacao">Interação</H2>
+				<UL>
+					<LI><A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#comments"><STRONG>Comentários</STRONG></A></LI>
+					<LI><A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/imprimir/">Imprimir</A></LI>
+					<LI><A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#blocoIndique" onclick="$(&#39;#blocoIndique&#39;).slideDown(&#39;fast&#39;); $(&#39;#nomeDe&#39;).focus(); return false;">Indicar</A></LI>
+					<LI><A href="http://delicious.com/save?url=http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/">Delicious</A></LI>
+					<LI><A href="http://twitter.com/home?status=Exemplo+f%26aacute%3Bcil+de+JTable+http://imasters.uol.com.br/artigo/2103">Twitter</A></LI>
+									</UL>
+			</DIV>
+			
+			<DIV class="banner">
+                <SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5061030065646759";
+/* 468x60, criado 10/09/09 */
+google_ad_slot = "2265721737";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/show_ads.js">
+</SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="468" height="60" frameborder="0" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>            </DIV>
+			
+			<DIV id="comentarios">
+    <H2 class="tituloInformacao" id="comments">
+            2 comentários    </H2>
+<DIV id="listaDeComentarios">
+        <DIV class="comentario" id="comment-1378">
+        <DIV class="informacoesComentario">
+            <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/0.jpg" alt=" ">
+            <STRONG>
+                        Douglas Vaz Candido 
+                        </STRONG><BR>
+            <SPAN class="data">12/09/2004 23h14</SPAN>
+                    </DIV>
+        <DIV class="mensagem">
+            <H3>Como faz este Layout no JForm???</H3>
+            <P>ei como eu posso mecher na aparecia do JForm deste jeito?</P>
+        </DIV>
+        <DIV class="acoes">
+                        <A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#reply-1378" class="responder" rel="1378">Responder</A>
+        </DIV>
+
+        
+        <DIV class="espacoResposta" id="reply-1378">
+
+        </DIV>
+    </DIV>
+        <DIV class="comentario" id="comment-23669">
+        <DIV class="informacoesComentario">
+            <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/0.jpg" alt=" ">
+            <STRONG>
+                        Laercio da Silva
+                        </STRONG><BR>
+            <SPAN class="data">10/12/2009 11h58</SPAN>
+                    </DIV>
+        <DIV class="mensagem">
+            <H3>Título</H3>
+            <P>Almedson,o seu tutorial ajudou-me muito, vlw mesmo.</P>
+        </DIV>
+        <DIV class="acoes">
+                        <A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#reply-23669" class="responder" rel="23669">Responder</A>
+        </DIV>
+
+        
+        <DIV class="espacoResposta" id="reply-23669">
+
+        </DIV>
+    </DIV>
+    </DIV>
+
+<DIV id="blocoComentario">
+    <DIV class="formComentario">
+            <FORM id="formComentario" action="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/Exemplo fácil de JTable - Almedson Ferreira - Java.html" method="post">
+            <DIV class="titulo">
+                <A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#" class="cancelarResposta" title="Cancelar resposta">Cancelar resposta</A>
+                <H3>Qual a sua opinião?</H3>
+                                <P class="avisoLogin">Faça login abaixo ou <A href="http://imasters.uol.com.br/cadastro/" class="cadastrar">cadastre-se</A> rapidamente.</P>
+
+                <DIV class="login">
+                    <DIV>
+                        <LABEL for="strEmailComentario">E-mail:</LABEL>
+                        <INPUT type="text" name="strEmailComentario">
+                    </DIV>
+
+                    <DIV>
+                        <LABEL for="strSenhaComentario">Senha:</LABEL>
+                        <INPUT type="password" name="strSenhaComentario">
+                    </DIV>
+
+                    <DIV class="status"></DIV>
+
+                </DIV>
+                            </DIV>
+            <DIV class="campos">
+                <LABEL for="titulo" class="oculto">Título</LABEL>
+                <INPUT type="text" name="titulo" class="strTitulo vazio"><BR>
+
+                <LABEL for="comentario" class="oculto">Comentário:</LABEL>
+                <TEXTAREA name="comentario" class="strComentario vazio"></TEXTAREA>
+
+                <INPUT type="hidden" name="codConteudo" value="2103">
+                <INPUT type="hidden" name="indStatusLogin" value="0">
+                <INPUT type="hidden" name="codComentarioAnterior" value="">
+
+                <LABEL><INPUT type="checkbox" id="acompanhe" value="1" name="acompanhe"> Receber notificações para novos comentários</LABEL>
+
+                <BUTTON type="submit" class="submit">Enviar comentário</BUTTON>
+            </DIV>
+        </FORM>
+    </DIV>
+</DIV>
+</DIV>		</DIV>
+		
+		<DIV id="colunaLateral">
+
+            <DIV class="patrocinio">
+                
+            </DIV>
+
+			<DIV class="bloco">
+				<DIV class="titulo"><STRONG>Sobre o Autor</STRONG></DIV>
+				<DIV id="sobreOAutor">
+					<IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/796.jpg" alt="">
+					<DIV>
+						<B>Almedson Ferreira</B> trabalha com Java há 4 anos e atualmente é deselvolvedor das Agroíndústrias do Vale do São Francisco - AGROVALE, maior usina de cana de açúcar do país.
+					</DIV>
+                    <DIV class="email">
+                        <A href="mailto:%61%66%65%72%72%65%69%72%61@%61%67%72%6f%76%61%6c%65.%63%6f%6d">aferreira@agrovale.com</A>
+                    </DIV>
+                    				</DIV>
+				<DIV id="outrosArtigos">
+					<STRONG>Outros artigos do mesmo autor:</STRONG>
+					<UL>
+											<LI><A href="http://imasters.uol.com.br/artigo/3166/java/relatorios_com_ireport-041_parte_01/" title="Relat&oacute;rios com iReport-0.4.1 - Parte 01">Relatórios com iReport-0.4.1 - Parte 01</A></LI>
+											<LI><A href="http://imasters.uol.com.br/artigo/2693/java/qual_sistema_operacional_esta_sendo_executado/" title="Qual sistema operacional est&aacute; sendo executado?">Qual sistema operacional está sendo executado?</A></LI>
+											<LI><A href="http://imasters.uol.com.br/artigo/2610/java/por_que_java/" title="Por que Java?">Por que Java?</A></LI>
+											<LI><A href="http://imasters.uol.com.br/artigo/2568/java/look_and_feel/" title="Look and Feel">Look and Feel</A></LI>
+										</UL>
+                                        <INPUT type="hidden" id="codConteudo" value="2103">
+					<A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#" class="verMais" rel="5218">Ver mais artigos de Almedson Ferreira</A>
+                    				</DIV>
+			</DIV>
+			
+			<DIV class="bloco">
+                <DIV class="titulo"><A href="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/#" onclick="$(this).parent().next().slideToggle(&#39;fast&#39;); return false;"><STRONG>Indique para um amigo</STRONG></A></DIV>
+                <DIV class="conteudo" style="display: none;" id="blocoIndique">
+                    					<DIV id="indique">
+						<FORM action="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/Exemplo fácil de JTable - Almedson Ferreira - Java.html" method="post" id="formIndique">
+							<DIV>
+                                <INPUT type="hidden" name="url" id="url" value="http://imasters.uol.com.br/artigo/2103/java/exemplo_facil_de_jtable/">
+                                <DIV class="campo">
+                                    <LABEL for="nomeDe">Seu nome:</LABEL>
+                                    <INPUT type="text" name="nomeDe" id="nomeDe">
+                                </DIV>
+                                <DIV class="divisao">
+                                    <STRONG>Informações do Destinatário:</STRONG>
+                                </DIV>
+                                <DIV class="campo">
+                                    <LABEL for="nomePara">Nome:</LABEL>
+                                    <INPUT type="text" name="nomePara" id="nomePara">
+                                </DIV>
+                                <DIV class="campo">
+                                    <LABEL for="emailPara">E-mail:</LABEL>
+                                    <INPUT type="text" name="emailPara" id="emailPara">
+                                </DIV>
+                                <DIV class="campo">
+                                    <LABEL for="captcha">Código:</LABEL>
+                                    <INPUT type="text" name="captcha" id="captcha" class="captcha">
+                                    <IMG class="captcha" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/captcha.php" alt="captcha">
+                                </DIV>
+                                <DIV class="campo">
+                                    <LABEL for="textoPara">Mensagem:</LABEL>
+                                    <TEXTAREA name="textoPara" id="textoPara"></TEXTAREA>
+                                </DIV>
+                                <DIV class="submit">
+                                    <BUTTON type="submit" id="btnIndique">Indicar</BUTTON>
+                                </DIV>
+							</DIV>
+						</FORM>
+					</DIV>                </DIV>
+			</DIV>
+
+            <DIV id="arroba">
+                <SCRIPT type="text/javascript">
+   var m3_u = (location.protocol=='https:'?'https://adserver.dialhost.com.br/www/delivery/ajs.php':'http://adserver.dialhost.com.br/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=14");
+   document.write ('&cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+   document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   document.write ("&loc=" + escape(window.location));
+   if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&mmm_fo=1");
+   document.write ("'></scr"+"ipt>");
+</SCRIPT><SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ajs(1).php"></SCRIPT><DIV id="ox_ce2e6ab5050439101f2b5d173d071b2e" style="display: inline;"><EMBED type="application/x-shockwave-flash" src="http://adserver.dialhost.com.br/www/images/5f5e5ee9cb8e2157a3d9642a9cb3dd98.swf" width="300" height="250" style="undefined" id="Planos DialHost" name="Planos DialHost" quality="high" allowscriptaccess="always" flashvars="clickTARGET=_blank&amp;clickTAG=http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D6__zoneid%3D14__cb%3D3b0939aa4b__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br"></DIV>
+<SCRIPT type="text/javascript"><!--// <![CDATA[
+var ox_swf = new FlashObject('http://adserver.dialhost.com.br/www/images/5f5e5ee9cb8e2157a3d9642a9cb3dd98.swf', 'Planos DialHost', '300', '250', '8');
+ox_swf.addVariable('clickTARGET', '_blank');
+ox_swf.addVariable('clickTAG', 'http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D6__zoneid%3D14__cb%3D3b0939aa4b__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br');
+ox_swf.addParam('allowScriptAccess','always');
+ox_swf.write('ox_ce2e6ab5050439101f2b5d173d071b2e');
+if (ox_swf.installedVer.versionIsValid(ox_swf.getAttribute('version'))) { document.write("<div id='beacon_3b0939aa4b' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://adserver.dialhost.com.br/www/delivery/lg.php?bannerid=6&amp;campaignid=2&amp;zoneid=14&amp;loc=http%3A%2F%2Fimasters.uol.com.br%2Fartigo%2F2103%2Fjava%2Fexemplo_facil_de_jtable%2F&amp;referer=http%3A%2F%2Fwww.google.com.br%2Fsearch%3Faq%3D0%26oq%3Djtable%26sourceid%3Dchrome%26ie%3DUTF-8%26q%3Djtable+java&amp;cb=3b0939aa4b' width='0' height='0' alt='' style='width: 0px; height: 0px;' /></div>"); }
+// ]]> --></SCRIPT><DIV id="beacon_3b0939aa4b" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/lg(1).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></DIV>
+<NOSCRIPT></NOSCRIPT>
+            </DIV>
+
+            	<DIV class="bloco">
+	<DIV class="titulo"><STRONG>iMasters Shop</STRONG></DIV>
+		 <DIV class="listaItens conteudo">
+			  			  <DIV class="item">
+					<A href="">
+						 <IMG src="" alt=" ">
+						 <EM></EM>
+						 <SPAN class="valor">R$ <STRONG></STRONG></SPAN>
+					</A>
+			  </DIV>
+			  		 </DIV>
+</DIV>
+
+            
+            <DIV class="bloco">
+    <DIV class="titulo"><A href="http://www.superdownloads.com.br/"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/superDownloads.png" alt="Superdownloads"></A></DIV>
+    <DIV class="listaItens conteudo">
+                        <DIV class="item">
+            <A href="http://superdownloads.uol.com.br/download/75/jgame/">
+                <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/27415,3.jpg" alt=" ">                <SPAN><STRONG>JGame 3.3</STRONG> - Engine para desenvolvimento de games com gráficos 2D. Utiliza uma poderosa ferramenta que é o ambiente Java</SPAN>
+            </A>
+        </DIV>
+                <DIV class="item">
+            <A href="http://superdownloads.uol.com.br/download/120/jgame-linux/">
+                <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/102230,3.jpg" alt=" ">                <SPAN><STRONG>JGame 3.3</STRONG> - Engine para desenvolvimento de games com gráficos 2D. Utiliza uma poderosa ferramenta que é o ambiente Java</SPAN>
+            </A>
+        </DIV>
+                <DIV class="item">
+            <A href="http://superdownloads.uol.com.br/download/178/visual-j-2005/">
+                <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/27968,3.jpg" alt=" ">                <SPAN><STRONG>Visual J# 2005 Express Edition</STRONG> - Implementação própria do Java que só roda em .Net mas que vem com todos os quitutes das grandes linguagens de...</SPAN>
+            </A>
+        </DIV>
+                <DIV class="item">
+            <A href="http://superdownloads.uol.com.br/download/59/bluej/">
+                <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/71147,3.jpg" alt=" ">                <SPAN><STRONG>BlueJ 2.5.1</STRONG> - Ambiente integrado criado especialmente para auxiliar no ensino de orientação a objetos utilizando a tecnologia Java</SPAN>
+            </A>
+        </DIV>
+                <DIV class="item">
+            <A href="http://superdownloads.uol.com.br/download/60/bluej-mac/">
+                <IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/71152,3.jpg" alt=" ">                <SPAN><STRONG>BlueJ 2.5.1</STRONG> - Ambiente integrado criado especialmente para auxiliar no ensino de orientação a objetos utilizando a tecnologia Java</SPAN>
+            </A>
+        </DIV>
+            </DIV>
+</DIV>
+
+            <DIV style="margin: 20px 0; overflow: hidden;">
+                <SCRIPT type="text/javascript">
+   var m3_u = (location.protocol=='https:'?'https://adserver.dialhost.com.br/www/delivery/ajs.php':'http://adserver.dialhost.com.br/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=14");
+   document.write ('&cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+   document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   document.write ("&loc=" + escape(window.location));
+   if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&mmm_fo=1");
+   document.write ("'></scr"+"ipt>");
+</SCRIPT><SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ajs(2).php"></SCRIPT><DIV id="ox_5beb4eccd3c6ffa2f13879c8abd1db17" style="display: inline;"><EMBED type="application/x-shockwave-flash" src="http://adserver.dialhost.com.br/www/images/5f5e5ee9cb8e2157a3d9642a9cb3dd98.swf" width="300" height="250" style="undefined" id="Planos DialHost" name="Planos DialHost" quality="high" allowscriptaccess="always" flashvars="clickTARGET=_blank&amp;clickTAG=http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D6__zoneid%3D14__cb%3Daf03ff95b3__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br"></DIV>
+<SCRIPT type="text/javascript"><!--// <![CDATA[
+var ox_swf = new FlashObject('http://adserver.dialhost.com.br/www/images/5f5e5ee9cb8e2157a3d9642a9cb3dd98.swf', 'Planos DialHost', '300', '250', '8');
+ox_swf.addVariable('clickTARGET', '_blank');
+ox_swf.addVariable('clickTAG', 'http%3A%2F%2Fadserver.dialhost.com.br%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D6__zoneid%3D14__cb%3Daf03ff95b3__oadest%3Dhttp%253A%252F%252Fwww.dialhost.com.br');
+ox_swf.addParam('allowScriptAccess','always');
+ox_swf.write('ox_5beb4eccd3c6ffa2f13879c8abd1db17');
+if (ox_swf.installedVer.versionIsValid(ox_swf.getAttribute('version'))) { document.write("<div id='beacon_af03ff95b3' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://adserver.dialhost.com.br/www/delivery/lg.php?bannerid=6&amp;campaignid=2&amp;zoneid=14&amp;loc=http%3A%2F%2Fimasters.uol.com.br%2Fartigo%2F2103%2Fjava%2Fexemplo_facil_de_jtable%2F&amp;referer=http%3A%2F%2Fwww.google.com.br%2Fsearch%3Faq%3D0%26oq%3Djtable%26sourceid%3Dchrome%26ie%3DUTF-8%26q%3Djtable+java&amp;cb=af03ff95b3' width='0' height='0' alt='' style='width: 0px; height: 0px;' /></div>"); }
+// ]]> --></SCRIPT><DIV id="beacon_af03ff95b3" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><IMG src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/lg(2).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></DIV>
+<NOSCRIPT></NOSCRIPT>
+            </DIV>
+			
+		</DIV>
+	</DIV>
+			<DIV id="rodape">
+            <DIV class="maxWidth">
+                <UL class="extras">
+                    <LI class="first"><H2><A href="http://imasters.uol.com.br/"><SPAN>iMasters</SPAN></A></H2></LI>
+                    <LI><A href="http://imasters.uol.com.br/sobre/">Sobre o iMasters</A></LI>
+                    <LI><A href="http://imasters.uol.com.br/politicadeprivacidade/">Política de privacidade</A></LI>
+                    <LI><A href="http://imasters.uol.com.br/anuncie/">Anuncie</A></LI>
+                    <LI><A href="http://imasters.uol.com.br/feeds/">Feeds iMasters</A></LI>
+                    <LI><A href="http://forum.imasters.uol.com.br/">Fóruns iMasters</A></LI>
+                    <LI><A href="http://imasters.uol.com.br/faleconosco/">Fale conosco</A></LI>
+                </UL>
+                <P>2001 - iMasters FFPA Informática Ltda - Todos os direitos reservados.</P>
+            </DIV>
+		</DIV>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/jquery.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/topo.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/artigo.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/conteudo_comentario.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/prettify.js"></SCRIPT>
+			<SCRIPT type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+		</SCRIPT><SCRIPT src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/ga.js" type="text/javascript"></SCRIPT>
+
+		<SCRIPT type="text/javascript">
+			var pageTracker = _gat._getTracker("UA-339422-2");
+			pageTracker._initData();
+			pageTracker._setDomainName(".imasters.uol.com.br");
+			pageTracker._trackPageview();
+		</SCRIPT>
+		
+				<SCRIPT language="JavaScript" type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/imasters.js"></SCRIPT>
+		<SCRIPT language="JavaScript" type="text/javascript"><!--
+		uol_sc.channel="Tecnologia-parceiros-imasters";
+		/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+		var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></SCRIPT>
+		<!-- End SiteCatalyst code version: H.19.3. -->		<SCRIPT type="text/javascript" src="./Exemplo fácil de JTable - Almedson Ferreira - Java_files/clickheat.js"></SCRIPT>
+	<SCRIPT type="text/javascript"><!--
+		clickHeatSite = 'imasters';
+		clickHeatGroup = 'artigo';
+		clickHeatServer = 'http://imasters.uol.com.br/clickheat/click.php';
+		initClickHeat();
+	//--></SCRIPT>
+		
+
+</DIV></BODY></HTML>

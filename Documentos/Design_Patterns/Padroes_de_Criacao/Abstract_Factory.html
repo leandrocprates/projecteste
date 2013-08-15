@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0045)http://pt.wikipedia.org/wiki/Abstract_Factory -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt" dir="ltr"><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Abstract Factory - Wikipédia, a enciclopédia livre</TITLE>
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<META name="generator" content="MediaWiki 1.16alpha-wmf">
+<LINK rel="alternate" type="application/x-wiki" title="Editar" href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit">
+<LINK rel="edit" title="Editar" href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit">
+<LINK rel="apple-touch-icon" href="http://pt.wikipedia.org/apple-touch-icon.png">
+<LINK rel="shortcut icon" href="http://pt.wikipedia.org/favicon.ico">
+<LINK rel="search" type="application/opensearchdescription+xml" href="http://pt.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (pt)">
+<LINK rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<LINK rel="alternate" type="application/rss+xml" title="&#39;&#39;Feed&#39;&#39; RSS Wikipedia" href="http://pt.wikipedia.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&feed=rss">
+<LINK rel="alternate" type="application/atom+xml" title="&#39;&#39;Feed&#39;&#39; Atom Wikipedia" href="http://pt.wikipedia.org/w/index.php?title=Especial:Mudan%C3%A7as_recentes&feed=atom">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/shared.css" type="text/css" media="screen">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/commonPrint.css" type="text/css" media="print">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/main.css" type="text/css" media="screen">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/main(1).css" type="text/css" media="handheld">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="http://bits.wikimedia.org/skins-1.5/monobook/IE50Fixes.css?257z32" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="http://bits.wikimedia.org/skins-1.5/monobook/IE55Fixes.css?257z32" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="http://bits.wikimedia.org/skins-1.5/monobook/IE60Fixes.css?257z32" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="http://bits.wikimedia.org/skins-1.5/monobook/IE70Fixes.css?257z32" type="text/css" media="screen" /><![endif]-->
+<LINK rel="stylesheet" href="./Abstract_Factory_files/index.php" type="text/css" media="all">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/index(1).php" type="text/css" media="print">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/index(2).php" type="text/css" media="handheld">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/index(3).php" type="text/css" media="all">
+<LINK rel="stylesheet" href="./Abstract_Factory_files/index(4).php" type="text/css" media="all">
+<SCRIPT type="text/javascript">
+var skin="monobook",
+stylepath="http://bits.wikimedia.org/skins-1.5",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/w",
+wgScriptExtension=".php",
+wgScript="/w/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://pt.wikipedia.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Abstract_Factory",
+wgTitle="Abstract Factory",
+wgAction="view",
+wgArticleId=194449,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="pt",
+wgContentLanguage="pt",
+wgBreakFrames=false,
+wgCurRevisionId=18517811,
+wgVersion="1.16alpha-wmf",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", " 	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Página principal",
+wgFormattedNamespaces={"-2": "Media", "-1": "Especial", "0": "", "1": "Discussão", "2": "Usuário", "3": "Usuário Discussão", "4": "Wikipedia", "5": "Wikipedia Discussão", "6": "Ficheiro", "7": "Ficheiro Discussão", "8": "MediaWiki", "9": "MediaWiki Discussão", "10": "Predefinição", "11": "Predefinição Discussão", "12": "Ajuda", "13": "Ajuda Discussão", "14": "Categoria", "15": "Categoria Discussão", "100": "Portal", "101": "Portal Discussão", "102": "Anexo", "103": "Anexo Discussão"},
+wgNamespaceIds={"media": -2, "especial": -1, "": 0, "discussão": 1, "usuário": 2, "usuário_discussão": 3, "wikipedia": 4, "wikipedia_discussão": 5, "ficheiro": 6, "ficheiro_discussão": 7, "mediawiki": 8, "mediawiki_discussão": 9, "predefinição": 10, "predefinição_discussão": 11, "ajuda": 12, "ajuda_discussão": 13, "categoria": 14, "categoria_discussão": 15, "portal": 100, "portal_discussão": 101, "anexo": 102, "anexo_discussão": 103, "imagem": 6, "imagem_discussão": 7, "arquivo": 6, "arquivo_discussão": 7, "discussão_portal": 101, "image": 6, "image_talk": 7},
+wgMWSuggestTemplate="http://pt.wikipedia.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest",
+wgDBname="ptwiki",
+wgSearchNamespaces=[0],
+wgMWSuggestMessages=["com sugestões", "sem sugestões"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[],
+wgTrackingToken="6109fdf6b3f14d07f566f73f9c6cb7d7",
+wgClickTrackingIsThrottled=true,
+wgNotice="",
+wgNoticeLocal="";
+</SCRIPT>
+<SCRIPT src="./Abstract_Factory_files/wikibits.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="./Abstract_Factory_files/ajax.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="./Abstract_Factory_files/mwsuggest.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Abstract_Factory_files/centralnotice.js"></SCRIPT><STYLE type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</STYLE>
+
+
+<!--[if lt IE 7]><script type="text/javascript" src="http://bits.wikimedia.org/skins-1.5/common/IEFixes.js?257z32"></script>
+	<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+<SCRIPT src="./Abstract_Factory_files/index(5).php" type="text/javascript"></SCRIPT><STYLE type="text/css">#interProject, #sisterProjects {display: none; speak: none;} #p-tb .pBody {padding-right: 0;}</STYLE><SCRIPT src="./Abstract_Factory_files/index(6).php" type="text/javascript"></SCRIPT><SCRIPT src="./Abstract_Factory_files/index(7).php" type="text/javascript"></SCRIPT><SCRIPT src="./Abstract_Factory_files/index(8).php" type="text/javascript"></SCRIPT>
+
+<STYLE type="text/css">/*<![CDATA[*/
+.source-java {line-height: normal;}
+.source-java li, .source-java pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for java
+ * CSS class: source-java, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.java.source-java .de1, .java.source-java .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.java.source-java  {font-family:monospace;}
+.java.source-java .imp {font-weight: bold; color: red;}
+.java.source-java li, .java.source-java .li1 {font-weight: normal; vertical-align:top;}
+.java.source-java .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.java.source-java .li2 {font-weight: bold; vertical-align:top;}
+.java.source-java .kw1 {color: #000000; font-weight: bold;}
+.java.source-java .kw2 {color: #000066; font-weight: bold;}
+.java.source-java .kw3 {color: #003399;}
+.java.source-java .kw4 {color: #000066; font-weight: bold;}
+.java.source-java .co1 {color: #666666; font-style: italic;}
+.java.source-java .co2 {color: #006699;}
+.java.source-java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java.source-java .coMULTI {color: #666666; font-style: italic;}
+.java.source-java .es0 {color: #000099; font-weight: bold;}
+.java.source-java .br0 {color: #009900;}
+.java.source-java .sy0 {color: #339933;}
+.java.source-java .st0 {color: #0000ff;}
+.java.source-java .nu0 {color: #cc66cc;}
+.java.source-java .me1 {color: #006633;}
+.java.source-java .me2 {color: #006633;}
+.java.source-java .ln-xtra, .java.source-java li.ln-xtra, .java.source-java div.ln-xtra {background-color: #ffc;}
+.java.source-java span.xtra { display:block; }
+
+/*]]>*/
+</STYLE>
+<STYLE type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</STYLE><STYLE type="text/css">/*<![CDATA[*/
+.source-vbnet {line-height: normal;}
+.source-vbnet li, .source-vbnet pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for vbnet
+ * CSS class: source-vbnet, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.vbnet.source-vbnet .de1, .vbnet.source-vbnet .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.vbnet.source-vbnet  {font-family:monospace;}
+.vbnet.source-vbnet .imp {font-weight: bold; color: red;}
+.vbnet.source-vbnet li, .vbnet.source-vbnet .li1 {font-weight: normal; vertical-align:top;}
+.vbnet.source-vbnet .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.vbnet.source-vbnet .li2 {font-weight: bold; vertical-align:top;}
+.vbnet.source-vbnet .kw1 {color: #0600FF;}
+.vbnet.source-vbnet .kw2 {color: #FF8000;}
+.vbnet.source-vbnet .kw3 {color: #008000;}
+.vbnet.source-vbnet .kw4 {color: #FF0000;}
+.vbnet.source-vbnet .kw5 {color: #804040;}
+.vbnet.source-vbnet .kw6 {color: #0600FF;}
+.vbnet.source-vbnet .kw7 {color: #0600FF;}
+.vbnet.source-vbnet .kw8 {color: #0600FF;}
+.vbnet.source-vbnet .co1 {color: #008080; font-style: italic;}
+.vbnet.source-vbnet .coMULTI {color: #008080; font-style: italic;}
+.vbnet.source-vbnet .es0 {color: #008080; font-weight: bold;}
+.vbnet.source-vbnet .br0 {color: #000000;}
+.vbnet.source-vbnet .sy0 {color: #008000;}
+.vbnet.source-vbnet .st0 {color: #808080;}
+.vbnet.source-vbnet .nu0 {color: #FF0000;}
+.vbnet.source-vbnet .me1 {color: #0000FF;}
+.vbnet.source-vbnet .ln-xtra, .vbnet.source-vbnet li.ln-xtra, .vbnet.source-vbnet div.ln-xtra {background-color: #ffc;}
+.vbnet.source-vbnet span.xtra { display:block; }
+
+/*]]>*/
+</STYLE>
+<STYLE type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</STYLE></HEAD><BODY class="mediawiki ltr ns-0 ns-subject page-Abstract_Factory skin-monobook">
+	<DIV id="globalWrapper"><DIV id="anon-banner" class="noprint" style="position: absolute; z-index: 40; left: 155px; top: 1px; clear: both; float: left; font-size: 90%; font-style: italic; white-space: nowrap; ">Ajude-nos a fornecer conteúdo gratuito para mundo <A href="http://wikimediafoundation.org/wiki/Coleta_de_fundos" class="extiw" title="Coleta de fundos"><B>doando hoje</B></A>!</DIV>
+		<DIV id="column-content">
+	<DIV id="content"><DIV style="visibility: hidden; display: none; width: 602px; height: 402px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: white; position: absolute; right: 2em; top: 1em; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; z-index: 13; "><IFRAME scrolling="no" frameborder="0" style="z-index: 14; position: absolute; right: 1px; top: 1px; width: 600px; height: 400px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "></IFRAME><IMG title="fechar" src="./Abstract_Factory_files/Button_hide.png" style="z-index: 15; position: absolute; right: 11px; top: 9px; width: 18px; cursor: pointer; "></DIV>
+		<A id="top"></A>
+		<DIV id="siteNotice"><SCRIPT type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</SCRIPT><DIV id="centralNotice" class="expanded anonnotice"><STYLE type="text/css"> 
+/*
+Styles for  Notices
+*/
+
+.notice-wrapper-wikimania-scholar, .notice-collapsed-wrapper-wikimania-scholar {
+    margin: 2px auto 0;
+    width: 100%;
+    padding: 0;
+    font-family: 'Arial','Helvetica','Tahoma',sans-serif;
+    color: #333;
+    background-color: #ddd;
+    font-size: .9em;
+    font-weight: 200;
+}
+
+.notice-wrapper-wikimania-scholar
+{
+    border: 1px solid #bbb;
+    background-color: #fcfcfc;
+    text-align: left;
+    font-size: .9em;
+}
+
+.notice-wrapper-wikimania-scholar a
+{
+    color: #006699;
+}
+
+.trans-box
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.toggle-box-wikimania-scholar
+{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.notice-text-wikimania-scholar
+{
+    margin: 0 auto 5px;
+    padding: 7px 5px 5px;
+    font-size: 1.2em;
+}
+
+.line-ht-fix
+{
+    line-height: 1em;
+}
+
+#centralNotice.anonnotice .siteNoticeUser 
+{
+    display:none !important;
+}
+
+#centralNotice.collapsed .siteNoticeUser
+{
+    display:none;
+}
+
+</STYLE>
+
+<TABLE class="siteNoticeUser notice-wrapper-wikimania-scholar">
+<TBODY><TR>
+ <TD>
+  <DIV class="notice-text-wikimania-scholar">
+  Inscrições abertas para a solicitação de bolsas para o Wikimania 2010. <A href="http://wikimania2010.wikimedia.org/wiki/Scholarships">Inscreva-se agora!</A>
+  </DIV>
+ </TD>
+ <TD class="line-ht-fix">
+   <SPAN class="toggle-box-wikimania-scholar">
+   [<A href="http://pt.wikipedia.org/wiki/Abstract_Factory#" onclick="toggleNotice();return
+false">Esconder</A>]
+ </SPAN><BR>
+  <SPAN class="trans-box">
+  [<A href="http://meta.wikimedia.org/wiki/Wikimania_2010/CentralNotice">Ajuda-nos com as traduções!</A>]
+  </SPAN>
+ </TD>
+</TR>
+</TBODY></TABLE>
+<DIV class="siteNoticeSmallAnon notice-collapsed-wrapper-wikimania-scholar">
+</DIV></DIV>
+</DIV>		<H1 id="firstHeading" class="firstHeading">Abstract Factory</H1>
+		<DIV id="bodyContent">
+			<H3 id="siteSub">Origem: Wikipédia, a enciclopédia livre.</H3>
+			<DIV id="contentSub"></DIV>
+									<DIV id="jump-to-nav">Ir para: <A href="http://pt.wikipedia.org/wiki/Abstract_Factory#column-one">navegação</A>, <A href="http://pt.wikipedia.org/wiki/Abstract_Factory#searchInput">pesquisa</A></DIV>			<!-- start content -->
+			<P><B>Abstract Factory</B> é um <A href="http://pt.wikipedia.org/wiki/Padr%C3%B5es_de_projeto_de_software" title="Padr&otilde;es de projeto de software">padrão de projeto de software</A> (<I>design pattern</I> em <A href="http://pt.wikipedia.org/wiki/L%C3%ADngua_inglesa" title="L&iacute;ngua inglesa">inglês</A>). Este padrão permite a criação de famílias de <A href="http://pt.wikipedia.org/wiki/Objeto" title="Objeto">objetos</A> relacionados ou dependentes, através de uma única <A href="http://pt.wikipedia.org/wiki/Interface_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)" title="Interface (ci&ecirc;ncia da computa&ccedil;&atilde;o)">interface</A> e sem que a <A href="http://pt.wikipedia.org/wiki/Classe_(programa%C3%A7%C3%A3o)" title="Classe (programa&ccedil;&atilde;o)">classe concreta</A> seja especificada.</P>
+<TABLE id="toc" class="toc">
+<TBODY><TR>
+<TD>
+<DIV id="toctitle">
+<H2>Índice</H2>
+ <SPAN class="toctoggle">[<A id="togglelink" class="internal" href="javascript:toggleToc()">esconder</A>]</SPAN></DIV>
+<UL>
+<LI class="toclevel-1 tocsection-1"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#Utiliza.C3.A7.C3.A3o"><SPAN class="tocnumber">1</SPAN> <SPAN class="toctext">Utilização</SPAN></A></LI>
+<LI class="toclevel-1 tocsection-2"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#Exemplo"><SPAN class="tocnumber">2</SPAN> <SPAN class="toctext">Exemplo</SPAN></A>
+<UL>
+<LI class="toclevel-2 tocsection-3"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#Estrutura"><SPAN class="tocnumber">2.1</SPAN> <SPAN class="toctext">Estrutura</SPAN></A></LI>
+<LI class="toclevel-2 tocsection-4"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#C.C3.B3digo_em_Java"><SPAN class="tocnumber">2.2</SPAN> <SPAN class="toctext">Código em Java</SPAN></A></LI>
+<LI class="toclevel-2 tocsection-5"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#C.C3.B3digo_em_VB.NET"><SPAN class="tocnumber">2.3</SPAN> <SPAN class="toctext">Código em VB.NET</SPAN></A></LI>
+</UL>
+</LI>
+<LI class="toclevel-1 tocsection-6"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#Padr.C3.B5es_relacionados"><SPAN class="tocnumber">3</SPAN> <SPAN class="toctext">Padrões relacionados</SPAN></A></LI>
+<LI class="toclevel-1 tocsection-7"><A href="http://pt.wikipedia.org/wiki/Abstract_Factory#Bibliografia"><SPAN class="tocnumber">4</SPAN> <SPAN class="toctext">Bibliografia</SPAN></A></LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+if (window.showTocToggle) { var tocShowText = "mostrar"; var tocHideText = "esconder"; showTocToggle(); } 
+//]]>
+</SCRIPT>
+<H2><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=1" title="Editar se&ccedil;&atilde;o: Utiliza&ccedil;&atilde;o">editar</A>]</SPAN> <SPAN class="mw-headline" id="Utiliza.C3.A7.C3.A3o">Utilização</SPAN></H2>
+<P>O padrão Abstract Factory pode ser utilizado na implementação de um <I><A href="http://pt.wikipedia.org/wiki/Toolkit" title="Toolkit">toolkit</A></I> que disponibilize controles que funcionam em diferentes <A href="http://pt.wikipedia.org/wiki/Interface_gr%C3%A1fica" title="Interface gr&aacute;fica" class="mw-redirect">interfaces gráficas</A>, tal como <A href="http://pt.wikipedia.org/wiki/Motif" title="Motif">Motif</A>, <A href="http://pt.wikipedia.org/wiki/GTK%2B" title="GTK+" class="mw-redirect">GTK+</A> (<A href="http://pt.wikipedia.org/wiki/GNOME" title="GNOME">GNOME</A>) ou <A href="http://pt.wikipedia.org/wiki/Qt" title="Qt">Qt</A> (<A href="http://pt.wikipedia.org/wiki/KDE" title="KDE">KDE</A>). Estas <A href="http://pt.wikipedia.org/wiki/GUI" title="GUI" class="mw-redirect">GUIs</A> possuem diferentes padrões de controles visuais e, para facilitar a construção de <A href="http://pt.wikipedia.org/wiki/Aplicativo" title="Aplicativo" class="mw-redirect">aplicativos</A> que interajam facilmente com diferentes interfaces gráficas, é interessante que se defina <A href="http://pt.wikipedia.org/wiki/Interface_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)" title="Interface (ci&ecirc;ncia da computa&ccedil;&atilde;o)">interfaces</A> comuns para acesso aos controles, independentemente da GUI utilizada. Este problema pode ser resolvido através de uma <A href="http://pt.wikipedia.org/wiki/Classe_(programa%C3%A7%C3%A3o)#Classes_abstratas_e_concretas" title="Classe (programa&ccedil;&atilde;o)">classe abstrata</A> que declara uma interface genérica para criação dos controles visuais e de uma classe abstrata para criação de cada tipo de controle. O comportamento específico, de cada um dos padrões tecnológicos contemplados, é implementado através de uma classe concreta. O aplicativo, ou "cliente", interage com o <I>toolkit</I> através das classes abstratas sem ter conhecimento da implementação das classes concretas.</P>
+<P>Um exemplo bem simplista seria um projeto com interface para Mobile e para Desktop, uma boa opção para reaproveitar os mesmos controles de interface seria criar pacotes com classes abstratas e os pacotes com as classes concretas implementando apenas as diferenças. Esse padrão também se aplica na padronização de ambientes, por exemplo, tamanhos de botões, fontes, cores de fundo, largura de bordas. Com isso e havendo uma política que exija que os desenvolvedores usem essas classes em vez das nativas da linguagem, ajudará a padronizar a aparência e comportamento das aplicações.</P>
+<H2><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=2" title="Editar se&ccedil;&atilde;o: Exemplo">editar</A>]</SPAN> <SPAN class="mw-headline" id="Exemplo">Exemplo</SPAN></H2>
+<P>Neste exemplo, a classe abstrata WidgetFactory possui duas especializações: MotifWidgetFactory para <I><A href="http://pt.wikipedia.org/wiki/Widgets" title="Widgets" class="mw-redirect">widgets</A></I> Motif e QtWidgetFactory para <I>widgets</I> Qt. Essas especializações são classes concretas capazes de "produzir" os elementos da interface gráfica. O cliente do <I>toolkit</I> obtém os elementos gráficos de que necessita através da classe (interface) WidgetFactory sem ter conhecimento das classes concretas. Da mesma maneira, o cliente somente interage com as interfaces que representam os elementos produzidos pela Abstract Factory (no exemplo, a classe Janela e a classe Botao).</P>
+<H4><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=3" title="Editar se&ccedil;&atilde;o: Estrutura">editar</A>]</SPAN> <SPAN class="mw-headline" id="Estrutura">Estrutura</SPAN></H4>
+<DIV class="center">
+<DIV class="thumb tnone">
+<DIV class="thumbinner" style="width:754px;"><A href="http://pt.wikipedia.org/wiki/Ficheiro:Abstract_Factory.gif" class="image"><IMG alt="" src="./Abstract_Factory_files/Abstract_Factory.gif" width="752" height="376" class="thumbimage"></A>
+<DIV class="thumbcaption">
+<DIV class="magnify"><A href="http://pt.wikipedia.org/wiki/Ficheiro:Abstract_Factory.gif" class="internal" title="Ampliar"><IMG src="./Abstract_Factory_files/magnify-clip.png" width="15" height="11" alt=""></A></DIV>
+Exemplo de Diagrama em <A href="http://pt.wikipedia.org/wiki/UML" title="UML">UML</A> para o Padrão Abstract Factory.</DIV>
+</DIV>
+</DIV>
+</DIV>
+<H4><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=4" title="Editar se&ccedil;&atilde;o: C&oacute;digo em Java">editar</A>]</SPAN> <SPAN class="mw-headline" id="C.C3.B3digo_em_Java">Código em Java</SPAN></H4>
+<P>Este código, escrito na <A href="http://pt.wikipedia.org/wiki/Java_(linguagem_de_programa%C3%A7%C3%A3o)" title="Java (linguagem de programa&ccedil;&atilde;o)">linguagem Java</A>, mostra a implementação do diagrama mostrado acima. Por uma questão de simplicidade, o código relacionado às janelas é omitido.</P>
+<DIV dir="ltr" class="mw-geshi" style="text-align: left;">
+<DIV class="java source-java" style="font-family:monospace;">
+<PRE class="de1"> 
+ <SPAN class="kw1">abstract</SPAN> <SPAN class="kw1">class</SPAN> WidgetFactory
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> <SPAN class="kw1">static</SPAN> WidgetFactory obterFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+     <SPAN class="br0">{</SPAN>
+ 
+         <SPAN class="kw1">if</SPAN><SPAN class="br0">(</SPAN> Configuracao.<SPAN class="me1">obterInterfaceGraficaAtual</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="sy0">==</SPAN> Configuracao.<SPAN class="me1">MotifWidget</SPAN> <SPAN class="br0">)</SPAN>
+         <SPAN class="br0">{</SPAN>
+             <SPAN class="kw1">return</SPAN> <SPAN class="kw1">new</SPAN> MotifWidgetFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+         <SPAN class="br0">}</SPAN>
+         <SPAN class="kw1">else</SPAN>
+         <SPAN class="br0">{</SPAN>
+             <SPAN class="kw1">return</SPAN> <SPAN class="kw1">new</SPAN> QtWidgetFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+         <SPAN class="br0">}</SPAN>
+    <SPAN class="br0">}</SPAN>
+ 
+    <SPAN class="kw1">public</SPAN> <SPAN class="kw1">abstract</SPAN> Botao criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+ <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">class</SPAN> MotifWidgetFactory <SPAN class="kw1">extends</SPAN> WidgetFactory
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> Botao criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>  <SPAN class="br0">{</SPAN>
+         <SPAN class="kw1">return</SPAN> <SPAN class="kw1">new</SPAN> BotaoMotif<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+     <SPAN class="br0">}</SPAN>
+ <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">class</SPAN> QtWidgetFactory <SPAN class="kw1">extends</SPAN> WidgetFactory
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> Botao criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>  <SPAN class="br0">{</SPAN>
+         <SPAN class="kw1">return</SPAN> <SPAN class="kw1">new</SPAN> BotaoQt<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+     <SPAN class="br0">}</SPAN>
+  <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">abstract</SPAN> <SPAN class="kw1">class</SPAN> Botao
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> <SPAN class="kw1">abstract</SPAN> <SPAN class="kw4">void</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+ <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">class</SPAN> BotaoMotif <SPAN class="kw1">extends</SPAN> Botao
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> <SPAN class="kw4">void</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>  <SPAN class="br0">{</SPAN>
+        <SPAN class="kw3">System</SPAN>.<SPAN class="me1">out</SPAN>.<SPAN class="me1">println</SPAN><SPAN class="br0">(</SPAN><SPAN class="st0">"Eu sou um botao Motif!"</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+     <SPAN class="br0">}</SPAN>
+ <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">class</SPAN> BotaoQt <SPAN class="kw1">extends</SPAN> Botao
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> <SPAN class="kw4">void</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>  <SPAN class="br0">{</SPAN>
+        <SPAN class="kw3">System</SPAN>.<SPAN class="me1">out</SPAN>.<SPAN class="me1">println</SPAN><SPAN class="br0">(</SPAN><SPAN class="st0">"Eu sou um botao Qt!"</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+     <SPAN class="br0">}</SPAN>
+ <SPAN class="br0">}</SPAN>
+ 
+ <SPAN class="kw1">public</SPAN> <SPAN class="kw1">class</SPAN> Cliente
+ <SPAN class="br0">{</SPAN>
+     <SPAN class="kw1">public</SPAN> <SPAN class="kw1">static</SPAN> <SPAN class="kw4">void</SPAN> main<SPAN class="br0">(</SPAN><SPAN class="kw3">String</SPAN><SPAN class="br0">[</SPAN><SPAN class="br0">]</SPAN> args<SPAN class="br0">)</SPAN>
+     <SPAN class="br0">{</SPAN>
+         WidgetFactory factory <SPAN class="sy0">=</SPAN> WidgetFactory.<SPAN class="me1">obterFactory</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+ 
+         Botao botao <SPAN class="sy0">=</SPAN> factory.<SPAN class="me1">criarBotao</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+         botao.<SPAN class="me1">desenhar</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN><SPAN class="sy0">;</SPAN>
+     <SPAN class="br0">}</SPAN>
+ <SPAN class="br0">}</SPAN>
+</PRE></DIV>
+</DIV>
+<P>Este exemplo imprimiria na tela o texto "Eu sou um botao Motif!" ou "Eu sou um botao Qt!" dependendo do valor retornado pelo <A href="http://pt.wikipedia.org/wiki/M%C3%A9todo_(programa%C3%A7%C3%A3o)" title="M&eacute;todo (programa&ccedil;&atilde;o)">método</A> <CODE>Configuracao.obterInterfaceGraficaAtual()</CODE>, que descobre a interface gráfica, Motif ou Qt, utilizada pelo sistema.</P>
+<H4><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=5" title="Editar se&ccedil;&atilde;o: C&oacute;digo em VB.NET">editar</A>]</SPAN> <SPAN class="mw-headline" id="C.C3.B3digo_em_VB.NET">Código em VB.NET</SPAN></H4>
+<DIV dir="ltr" class="mw-geshi" style="text-align: left;">
+<DIV class="vbnet source-vbnet" style="font-family:monospace;">
+<PRE class="de1"><SPAN class="kw2">Public</SPAN> <SPAN class="kw2">MustInherit</SPAN> <SPAN class="kw6">Class</SPAN> WidgetFactory
+ 
+    <SPAN class="kw2">Shared</SPAN> <SPAN class="kw6">Function</SPAN> obterFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="kw2">As</SPAN> WidgetFactory
+        <SPAN class="kw6">If</SPAN> Configuracao.<SPAN class="me1">obterInterfaceGraficaAtual</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="kw2">Is</SPAN> Configuracao.<SPAN class="me1">MotifWidget</SPAN> <SPAN class="kw2">Then</SPAN>
+            <SPAN class="kw2">Return</SPAN> <SPAN class="kw2">New</SPAN> MotifWidgetFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+        <SPAN class="kw2">Else</SPAN>
+            <SPAN class="kw2">Return</SPAN> <SPAN class="kw2">New</SPAN> QtWidgetFactory<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+        <SPAN class="kw6">End</SPAN> <SPAN class="kw6">If</SPAN>
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Function</SPAN>
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">MustOverride</SPAN> <SPAN class="kw6">Function</SPAN> criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="kw2">As</SPAN> Botao
+ 
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw6">Class</SPAN> MotifWidgetFactory
+    <SPAN class="kw6">Inherits</SPAN> WidgetFactory
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">Overrides</SPAN> <SPAN class="kw6">Function</SPAN> criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="kw2">As</SPAN> Botao
+        <SPAN class="kw2">Return</SPAN> <SPAN class="kw2">New</SPAN> BotaoMotif
+ 
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Function</SPAN>
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw6">Class</SPAN> QtWidgetFactory
+    <SPAN class="kw6">Inherits</SPAN> WidgetFactory
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">Overrides</SPAN> <SPAN class="kw6">Function</SPAN> criarBotao<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN> <SPAN class="kw2">As</SPAN> Botao
+        <SPAN class="kw2">Return</SPAN> <SPAN class="kw2">New</SPAN> BotaoQt
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Function</SPAN>
+ 
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw2">MustInherit</SPAN> <SPAN class="kw6">Class</SPAN> Botao
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">MustOverride</SPAN> <SPAN class="kw6">Sub</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+ 
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw6">Class</SPAN> BotaoMotif
+    <SPAN class="kw6">Inherits</SPAN> Botao
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">Overrides</SPAN> <SPAN class="kw6">Sub</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+        Console.<SPAN class="me1">Out</SPAN>.<SPAN class="me1">WriteLine</SPAN><SPAN class="br0">(</SPAN><SPAN class="st0">"Eu sou um botão Motif."</SPAN><SPAN class="br0">)</SPAN>
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Sub</SPAN>
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw6">Class</SPAN> BotaoQt
+    <SPAN class="kw6">Inherits</SPAN> Botao
+ 
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">Overrides</SPAN> <SPAN class="kw6">Sub</SPAN> desenhar<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+        Console.<SPAN class="me1">Out</SPAN>.<SPAN class="me1">WriteLine</SPAN><SPAN class="br0">(</SPAN><SPAN class="st0">"Eu sou um botão Qt."</SPAN><SPAN class="br0">)</SPAN>
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Sub</SPAN>
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+ 
+<SPAN class="kw2">Public</SPAN> <SPAN class="kw6">Class</SPAN> Client
+    <SPAN class="kw2">Public</SPAN> <SPAN class="kw2">Shared</SPAN> <SPAN class="kw6">Sub</SPAN> main<SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+ 
+        <SPAN class="kw6">Dim</SPAN> factory <SPAN class="kw2">As</SPAN> WidgetFactory <SPAN class="sy0">=</SPAN> WidgetFactory.<SPAN class="me1">obterFactory</SPAN>
+ 
+        <SPAN class="kw6">Dim</SPAN> botao <SPAN class="kw2">As</SPAN> Botao <SPAN class="sy0">=</SPAN> factory.<SPAN class="me1">criarBotao</SPAN>
+ 
+        botao.<SPAN class="me1">desenhar</SPAN><SPAN class="br0">(</SPAN><SPAN class="br0">)</SPAN>
+ 
+    <SPAN class="kw6">End</SPAN> <SPAN class="kw6">Sub</SPAN>
+<SPAN class="kw6">End</SPAN> <SPAN class="kw6">Class</SPAN>
+</PRE></DIV>
+</DIV>
+<H2><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=6" title="Editar se&ccedil;&atilde;o: Padr&otilde;es relacionados">editar</A>]</SPAN> <SPAN class="mw-headline" id="Padr.C3.B5es_relacionados">Padrões relacionados</SPAN></H2>
+<UL>
+<LI><A href="http://pt.wikipedia.org/wiki/Factory_Method" title="Factory Method">Factory Method</A></LI>
+<LI><A href="http://pt.wikipedia.org/wiki/Prototype" title="Prototype">Prototype</A></LI>
+<LI><A href="http://pt.wikipedia.org/wiki/Singleton" title="Singleton">Singleton</A></LI>
+</UL>
+<H2><SPAN class="editsection">[<A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit&section=7" title="Editar se&ccedil;&atilde;o: Bibliografia">editar</A>]</SPAN> <SPAN class="mw-headline" id="Bibliografia">Bibliografia</SPAN></H2>
+<UL>
+<LI><CITE class="book" style="font-style:normal"><A href="http://pt.wikipedia.org/wiki/Erich_Gamma" title="Erich Gamma">Erich Gamma</A>, <A href="http://pt.wikipedia.org/wiki/Richard_Helm" title="Richard Helm">Richard Helm</A>, <A href="http://pt.wikipedia.org/wiki/Ralph_Johnson" title="Ralph Johnson">Ralph Johnson</A>, <A href="http://pt.wikipedia.org/wiki/John_Vlissides" title="John Vlissides">John Vlissides</A>. <I>Design Patterns</I>: Elements of Reusable Object-Oriented Software .1.ed.&nbsp;<A href="http://pt.wikipedia.org/wiki/Estados_Unidos_da_Am%C3%A9rica" title="Estados Unidos da Am&eacute;rica" class="mw-redirect">Estados Unidos da América</A>:&nbsp;Addison-Wesley, 1995. <A href="http://pt.wikipedia.org/wiki/Especial:Fontes_de_livros/0201633612" class="internal mw-magiclink-isbn">ISBN 0201633612</A></CITE></LI>
+<LI><CITE class="book" style="font-style:normal"><A href="http://pt.wikipedia.org/w/index.php?title=Steven_John_Metsker&action=edit&redlink=1" class="new" title="Steven John Metsker (p&aacute;gina n&atilde;o existe)">Steven John Metsker</A>. <I>Padrões de Projeto Em Java</I> .1.ed.&nbsp;<A href="http://pt.wikipedia.org/wiki/Brasil" title="Brasil">Brasil</A>:&nbsp;Bookman, 2004. <A href="http://pt.wikipedia.org/wiki/Especial:Fontes_de_livros/8536304111" class="internal mw-magiclink-isbn">ISBN 8536304111</A></CITE></LI>
+</UL>
+<DIV style="clear:both;"></DIV>
+<TABLE class="navbox noprint collapsible autocollapse nowraplinks" style="margin:auto; background:white;background:white;" id="collapsibleTable0">
+<TBODY><TR>
+<TH colspan="2" style="text-align:center;width:100%;"><SPAN style="float: right; font-weight: normal; text-align: right; width: 6em; ">[<A id="collapseButton0" href="javascript:collapseTable(0);">Esconder</A>]</SPAN>
+<DIV style="float:left; width:6em; vertical-align:middle; text-align:left;">
+<DIV class="noprint plainlinksneverexpand navbar" style="background:none; padding:0; font-weight:normal;;border:none;; font-size:xx-small;"><A href="http://pt.wikipedia.org/wiki/Predefini%C3%A7%C3%A3o:Padr%C3%B5es_de_projeto" title="Predefini&ccedil;&atilde;o:Padr&otilde;es de projeto"><SPAN class="plainlinks" title="Ver esta predefini&ccedil;&atilde;o" style=";border:none;">v</SPAN></A>&nbsp;<SPAN style="font-size:80%;">•</SPAN>&nbsp;<SPAN class="plainlinks"><A href="http://pt.wikipedia.org/w/index.php?title=Predefini%C3%A7%C3%A3o:Padr%C3%B5es_de_projeto&action=edit" class="external text" rel="nofollow"><SPAN title="Editar esta predefini&ccedil;&atilde;o" style=";border:none;;">e</SPAN></A></SPAN></DIV>
+</DIV>
+<SPAN style="font-size:110%;"><A href="http://pt.wikipedia.org/wiki/Padr%C3%B5es_de_projeto_de_software" title="Padr&otilde;es de projeto de software">Padrões de projeto de software</A></SPAN></TH>
+</TR>
+<TR>
+<TH style="white-space:nowrap;background:#ddddff;text-align:right;">Padrões GoF de criação</TH>
+<TD colspan="1" style="text-align:left;width:100%;font-size:95%;"><STRONG class="selflink">Abstract Factory</STRONG><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Builder" title="Builder">Builder</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Factory_Method" title="Factory Method">Factory Method</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Prototype" title="Prototype">Prototype</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Singleton" title="Singleton">Singleton</A></TD>
+</TR>
+<TR>
+<TH style="white-space:nowrap;background:#ddddff;text-align:right;">Padrões GoF estruturais</TH>
+<TD colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><A href="http://pt.wikipedia.org/wiki/Adapter" title="Adapter">Adapter</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Bridge_(padr%C3%A3o)" title="Bridge (padr&atilde;o)">Bridge</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Composite" title="Composite">Composite</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Decorator" title="Decorator" class="mw-redirect">Decorator</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Fa%C3%A7ade" title="Fa&ccedil;ade">Façade</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Flyweight" title="Flyweight">Flyweight</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Proxy_(padr%C3%B5es_de_projeto)" title="Proxy (padr&otilde;es de projeto)">Proxy</A></TD>
+</TR>
+<TR>
+<TH style="white-space:nowrap;background:#ddddff;text-align:right;">Padrões GoF comportamentais</TH>
+<TD colspan="1" style="text-align:left;width:100%;font-size:95%;"><A href="http://pt.wikipedia.org/wiki/Chain_of_Responsibility" title="Chain of Responsibility">Chain of Responsibility</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Command" title="Command">Command</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Interpreter" title="Interpreter">Interpreter</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Iterator" title="Iterator">Iterator</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Mediator" title="Mediator">Mediator</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Memento_(Padr%C3%B5es_de_Projeto)" title="Memento (Padr&otilde;es de Projeto)">Memento</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Observer" title="Observer">Observer</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/State" title="State">State</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Strategy" title="Strategy">Strategy</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Template_Method" title="Template Method">Template Method</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Visitor" title="Visitor" class="mw-redirect">Visitor</A></TD>
+</TR>
+<TR>
+<TH style="white-space:nowrap;background:#ddddff;text-align:right;">Padrões GRASP</TH>
+<TD colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><A href="http://pt.wikipedia.org/wiki/Controller" title="Controller" class="mw-redirect">Controller</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Creator&action=edit&redlink=1" class="new" title="Creator (p&aacute;gina n&atilde;o existe)">Creator</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Expert_(GRASP)" title="Expert (GRASP)" class="mw-redirect">Expert (GRASP)</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=High_Cohesion&action=edit&redlink=1" class="new" title="High Cohesion (p&aacute;gina n&atilde;o existe)">High Cohesion</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Indirection&action=edit&redlink=1" class="new" title="Indirection (p&aacute;gina n&atilde;o existe)">Indirection</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Law_of_Demeter&action=edit&redlink=1" class="new" title="Law of Demeter (p&aacute;gina n&atilde;o existe)">Law of Demeter</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Low_Coupling&action=edit&redlink=1" class="new" title="Low Coupling (p&aacute;gina n&atilde;o existe)">Low Coupling</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/wiki/Polymorphism" title="Polymorphism" class="mw-redirect">Polymorphism</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Protected_Variations&action=edit&redlink=1" class="new" title="Protected Variations (p&aacute;gina n&atilde;o existe)">Protected Variations</A><SPAN style="white-space:nowrap; font-weight:bold;">&nbsp;·&nbsp;</SPAN><A href="http://pt.wikipedia.org/w/index.php?title=Pure_Fabrication&action=edit&redlink=1" class="new" title="Pure Fabrication (p&aacute;gina n&atilde;o existe)">Pure Fabrication</A></TD>
+</TR>
+<TR>
+<TD style="text-align:center;background:#ddddff;" colspan="2"><SMALL><B><A href="http://pt.wikipedia.org/wiki/Categoria:Padr%C3%B5es_de_projeto_de_software" title="Categoria:Padr&otilde;es de projeto de software">Categoria: Padrões de projeto de software</A></B></SMALL></TD>
+</TR>
+</TBODY></TABLE>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 763/1000000
+Post-expand include size: 22103/2048000 bytes
+Template argument size: 11140/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key ptwiki:pcache:idhash:194449-0!1!0!!pt!2 and timestamp 20100321224504 -->
+<DIV class="printfooter">
+Obtido em "<A href="./Abstract_Factory_files/Abstract_Factory.html">http://pt.wikipedia.org/wiki/Abstract_Factory</A>"</DIV>
+			<DIV id="catlinks" class="catlinks"><DIV id="mw-normal-catlinks"><A href="http://pt.wikipedia.org/wiki/Especial:Categorias" title="Especial:Categorias">Categorias</A>: <SPAN dir="ltr"><A href="http://pt.wikipedia.org/wiki/Categoria:Programa%C3%A7%C3%A3o_orientada_a_objetos" title="Categoria:Programa&ccedil;&atilde;o orientada a objetos">Programação orientada a objetos</A></SPAN> | <SPAN dir="ltr"><A href="http://pt.wikipedia.org/wiki/Categoria:Padr%C3%B5es_de_projeto_de_software" title="Categoria:Padr&otilde;es de projeto de software">Padrões de projeto de software</A></SPAN> | <SPAN dir="ltr"><A href="http://pt.wikipedia.org/wiki/Categoria:Engenharia_de_software" title="Categoria:Engenharia de software">Engenharia de software</A></SPAN></DIV></DIV>			<!-- end content -->
+						<DIV class="visualClear"></DIV>
+		</DIV>
+	</DIV>
+		</DIV>
+		<DIV id="column-one">
+	<DIV id="p-cactions" class="portlet">
+		<H5>Vistas</H5>
+		<DIV class="pBody">
+			<UL lang="pt" xml:lang="pt">
+	
+				 <LI id="ca-nstab-main" class="selected"><A href="./Abstract_Factory_files/Abstract_Factory.html" title="Ver a p&aacute;gina de conte&uacute;do [ctrl-alt-c]" accesskey="c">Artigo</A></LI>
+				 <LI id="ca-talk" class="new"><A href="http://pt.wikipedia.org/w/index.php?title=Discuss%C3%A3o:Abstract_Factory&action=edit&redlink=1" title="Discuss&atilde;o sobre o conte&uacute;do da p&aacute;gina [ctrl-alt-t]" accesskey="t">Discussão</A></LI>
+				 <LI id="ca-edit"><A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=edit" title="Pode editar esta p&aacute;gina.
+Por favor, utilize o bot&atilde;o &quot;Antever resultado&quot; antes de gravar. [ctrl-alt-e]" accesskey="e">Editar</A></LI>
+				 <LI id="ca-history"><A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&action=history" title="Edi&ccedil;&otilde;es anteriores desta p&aacute;gina. [ctrl-alt-h]" accesskey="h">Histórico</A></LI>			</UL>
+		</DIV>
+	</DIV>
+	<DIV class="portlet" id="p-personal">
+		<H5>Ferramentas pessoais</H5>
+		<DIV class="pBody">
+			<UL lang="pt" xml:lang="pt">
+				<LI id="pt-optin-try"><A href="http://pt.wikipedia.org/w/index.php?title=Especial:UsabilityInitiativeOptIn&from=Abstract_Factory" title="Experimente novas funcionalidades" class="no-text-transform">Experimente o Beta</A></LI>
+				<LI id="pt-login"><A href="http://pt.wikipedia.org/w/index.php?title=Especial:Entrar&returnto=Abstract_Factory" title="Aconselhamos-lhe a criar uma conta na Wikip&eacute;dia, embora tal n&atilde;o seja obrigat&oacute;rio. [ctrl-alt-o]" accesskey="o">Entrar / criar conta</A></LI>
+			</UL>
+		</DIV>
+	</DIV>
+	<DIV class="portlet" id="p-logo">
+		<A style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/6/61/Wikipedia-logo-pt.png);" href="http://pt.wikipedia.org/wiki/P%C3%A1gina_principal" title="Visite a p&aacute;gina principal"></A>
+	</DIV>
+	<SCRIPT type="text/javascript"> if (window.isMSIE55) fixalpha(); </SCRIPT>
+	<DIV id="p-search" class="portlet">
+		<H5 lang="pt" xml:lang="pt"><LABEL for="searchInput">Busca</LABEL></H5>
+		<DIV id="searchBody" class="pBody">
+			<FORM action="http://pt.wikipedia.org/w/index.php" id="searchform">
+				<INPUT type="hidden" name="title" value="Especial:Busca">
+				<INPUT id="searchInput" title="Pesquisar na Wikip&eacute;dia" accesskey="f" value="" name="search" autocomplete="off">
+				<INPUT type="submit" name="go" class="searchButton" id="searchGoButton" value="Ir" title="Ir para uma p&aacute;gina com este nome exacto, caso exista">&nbsp;
+				<INPUT type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Pesquisar" title="Procurar p&aacute;ginas que cont&ecirc;m este texto">
+			</FORM>
+		</DIV>
+	</DIV>
+	<DIV class="generated-sidebar portlet" id="p-navigation">
+		<H5 lang="pt" xml:lang="pt">Navegação</H5>
+		<DIV class="pBody">
+			<UL>
+				<LI id="n-mainpage"><A href="http://pt.wikipedia.org/wiki/P%C3%A1gina_principal" title="Visitar a p&aacute;gina principal [ctrl-alt-z]" accesskey="z">Página principal</A></LI>
+				<LI id="n-Conte.C3.BAdo-destacado"><A href="http://pt.wikipedia.org/wiki/Portal:Conte%C3%BAdo_destacado">Conteúdo destacado</A></LI>
+				<LI id="n-currentevents"><A href="http://pt.wikipedia.org/wiki/Portal:Eventos_atuais" title="Informa&ccedil;&atilde;o tem&aacute;tica sobre eventos atuais">Eventos atuais</A></LI>
+				<LI id="n-Esplanada"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Esplanada">Esplanada</A></LI>
+				<LI id="n-randompage"><A href="http://pt.wikipedia.org/wiki/Especial:Aleat%C3%B3ria" title="Carregar p&aacute;gina aleat&oacute;ria [ctrl-alt-x]" accesskey="x">Página aleatória</A></LI>
+				<LI id="n-Portais"><A href="http://pt.wikipedia.org/wiki/Portal:%C3%8Dndice">Portais</A></LI>
+			</UL>
+		</DIV>
+	</DIV>
+	<DIV class="generated-sidebar portlet" id="p-colabora.C3.A7.C3.A3o">
+		<H5 lang="pt" xml:lang="pt">colaboração</H5>
+		<DIV class="pBody">
+			<UL>
+				<LI id="n-Boas-vindas"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Boas-vindas">Boas-vindas</A></LI>
+				<LI id="n-help"><A href="http://pt.wikipedia.org/wiki/Ajuda:P%C3%A1gina_principal" title="Um local reservado para aux&iacute;lio.">Ajuda</A></LI>
+				<LI id="n-P.C3.A1gina-de-testes"><A href="http://pt.wikipedia.org/wiki/Wikipedia:P%C3%A1gina_de_testes">Página de testes</A></LI>
+				<LI id="n-portal"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Portal_comunit%C3%A1rio" title="Sobre o projeto">Portal comunitário</A></LI>
+				<LI id="n-recentchanges"><A href="http://pt.wikipedia.org/wiki/Especial:Mudan%C3%A7as_recentes" title="A lista de mudan&ccedil;as recentes nesta wiki. [ctrl-alt-r]" accesskey="r">Mudanças recentes</A></LI>
+				<LI id="n-Estaleiro"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Estaleiro">Estaleiro</A></LI>
+				<LI id="n-Criar-p.C3.A1gina"><A href="http://pt.wikipedia.org/wiki/Ajuda:Guia_de_edi%C3%A7%C3%A3o/Como_come%C3%A7ar_uma_p%C3%A1gina">Criar página</A></LI>
+				<LI id="n-P.C3.A1ginas-novas"><A href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_novas">Páginas novas</A></LI>
+				<LI id="n-Contato"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Contato">Contato</A></LI>
+				<LI id="n-sitesupport"><A href="http://wikimediafoundation.org/wiki/Coleta_de_fundos" title="Ajude-nos">Donativos</A></LI>
+			</UL>
+		</DIV>
+	</DIV>
+	<DIV class="generated-sidebar portlet" id="p-coll-print_export">
+		<H5 lang="pt" xml:lang="pt">Imprimir/exportar</H5>
+		<DIV class="pBody">
+<UL id="collectionPortletList"><LI id="coll-create_a_book"><A href="http://pt.wikipedia.org/w/index.php?title=Especial:Livro&bookcmd=book_creator&referer=Abstract+Factory" title="Cria um livro ou uma cole&ccedil;&atilde;o de p&aacute;ginas" rel="nofollow">Criar um livro</A></LI><LI id="coll-download-as-rl"><A href="http://pt.wikipedia.org/w/index.php?title=Especial:Livro&bookcmd=render_article&arttitle=Abstract+Factory&oldid=18517811&writer=rl" title="Descarregar uma vers&atilde;o PDF desta p&aacute;gina wiki" rel="nofollow">Descarregar como PDF</A></LI><LI id="t-print"><A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&printable=yes" title="Vers&atilde;o para impress&atilde;o desta p&aacute;gina [ctrl-alt-p]" accesskey="p">Versão para impressão</A></LI></UL>		</DIV>
+	</DIV>
+	<DIV class="portlet" id="p-tb">
+		<H5 lang="pt" xml:lang="pt">Ferramentas</H5>
+		<DIV class="pBody">
+			<UL>
+				<LI id="t-whatlinkshere"><A href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_afluentes/Abstract_Factory" title="Lista de todas as p&aacute;ginas que cont&ecirc;m liga&ccedil;&otilde;es para esta [ctrl-alt-j]" accesskey="j">Páginas afluentes</A></LI>
+				<LI id="t-recentchangeslinked"><A href="http://pt.wikipedia.org/wiki/Especial:Novidades_relacionadas/Abstract_Factory" title="Mudan&ccedil;as recentes em p&aacute;ginas para as quais esta cont&eacute;m liga&ccedil;&otilde;es [ctrl-alt-k]" accesskey="k">Alterações relacionadas</A></LI>
+<LI id="t-upload"><A href="http://pt.wikipedia.org/wiki/Ajuda:Como_carregar_ficheiros_no_Commons" title="Carregar ficheiros [ctrl-alt-u]" accesskey="u">Carregar ficheiro</A></LI>
+<LI id="t-specialpages"><A href="http://pt.wikipedia.org/wiki/Especial:P%C3%A1ginas_especiais" title="Lista de p&aacute;ginas especiais [ctrl-alt-q]" accesskey="q">Páginas especiais</A></LI>
+				<LI id="t-permalink"><A href="http://pt.wikipedia.org/w/index.php?title=Abstract_Factory&oldid=18517811" title="Liga&ccedil;&atilde;o permanente para esta vers&atilde;o desta p&aacute;gina">Ligação permanente</A></LI><LI id="t-cite"><A href="http://pt.wikipedia.org/w/index.php?title=Especial:Citar&page=Abstract_Factory&id=18517811" title="Informa&ccedil;&atilde;o sobre como citar esta p&aacute;gina">Citar esta página</A></LI>			</UL>
+		</DIV>
+	</DIV>
+	<DIV id="p-lang" class="portlet">
+		<H5 lang="pt" xml:lang="pt">Noutras línguas</H5>
+		<DIV class="pBody">
+			<UL>
+				<LI class="interwiki-bg"><A href="http://bg.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0_%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD)">Български</A></LI>
+				<LI class="interwiki-ca"><A href="http://ca.wikipedia.org/wiki/Abstract_factory">Català</A></LI>
+				<LI class="interwiki-de"><A href="http://de.wikipedia.org/wiki/Abstrakte_Fabrik">Deutsch</A></LI>
+				<LI class="interwiki-en"><A href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">English</A></LI>
+				<LI class="interwiki-es"><A href="http://es.wikipedia.org/wiki/Abstract_Factory_(patr%C3%B3n_de_dise%C3%B1o)">Español</A></LI>
+				<LI class="interwiki-fr"><A href="http://fr.wikipedia.org/wiki/Fabrique_abstraite_(patron_de_conception)">Français</A></LI>
+				<LI class="interwiki-it"><A href="http://it.wikipedia.org/wiki/Abstract_factory">Italiano</A></LI>
+				<LI class="interwiki-ja"><A href="http://ja.wikipedia.org/wiki/Abstract_Factory_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">日本語</A></LI>
+				<LI class="interwiki-ko"><A href="http://ko.wikipedia.org/wiki/Abstract_factory_%ED%8C%A8%ED%84%B4">한국어</A></LI>
+				<LI class="interwiki-pl"><A href="http://pl.wikipedia.org/wiki/Fabryka_abstrakcyjna_(wzorzec_projektowy)">Polski</A></LI>
+				<LI class="interwiki-ru"><A href="http://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0%D1%8F_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">Русский</A></LI>
+				<LI class="interwiki-th"><A href="http://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B9%88%E0%B8%AD">ไทย</A></LI>
+				<LI class="interwiki-uk"><A href="http://uk.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)">Українська</A></LI>
+				<LI class="interwiki-vi"><A href="http://vi.wikipedia.org/wiki/Abstract_factory_pattern">Tiếng Việt</A></LI>
+				<LI class="interwiki-zh"><A href="http://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82">中文</A></LI>
+			</UL>
+		</DIV>
+	</DIV>
+		</DIV><!-- end of the left (by default at least) column -->
+			<DIV class="visualClear"></DIV>
+			<DIV id="footer">
+				<DIV id="f-poweredbyico"><A href="http://www.mediawiki.org/"><IMG src="./Abstract_Factory_files/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki"></A></DIV>
+				<DIV id="f-copyrightico"><A href="http://wikimediafoundation.org/"><IMG src="./Abstract_Factory_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></A></DIV>
+			<UL id="f-list">
+					<LI id="lastmod"> Esta página foi modificada pela última vez às 18h58min de 22 de janeiro de 2010.</LI>
+					<LI id="copyright">Este texto é disponibilizado nos termos da licença <A href="http://creativecommons.org/licenses/by-sa/3.0/deed.pt">Atribuição-Compartilhamento pela mesma Licença 3.0 Unported (CC-BY-SA)</A>;
+pode estar sujeito a condições adicionais.
+Consulte as <A href="http://wikimediafoundation.org/wiki/Terms_of_Use">Condições de Uso</A> para mais detalhes.</LI>
+					<LI id="privacy"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Pol%C3%ADtica_de_privacidade" title="Wikipedia:Pol&iacute;tica de privacidade">Política de privacidade</A></LI>
+					<LI id="about"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Sobre" title="Wikipedia:Sobre">Sobre a Wikipédia</A></LI>
+					<LI id="disclaimer"><A href="http://pt.wikipedia.org/wiki/Wikipedia:Aviso_Geral" title="Wikipedia:Aviso Geral">Avisos gerais</A></LI>
+			</UL>
+		</DIV>
+</DIV>
+
+<SCRIPT type="text/javascript">if (window.runOnloadHook) runOnloadHook();</SCRIPT>
+<!-- Served by srv239 in 0.063 secs. -->
+</BODY></HTML>

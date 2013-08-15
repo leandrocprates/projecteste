@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0172)http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="y_key" content="4067f3cbe3bd6827"><META name="verify-v1" content="iHsuhpCN9YK2DUU0qJYOw8MuYkhT9ZAtbhm8QHnMWVk="><META name="description" content="Introdu&ccedil;&atilde;o ao desenvolvimento de objetos JSON usando Java. JSON (JavaScript Object Notation) &eacute; uma nova forma de realizar integra&ccedil;&otilde;es entre softwares, varias linguagens d&atilde;o suporte a JSON para realizar diversas tarefas, entre elas est&atilde;o Java, C#, PHP, JavaScript, C, C  , entre outras. - ">
+<TITLE>Trabalhando com JSON utilizando Java</TITLE>
+<LINK rel="alternate" type="application/rss+xml" title="Oficina da Net" href="http://feeds2.feedburner.com/oficinadanet_rss">
+    <LINK rel="stylesheet" type="text/css" href="./Trabalhando com JSON utilizando Java_files/style-min.css">
+    <SCRIPT language="javascript" type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/jquery.min.js"></SCRIPT>
+    <LINK rel="stylesheet" type="text/css" href="./Trabalhando com JSON utilizando Java_files/interno-min.css"><SCRIPT language="javascript" type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/swfobject.js"></SCRIPT>
+<SCRIPT language="javascript" type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/default.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/ga.js"></SCRIPT><LINK rel="stylesheet" type="text/css" href="./Trabalhando com JSON utilizando Java_files/share-button-css"><SCRIPT src="./Trabalhando com JSON utilizando Java_files/restserver.php"></SCRIPT><LINK rel="stylesheet" type="text/css" href="./Trabalhando com JSON utilizando Java_files/hw_csspadrao_0_v15.css"><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Trabalhando com JSON utilizando Java_files/script.js"></SCRIPT><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Trabalhando com JSON utilizando Java_files/mostraV2.js"></SCRIPT><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Trabalhando com JSON utilizando Java_files/mostraV2(1).js"></SCRIPT><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Trabalhando com JSON utilizando Java_files/mostraV2(2).js"></SCRIPT><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Trabalhando com JSON utilizando Java_files/mostraV2(3).js"></SCRIPT></HEAD><BODY>
+<SCRIPT type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-676692-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
+    </SCRIPT><DIV class="barra_top">
+    <SCRIPT type="text/javascript"> var vParceiro = "oficinadanet"; </SCRIPT>
+    <SCRIPT type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/barra.js"></SCRIPT><IFRAME src="http://olhardigital.com.br/barra/barra.html?parc=oficinadanet" frameborder="0" marginwidth="0" marginheight="0" width="970" height="25" style="margin:0px;"></IFRAME>
+</DIV>
+<DIV id="body">
+    <DIV id="header">
+        <DIV class="barra">
+            <UL>
+                <LI><A href="http://www.oficinadanet.com.br/agenda">Agenda</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/apostilas">Apostilas</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/materias">Artigos</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/colunistas_do_site">Colunistas</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/dicas">Dicas</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/central_de_empregos">Empregos</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/contato">Fale Conosco</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/forum">Fórum</A></LI>
+                <LI><A href="http://www.iconesbr.net/">Ícones</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/noticias_web">Notícias</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/referencias">Referências</A></LI>
+                <LI><A target="_blank" rel="nofollow" href="http://feeds2.feedburner.com/oficinadanet_rss">RSS</A></LI>
+                <LI><A href="http://www.oficinadanet.com.br/videos">Vídeos</A></LI>
+            </UL>
+        </DIV>
+        <H1><A href="http://www.oficinadanet.com.br/"></A></H1>
+        <DIV id="search">
+            <FORM action="http://www.oficinadanet.com.br/" name="search">
+                <INPUT type="hidden" name="acao" value="search">
+                <INPUT type="hidden" name="tipo" value="">
+                <INPUT type="text" class="campo" name="q" value="">
+                <INPUT type="image" class="bt_search" src="./Trabalhando com JSON utilizando Java_files/bt_busca.png" alt="BUSCAR">
+            </FORM>
+        </DIV>
+        <DIV class="login">
+                            <A href="http://www.oficinadanet.com.br/register"><IMG src="./Trabalhando com JSON utilizando Java_files/bt_cadastre-se.png" alt="cadastre-se"></A>
+                <A href="javascript:void(0)" onclick="$(&#39;#fo_login&#39;).toggle()"><IMG src="./Trabalhando com JSON utilizando Java_files/bt_login.png" alt="login"></A>
+                <DIV id="fo_login">
+                    <FORM action="http://www.oficinadanet.com.br/index.php?acao=login" method="post">
+                        <INPUT type="hidden" name="redirect" value="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29">
+                        <TABLE cellpadding="2" cellspacing="2" width="100%">
+                            <TBODY><TR><TD colspan="2"><INPUT style="width:93%;" name="email" value="e-mail" onfocus="if(this.value == &#39;e-mail&#39;)this.value = &#39;&#39;" onblur="if(this.value == &#39;&#39;)this.value = &#39;e-mail&#39;" class="campo round"></TD></TR>
+                            <TR>
+                                <TD><INPUT style="width:95%;" name="senha" value="senha" onfocus="if(this.value == &#39;senha&#39;)this.value = &#39;&#39;" onblur="if(this.value == &#39;&#39;)this.value = &#39;senha&#39;" class="campo round" type="password"></TD>
+                                <TD><INPUT type="submit" value="ok" class="botao round"></TD>
+                            </TR>
+                            <TR><TD colspan="2"><A href="http://www.oficinadanet.com.br/index.php?acao=login&act=esqueceu">Esqueceu a senha</A></TD></TR>
+                        </TBODY></TABLE>
+                    </FORM>
+                </DIV>
+                		</DIV>
+    </DIV>
+    <DIV id="menu">
+        <UL>
+    <LI><A href="http://www.oficinadanet.com.br/area/11/banco_de_dados">Banco de Dados</A></LI><LI><A href="http://www.oficinadanet.com.br/area/8/desenvolvimento">Desenvolvimento</A></LI><LI><A href="http://www.oficinadanet.com.br/area/82/design">Design</A></LI><LI><A href="http://www.oficinadanet.com.br/area/68/gerencia">Gerência</A></LI><LI><A href="http://www.oficinadanet.com.br/area/86/programacao">Programação</A></LI><LI><A href="http://www.oficinadanet.com.br/area/67/seo">SEO</A></LI><LI><A href="http://www.oficinadanet.com.br/area/24/sistemas_operacionais">Sistemas Operacionais</A></LI><LI><A href="http://www.oficinadanet.com.br/area/84/tecnologiaciencia">Tecnologia/Ciência</A></LI></UL>
+    </DIV>
+    <DIV id="banner_topo2">
+        <A target="_blank" href="http://www.oficinadanet.com.br/add_click.php?tipo=banner&banner_id=55">
+					<IMG border="0" src="./Trabalhando com JSON utilizando Java_files/260x90_facebook.jpg" alt="Facebook">
+					</A>
+					    </DIV>
+    <DIV id="banner_topo">
+        <A target="_blank" href="http://www.oficinadanet.com.br/add_click.php?tipo=banner&banner_id=41">
+					<IMG border="0" src="./Trabalhando com JSON utilizando Java_files/728x90_central_server.gif" alt="CentralServer - Programa&ccedil;&atilde;o">
+					</A>
+					    </DIV>
+    <DIV id="center">
+        <DIV id="content">
+                <DIV id="texto">
+        <DIV class="tbread">
+            <A class="h_dad" href="http://www.oficinadanet.com.br/area/86/programacao">Programação</A> » <A class="h_sun" href="http://www.oficinadanet.com.br/area/47/java">Java</A>        </DIV>
+        <DIV class="texto_pai">
+            <H1><A href="./Trabalhando com JSON utilizando Java_files/Trabalhando com JSON utilizando Java.html">Trabalhando com JSON utilizando Java</A></H1>
+            <P class="tdescricao">Introdução ao desenvolvimento de objetos JSON usando Java. JSON (JavaScript Object Notation) é uma nova forma de realizar integrações entre softwares, varias linguagens dão suporte a JSON para realiza...</P>
+            
+            <DIV class="tdata">
+                Publicado em: 1 de maio de 2010 &nbsp;|&nbsp; Leituras: 1.267 &nbsp;|&nbsp;
+                Canal: <A href="http://www.oficinadanet.com.br/area/47/java">Java</A> &nbsp;|&nbsp;
+                Autor: <A href="http://www.oficinadanet.com.br/editor/210/caio_vinicius">Caio Vinicius</A>
+            </DIV>
+            
+            <DIV class="banner_texto">
+                <SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-2027587876771817";
+/* 336x280, criado 04/05/09 */
+google_ad_slot = "1670726558";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/show_ads.js">
+</SCRIPT><SCRIPT src="./Trabalhando com JSON utilizando Java_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="336" height="280" frameborder="0" src="./Trabalhando com JSON utilizando Java_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>            </DIV>
+            <DIV class="texto">
+                <DIV id="HOTWordsTxt"><P><TAGHW>JSON (JavaScript Object Notation) é uma nova forma de realizar integrações entre <A href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29#" onclick="hwClick(&quot;softwares&quot;);return false;" style="cursor: hand; color:#3a7fee; text-decoration:underline; border-bottom:dotted 1px;" onmouseover="hwShow(event, this, &quot;softwares&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;solid&quot;;" onmouseout="hideMaybe(this, &quot;softwares&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;dotted 1px&quot;; " oncontextmenu="return false;">softwares</A>, varias linguagens dão suporte a JSON para realizar diversas tarefas, entre elas estão Java, C#, PHP, JavaScript, C, C  , entre outras.</TAGHW><BR>
+<BR><TAGHW>
+Nos dias de hoje é muito comum a utilização de JSON ao invés de XML para realizar integrações entre <A href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29#" onclick="hwClick(&quot;sistemas&quot;);return false;" style="cursor: hand; color:#3a7fee; text-decoration:underline; border-bottom:dotted 1px;" onmouseover="hwShow(event, this, &quot;sistemas&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;solid&quot;;" onmouseout="hideMaybe(this, &quot;sistemas&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;dotted 1px&quot;; " oncontextmenu="return false;">sistemas</A>, isto porque, com JSON tornam-se muito mais simples a codificação e a leitura dos <A href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29#" onclick="hwClick(&quot;dados&quot;);return false;" style="cursor: hand; color:#3a7fee; text-decoration:underline; border-bottom:dotted 1px;" onmouseover="hwShow(event, this, &quot;dados&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;solid&quot;;" onmouseout="hideMaybe(this, &quot;dados&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;dotted 1px&quot;; " oncontextmenu="return false;">dados</A> transmitidos.</TAGHW><BR>
+<BR>
+Vamos supor que temos um objeto com os atributos id e nome, vamos ver como ficaria em formato XML e JSON, segue os exemplos:<BR>
+<BR>
+<STRONG>XML:</STRONG><BR>
+</P><PRE><CODE>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+      &lt;id&gt;10&lt;/id&gt;
+      &lt;nome&gt;Nome do Cliente&lt;/nome&gt;
+</CODE></PRE><BR>
+<BR>
+<STRONG>JSON:</STRONG><BR><TAGHW>
+{"id":10, "nome":"Nome do <A href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29#" onclick="hwClick(&quot;Cliente&quot;);return false;" style="cursor: hand; color:#3a7fee; text-decoration:underline; border-bottom:dotted 1px;" onmouseover="hwShow(event, this, &quot;Cliente&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;solid&quot;;" onmouseout="hideMaybe(this, &quot;Cliente&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;dotted 1px&quot;; " oncontextmenu="return false;">Cliente</A>"}</TAGHW><BR>
+<BR>
+A utilização de JSON com aplicações Java é uma tarefa muito simples, geralmente consiste em uma API que possui métodos para a conversão de objetos Java para JSON.<BR>
+<BR>
+Para começar a utilizar JSON acesse o site <A target="_blank" rel="nofollow" href="http://www.json.org/">http://www.json.org/</A>, lá existem informações complementares sobre a criação e manipulação de objetos JSON.<BR>
+<BR>
+Para o trabalho com Java, existem várias libs disponíveis, nos exemplos desse tutorial iremos utilizar a lib disponível no seguinte endereço: <A target="_blank" rel="nofollow" href="http://www.jarvana.com/jarvana/archive-details/org/json/json/20080701/json-20080701.jar">http://www.jarvana.com/jarvana/archive-details/org/json/json/20080701/json-20080701.jar</A>.<BR>
+<BR>
+A criação de um JSON a partir de um objeto Java (POJO) consiste na manipulação da classe <STRONG>org.json.JSONObject</STRONG>  e <STRONG>org.json.JSONArray</STRONG> que são as classes principais da API de JSON.<BR>
+<BR>
+Para exemplificar a utilização das classes <STRONG>JSONObject </STRONG>e <STRONG>JSONArray</STRONG>, iremos criar um objeto  Java (POJO) chamado Pessoa com os atributos nome e telefone,  e uma  classe para criar o JSON:<BR>
+<BR>
+<STRONG>Pessoa.java</STRONG><BR>
+<PRE><CODE>public class Pessoa {
+	private String nome;
+	private String telefone;
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+}</CODE></PRE><BR>
+<BR>
+<STRONG>ExemploJSONObject.java</STRONG><BR>
+<PRE><CODE>import org.json.JSONException;
+import org.json.JSONObject;
+
+public class ExemploJSONObject {
+
+	public static void main(String[] args) {
+		
+		try {
+			Pessoa pessoa = new Pessoa();
+			
+			pessoa.setNome("Fernanda");
+			pessoa.setTelefone("123456789");
+			
+			JSONObject jsonObj = new JSONObject();
+			
+			jsonObj.put("nome", pessoa.getNome());
+			jsonObj.put("telefone", pessoa.getTelefone());
+			
+			System.out.println(jsonObj);
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+}</CODE></PRE><BR>
+<BR>
+O JSON gerado ficará dessa forma: {"telefone":"123456789","nome":"Fernanda"}<BR>
+<BR>
+Agora vamos supor que teríamos que criar um único objeto JSON onde teríamos vários objetos do tipo Pessoa dentro, segue a classe:<BR>
+<BR>
+<STRONG>ExemploJSONArray.java</STRONG><BR>
+<PRE><CODE>import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class ExemploJSONArray {
+	 
+	 public static void main(String[] args) {
+			
+			try {
+				JSONArray array = new JSONArray();
+				
+				/*
+				 * Criação do Objeto JSONObject
+				 */
+				Pessoa pOne = new Pessoa();
+		
+				pOne.setNome("Fernanda");
+				pOne.setTelefone("987456321");
+				
+				JSONObject jsonOne = new JSONObject();
+
+				jsonOne.put("nome", pOne.getNome());
+				jsonOne.put("telefone", pOne.getTelefone());
+				
+				Pessoa pTwo = new Pessoa();
+				
+				pTwo.setNome("Caio");
+				pTwo.setTelefone("123456789");
+				
+				JSONObject jsonTwo = new JSONObject();
+				
+				jsonTwo.put("nome", pTwo.getNome());
+				jsonTwo.put("telefone", pTwo.getTelefone());
+				
+				array.put(jsonOne);
+				array.put(jsonTwo);
+				
+				System.out.println("JSONArray: " array);
+								
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+} </CODE></PRE><BR>
+<BR>
+O JSONArray gerado ficará dessa forma:<BR>
+[{"telefone":"123456789","nome":"Fernanda"},{"telefone":"147852369","nome":"Caio"}]<BR>
+<BR>
+Até a próxima.<P></P></DIV><DIV class="banner_texto_rodape">
+    					<SCRIPT type="text/javascript"><!--
+    					google_ad_client = "pub-2027587876771817";
+    					google_ad_slot = "7637709403";
+    					google_ad_width = 336;
+    					google_ad_height = 280;
+    					//-->
+    					</SCRIPT>
+    					<SCRIPT type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/show_ads.js">
+    					</SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="336" height="280" frameborder="0" src="./Trabalhando com JSON utilizando Java_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+    				</DIV>            </DIV>
+            
+            <INPUT type="hidden" id="coluna_id" name="coluna_id" value="2437">
+<INPUT type="hidden" id="area_id" name="area_id" value="47">
+<INPUT type="hidden" id="url" name="url" value="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29">
+<DIV class="box_ativa2">
+    <SPAN class="ba_tit">
+        <H4><SPAN style="float: right;">Resposta em até 24 horas! <SPAN style="color: red;">(grátis)</SPAN></SPAN>Dúvidas?</H4>
+    </SPAN>
+    <DIV class="ba_box" style=" width:598px; float: left;">
+        <DIV id="for_form" style="margin-top: 10px; position: relative;">        
+        <FORM onsubmit="posting();return false;" name="forum" method="post">
+            <SPAN style="float: right; font-size:11px ;">resumido! (máximo 60 caracteres)</SPAN>
+            Assunto da pergunta: 
+            <INPUT name="top_titulo" id="top_titulo" maxlength="60" class="campo round" style="width: 98%; margin-bottom: 10px;">
+            <BR>
+            Escreva aqui seu problema:<BR> 
+            <TEXTAREA name="top_post" id="top_post" style="width: 98%; height:80px; margin-bottom: 10px;" class="campo round"></TEXTAREA>
+            <SPAN style="font-size: 11px;">(apenas perguntas relacionadas com informática e tecnologia serão respondidas)</SPAN>
+            <INPUT style=" float: right; " type="submit" value="Enviar a pergunta" class="botao">
+            <HR>
+        </FORM>
+                    <DIV id="logado" style=" width: 95%; height: 110%; display: none; padding:10px; border:5px solid #ccc; position: absolute; top:-30px; background-color: #efefef;">
+                <DIV style="width:35%; float: right; margin-left: 10px; padding-left:10px; border-left:1px solid #ccc">
+                    <H4>Não tenho conta</H4><BR>
+                    <DIV id="cad_simple">        <TABLE>
+            <TBODY><TR>
+                <TD>Nome:</TD>
+                <TD><INPUT class="campo round" style="width: 95%;" id="cad_nome"></TD>
+            </TR>
+            <TR>
+                <TD>E-mail:</TD>
+                <TD><INPUT class="campo round" style="width: 95%;" id="cad_email"></TD>
+            </TR>
+            <TR>
+                <TD>Senha:</TD>
+                <TD><INPUT class="campo round" style="width: 95%;" type="password" id="cad_senha"></TD>
+            </TR>
+            <TR>
+                <TD>
+                <TD><INPUT onclick="ajaxDireto(&#39;http://www.oficinadanet.com.br/ajax.php&#39;,&#39;tipo=cad_simple&amp;nome=&#39;+$(&#39;#cad_nome&#39;).val()+&#39;&amp;email=&#39;+$(&#39;#cad_email&#39;).val()+&#39;&amp;senha=&#39;+$(&#39;#cad_senha&#39;).val(),&#39;cad_simple&#39;)" type="button" value="Criar conta" class="botao"></TD>
+            </TR>
+        </TBODY></TABLE>
+        </DIV>
+                </DIV>
+                <DIV id="login_simple">        É necessário ter uma conta para fazer uma pergunta no site.<BR><BR>
+        <H4>Fazer login</H4><BR>
+        E-mail: <BR>
+        <INPUT class="campo round" style="width: 35%;" id="log_email"><BR><BR>
+        Senha: <BR>
+        <INPUT class="campo round" style="width: 20%;" id="log_senha" type="password">
+        <INPUT onclick="ajaxDireto(&#39;http://www.oficinadanet.com.br/ajax.php&#39;,&#39;tipo=login&amp;email=&#39;+$(&#39;#log_email&#39;).val()+&#39;&amp;senha=&#39;+$(&#39;#log_senha&#39;).val(),&#39;login_simple&#39;)" type="button" value="Login" class="botao">
+        </DIV>
+            </DIV>
+                    </DIV>
+        <DIV style=" width: 100%; margin-top: 20px; float: left;" id="comments">
+                    </DIV>
+    </DIV>
+</DIV>        </DIV>
+        <DIV class="tright">
+            <DIV class="box_ativa3">
+    <SPAN class="ba_tit">Compartilhe</SPAN>
+    <DIV class="ba_box">
+                <TABLE width="100%">
+            <TBODY><TR>
+                <TD width="25%" valign="bottom">
+                    <IFRAME src="./Trabalhando com JSON utilizando Java_files/button_frame.html" frameborder="0" width="55" height="65" scrolling="no"></IFRAME>
+                </TD>
+                <TD width="25%" valign="bottom">
+                    <IFRAME allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" class="twitter-share-button twitter-count-vertical" src="./Trabalhando com JSON utilizando Java_files/tweet_button.html" style="width: 55px; height: 62px; " title="Twitter For Websites: Tweet Button"></IFRAME><SCRIPT type="text/javascript" src="./Trabalhando com JSON utilizando Java_files/widgets.js"></SCRIPT>
+                </TD>
+                <TD width="25%" valign="bottom">
+                    <A name="fb_share" type="box_count" share_url="http://onurl.net/1d" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fonurl.net%2F1d&src=sp" style="text-decoration: none; "><SPAN class="fb_share_size_Small fb_share_count_wrapper"><SPAN></SPAN><SPAN class="fb_share_count_nub_top fb_share_no_count"></SPAN><SPAN class="fb_share_count fb_share_no_count fb_share_count_top"><SPAN class="fb_share_count_inner">&nbsp;</SPAN></SPAN><SPAN class="FBConnectButton FBConnectButton_Small" style="cursor:pointer;"><SPAN class="FBConnectButton_Text">Share</SPAN></SPAN></SPAN></A><SCRIPT src="./Trabalhando com JSON utilizando Java_files/FB.Share" type="text/javascript"></SCRIPT>
+                </TD>
+                <TD width="25%" valign="bottom" style="line-height: 18px;">
+                    <A style="margin-bottom: 5px; float: left;" rel="nofollow" href="http://promote.orkut.com/preview?nt=orkut.com&lang=pt_BR&tt=Trabalhando+com+JSON+utilizando+Java&du=http://onurl.net/1d&cn=Introdu%E7%E3o+ao+desenvolvimento+de+objetos+JSON+usando+Java.+JSON+%28JavaScript+Object+Notation%29+%E9+uma+nova+forma+de+realizar+integra%E7%F5es+entre+softwares%2C+varias+linguagens+d%E3o+suporte+a+JSON+para+realizar+diversas+tarefas%2C+entre+elas+est%E3o+Java%2C+C%23%2C+PHP%2C+JavaScript%2C+C%2C+C++%2C+entre+outras.+-+" target="orkut" onclick="var workut = window.open(&#39;&#39;,&#39;orkut&#39;,&#39;height=500,width=800&#39;);workut.focus();"><IMG alt="orkut" src="./Trabalhando com JSON utilizando Java_files/bt_orkut.png"></A>
+                    <BR><A style="margin-bottom: 5px; float: left;" target="_blank" rel="nofollow" href="http://delicious.com/save?url=http://onurl.net/1d"><IMG alt="delicious" src="./Trabalhando com JSON utilizando Java_files/bt_share_delicious.png"></A>
+                    <BR><A style="margin-bottom: 5px; float: left;" target="_blank" rel="nofollow" href="http://gostei.abril.com.br/post/new?t=Trabalhando+com+JSON+utilizando+Java&u=http://onurl.net/1d"><IMG alt="Gostei" src="./Trabalhando com JSON utilizando Java_files/bt_share_gostei.png"></A>
+                </TD>
+            </TR>
+        </TBODY></TABLE>
+        <HR>
+        <SPAN style="text-align: right;">Nossa url encurtada: <INPUT type="text" value="http://onurl.net/1d"></SPAN>    </DIV>
+</DIV>
+
+<DIV class="box_ativa3">
+    <SPAN class="ba_tit">Autor da matéria</SPAN>
+    <DIV class="ba_box">
+        <TABLE width="100%">
+            <TBODY><TR>
+                <TD valign="top">
+                    <A style="font-size:14px;" class="nome_autor" href="http://www.oficinadanet.com.br/editor/210/caio_vinicius">Caio Vinicius</A><BR><BR>
+                    <P>Formado em Tecnologia Sistemas para Internet, pós-graduando em Tecnologia da Informação, atua como desenvolvedor de sistemas e possui a certificação SCJP.</P>
+                </TD>
+                <TD valign="top">
+                    <DIV class="foto_link">
+                        <A href="http://www.oficinadanet.com.br/editor/210/caio_vinicius"><IMG src="./Trabalhando com JSON utilizando Java_files/td_ep.jpg" alt="Caio Vinicius"></A>                    </DIV>
+                </TD>
+            </TR>
+        </TBODY></TABLE>
+        
+        <DIV style=" display: block; width: 100%; ">
+            <HR><STRONG>Últimas matérias escritas pelo autor:</STRONG>
+            <DIV id="maiscolu">
+                <SPAN style="height: 13px;" id="ret_colunas"><A style="float: right; margin-top: 3px;" onclick="$(&#39;#colunas&#39;).toggle()" href="javascript:void(0)"><IMG src="./Trabalhando com JSON utilizando Java_files/seta_down.png" alt="seta"></A>10/06 - <A title="Java: Polimorfismo e Retorno Covariante" href="http://www.oficinadanet.com.br/artigo/java/java_polimorfismo_e_retorno_covariant">Java: Polimorfismo e Retorno C...</A><BR></SPAN>
+                <DIV id="colunas">
+                    <DIV id="first_c" style="display: none;"><A style="float: right; margin-top: 3px;" onclick="$(&#39;#colunas&#39;).toggle()" href="javascript:void(0)"><IMG src="./Trabalhando com JSON utilizando Java_files/seta_down.png" alt="seta"></A>10/06 - <A title="Java: Polimorfismo e Retorno Covariante" href="http://www.oficinadanet.com.br/artigo/java/java_polimorfismo_e_retorno_covariant">Java: Polimorfismo e Retorno C...</A><BR></DIV>21/05 - <A title="Lendo planilhas excel com Java" href="http://www.oficinadanet.com.br/artigo/java/lendo_planilhas_excel_com_java">Lendo planilhas excel com Java</A><BR>20/05 - <A title="Java: Diferen&ccedil;as entre as classes String, StringBuffer e StringBuilder" href="http://www.oficinadanet.com.br/artigo/java/java_diferencas_entre_as_classes_string_stringbuffer_e_stringbuilder">Java: Diferenças entre as classes Stri...</A><BR>01/05 - <A title="Trabalhando com JSON utilizando Java" href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java">Trabalhando com JSON utilizando Java</A><BR>04/04 - <A title="Trabalhando com a IDE Eclipse" href="http://www.oficinadanet.com.br/artigo/1571/trabalhando_com_a_ide_eclipse">Trabalhando com a IDE Eclipse</A><BR>15/06 - <A title="Instala&ccedil;&atilde;o e Configura&ccedil;&atilde;o do Tomcat" href="http://www.oficinadanet.com.br/artigo/992/instalacao_e_configuracao_do_tomcat">Instalação e Configuração do Tomcat</A><BR>17/04 - <A title="Ambiente de Desenvolvimento Java - JDK" href="http://www.oficinadanet.com.br/artigo/891/ambiente_de_desenvolvimento_java_-_jdk">Ambiente de Desenvolvimento Java - JDK</A><BR>                    <SCRIPT language="javascript" type="text/javascript">
+                    $('#ret_colunas').html($('#first_c').html());
+                    </SCRIPT>
+                </DIV>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+
+
+<DIV class="box_ativa3">
+    <SPAN class="ba_tit">Últimas matérias</SPAN>
+    <DIV class="ba_box" style="float: left; padding-bottom: 0px;">
+        <A title="Configurando Thunderbird com hotmail no linux" href="http://www.oficinadanet.com.br/artigo//configurando_thunderbird_com_hotmail_no_linux" class="item_novo"><IMG width="113" height="84" src="./Trabalhando com JSON utilizando Java_files/thunberbird.jpg" alt="Configurando Thunderbird com hotmail no linux">Configurando Thunderbird com hotmail no linux</A><A title="Limitando banda com cbq.init no debian e ubuntu" href="http://www.oficinadanet.com.br/artigo//limitando_banda_com_cbqinit_no_debian_e_ubuntu" class="item_novo"><IMG width="113" height="84" src="./Trabalhando com JSON utilizando Java_files/linux.jpg" alt="Limitando banda com cbq.init no debian e ubuntu">Limitando banda com cbq.init no debian e ubuntu</A><A title="Teclas de Atalho do Windows 7" href="http://www.oficinadanet.com.br/artigo//teclas_de_atalho_do_windows_7" class="item_novo"><IMG width="113" height="84" src="./Trabalhando com JSON utilizando Java_files/windows7_atalhos.jpg" alt="Teclas de Atalho do Windows 7">Teclas de Atalho do Windows 7</A>    </DIV>
+</DIV>
+
+<DIV class="box_ativa3">
+    <SPAN class="ba_tit">Últimas notícias</SPAN>
+    <DIV class="ba_box" style="float: left; padding-bottom: 0px;">
+        <A title="Novo diHITT foi lan&ccedil;ado hoje" href="http://www.oficinadanet.com.br/noticias_web/3287/novo_dihitt_foi_lancado_hoje" class="item_novo"><IMG width="113" height="73" src="./Trabalhando com JSON utilizando Java_files/dihitt.jpg" alt="Novo diHITT foi lan&ccedil;ado hoje">Novo diHITT foi lançado hoje</A><A title="Smartphones vendem 50% a mais no segundo trimestre" href="http://www.oficinadanet.com.br/noticias_web/3286/smartphones_vendem_50_a_mais_no_segundo_trimestre" class="item_novo"><IMG width="113" height="73" src="./Trabalhando com JSON utilizando Java_files/smartphones.jpg" alt="Smartphones vendem 50% a mais no segundo trimestre">Smartphones vendem 50% a mais no segundo trimestre</A><A title="Brasil &eacute; o segundo no Twitter" href="http://www.oficinadanet.com.br/noticias_web/3285/brasil_e_o_segundo_no_twitter" class="item_novo"><IMG width="113" height="73" src="./Trabalhando com JSON utilizando Java_files/twitterbr.jpg" alt="Brasil &eacute; o segundo no Twitter">Brasil é o segundo no Twitter</A>    </DIV>
+</DIV>
+        </DIV>
+    </DIV>
+            </DIV>
+            </DIV>
+</DIV>
+<DIV id="footer">
+    <DIV class="in">
+    	<DIV class="rights">© 2005 - 2010 - Oficina da Net - v6 - Todos os direitos reservados | Desenvolvido por: <A href="http://www.desenvolveweb.com.br/" target="_blank">Desenvolve Web</A></DIV>
+        <DIV class="links fb"><P class="ft"><A href="http://www.oficinadanet.com.br/parceiros">Sites que apoiamos:</A></P>» <A target="_blank" title="Ache Concursos" href="http://www.acheconcursos.com.br/">Ache Concursos</A><BR>» <A target="_blank" title="Apostilas para concursos" href="http://www.webapostilas.com.br/">Apostilas para concursos</A><BR>» <A target="_blank" title="concursos abertos" href="http://concursosnobrasil.com.br/">concursos abertos</A><BR>» <A target="_blank" title="concursos bahia" href="http://concursosnobrasil.com.br/nordeste/concursos-bahia/">concursos bahia</A><BR>» <A target="_blank" title="Cria&ccedil;&atilde;o de sites" href="http://www.desenvolveweb.com.br/">Criação de sites</A><BR>» <A target="_blank" title="Domain Parking" href="http://www.adpark.com.br/">Domain Parking</A><BR>» <A target="_blank" title="Guia de Empresas de SP" href="http://www.etrine.com.br/">Guia de Empresas de SP</A><BR>» <A target="_blank" title="Hospadagem" href="http://www.centralserver.com.br/">Hospadagem</A><BR>» <A target="_blank" title="Hospedagem de sites" href="http://www.hphost.com.br/hospedagem-de-sites/">Hospedagem de sites</A><BR>» <A target="_blank" title="&Iacute;cones" href="http://www.iconesbr.net/">Ícones</A><BR>» <A title="ISO 9001" href="http://www.oficinadanet.com.br/area/56/iso_9001">ISO 9001</A><BR>» <A target="_blank" title="Qualidade" href="http://www.qualidadebrasil.com.br/">Qualidade</A><BR>» <A target="_blank" title="Revenda de Hospedagem" href="http://www.hphost.com.br/revenda-de-hospedagem/">Revenda de Hospedagem</A><BR>» <A target="_blank" title="Web Apostilas" href="http://www.webapostilas.com.br/">Web Apostilas</A></DIV><DIV class="artig fb"><P class="ft"><A href="http://www.oficinadanet.com.br/materias">Últimos artigos:</A></P>» <A title="Configurando Thunderbird com hotmail no linux" href="http://www.oficinadanet.com.br/artigo/linux/configurando_thunderbird_com_hotmail_no_linux">Configurando Thunderbird com hotmail n...</A><BR>» <A title="Limitando banda com cbq.init no debian e ubuntu" href="http://www.oficinadanet.com.br/artigo/linux/limitando_banda_com_cbqinit_no_debian_e_ubuntu">Limitando banda com cbq.init no debian...</A><BR>» <A title="Teclas de Atalho do Windows 7" href="http://www.oficinadanet.com.br/artigo/windows/teclas_de_atalho_do_windows_7">Teclas de Atalho do Windows 7</A><BR>» <A title="Vinculando MSN no Gmail" href="http://www.oficinadanet.com.br/artigo/internet/vinculando_msn_no_gmail">Vinculando MSN no Gmail</A><BR>» <A title="O que &eacute; uma Intranet e pra que serve?" href="http://www.oficinadanet.com.br/artigo/intranet/o_que_e_uma_intranet_e_pra_que_serve">O que é uma Intranet e pra que serve?</A><BR>» <A title="Web Analytics - S&oacute; n&uacute;meros n&atilde;o bastam" href="http://www.oficinadanet.com.br/artigo/gerencia/web_analytics_so_numeros_nao_bastam">Web Analytics - Só números não bastam</A><BR>» <A title="6 passos para instalar o Flash no iPhone" href="http://www.oficinadanet.com.br/artigo/telecom/6_passos_para_instalar_o_flash_no_iphone">6 passos para instalar o Flash no iPho...</A><BR>» <A title="Entrevista sobre Design Gr&aacute;fico com Michel Lent" href="http://www.oficinadanet.com.br/artigo/design/entrevista_sobre_design_grafico_com_michel_lent">Entrevista sobre Design Gráfico com Mi...</A><BR>» <A title="O Marketing de cultivo" href="http://www.oficinadanet.com.br/artigo/webmarketing/o_marketing_de_cultivo">O Marketing de cultivo</A></DIV><DIV class="artig fb"><P class="ft"><A href="http://www.oficinadanet.com.br/noticias_web">Últimas notícias:</A></P>» <A href="http://www.oficinadanet.com.br/noticias_web/3287/novo_dihitt_foi_lancado_hoje">Novo diHITT foi lançado hoje</A><BR>» <A href="http://www.oficinadanet.com.br/noticias_web/3286/smartphones_vendem_50_a_mais_no_segundo_trimestre">Smartphones vendem 50% a mais no segun...</A><BR>» <A href="http://www.oficinadanet.com.br/noticias_web/3285/brasil_e_o_segundo_no_twitter">Brasil é o segundo no Twitter</A><BR>» <A href="http://www.oficinadanet.com.br/noticias_web/3284/atualizacao_do_ios_4_bloqueia_servico_do_jailbreak.me">Atualização do iOS 4 bloqueia serviço ...</A><BR>» <A href="http://www.oficinadanet.com.br/noticias_web/3283/banda_larga_em_100_das_cidades_em_2010">Banda larga em 100% das cidades em 201...</A><BR>» <A href="http://www.oficinadanet.com.br/noticias_web/3282/frash_app_que_instala_flash_no_iphone">Frash: App que instala Flash no iPhone</A><BR><HR><P class="ft">RSS:</P><P><A class="flr" href="http://feeds2.feedburner.com/oficinadanet_rss" target="_blank"><IMG src="./Trabalhando com JSON utilizando Java_files/ico_feed.png" alt="RSS"> <SPAN>Completo</SPAN></A><A class="flr" href="http://www.oficinadanet.com.br/feeds/news/" target="_blank"><IMG src="./Trabalhando com JSON utilizando Java_files/ico_feed.png" alt="RSS"> Notícias</A><A class="flr" href="http://www.oficinadanet.com.br/feeds/colunas" target="_blank"><IMG src="./Trabalhando com JSON utilizando Java_files/ico_feed.png" alt="RSS"> Colunas</A></P></DIV>        <DIV class="topi">
+        	<A href="http://www.oficinadanet.com.br/anuncie">ANUNCIE</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/contato">CONTATO</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/divulgue">DIVULGUE</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/parceiros">PARCEIROS</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/politica_de_privacidade">POLÍTICA DE PRIVACIDADE</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/sobre">SOBRE</A> «<BR>
+        	<A href="http://m.oficinadanet.com.br/">VERSÃO PARA CELULAR</A> «<BR>
+        	<A href="http://www.oficinadanet.com.br/on_widgets">WIDGETS</A> «<HR>
+        	<SPAN>O material aqui exposto está licenciado pela
+            <A target="_blank" rel="nofollow" href="http://creativecommons.org/licenses/by-nd/2.5/br/">Creative Commons</A>,
+            e pode ser utilizado mediante citação de fonte.</SPAN>
+        </DIV>
+    </DIV>
+</DIV>
+<A style="display:scroll;position:fixed;bottom:0px;right:0px;" href="http://www.oficinadanet.com.br/artigo/java/trabalhando_json_com_java?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oficinadanet_rss+%28Oficina+da+Net+-+Feed%29#" title="Topo da p&aacute;gina"><IMG src="./Trabalhando com JSON utilizando Java_files/topo.png"></A>
+<SCRIPT src="./Trabalhando com JSON utilizando Java_files/show.jsp"></SCRIPT><DIV id="HOTWordsTitle" style="z-index: 1000000; cursor: move; position: absolute; visibility: hidden; display: none; width: 0px; overflow-x: visible; overflow-y: visible; "><DIV id="HOTWordsTitleText"></DIV></DIV>
+</BODY></HTML>

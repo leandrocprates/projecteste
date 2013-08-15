@@ -1,0 +1,1173 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+</head><body text="#400040" vlink="#800000" bgcolor="#c0c0c0" link="#8000ff">
+<center>
+<table width="90%" border="0">
+<tbody><tr><td>
+<h2>Programação UDP e TCP sobre "Sockets de Berkeley"</h2>
+<br><blink>Nota: estão disponíveis alguns <a href="#exemplos">exemplos no final deste documento.</a></blink><br><br>
+<p>Os "sockets" de Berkeley são uma API genérica para programação sobre protocolos de comunicação.
+A implementação das system-calls desta interface é "standard" em todos os sistemas operativos UNIX e
+estende-se também a muitas outras plataformas. No final deste documento pode encontrar algumas notas
+sobre <a href="#winsock">portabilidade para Visual C++ / Sockets Windows</a>.
+</p><p>Dentro do possível é mantida a semântica associada aos
+descritores de ficheiros (<b>io.h</b>), os descritores são números inteiros usados para
+facultar o acesso ao controlo das comunicações embebido no núcleo e são aqui conhecidos por "sockets".
+</p><p>De um modo geral, quando ocorre um erro as "system-call" devolvem o valor -1, as aplicações
+devem verificar sempre a ocorrência de erros, para simplificar o código dos exemplos aqui
+apresentados este aspecto é muitas vezes omitido.
+</p><p>Como esta API foi concebida para suportar diversos protocolos terá de suportar diversos formatos de
+dados, tais como os endereços. Estes são armazenados numa estrutura especial genérica:
+</p><pre>struct sockaddr
+      {
+      u_short	sa_family;
+      char	sa_data[14];
+      };
+</pre>
+<p>Para cada família de protocolos existem depois estruturas mais especificas e adequadas, por
+exemplo para o protocolo IP, que nos interessa neste momento, estão definidas as seguintes estruturas:
+</p><p align="left"><code>
+struct in_addr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;u_long 	s_addr;	/* endereço IP (4 bytes) */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+struct sockaddr_in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;short		sin_family;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;u_short	sin_port;	/* porta (2 bytes) */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;struct in_addr	sin_addr;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;char		sin_zero[8];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br></code>
+</p><p align="justify">
+Como se pode verificar a estrutura
+<b>sockaddr</b> e <b>sockaddr_in</b> têm
+exactamente o mesmo tamanho e o campo que
+designa a família de protocolos
+(<b>sa_family</b> e <b>sin_family</b>) têm
+posição coincidente.
+</p><h3>Abertura de Sockets</h3>
+<p align="justify">
+Para ter acesso aos protocolos de comunicação
+começa-se por abrir um socket, para o efeito utiliza-
+se a "system-call" "socket" que devolve um descritor
+necessário em todas as operações subsequentes.</p><p>
+Como já foi referido, esta API permite a utilização
+de diversos protocolos, assim esta "system-call"
+envolve vários parâmetros que descrevem o
+protocolo a utilizar:
+</p><p align="center"><code>int socket(int family, int type, int protocol);</code>
+</p><p align="justify">
+A tabela 1 mostra algumas combinações possíveis
+das constantes a usar para cada um dos parâmetros,
+para a família AF_INET que de momento nos
+interessa.<br>
+</p><center>
+Tabela 1: Protocolos da Família AF_INET
+<table border="1">
+<tbody><tr align="center"><td>family</td><td>type</td>
+<td>protocol</td><td>Protocolo Usado</td></tr>
+<tr align="center"><td>AF_INET</td><td>SOCK_DGRAM</td><td>IPPROTO_UDP</td><td>UDP</td></tr>
+<tr align="center"><td>AF_INET</td><td>SOCK_STREAM</td><td>IPPROTO_TCP</td><td>TCP</td></tr>
+<tr align="center"><td>AF_INET</td><td>SOCK_RAW</td><td>IPPROTO_ICMP</td><td>ICMP</td></tr>
+<tr align="center"><td>AF_INET</td><td>SOCK_RAW</td><td>IPPROTO_RAW</td><td>IP</td></tr>
+</tbody></table>
+</center>
+<p align="justify">Quando se utiliza os protocolos UDP e TCP o
+parâmetro <b>protocol</b> não é necessário, pois,
+fica implícito pelo parâmetro <b>type</b>,
+devendo então ser utilizado o valor zero. Em
+sistemas operativos protegidos como o UNIX, os
+"sockets" do tipo SOCK_ROW não são permitidos
+para utilizadores correntes.
+</p><p align="justify">
+Quando um descritor já não é necessário, tal como
+acontece com os ficheiros, deverá ser encerrado,
+para tal é usada a "system-call" <b>close</b>.
+</p><h3>Associação de Endereços a "Sockets"</h3>
+<p align="justify">
+Antes de se poder receber ou enviar dados através
+de um descritor aberto, é necessário definir a porta
+que vai ser usada por esse descritor. Para este efeito
+deve ser utilizada a "system-call"
+<b>bind</b>:
+</p><p align="center">
+<code>int bind(int sock, struct sockaddr *myAddress, int addrLen);</code>
+</p><p align="justify">
+O parâmetro <b>sock</b> é o descritor devolvido
+anteriormente pela função <b>socket</b>, o
+segundo parâmetro é um apontados para a estrutura
+que contém o endereço e o último parâmetro é o
+tamanho dessa estrutura.
+</p><p align="justify">
+Se o bind falha (devolve -1), a causa mais provável
+é que a porta definida em <b>myAddress</b>
+esteja já a ser usada.
+</p><p align="justify">
+A seguir apresenta-se um exemplo de
+utilização:
+</p><p align="left">
+<code>
+struct sockaddr_in  myAddr;<br>
+int sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+bzero((char *)&amp;myAddr,sizeof(myAddr));<br>
+myAddr.sin_family=AF_INET;<br>
+myAddr.sin_addr.s_addr=htonl(INADDR_ANY);<br>
+myAddr.sin_port=htons(6520);<br>
+if(-1==bind(sock, (struct sockaddr *)&amp;myAddr, sizeof(myAddr)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;puts("Porta ocupada");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;close(sock);  exit(1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</code></p><p align="justify">
+O valor INADDR_ANY representa o endereço IP da
+máquina onde a aplicação é executada. A utilização
+desta constante é vantajosa, se a máquina possui
+mais do que um endereço IP ("router") permite a
+recepção de dados em qualquer dos endereços da
+máquina.
+</p><p align="justify">
+No exemplo utiliza-se a porta 6520, se o "socket"
+for usado para recepção de dados o emissor terá de
+os enviar para esta porta.
+</p><p align="justify">
+Normalmente quando uma porta se destina a
+emissão não há necessidade de ter um valor
+preestabelecido, nestes casos pode usar-se o valor 0
+que força o sistema a atribuir uma porta livre.
+</p><p align="justify">
+A função <b>bzero</b> é usada para colocar zeros
+na estrutura <b>myAddr</b>.</p><p>
+As funções <b>htonl</b> e <b>htons</b>
+permitem a conversão de números inteiros longos e
+curtos do formato interno da máquina ("host") para
+o formato usado na rede ("net"). As funções
+<b>ntohl</b> e <b>ntohs,</b> não usadas neste
+exemplo, realizam a operação inversa.
+</p><h3>Emissão e Recepção de "datagramas" UDP</h3>
+<p align="justify">
+As "system-call" mais importantes para a emissão e
+recepção de "datagramas" UDP são
+<b>sendto</b> e <b>recvfrom</b>:
+</p><p align="left">
+<code>int sendto(int sock, char *buffer, int buffSize, int flags, struct sockaddr *to, int addrLen);<br>
+int recvfrom(int sock, char *buffer, int buffSize, int flags, struct sockaddr *from, int *addrLen);<br>
+</code>
+</p><p align="justify">
+O parâmetro <b>sock</b> é o descritor a ser usado
+para o envio ou recepção dos datagramas,
+<b>buffer</b> e <b>buffSize</b> definem onde
+estão os dados a enviar, ou onde devem ser
+colocados os dados a receber. O parâmetro
+<b>flags</b> permite usar algumas opções que
+alteram alguns aspectos do modo de funcionamento
+destas "system-call", normalmente terá o valor
+zero.
+</p><p align="justify">
+A estrutura <b>to</b> contém o endereço de
+destino para o "datagrama" a ser emitido, a
+estrutura <b>from</b> é usada para guardar o
+endereço de proveniência de um "datagrama"
+recebido. Note-se que o último parâmetro é passado
+de forma diferente em cada uma das "system-
+call".
+</p><p align="justify">
+Os exemplos simples apresentados a seguir ilustram
+a utilização destas "system-call", o primeiro envia
+"datagramas" UDP contendo uma linha de texto
+para a porta <b>8450</b> da máquina com
+endereço <b>193.136.62.4</b>:
+</p><p align="left">
+<code>
+#include &lt;sys/types.h&gt;<br>
+#include &lt;sys/socket.h&gt;<br>
+#include &lt;netinet/in.h&gt;<br>
+#include &lt;arpa/inet.h&gt;<br>
+void main(void)<br>
+{<br>
+struct sockaddr_in me, target;<br>
+int sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+char linha[81];<br>
+bzero((char *)&amp;me,sizeof(me));<br>
+me.sin_family=AF_INET;<br>
+me.sin_addr.s_addr=htonl(<b>INADDR_ANY</b>);	/* endereço IP local */<br>
+me.sin_port=htons(<b>0</b>); 		/* porta local (0=auto assign) */<br>
+bind(sock,(struct sockaddr *)&amp;me,sizeof(me));<br>
+bzero((char *)&amp;target,sizeof(target));<br>
+target.sin_family=AF_INET;<br>
+/* endereço IP de destino */<br>
+target.sin_addr.s_addr=inet_addr("<b>193.136.62.4</b>");<br>
+target.sin_port=htons(<b>8450</b>);		/* porta de destino */<br>
+do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gets(linha);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sendto(sock,linha,81,0,(struct sockaddr *)&amp;target, sizeof(target));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+while(strcmp(linha,"exit"));<br>
+close(sock);<br>
+}<br>
+</code>
+</p><p align="justify">
+O segundo exemplo recebe "datagramas" na porta
+8450 e deverá ser usado na máquina com endereço
+193.136.62.4 para recepção dos "datagramas"
+emitidos pelo programa anterior:
+</p><p align="left">
+<code>
+#include &lt;sys/types.h&gt;<br>
+#include &lt;sys/socket.h&gt;<br>
+#include &lt;netinet/in.h&gt;<br>
+#include &lt;arpa/inet.h&gt;<br>
+void main(void)<br>
+{<br>
+struct sockaddr_in from, me;<br>
+int sock, addrlen=sizeof(me);<br>
+char linha[81];<br>
+sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+bzero((char *)&amp;me,addrlen);<br>
+me.sin_family=AF_INET;<br>
+me.sin_addr.s_addr=htonl(<b>INADDR_ANY</b>);<br>
+me.sin_port=htons(<b>8450</b>);<br>
+bind(sock,(struct sockaddr *)&amp;me,addrlen);<br>
+do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recvfrom(sock,linha,81,0,(struct sockaddr *)&amp;from, &amp;addrlen);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;puts(linha);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+while(strcmp(linha,"exit"));<br>
+close(sock);<br>
+}<br>
+</code></p><p align="justify">
+Enquanto a aplicação que recebe "datagramas" tem
+de usar uma porta bem definida, aplicação que os
+emite utiliza uma porta atribuída dinamicamente
+pelo sistema.
+</p><p align="justify">
+Note-se que embora ambos os exemplos usem duas
+estruturas para guardar endereços (local e remoto),
+apenas no caso do emissor é necessário definir
+previamente o endereço remoto. Neste ultimo
+exemplo, após a recepção de uma datagrama, o
+endereço de proveniência está disponível na
+estrutura <b>from</b>.
+</p><p align="justify">
+Para apresentar no receptor a porta de proveniência
+e endereço IP basta converter os dados da estrutura
+<b>from</b> para alfanumérico. A função
+<b>inet_ntoa</b> converte um endereço IP
+guardado dentro numa estrutura in_addr em texto
+legível:
+</p><p align="center">
+<code>char *inet_ntoa(struct in_addr inaddr);</code>
+</p><p align="justify">
+No exemplo anterior, para apresentar a porta e
+endereço de proveniência do "datagrama", antes da
+linha de texto, bastaria acrescentar as seguintes
+linhas.
+</p><p align="left">
+<code>printf("%i  :", ntohs(from.sin_port));<br>
+puts(inet_ntoa(from.sin_addr));
+</code>
+</p><p align="justify">
+Quando se usam "datagramas" para diálogo entre
+duas aplicações a verificação de endereços de
+proveniência é importante porque não existe
+conexão. Para o receptor responder ao emissor tem
+usar o endereço de proveniência, por outro lado os
+"datagramas" podem ser originários de
+terceiros.
+</p><h3>Servidores UDP elementares</h3>
+<p align="justify">
+O modelo cliente-servidor está muitas vezes
+associado ao conceito de sessão que implica a
+manutenção pelo servidor de contextos separados
+para cada um dos clientes activos. Neste caso diz-se
+que o servidor é "statefull", e a resposta a um pedido
+depende do diálogo privado anterior entre o cliente
+e o servidor.
+</p><p align="justify">
+O protocolo UDP não é orientado à conexão, pelo
+que impossibilita uma implementação directa de
+sessões entre clientes e servidores. Como o servidor
+não tem estado os pedidos devem limitar-se a um
+datagrama, o mesmo se passando com as
+respostas.
+</p><p align="justify">
+Isto não quer dizer que seja impossível a
+implementação de sessões sobre UDP, mas como
+não existe suporte de conexões o esforço da
+aplicação será substancialmente maior já que terá de
+ser esta a realizar a distinção entre "datagramas" de
+diferentes origens e processar os mesmos em
+diferentes contextos.
+</p><p align="justify">
+Por outro lado o UDP não é fiável, para
+implementar sessões sobre ele será necessário que as
+aplicações cliente e servidor procedam elas próprias
+à detecção e correcção dos diversos tipos de erros a
+que os "datagramas" estão sujeitos.
+</p><p align="justify">
+Por estas razões o UDP é mais adequado para
+servidores sem estado em que os pedidos e respostas
+se limitam a um único datagrama. Quando se
+pretende estabelecer uma sessão cliente-servidor é
+aconselhável utilizar uma conexão TCP.
+</p><p align="justify">
+Um servidor UDP é uma aplicação que escuta
+constantemente a chegada de "datagramas"
+contendo pedidos, processa os pedidos e envia um
+"datagrama" de resposta ao emissor do mesmo.
+</p><p align="justify">
+Como é o cliente que toma a iniciativa de contactar
+o servidor, este ultimo tem de escutar os pedidos
+numa porta preestabelecida entre os dois. O cliente
+pode usar uma porta qualquer atribuída
+dinamicamente pelo sistema. Para enviar a resposta
+ao cliente, o servidor pode consultar o endereço de
+proveniência do pedido.
+</p><p align="center"><b>Exercício</b>
+</p><p align="justify">
+Implementar um servidor UDP que receba um "datagrama" com
+uma linha de texto e a devolva ao emissor convertida para
+maiúsculas. Implemente também o cliente, o endereço IP da
+máquina servidora deverá ser passado ao cliente como parâmetro
+na linha de comando.
+</p><h3>Sockets não bloqueantes</h3>
+<p align="justify">
+Durante os testes sobre os programas desenvolvidos
+no exercício anterior poderá ter notado uma grave
+deficiência: se um "datagrama" se perde o cliente
+bloqueia.
+</p><p align="justify">
+Este bloqueio deve-se ao facto de o cliente, após o
+envio do "datagrama" ao servidor, invocar
+<b>recvfrom</b> para receber a resposta. Se o
+"datagrama" não chega ao servidor, se o servidor
+não está operacional ou se o "datagrama" de
+resposta se perde, o cliente fica indefinidamente
+bloqueado nesta system-call.
+</p><p align="justify">
+Para tornar um "socket" não bloqueante pode ser
+usada a "system-call" <b>ioctl</b> para activar a
+característica <b>FIONBIO</b> ("File I/O
+NonBlocking I/O").
+</p><p align="justify">
+A "system-call" <b>ioctl</b> permite configurar
+vários aspectos de um descritor aberto. Tem três
+parâmetros: o descritor, um identificador da
+característica a alterar e finalmente um apontador
+para o novo valor dessa característica.
+</p><p align="center">
+<code>int ioctl( int socket, unsigned long request, char *arg);</code>
+</p><p align="justify">
+Como habitualmente, em caso de erro devolve -
+1.
+</p><p align="justify">
+Os identificadores de características (parâmetro
+"request") estão definidos no ficheiro
+<b>sys/ioctl.h</b>, pelo que a sua utilização é
+muito simples. É no entanto necessário atender a
+que dependendo de <b>request</b>, o tipo de
+dado para o qual <b>arg</b> aponta varia.
+</p><p align="justify">
+No caso de <b>FIONBIO arg</b> deve apontar
+para um inteiro, se este tem valor zero esta
+característica é desactivada, se tem valor diferente
+de zero será activada.
+</p><p align="justify">
+Usando esta "system-call", pode obter-se facilmente
+um "socket" não bloqueante tal como é
+exemplificado na seguinte sequência de código:
+</p><p align="left">
+<code>...<br>
+int sock, value=1;<br>
+sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+ioctl(sock, FIONBIO, &amp;value);<br>
+...<br>
+</code>
+</p><p align="justify">
+Ao tornar o "socket" não bloqueante é necessário
+atender a que a emissão de um "datagrama" pode
+falhar. Se o sistema está ocupado e um "datagrama"
+é emitido num "socket" <u>bloqueante</u>, a
+operação é suspensa até que o sistema esteja livre.
+Se o "socket" é não bloqueante a operação falha e a
+"system-call" retorna -1.
+</p><p align="justify">
+Sob o ponto de vista de recepção, a respectiva
+"system-call" terá de ser invocada ciclicamente
+("polling") para verificar se chegou algum
+datagrama.
+</p><p align="center"><b>Exercício</b>
+</p><p align="justify">
+Introduza as modificações necessárias no cliente anterior para que
+a situação de bloqueio seja eliminada. Se após um tempo de espera
+não chega a resposta o cliente volta a enviar a linha de texto ao
+servidor, este procedimento será repetido várias vezes.
+Mais tarde serão abordados outros mecanismos que
+permitem a recepção de "datagramas" de um modo
+totalmente assíncrono.
+</p><h3>"Broadcast" de "datagramas"</h3>
+<p align="justify">
+Um "datagrama" pode ser enviado em "broadcast",
+para o efeito é usado o endereço de destino
+<b>255.255.255.255</b>. Um "datagrama"
+enviado em "broadcast" será recebido por todas as
+máquinas que estão directamente ligadas à mesma
+rede IP onde a operação é realizada.
+</p><p align="justify">
+A principal utilidade do "broadcast" é permitir
+contactar uma aplicação que sabemos que está à
+escuta numa dada porta, sem necessidade de saber
+em que máquina se encontra.
+</p><p align="justify">
+A emissão em "broadcast" também pode ser usada
+por aplicações que desejam ser contactadas por
+outras. Neste caso a aplicação envia periodicamente
+um "datagrama" que funciona como anuncio.
+</p><p align="justify">
+Os procedimentos descritos são comuns na maioria
+das redes locais com partilha de recursos "peer-to-
+peer" ou com servidores dedicados, tais como
+MicroSoft, IBM e Novell.
+</p><p align="justify">
+Na comunidade "internet", a utilização de
+"broadcast" para estas finalidades não é tão popular
+partindo-se do pressuposto que a localização dos
+servidores é conhecida.
+</p><p align="justify">
+A utilização da emissão em "broadcast" tem dois
+aspectos negativos:
+</p><ul>
+<li>Só pode ser usada dentro de uma mesma rede IP. Isto torna a rede menos transparente, sendo
+necessário conhecer previamente a sua estrutura.
+</li><li>O tráfego gerado chega a todos os pontos da rede IP onde é emitido. Isto é negativo porque os
+dispositivos de comutação que se baseiam em endereços de nível 2 não podem actuar.
+</li></ul>
+<p align="justify">
+Para que um "socket" possa ser usado para envio em
+"broadcast" tem de ser previamente definida essa
+opção. Existem duas "system-call" que permitem
+manusear as opções de funcionamento de um
+"socket":
+</p><p align="left">
+<code>int getsockopt(int sock, int lev, int opt, char *arg, int *len);<br>
+int setsockopt(int sock, int lev, int opt, char *arg, int len);
+</code></p><p align="justify">
+As opções estão divididas em níveis (<b>lev</b>),
+cada nível possui diversas opções (<b>opt</b>).
+Tal como para a "system-call" <b>ioctl</b>, cada
+tipo de opção é definida usando um tipo especifico,
+para o qual o parâmetro <b>arg</b> deve apontar.
+O último parâmetro indica o comprimento do
+argumento.
+</p><p align="justify">
+Relativamente ao envio em "broadcast" o nível está
+definido na constante SOL_SOCKET e a opção é
+SO_BROADCAST. O valor adequado para esta
+opção é um inteiro que deverá ter um valor zero
+para desactivar e diferente de zero para activar.
+</p><p align="justify">
+O extracto seguinte apresenta a utilização da
+"system-call" <b>setsockopt</b> de modo a
+permitir o envio de "datagramas" em
+"broadcast":
+</p><p align="left">
+<code>...<br>
+int sock, v=1;<br>
+sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &amp;v, sizeof(v));<br>
+...<br>
+</code>
+</p><h3>Filtragem de "datagramas"</h3>
+<p align="justify">
+Embora o protocolo UDP não suporte conexões, é
+possível definir previamente um "parceiro" para um
+"socket". Sem existir conexão define-se contudo
+uma associação entre o "socket" local e o endereço e
+porta remota.
+</p><p align="justify">
+Para obter este efeito usa-se a "system-call"
+<b>connect</b>, os parâmetros são exactamente
+iguais aos do <b>bind</b>, mas como endereço
+devemos utilizar o endereço de destino.
+</p><p align="justify">
+Como o endereço de destino é predefinido, podem
+ser usadas as "system-call" <b>write</b> ou
+<b>send</b>, esta última é uma variante de
+<b>sendto</b> que omite o endereço de destino.
+No contexto do exemplo emissor anteriormente
+apresentado seria:
+</p><p align="left">
+<code>...<br>
+target.sin_family=AF_INET;<br>
+/* endereço IP de destino */<br>
+target.sin_addr.s_addr=inet_addr("<b>193.136.62.4</b>");<br>
+target.sin_port=htons(<b>8450</b>);	/* porta de destino */<br>
+connect(sock, (struct sockaddr *)&amp;target, sizeof(target));<br>
+do { gets(linha); send(sock,linha,81,0 );}<br>
+while(strcmp(linha,"exit"));<br>
+close(sock);<br>
+}<br>
+</code>
+</p><p align="justify">
+As consequências da utilização da "system-call"
+<b>connect</b>, sob o ponto de vista de recepção
+são extremamente interessantes pois é realizada
+uma filtragem dos "datagramas" recebidos. Apenas
+são passados à aplicação aqueles que têm como
+origem o endereço/porta indicados. Igualmente aqui
+podem ser utilizadas as "system-call" <b>read</b>
+e <b>recv</b> que não necessitam de uma
+estrutura para guardar o endereço de
+proveniência.
+</p><h3>Estabelecimento de Conexões TCP</h3>
+<p align="justify">
+O estabelecimento da conexão garante a existência
+de um <u>canal bidireccional dedicado</u> de
+transferência de "bytes".
+</p><p align="justify">
+O protocolo TCP proporciona serviços orientados à
+conexão. Antes de ser possível enviar ou receber
+dados há necessidade de se estabelecer a
+conexão.
+</p><p align="justify">
+O estabelecimento da conexão exige a colaboração
+entre duas aplicações, uma aplicação escuta pedidos
+de conexão numa dada porta, enquanto a outra
+emite um pedido de conexão para essa porta.
+</p><p align="justify">
+Para este feito, as "system-call" a usar são as
+seguintes:
+</p><p align="center">
+<code>int listen(int sock, int backlog);</code>
+</p><p align="justify">
+Esta "system-call" permite colocar um "socket" em
+escuta de pedidos de conexões numa dada porta. A
+porta deverá ter sido previamente definida com a
+"system-call" <b>bind</b>.
+</p><p align="justify">
+O valor <b>backlog</b> define o número de
+pedidos de conexão que podem ser mantidos em
+espera sem serem aceites pela "system-call"
+<b>accept</b>.
+</p><p align="center">
+<code>int accept(int sock, struct sockaddr *from, int *addrLen);</code>
+</p><p align="justify">
+A "system-call" <b>accept</b> permite aceitar um
+pedido de conexão, devolve um novo "socket" já
+ligado ao emissor do pedido e o "socket" original
+mantém-se em escuta. A estrutura <b>from</b> é
+usada para guardar o endereço de proveniência do
+pedido de conexão.
+</p><p align="justify">
+A "system-call" <b>accept</b> é bloqueante,
+quando é invocada o processo fica suspenso até que
+chegue um pedido de conexão, a menos que um
+pedido já tenha sido recebido desde a invocação de
+<b>listen</b>.
+</p><p align="justify">
+Note-se que o conceito de conexão implica que o
+"socket" devolvido por <b>accept</b> é
+totalmente independente do "socket" original.
+Enquanto o "socket" original continua à escuta de
+pedidos de conexão de qualquer proveniência o
+novo "socket" está associado a uma conexão entre
+duas aplicações e portanto permite a circulação de
+dados exclusivamente entre essas duas
+aplicações.</p><p align="justify">
+A aplicação que toma a iniciativa de estabelecer
+uma conexão utiliza para o efeito a "system-call"
+<b>connect</b>:
+</p><p align="center">
+<code>int connect(int sock,struct sockaddr *address, int addressLen)
+</code></p><p align="justify">
+O "socket" <b>sock</b> deverá ser do tipo
+apropriado ("SOCK_STREAM") e não necessita de
+ter atribuída uma porta ("bind"). Esta "system-call"
+encarrega-se de a definir dinamicamente.
+</p><p align="justify">
+A estrutura <b>address</b> deverá conter o
+endereço de destino no qual uma aplicação deverá
+estar à escuta de conexões. Se no endereço indicado
+isso não se verifica esta "system-call" devolve -1.
+</p><h3>Recepção/Envio de dados sobre conexões TCP</h3>
+<p align="justify">
+Uma vez estabelecida a conexão passa a existir um
+canal dedicado para comunicação entre os dois
+intervenientes que não está acessível a terceiros.
+</p><p align="justify">
+O endereço de destino está definido por natureza e
+podem ser utilizadas as "system-call" <b>read</b>
+e <b>write</b>, respectivamente para receber e
+enviar dados:
+</p><p align="left">
+<code>int read(int sock, char *buffer, int len);<br>
+int write(int sock, char *buffer, int len);
+</code></p><p align="justify">
+A "system-call" <b>read</b> recebe <b>len</b>
+bytes, do "socket" <b>sock</b>, colocando-os no
+<b>buffer</b>. A "system-call" <b>write</b>
+envia <b>len</b>" bytes "do <b>buffer</b> pelo
+"socket" <b>sock</b>.
+</p><p align="justify">
+A utilização destas "system-call" deve ser
+cuidadosa: ambas devolvem o número de" bytes
+"recebidos ou emitidos que podem não coincidir
+com o parâmetro <b>len</b>. Isto é
+particularmente verdade se o "socket" é não
+bloqueante. O programador deve preocupar-se com
+este aspecto, invocando novamente as "system-call"
+para emitir ou receber os" bytes "em falta.
+</p><p align="justify">
+Por outro lado, tal como <b>recvfrom</b>, a
+"system-call" <b>read</b> bloqueia até que sejam
+recebidos os dados, isto quer dizer que se a
+invocarmos para receber 1000" bytes "de uma
+conexão, podemos ter de esperar até que essa
+quantidade de informação chegue. Note-se que a
+"system-call" <b>recvfrom</b> desbloqueava
+quando chegasse um "datagrama" UDP de qualquer
+tamanho.</p><p align="justify">
+O extracto seguinte estabelece de uma conexão TCP
+com a porta 8451 da máquina 193.136.62.4, seguida
+do envio de linhas de texto.
+</p><p align="left">
+<code>...<br>
+struct sockaddr_in target;<br>
+int sock;<br>
+char linha[81];<br>
+sock=socket(AF_INET,SOCK_STREAM,0);<br>
+bzero((char *)&amp;target,sizeof(me));<br>
+target.sin_family=AF_INET;<br>
+target.sin_addr.s_addr=inet_addr("193.136.62.4");<br>
+target.sin_port=htons(8451);<br>
+connect(sock,(struct sockaddr *)&amp;target,sizeof(target));<br>
+do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gets(linha);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;write(sock,linha,81);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+while(strcmp(linha,"exit"));<br>
+close(sock);<br>
+...<br>
+</code></p><p align="justify">
+Note-se a ausência da invocação da "system-call"
+<b>bind</b>, a "system-call" <b>connect</b>
+encarrega-se de definir a porta local.
+</p><p align="justify">
+O extracto seguinte recebe uma conexão TCP na
+porta 8450, e de seguida lê linhas de texto da
+conexão estabelecida.
+</p><p align="left">
+<code>...<br>
+struct sockaddr_in from, me;<br>
+int newSock,sock, addrlen=sizeof(from);<br>
+char linha[81];<br>
+sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);<br>
+bzero((char *)&amp;me,addrlen);<br>
+me.sin_family=AF_INET;<br>
+me.sin_addr.s_addr=htonl(INADDR_ANY);<br>
+me.sin_port=htons(8451);<br>
+bind(sock,(struct sockaddr *)&amp;me,addrlen);<br>
+listen(sock,5);<br>
+newSock=accept(sock,(struct sockaddr *)&amp;from,&amp;addrlen);<br>
+close(sock);<br>
+do<br>
+	{<br>
+	read(newSock,linha,81);<br>
+	puts(linha);<br>
+	}<br>
+while(strcmp(linha,"exit"));<br>
+close(newSock);<br>
+...<br>
+</code>
+</p><p align="justify">
+Note-se que o "socket" usado para receber o pedido
+de conexão não serve para troca de dados e neste
+exemplo é fechado após o estabelecimento da
+conexão. O novo "socket", associado à conexão é
+depois usado para recepção de dados.
+</p><p align="justify">
+Quando um "socket" TCP é definido como não
+bloqueante, as consequências são as seguintes:
+</p><ul>
+<li>Sempre que uma operação falha por não existir a
+possibilidade de execução sem bloqueio a "system-
+call" devolve -1 e a variável global
+<b>errno</b> é colocada com o valor
+<b>EWOULDBLOCK</b>.
+</li><li><b>connect</b>: ao contrário do que acontece
+com "sockets" UDP, sobre "sockets" TCP, esta
+"system-call" bloqueia a execução até que a
+conexão esteja estabelecida. Se o "socket" é não
+bloqueante devolve imediatamente o valor -1, e
+define o valor da variável global <b>errno</b>
+com o valor <b>EINPROGRESS</b>.
+indicando que a operação não falhou.<p>
+</p></li><li><b>accept</b>: se existe algum pedido devolve
+o novo "socket", caso contrário gera um erro.<p>
+</p></li><li><b>read</b>: efectua leituras parciais, o total
+de" bytes "lidos é devolvido pela "system-call"<p>
+</p></li><li><b>write</b>: efectua escritas parciais, tal
+como para a anterior devolve o número de" bytes
+"processados.
+</li></ul>
+<h3>Servidores TCP</h3>
+<p align="justify">
+Uma característica fundamental num servidor é que
+enquanto está a responder a um cliente deve
+continuar disponível para atender outros
+clientes.
+</p><p align="justify">
+Usando datagramas isto obriga a que um único
+processo atenda todos os pedidos dirigidos para a
+porta, dificultando a manutenção de contextos
+independentes para cada cliente.
+</p><p align="justify">
+Com a existência de conexões tudo fica muito
+simplificado, mesmo que esteja a ser usada uma
+única porta, cada conexão é independente das
+restantes. Pode por isso existir um processo
+independente para lidar com cada cliente.
+</p><p align="justify">
+Num ambiente multi-processo como o "UNIX" , isto é relativamente
+simples de implementar:
+</p><ol>
+<li>Tipicamente um servidor TCP aguarda conexões
+estabelecidas por clientes (system-calls
+<b>listen</b> e <b>accept</b>).
+</li><li>Após o estabelecimento da conexão (saída da
+"system-call" <b>accept</b>), o servidor deve
+dividir-se em dois processos (fork):
+<ul>
+<li>O processo pai fecha o novo "socket" e invoca
+novamente a "system-call" <b>accept</b> para
+aceitar o pedido de conexão seguinte.
+</li><li>O processo filho fecha o "socket" original e presta
+os serviços comunicando com o cliente através da
+conexão associada ao novo "socket".
+</li></ul></li></ol>
+<p align="justify">
+Assim, a estrutura tipo de um servidor "TCP" pode ter a seguinte
+forma:
+</p><p align="left">
+<code>...<br>
+bind(sock, .....);<br>
+listen(sock,5);<br>
+for(;;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;newSock=accept(sock,....,..);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(fork())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* processo pai */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close(newSock);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* processo filho */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close(sock);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processamento do pedido com comunicação<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TCP sobre o newSock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close(newSock);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</code></p><p align="center"><b>Exercício</b>
+</p><p align="justify">
+Implementar um servidor TCP recebe nomes de ficheiros de texto e
+envia o seu conteúdo.
+</p><h3>Resolução de Nomes de Máquinas</h3>
+<p align="justify">
+Nos exemplos anteriores é necessário fornecer ao
+cliente o endereço IP do servidor, contudo é muito
+mais cómodo usar nomes de máquinas.
+</p><p align="justify">
+As associações entre nomes de máquinas e
+endereços IP podem estar definidas localmente, mas
+a solução geral é a utilização de servidores de
+nomes que são inquiridos pelos interessados. A
+obtenção do endereço IP a partir do nome de uma
+máquina é normalmente conhecida por resolução do
+nome.
+</p><p align="justify">
+Graças a uma hierarquia de domínios de nomes
+sustentada por um conjunto de servidores
+interligados é possivel resolver o nome de qualquer
+máquina ligada à "internet". Cada máquina utiliza
+um servidor de nomes correspondente ao seu
+domínio.
+</p><p align="justify">
+Para resolver o nome de uma máquina pode ser
+directamente utilizada a função
+<b>gethostbyname</b>:
+</p><p align="center">
+<code>hostent *gethostbyname(char *hostName);</code>
+</p><p align="justify">
+Esta função devolve um apontador para uma
+estrutura do tipo <b>hostent</b>,  o campo
+<b>h_addr_list</b>, é um apontador para um
+vector que contem os vários endereços IP da
+máquina cujo nome foi passado como parâmetro.
+Na prática, a menos que se trate de um "router",
+cada máquina apenas tem um endereço IP pelo que
+se usa o primeiro elemento do vector.
+</p><p align="justify">
+Os endereços IP guardados no vector estão sob a
+forma de inteiros longos, já em formato de rede pelo
+que podem ser directamente copiados para o campo
+<b>sin_addr</b> das estruturas
+<b>sockaddr_in</b>.
+</p><p align="justify">
+O exemplo seguinte ilustra a utilização desta
+função, supondo-se que o nome da máquina é
+fornecido como primeiro parâmetro da linha de
+comando:
+</p><p align="left">
+<code>...<br>
+struct sockaddr_in target;<br>
+struct hostent *host;<br>
+...<br>
+host=gethostbyname(argv[1]);<br>
+target.sin_addr=*(struct in_addr *) *host-&gt;h_addr_list;<br>
+target.sin_port=htons(......);<br>
+...<br>
+</code>
+</p><h3>Melhorar a utilização da rede</h3>
+<p align="justify">
+Nos exemplos elementares apresentados verifica-se
+que a quantidade de octetos enviada é muitas vezes
+bastante maior do que a informação útil.
+</p><p align="justify">
+Mais especificamente para enviar linhas de texto
+que podem conter apenas alguns caracteres está a
+ser enviado sempre todo o "buffer" com 81
+caracteres.
+</p><p align="justify">
+No caso do UDP este problema pode ser resolvido
+de uma maneira muito simples. Basta indicar à
+"system-call" <b>sendto</b> a quantidade
+exacta de octetos a enviar:
+</p><p align="center">
+<code>sendto(sock,linha,1+strlen(linha),0,(struct sockaddr *)&amp;target, ...);</code>
+</p><p align="justify">Note-se que a função <b>strlen</b> devolve o
+comprimento do "string" (número de caracteres),
+mas o zero que indica o seu final também deve ser
+enviado, daí a adição de uma unidade.</p><p align="justify">
+Se para o UDP a solução é simples, para o TCP
+torna-se algo complicada. O TCP estabelece
+conexões, numa conexão os dados são transmitidos
+em continuo, não existindo qualquer tipo de
+delimitador de blocos de dados.</p><p align="justify">
+O problema coloca-se sob o ponto de vista do
+receptor que, não sabendo à partida a quantidade de
+dados que vai receber não pode invocar
+directamente a "system-call" <b>read</b> para os
+ler na totalidade.</p><p align="justify">
+Se a quantidade de dados a ler indicada à "system-
+call" <b>read</b> é menor do que os que foram
+enviados então a operação será incompleta, se
+ocorre a situação contrária o processo fica
+bloqueado.
+</p><p align="justify">
+A solução corrente consiste em definir previamente
+entre as entidades qual será o separador utilizado, a
+invocação da "system-call" <b>read</b> será
+depois realizada caractere a caractere sendo
+interrompida quando o separador é lido.</p><p align="justify">
+Por exemplo para o caso do envio de linhas de texto
+esta ideia pode ser implementada com os seguintes
+excertos de código:
+</p><p align="left">
+<code>/* EMISSOR */<br>
+...<br>
+write(sock,linha,1+strlen(linha));<br>
+...<br>
+/* RECEPTOR */<br>
+...<br>
+aux=linha-1;<br>
+do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aux++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;read(sock,aux,1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+while(*aux);<br>
+...<br>
+</code>
+</p><h3>Recepção assíncrona</h3>
+<p align="justify">
+Por recepção assíncrona entende-se aqui recepção
+de dados por uma aplicação sem bloqueio da
+mesma. Independentemente das chegadas de dados
+a aplicação deve continuar a funcionar
+normalmente.</p><p align="justify">
+A recepção assíncrona é necessária se a aplicação
+recebe dados em diferentes portas, ou mesmo que
+receba apenas numa porta, se necessita de executar
+outras tarefas e não pode ficar suspensa à espera que
+os dados cheguem.
+</p><p align="justify">
+Um dos métodos possíveis já referido é definir o
+"socket" como não bloqueante, nesse caso a
+aplicação deverá invocar periodicamente as
+"system-call" <b>recvfrom</b> ou <b>read</b>
+para verificar se chegaram dados ("polling").
+</p><p align="justify">
+Existem contudo outros métodos que podem exigir
+um menor esforço para a aplicação:
+</p><ul>
+<li>Utilização de sinais - o sistema operativo pode
+ser instruído para enviar ao processo um sinal
+sempre que chegam dados. Os sinais são
+processados por funções definidas na aplicação.
+Quando o sinal chega ao processo a sua execução
+é suspensa enquanto a referida função é
+executada. A função de processamento do sinal
+pode receber directamente os dados ou
+simplesmente alterar uma variável global que
+assinala a chegada de dados.
+</li><li>Mini-processos - os mini-processos ou "Light
+Weight Processes" (LWP), também conhecidos
+por "Threads", são unidades de execução
+sequencial que são executadas concorrentemente
+dentro do mesmo processo. Como correm dentro
+do mesmo processo partilham o espaço de
+endereçamento. É por isso simples colocar um
+"thread" à espera da chegada de dados enquanto
+os restantes continuam a sua execução
+normal.
+</li><li>"System-call" <b>select</b> - esta é uma
+solução parcial, permite escutar dados em mais do
+que uma porta, o processo fica bloqueado, mas
+quando chegam dados a uma das portas
+desbloqueia.
+</li></ul>
+<p align="justify">
+Não será aqui detalhada a solução "threads", não
+existe qualquer dificuldade na sua implementação e
+existem grandes variações quanto às "system-calls"
+usadas para trabalhar com "threads".
+</p><p align="justify">
+O "thread" que recebe dados invoca
+<b>recvfrom</b> ou <b>read</b> e fica
+bloqueado até à chegada de dados, mas os restantes
+"threads" do processo continuam a execução
+normal.
+</p><p align="justify">
+A utilização de sinais envolve alguns passos bem
+definidos, é necessário definir uma função que vai
+ser invocada quando o sinal <b>SIGIO</b> é
+recebido.
+</p><p align="justify">
+O PID tem de ser associado ao "socket" para que
+quando os dados cheguem, o sinal seja enviado ao
+processo correcto. Finalmente o "socket" tem de ser
+preparado para recepção assíncrona.
+</p><p align="justify">
+O extracto seguinte exemplifica o procedimento
+referido:
+</p><p align="left">
+char linha[81], dataReady=0;<br>
+struct sockaddr_in from;<br>
+int len=sizeof(from);<br>
+int sock=socket(AF_INET,SOCK_DGRAM,0);<br>
+int sigio_handler(void)<br>
+{<br>
+dataReady=1;<br>
+recvfrom(sock, linha, 81, 0, (struct sockaddr *)&amp;from,&amp;len);<br>
+}<br>
+void main(void)<br>
+{<br>
+signal(SIGIO,sigio_handler);<br>
+fcntl(sock, F_SETOWN, getpid());<br>
+fcntl(sock, F_SETFL, FASYNC);<br>
+sigblock(SIGIO);<br>
+for(;;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(dataReady)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts(linha);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataReady=0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sigsetmask(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sigblock(SIGIO);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+/* outras actividades de processamento da aplicação */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+close(sock);<br>
+}<br>
+</p><p align="justify">
+É claro que o processamento dos dados recebidos
+poderia se realizado directamente na função
+<b>sigio_handler</b>. Embora esta solução
+liberte totalmente a aplicação principal da recepção
+de dados, não soluciona o problema da recepção em
+várias portas. O sinal SIGIO indica que existem
+dados prontos, mas se existem vários descritores a
+ser usados para recepção, não indica em qual deles
+se encontram os dados.
+</p><p align="justify">
+Para resolver este problema pode ser usada a
+"system-call" <b>select</b>:
+</p><p align="center">
+<code>int select(int maxFd, fd_set *rd, fd_set *wr, fd_set *ex, struct timeval *timeout);
+</code></p><p align="justify">
+A estrutura apontada por <b>timeout</b> contém o tempo de máximo de bloqueio desta "system-
+call":</p><p align="left">
+<code>
+struct timeval<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;long tv_sec;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;long tv_usec;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</code></p><p align="justify">
+Esta estrutura pode conter os valores zero e nesse
+caso não existe bloqueio ("poll").</p><p align="justify">
+O apontador passado à "system-call" pode ser
+NULL, nesse caso o bloqueio verifica-se até à
+chegada de dados.</p><p align="justify">
+O objectivo desta "system-call" é detectar condições
+especificas num conjunto de "sockets", essas
+condições são:</p><p align="justify">
+</p><ul>
+<li> pronto para leitura (verificado para os "sockets"
+<b>rd</b>)
+</li><li>pronto para escrita (verificado para os "sockets"
+<b>wr</b>)
+</li><li>condição de excepção (verificado para os "sockets"
+<b>ex</b>)
+</li></ul>
+O parâmetro <b>maxFd</b> indica o número de
+descritores controlar. Este número de descritores
+refere-se ao seu valor. Não esquecer que os
+descritores são números inteiros, aqui designados
+por "sockets", o descritor 0 e 1 são usados para o
+stdin e stdout.
+<p align="justify">
+Devido ao modo como são armazenados, os
+conjuntos de "sockets" a monitorizar são passados à
+"system-call" de um modo algo rebuscado, para o
+efeito é definido o tipo <b>fd_set</b> e 4 macros
+para lidar com este tipo:</p><p align="left">
+<code>FD_ZERO(fd_set *fds);<br>
+FD_SET(int fd, fd_set *fds);<br>
+FD_CLR(int fd, fd_set *fds);<br>
+FD_ISSET(int fd, fd_set *fds);<br>
+</code>
+</p><p align="justify">
+A macro <b>FD_ZERO</b> deve ser sempre
+usada para inicializar o tipo <b>fd_set</b>.
+</p><p align="justify">
+As macros <b>FD_SET</b> e
+<b>FD_CLR</b>, respectivamente incluem ou
+retiram os "socket" <b>fd</b> da variável
+<b>fds</b>.
+</p><p align="justify">
+A macro <b>FD_ISSET</b> permite testar se um
+"socket" está incluído num conjunto do tipo
+<b>fd_set</b>.
+</p><p align="justify">
+A "system-call" <b>select</b> retorna o número
+de condições detectadas, para saber a qual dos
+"sockets" diz respeito é necessário utilizar a macro
+FD_ISSET para analisar o conjunto que
+interessa.</p><p align="justify">
+A "system-call" <b>select</b> pode também ser
+usada para receber conexões (<b>accept</b>), esta
+situação é tratada como se fosse uma chegada de
+dados.
+</p><hr>
+<p align="left">
+</p><h3>Bibliografia</h3>
+<p align="justify">
+<i>Stevens W. R. 1990, "UNIX Network
+Programming", Prentice Hall, Englewood Cliffs,
+New Jersey, 1990.
+</i></p><p align="justify">
+<i>Sun Microsystems 1990, "Network Programming
+Guide", Sun Microsystems, Inc., 1990.</i>
+</p><hr>
+<p align="left">
+</p><h3><a name="exemplos">Programas exemplo</a></h3>
+<p>Todos estes exemplos estão a usar a interface de "loopback" (127.0.0.1):
+pode modificar os endereços de destino de modo a coincidirem com o "host"
+onde se encontra o receptor ou servidor.<br><br>
+<table border="1">
+<tbody><tr><td>01. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_snd.c">UDP_SND.C</a></td><td>Emissor de "datagramas" UDP</td></tr>
+<tr><td>02. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_rcv.c">UDP_RCV.C</a></td><td>Receptor de "datagramas" UDP</td></tr>
+<tr><td>03. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_cli.c">UDP_CLI.C</a></td><td>Cliente UDP (conversao para maiusculas)</td></tr>
+<tr><td>04. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_srv.c">UDP_SRV.C</a></td><td>Servidor UDP (conversao para maiusculas)</td></tr>
+<tr><td>05. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_srv1.c">UDP_SRV1.C</a></td><td>Servidor UDP (04.), com apresentação do endereço de origem.</td></tr>
+<tr><td>06. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_cli1.c">UDP_CLI1.C</a></td><td>Cliente UDP (03.), com detecção de falhas, usando um "socket" não bloqueante.</td></tr>
+<tr><td>07. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_cli2.c">UDP_CLI2.C</a></td><td>Cliente UDP (03.), com emissão em "broadcast".</td></tr>
+<tr><td>08. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_snd.c">TCP_SND.C</a></td><td>Emissor de conexão TCP.</td></tr>
+<tr><td>09. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_rcv.c">TCP_RCV.C</a></td><td>Receptor de conexão TCP.</td></tr>
+<tr><td>10. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_cli.c">TCP_CLI.C</a></td><td>Cliente TCP (ficheiros de texto), com resolução do nome do servidor.</td></tr>
+<tr><td>11. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_srv.c">TCP_SRV.C</a></td><td>Servidor TCP (ficheiros de texto).</td></tr>
+<tr><td>12. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_cli_b.c">TCP_CLI_B.C</a></td><td>Versão B do cliente TCP com leitura byte a byte.</td></tr>
+<tr><td>13. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/tcp_srv_b.c">TCP_SRV_B.C</a></td><td>Versão B do servidor TCP com leitura byte a byte.</td></tr>
+<tr><td>14. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/udp_cli3.c">UDP_CLI3.C</a></td><td>Cliente UDP (03.), com detecção de falhas, usando a "system-call" <i>select</i>.</td></tr>
+<tr><td>15. <a href="http://www.dei.isep.ipp.pt/%7Eandre/documentos/samples/xtcp_cli.c">XTCP_CLI.C</a></td><td>Cliente TCP (10.), com interface X, usando a "libsx" ("<a href="http://www.dei.isep.ipp.pt/%7Eandre/normas/libsx.htm">The Simple X Library</a>").</td></tr>
+</tbody></table>
+</p><hr>
+<h3><a name="winsock">Notas sobre a portabilidade para Visual C++</a></h3>
+<p>Os exemplos apresentados podem ser compilados em ambiente VC++ sem qualquer modificação
+importante, há contudo algumas particularidades a considerar:
+</p><ul>
+	<li>É necessário usar o cabeçalho "Winsock2.h" (#include "winsock2.h").
+	</li><li>Nas definições do projecto incluir a biblioteca "Ws2_32.lib".
+	</li><li>É necessário inicializar a biblioteca dinâmica WS2_32.DLL, usando para esse efeito
+	a função WSAStartup(). Isto deve ser feito antes de abrir descritores de rede.
+	</li><li>Antes de terminar a aplicação, depois de ter fechado os descritores de rede, deve
+	ser invocada a função WSACleanup() para libertar os recursos usados pela WS2_32.DLL.
+	</li><li>Existe uma função especifica para fechar descritores de rede, a função 
+	closesocket(), que deve por isso ser usada em lugar da função close().
+</li></ul>
+<p>O protótipo da função WSAStartup() é:
+<br><br></p><center>int WSAStartup(WORD version, WSADATA *data);</center>
+<p>O primeiro argumento é a versão "Winsock" pretendida, a mais actual é a versão 2.2 
+que se pode definir usando a função MAKEWORD(2,2), o octeto mais significativo representa
+a subversão, logo para se usar a versão 2.0 usa-se MAKEWORD(0,2).
+</p><p>O segundo argumento é um apontador para uma variável do tipo WSADATA que tem de ser localmente
+declarada, esta variável é usada para guardar informação relativa aos sockets windows.
+</p><p>A função WSAStartup() devolve zero em caso de sucesso.
+<br></p><p>A função WSACleanup() não tem argumentos e devolve um inteiro que terá o valor zero
+em caso de sucesso.
+<br><br>
+</p><p>No exemplo seguinte apresenta-se o código referente ao exemplo 01 (udp_snd.c) com as
+alterações necessárias para ser compilado em VC++:
+<br><br>
+</p><pre>#include "winsock2.h"
+
+int main(int argc, char* argv[])
+{
+struct sockaddr_in me, target;
+int sock;
+char linha[81];
+WSADATA wsaData;
+
+WSAStartup(MAKEWORD(2,2), &amp;wsaData);
+/***** ATENÇÃO: só pode abrir-se o socket depois de invocar WSAStartup ******/
+sock=socket(AF_INET,SOCK_DGRAM,0);
+me.sin_family=AF_INET;
+me.sin_addr.s_addr=htonl(INADDR_ANY); /* endereco IP local */
+me.sin_port=htons(0); /* porta local (0=auto assign) */
+bind(sock,(struct sockaddr *)&amp;me,sizeof(me));
+target.sin_family=AF_INET;
+/* endereco IP de destino */
+target.sin_addr.s_addr=inet_addr("193.136.62.7");
+target.sin_port=htons(8888); /* porta de destino */
+do
+       {
+       gets(linha);
+       sendto(sock,linha,81,0,(struct sockaddr *)&amp;target,sizeof(target));
+       }
+while(strcmp(linha,"exit"));
+closesocket(sock);
+WSACleanup();
+return 0;
+}
+</pre>
+<hr>
+</td></tr></tbody></table>
+</center></body></html>

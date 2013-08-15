@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="Disciplina">
+		
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="ementa"/>
+		<property name="nome"/>
+
+                <!-- quando uma Turma adicionar uma Disciplina o objeto sera persistido na banco-->
+		<set name="turmas" inverse="true">
+			<key column="Disciplina_id"/>
+			<one-to-many class="Turma"/>
+		</set>
+		
+		<many-to-one name="curso" class="Curso"	column="Curso_id"/>
+		
+	</class>
+
+</hibernate-mapping>
+

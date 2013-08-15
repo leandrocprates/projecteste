@@ -1,0 +1,29 @@
+cd /home/amazon/desenvolvimento/aplicacao_poco/XML/samples/DOMParser/bin/Linux/i686
+
+./DOMParser
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>oi</head></html>
+
+para terminar ctrl+d 
+
+exemplo de saida:
+
+#document:
+html:
+head:
+#text:oi
+
+/******************************************************************************************/
+
+./PrettyPrint
+
+<teste><ola>oi</ola></teste>
+para terminar ctrl+d 
+
+saida:
+
+<teste>
+        <ola>oi</ola>
+</teste>
+
+/******************************************************************************************/
+

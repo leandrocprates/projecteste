@@ -1,0 +1,14 @@
+function OAS_RICH(position) {
+if (position == 'Top') {
+document.write ('<A HREF="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/1944170059/Top/rmlanetwork/100322_guj_androide_ros_top/728X90fj57_GUJ.gif/62643465363163633462336462636430" target="_blank"><IMG SRC="http://media.realmedia.com.br/RealMedia/ads/Creatives/rmlanetwork/100322_guj_androide_ros_top/728X90fj57_GUJ.gif"  ALT=""  BORDER="0"></A>');
+}
+if (position == 'Right') {
+document.write ('<A HREF="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/466133472/Right/rmlanetwork/090331_calhau_guj_pages2_right/formato_300x250.gif/62643465363163633462336462636430" target="_blank"><IMG SRC="http://media.realmedia.com.br/RealMedia/ads/Creatives/rmlanetwork/090331_calhau_guj_pages2_right/formato_300x250.gif"  ALT=""  BORDER="0"></A>');
+}
+if (position == 'x01') {
+document.write ('<A HREF="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/265220268/x01/default/empty.gif/62643465363163633462336462636430" target="_blank"><IMG SRC="http://media.realmedia.com.br/RealMedia/ads/Creatives/default/empty.gif"  WIDTH=2 HEIGHT=2 ALT="" BORDER=0 BORDER="0"></A>');
+}
+if (position == 'x04') {
+document.write ('<A HREF="http://media.realmedia.com.br/RealMedia/ads/click_lx.ads/guj/internas/1023209090/x04/rmlanetwork/090331_calhau_guj_pages_x04/120X600_INSTITUCIONAL_GUJ.gif/62643465363163633462336462636430" target="_blank"><IMG SRC="http://media.realmedia.com.br/RealMedia/ads/Creatives/rmlanetwork/090331_calhau_guj_pages_x04/120X600_INSTITUCIONAL_GUJ.gif"  ALT=""  BORDER="0"></A>');
+}
+}

@@ -1,0 +1,45 @@
+
+ sudo apt-get install libssl-dev
+ sudo apt-get install build-essential
+ sudo apt-get install libmysql5.0-cil
+ sudo apt-get install unixodbc-dev 
+
+
+# sudo ln -s /usr/local/mysql/include /usr/local/include/mysql
+ sudo ln -s /usr/local/mysql/lib /usr/local/lib/mysql
+
+ sudo ln -s  /usr/include/mysql   /usr/local/include/mysql
+ 
+ svn co https://poco.svn.sourceforge.net/svnroot/poco/poco/branches/poco-1.3.3 
+ 
+ cd poco-1.3.3/
+ chmod -R 755 .
+ make -s
+ export POCO_BASE=~/poco-1.3.3
+ cd Data
+ make -s
+ cd MySQL
+ make -s
+ cd
+ sudo mv poco-1.3.3 /usr/local
+ sudo ln -s /usr/local/poco-1.3.3 /usr/local/poco
+ echo "export POCO_BASE=/usr/local/poco;" >>~/.bashrc
+  echo "export 
+ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$POCO_BASE/lib:/usr/local/lib/mysql"  >>~/.bashrc
+
+
+OBS : Apos a instalacao copiar o arquivo global do svn para o diretorio "/usr/local/poco/build/rules"
+ 
+ sudo cp global /usr/local/poco/build/rules
+
+  OBS:
+    Durante a instalação tive problemas com o seguinte arquivo: 
+    ${POCO_BASE}/build/rules/global
+    copiei o arquivo da minha maquina sobre este, foi incluído uma regra 
+    no arquivo original
+    obrigando que os source da compilação estejam dentro do diretório POCO_BASE.
+    
+
+
+
+

@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0030)http://analistasi.com.br/?p=97 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="pt-BR"><HEAD profile="http://gmpg.org/xfn/11"><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="verify-v1" content="K8oZIb4RjeFW2apoizojVGV5I0It+I9x7nt4fryKrE8=">
+
+
+<TITLE>Java – JSON « Analista de Sistemas</TITLE>
+
+<LINK rel="alternate" type="application/rss+xml" title="Analista de Sistemas RSS Feed" href="http://analistasi.com.br/?feed=rss2">
+<LINK rel="alternate" type="application/atom+xml" title="Analista de Sistemas Atom Feed" href="http://analistasi.com.br/?feed=atom">
+<LINK rel="pingback" href="http://analistasi.com.br/xmlrpc.php">
+
+<STYLE type="text/css" media="all">@import "http://analistasi.com.br/wp-content/themes/fusion/style.css";</STYLE>
+<!--[if lte IE 6]>
+<script type="text/javascript">
+/* <![CDATA[ */
+   blankimgpath = 'http://analistasi.com.br/wp-content/themes/fusion/images/blank.gif';
+ /* ]]> */
+</script>
+
+<style type="text/css" media="screen">
+  @import "http://analistasi.com.br/wp-content/themes/fusion/ie6.css";
+  body{ behavior:url(http://analistasi.com.br/wp-content/themes/fusion/ie6hoverfix.htc); }
+  img{ behavior: url("http://analistasi.com.br/wp-content/themes/fusion/ie6pngfix.htc"); }
+</style>
+<![endif]-->
+
+<!--[if IE 7]>
+<style type="text/css" media="all">@import "http://analistasi.com.br/wp-content/themes/fusion/ie7.css";</style>
+<![endif]-->
+
+
+  
+<LINK rel="alternate" type="application/rss+xml" title="Analista de Sistemas &raquo; Java &ndash; JSON  Feed de coment&aacute;rios" href="http://analistasi.com.br/?feed=rss2&p=97">
+<LINK rel="stylesheet" id="syntaxhighlighter-core-css" href="./Java_JSON_Lendo_Json_files/shCore.css" type="text/css" media="all">
+<LINK rel="stylesheet" id="syntaxhighlighter-theme-default-css" href="./Java_JSON_Lendo_Json_files/shThemeDefault.css" type="text/css" media="all">
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/comment-reply.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/jquery.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/fusion.js"></SCRIPT>
+<LINK rel="EditURI" type="application/rsd+xml" title="RSD" href="http://analistasi.com.br/xmlrpc.php?rsd">
+<LINK rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://analistasi.com.br/wp-includes/wlwmanifest.xml"> 
+<LINK rel="index" title="Analista de Sistemas" href="http://analistasi.com.br/">
+<LINK rel="start" title="Instalando o Flash 10 no Linux" href="http://analistasi.com.br/?p=5">
+<LINK rel="prev" title="Exemplo Simples de Design by Contracts" href="http://analistasi.com.br/?p=95">
+<LINK rel="next" title="In&iacute;cio Artigo Nice" href="http://analistasi.com.br/?p=109">
+<META name="generator" content="WordPress 2.8.4">
+	<STYLE type="text/css">.syntaxhighlighter { font-size: 12px !important; }</STYLE>
+
+<SCRIPT type="text/javascript">
+/* <![CDATA[ */
+ jQuery(document).ready(function(){
+  // body .safari class
+  if (jQuery.browser.safari) jQuery('body').addClass('safari');
+
+  // layout controls
+     jQuery("#layoutcontrol a").click(function() {
+     switch (jQuery(this).attr("class")) {
+	   case 'setFont' : setFontSize();	break;
+	   case 'setLiquid'	: setPageWidth();	break;
+	 }
+	 return false;
+    });
+   // set the font size from cookie
+   var font_size = jQuery.cookie('fontSize');
+   if (font_size == '.7em') { jQuery('body').css("font-size",".7em"); }
+   if (font_size == '.95em') { jQuery('body').css("font-size",".95em"); }
+   if (font_size == '.8em') { jQuery('body').css("font-size",".8em"); }
+
+   // set the page width from cookie
+   var page_width = jQuery.cookie('pageWidth');
+   if (page_width) jQuery('#page').css('width', page_width);
+  
+  jQuery('#secondary-tabs').minitabs(333, 'slide');
+
+  if (document.all && !window.opera && !window.XMLHttpRequest && jQuery.browser.msie) { var isIE6 = true; }
+  else { var isIE6 = false;} ;
+  jQuery.browser.msie6 = isIE6;
+  if (!isIE6) {
+    initTooltips({
+		timeout: 6000
+   });
+  }
+  tabmenudropdowns();
+
+  // some jquery effects...
+  jQuery('#sidebar ul.nav li ul li a').mouseover(function () {
+   	jQuery(this).animate({ marginLeft: "4px" }, 100 );
+  });
+  jQuery('#sidebar ul.nav li ul li a').mouseout(function () {
+    jQuery(this).animate({ marginLeft: "0px" }, 100 );
+  });
+  // scroll to top
+  jQuery("a#toplink").click(function(){
+    jQuery('html, body').animate({scrollTop:0}, 'slow');
+  });
+
+ });
+
+ /* ]]> */
+</SCRIPT>
+
+<LINK rel="stylesheet" type="text/css" href="./Java_JSON_Lendo_Json_files/hw_csspadrao_0_v15.css"><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Java_JSON_Lendo_Json_files/script.js"></SCRIPT><SCRIPT type="text/javascript" charset="ISO-8859-1" src="./Java_JSON_Lendo_Json_files/mostraV2.js"></SCRIPT></HEAD><BODY class="java-json safari">
+  <!-- page wrappers (100% width) -->
+  <DIV id="page-wrap1">
+    <DIV id="page-wrap2">
+      <!-- page (actual site content, custom width) -->
+      <DIV id="page" class="with-sidebar">
+
+       <!-- main wrapper (side & main) -->
+       <DIV id="main-wrap">
+        <!-- mid column wrap -->
+    	<DIV id="mid-wrap">
+          <!-- sidebar wrap -->
+          <DIV id="side-wrap">
+            <!-- mid column -->
+    	    <DIV id="mid">
+              <!-- header -->
+              <DIV id="header">
+                <DIV id="topnav" class="description"> Analista de Sistemas de Informação</DIV>
+
+                <H1 id="title"><A href="http://analistasi.com.br/">Analista de Sistemas</A></H1>                <!-- top tab navigation -->
+                <DIV id="tabs">
+                 <UL>
+                                   <LI><A href="http://analistasi.com.br/" title="Clique para In&iacute;cio"><SPAN><SPAN>Início</SPAN></SPAN></A></LI>
+                                  <LI class="page_item page-item-61"><A href="http://analistasi.com.br/?page_id=61" title="Acad&ecirc;mico"><SPAN><SPAN>Acadêmico</SPAN></SPAN></A></LI>
+<LI class="page_item page-item-40"><A href="http://analistasi.com.br/?page_id=40" title="Rotina de Artigos"><SPAN><SPAN>Rotina de Artigos</SPAN></SPAN></A></LI>
+<LI class="page_item page-item-128"><A href="http://analistasi.com.br/?page_id=128" title="Trabalhos"><SPAN><SPAN>Trabalhos</SPAN></SPAN></A></LI>
+<LI class="page_item page-item-2"><A href="http://analistasi.com.br/?page_id=2" title="Sobre mim"><SPAN><SPAN>Sobre mim</SPAN></SPAN></A></LI>
+<LI class="page_item page-item-17"><A href="http://analistasi.com.br/?page_id=17" title="Contato"><SPAN><SPAN>Contato</SPAN></SPAN></A></LI>
+                 </UL>
+                </DIV>
+                <!-- /top tabs -->
+
+              </DIV><!-- /header -->
+
+  <!-- mid content -->
+  <DIV id="mid-content">
+	<DIV class="box" style="text-align: center;">
+ 		<SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5130917672990119";
+google_ad_slot = "3333123469";
+google_ad_width = 468;
+google_ad_height = 60;
+//--></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/show_ads.js"></SCRIPT><SCRIPT src="./Java_JSON_Lendo_Json_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="468" height="60" frameborder="0" src="./Java_JSON_Lendo_Json_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+ 	</DIV>
+ 
+      <DIV class="navigation">
+      <DIV class="alignleft">« <A href="http://analistasi.com.br/?p=95">Exemplo Simples de Design by Contracts</A></DIV>
+      <DIV class="alignright"><A href="http://analistasi.com.br/?p=109">Início Artigo Nice</A> »</DIV>
+      <DIV class="clear"></DIV>
+    </DIV>
+
+        <DIV id="post-97" class="post-97 post hentry category-linguagem-java-programacao tag-java tag-json tag-linguagem-de-programacao tag-programacao">
+    	   <H2>Java – JSON</H2>
+       <BR>
+	   <DIV class="entry">
+          <DIV class="postbody entry clearfix">
+          	<DIV id="HOTWordsTxt" name="HOTWordsTxt">
+		       <P><STRONG>JSON</STRONG> é um recuso de transformação de <STRONG>objetos</STRONG> de qualquer tipo em um <STRONG>literal</STRONG>.</P>
+<P><TAGHW>O intuito deste artigo é mostrar como fazer uma simples aplicação que tranforma objetos em literal e lê os <A href="http://analistasi.com.br/?p=97#" onclick="hwClick(&quot;dados&quot;);return false;" style="cursor: hand; color:#006600; text-decoration:underline; border-bottom:dotted 1px;" onmouseover="hwShow(event, this, &quot;dados&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;solid&quot;;" onmouseout="hideMaybe(this, &quot;dados&quot;); this.style.cursor=&quot;hand&quot;; this.style.textDecoration=&quot;underline&quot;; this.style.borderBottom=&quot;dotted 1px&quot;; " oncontextmenu="return false;">dados</A> de um literal.</TAGHW></P>
+<P>Veja o exemplo:</P>
+<DIV id="highlighter_430192" class="syntaxhighlighter "><DIV class="bar                                                 show"><DIV class="toolbar"><A href="http://analistasi.com.br/?p=97#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</A><DIV class="item copyToClipboard"><EMBED width="16" height="16" id="highlighter_430192_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_430192" menu="false" src="http://analistasi.com.br/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf"></DIV><A href="http://analistasi.com.br/?p=97#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</A><A href="http://analistasi.com.br/?p=97#about" title="?" style="width: 16px; height: 16px; " class="item about">?</A></DIV></DIV><DIV class="lines"><DIV class="line alt1"><CODE class="number">01.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">package</CODE> <CODE class="plain">br.com.rmt.testes.json;</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">02.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">03.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">import</CODE> <CODE class="plain">org.json.JSONObject;</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">04.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">05.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">public</CODE> <CODE class="keyword">class</CODE> <CODE class="plain">TesteJSON {</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">06.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">public</CODE> <CODE class="plain">TesteJSON(){</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">07.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="comments">//this.escrever();</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">08.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">this</CODE><CODE class="plain">.ler();</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">09.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">10.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">11.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">public</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">escrever(){</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">12.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">JSONObject jo = </CODE><CODE class="keyword">new</CODE> <CODE class="plain">JSONObject();</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">13.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">try</CODE> <CODE class="plain">{</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">14.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">jo.put(</CODE><CODE class="string">"nome"</CODE><CODE class="plain">, </CODE><CODE class="string">"Ronneesley"</CODE><CODE class="plain">);</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">15.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">jo.put(</CODE><CODE class="string">"sobrenome"</CODE><CODE class="plain">, </CODE><CODE class="string">"Moura Teles"</CODE><CODE class="plain">);</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">16.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">} </CODE><CODE class="keyword">catch</CODE> <CODE class="plain">(Exception ex){</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">17.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">System.out.println(</CODE><CODE class="string">"Erro Escrita: "</CODE> <CODE class="plain">+ ex.getMessage());</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">18.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">19.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">System.out.println(jo.toString());</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">20.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">21.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">22.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">public</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">ler(){</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">23.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">String json = </CODE><CODE class="string">"{\"sobrenome\":\"Moura Teles\",\"nome\":\"Ronneesley\"}"</CODE><CODE class="plain">;</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">24.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">25.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">try</CODE> <CODE class="plain">{</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">26.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">JSONObject jo = </CODE><CODE class="keyword">new</CODE> <CODE class="plain">JSONObject(json);</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">27.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">28.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">System.out.println(</CODE><CODE class="string">"Nome: "</CODE> <CODE class="plain">+ jo.get(</CODE><CODE class="string">"nome"</CODE><CODE class="plain">));</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">29.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">System.out.println(</CODE><CODE class="string">"Sobrenome: "</CODE> <CODE class="plain">+ jo.get(</CODE><CODE class="string">"sobrenome"</CODE><CODE class="plain">));</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">30.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">} </CODE><CODE class="keyword">catch</CODE> <CODE class="plain">(Exception ex) {</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">31.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">System.out.println(</CODE><CODE class="string">"Erro Leitura: "</CODE> <CODE class="plain">+ ex.getMessage());</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">32.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">33.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">34.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">35.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;">&nbsp;</SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">36.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">public</CODE> <CODE class="keyword">static</CODE> <CODE class="keyword">void</CODE> <CODE class="plain">main(String[] args){</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">37.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="keyword">new</CODE> <CODE class="plain">TesteJSON();</CODE></SPAN></SPAN></DIV><DIV class="line alt2"><CODE class="number">38.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV><DIV class="line alt1"><CODE class="number">39.</CODE><SPAN class="content"><SPAN class="block" style="margin-left: 0px !important;"><CODE class="plain">}</CODE></SPAN></SPAN></DIV></DIV></DIV>
+<P>Para executar o código é recomendado utilizar a plataforma <STRONG>Eclipse</STRONG> ou o <STRONG>Netbeans</STRONG>, que facilitam a inclusão de outros códigos fontes externos. Assim deve ser efetuado o <STRONG>download</STRONG> do <A href="http://www.json.org/java/json.zip" target="_blank">arcabouço</A> disponível no site <A href="http://www.json.org/java/index.html" target="_blank">http://www.json.org/java/index.html</A> e adicioná-lo como <STRONG>dependência</STRONG> do projeto.</P>
+		</DIV>
+          </DIV>
+                              <P class="tags"><A href="http://analistasi.com.br/?tag=java" rel="tag">Java</A>, <A href="http://analistasi.com.br/?tag=json" rel="tag">JSON</A>, <A href="http://analistasi.com.br/?tag=linguagem-de-programacao" rel="tag">Linguagem de programação</A>, <A href="http://analistasi.com.br/?tag=programacao" rel="tag">Programação</A></P>
+          <DIV class="clear"></DIV>
+                    <P class="postmetadata alt">
+			<SMALL>
+        		Este post foi feito        		quarta-feira, 25 de março de 2009, 10:05 pm        		e está como                <A href="http://analistasi.com.br/?cat=43" title="Ver todos os posts em Linguagem Java" rel="category">Linguagem Java</A>.
+                Você pode acompanhar alguma resposta a esse post através de <A href="http://analistasi.com.br/?feed=rss2&p=97">RSS 2.0</A>.                Você pode <A href="http://analistasi.com.br/?p=97#respond">deixar uma resposta</A>, ou <A href="http://analistasi.com.br/wp-trackback.php?p=97" rel="trackback">citar</A> de seu próprio site.                            </SMALL>
+		  </P>
+	   </DIV>
+    </DIV>
+	<DIV class="box" style="text-align: center;">
+ 		<SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5130917672990119";
+google_ad_slot = "3333123469";
+google_ad_width = 468;
+google_ad_height = 60;
+//--></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/show_ads.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="468" height="60" frameborder="0" src="./Java_JSON_Lendo_Json_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+ 	</DIV>
+	<DIV id="secondary-tabs">
+      <!-- comments and trackback tabs -->
+    <UL class="menu">
+      <LI><A href="http://analistasi.com.br/?p=97#tab-1" class="current"><SPAN><SPAN>Comentários (0)</SPAN></SPAN></A></LI>
+      <LI><A href="http://analistasi.com.br/?p=97#tab-2"><SPAN><SPAN>Citações (0)</SPAN></SPAN></A></LI>
+    </UL>
+    <!-- /comments and trackback tabs -->
+    <!-- comments -->
+  <DIV id="tab-1">
+   <OL id="comments">
+      	  <LI>Nenhum comentário ainda.</LI>
+  	    </OL>
+        
+      <DIV id="respond">
+      <FORM action="http://analistasi.com.br/wp-comments-post.php" method="post" id="commentform" name="tcommentform">
+        <DIV class="cancel-comment-reply"><A rel="nofollow" id="cancel-comment-reply-link" href="http://analistasi.com.br/?p=97#respond" style="display:none;">Cancelar resposta</A></DIV>
+          	  	         	<DIV id="author_info">
+            <DIV class="row">
+            	<INPUT type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1">
+              <LABEL for="author" class="small">Nome (necessário)</LABEL>
+            </DIV>
+            <DIV class="row">
+            	<INPUT type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2">
+              <LABEL for="email" class="small">E-Mail (necessário)</LABEL> <EM>(não será publicado)</EM>
+            </DIV>
+            <DIV class="row">
+            	<INPUT type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3">
+              <LABEL for="url" class="small">Website</LABEL>
+            </DIV>
+  		</DIV>
+        	        
+        <!-- comment input -->
+        <DIV class="row">
+        	<TEXTAREA name="comment" id="comment" tabindex="4" rows="8" cols="50"></TEXTAREA>
+        	        	<INPUT type="hidden" name="comment_post_ID" value="97" id="comment_post_ID">
+<INPUT type="hidden" name="comment_parent" id="comment_parent" value="0">
+        </DIV>
+        <!-- /comment input -->
+
+  	  <!-- comment submit and rss -->
+  	  <DIV id="submitbox" class="left">
+          <SPAN class="button submit"><A title="Mandar Coment&aacute;rio" href="javascript:document.tcommentform.submit();"><SPAN><SPAN>Mandar Comentário</SPAN></SPAN></A></SPAN>
+          <INPUT type="hidden" name="formInput">
+      </DIV>
+      <DIV class="clear"></DIV>
+
+     </FORM>
+    </DIV>
+           </DIV>
+  <!-- /comments -->
+
+    <!-- trackbacks -->
+  <DIV id="tab-2" style="display: none; ">
+    <OL id="trackbacks">
+            <LI>Sem citações ainda.</LI>
+         </OL>
+  </DIV>
+  <!-- /trackbacks -->
+  
+</DIV>
+
+   </DIV>
+    <!-- mid content -->
+   </DIV>
+   <!-- /mid -->
+
+   <!-- sidebar -->
+<DIV id="sidebar">
+ <!-- sidebar 1st container -->
+<DIV id="sidebar-wrap1">
+  <!-- sidebar 2nd container -->
+  <DIV id="sidebar-wrap2">
+     <UL id="sidelist">
+                <LI>
+          
+<!-- search form -->
+
+<DIV id="searchtab">
+  <DIV class="inside">
+    <FORM method="get" id="searchform" action="http://analistasi.com.br/">
+      <INPUT type="text" name="s" id="searchbox" class="searchfield" value="Procurar" onfocus="if(this.value == &#39;Procurar&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Procurar&#39;;}">
+       <INPUT type="submit" value="Go" class="searchbutton">
+    </FORM>
+  </DIV>
+</DIV>
+
+<!-- /search form -->		</LI>
+        
+			
+			<LI class="box-wrap" id="box-publicidade">
+					<DIV class="inside" align="center">
+						<UL>
+							<LI><SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5130917672990119";
+google_ad_slot = "1497692859";
+google_ad_width = 160;
+google_ad_height = 600;
+//--></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/show_ads.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><IFRAME name="google_ads_frame" width="160" height="600" frameborder="0" src="./Java_JSON_Lendo_Json_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></IFRAME>
+</LI>
+						</UL>
+					</DIV>
+			</LI>
+
+			<LI class="box-wrap" id="box-pesquisasite">
+				<DIV class="box">
+					<H2>Pesquisa</H2>
+					
+					<DIV class="inside">
+						<UL>
+							<LI>
+  
+
+<FORM action="http://www.google.com.br/cse" id="cse-search-box" target="_blank">
+  <DIV>
+    <INPUT type="hidden" name="cx" value="partner-pub-5130917672990119:9i2fvp-7rqm">
+    <INPUT type="hidden" name="ie" value="ISO-8859-1">
+    <INPUT type="text" name="q" size="50" style="background-image: url(http://www.google.com.br/cse/intl/pt/images/google_custom_search_watermark.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat no-repeat; ">
+    <INPUT type="submit" name="sa" value="Pesquisar">
+  </DIV>
+<INPUT name="siteurl" type="hidden" value="analistasi.com.br/?p=97"></FORM>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/brand"></SCRIPT> 
+
+							</LI>
+						</UL>
+					</DIV>
+				</DIV>
+			</LI>
+
+                        <LI>
+              <!-- sidebar menu (categories) -->
+              <UL class="nav">
+                	<LI class="cat-item cat-item-47"><A href="http://analistasi.com.br/?cat=47" title="Ver todos os posts arquivados em Analista de Sistemas"><SPAN>Analista de Sistemas</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=47" style="opacity: 0; top: -3px; display: none; "></A>
+<UL class="children">
+	<LI class="cat-item cat-item-62"><A href="http://analistasi.com.br/?cat=62" title="Ver todos os posts arquivados em D&uacute;vidas Gerais"><SPAN>Dúvidas Gerais</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=62" style="opacity: 0; top: -3px; display: none; "></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-31"><A href="http://analistasi.com.br/?cat=31" title="Bancos de dados em geral"><SPAN>Bancos de Dados</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=31"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-26"><A href="http://analistasi.com.br/?cat=26" title="Ver todos os posts arquivados em MySQL"><SPAN>MySQL</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=26"></A>
+</LI>
+	<LI class="cat-item cat-item-27"><A href="http://analistasi.com.br/?cat=27" title="Ver todos os posts arquivados em PostgreSQL"><SPAN>PostgreSQL</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=27"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-573"><A href="http://analistasi.com.br/?cat=573" title="Ver todos os posts arquivados em Computa&ccedil;&atilde;o"><SPAN>Computação</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=573"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-577"><A href="http://analistasi.com.br/?cat=577" title="Ver todos os posts arquivados em Hist&oacute;ria"><SPAN>História</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=577"></A>
+</LI>
+	<LI class="cat-item cat-item-574"><A href="http://analistasi.com.br/?cat=574" title="Ver todos os posts arquivados em Teoremas"><SPAN>Teoremas</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=574"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-246"><A href="http://analistasi.com.br/?cat=246" title="Ver todos os posts arquivados em Computa&ccedil;&atilde;o gr&aacute;fica"><SPAN>Computação gráfica</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=246"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-247"><A href="http://analistasi.com.br/?cat=247" title="Ver todos os posts arquivados em Anima&ccedil;&otilde;es"><SPAN>Animações</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=247"></A>
+</LI>
+	<LI class="cat-item cat-item-458"><A href="http://analistasi.com.br/?cat=458" title="Ver todos os posts arquivados em Utilidades da CG"><SPAN>Utilidades da CG</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=458"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-45"><A href="http://analistasi.com.br/?cat=45" title="Ver todos os posts arquivados em Comunicados"><SPAN>Comunicados</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=45"></A>
+</LI>
+	<LI class="cat-item cat-item-476"><A href="http://analistasi.com.br/?cat=476" title="Ver todos os posts arquivados em Desafios"><SPAN>Desafios</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=476"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-508"><A href="http://analistasi.com.br/?cat=508" title="Ver todos os posts arquivados em Problema da loteria"><SPAN>Problema da loteria</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=508"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-12"><A href="http://analistasi.com.br/?cat=12" title="Ver todos os posts arquivados em Engenharia de Software"><SPAN>Engenharia de Software</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=12"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-337"><A href="http://analistasi.com.br/?cat=337" title="Ver todos os posts arquivados em Estimativas"><SPAN>Estimativas</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=337"></A>
+</LI>
+	<LI class="cat-item cat-item-37"><A href="http://analistasi.com.br/?cat=37" title="Ver todos os posts arquivados em Padr&otilde;es de Projeto"><SPAN>Padrões de Projeto</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=37"></A>
+</LI>
+	<LI class="cat-item cat-item-38"><A href="http://analistasi.com.br/?cat=38" title="Ver todos os posts arquivados em Requisitos de Software"><SPAN>Requisitos de Software</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=38"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-134"><A href="http://analistasi.com.br/?cat=134" title="Ver todos os posts arquivados em Documenta&ccedil;&atilde;o"><SPAN>Documentação</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=134"></A>
+</LI>
+	<LI class="cat-item cat-item-40"><A href="http://analistasi.com.br/?cat=40" title="Ver todos os posts arquivados em Fundamentos"><SPAN>Fundamentos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=40"></A>
+</LI>
+	</UL>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-595"><A href="http://analistasi.com.br/?cat=595" title="Ver todos os posts arquivados em Ensino e aprendizagem"><SPAN>Ensino e aprendizagem</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=595"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-596"><A href="http://analistasi.com.br/?cat=596" title="Ver todos os posts arquivados em Tinta digital"><SPAN>Tinta digital</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=596"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-502"><A href="http://analistasi.com.br/?cat=502" title="Ver todos os posts arquivados em F&iacute;sica"><SPAN>Física</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=502"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-505"><A href="http://analistasi.com.br/?cat=505" title="Ver todos os posts arquivados em 2D e 3D"><SPAN>2D e 3D</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=505"></A>
+</LI>
+	<LI class="cat-item cat-item-503"><A href="http://analistasi.com.br/?cat=503" title="Ver todos os posts arquivados em Experimentos"><SPAN>Experimentos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=503"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-236"><A href="http://analistasi.com.br/?cat=236" title="Ver todos os posts arquivados em Humor"><SPAN>Humor</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=236"></A>
+</LI>
+	<LI class="cat-item cat-item-6"><A href="http://analistasi.com.br/?cat=6" title="Ver todos os posts arquivados em Instaladores"><SPAN>Instaladores</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=6"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-42"><A href="http://analistasi.com.br/?cat=42" title="Ver todos os posts arquivados em DBDesigner4"><SPAN>DBDesigner4</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=42"></A>
+</LI>
+	<LI class="cat-item cat-item-4"><A href="http://analistasi.com.br/?cat=4" title="Instal&ccedil;&otilde;es e Aplica&ccedil;&otilde;es em Flash"><SPAN>Flash</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=4"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-54"><A href="http://analistasi.com.br/?cat=54" title="Ver todos os posts arquivados em Intelig&ecirc;ncia Artificial"><SPAN>Inteligência Artificial</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=54"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-598"><A href="http://analistasi.com.br/?cat=598" title="Ver todos os posts arquivados em Algoritmos Gen&eacute;ticos"><SPAN>Algoritmos Genéticos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=598"></A>
+</LI>
+	<LI class="cat-item cat-item-599"><A href="http://analistasi.com.br/?cat=599" title="Ver todos os posts arquivados em &Aacute;rvores de Decis&atilde;o"><SPAN>Árvores de Decisão</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=599"></A>
+</LI>
+	<LI class="cat-item cat-item-55"><A href="http://analistasi.com.br/?cat=55" title="Ver todos os posts arquivados em Heur&iacute;stica"><SPAN>Heurística</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=55"></A>
+</LI>
+	<LI class="cat-item cat-item-441"><A href="http://analistasi.com.br/?cat=441" title="Ver todos os posts arquivados em Interessantes IA"><SPAN>Interessantes IA</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=441"></A>
+</LI>
+	<LI class="cat-item cat-item-88"><A href="http://analistasi.com.br/?cat=88" title="Ver todos os posts arquivados em Jogos"><SPAN>Jogos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=88"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-212"><A href="http://analistasi.com.br/?cat=212" title="Ver todos os posts arquivados em Introdu&ccedil;&atilde;o"><SPAN>Introdução</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=212"></A>
+</LI>
+	</UL>
+</LI>
+	<LI class="cat-item cat-item-299"><A href="http://analistasi.com.br/?cat=299" title="Ver todos os posts arquivados em Linguagens naturais"><SPAN>Linguagens naturais</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=299"></A>
+</LI>
+	<LI class="cat-item cat-item-592"><A href="http://analistasi.com.br/?cat=592" title="Ver todos os posts arquivados em M&aacute;quinas inteligentes"><SPAN>Máquinas inteligentes</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=592"></A>
+</LI>
+	<LI class="cat-item cat-item-449"><A href="http://analistasi.com.br/?cat=449" title="Ver todos os posts arquivados em Reconhecimento de voz"><SPAN>Reconhecimento de voz</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=449"></A>
+</LI>
+	<LI class="cat-item cat-item-451"><A href="http://analistasi.com.br/?cat=451" title="Ver todos os posts arquivados em Temas gerais de IA"><SPAN>Temas gerais de IA</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=451"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-136"><A href="http://analistasi.com.br/?cat=136" title="Ver todos os posts arquivados em Interessantes"><SPAN>Interessantes</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=136"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-139"><A href="http://analistasi.com.br/?cat=139" title="Ver todos os posts arquivados em Conflitos de SO"><SPAN>Conflitos de SO</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=139"></A>
+</LI>
+	<LI class="cat-item cat-item-141"><A href="http://analistasi.com.br/?cat=141" title="Ver todos os posts arquivados em Desktop 3D"><SPAN>Desktop 3D</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=141"></A>
+</LI>
+	<LI class="cat-item cat-item-207"><A href="http://analistasi.com.br/?cat=207" title="Ver todos os posts arquivados em Ferramentas"><SPAN>Ferramentas</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=207"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-271"><A href="http://analistasi.com.br/?cat=271" title="Ver todos os posts arquivados em Latex"><SPAN>Latex</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=271"></A>
+</LI>
+	</UL>
+</LI>
+	<LI class="cat-item cat-item-229"><A href="http://analistasi.com.br/?cat=229" title="Ver todos os posts arquivados em Google"><SPAN>Google</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=229"></A>
+</LI>
+	<LI class="cat-item cat-item-194"><A href="http://analistasi.com.br/?cat=194" title="Ver todos os posts arquivados em Guerra das interfaces"><SPAN>Guerra das interfaces</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=194"></A>
+</LI>
+	<LI class="cat-item cat-item-436"><A href="http://analistasi.com.br/?cat=436" title="Ver todos os posts arquivados em Multitouch"><SPAN>Multitouch</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=436"></A>
+</LI>
+	<LI class="cat-item cat-item-150"><A href="http://analistasi.com.br/?cat=150" title="Ver todos os posts arquivados em Piratas do Vale do Sil&iacute;cio"><SPAN>Piratas do Vale do Silício</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=150"></A>
+</LI>
+	<LI class="cat-item cat-item-434"><A href="http://analistasi.com.br/?cat=434" title="Ver todos os posts arquivados em Realidade aumentada"><SPAN>Realidade aumentada</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=434"></A>
+</LI>
+	<LI class="cat-item cat-item-328"><A href="http://analistasi.com.br/?cat=328" title="Ver todos os posts arquivados em Tecnologias"><SPAN>Tecnologias</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=328"></A>
+</LI>
+	<LI class="cat-item cat-item-421"><A href="http://analistasi.com.br/?cat=421" title="Ver todos os posts arquivados em Temas gerais"><SPAN>Temas gerais</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=421"></A>
+</LI>
+	<LI class="cat-item cat-item-149"><A href="http://analistasi.com.br/?cat=149" title="Ver todos os posts arquivados em Web 2.0"><SPAN>Web 2.0</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=149"></A>
+</LI>
+	<LI class="cat-item cat-item-205"><A href="http://analistasi.com.br/?cat=205" title="Ver todos os posts arquivados em Web Design"><SPAN>Web Design</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=205"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-552"><A href="http://analistasi.com.br/?cat=552" title="Ver todos os posts arquivados em Jogos e Desenv."><SPAN>Jogos e Desenv.</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=552"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-554"><A href="http://analistasi.com.br/?cat=554" title="Ver todos os posts arquivados em PC"><SPAN>PC</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=554"></A>
+</LI>
+	<LI class="cat-item cat-item-553"><A href="http://analistasi.com.br/?cat=553" title="Ver todos os posts arquivados em Xbox"><SPAN>Xbox</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=553"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-8"><A href="http://analistasi.com.br/?cat=8" title="Ver todos os posts arquivados em Linux"><SPAN>Linux</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=8"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-453"><A href="http://analistasi.com.br/?cat=453" title="Ver todos os posts arquivados em Jogos/Games"><SPAN>Jogos/Games</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=453"></A>
+</LI>
+	<LI class="cat-item cat-item-396"><A href="http://analistasi.com.br/?cat=396" title="Ver todos os posts arquivados em Sistemas Operacionais"><SPAN>Sistemas Operacionais</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=396"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-399"><A href="http://analistasi.com.br/?cat=399" title="Ver todos os posts arquivados em Android"><SPAN>Android</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=399"></A>
+</LI>
+	<LI class="cat-item cat-item-60"><A href="http://analistasi.com.br/?cat=60" title="Ver todos os posts arquivados em Ubuntu"><SPAN>Ubuntu</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=60"></A>
+</LI>
+	<LI class="cat-item cat-item-439"><A href="http://analistasi.com.br/?cat=439" title="Ver todos os posts arquivados em Windows"><SPAN>Windows</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=439"></A>
+</LI>
+	</UL>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-275"><A href="http://analistasi.com.br/?cat=275" title="Ver todos os posts arquivados em Matem&aacute;tica"><SPAN>Matemática</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=275"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-326"><A href="http://analistasi.com.br/?cat=326" title="Ver todos os posts arquivados em An&aacute;lise Combinat&oacute;ria"><SPAN>Análise Combinatória</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=326"></A>
+</LI>
+	<LI class="cat-item cat-item-277"><A href="http://analistasi.com.br/?cat=277" title="Ver todos os posts arquivados em Permuta&ccedil;&otilde;es"><SPAN>Permutações</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=277"></A>
+</LI>
+	<LI class="cat-item cat-item-338"><A href="http://analistasi.com.br/?cat=338" title="Ver todos os posts arquivados em Teoria dos grafos"><SPAN>Teoria dos grafos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=338"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-375"><A href="http://analistasi.com.br/?cat=375" title="Ver todos os posts arquivados em Defini&ccedil;&otilde;es de grafos"><SPAN>Definições de grafos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=375"></A>
+</LI>
+	<LI class="cat-item cat-item-385"><A href="http://analistasi.com.br/?cat=385" title="Ver todos os posts arquivados em Dijkstra"><SPAN>Dijkstra</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=385"></A>
+</LI>
+	<LI class="cat-item cat-item-339"><A href="http://analistasi.com.br/?cat=339" title="Ver todos os posts arquivados em PERT/CPM"><SPAN>PERT/CPM</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=339"></A>
+</LI>
+	</UL>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-184"><A href="http://analistasi.com.br/?cat=184" title="Ver todos os posts arquivados em Mundo"><SPAN>Mundo</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=184"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-256"><A href="http://analistasi.com.br/?cat=256" title="Ver todos os posts arquivados em Inform&aacute;tica"><SPAN>Informática</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=256"></A>
+</LI>
+	<LI class="cat-item cat-item-463"><A href="http://analistasi.com.br/?cat=463" title="Ver todos os posts arquivados em Not&iacute;cias"><SPAN>Notícias</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=463"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-23"><A href="http://analistasi.com.br/?cat=23" title="Ver todos os posts arquivados em Programa&ccedil;&atilde;o"><SPAN>Programação</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=23"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-58"><A href="http://analistasi.com.br/?cat=58" title="Ver todos os posts arquivados em Algoritmos"><SPAN>Algoritmos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=58"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-384"><A href="http://analistasi.com.br/?cat=384" title="Ver todos os posts arquivados em Caminho mais curto"><SPAN>Caminho mais curto</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=384"></A>
+</LI>
+	<LI class="cat-item cat-item-405"><A href="http://analistasi.com.br/?cat=405" title="Ver todos os posts arquivados em Conceito de algoritmos"><SPAN>Conceito de algoritmos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=405"></A>
+</LI>
+	<LI class="cat-item cat-item-500"><A href="http://analistasi.com.br/?cat=500" title="Ver todos os posts arquivados em Criptografia"><SPAN>Criptografia</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=500"></A>
+</LI>
+	<LI class="cat-item cat-item-509"><A href="http://analistasi.com.br/?cat=509" title="Ver todos os posts arquivados em Heur&iacute;sticas"><SPAN>Heurísticas</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=509"></A>
+</LI>
+	<LI class="cat-item cat-item-104"><A href="http://analistasi.com.br/?cat=104" title="Ver todos os posts arquivados em Ordena&ccedil;&atilde;o MergeSort"><SPAN>Ordenação MergeSort</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=104"></A>
+</LI>
+	<LI class="cat-item cat-item-100"><A href="http://analistasi.com.br/?cat=100" title="Ver todos os posts arquivados em Ordena&ccedil;&atilde;o por Inser&ccedil;&atilde;o"><SPAN>Ordenação por Inserção</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=100"></A>
+</LI>
+	<LI class="cat-item cat-item-103"><A href="http://analistasi.com.br/?cat=103" title="Ver todos os posts arquivados em Ordena&ccedil;&atilde;o por Sele&ccedil;&atilde;o"><SPAN>Ordenação por Seleção</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=103"></A>
+</LI>
+	<LI class="cat-item cat-item-69"><A href="http://analistasi.com.br/?cat=69" title="Ver todos os posts arquivados em Problema da Mochila 0/1"><SPAN>Problema da Mochila 0/1</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=69"></A>
+</LI>
+	<LI class="cat-item cat-item-92"><A href="http://analistasi.com.br/?cat=92" title="Ver todos os posts arquivados em Problema da Mochila Inteiro"><SPAN>Problema da Mochila Inteiro</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=92"></A>
+</LI>
+	</UL>
+</LI>
+	<LI class="cat-item cat-item-543"><A href="http://analistasi.com.br/?cat=543" title="Ver todos os posts arquivados em Aut&ocirc;matos"><SPAN>Autômatos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=543"></A>
+</LI>
+	<LI class="cat-item cat-item-24"><A href="http://analistasi.com.br/?cat=24" title="Ver todos os posts arquivados em Compiladores"><SPAN>Compiladores</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=24"></A>
+</LI>
+	<LI class="cat-item cat-item-51"><A href="http://analistasi.com.br/?cat=51" title="Ver todos os posts arquivados em Din&acirc;mica"><SPAN>Dinâmica</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=51"></A>
+</LI>
+	<LI class="cat-item cat-item-33"><A href="http://analistasi.com.br/?cat=33" title="Ver todos os posts arquivados em Interpretadores"><SPAN>Interpretadores</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=33"></A>
+</LI>
+	<LI class="cat-item cat-item-132"><A href="http://analistasi.com.br/?cat=132" title="Ver todos os posts arquivados em Linguagem C"><SPAN>Linguagem C</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=132"></A>
+</LI>
+	<LI class="cat-item cat-item-562"><A href="http://analistasi.com.br/?cat=562" title="Ver todos os posts arquivados em Linguagem C#"><SPAN>Linguagem C#</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=562"></A>
+</LI>
+	<LI class="cat-item cat-item-43"><A href="http://analistasi.com.br/?cat=43" title="Ver todos os posts arquivados em Linguagem Java"><SPAN>Linguagem Java</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=43"></A>
+</LI>
+	<LI class="cat-item cat-item-564"><A href="http://analistasi.com.br/?cat=564" title="Ver todos os posts arquivados em Linguagem JavaFX Script"><SPAN>Linguagem JavaFX Script</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=564"></A>
+</LI>
+	<LI class="cat-item cat-item-320"><A href="http://analistasi.com.br/?cat=320" title="Ver todos os posts arquivados em Linguagem Javascript"><SPAN>Linguagem Javascript</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=320"></A>
+</LI>
+	<LI class="cat-item cat-item-35"><A href="http://analistasi.com.br/?cat=35" title="Ver todos os posts arquivados em Linguagem Nice"><SPAN>Linguagem Nice</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=35"></A>
+</LI>
+	<LI class="cat-item cat-item-110"><A href="http://analistasi.com.br/?cat=110" title="Ver todos os posts arquivados em Linguagem PHP"><SPAN>Linguagem PHP</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=110"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-190"><A href="http://analistasi.com.br/?cat=190" title="Ver todos os posts arquivados em Arcabou&ccedil;os"><SPAN>Arcabouços</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=190"></A>
+</LI>
+	</UL>
+</LI>
+	<LI class="cat-item cat-item-452"><A href="http://analistasi.com.br/?cat=452" title="Ver todos os posts arquivados em Linguagem Ruby"><SPAN>Linguagem Ruby</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=452"></A>
+</LI>
+	<LI class="cat-item cat-item-70"><A href="http://analistasi.com.br/?cat=70" title="Ver todos os posts arquivados em T&oacute;picos gerais"><SPAN>Tópicos gerais</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=70"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-291"><A href="http://analistasi.com.br/?cat=291" title="Ver todos os posts arquivados em Rob&oacute;tica"><SPAN>Robótica</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=291"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-292"><A href="http://analistasi.com.br/?cat=292" title="Ver todos os posts arquivados em Rob&ocirc;s"><SPAN>Robôs</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=292"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-30"><A href="http://analistasi.com.br/?cat=30" title="Ver todos os posts arquivados em Software Livre"><SPAN>Software Livre</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=30"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-127"><A href="http://analistasi.com.br/?cat=127" title="Ver todos os posts arquivados em Eventos"><SPAN>Eventos</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=127"></A>
+</LI>
+	<LI class="cat-item cat-item-146"><A href="http://analistasi.com.br/?cat=146" title="Ver todos os posts arquivados em O que &eacute;?"><SPAN>O que é?</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=146"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-240"><A href="http://analistasi.com.br/?cat=240" title="Ver todos os posts arquivados em UML"><SPAN>UML</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=240"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-242"><A href="http://analistasi.com.br/?cat=242" title="Ver todos os posts arquivados em Diagrama de classe"><SPAN>Diagrama de classe</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=242"></A>
+</LI>
+	<LI class="cat-item cat-item-243"><A href="http://analistasi.com.br/?cat=243" title="Ver todos os posts arquivados em Diferen&ccedil;as"><SPAN>Diferenças</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=243"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-93"><A href="http://analistasi.com.br/?cat=93" title="Ver todos os posts arquivados em Universidades"><SPAN>Universidades</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=93"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-96"><A href="http://analistasi.com.br/?cat=96" title="Ver todos os posts arquivados em Brasileiras"><SPAN>Brasileiras</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=96"></A>
+</LI>
+</UL>
+</LI>
+	<LI class="cat-item cat-item-108"><A href="http://analistasi.com.br/?cat=108" title="Ver todos os posts arquivados em Web"><SPAN>Web</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=108"></A>
+<UL class="children">
+	<LI class="cat-item cat-item-364"><A href="http://analistasi.com.br/?cat=364" title="Ver todos os posts arquivados em Comunidades"><SPAN>Comunidades</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=364"></A>
+</LI>
+	<LI class="cat-item cat-item-347"><A href="http://analistasi.com.br/?cat=347" title="Ver todos os posts arquivados em Defini&ccedil;&otilde;es da Web"><SPAN>Definições da Web</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=347"></A>
+</LI>
+	<LI class="cat-item cat-item-308"><A href="http://analistasi.com.br/?cat=308" title="Ver todos os posts arquivados em Origens da Web"><SPAN>Origens da Web</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=308"></A>
+</LI>
+	<LI class="cat-item cat-item-248"><A href="http://analistasi.com.br/?cat=248" title="Ver todos os posts arquivados em Rich Internet Application (RIA)"><SPAN>Rich Internet Application (RIA)</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=248"></A>
+	<UL class="children">
+	<LI class="cat-item cat-item-305"><A href="http://analistasi.com.br/?cat=305" title="Ver todos os posts arquivados em Flex"><SPAN>Flex</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=305"></A>
+</LI>
+	<LI class="cat-item cat-item-567"><A href="http://analistasi.com.br/?cat=567" title="Ver todos os posts arquivados em JavaFX"><SPAN>JavaFX</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=567"></A>
+</LI>
+	</UL>
+</LI>
+	<LI class="cat-item cat-item-353"><A href="http://analistasi.com.br/?cat=353" title="Ver todos os posts arquivados em Web Sem&acirc;ntica"><SPAN>Web Semântica</SPAN></A><A class="rss tip" href="http://analistasi.com.br/?feed=rss2&cat=353"></A>
+</LI>
+</UL>
+</LI>
+              </UL>
+              <!-- /sidebar menu -->
+            </LI>
+            
+           			<LI id="linkcat-207" class="linkcat"><H2>Ferramentas</H2>
+	<UL class="xoxo blogroll">
+<LI><A href="http://www.analistasi.com.br/cripto" rel="me" target="_blank">Criptografia</A></LI>
+
+	</UL>
+</LI>
+<LI id="linkcat-2" class="linkcat"><H2>Links</H2>
+	<UL class="xoxo blogroll">
+<LI><A href="http://analistasi.com.br/pesquisa" rel="me" title="A pesquisa do google com links para desenvolvedores" target="_blank">AnalistaSI (Google)</A></LI>
+<LI><A href="http://www.globtec.eti.br/" rel="me" target="_blank">Globtec</A></LI>
+<LI><A href="http://www.ronneesley.globtec.eti.br/" rel="me" title="Meu site anterior" target="_blank">Site Anterior</A></LI>
+<LI><A href="http://www.loteria.analistasi.com.br/" rel="me" title="Jogue com a cabe&ccedil;a" target="_blank">Sorte na loteria</A></LI>
+<LI><A href="http://www.web4u.eti.br/" rel="friend" title="Frederico Ara&uacute;jo Soares" target="_blank">Web4U</A></LI>
+
+	</UL>
+</LI>
+			<LI class="box-wrap" id="box-archives">
+              <DIV class="box">
+               <H2>Arquivos</H2>
+               <DIV class="inside">
+				<UL>
+					<LI><A href="http://analistasi.com.br/?m=201007" title="julho 2010">julho 2010</A>&nbsp;(1)</LI>
+	<LI><A href="http://analistasi.com.br/?m=201006" title="junho 2010">junho 2010</A>&nbsp;(2)</LI>
+	<LI><A href="http://analistasi.com.br/?m=201004" title="abril 2010">abril 2010</A>&nbsp;(1)</LI>
+	<LI><A href="http://analistasi.com.br/?m=201003" title="mar&ccedil;o 2010">março 2010</A>&nbsp;(1)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200912" title="dezembro 2009">dezembro 2009</A>&nbsp;(4)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200910" title="outubro 2009">outubro 2009</A>&nbsp;(14)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200909" title="setembro 2009">setembro 2009</A>&nbsp;(24)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200908" title="agosto 2009">agosto 2009</A>&nbsp;(12)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200907" title="julho 2009">julho 2009</A>&nbsp;(15)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200906" title="junho 2009">junho 2009</A>&nbsp;(14)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200905" title="maio 2009">maio 2009</A>&nbsp;(61)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200904" title="abril 2009">abril 2009</A>&nbsp;(96)</LI>
+	<LI><A href="http://analistasi.com.br/?m=200903" title="mar&ccedil;o 2009">março 2009</A>&nbsp;(26)</LI>
+				</UL>
+                </DIV>
+               </DIV>
+			</LI>
+
+			<LI class="box-wrap" id="box-meta">
+              <DIV class="box">
+               <H2>Meta</H2>
+               <DIV class="inside">
+			   <UL>
+										<LI><A href="http://analistasi.com.br/wp-login.php">Login</A></LI>
+					<LI><A href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">Valid <ABBR title="eXtensible HyperText Markup Language">XHTML</ABBR></A></LI>
+					<LI><A href="http://gmpg.org/xfn/"><ABBR title="XHTML Friends Network">XFN</ABBR></A></LI>
+					<LI><A href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress</A></LI>
+									</UL>
+                </DIV>
+               </DIV>
+			</LI>
+			
+		        </UL>
+
+  </DIV><!-- /sidebar 2nd container -->
+ </DIV><!-- /sidebar 1st container -->
+</DIV><!-- /sidebar -->
+
+
+  </DIV>
+  <!-- /side wrap -->
+ </DIV>
+ <!-- /mid column wrap -->
+</DIV>
+<!-- /main wrapper -->
+
+<!-- clear main & sidebar sections -->
+<DIV class="clearcontent"></DIV>
+<!-- /clear main & sidebar sections -->
+
+<!-- footer -->
+ <DIV id="footer">
+   <!-- please do not remove this. respect the authors :) -->
+   <P>Tema Fusion por <A href="http://www.digitalnature.ro/projects/fusion">digitalnature</A> | rodando por <A href="http://wordpress.org/">WordPress</A><BR>
+   <A class="rss" href="http://analistasi.com.br/?feed=rss2">Posts (RSS)</A> e <A href="http://analistasi.com.br/?feed=comments-rss2">Comentários (RSS)</A> <A href="http://analistasi.com.br/?p=97#" id="toplink">^</A>
+   <!-- 21 queries. 0,573 seconds. -->
+   </P>
+ </DIV>
+ <!-- /footer -->
+  <DIV id="layoutcontrol">
+   <A href="javascript:void(0);" class="setFont" title="Aumentar/Diminuir tamanho do texto"><SPAN>SetTextSize</SPAN></A>
+   <A href="javascript:void(0);" class="setLiquid" title="Muda entre largura total e largura fixa"><SPAN>SetPageWidth</SPAN></A>
+ </DIV>
+ </DIV>
+<!-- /page -->
+
+</DIV>
+</DIV>
+<!-- /page wrappers -->
+
+
+<!-- AdSense Manager v3.3.3 (0,573 seconds.) --><SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/shCore.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="./Java_JSON_Lendo_Json_files/shBrushJava.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+	SyntaxHighlighter.config.clipboardSwf = 'http://analistasi.com.br/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'expand source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.all();
+</SCRIPT>
+
+<!-- Estatisticas -->
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT><SCRIPT src="./Java_JSON_Lendo_Json_files/ga.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2587089-5");
+pageTracker._trackPageview();
+} catch(err) {}</SCRIPT>
+
+<SCRIPT src="./Java_JSON_Lendo_Json_files/show.jsp"></SCRIPT>
+
+<DIV id="HOTWordsTitle" style="z-index: 1000000; cursor: move; position: absolute; visibility: hidden; display: none; width: 0px; overflow-x: visible; overflow-y: visible; "><DIV id="HOTWordsTitleText"></DIV></DIV>
+</BODY></HTML>

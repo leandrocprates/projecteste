@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0062)http://horizontesdigitais.com/2008/05/24/assinatura-de-applet/ -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><STYLE>#gview-cmenu {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  list-style-type: none;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+#gview-cmenu:focus {
+  outline: none;
+}
+
+.gview-cmenu-item {
+  margin: 0;
+  padding: 5px 7px;
+  cursor: default;
+  font-size: 13px;
+  font-family: arial, san-serif;
+  color: #000;
+  -webkit-user-select: none;
+}
+
+.gview-cmenu-item:hover {
+  background-color: #F0F7F9;
+}
+
+.gview-cmenu-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.gview-hidden {
+  display: none;
+}
+</STYLE><HEAD profile="http://gmpg.org/xfn/11"><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<TITLE>Horizontes Digitais  » Blog Archive   » Assinatura de Applet</TITLE>
+<META name="generator" content="WordPress 2.9.1"> <!-- leave this for stats -->
+<LINK rel="stylesheet" href="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/style.css" type="text/css" media="screen">
+<LINK rel="alternate" type="application/rss+xml" title="Horizontes Digitais RSS Feed" href="http://horizontesdigitais.com/feed/">
+<LINK rel="pingback" href="http://horizontesdigitais.com/xmlrpc.php">
+<LINK rel="alternate" type="application/rss+xml" title="Horizontes Digitais &raquo; Assinatura de Applet Comments Feed" href="http://horizontesdigitais.com/2008/05/24/assinatura-de-applet/feed/">
+<LINK rel="EditURI" type="application/rsd+xml" title="RSD" href="http://horizontesdigitais.com/xmlrpc.php?rsd">
+<LINK rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://horizontesdigitais.com/wp-includes/wlwmanifest.xml"> 
+<LINK rel="index" title="Horizontes Digitais" href="http://horizontesdigitais.com/">
+<LINK rel="start" title="Certifica&ccedil;&atilde;o PHP da Zend" href="http://horizontesdigitais.com/2008/03/12/certificacao-php-da-zend/">
+<LINK rel="prev" title="Serializa&ccedil;&atilde;o com Json.NET" href="http://horizontesdigitais.com/2008/05/19/serializacao-com-jsonnet/">
+<LINK rel="next" title="Json.NET: Linq to Json" href="http://horizontesdigitais.com/2008/05/30/jsonnet-linq-to-json/">
+<META name="generator" content="WordPress 2.9.1">
+<LINK rel="canonical" href="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/Horizontes Digitais » Blog Archive » Assinatura de Applet.html">
+
+<!-- All in One SEO Pack 1.6.10 by Michael Torbert of Semper Fi Web Design[-1,-1] -->
+<!-- /all in one seo pack -->
+<LINK rel="stylesheet" href="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/geshi.css" type="text/css">
+		<SCRIPT type="text/javascript">fetchPhpLocation = "http://horizontesdigitais.com/wp-content/plugins/fetchrss/fetch.php";</SCRIPT>
+		<SCRIPT type="text/javascript" src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/fetch.js"></SCRIPT>
+		<STYLE type="text/css" media="screen">
+		@import url(http://horizontesdigitais.com/wp-content/plugins/fetchrss/fetch.css);
+		</STYLE>
+		</HEAD><BODY>
+<DIV id="header">
+<H1 class="blogtitle"><A href="http://horizontesdigitais.com/">Horizontes Digitais</A></H1>
+<P class="desc">Desenvolvimento, Segurança e Negócios</P>
+</DIV>
+<DIV id="ddnav">
+<DIV id="nav">
+<UL class="nav">
+<LI><A href="http://horizontesdigitais.com/">Home</A></LI>
+<LI class="page_item page-item-6"><A href="http://horizontesdigitais.com/about/" title="Colunistas">Colunistas</A></LI>
+</UL>
+</DIV>
+</DIV>
+<DIV id="top"></DIV>
+<DIV id="main">
+<DIV id="content"> 
+
+			<DIV class="entry">
+		<DIV class="post" id="post-55">
+			<H2><A href="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/Horizontes Digitais » Blog Archive » Assinatura de Applet.html" rel="bookmark" title="Permanent Link: Assinatura de Applet">Assinatura de Applet</A></H2>
+			Por <STRONG>Felipe Thomas</STRONG> <BR>
+				<ABBR title="2008-05-24T00:54:57+0000">24/05/2008 – 00:54</ABBR> <!-- by Felipe Thomas -->
+		
+				<P align="justify">O modelo de segurança implementado pela plataforma Java, na sua proposição inicial, é centrada sobre o conceito de <STRONG><EM>sandbox</EM></STRONG> (caixa de areia). De acordo com o modelo <EM>sandbox,</EM> um código remoto (<EM>applet</EM>) não é confiável e pode acessar recursos limitados, fornecidos dentro do <EM>sandbox</EM>, uma área do Servidor Web dedicado àquele <EM>applet</EM>. A idéia de sandbox foi desenvolvida no sentido de garantir que mesmo que um usuário carregue um <EM>applet</EM> malicioso, esse não pode danificar a máquina local, por exemplo, apagar um arquivo do seu disco local.Porém existem <EM>applets</EM> que são de confiança e necessitam sair do <EM>sandbox</EM> para fornecer um determinado serviço. Existem varias maneiras para resolver este problema, uma delas é a <STRONG>assinatura</STRONG><EM> </EM><STRONG>do <EM>applet</EM></STRONG>. O JDK 1.1.x introduziu o conceito de <STRONG><EM>applet</EM> assinado</STRONG>. Neste modelo estendido, um <EM>applet </EM>assinado digitalmente é tratado como código local confiável (aplicação <EM>standalone</EM>) se a assinatura é reconhecida como confiável pelo sistema que recebeu o <EM>applet</EM>. Entretanto no JDK 1.2.x, o <EM>applet</EM> assinado terá liberdades conforme especificado por um arquivo de política (<EM>policy file</EM>). Utilizou-se neste trabalho para o processo de assinatura e verificação do <STRONG><EM>Applet</EM> Cliente</STRONG> a versão JDK 1.2.1.</P>
+<P align="justify"><SPAN id="more-55"></SPAN></P>
+<P align="justify">Assinatura digital é utilizada quando se necessita da certeza da origem de uma mensagem como se fosse uma assinatura escrita no papel. Para assinar um applet, o desenvolvedor empacota todo o código Java e arquivos relacionados dentro de um arquivo JAR (<STRONG><EM>J</EM>ava ARchive</STRONG>), que é um formato de arquivo de compactação de propósito geral, usado para compactar os componentes de uma aplicação Java. A plataforma Java assina e verifica arquivos JAR usando um par de chaves (chave pública e chave privada). A <STRONG>chave privada</STRONG> funciona como uma “caneta” eletrônica que <STRONG>assina</STRONG> o arquivo (ver Figura 1). Como o próprio nome sugere, esta chave só é conhecida pelo assinante do <EM>applet</EM>. O processo de <STRONG>verificação</STRONG> da assinatura pode ser feito por qualquer pessoa que possua a <STRONG>chave pública</STRONG> correspondente a chave que assinou o arquivo.</P>
+<P align="justify"><A href="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/postapplet1.jpg" title="postapplet1.jpg"><IMG src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/postapplet1.jpg" alt="postapplet1.jpg" align="middle" border="0" height="200" width="530"></A></P>
+<P align="left"><STRONG>                                    Figura 1 – Processo de assinatura</STRONG></P>
+<P align="justify">A chave pública é distribuída dentro de um <STRONG>certificado</STRONG> que é uma declaração assinada por uma entidade idônea, chamada <STRONG>Autoridade de Certificação</STRONG> (<EM>Certification Authority</EM>- <STRONG>CA</STRONG>), que confirma que a chave pública que está no mesmo é confiável. Existem várias Autoridades de Certificação, por exemplo, a <EM>VeriSign</EM>, <EM>Thawte</EM>, <EM>Entrust</EM> e <EM>Certisign </EM>(empresa brasileira). Toda CA requer um emissor para validar a sua identidade, até mesmo a de mais alto nível. Para estes casos, existem os certificados auto-assinados (<EM>self-signed</EM>), onde o emissor do certificado é o próprio sujeito.Os <EM>browsers</EM> <EM>Netscape</EM> e <EM>Internet</EM> <EM>Explorer</EM> (<EM>IE</EM>) não usam a codificação de assinatura do JDK. Existem basicamente três tipos diferentes de assinatura de <EM>applets</EM>, para o <EM>IE</EM>, para o <EM>Netscape</EM>, e para o <EM>plug-in Java da Sun</EM>. Este último fornece aos <EM>browsers</EM> citados acima a capacidade de utilizar applets assinados através da <EM>Java Security API </EM>do kit JDK.Algumas ferramentas necessárias para a assinatura, seguindo o padrão da <EM>Sun</EM>, encontram-se no <EM>JDK 1.2</EM>, são elas:</P>
+<UL>
+<LI>
+<P align="justify"><EM>Jar (JAR Creation Tool)</EM></P>
+</LI>
+<LI>
+<P align="justify"><EM>Keytool</EM> (<EM>Key and Certificate Management Tool</EM>)</P>
+</LI>
+<LI>
+<P align="justify"><EM>Jarsigner </EM>(<EM>JAR Signing and Verification Tool</EM>)</P>
+</LI>
+<LI>
+<P align="justify"><EM>PolicyTool</EM> (<EM>Policy File Creation and Management Tool</EM>)</P>
+</LI>
+</UL>
+<P align="justify">Para uma melhor compreensão, encontra-se descritos a seguir os passos utilizados no processo de assinatura e verificação do AppletClient.</P>
+<P><STRONG><FONT color="#4b73b4">Quais são os passos para assinar um Applet?</FONT></STRONG></P>
+<P>Os passos para assinar um <EM>Applet</EM> estão representados na Figura 2:</P>
+<P><IMG src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/postapplet2.jpg" alt="postapplet2.jpg" border="0" height="220" width="530"></P>
+<P><STRONG>Figura 2 – Diagrama de blocos do processo de assinatura por parte                                    </STRONG><STRONG>               do desenvolvedor</STRONG></P>
+<P><STRONG>1. </STRONG><STRONG>Criar o arquivo .jar</STRONG></P>
+<P align="justify">Deve-se criar um arquivo JAR contendo o(s) arquivo(s) .class da Applet e todas as classes que serão utilizadas e que farão uso de recursos fora do s<EM>andbox</EM> conforme indicado no item 1 da Figura 2. É importante ressaltar que a ferramenta <STRONG>jarsigner</STRONG> somente assinará arquivos JAR criados pelo JDK, ou arquivos ZIP.Uma ferramenta utilizada para criação deste arquivo é o <EM>jar</EM> do JDK. Para criar um JAR contendo o arquivo MeuApplet.class, com o nome MeuJar.jar basta fazer:jar cvf MeuJar.jar MeuApplet.class</P>
+<P align="justify">Você também pode utilizar o Eclipse ou MyEclipse para criar arquivos tipo .jar, onde o processo é bem simples: basta clicar com o botão direito do mouse sobre o arquivo que deseja empacotar em .jar e escolher a opção <STRONG>exportar</STRONG>.</P>
+<P align="justify">2.  <STRONG>Gerar o par de chaves (pública e privada)</STRONG><STRONG> </STRONG>Este passo deve ser executado se ainda não houver um par de chaves a ser usado no processo de assinatura (ver item 2 da Figura 2). Para criar o par de chaves utiliza-se a ferramenta <EM>keytool</EM> do JDK. Simplificando, você pode fazer o seguinte:</P>
+<P align="justify"><EM>keytool -genkey -dname “cn=d377, ou=desenvolvimento, o=FelipeThomas, l=Fortaleza, c=BR” -alias key -keystore C:\Felipe -storepass 123456 -validity 180</EM></P>
+<P align="justify"><U>onde:</U><EM> </EM></P>
+<P align="justify"><EM>dname</EM>: Nome da entidade que gerará o par de chaves. Siglas:</P>
+<P><STRONG>CN = nome comum</STRONG></P>
+<P><STRONG>OU = unidade organizacional (departamento, divisão)</STRONG></P>
+<P><STRONG>O = nome da organização</STRONG></P>
+<P><STRONG>L = nome da localidade (cidade)</STRONG></P>
+<P><STRONG>S = estado, C = código do país.</STRONG></P>
+<P><EM>Keypass:</EM> Senha utilizada para a proteção da chave no <EM>keystore</EM>.</P>
+<P><EM>Validity: </EM>Número de dias que o certificado deve ser válido.</P>
+<P><EM>keystore</EM>: local da sua máquina onde as chaves serão armazenadas.</P>
+<P><EM>Storepass: </EM>Senha protetora do <EM>keystore</EM>.</P>
+<P align="justify">Quando as chaves são geradas (comando –genkey) um certificado auto-assinado é criado. Caso deseje-se trocar este certificado por um certificado reconhecido por uma empresa confiável, deve-se fazer um pedido de certificado de assinatura (CSR <EM>CerticateSigning Request</EM>), e o resultado desta solicitação deve ser importado para o <EM>keystore</EM>.</P>
+<P align="justify">3.  <STRONG>Assinar o arquivo JAR</STRONG></P>
+<P align="justify">Deve-se assinar o arquivo JAR com a chave privada, para isto utiliza-se a ferramenta <EM>jarsigner</EM> do JDK, conforme esquematizado no item 3 da Figura 2. Antes de continuar certifique-se de que o arquivo que você assinará, esteja no mesmo diretório do arquivo que foi criado com as chaves. Isto facilitará seu trabalho. Para tal feito pode-se fazer o seguinte:</P>
+<P align="justify"><EM>jarsigner -keystore C:\Felipe -storepass 123456 –signedjar NomeDoJarDepoisDeAssinado.jar NomeDoJarAntesDeAssinar.jar key </EM></P>
+<P align="justify"><U>onde:</U></P>
+<P align="justify"><EM>keystore:</EM> URL do <EM>keystore</EM> onde a chave está armazenada.</P>
+<P align="justify"><EM>storepass: </EM>Senha protetora do <EM>keystore</EM>.</P>
+<P align="justify"><EM>signedjar:</EM> Especifica o nome e o local de armazenamento do arquivo JAR assinado. Por <EM>default,</EM> o arquivo assinado irá sobrescrever o não assinado.</P>
+<P align="justify">Estes passos são suficientes para que você consiga “liberar” teu applet para funcionar seguramente no seu browser. Alguns browsers não necessitam destas assinaturas, mas outras requerem. Sendo assim, é importante saber como proceder quando precisar assinar um applet.</P>
+<P align="justify">Espero mais uma vez ter colaborado com seus conhecimento e auxiliado nas suas necessidades.</P>
+<P>Obrigado e até o próximo.</P>
+
+				
+				
+
+			</DIV>
+		</DIV>
+
+<DIV class="entry">
+	
+<!-- You can start editing here. -->
+
+<DIV class="boxcomments">
+
+
+
+
+	<OL class="commentlist">
+
+	<LI class="commenthead"><H2 id="comments">One Response to “Assinatura de Applet”</H2></LI>
+	
+			
+<LI class="odd" id="comment-12">
+
+		        <P>Excelente artigo, Felipe! Parabéns!!!</P>
+        <P style="margin-bottom:5px;">By <STRONG><A href="http://www.luthiano.com/" rel="external nofollow" class="url">Luthiano Vasconcelos</A></STRONG> on <A href="http://horizontesdigitais.com/2008/05/24/assinatura-de-applet/#comment-12" title="">May 29, 2008</A> </P>
+	</LI>
+		
+		
+		
+	</OL>
+	
+	
+	
+
+	
+			<P id="comments-blocked">You must be <A href="http://horizontesdigitais.com/wp-login.php?redirect_to=http://horizontesdigitais.com/2008/05/24/assinatura-de-applet/">logged in</A> to post a comment.</P>
+	
+</DIV>	</DIV>
+
+	
+	</DIV>
+<DIV id="sidebar">
+<DIV class="rsidebar">
+<UL>
+	<LI id="search-2" class="widget widget_search"><FORM method="get" id="searchform" action="http://horizontesdigitais.com/">
+<DIV><INPUT type="text" value="" name="s" id="s">
+<INPUT type="submit" id="searchsubmit" value="Search">
+</DIV>
+</FORM>
+</LI>
+<LI id="rss-2" class="widget widget_rss"><H2 class="widgettitle"><A class="rsswidget" href="http://search.twitter.com/search.atom?q=+%23cepug+OR+%23phpce" title="Syndicate this content"><IMG style="background:orange;color:white;border:none;" width="14" height="14" src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/rss.png" alt="RSS"></A> <A class="rsswidget" href="http://search.twitter.com/search?q=+%23cepug+OR+%23phpce" title="">Olha que rola no Twitter</A></H2>
+<UL><LI>An error has occurred; the feed is probably down. Try again later.</LI></UL></LI>
+<LI id="linkcat-126" class="widget widget_links"><H2 class="widgettitle">Parceiros</H2>
+
+	<UL class="xoxo blogroll">
+<LI><A href="http://www.milfont.org/tech" rel="friend met co-worker" title="Parceiro da Horizontes Digitais, atualmente &eacute; do Tuangr Dev Team">Christiano Milfont</A></LI>
+<LI><A href="http://luthiano.com/" rel="acquaintance met co-worker">Luthiano</A></LI>
+
+	</UL>
+</LI>
+
+<LI id="linkcat-28" class="widget widget_links"><H2 class="widgettitle">Projetos</H2>
+
+	<UL class="xoxo blogroll">
+<LI><A href="http://blogdacidade.com/" rel="acquaintance" title="Blog das cidades brasileiras, cada uma com  seu proprio blog">Blog da Cidade</A></LI>
+<LI><A href="http://www.claudioulisse.com/" title="Projeto de constru&ccedil;&atilde;o de monografia atrav&eacute;s de um Blog.">Claudio Ulisse</A></LI>
+<LI><A href="http://blogs.tuangr.com/developer" rel="co-worker" title="Blog do Tuangr Dev Team">Tuangr Developer</A></LI>
+
+	</UL>
+</LI>
+
+<LI id="archives-2" class="widget widget_archive"><H2 class="widgettitle">Archives</H2>
+		<UL>
+			<LI><A href="http://horizontesdigitais.com/2009/02/" title="February 2009">February 2009</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2009/01/" title="January 2009">January 2009</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/11/" title="November 2008">November 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/10/" title="October 2008">October 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/09/" title="September 2008">September 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/08/" title="August 2008">August 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/06/" title="June 2008">June 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/05/" title="May 2008">May 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/04/" title="April 2008">April 2008</A></LI>
+	<LI><A href="http://horizontesdigitais.com/2008/03/" title="March 2008">March 2008</A></LI>
+		</UL>
+</LI>
+<LI id="categories-1" class="widget widget_categories"><H2 class="widgettitle">Categories</H2>
+		<UL>
+	<LI class="cat-item cat-item-34"><A href="http://horizontesdigitais.com/category/net/" title="View all posts filed under .NET">.NET</A>
+</LI>
+	<LI class="cat-item cat-item-36"><A href="http://horizontesdigitais.com/category/net/aspnet/" title="View all posts filed under ASP.NET">ASP.NET</A>
+</LI>
+	<LI class="cat-item cat-item-37"><A href="http://horizontesdigitais.com/category/comunidade/" title="View all posts filed under Comunidade">Comunidade</A>
+</LI>
+	<LI class="cat-item cat-item-38"><A href="http://horizontesdigitais.com/category/egroupware/" title="View all posts filed under eGroupWare">eGroupWare</A>
+</LI>
+	<LI class="cat-item cat-item-39"><A href="http://horizontesdigitais.com/category/flisol/" title="View all posts filed under FLISOL">FLISOL</A>
+</LI>
+	<LI class="cat-item cat-item-40"><A href="http://horizontesdigitais.com/category/java/" title="View all posts filed under Java">Java</A>
+</LI>
+	<LI class="cat-item cat-item-42"><A href="http://horizontesdigitais.com/category/negocios/" title="View all posts filed under Neg&oacute;cios">Negócios</A>
+</LI>
+	<LI class="cat-item cat-item-43"><A href="http://horizontesdigitais.com/category/news/" title="View all posts filed under news">news</A>
+</LI>
+	<LI class="cat-item cat-item-44"><A href="http://horizontesdigitais.com/category/php/" title="View all posts filed under PHP">PHP</A>
+</LI>
+	<LI class="cat-item cat-item-45"><A href="http://horizontesdigitais.com/category/programacao/" title="View all posts filed under Programa&ccedil;&atilde;o">Programação</A>
+</LI>
+	<LI class="cat-item cat-item-46"><A href="http://horizontesdigitais.com/category/seguranca/" title="View all posts filed under Seguran&ccedil;a">Segurança</A>
+</LI>
+	<LI class="cat-item cat-item-47"><A href="http://horizontesdigitais.com/category/soa/" title="View all posts filed under SOA">SOA</A>
+</LI>
+	<LI class="cat-item cat-item-48"><A href="http://horizontesdigitais.com/category/software-livre/" title="View all posts filed under Software Livre">Software Livre</A>
+</LI>
+	<LI class="cat-item cat-item-144"><A href="http://horizontesdigitais.com/category/tutoriais/" title="View all posts filed under Tutoriais">Tutoriais</A>
+</LI>
+	<LI class="cat-item cat-item-79"><A href="http://horizontesdigitais.com/category/web-20/" title="View all posts filed under web 2.0">web 2.0</A>
+</LI>
+	<LI class="cat-item cat-item-49"><A href="http://horizontesdigitais.com/category/web-services/" title="View all posts filed under Web Services">Web Services</A>
+</LI>
+		</UL>
+</LI>
+<LI id="meta-2" class="widget widget_meta"><H2 class="widgettitle">Meta</H2>
+			<UL>
+			<LI><A href="http://horizontesdigitais.com/wp-login.php?action=register">Register</A></LI>			<LI><A href="http://horizontesdigitais.com/wp-login.php">Log in</A></LI>
+			<LI><A href="http://horizontesdigitais.com/feed/" title="Syndicate this site using RSS 2.0">Entries <ABBR title="Really Simple Syndication">RSS</ABBR></A></LI>
+			<LI><A href="http://horizontesdigitais.com/comments/feed/" title="The latest comments to all posts in RSS">Comments <ABBR title="Really Simple Syndication">RSS</ABBR></A></LI>
+			<LI><A href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</A></LI>
+						</UL>
+</LI>
+<LI id="rss-1" class="widget widget_rss"><H2 class="widgettitle"><A class="rsswidget" href="http://www.milfont.org/tech/feed/" title="Syndicate this content"><IMG style="background:orange;color:white;border:none;" width="14" height="14" src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/rss.png" alt="RSS"></A> <A class="rsswidget" href="http://www.milfont.org/tech" title="Al&eacute;m dos limites da WEB!">CMilfont Tech</A></H2>
+<UL><LI><A class="rsswidget" href="http://www.milfont.org/tech/2010/01/21/voce-esta-nivelando-por-baixo-eou-nao-conhece-seus-desenvolvedores/" title="Um amigo fez a seguinte pergunta que &eacute; muito comum hoje em dia com ado&ccedil;&atilde;o crescente sobre linguagens din&acirc;micas, principalmente Ruby: (&hellip;)&rdquo;A d&uacute;vida era essa: Linguagens din&acirc;micas d&atilde;o maiores possibilidades de inclus&atilde;o de erro no c&oacute;digo com isso aumentando de forma significativa a refatora&ccedil;&atilde;o.&rdquo;(&hellip;) Em conversa com um excelente desenvolvedor aq [&hellip;]">Você está nivelando por baixo e/ou não conhece seus desenvolvedores</A></LI><LI><A class="rsswidget" href="http://www.milfont.org/tech/2010/01/16/uma-previsao-infelizmente-acertada/" title="Quando eu escrevi sobre o aumento do pior tipo de conservadorismo no mundo conversei com muita gente que disse ser exagero meu, n&atilde;o era bem assim. Esse conflito na It&aacute;lia refor&ccedil;a que o aumento do fascismo e de conflitos &eacute;tnicos s&oacute; tende a aumentar. Segundo o Tiago Thuin, no blog &ldquo;Samba do Avi&atilde;o&ldquo;, o norte da It&aacute;lia [...] [&hellip;]">Uma previsão infelizmente acertada</A></LI><LI><A class="rsswidget" href="http://www.milfont.org/tech/2009/12/28/retrospectiva-2009/" title="Fonte: Jornal OPOVO Esse foi um bom ano, iniciei 2009 abrindo outra empresa e saindo da Triadworks que continua Triad (com o Carlos &Aacute;tila, al&eacute;m do Handerson Frota e o Rafael Ponte) e agora parceira e amiga. Minha empresa, a Milfont Consulting foi o profissionalismo de algo que eu j&aacute; vinha fazendo h&aacute; algum tempo: Mentoring, [...] [&hellip;]">Retrospectiva 2009</A></LI><LI><A class="rsswidget" href="http://www.milfont.org/tech/2009/11/27/wikipedia-braziliana-e-sua-censura/" title="Esse artigo &eacute; um ensaio para meu projeto de pesquisa Crowds. Alguns esclarecimentos iniciais, chamo a pt.wikipedia* de braziliana por uma simples raz&atilde;o: de &ldquo;relevante&rdquo; no mundo que fala portugu&ecirc;s s&oacute; existe o Brazil, o resto &eacute; uma por&ccedil;&atilde;o de ilhota loser desconhecida at&eacute; por n&oacute;s que falamos o portugu&ecirc;s. Passando do par&aacute;grafo anterior que perco o [&hellip;]">Wikipedia braziliana e sua censura</A></LI><LI><A class="rsswidget" href="http://www.milfont.org/tech/2009/11/02/aumento-do-conservadorismo/" title="Esse artigo &eacute; um ensaio para meu projeto de pesquisa Crowds. Eu tenho v&aacute;rios drafts, alguns com meses at&eacute;, sobre meu projeto de pesquisa e nenhum est&aacute; pronto, ali&aacute;s, eu digo at&eacute; que nem &ldquo;rascunho&rdquo; ainda s&atilde;o. Li algumas dezenas de artigos, uma pilha de livros e reli outros que tinha lido h&aacute; mais de 15 [...] [&hellip;]">Aumento do conservadorismo</A></LI></UL></LI>
+		</UL>
+</DIV>		
+</DIV>
+
+
+
+</DIV>
+
+<DIV id="footer"></DIV>
+
+<DIV id="footerbox">
+
+<DIV class="footer">Horizontes Digitais is proudly powered by <A href="http://wordpress.org/">WordPress</A> <A href="http://horizontesdigitais.com/feed/">Entries (RSS)</A> and <A href="http://horizontesdigitais.com/comments/feed/">Comments (RSS)</A>. Theme by <A href="http://www.blogohblog.com/">Bob</A>	
+
+  <!-- 43 queries. 5.653 seconds. --></DIV></DIV>
+
+
+
+<SCRIPT src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/urchin.js" type="text/javascript">
+
+</SCRIPT>
+
+<SCRIPT type="text/javascript">
+
+_uacct = "UA-3902605-1";
+
+urchinTracker();
+
+</SCRIPT>
+<CENTER><A rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/br/"><IMG alt="Creative Commons License" style="border-width:0" src="./Horizontes Digitais » Blog Archive » Assinatura de Applet_files/somerights20.png"></A><BR>Esta obra está licenciada sob uma <A rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/br/">Licença Creative Commons</A>.</CENTER>
+
+
+</BODY></HTML>

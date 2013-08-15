@@ -1,0 +1,12 @@
+document.write("\n");
+sr_adspace_id = 5587507;
+sr_adspace_width = 728;
+sr_adspace_height = 90;
+sr_adspace_type = "graphic";
+sr_ad_new_window = true;
+document.write("\n");
+document.write("<scr"+"ipt type=\"text/javascript\" src=\"http://ad.afy11.net/srad.js?azId=5587507\">\n");
+document.write("</scr"+"ipt>\n");
+document.write("\n");
+
+
