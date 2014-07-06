@@ -1,0 +1,36 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:of="http://omnifaces.org/functions" >
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form id="formGeral">
+            
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <p:outputLabel for="console" value="Basic:" />
+                <p:selectOneMenu id="console" value="#{oneMenu.user}" converter="omnifaces.SelectItemsConverter">
+                    <f:selectItem itemLabel="Nenhum" noSelectionOption="true" />
+                    <f:selectItems value="#{oneMenu.userList}" var="user" itemLabel="#{user.nome}" itemValue="#{user}" />
+                    <p:ajax update="valores"/>
+                </p:selectOneMenu>
+            </h:panelGrid>
+
+            <h:panelGrid columns="2" id="valores">
+                Nome : <p:inputText value="#{oneMenu.user.nome}"/><br/>
+                Endereco : <p:inputText value="#{oneMenu.user.endereco}"/><br/>
+                Telefone : <p:inputText value="#{oneMenu.user.telefone}"/><br/>
+                <p:commandButton actionListener="#{oneMenu.save()}" value="Salvar" ajax="false"/>
+            </h:panelGrid>
+            
+        </h:form>        
+        
+    </h:body>
+    
+</html>
+
