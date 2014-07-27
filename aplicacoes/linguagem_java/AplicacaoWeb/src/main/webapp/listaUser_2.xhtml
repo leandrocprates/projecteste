@@ -1,0 +1,138 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        <h:form rendered="#{userBean.list}">
+
+            <p:dataTable id="dataTable" var="user" value="#{userBean.userList}" 
+                         emptyMessage="No users found with given criteria" filteredValue="#{userBean.filteredUsers}" >
+
+                <f:facet name="header">
+                    <h:outputText value="Lista e Usuarios:" />
+                </f:facet>
+
+                <p:column id="data" >
+                    <f:facet name="header">
+                        <h:outputText value="data" />
+                        <p:calendar id="button" value="#{userBean.date3}" showOn="button" />
+                    </f:facet>
+                    <h:outputText value="#{user.nome}" />
+                </p:column>
+                
+                <p:column id="nome" filterBy="nome" filterMatchMode="contains">
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText value="#{user.nome}" />
+                </p:column>
+
+                <p:column id="endereco" filterBy="endereco" filterMatchMode="contains">
+                    <f:facet name="header">
+                        <h:outputText value="Endereco" />
+                    </f:facet>
+                    <h:outputText value="#{user.endereco}" />
+                </p:column>
+
+                <p:column id="telefone" filterBy="telefone" filterMatchMode="contains">
+                    <f:facet name="header">
+                        <h:outputText value="Telefone" />
+                    </f:facet>
+                    <h:outputText value="#{user.telefone}" />
+                </p:column>
+                
+                <p:column id="Acoes" headerText="Acoes" exportable="false">
+                    <h:commandLink value="Editar" actionListener="#{userBean.editar()}">
+                        <f:setPropertyActionListener target="#{userBean.user}" value="#{user}"/>
+                    </h:commandLink>
+                    
+                    <p:spacer width="30px"/>
+                    
+                    <p:commandLink value="Deletar"  onclick="PF('deleteUser').show()">
+                        <f:setPropertyActionListener target="#{userBean.user}" value="#{user}"/>
+                    </p:commandLink>
+                </p:column>
+                
+                <f:facet name="footer">
+                    <p:commandButton value="Novo Usuario" actionListener="#{userBean.novo()}" ajax="false"/>
+                </f:facet>                 
+                
+            </p:dataTable>
+            
+            
+           <p:confirmDialog message="Deseja deletar o usuario?" header="Deleta Usuario" severity="alert" widgetVar="deleteUser">
+                <p:commandButton value="Sim" actionListener="#{userBean.deletar()}" oncomplete="PF('deleteUser').hide()" ajax="false" />
+                <p:commandButton value="Nao" onclick="PF('deleteUser').hide();" type="button" />
+           </p:confirmDialog>            
+            
+            <h:commandLink>
+                <h:graphicImage value="/resources/images/csv.png" />
+                <p:dataExporter type="csv" target="dataTable" fileName="users" pageOnly="false" />
+            </h:commandLink>            
+            
+            <h:commandLink>
+                <h:graphicImage value="/resources/images/pdf.png" />
+                <p:dataExporter type="pdf" target="dataTable" fileName="users" pageOnly="false" />
+            </h:commandLink>            
+            
+            <br/><br/>
+            
+            <h:commandButton actionListener="#{userBean.gerarExcel}" value="Gerar Excel"/>
+            <p:spacer width="10"/>
+            <h:commandButton actionListener="#{userBean.gerarPDF()}" value="Gerar PDF"/>
+            
+        </h:form>
+
+
+        <h:form rendered="#{userBean.edit}">
+            
+            <h:panelGrid columns="2"> 
+            
+                <h:outputLabel value="Nome:"/>
+                <h:inputText value="#{userBean.user.nome}" />
+            
+                <h:outputLabel value="Endereco:"/>
+                <h:inputText value="#{userBean.user.endereco}" />
+            
+                <h:outputLabel value="Telefone:"/>
+                <h:inputText value="#{userBean.user.telefone}" />
+
+                <f:facet name="footer">
+                    <p:commandButton value="Enviar" actionListener="#{userBean.salvar()}" ajax="false"/>
+                </f:facet>                 
+                
+            </h:panelGrid>
+            
+        </h:form>
+        
+        <h:form rendered="#{userBean.result}">
+        
+            <h:panelGrid columns="2">
+            
+                <h:outputLabel value="Nome:"/>
+                <h:outputText value="#{userBean.user.nome}"/>
+                              
+                <h:outputLabel value="Endereco:"/>
+                <h:outputText value="#{userBean.user.endereco}"/>
+                
+                <h:outputLabel value="Telefone:"/>
+                <h:outputText value="#{userBean.user.telefone}"/>
+                
+                <f:facet name="footer">
+                    <p:commandButton value="Listar Usuarios" actionListener="#{userBean.listar()}" ajax="false"/>
+                </f:facet>                 
+                
+            </h:panelGrid>
+            
+        </h:form>
+        
+        
+    </h:body>
+</html>
+
