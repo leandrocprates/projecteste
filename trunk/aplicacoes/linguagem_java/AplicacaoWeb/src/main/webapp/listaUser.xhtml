@@ -9,8 +9,6 @@
     </h:head>
     <h:body>
         
-        
-        
         <h:form rendered="#{userBean.list}">
 
             <p:dataTable id="dataTable" var="user" value="#{userBean.userList}" 
@@ -35,7 +33,7 @@
                     <h:outputText value="#{user.telefone}" />
                 </p:column>
                 
-                <p:column id="Acoes" headerText="Acoes">
+                <p:column id="Acoes" headerText="Acoes" exportable="false">
                     <h:commandLink value="Editar" actionListener="#{userBean.editar()}">
                         <f:setPropertyActionListener target="#{userBean.user}" value="#{user}"/>
                     </h:commandLink>
@@ -52,13 +50,22 @@
                 </f:facet>                 
                 
             </p:dataTable>
-
             
             
            <p:confirmDialog message="Deseja deletar o usuario?" header="Deleta Usuario" severity="alert" widgetVar="deleteUser">
                 <p:commandButton value="Sim" actionListener="#{userBean.deletar()}" oncomplete="PF('deleteUser').hide()" ajax="false" />
                 <p:commandButton value="Nao" onclick="PF('deleteUser').hide();" type="button" />
            </p:confirmDialog>            
+            
+            <h:commandLink>
+                <h:graphicImage value="/resources/images/csv.png" />
+                <p:dataExporter type="csv" target="dataTable" fileName="users" pageOnly="false" />
+            </h:commandLink>            
+            
+            <h:commandLink>
+                <h:graphicImage value="/resources/images/pdf.png" />
+                <p:dataExporter type="pdf" target="dataTable" fileName="users" pageOnly="false" />
+            </h:commandLink>            
             
             
         </h:form>
