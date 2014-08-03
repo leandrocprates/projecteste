@@ -80,12 +80,21 @@
                 <h:graphicImage value="/resources/images/pdf.png" />
                 <p:dataExporter type="pdf" target="dataTable" fileName="users" pageOnly="false" />
             </h:commandLink>            
+
+            <h:commandLink>
+                <h:graphicImage value="/resources/images/excel.png" />
+                <p:dataExporter type="xls" target="dataTable" fileName="users" pageOnly="false" />
+            </h:commandLink>            
+            
             
             <br/><br/>
             
             <h:commandButton actionListener="#{userBean.gerarExcel}" value="Gerar Excel"/>
             <p:spacer width="10"/>
-            <h:commandButton actionListener="#{userBean.gerarPDF()}" value="Gerar PDF"/>
+            <h:commandButton actionListener="#{userBean.gerarPDF1()}" value="Gerar PDF 1 "/>
+            <p:spacer width="10"/>
+            <h:commandButton actionListener="#{userBean.gerarPDF2()}" value="Gerar PDF 2 "/>
+            
             
         </h:form>
 

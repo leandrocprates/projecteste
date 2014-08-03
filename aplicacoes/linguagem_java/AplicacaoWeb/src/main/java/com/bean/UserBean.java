@@ -184,11 +184,11 @@ public class UserBean implements Serializable{
         
     }
     
-    public void gerarPDF(){
+    
+    public void gerarPDF1(){
         
         try{
             
-            /*
             Document doc = new Document(PageSize.A4);
 
             OutputStream os = new FileOutputStream("C:/Users/lprates/Downloads/out.pdf");
@@ -202,20 +202,21 @@ public class UserBean implements Serializable{
             doc.close();
             os.close();
             
+            //abre pdf usando o PDF Reader instalado na maquina do Usuario
             Desktop.getDesktop().open(new File("C:/Users/lprates/Downloads/out.pdf"));
-            */
             
-/*            
-            FacesContext facesContext = FacesContext.getCurrentInstance();
-            ExternalContext externalContext = facesContext.getExternalContext();
-            externalContext.setResponseContentType("application/pdf");
-            externalContext.setResponseHeader("Content-Disposition", "attachment; filename=\"my.xls\"");
-
-            OutputStream responseOutputStream = externalContext.getResponseOutputStream();
-            facesContext.responseComplete();        
- */           
+        }catch(Exception e){
             
-
+        }
+        
+    }
+    
+    
+    
+    public void gerarPDF2(){
+        
+        try{
+            
             Document doc = new Document();
             ByteArrayOutputStream baosPDF = new ByteArrayOutputStream();
             PdfWriter docWriter = null;
@@ -237,7 +238,11 @@ public class UserBean implements Serializable{
             FacesContext facesContext = FacesContext.getCurrentInstance();
             ExternalContext externalContext = facesContext.getExternalContext();
             externalContext.setResponseContentType("application/pdf");
+            
+            // com a opcao inline abre o PDF no browser do usuario
             //externalContext.setResponseHeader("Content-Disposition", "inline; filename=\"my.pdf\"");
+            
+            // com a opcao attachment faz download do PDF no computador do usuario
             externalContext.setResponseHeader("Content-Disposition", "attachment; filename=\"my.pdf\"");
             
 
