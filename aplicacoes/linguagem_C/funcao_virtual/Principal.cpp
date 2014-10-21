@@ -34,6 +34,10 @@ int main(int argc, char** argv) {
     Empresa empresa2=empresa;
     empresa2.imprimir();
 
+
+    std::cout<< "============Criando Objecto Dinamico=========" << std::endl;
+
+
     Empresa *empresa3=new Empresa;
     *empresa3=empresa;
     empresa3->imprimir();
@@ -41,6 +45,14 @@ int main(int argc, char** argv) {
     std::cout<< "=================POLIMORFISMO=======================" << std::endl;
     Cadastro *cadastro3=empresa3;
     cadastro3->imprimir();
+
+
+    std::cout<< "=================Empresa::operator =   =======================" << std::endl;
+
+    Empresa empresa4;
+    empresa4=empresa;
+    empresa4.imprimir();
+
 
     return (EXIT_SUCCESS);
 }
