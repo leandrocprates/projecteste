@@ -31,8 +31,12 @@ int main(int argc, char** argv) {
     empresa.setNomeEmpresa("Spring Wireless");
     empresa.imprimir();
     
+    std::cout<< "===========================================" << std::endl;
+
     Empresa empresa2=empresa;
     empresa2.imprimir();
+
+    std::cout<< "===========================================" << std::endl;
 
     Empresa *empresa3=new Empresa;
     *empresa3=empresa;
@@ -43,5 +47,6 @@ int main(int argc, char** argv) {
     cadastro3->imprimir();
 
     return (EXIT_SUCCESS);
+
 }
 
