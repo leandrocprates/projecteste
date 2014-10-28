@@ -42,9 +42,17 @@ int main(int argc, char** argv) {
     *empresa3=empresa;
     empresa3->imprimir();
 
+
+    std::cout<< "===========================================" << std::endl;
+
+    Cadastro cadastro3(cadastro);
+    cadastro3.imprimir();
+
+
     std::cout<< "=================POLIMORFISMO=======================" << std::endl;
-    Cadastro *cadastro3=empresa3;
-    cadastro3->imprimir();
+
+    Cadastro *cadastro4=empresa3;
+    cadastro4->imprimir();
 
     return (EXIT_SUCCESS);
 
