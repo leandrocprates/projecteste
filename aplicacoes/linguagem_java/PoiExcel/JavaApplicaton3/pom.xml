@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany</groupId>
+  <artifactId>JavaApplicaton3</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>JavaApplicaton3</name>
+  <url>http://maven.apache.org</url>
+
+
+    <repositories>
+        <repository>
+                <id>jvnet-nexus-releases</id>
+                <name>jvnet-nexus-releases</name>
+                <url>https://maven.java.net/content/repositories/releases/</url>
+        </repository>        
+    </repositories>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
+        <dependency> 
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.0.13</version>
+        </dependency>
+
+
+        <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>3.9</version>
+        </dependency>
+
+        <!-- Serve para ler versao do excel nova .xlsx -->         
+        <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>3.9</version>
+        </dependency>
+
+
+        <dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.14.8</version>
+	</dependency>
+
+
+        <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xerces</artifactId>
+                <version>2.4.0</version>
+        </dependency>
+
+<!--
+        <dependency>
+          <groupId>com.myjeeva.poi</groupId>
+          <artifactId>excelReader</artifactId>
+          <version>1.2</version>
+        </dependency>
+-->
+        <dependency>
+          <groupId>com.myjeeva.poi</groupId>
+          <artifactId>excelReader</artifactId>
+          <version>1.3-SNAPSHOT</version>
+        </dependency>
+
+
+  </dependencies>
+</project>
