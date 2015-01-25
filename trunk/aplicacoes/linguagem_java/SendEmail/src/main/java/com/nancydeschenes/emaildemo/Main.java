@@ -17,6 +17,18 @@ import javax.mail.internet.MimeMultipart;
 
 import com.sun.mail.smtp.SMTPMessage;
 
+/**
+ * REference : 
+ * 
+ * http://blog.smartbear.com/how-to/how-to-send-email-with-embedded-images-using-java/
+ * 
+ * https://github.com/nancyd/emaildemo
+ * 
+ * 
+**/
+
+
+
 public class Main {
 
   public static void main(String[] args) throws MessagingException, IOException {
