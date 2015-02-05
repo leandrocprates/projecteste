@@ -16,6 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
 
 import com.sun.mail.smtp.SMTPMessage;
+import gui.ava.html.image.generator.HtmlImageGenerator;
 
 /**
  * REference : 
@@ -43,6 +44,14 @@ public class Main {
     Message withImage = buildMessageWithEmbeddedImage(session);
     addressAndSendMessage(withImage, "leandro.prates@asisprojetos.com.br");
     
+
+    Message withProgressBar = buildHTML(session);
+    addressAndSendMessage(withProgressBar, "leandro.prates@asisprojetos.com.br");
+    
+    Message withProgressBar2 = buildHTML2(session);
+    addressAndSendMessage(withProgressBar2, "leandro.prates@asisprojetos.com.br");//leandro.prates@hotmail.com.br
+    
+
     Message htmlTeste = HtmlTeste(session);
     addressAndSendMessage(htmlTeste, "leandro.prates@asisprojetos.com.br");
     
@@ -58,6 +67,7 @@ public class Main {
     
     
     
+
   }
 
   //
@@ -166,7 +176,7 @@ public class Main {
     
     // The image
     MimeBodyPart imagePart = new MimeBodyPart();
-    imagePart.attachFile("C:/Users/lprates/Documents/NetBeansProjects/SendEmail/src/main/resources/teapot.jpg");
+    imagePart.attachFile("C:/Users/acer k/Documents/NetBeansProjects/SendEmail/src/main/resources/teapot.jpg");
     content.addBodyPart(imagePart);
     
     m.setContent(content);
@@ -215,7 +225,7 @@ public class Main {
 
     // Image part
     MimeBodyPart imagePart = new MimeBodyPart();
-    imagePart.attachFile("C:/Users/lprates/Documents/NetBeansProjects/SendEmail/src/main/resources/teapot.jpg");
+    imagePart.attachFile("C:/Users/acer k/Documents/NetBeansProjects/SendEmail/src/main/resources/teapot.jpg");
     imagePart.setContentID("<" + cid + ">");
     imagePart.setDisposition(MimeBodyPart.INLINE);
     content.addBodyPart(imagePart);
@@ -223,7 +233,7 @@ public class Main {
     
     //Second Image part
     MimeBodyPart imagePart2 = new MimeBodyPart();
-    imagePart2.attachFile("C:/Users/lprates/Documents/NetBeansProjects/SendEmail/src/main/resources/linux.jpg");
+    imagePart2.attachFile("C:/Users/acer k/Documents/NetBeansProjects/SendEmail/src/main/resources/linux.jpg");
     imagePart2.setContentID("<" + cid2 + ">");
     imagePart2.setDisposition(MimeBodyPart.INLINE);
     content.addBodyPart(imagePart2);
@@ -236,6 +246,225 @@ public class Main {
   }
 
   
+
+  
+    public static Message buildHTML(Session session)
+      throws MessagingException {
+      
+    SMTPMessage m = new SMTPMessage(session);
+    MimeMultipart content = new MimeMultipart();
+    MimeBodyPart mainPart = new MimeBodyPart();
+    mainPart.setText(
+    
+            "<!DOCTYPE html>"+
+          "<html>"+
+          "<head>"+
+          "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css\">"+
+                    
+          "<style>"+ 
+                    "h1{color:blue;}"+
+          "</style>"+          
+                    
+          "</head>"+
+          "<body>"+
+          "<h1>My First CSS Example</h1>"+
+          "<p>This is a paragraph.</p>"+
+
+          "Downloading progress  BAR::"+
+          "<progress value=\"22\" max=\"100\">"+
+          "</progress>"+
+          "Fim barra de progresso"+          
+
+          "<br/><br/>"+
+
+          "<div class=\"progress\">"+
+            "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%;\">"+
+            "  60%"+
+            "</div>"+
+          "</div>"+
+
+          "</body>"+
+          "</html>" , "US-ASCII", "html"
+
+    );
+    
+    content.addBodyPart(mainPart);
+    m.setContent(content);
+    m.setSubject("SendHTML ProgressBar");
+    
+    
+    return m;
+    
+  }
+    
+    
+    
+    public static Message buildHTML2(Session session)
+      throws MessagingException {
+      
+    SMTPMessage m = new SMTPMessage(session);
+    MimeMultipart content = new MimeMultipart();
+    MimeBodyPart mainPart = new MimeBodyPart();
+    mainPart.setText(
+    
+          
+"<!DOCTYPE html>"+
+"<html lang=\"en\">"+
+    "<head>"+
+        "<meta charset=\"utf-8\">"+
+        "<title>Simple HTML+CSS progress bar</title>"+
+    "</head>"+
+    "<body>"+
+
+        "<style>"+
+            "body {"+
+                
+                "font-family: Arial, sans-serif;"+
+                "padding: 0 10%;"+
+                "background-color: #eaeaea;"+
+            "}"+
+            ".graph {"+
+                "width: 500px; "+
+                "height: 30px;"+
+                "border: 1px solid #888; "+
+                "background: rgb(168,168,168);"+
+                "background: -moz-linear-gradient(top, rgba(168,168,168,1) 0%, rgba(204,204,204,1) 23%);"+
+                "background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(168,168,168,1)), color-stop(23%,rgba(204,204,204,1)));"+
+                "background: -webkit-linear-gradient(top, rgba(168,168,168,1) 0%,rgba(204,204,204,1) 23%);"+
+                "background: -o-linear-gradient(top, rgba(168,168,168,1) 0%,rgba(204,204,204,1) 23%);"+
+                "background: -ms-linear-gradient(top, rgba(168,168,168,1) 0%,rgba(204,204,204,1) 23%);"+
+                "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#cccccc',GradientType=0 );"+
+                "background: linear-gradient(top, rgba(168,168,168,1) 0%,rgba(204,204,204,1) 23%);"+
+                "position: relative;"+
+            "}"+
+            "#bar {"+
+                "height: 29px; "+
+                "background: rgb(255,197,120); "+
+                "background: -moz-linear-gradient(top, rgba(255,197,120,1) 0%, rgba(244,128,38,1) 100%); "+
+                "background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,197,120,1)), color-stop(100%,rgba(244,128,38,1))); "+
+                "background: -webkit-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%); "+
+                "background: -o-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%); "+
+                "background: -ms-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%); "+
+                "background: linear-gradient(top, rgba(255,197,120,1) 0%,rgba(244,128,38,1) 100%); "+
+                "border-top: 1px solid #fceabb;"+
+            "}"+
+            "#bar p { position: absolute; text-align: center; width: 100%; margin: 0; line-height: 30px; }"+
+            ".error {"+
+                "background-color: #fceabb;"+
+                "padding: 1em;"+
+                "font-weight: bold;"+
+                "color: red;"+
+                "border: 1px solid red;"+
+            "}"+
+        "</style>"+
+
+        "<h2>Resumo de Consumo</h2>"+
+
+	"SpedFiscal:"+
+        "<div id=\"progress\" class=\"graph\"><div id=\"bar\" style=\"width:98%\"><p>10 de 300</p></div></div>"+
+
+	"<br/>"+
+
+        
+	"EFD:"+
+        "<div   style=\"width: 300px; "+
+                "height: 30px;"+
+                "border: 1px solid #888; "+
+                "background: rgb(168,168,168);"+
+                "position: relative;\"><div  style=\" width:10%;height: 29px; "+
+                "background: rgb(255,197,120); "+
+                "border-top: 1px solid #fceabb;\"><p style=\"position: absolute; text-align: center; width: 100%; margin: 0; line-height: 30px;\">15</p></div></div>"+
+        
+        "<br/>"+
+        "<br/>"+
+        "<br/>"+
+        
+        
+        "SPED: " + 
+        " <div style=\"width: 500px; " +
+        " border: 1px solid black;" +
+        " position: relative;" +
+        " padding: 3px;\">"+
+            "<span id=\"percent\" style=\"position: absolute;left: 50%;display:inline-block;text-align: center\" >30%</span>"+
+            "<div id=\"bar\" style=\"height: 20px; background-color: blue; width: 30%;display:inline-block\" ></div>"+
+        "</div>"+
+        
+
+        
+        
+    "</body>"+
+"</html>"
+            
+           , "US-ASCII", "html"
+
+    );
+    
+    content.addBodyPart(mainPart);
+    m.setContent(content);
+    m.setSubject("buildHTML2");
+    
+    
+    
+    gerarImagem();
+    return m;
+    
+  }
+    
+    
+  public static void gerarImagem(){
+      
+    HtmlImageGenerator imageGenerator = new HtmlImageGenerator();
+    imageGenerator.loadHtml("<b>Hello World!</b> Please goto <a title=\"Goto Google\" href=\"http://www.google.com\">Google</a>.");
+    imageGenerator.saveAsImage("C:/Users/Asis Projetos/hello-world.png");
+    
+    
+    imageGenerator.loadHtml(
+    
+"<!DOCTYPE HTML PUBLIC \"-W3CDTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">"+
+"<html lang=\"en\">"+
+    "<head>"+
+        "<meta charset=\"utf-8\">"+
+        "<title>Simple HTML+CSS progress bar</title>"+
+    "</head>"+
+    "<body>"+
+        "<h2>Resumo de Consumo</h2>"+
+	"<br/>"+
+	"EFD:"+
+        "Teste  "+
+	"<div style=\"width: 500px; border: 1px solid black; position: relative; padding: 3px;\">"+
+    	"<span id=\"percent\" style=\"position: absolute;left: 50%;text-align: center\" >30%</span>"+
+    	"<div id=\"bar\" style=\"height: 20px; background-color: blue; width: 70%;\"  ></div></div>"+
+    "</body>"+
+"</html>"
+    
+    );
+    
+    imageGenerator.saveAsImage("C:/Users/Asis Projetos/hello-world2.png");
+    
+
+    
+    imageGenerator.loadHtml(
+    
+        "<h2>Resumo de Consumo</h2>"+
+	"<br/>"+
+	"EFD:"+
+        "Teste  "+
+	"<div style=\"width: 500px; border: 1px solid black; position: relative; padding: 3px;display:inline-block\">"+
+    	"<span id=\"percent\" style=\"position: absolute;left: 50%;text-align: center\" >30%</span>"+
+    	"<div id=\"bar\" style=\"height: 20px; background-color: blue; width: 70%;\"  ></div></div>"
+    
+    );
+    
+    imageGenerator.saveAsImage("C:/Users/Asis Projetos/hello-world3.png");
+    
+    
+    
+  } 
+
+  
+    
+    
+
   public static Message HtmlTeste(Session session)
       throws MessagingException {
       
@@ -484,6 +713,7 @@ public class Main {
   }
   
   
+
   //
   //
   // Message sending methods
