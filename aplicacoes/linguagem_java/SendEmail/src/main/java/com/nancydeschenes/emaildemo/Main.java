@@ -64,9 +64,6 @@ public class Main {
     Message htmlTeste4 = HtmlTeste4(session);
     addressAndSendMessage(htmlTeste4, "leandro.prates@asisprojetos.com.br");
     
-    
-    
-    
 
   }
 
